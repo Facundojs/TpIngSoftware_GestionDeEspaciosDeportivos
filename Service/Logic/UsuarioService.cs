@@ -1,6 +1,7 @@
 using Service.Contracts;
 using Service.Domain;
 using Service.DTO;
+using Service.Factory;
 using Service.Helpers;
 using Service.Impl;
 using System;
@@ -17,7 +18,7 @@ namespace Service.Logic
 
         public UsuarioService()
         {
-            _repository = new UsuarioRepository();
+            _repository = FactoryDao.UsuarioRepository;
         }
 
         public UsuarioDTO Login(string username, string password)

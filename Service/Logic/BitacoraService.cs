@@ -1,4 +1,5 @@
 using Service.Domain;
+using Service.Factory;
 using Service.Impl;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Service.Logic
 
         public BitacoraService()
         {
-            _repository = new LogRepository();
+            _repository = FactoryDao.LogRepository;
         }
 
         public void Log(string message, string level = "INFO", Exception ex = null)
