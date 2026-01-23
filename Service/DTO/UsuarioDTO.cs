@@ -1,4 +1,5 @@
-﻿using System;
+using Service.Domain.Composite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,5 +26,10 @@ namespace Service.DTO
         /// Estado del usuario.
         /// </summary>
         public string Estado { get; set; }
+
+        /// <summary>
+        /// Lista de permisos (Familias/Patentes) asignados al usuario.
+        /// </summary>
+        public List<Acceso> Permisos { get; set; } = new List<Acceso>();
     }
 }

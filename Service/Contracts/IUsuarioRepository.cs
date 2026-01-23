@@ -35,5 +35,12 @@ namespace Service.Contracts
         /// </summary>
         /// <returns>Lista de usuarios como objetos DTO.</returns>
         List<UsuarioDTO> GetUsuariosDTO();
+
+        /// <summary>
+        /// Obtiene un usuario por su nombre de usuario.
+        /// </summary>
+        /// <param name="username">El nombre de usuario a buscar.</param>
+        /// <returns>El objeto Usuario si se encuentra, null si no.</returns>
+        Usuario GetByUsername(string username);
     }
 }

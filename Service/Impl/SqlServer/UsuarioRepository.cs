@@ -87,10 +87,114 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
     }
 
     // Métodos restantes (GetAll, GetById, Update, Remove) seguirían la misma lógica Raw SQL...
-    public List<Usuario> GetAll() => throw new NotImplementedException();
-    public Usuario GetById(Guid id) => throw new NotImplementedException();
-    public void Update(Usuario obj) => throw new NotImplementedException();
-    public void Remove(Guid id) => throw new NotImplementedException();
-    public List<UsuarioDTO> GetUsuariosDTO() => throw new NotImplementedException();
+    public List<Usuario> GetAll()
+    {
+        string query = "SELECT Id, NombreUsuario, Password, Estado, DigitoVerificador FROM Usuario";
+        return ExecuteReader(query, null, reader =>
+        {
+            var list = new List<Usuario>();
+            while (reader.Read())
+            {
+                list.Add(new Usuario
+                {
+                    Id = reader.GetGuid(0),
+                    NombreUsuario = reader.GetString(1),
+                    Password = reader.GetString(2),
+                    Estado = reader.GetBoolean(3),
+                    DigitoVerificador = reader.GetString(4)
+                });
+            }
+            return list;
+        });
+    }
+
+    public Usuario GetById(Guid id)
+    {
+        string query = "SELECT Id, NombreUsuario, Password, Estado, DigitoVerificador FROM Usuario WHERE Id = @Id";
+        SqlParameter[] p = { new SqlParameter("@Id", id) };
+        return ExecuteReader(query, p, reader =>
+        {
+            if (reader.Read())
+            {
+                var u = new Usuario
+                {
+                    Id = reader.GetGuid(0),
+                    NombreUsuario = reader.GetString(1),
+                    Password = reader.GetString(2),
+                    Estado = reader.GetBoolean(3),
+                    DigitoVerificador = reader.GetString(4)
+                };
+                // Fill permissions
+                u.Permisos.AddRange(GetFamiliasByUsuarioId(u.Id));
+                return u;
+            }
+            return null;
+        });
+    }
+
+    public Usuario GetByUsername(string username)
+    {
+        string query = "SELECT Id, NombreUsuario, Password, Estado, DigitoVerificador FROM Usuario WHERE NombreUsuario = @User";
+        SqlParameter[] p = { new SqlParameter("@User", username) };
+        return ExecuteReader(query, p, reader =>
+        {
+            if (reader.Read())
+            {
+                var u = new Usuario
+                {
+                    Id = reader.GetGuid(0),
+                    NombreUsuario = reader.GetString(1),
+                    Password = reader.GetString(2),
+                    Estado = reader.GetBoolean(3),
+                    DigitoVerificador = reader.GetString(4)
+                };
+                // Fill permissions
+                u.Permisos.AddRange(GetFamiliasByUsuarioId(u.Id));
+                return u;
+            }
+            return null;
+        });
+    }
+
+    public void Update(Usuario obj)
+    {
+        string query = "UPDATE Usuario SET NombreUsuario=@User, Password=@Pass, Estado=@Est, DigitoVerificador=@DV WHERE Id=@Id";
+        SqlParameter[] p = {
+            new SqlParameter("@Id", obj.Id),
+            new SqlParameter("@User", obj.NombreUsuario),
+            new SqlParameter("@Pass", obj.Password),
+            new SqlParameter("@Est", obj.Estado),
+            new SqlParameter("@DV", obj.DigitoVerificador)
+        };
+        ExecuteNonQuery(query, p);
+    }
+
+    public void Remove(Guid id)
+    {
+        string queryrel = "DELETE FROM UsuarioFamilia WHERE IdUsuario = @Id";
+        ExecuteNonQuery(queryrel, new SqlParameter[] { new SqlParameter("@Id", id) });
+
+        string query = "DELETE FROM Usuario WHERE Id = @Id";
+        ExecuteNonQuery(query, new SqlParameter[] { new SqlParameter("@Id", id) });
+    }
+
+    public List<UsuarioDTO> GetUsuariosDTO()
+    {
+        string query = "SELECT Id, NombreUsuario, Estado FROM Usuario";
+        return ExecuteReader(query, null, reader =>
+        {
+            var list = new List<UsuarioDTO>();
+            while (reader.Read())
+            {
+                list.Add(new UsuarioDTO
+                {
+                    Id = reader.GetGuid(0),
+                    Username = reader.GetString(1),
+                    Estado = reader.GetBoolean(2) ? "Activo" : "Bloqueado"
+                });
+            }
+            return list;
+        });
+    }
 }
 }
