@@ -44,3 +44,5 @@ CREATE TABLE UsuarioFamilia (
     CONSTRAINT FK_UsuarioFamilia_Usuario FOREIGN KEY (IdUsuario) REFERENCES Usuario(Id),
     CONSTRAINT FK_UsuarioFamilia_Familia FOREIGN KEY (IdFamilia) REFERENCES Familia(Id)
 );
+
+SELECT * FROM Patente;

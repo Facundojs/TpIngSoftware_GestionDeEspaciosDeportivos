@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Service.Domain;
 
 namespace Service.Impl
 {
@@ -50,6 +51,49 @@ namespace Service.Impl
                 defaultLogger.Error($"Error al escribir en la bitácora: {ex.Message}\n{ex.StackTrace}");
             }
 
+        }
+
+        /// <summary>
+        /// Obtiene una lista de logs de la base de datos de forma paginada.
+        /// </summary>
+        /// <param name="pageNumber">Número de página a recuperar (empezando desde 1).</param>
+        /// <param name="pageSize">Cantidad de registros por página.</param>
+        /// <returns>Una lista de objetos <see cref="Log"/> con la información de la bitácora.</returns>
+        public List<Log> GetLogs(int pageNumber, int pageSize)
+        {
+            int offset = (pageNumber - 1) * pageSize;
+
+            string query = @"SELECT BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails 
+                     FROM Bitacora 
+                     ORDER BY Timestamp DESC 
+                     OFFSET @Offset ROWS 
+                     FETCH NEXT @PageSize ROWS ONLY";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@Offset", offset),
+        new SqlParameter("@PageSize", pageSize)
+            };
+
+            // Llamamos al nuevo ExecuteReader de la clase base
+            return ExecuteReader(query, parameters, reader =>
+            {
+                var list = new List<Log>();
+                while (reader.Read())
+                {
+                    list.Add(new Log
+                    {
+                        BitacoraID = reader.GetGuid(reader.GetOrdinal("BitacoraID")),
+                        Timestamp = reader.GetDateTime(reader.GetOrdinal("Timestamp")),
+                        LogLevel = reader.GetString(reader.GetOrdinal("LogLevel")),
+                        Message = reader.GetString(reader.GetOrdinal("Message")),
+                        ExceptionDetails = reader.IsDBNull(reader.GetOrdinal("ExceptionDetails"))
+                                           ? null
+                                           : reader.GetString(reader.GetOrdinal("ExceptionDetails"))
+                    });
+                }
+                return list;
+            });
         }
     }
 }

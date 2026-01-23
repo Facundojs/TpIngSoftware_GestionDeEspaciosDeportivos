@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IBackup.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\IUsuarioRepository.cs" />
     <Compile Include="Domain\Composite\Acceso.cs" />
     <Compile Include="Domain\Familia.cs" />
+    <Compile Include="Domain\Log.cs" />
     <Compile Include="Domain\Patente.cs" />
     <Compile Include="Domain\Usuario.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
@@ -57,7 +59,9 @@
     <Compile Include="Impl\SqlServer\LogRepository.cs" />
     <Compile Include="Impl\Console\ConsoleRepository.cs" />
     <Compile Include="Impl\SqlServer\PatenteRepository.cs" />
+    <Compile Include="Impl\SqlServer\SqlServerBackup.cs" />
     <Compile Include="Impl\SqlServer\UsuarioRepository.cs" />
+    <Compile Include="Impl\Text\LanguageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

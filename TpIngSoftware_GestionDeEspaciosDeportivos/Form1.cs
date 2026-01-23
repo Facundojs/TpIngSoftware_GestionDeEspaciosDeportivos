@@ -24,58 +24,54 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            TestRepositorios();
+            TestLogRepository();
         }
 
-        public void TestRepositorios()
+        public void TestLogRepository()
         {
-            // 1. Instanciar Repositorios
-            var patenteRepo = new PatenteRepository();
-            var familiaRepo = new FamiliaRepository();
+            var logRepo = new LogRepository();
+            Console.WriteLine("--- Iniciando Test de LogRepository ---");
 
-            Console.WriteLine("--- Iniciando Test de Repositorios ---");
-            
-                // 2. Crear una Patente Aleatoria
-                var nuevaPatente = new Patente
+            try
+            {
+                // 1. Insertar logs de prueba (generamos 5 para testear paginación)
+                Console.WriteLine("Insertando logs de prueba...");
+                for (int i = 1; i <= 5; i++)
                 {
-                    Id = Guid.NewGuid(),
-                    Nombre = "Permiso_Test_" + Path.GetRandomFileName().Substring(0, 4),
-                    TipoAcceso = 1,
-                    DataKey = "btnTest_" + new Random().Next(100, 999)
-                };
+                    logRepo.Info($"Mensaje de prueba informativo #{i}");
+                    if (i % 2 == 0) // Insertamos un error cada tanto
+                    {
+                        logRepo.Error($"Mensaje de error de prueba #{i}", new Exception("Excepción simulada"));
+                    }
+                }
+                Console.WriteLine("[OK] Logs insertados correctamente.");
 
-                patenteRepo.Add(nuevaPatente);
-                Console.WriteLine($"[OK] Patente creada: {nuevaPatente.Nombre}");
+                // 2. Testear Paginación - Página 1
+                int pageSize = 10;
+                var pagina1 = logRepo.GetLogs(1, pageSize);
 
-                // 3. Crear una Familia Aleatoria
-                var nuevaFamilia = new Familia
+                Console.WriteLine($"--- Verificando Página 1 (Size: {pageSize}) ---");
+                foreach (var log in pagina1)
                 {
-                    Id = Guid.NewGuid(),
-                    Nombre = "Rol_Test_" + Path.GetRandomFileName().Substring(0, 4)
-                };
+                    Console.WriteLine($"[{log.Timestamp:HH:mm:ss}] {log.LogLevel}: {log.Message}...");
+                }
 
-                familiaRepo.Add(nuevaFamilia);
-                Console.WriteLine($"[OK] Familia creada: {nuevaFamilia.Nombre}");
-
-                // 4. Asociar Patente a Familia y Actualizar (Test de Transacción)
-                nuevaFamilia.Agregar(nuevaPatente);
-                familiaRepo.Update(nuevaFamilia);
-                Console.WriteLine($"[OK] Patente asociada a Familia correctamente.");
-
-                // 5. Recuperar de BD para verificar integridad
-                var familiaRecuperada = familiaRepo.GetById(nuevaFamilia.Id);
-
-                if (familiaRecuperada != null && familiaRecuperada.Accesos.Any(h => h.Id == nuevaPatente.Id))
+                if (pagina1.Count == pageSize)
                 {
-                    Console.WriteLine("--- TEST EXITOSO ---");
-                    Console.WriteLine($"Familia: {familiaRecuperada.Nombre}");
-                    Console.WriteLine($"Hijo encontrado: {familiaRecuperada.Accesos.First().Nombre}");
+                    Console.WriteLine("[OK] Página 1 devolvió la cantidad correcta de registros.");
                 }
                 else
                 {
-                    Console.WriteLine("--- TEST FALLIDO: No se recuperaron los hijos ---");
+                    Console.WriteLine($"[ERROR] Se esperaban {pageSize} registros pero se obtuvieron {pagina1.Count}.");
                 }
 
+                Console.WriteLine("--- TEST DE LOGS FINALIZADO EXITOSAMENTE ---");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"--- TEST FALLIDO: {ex.Message} ---");
+                Console.WriteLine(ex.StackTrace);
+            }
         }
     }
 }

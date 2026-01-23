@@ -29,5 +29,27 @@ namespace Service.Impl
                 cmd.ExecuteNonQuery();
             }
         }
+
+        /// <summary>
+        /// Ejecuta una consulta SQL que devuelve un conjunto de resultados y los mapea a un objeto o lista.
+        /// </summary>
+        /// <typeparam name="T">El tipo de objeto que se espera retornar.</typeparam>
+        /// <param name="query">Consulta SQL (SELECT) a ejecutar.</param>
+        /// <param name="parameters">Arreglo de parámetros SQL para evitar SQL Injection.</param>
+        /// <param name="map">Función delegada que define cómo leer cada fila del DataReader y transformarla en el tipo T.</param>
+        /// <returns>Un objeto de tipo T con los datos recuperados.</returns>
+        protected T ExecuteReader<T>(string query, SqlParameter[] parameters, Func<SqlDataReader, T> map)
+        {
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                if (parameters != null) cmd.Parameters.AddRange(parameters);
+                conn.Open();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    return map(reader);
+                }
+            }
+        }
     }
 }
