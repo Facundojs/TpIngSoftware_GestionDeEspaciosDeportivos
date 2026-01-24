@@ -1,4 +1,5 @@
 using Service.Contracts;
+using Service.Factory;
 using Service.Impl.SqlServer;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Service.Logic
 
         public BackupService()
         {
-            _backupRepository = new SqlServerBackup();
+            _backupRepository = FactoryDao.BackupRepository;
         }
 
         public void Backup(string database, string path)
