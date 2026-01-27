@@ -24,5 +24,17 @@ namespace Service.Contracts
         /// <param name="database">El nombre de la base de datos a restaurar.</param>
         /// <param name="path">La ruta de la copia de seguridad desde la cual se restaurará.</param>
         void RestoreDataBase(string database, string path);
+
+        /// <summary>
+        /// Lista los archivos de copia de seguridad disponibles.
+        /// </summary>
+        /// <returns>Una lista de nombres de archivo de copias de seguridad.</returns>
+        List<string> ListBackups();
+
+        /// <summary>
+        /// Elimina una copia de seguridad específica.
+        /// </summary>
+        /// <param name="filename">El nombre del archivo de la copia de seguridad a eliminar.</param>
+        void DeleteBackup(string filename);
     }
 }

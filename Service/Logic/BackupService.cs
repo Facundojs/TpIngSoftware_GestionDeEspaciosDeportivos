@@ -27,5 +27,15 @@ namespace Service.Logic
         {
             _backupRepository.RestoreDataBase(database, path);
         }
+
+        public List<string> ListBackups()
+        {
+            return _backupRepository.ListBackups();
+        }
+
+        public void DeleteBackup(string filename)
+        {
+            _backupRepository.DeleteBackup(filename);
+        }
     }
 }

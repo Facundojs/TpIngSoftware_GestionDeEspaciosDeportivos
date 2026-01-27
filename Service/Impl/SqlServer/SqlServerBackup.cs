@@ -13,12 +13,18 @@ namespace Service.Impl.SqlServer
 {
     internal class SqlServerBackup: IBackup
     {
-        private readonly static string WorkDir = AppDomain.CurrentDomain.BaseDirectory;
+        private readonly static string BackupDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Backups");
 
         public void BackUpDataBase(string database, string path)
         {
+            if (!Directory.Exists(BackupDir))
+            {
+                Directory.CreateDirectory(BackupDir);
+            }
 
-            string fullBackUpPath = Path.Combine(WorkDir, path);
+            // Sanitize filename to prevent path traversal
+            string filename = Path.GetFileName(path);
+            string fullBackUpPath = Path.Combine(BackupDir, filename);
 
             string query1 = $@"CHECKPOINT; BACKUP DATABASE [{database}] TO DISK = @path WITH FORMAT, INIT";
 
@@ -32,7 +38,9 @@ namespace Service.Impl.SqlServer
 
         public void RestoreDataBase(string database, string path)
         {
-            string fullBackUpPath = Path.Combine(WorkDir, path);
+            // Sanitize filename to prevent path traversal
+            string filename = Path.GetFileName(path);
+            string fullBackUpPath = Path.Combine(BackupDir, filename);
 
             string query = $@"ALTER DATABASE [{database}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
                             RESTORE DATABASE [{database}] FROM DISK = @path WITH REPLACE;
@@ -62,6 +70,34 @@ namespace Service.Impl.SqlServer
             catch (SqlException ex)
             {
                 throw new InvalidOperationException($"Error realizando el restore: {ex.Message}", ex);
+            }
+        }
+
+        public List<string> ListBackups()
+        {
+            if (!Directory.Exists(BackupDir))
+            {
+                return new List<string>();
+            }
+
+            return Directory.GetFiles(BackupDir)
+                            .Select(Path.GetFileName)
+                            .ToList();
+        }
+
+        public void DeleteBackup(string filename)
+        {
+            // Sanitize filename to prevent path traversal
+            string safeFilename = Path.GetFileName(filename);
+            string fullPath = Path.Combine(BackupDir, safeFilename);
+
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+            else
+            {
+                throw new FileNotFoundException("El archivo de backup no existe.", safeFilename);
             }
         }
     }
