@@ -51,7 +51,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     MessageBox.Show(string.Format("Bienvenido".Translate() + ", {0}!", usuario.Username), "Éxito".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Hide login and show main form
                     this.Hide();
                     Form1 mainForm = new Form1(usuario);
                     mainForm.FormClosed += (s, args) => this.Close();
