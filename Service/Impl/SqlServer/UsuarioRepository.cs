@@ -62,8 +62,8 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
 
     public List<Familia> GetFamiliasByUsuarioId(Guid usuarioId)
     {
-        List<Familia> lista = new List<Familia>();
-        string query = @"SELECT f.Id, f.Nombre FROM Familia f 
+        var ids = new List<Guid>();
+        string query = @"SELECT f.Id FROM Familia f
                          INNER JOIN UsuarioFamilia uf ON f.Id = uf.IdFamilia 
                          WHERE uf.IdUsuario = @Id";
         
@@ -76,12 +76,17 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
             {
                 while (dr.Read())
                 {
-                    lista.Add(new Familia { 
-                        Id = dr.GetGuid(0), 
-                        Nombre = dr.GetString(1) 
-                    });
+                    ids.Add(dr.GetGuid(0));
                 }
             }
+        }
+
+        var famRepo = new FamiliaRepository();
+        var lista = new List<Familia>();
+        foreach (var id in ids)
+        {
+            var fam = famRepo.GetById(id);
+            if (fam != null) lista.Add(fam);
         }
         return lista;
     }

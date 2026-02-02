@@ -106,7 +106,7 @@ namespace Service.Impl
                                 {
                                     Id = drH.GetGuid(0),
                                     Nombre = drH.GetString(1),
-                                    TipoAcceso = drH.GetInt32(2),
+                                    TipoAcceso = drH.GetString(2),
                                     DataKey = drH.GetString(3)
                                 });
                             }
