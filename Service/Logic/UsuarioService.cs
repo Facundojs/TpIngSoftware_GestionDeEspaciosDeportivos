@@ -90,6 +90,16 @@ namespace Service.Logic
             _repository.Update(user);
         }
 
+        public void Delete(Guid id)
+        {
+            _repository.Remove(id);
+        }
+
+        public List<UsuarioDTO> GetUsuarios()
+        {
+            return _repository.GetUsuariosDTO();
+        }
+
         private void UpdateDV(Usuario user)
         {
             string raw = $"{user.Id}{user.NombreUsuario}{user.Password}{user.Estado}";

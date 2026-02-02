@@ -9,7 +9,7 @@ namespace Service.Domain
 {
     public class Patente : Acceso
     {
-        public int TipoAcceso { get; set; }
+        public string TipoAcceso { get; set; }
         public string DataKey { get; set; }
 
         // Una patente no tiene hijos, devolvemos lista vacía
