@@ -1,3 +1,4 @@
+using Service.DTO;
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,8 @@ namespace Service.Contracts
         /// <summary>
         /// Lista los archivos de copia de seguridad disponibles.
         /// </summary>
-        /// <returns>Una lista de nombres de archivo de copias de seguridad.</returns>
-        List<string> ListBackups();
+        /// <returns>Una lista de objetos BackupFile con la información de las copias de seguridad.</returns>
+        List<BackupFile> ListBackups();
 
         /// <summary>
         /// Elimina una copia de seguridad específica.

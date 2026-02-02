@@ -1,4 +1,5 @@
 ﻿using Service.Contracts;
+using Service.DTO;
 using Service.Helpers;
 using System;
 using System.Collections.Generic;
@@ -73,15 +74,20 @@ namespace Service.Impl.SqlServer
             }
         }
 
-        public List<string> ListBackups()
+        public List<BackupFile> ListBackups()
         {
             if (!Directory.Exists(BackupDir))
             {
-                return new List<string>();
+                return new List<BackupFile>();
             }
 
             return Directory.GetFiles(BackupDir)
-                            .Select(Path.GetFileName)
+                            .Select(path => new BackupFile
+                            {
+                                Nombre = Path.GetFileName(path),
+                                Fecha = File.GetCreationTime(path).ToString("o"),
+                                FileSize = new FileInfo(path).Length
+                            })
                             .ToList();
         }
 

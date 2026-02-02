@@ -1,4 +1,5 @@
 using Service.Contracts;
+using Service.DTO;
 using Service.Factory;
 using Service.Impl.SqlServer;
 using System;
@@ -28,7 +29,7 @@ namespace Service.Logic
             _backupRepository.RestoreDataBase(database, path);
         }
 
-        public List<string> ListBackups()
+        public List<BackupFile> ListBackups()
         {
             return _backupRepository.ListBackups();
         }

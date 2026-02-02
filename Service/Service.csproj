@@ -53,6 +53,7 @@
     <Compile Include="Domain\Log.cs" />
     <Compile Include="Domain\Patente.cs" />
     <Compile Include="Domain\Usuario.cs" />
+    <Compile Include="DTO\BackupFile.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
     <Compile Include="Helpers\ConnectionManager.cs" />
     <Compile Include="Helpers\SqlHelper.cs" />
