@@ -5,6 +5,7 @@ using Service.Impl.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace Service.Logic
 {
@@ -43,18 +44,26 @@ namespace Service.Logic
 
         public void EnsurePermissions()
         {
-            // 1. Ensure all Enums exist as Patents
+            // 1. Ensure all String Constants exist as Patents
             var existingPatents = _patenteRepository.GetAll();
-            foreach (TipoPermiso p in Enum.GetValues(typeof(TipoPermiso)))
+
+            // Get all public constant strings from PermisoKeys
+            var permissionFields = typeof(PermisoKeys).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+                .Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(string));
+
+            foreach (var field in permissionFields)
             {
-                if (!existingPatents.Any(x => x.TipoAcceso == (int)p))
+                string permisoValue = (string)field.GetValue(null);
+                string permisoName = field.Name;
+
+                if (!existingPatents.Any(x => x.TipoAcceso == permisoValue))
                 {
                     var patente = new Patente
                     {
                         Id = Guid.NewGuid(),
-                        Nombre = p.ToString(),
-                        TipoAcceso = (int)p,
-                        DataKey = p.ToString()
+                        Nombre = permisoName,
+                        TipoAcceso = permisoValue,
+                        DataKey = permisoValue
                     };
                     _patenteRepository.Add(patente);
                 }

@@ -46,14 +46,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ApplyPermissions()
         {
             if (_usuario == null) return;
-            btnBackup.Enabled = _usuario.TienePermiso(TipoPermiso.RealizarBackup);
-            btnRestore.Enabled = _usuario.TienePermiso(TipoPermiso.RealizarRestore);
-            btnDelete.Enabled = _usuario.TienePermiso(TipoPermiso.BorrarBackup);
+            btnBackup.Enabled = _usuario.TienePermiso(PermisoKeys.BackupRealizar);
+            btnRestore.Enabled = _usuario.TienePermiso(PermisoKeys.BackupRestore);
+            btnDelete.Enabled = _usuario.TienePermiso(PermisoKeys.BackupBorrar);
         }
 
         private void LoadBackups()
         {
-            if (!_usuario.TienePermiso(TipoPermiso.ListarBackups))
+            if (!_usuario.TienePermiso(PermisoKeys.BackupListar))
             {
                  MessageBox.Show("No tiene permiso para listar backups.".Translate());
                  this.Close();

@@ -10,7 +10,7 @@ namespace Service.Helpers
 {
     public static class PermisoHelper
     {
-        public static bool TienePermiso(this UsuarioDTO user, TipoPermiso permiso)
+        public static bool TienePermiso(this UsuarioDTO user, string permiso)
         {
             if (user == null || user.Permisos == null) return false;
 
@@ -22,11 +22,11 @@ namespace Service.Helpers
             return false;
         }
 
-        private static bool Check(Acceso acceso, TipoPermiso permiso)
+        private static bool Check(Acceso acceso, string permiso)
         {
             if (acceso is Patente patente)
             {
-                return patente.TipoAcceso == (int)permiso;
+                return patente.TipoAcceso == permiso;
             }
 
             if (acceso is Familia familia)

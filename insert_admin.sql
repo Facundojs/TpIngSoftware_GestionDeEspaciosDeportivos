@@ -14,15 +14,15 @@ DECLARE @P_DelUser UNIQUEIDENTIFIER = NEWID();
 DECLARE @P_AssignPerms UNIQUEIDENTIFIER = NEWID();
 
 INSERT INTO Patente (Id, Nombre, TipoAcceso, DataKey) VALUES
-(@P_Backup, 'RealizarBackup', 1, 'RealizarBackup'),
-(@P_Restore, 'RealizarRestore', 2, 'RealizarRestore'),
-(@P_ListBackups, 'ListarBackups', 3, 'ListarBackups'),
-(@P_DelBackup, 'BorrarBackup', 4, 'BorrarBackup'),
-(@P_ListUsers, 'ListarUsuarios', 5, 'ListarUsuarios'),
-(@P_CreateUser, 'CrearUsuario', 6, 'CrearUsuario'),
-(@P_ModUser, 'ModificarUsuario', 7, 'ModificarUsuario'),
-(@P_DelUser, 'EliminarUsuario', 8, 'EliminarUsuario'),
-(@P_AssignPerms, 'AsignarPermisos', 9, 'AsignarPermisos');
+(@P_Backup, 'BackupRealizar', 'PERMISSION_BACKUP_EXECUTE', 'PERMISSION_BACKUP_EXECUTE'),
+(@P_Restore, 'BackupRestore', 'PERMISSION_BACKUP_RESTORE', 'PERMISSION_BACKUP_RESTORE'),
+(@P_ListBackups, 'BackupListar', 'PERMISSION_BACKUP_LIST', 'PERMISSION_BACKUP_LIST'),
+(@P_DelBackup, 'BackupBorrar', 'PERMISSION_BACKUP_DELETE', 'PERMISSION_BACKUP_DELETE'),
+(@P_ListUsers, 'UsuarioListar', 'PERMISSION_USER_LIST', 'PERMISSION_USER_LIST'),
+(@P_CreateUser, 'UsuarioCrear', 'PERMISSION_USER_CREATE', 'PERMISSION_USER_CREATE'),
+(@P_ModUser, 'UsuarioModificar', 'PERMISSION_USER_UPDATE', 'PERMISSION_USER_UPDATE'),
+(@P_DelUser, 'UsuarioEliminar', 'PERMISSION_USER_DELETE', 'PERMISSION_USER_DELETE'),
+(@P_AssignPerms, 'PermisoAsignar', 'PERMISSION_PERMISSION_ASSIGN', 'PERMISSION_PERMISSION_ASSIGN');
 
 -- 2. Insert Admin Family
 DECLARE @F_Admin UNIQUEIDENTIFIER = NEWID();

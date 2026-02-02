@@ -53,7 +53,7 @@
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\IUsuarioRepository.cs" />
     <Compile Include="Domain\Composite\Acceso.cs" />
-    <Compile Include="Domain\Composite\TipoPermiso.cs" />
+    <Compile Include="Domain\Composite\PermisoKeys.cs" />
     <Compile Include="Domain\Familia.cs" />
     <Compile Include="Domain\Log.cs" />
     <Compile Include="Domain\Patente.cs" />

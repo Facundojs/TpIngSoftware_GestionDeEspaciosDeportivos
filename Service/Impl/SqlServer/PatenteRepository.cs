@@ -57,7 +57,7 @@ namespace Service.Impl.SqlServer
                         {
                             Id = dr.GetGuid(0),
                             Nombre = dr.GetString(1),
-                            TipoAcceso = dr.GetInt32(2),
+                            TipoAcceso = dr.GetString(2),
                             DataKey = dr.GetString(3)
                         };
                     }
@@ -82,7 +82,7 @@ namespace Service.Impl.SqlServer
                         {
                             Id = dr.GetGuid(0),
                             Nombre = dr.GetString(1),
-                            TipoAcceso = dr.GetInt32(2),
+                            TipoAcceso = dr.GetString(2),
                             DataKey = dr.GetString(3)
                         });
                     }
