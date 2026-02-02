@@ -85,7 +85,7 @@ namespace Service.Impl.SqlServer
                             .Select(path => new BackupFile
                             {
                                 Nombre = Path.GetFileName(path),
-                                Fecha = File.GetCreationTime(path).ToString("o"),
+                                Fecha = File.GetLastWriteTime(path).ToString("o"),
                                 FileSize = new FileInfo(path).Length
                             })
                             .ToList();
