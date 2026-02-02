@@ -26,10 +26,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "Inicio de Sesión".Translate();
-            this.lblUsername.Text = "Usuario".Translate();
-            this.lblPassword.Text = "Contraseña".Translate();
-            this.btnLogin.Text = "Ingresar".Translate();
+            this.Text = "LOGIN_TITLE".Translate();
+            this.lblUsername.Text = "LBL_USERNAME".Translate();
+            this.lblPassword.Text = "LBL_PASSWORD".Translate();
+            this.btnLogin.Text = "BTN_LOGIN".Translate();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 {
-                    MessageBox.Show("Por favor, ingrese usuario y contraseña.".Translate(), "Advertencia".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("MSG_ENTER_CREDENTIALS".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -49,7 +49,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (usuario != null)
                 {
-                    MessageBox.Show(string.Format("Bienvenido".Translate() + ", {0}!", usuario.Username), "Éxito".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format("MSG_WELCOME".Translate() + ", {0}!", usuario.Username), "TITLE_SUCCESS".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide();
                     Form1 mainForm = new Form1(usuario);
@@ -59,7 +59,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar sesión: {ex.Message}".Translate(), "Error".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_LOGIN".Translate() + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

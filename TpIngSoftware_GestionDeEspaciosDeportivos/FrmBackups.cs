@@ -30,11 +30,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "Gestión de Backups".Translate();
-            btnBackup.Text = "Realizar Backup".Translate();
-            btnRestore.Text = "Realizar Restore".Translate();
-            btnDelete.Text = "Borrar Backup".Translate();
-            lblName.Text = "Nombre Archivo:".Translate();
+            this.Text = "BACKUP_TITLE".Translate();
+            btnBackup.Text = "BTN_BACKUP".Translate();
+            btnRestore.Text = "BTN_RESTORE".Translate();
+            btnDelete.Text = "BTN_DELETE_BACKUP".Translate();
+            lblName.Text = "LBL_FILENAME".Translate();
         }
 
         private void FrmBackups_Load(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (!_usuario.TienePermiso(PermisoKeys.BackupListar))
             {
-                 MessageBox.Show("No tiene permiso para listar backups.".Translate());
+                 MessageBox.Show("MSG_NO_PERM_LIST".Translate());
                  this.Close();
                  return;
             }
@@ -66,7 +66,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error cargando backups: " + ex.Message);
+                MessageBox.Show("MSG_ERR_LOAD_BACKUP".Translate() + ex.Message);
             }
         }
 
@@ -75,20 +75,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              string filename = txtBackupName.Text;
              if (string.IsNullOrWhiteSpace(filename))
              {
-                 MessageBox.Show("Ingrese un nombre para el backup.".Translate());
+                 MessageBox.Show("MSG_ENTER_BACKUP_NAME".Translate());
                  return;
              }
 
              try
              {
                  _backupService.Backup("IngSoftwareBase", filename);
-                 MessageBox.Show("Backup realizado con éxito.".Translate());
+                 MessageBox.Show("MSG_BACKUP_SUCCESS".Translate());
                  LoadBackups();
                  txtBackupName.Text = "";
              }
              catch(Exception ex)
              {
-                 MessageBox.Show("Error al realizar backup: " + ex.Message);
+                 MessageBox.Show("MSG_ERR_BACKUP".Translate() + ex.Message);
              }
         }
 
@@ -97,17 +97,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              if(dgvBackups.SelectedRows.Count == 0) return;
              var selected = (BackupFile)dgvBackups.SelectedRows[0].DataBoundItem;
 
-             if(MessageBox.Show("¿Está seguro de restaurar la base de datos? Esto sobreescribirá los datos actuales.".Translate(), "Confirmar Restore".Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+             if(MessageBox.Show("MSG_CONFIRM_RESTORE".Translate(), "TITLE_CONFIRM_RESTORE".Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
              {
                  try
                  {
                      _backupService.Restore("IngSoftwareBase", selected.Nombre);
-                     MessageBox.Show("Restore realizado con éxito. La aplicación se reiniciará.".Translate());
+                     MessageBox.Show("MSG_RESTORE_SUCCESS".Translate());
                      Application.Restart();
                  }
                  catch(Exception ex)
                  {
-                     MessageBox.Show("Error al realizar restore: " + ex.Message);
+                     MessageBox.Show("MSG_ERR_RESTORE".Translate() + ex.Message);
                  }
              }
         }
@@ -117,7 +117,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              if(dgvBackups.SelectedRows.Count == 0) return;
              var selected = (BackupFile)dgvBackups.SelectedRows[0].DataBoundItem;
 
-             if(MessageBox.Show("¿Está seguro de eliminar este backup?".Translate(), "Confirmar Eliminación".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+             if(MessageBox.Show("MSG_CONFIRM_DELETE_BACKUP".Translate(), "TITLE_CONFIRM_DELETE".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
              {
                  try
                  {
@@ -126,7 +126,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                  }
                  catch(Exception ex)
                  {
-                     MessageBox.Show("Error al eliminar backup: " + ex.Message);
+                     MessageBox.Show("MSG_ERR_DELETE_BACKUP".Translate() + ex.Message);
                  }
              }
         }
