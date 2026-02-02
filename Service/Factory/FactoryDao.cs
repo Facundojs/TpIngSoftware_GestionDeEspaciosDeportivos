@@ -14,6 +14,7 @@ namespace Service.Factory
         private static IUsuarioRepository _usuarioRepository;
         private static LogRepository _logRepository;
         private static IBackup _backupRepository;
+        private static ILanguage _languageRepository;
 
         public static IUsuarioRepository UsuarioRepository
         {
@@ -48,6 +49,18 @@ namespace Service.Factory
                     _backupRepository = new SqlServerBackup();
                 }
                 return _backupRepository;
+            }
+        }
+
+        public static ILanguage LanguageRepository
+        {
+            get
+            {
+                if (_languageRepository == null)
+                {
+                    _languageRepository = new Service.Impl.Text.LanguageManager();
+                }
+                return _languageRepository;
             }
         }
     }

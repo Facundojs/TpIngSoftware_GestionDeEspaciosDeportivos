@@ -44,8 +44,11 @@
   <ItemGroup>
     <Compile Include="Contracts\IBackup.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\ILanguage.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
     <Compile Include="Logic\BackupService.cs" />
+    <Compile Include="Logic\LanguageLogic.cs" />
+    <Compile Include="Logic\LanguageService.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\IUsuarioRepository.cs" />
     <Compile Include="Domain\Composite\Acceso.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="Impl\SqlServer\PatenteRepository.cs" />
     <Compile Include="Impl\SqlServer\SqlServerBackup.cs" />
     <Compile Include="Impl\SqlServer\UsuarioRepository.cs" />
+    <Compile Include="Impl\Text\LanguageManager.cs" />
     <Compile Include="Impl\Text\LanguageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
