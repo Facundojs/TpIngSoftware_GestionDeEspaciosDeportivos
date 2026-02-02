@@ -30,9 +30,9 @@ namespace Service.Impl.Text
             string language = Thread.CurrentThread.CurrentUICulture.Name;
 
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
-            string fileName = Path.Combine(baseDirectory, LanguagePath, $"Language.{language}");
-
+            string cleanLanguagePath = LanguagePath.Trim('\\', '/');
+            string fileName = Path.Combine(baseDirectory, cleanLanguagePath, $"Language.{language}");
+            System.Diagnostics.Debug.WriteLine($"Ruta buscada: {fileName}");
             if (!File.Exists(fileName))
             {
                 throw new Exception($"No se encontró el archivo de idioma para {language}");
@@ -52,7 +52,8 @@ namespace Service.Impl.Text
                 }
             }
 
-            throw new Exception($"No se encontró la palabra {key} en el archivo de idioma {fileName}"); // Esto luego se guarda en el log de errores
+            return $"TODO: [{key}]";
+            //throw new Exception($"No se encontró la palabra {key} en el archivo de idioma {fileName}"); // Esto luego se guarda en el log de errores
         }
 
         /// <summary>
