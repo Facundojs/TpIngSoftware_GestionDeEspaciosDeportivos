@@ -31,15 +31,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "Gestión de Usuarios".Translate();
-            lblUser.Text = "Usuario:".Translate();
-            lblPass.Text = "Contraseña:".Translate();
-            chkActive.Text = "Activo".Translate();
-            btnAdd.Text = "Agregar".Translate();
-            btnUpdate.Text = "Modificar".Translate();
-            btnDelete.Text = "Eliminar".Translate();
-            btnPermisos.Text = "Gestionar Permisos".Translate();
-            btnClear.Text = "Limpiar".Translate();
+            this.Text = "USERS_TITLE".Translate();
+            lblUser.Text = "LBL_USER".Translate();
+            lblPass.Text = "LBL_PASS".Translate();
+            chkActive.Text = "CHK_ACTIVE".Translate();
+            btnAdd.Text = "BTN_ADD".Translate();
+            btnUpdate.Text = "BTN_UPDATE".Translate();
+            btnDelete.Text = "BTN_DELETE".Translate();
+            btnPermisos.Text = "BTN_PERMISSIONS".Translate();
+            btnClear.Text = "BTN_CLEAR".Translate();
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.UsuarioListar))
             {
-                MessageBox.Show("No tiene permiso para ver usuarios.".Translate());
+                MessageBox.Show("MSG_NO_PERM_USERS".Translate());
                 this.Close();
             }
         }
@@ -72,7 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error cargando usuarios: " + ex.Message);
+                MessageBox.Show("MSG_ERR_LOAD_USERS".Translate() + ex.Message);
             }
         }
 
@@ -105,7 +105,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || (string.IsNullOrWhiteSpace(txtPassword.Text) && txtPassword.Enabled))
             {
-                MessageBox.Show("Complete todos los campos.".Translate());
+                MessageBox.Show("MSG_COMPLETE_FIELDS".Translate());
                 return;
             }
 
@@ -118,13 +118,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 };
 
                 _usuarioService.Register(newUser, txtPassword.Text);
-                MessageBox.Show("Usuario creado.".Translate());
+                MessageBox.Show("MSG_USER_CREATED".Translate());
                 LoadUsuarios();
                 ClearForm();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message);
             }
         }
 
@@ -139,12 +139,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _usuarioService.Update(_selectedUser);
 
-                MessageBox.Show("Usuario modificado.".Translate());
+                MessageBox.Show("MSG_USER_UPDATED".Translate());
                 LoadUsuarios();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message);
             }
         }
 
@@ -152,7 +152,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedUser == null) return;
 
-            if (MessageBox.Show("¿Eliminar usuario?".Translate(), "Confirmar".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("MSG_CONFIRM_DELETE_USER".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
@@ -162,7 +162,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 catch(Exception ex)
                 {
-                     MessageBox.Show("Error: " + ex.Message);
+                     MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message);
                 }
             }
         }

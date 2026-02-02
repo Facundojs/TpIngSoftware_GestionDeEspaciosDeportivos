@@ -104,6 +104,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Service\Languages\Language.es-MX">
+      <Link>Languages\Language.es-MX</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{afd018bd-1382-4116-b4e1-b33ebb0a052a}</Project>
       <Name>Service</Name>

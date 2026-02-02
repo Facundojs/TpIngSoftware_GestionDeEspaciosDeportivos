@@ -44,12 +44,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void SetupMenu()
         {
             _menuStrip = new MenuStrip();
-            _menuAdmin = new ToolStripMenuItem("Administración");
+            _menuAdmin = new ToolStripMenuItem("MENU_ADMIN".Translate());
 
-            _menuBackups = new ToolStripMenuItem("Gestionar Backups");
+            _menuBackups = new ToolStripMenuItem("MENU_BACKUPS".Translate());
             _menuBackups.Click += (s, e) => OpenBackups();
 
-            _menuUsuarios = new ToolStripMenuItem("Gestionar Usuarios");
+            _menuUsuarios = new ToolStripMenuItem("MENU_USERS".Translate());
             _menuUsuarios.Click += (s, e) => OpenUsuarios();
 
             _menuAdmin.DropDownItems.Add(_menuBackups);
@@ -63,10 +63,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "Sistema de Gestión".Translate();
-            if(_menuAdmin != null) _menuAdmin.Text = "Administración".Translate();
-            if(_menuBackups != null) _menuBackups.Text = "Gestionar Backups".Translate();
-            if(_menuUsuarios != null) _menuUsuarios.Text = "Gestionar Usuarios".Translate();
+            this.Text = "MAIN_TITLE".Translate();
+            if(_menuAdmin != null) _menuAdmin.Text = "MENU_ADMIN".Translate();
+            if(_menuBackups != null) _menuBackups.Text = "MENU_BACKUPS".Translate();
+            if(_menuUsuarios != null) _menuUsuarios.Text = "MENU_USERS".Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
