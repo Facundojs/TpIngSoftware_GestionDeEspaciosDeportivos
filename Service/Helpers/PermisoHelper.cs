@@ -1,3 +1,4 @@
+using Service.Domain;
 using Service.Domain.Composite;
 using Service.DTO;
 using System;
