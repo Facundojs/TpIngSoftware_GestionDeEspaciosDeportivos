@@ -53,7 +53,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                     // Hide login and show main form
                     this.Hide();
-                    Form1 mainForm = new Form1();
+                    Form1 mainForm = new Form1(usuario);
                     mainForm.FormClosed += (s, args) => this.Close();
                     mainForm.Show();
                 }

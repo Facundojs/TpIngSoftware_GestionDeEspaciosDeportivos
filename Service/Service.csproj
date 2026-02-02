@@ -47,11 +47,13 @@
     <Compile Include="Contracts\ILanguage.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
     <Compile Include="Logic\BackupService.cs" />
+    <Compile Include="Logic\PermisosService.cs" />
     <Compile Include="Logic\LanguageLogic.cs" />
     <Compile Include="Logic\LanguageService.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\IUsuarioRepository.cs" />
     <Compile Include="Domain\Composite\Acceso.cs" />
+    <Compile Include="Domain\Composite\TipoPermiso.cs" />
     <Compile Include="Domain\Familia.cs" />
     <Compile Include="Domain\Log.cs" />
     <Compile Include="Domain\Patente.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="DTO\BackupFile.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
     <Compile Include="Helpers\ConnectionManager.cs" />
+    <Compile Include="Helpers\PermisoHelper.cs" />
     <Compile Include="Helpers\SqlHelper.cs" />
     <Compile Include="Impl\SqlServer\BaseRepository.cs" />
     <Compile Include="Impl\SqlServer\FamiliaRepository.cs" />
