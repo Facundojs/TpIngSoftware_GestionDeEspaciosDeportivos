@@ -51,12 +51,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ApplyPermissions()
         {
             if (_currentUser == null) return;
-            btnAdd.Enabled = _currentUser.TienePermiso(TipoPermiso.PuedeCrearUsuario);
-            btnUpdate.Enabled = _currentUser.TienePermiso(TipoPermiso.PuedeModificarUsuario);
-            btnDelete.Enabled = _currentUser.TienePermiso(TipoPermiso.PuedeEliminarUsuario);
-            btnPermisos.Enabled = _currentUser.TienePermiso(TipoPermiso.PuedeAsignarPermisos);
+            btnAdd.Enabled = _currentUser.TienePermiso(TipoPermiso.CrearUsuario);
+            btnUpdate.Enabled = _currentUser.TienePermiso(TipoPermiso.ModificarUsuario);
+            btnDelete.Enabled = _currentUser.TienePermiso(TipoPermiso.EliminarUsuario);
+            btnPermisos.Enabled = _currentUser.TienePermiso(TipoPermiso.AsignarPermisos);
 
-            if (!_currentUser.TienePermiso(TipoPermiso.PuedeListarUsuarios))
+            if (!_currentUser.TienePermiso(TipoPermiso.ListarUsuarios))
             {
                 MessageBox.Show("No tiene permiso para ver usuarios.".Translate());
                 this.Close();

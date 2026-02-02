@@ -90,8 +90,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 return;
             }
 
-            bool canBackup = _usuario.TienePermiso(TipoPermiso.PuedeListarBackups);
-            bool canManageUsers = _usuario.TienePermiso(TipoPermiso.PuedeListarUsuarios);
+            bool canBackup = _usuario.TienePermiso(TipoPermiso.ListarBackups);
+            bool canManageUsers = _usuario.TienePermiso(TipoPermiso.ListarUsuarios);
 
             if(_menuBackups != null) _menuBackups.Visible = canBackup;
             if(_menuUsuarios != null) _menuUsuarios.Visible = canManageUsers;
