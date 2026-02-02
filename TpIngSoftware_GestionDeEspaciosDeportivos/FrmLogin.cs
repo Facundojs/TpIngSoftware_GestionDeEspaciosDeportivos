@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Service.Logic;
 using Service.DTO;
+using Service.Facade.Extension;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -20,6 +21,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             InitializeComponent();
             _usuarioService = new UsuarioService();
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            this.Text = "Inicio de Sesión".Translate();
+            this.lblUsername.Text = "Usuario".Translate();
+            this.lblPassword.Text = "Contraseña".Translate();
+            this.btnLogin.Text = "Ingresar".Translate();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -31,7 +41,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
                 {
-                    MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Por favor, ingrese usuario y contraseña.".Translate(), "Advertencia".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -39,7 +49,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (usuario != null)
                 {
-                    MessageBox.Show($"Bienvenido, {usuario.Username}!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format("Bienvenido".Translate() + ", {0}!", usuario.Username), "Éxito".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Hide login and show main form
                     this.Hide();
@@ -50,7 +60,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar sesión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al iniciar sesión: {ex.Message}".Translate(), "Error".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

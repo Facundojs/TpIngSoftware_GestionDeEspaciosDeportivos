@@ -12,6 +12,7 @@ using Service;
 using Service.Domain;
 using Service.Impl;
 using Service.Impl.SqlServer;
+using Service.Facade.Extension;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -20,6 +21,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         public Form1()
         {
             InitializeComponent();
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            this.Text = "Form1".Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
