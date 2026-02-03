@@ -27,6 +27,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private ToolStripMenuItem _menuAdmin;
         private ToolStripMenuItem _menuBackups;
         private ToolStripMenuItem _menuUsuarios;
+        private ToolStripMenuItem _menuBitacora;
 
         public Form1(UsuarioDTO usuario)
         {
@@ -52,8 +53,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuUsuarios = new ToolStripMenuItem("MENU_USERS".Translate());
             _menuUsuarios.Click += (s, e) => OpenUsuarios();
 
+            _menuBitacora = new ToolStripMenuItem("MENU_BITACORA".Translate());
+            _menuBitacora.Click += (s, e) => OpenBitacora();
+
             _menuAdmin.DropDownItems.Add(_menuBackups);
             _menuAdmin.DropDownItems.Add(_menuUsuarios);
+            _menuAdmin.DropDownItems.Add(_menuBitacora);
 
             _menuStrip.Items.Add(_menuAdmin);
 
@@ -67,6 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuAdmin != null) _menuAdmin.Text = "MENU_ADMIN".Translate();
             if(_menuBackups != null) _menuBackups.Text = "MENU_BACKUPS".Translate();
             if(_menuUsuarios != null) _menuUsuarios.Text = "MENU_USERS".Translate();
+            if(_menuBitacora != null) _menuBitacora.Text = "MENU_BITACORA".Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -92,11 +98,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             bool canBackup = _usuario.TienePermiso(PermisoKeys.BackupListar);
             bool canManageUsers = _usuario.TienePermiso(PermisoKeys.UsuarioListar);
+            bool canViewLogs = _usuario.TienePermiso(PermisoKeys.BitacoraVer);
 
             if(_menuBackups != null) _menuBackups.Visible = canBackup;
             if(_menuUsuarios != null) _menuUsuarios.Visible = canManageUsers;
+            if(_menuBitacora != null) _menuBitacora.Visible = canViewLogs;
 
-            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers;
+            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canViewLogs;
+        }
+
+        private void OpenBitacora()
+        {
+            var frm = new FrmBitacora(_usuario);
+            frm.ShowDialog();
         }
 
         private void OpenBackups()

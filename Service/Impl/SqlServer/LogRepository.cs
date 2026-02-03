@@ -1,4 +1,4 @@
-﻿using Service.Contracts;
+using Service.Contracts;
 using Service.Helpers;
 using System;
 using System.Collections.Generic;
@@ -54,29 +54,44 @@ namespace Service.Impl
         }
 
         /// <summary>
-        /// Obtiene una lista de logs de la base de datos de forma paginada.
+        /// Obtiene una lista de logs de la base de datos de forma paginada y filtrada.
         /// </summary>
-        /// <param name="pageNumber">Número de página a recuperar (empezando desde 1).</param>
-        /// <param name="pageSize">Cantidad de registros por página.</param>
-        /// <returns>Una lista de objetos <see cref="Log"/> con la información de la bitácora.</returns>
-        public List<Log> GetLogs(int pageNumber, int pageSize)
+        public List<Log> GetLogs(int pageNumber, int pageSize, DateTime? from = null, DateTime? to = null, string logLevel = null, string message = null)
         {
             int offset = (pageNumber - 1) * pageSize;
 
-            string query = @"SELECT BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails 
-                     FROM Bitacora 
-                     ORDER BY Timestamp DESC 
-                     OFFSET @Offset ROWS 
-                     FETCH NEXT @PageSize ROWS ONLY";
+            var sb = new StringBuilder();
+            sb.Append("SELECT BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails FROM Bitacora WHERE 1=1 ");
 
-            SqlParameter[] parameters = new SqlParameter[]
+            var parameters = new List<SqlParameter>();
+
+            if (from.HasValue)
             {
-        new SqlParameter("@Offset", offset),
-        new SqlParameter("@PageSize", pageSize)
-            };
+                sb.Append("AND Timestamp >= @From ");
+                parameters.Add(new SqlParameter("@From", from.Value));
+            }
+            if (to.HasValue)
+            {
+                sb.Append("AND Timestamp <= @To ");
+                parameters.Add(new SqlParameter("@To", to.Value));
+            }
+            if (!string.IsNullOrEmpty(logLevel) && !logLevel.Equals("Todos", StringComparison.OrdinalIgnoreCase))
+            {
+                sb.Append("AND LogLevel = @LogLevel ");
+                parameters.Add(new SqlParameter("@LogLevel", logLevel));
+            }
+            if (!string.IsNullOrEmpty(message))
+            {
+                sb.Append("AND Message LIKE @Message ");
+                parameters.Add(new SqlParameter("@Message", "%" + message + "%"));
+            }
 
-            // Llamamos al nuevo ExecuteReader de la clase base
-            return ExecuteReader(query, parameters, reader =>
+            sb.Append("ORDER BY Timestamp DESC OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY");
+
+            parameters.Add(new SqlParameter("@Offset", offset));
+            parameters.Add(new SqlParameter("@PageSize", pageSize));
+
+            return ExecuteReader(sb.ToString(), parameters.ToArray(), reader =>
             {
                 var list = new List<Log>();
                 while (reader.Read())
