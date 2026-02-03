@@ -16,5 +16,8 @@ namespace Service.Domain.Composite
 
         // Permission Management
         public const string PermisoAsignar = "PERMISSION_PERMISSION_ASSIGN";
+
+        // Log Permissions
+        public const string BitacoraVer = "PERMISSION_LOG_VIEW";
     }
 }

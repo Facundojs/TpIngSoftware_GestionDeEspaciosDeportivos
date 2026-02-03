@@ -30,9 +30,9 @@ namespace Service.Logic
             }
         }
 
-        public List<Log> GetLogs(int page, int pageSize)
+        public List<Log> GetLogs(int page, int pageSize, DateTime? from = null, DateTime? to = null, string logLevel = null, string message = null)
         {
-            return _repository.GetLogs(page, pageSize);
+            return _repository.GetLogs(page, pageSize, from, to, logLevel, message);
         }
     }
 }
