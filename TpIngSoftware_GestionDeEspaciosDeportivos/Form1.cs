@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Service;
-using Service.Domain;
+using Domain;
 using Service.Impl;
 using Service.Impl.SqlServer;
 using Service.Facade.Extension;
 using Service.DTO;
-using Service.Domain.Composite;
+using Domain.Composite;
 using Service.Helpers;
 using Service.Logic;
 

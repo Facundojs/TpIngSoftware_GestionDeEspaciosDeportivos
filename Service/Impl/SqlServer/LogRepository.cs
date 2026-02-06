@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Service.Domain;
+using Domain;
 
 namespace Service.Impl
 {

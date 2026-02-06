@@ -1,4 +1,4 @@
-using Service.Domain.Composite;
+using Domain.Composite;
 using Service.DTO;
 using Service.Facade.Extension;
 using Service.Helpers;

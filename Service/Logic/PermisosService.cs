@@ -1,5 +1,5 @@
-using Service.Domain;
-using Service.Domain.Composite;
+using Domain;
+using Domain.Composite;
 using Service.Impl;
 using Service.Impl.SqlServer;
 using System;
@@ -48,7 +48,7 @@ namespace Service.Logic
             var existingPatents = _patenteRepository.GetAll();
 
             // Get all public constant strings from PermisoKeys
-            var permissionFields = typeof(PermisoKeys).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            var permissionFields = typeof(Domain.Composite.PermisoKeys).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(string));
 
             foreach (var field in permissionFields)

@@ -52,12 +52,6 @@
     <Compile Include="Logic\LanguageService.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\IUsuarioRepository.cs" />
-    <Compile Include="Domain\Composite\Acceso.cs" />
-    <Compile Include="Domain\Composite\Familia.cs" />
-    <Compile Include="Domain\Composite\Patente.cs" />
-    <Compile Include="Domain\Composite\PermisoKeys.cs" />
-    <Compile Include="Domain\Log.cs" />
-    <Compile Include="Domain\Usuario.cs" />
     <Compile Include="DTO\BackupFile.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
     <Compile Include="Facade\Extension\StringExtension.cs" />

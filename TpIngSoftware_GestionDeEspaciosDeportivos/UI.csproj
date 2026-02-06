@@ -116,6 +116,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{e18e9389-c662-4f44-aa34-efb7d1df84d3}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{afd018bd-1382-4116-b4e1-b33ebb0a052a}</Project>
       <Name>Service</Name>

@@ -1,4 +1,4 @@
-using Service.Domain.Composite;
+using Domain.Composite;
 using System;
 using System.Collections.Generic;
 using System.Linq;

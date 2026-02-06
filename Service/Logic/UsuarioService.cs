@@ -1,5 +1,5 @@
 using Service.Contracts;
-using Service.Domain;
+using Domain;
 using Service.DTO;
 using Service.Factory;
 using Service.Helpers;
