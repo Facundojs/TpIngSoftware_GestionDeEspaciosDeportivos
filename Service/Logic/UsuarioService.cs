@@ -1,5 +1,6 @@
 using Service.Contracts;
 using Domain;
+using Domain.Entities;
 using Service.DTO;
 using Service.Factory;
 using Service.Helpers;
@@ -45,7 +46,7 @@ namespace Service.Logic
              var existing = _repository.GetByUsername(dto.Username);
              if (existing != null) throw new Exception("El usuario ya existe");
 
-             var user = new Usuario
+             var user = new UsuarioLegado
              {
                  Id = Guid.NewGuid(),
                  NombreUsuario = dto.Username,

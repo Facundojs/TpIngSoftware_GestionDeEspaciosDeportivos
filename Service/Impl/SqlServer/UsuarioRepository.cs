@@ -1,5 +1,6 @@
 ﻿using Domain.Composite;
 using Domain;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -100,7 +101,7 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
             var list = new List<Usuario>();
             while (reader.Read())
             {
-                list.Add(new Usuario
+                list.Add(new UsuarioLegado
                 {
                     Id = reader.GetGuid(0),
                     NombreUsuario = reader.GetString(1),
@@ -121,7 +122,7 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
         {
             if (reader.Read())
             {
-                var u = new Usuario
+                var u = new UsuarioLegado
                 {
                     Id = reader.GetGuid(0),
                     NombreUsuario = reader.GetString(1),
@@ -145,7 +146,7 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
         {
             if (reader.Read())
             {
-                var u = new Usuario
+                var u = new UsuarioLegado
                 {
                     Id = reader.GetGuid(0),
                     NombreUsuario = reader.GetString(1),
