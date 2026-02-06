@@ -1,5 +1,5 @@
-﻿using Service.Domain.Composite;
-using Service.Domain;
+﻿using Domain.Composite;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

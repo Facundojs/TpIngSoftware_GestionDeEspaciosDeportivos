@@ -1,4 +1,4 @@
-using Service.Domain;
+using Domain;
 using Service.Factory;
 using Service.Impl;
 using System;

@@ -1,5 +1,5 @@
-using Service.Domain;
-using Service.Domain.Composite;
+using Domain;
+using Domain.Composite;
 using Service.DTO;
 using Service.Facade.Extension;
 using Service.Logic;

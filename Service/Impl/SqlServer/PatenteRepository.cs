@@ -1,5 +1,5 @@
 ﻿using Service.Contracts;
-using Service.Domain;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

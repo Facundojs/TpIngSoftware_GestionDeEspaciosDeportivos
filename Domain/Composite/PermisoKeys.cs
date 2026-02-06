@@ -1,4 +1,4 @@
-namespace Service.Domain.Composite
+namespace Domain.Composite
 {
     public static class PermisoKeys
     {
