@@ -23,14 +23,14 @@ CREATE TABLE Espacio (
 );
 
 -- 3. Cliente (Inherits from Usuario)
+-- 3. Cliente (Business Entity only)
 CREATE TABLE Cliente (
-    Id UNIQUEIDENTIFIER PRIMARY KEY,
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     Nombre NVARCHAR(100) NOT NULL,
     Apellido NVARCHAR(100) NOT NULL,
     DNI INT NOT NULL UNIQUE,
     FechaNacimiento DATETIME NOT NULL,
     MembresiaID UNIQUEIDENTIFIER NULL,
-    -- FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE, -- Relationship managed by Application Layer (Split DB)
     FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id)
 );
 

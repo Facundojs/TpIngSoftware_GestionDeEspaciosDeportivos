@@ -41,17 +41,6 @@ namespace Service.Logic
             };
 
             // Aggregate Business Info
-            var cliente = FactoryDao.ClienteRepository.GetById(user.Id);
-            if (cliente != null)
-            {
-                dto.RolNegocio = "Cliente";
-                dto.Nombre = cliente.Nombre;
-                dto.Apellido = cliente.Apellido;
-                dto.DNI = cliente.DNI;
-                dto.FechaNacimiento = cliente.FechaNacimiento;
-                return dto;
-            }
-
             var operador = FactoryDao.OperadorRepository.GetById(user.Id);
             if (operador != null)
             {
