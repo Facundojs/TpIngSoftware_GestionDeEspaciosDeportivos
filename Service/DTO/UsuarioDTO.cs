@@ -31,5 +31,35 @@ namespace Service.DTO
         /// Lista de permisos (Familias/Patentes) asignados al usuario.
         /// </summary>
         public List<Acceso> Permisos { get; set; } = new List<Acceso>();
+
+        /// <summary>
+        /// Nombre del usuario (Cliente).
+        /// </summary>
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Apellido del usuario (Cliente).
+        /// </summary>
+        public string Apellido { get; set; }
+
+        /// <summary>
+        /// Email del usuario (Operador/Administrador).
+        /// </summary>
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Rol de negocio del usuario (Cliente, Operador, Administrador).
+        /// </summary>
+        public string RolNegocio { get; set; }
+
+        /// <summary>
+        /// DNI del usuario (Cliente).
+        /// </summary>
+        public int? DNI { get; set; }
+
+        /// <summary>
+        /// Fecha de nacimiento del usuario (Cliente).
+        /// </summary>
+        public DateTime? FechaNacimiento { get; set; }
     }
 }
