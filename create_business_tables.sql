@@ -1,3 +1,6 @@
+USE [INSERT_BUSINESS_DB_NAME_HERE]
+GO
+
 -- Entities Creation Script
 
 -- 1. Membresia
@@ -27,7 +30,7 @@ CREATE TABLE Cliente (
     DNI INT NOT NULL UNIQUE,
     FechaNacimiento DATETIME NOT NULL,
     MembresiaID UNIQUEIDENTIFIER NULL,
-    FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE,
+    -- FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE, -- Relationship managed by Application Layer (Split DB)
     FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id)
 );
 
@@ -36,14 +39,14 @@ CREATE TABLE Operador (
     Id UNIQUEIDENTIFIER PRIMARY KEY,
     Email NVARCHAR(255) NOT NULL,
     FechaIngreso DATETIME NOT NULL,
-    FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE
+    -- FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE -- Relationship managed by Application Layer (Split DB)
 );
 
 -- 5. Administrador (Inherits from Usuario)
 CREATE TABLE Administrador (
     Id UNIQUEIDENTIFIER PRIMARY KEY,
     Email NVARCHAR(255) NOT NULL,
-    FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE
+    -- FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE -- Relationship managed by Application Layer (Split DB)
 );
 
 -- 6. Agenda
