@@ -1,4 +1,4 @@
-USE [INSERT_BUSINESS_DB_NAME_HERE]
+USE [IngSoftwareNegocio]
 GO
 
 -- Entities Creation Script
