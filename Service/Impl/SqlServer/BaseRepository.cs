@@ -11,7 +11,7 @@ namespace Service.Impl
     public abstract class BaseRepository
     {
         protected readonly string _connectionString;
-        public BaseRepository(string connectionStringName = "IngSoftwareBase") => _connectionString = ConnectionManager.GetConnectionString(connectionStringName);
+        public BaseRepository(string connectionStringName = ConnectionManager.BaseConnectionName) => _connectionString = ConnectionManager.GetConnectionString(connectionStringName);
 
 
         /// <summary>
