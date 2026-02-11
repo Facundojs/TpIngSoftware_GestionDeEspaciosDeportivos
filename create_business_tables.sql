@@ -1,3 +1,6 @@
+USE [IngSoftwareNegocio]
+GO
+
 -- Entities Creation Script
 
 -- 1. Membresia
@@ -20,14 +23,14 @@ CREATE TABLE Espacio (
 );
 
 -- 3. Cliente (Inherits from Usuario)
+-- 3. Cliente (Business Entity only)
 CREATE TABLE Cliente (
-    Id UNIQUEIDENTIFIER PRIMARY KEY,
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     Nombre NVARCHAR(100) NOT NULL,
     Apellido NVARCHAR(100) NOT NULL,
     DNI INT NOT NULL UNIQUE,
     FechaNacimiento DATETIME NOT NULL,
     MembresiaID UNIQUEIDENTIFIER NULL,
-    FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE,
     FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id)
 );
 
@@ -36,14 +39,14 @@ CREATE TABLE Operador (
     Id UNIQUEIDENTIFIER PRIMARY KEY,
     Email NVARCHAR(255) NOT NULL,
     FechaIngreso DATETIME NOT NULL,
-    FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE
+    -- FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE -- Relationship managed by Application Layer (Split DB)
 );
 
 -- 5. Administrador (Inherits from Usuario)
 CREATE TABLE Administrador (
     Id UNIQUEIDENTIFIER PRIMARY KEY,
     Email NVARCHAR(255) NOT NULL,
-    FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE
+    -- FOREIGN KEY (Id) REFERENCES Usuario(Id) ON DELETE CASCADE -- Relationship managed by Application Layer (Split DB)
 );
 
 -- 6. Agenda

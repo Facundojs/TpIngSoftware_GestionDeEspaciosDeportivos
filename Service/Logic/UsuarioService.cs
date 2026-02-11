@@ -32,13 +32,32 @@ namespace Service.Logic
 
             if (!user.Estado) throw new Exception("Usuario bloqueado o inactivo");
 
-            return new UsuarioDTO
+            var dto = new UsuarioDTO
             {
                 Id = user.Id,
                 Username = user.NombreUsuario,
                 Estado = user.Estado ? "Activo" : "Bloqueado",
                 Permisos = user.Permisos
             };
+
+            // Aggregate Business Info
+            var operador = FactoryDao.OperadorRepository.GetById(user.Id);
+            if (operador != null)
+            {
+                dto.RolNegocio = "Operador";
+                dto.Email = operador.Email;
+                return dto;
+            }
+
+            var admin = FactoryDao.AdministradorRepository.GetById(user.Id);
+            if (admin != null)
+            {
+                dto.RolNegocio = "Administrador";
+                dto.Email = admin.Email;
+                return dto;
+            }
+
+            return dto;
         }
 
         public void Register(UsuarioDTO dto, string password)
