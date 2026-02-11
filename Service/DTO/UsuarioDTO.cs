@@ -33,12 +33,7 @@ namespace Service.DTO
         public List<Acceso> Permisos { get; set; } = new List<Acceso>();
 
         /// <summary>
-        /// Email del usuario (Operador/Administrador).
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        /// Rol de negocio del usuario (Operador, Administrador).
+        /// Rol de negocio del usuario (Operador, Administrador) basado en sus familias.
         /// </summary>
         public string RolNegocio { get; set; }
     }

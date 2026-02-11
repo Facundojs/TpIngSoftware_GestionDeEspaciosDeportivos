@@ -1,10 +1,11 @@
 using Domain.Entities;
-using Service.Contracts;
+using DAL.Contracts;
 using Service.Helpers;
+using Service.Impl;
 using System;
 using System.Data.SqlClient;
 
-namespace Service.Impl.SqlServer
+namespace DAL.Repositories
 {
     public class ClienteRepository : BaseRepository, IClienteRepository
     {

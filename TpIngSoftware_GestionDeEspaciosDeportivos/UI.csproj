@@ -124,6 +124,7 @@
       <Project>{afd018bd-1382-4116-b4e1-b33ebb0a052a}</Project>
       <Name>Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

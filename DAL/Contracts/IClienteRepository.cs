@@ -1,7 +1,7 @@
 using System;
 using Domain.Entities;
 
-namespace Service.Contracts
+namespace DAL.Contracts
 {
     public interface IClienteRepository
     {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public abstract class Usuario
+    public class Usuario
     {
         public Guid Id { get; set; }
         public string NombreUsuario { get; set; }
@@ -18,7 +18,7 @@ namespace Domain
         // Lista de componentes (pueden ser Familias o Patentes)
         public List<Acceso> Permisos { get; set; } = new List<Acceso>();
 
-        protected Usuario()
+        public Usuario()
         {
             Id = Guid.NewGuid();
         }

@@ -1,6 +1,6 @@
 using Service.Contracts;
 using Domain;
-using Domain.Entities;
+using Domain.Composite;
 using Service.DTO;
 using Service.Factory;
 using Service.Helpers;
@@ -40,21 +40,18 @@ namespace Service.Logic
                 Permisos = user.Permisos
             };
 
-            // Aggregate Business Info
-            var operador = FactoryDao.OperadorRepository.GetById(user.Id);
-            if (operador != null)
-            {
-                dto.RolNegocio = "Operador";
-                dto.Email = operador.Email;
-                return dto;
-            }
-
-            var admin = FactoryDao.AdministradorRepository.GetById(user.Id);
-            if (admin != null)
+            // Determine Role based on Families (Permisos)
+            if (user.Permisos.Any(p => p.Nombre == "Administrador"))
             {
                 dto.RolNegocio = "Administrador";
-                dto.Email = admin.Email;
-                return dto;
+            }
+            else if (user.Permisos.Any(p => p.Nombre == "Operador"))
+            {
+                dto.RolNegocio = "Operador";
+            }
+            else
+            {
+                dto.RolNegocio = string.Join(", ", user.Permisos.Select(p => p.Nombre));
             }
 
             return dto;
@@ -65,7 +62,7 @@ namespace Service.Logic
              var existing = _repository.GetByUsername(dto.Username);
              if (existing != null) throw new Exception("El usuario ya existe");
 
-             var user = new UsuarioLegado
+             var user = new Usuario
              {
                  Id = Guid.NewGuid(),
                  NombreUsuario = dto.Username,
