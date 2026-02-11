@@ -1,4 +1,4 @@
-﻿using Service.Helpers;
+using Service.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -19,14 +19,29 @@ namespace Service.Impl
         /// </summary>
         /// <param name="query">Consulta SQL a ejecutar.</param>
         /// <param name="parameters">Parámetros de la consulta.</param>
-        protected void ExecuteNonQuery(string query, SqlParameter[] parameters)
+        /// <param name="conn">Conexión SQL opcional (para transacciones).</param>
+        /// <param name="tran">Transacción SQL opcional.</param>
+        protected void ExecuteNonQuery(string query, SqlParameter[] parameters, SqlConnection conn = null, SqlTransaction tran = null)
         {
-            using (var conn = new SqlConnection(_connectionString))
-            using (var cmd = new SqlCommand(query, conn))
+            if (conn != null)
             {
-                cmd.Parameters.AddRange(parameters);
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                // Usar conexión existente (sin dispose)
+                using (var cmd = new SqlCommand(query, conn, tran))
+                {
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                // Crear nueva conexión
+                using (var connection = new SqlConnection(_connectionString))
+                using (var cmd = new SqlCommand(query, connection))
+                {
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 
