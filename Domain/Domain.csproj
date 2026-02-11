@@ -48,7 +48,6 @@
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
-    <Compile Include="Entities\Administrador.cs" />
     <Compile Include="Entities\Agenda.cs" />
     <Compile Include="Entities\Balance.cs" />
     <Compile Include="Entities\Cliente.cs" />
@@ -57,11 +56,9 @@
     <Compile Include="Entities\Espacio.cs" />
     <Compile Include="Entities\Membresia.cs" />
     <Compile Include="Entities\Movimiento.cs" />
-    <Compile Include="Entities\Operador.cs" />
     <Compile Include="Entities\Pago.cs" />
     <Compile Include="Entities\Reserva.cs" />
     <Compile Include="Entities\Rutina.cs" />
-    <Compile Include="Entities\UsuarioLegado.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
