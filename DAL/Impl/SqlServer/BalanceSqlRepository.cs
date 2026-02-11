@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace DAL.Repositories
+namespace DAL.Impl
 {
-    public class BalanceRepository : BaseBusinessRepository, IBalanceRepository
+    public class BalanceSqlRepository : BaseBusinessSqlRepository, IBalanceRepository
     {
         public Balance ObtenerBalance(Guid clienteId)
         {

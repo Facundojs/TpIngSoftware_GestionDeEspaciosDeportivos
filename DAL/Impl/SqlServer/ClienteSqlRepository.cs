@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace DAL.Repositories
+namespace DAL.Impl
 {
-    public class ClienteRepository : BaseBusinessRepository, IClienteRepository
+    public class ClienteSqlRepository : BaseBusinessSqlRepository, IClienteRepository
     {
-        public ClienteRepository() : base()
+        public ClienteSqlRepository() : base()
         {
         }
 

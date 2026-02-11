@@ -3,11 +3,11 @@ using Domain.Entities;
 using System;
 using System.Data.SqlClient;
 
-namespace DAL.Repositories
+namespace DAL.Impl
 {
-    public class MembresiaRepository : BaseBusinessRepository, IMembresiaRepository
+    public class MembresiaSqlRepository : BaseBusinessSqlRepository, IMembresiaRepository
     {
-        public MembresiaRepository() : base()
+        public MembresiaSqlRepository() : base()
         {
         }
 
