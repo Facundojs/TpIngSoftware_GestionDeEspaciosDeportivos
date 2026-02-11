@@ -13,6 +13,7 @@ namespace DAL.Factory
         private static IClienteRepository _clienteRepository;
         private static IBalanceRepository _balanceRepository;
         private static IMovimientoRepository _movimientoRepository;
+        private static IMembresiaRepository _membresiaRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -47,6 +48,18 @@ namespace DAL.Factory
                     _movimientoRepository = new MovimientoRepository();
                 }
                 return _movimientoRepository;
+            }
+        }
+
+        public static IMembresiaRepository MembresiaRepository
+        {
+            get
+            {
+                if (_membresiaRepository == null)
+                {
+                    _membresiaRepository = new MembresiaRepository();
+                }
+                return _membresiaRepository;
             }
         }
     }
