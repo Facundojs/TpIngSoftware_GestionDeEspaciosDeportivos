@@ -25,5 +25,22 @@ namespace DAL.Impl
 
             ExecuteNonQuery(query, parameters, conn, tran);
         }
+
+        public bool ExisteDeudaMensual(int mes, int anio)
+        {
+            var fechaInicio = new DateTime(anio, mes, 1);
+            var fechaFin = fechaInicio.AddMonths(1);
+
+            string query = "SELECT COUNT(*) FROM Movimiento WHERE Tipo = 'DeudaMembresia' AND Fecha >= @FechaInicio AND Fecha < @FechaFin";
+
+            var parameters = new SqlParameter[]
+            {
+                new SqlParameter("@FechaInicio", fechaInicio),
+                new SqlParameter("@FechaFin", fechaFin)
+            };
+
+            int count = ExecuteScalar<int>(query, parameters);
+            return count > 0;
+        }
     }
 }
