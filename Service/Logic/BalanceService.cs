@@ -3,6 +3,8 @@ using Domain.Entities;
 using Service.Logic;
 using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Service.Logic
 {
@@ -17,36 +19,50 @@ namespace Service.Logic
 
         public void CalcularSaldoMensual()
         {
-            // TODO: Implementar algun sistema x worker o scheduler
             _bitacoraService.Log("Inicio de Job CalcularSaldoMensual", "INFO");
             int processedCount = 0;
+            int skippedCount = 0;
+            int errorCount = 0;
 
             try
             {
+                // Retrieve all clients
                 var clientes = DalFactory.ClienteRepository.ListarTodos();
 
-                foreach (var cliente in clientes)
+                // Ensure repositories are initialized before parallel execution to avoid race conditions in Factory
+                var membresiaRepo = DalFactory.MembresiaRepository;
+                var movimientoRepo = DalFactory.MovimientoRepository;
+
+                Parallel.ForEach(clientes, (cliente) =>
                 {
                     try
                     {
                         if (!cliente.MembresiaID.HasValue)
-                            continue;
+                        {
+                            Interlocked.Increment(ref skippedCount);
+                            return;
+                        }
 
-                        var membresia = DalFactory.MembresiaRepository.GetById(cliente.MembresiaID.Value);
+                        var membresia = membresiaRepo.GetById(cliente.MembresiaID.Value);
 
                         if (membresia == null)
                         {
                             _bitacoraService.Log($"Membresia {cliente.MembresiaID} no encontrada para cliente {cliente.Id}", "WARNING");
-                            continue;
+                            Interlocked.Increment(ref errorCount);
+                            return;
                         }
 
                         if (!membresia.Activa)
-                            continue;
+                        {
+                            Interlocked.Increment(ref skippedCount);
+                            return;
+                        }
 
                         if (membresia.Precio == 0)
                         {
                             _bitacoraService.Log($"Membresia {membresia.Id} tiene precio 0, omitiendo cargo.", "WARNING");
-                            continue;
+                            Interlocked.Increment(ref skippedCount);
+                            return;
                         }
 
                         var movimiento = new Movimiento
@@ -59,18 +75,18 @@ namespace Service.Logic
                             Fecha = DateTime.Now
                         };
 
-                        DalFactory.MovimientoRepository.Insertar(movimiento);
+                        movimientoRepo.Insertar(movimiento);
                         ActualizarBalance(cliente.Id);
-                        processedCount++;
+                        Interlocked.Increment(ref processedCount);
                     }
                     catch (Exception ex)
                     {
                         _bitacoraService.Log($"Error procesando cliente {cliente.Id}: {ex.Message}", "ERROR", ex);
-                        // Continue with next client
+                        Interlocked.Increment(ref errorCount);
                     }
-                }
+                });
 
-                _bitacoraService.Log($"Job CalcularSaldoMensual finalizado. Clientes procesados: {processedCount}", "INFO");
+                _bitacoraService.Log($"Job CalcularSaldoMensual finalizado. Procesados: {processedCount}, Omitidos: {skippedCount}, Errores: {errorCount}", "INFO");
             }
             catch (Exception ex)
             {
