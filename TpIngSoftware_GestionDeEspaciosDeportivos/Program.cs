@@ -14,6 +14,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         [STAThread]
         static void Main()
         {
+            // Iniciar el servicio de cron job para deudas mensuales
+            try
+            {
+                DAL.Logic.SchedulerService.Instance.Start();
+            }
+            catch (Exception)
+            {
+                // Silently fail or log to event viewer if needed, to not block UI
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLogin());
