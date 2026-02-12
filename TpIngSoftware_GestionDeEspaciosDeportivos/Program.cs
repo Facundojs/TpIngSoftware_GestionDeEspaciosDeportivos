@@ -19,9 +19,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 DAL.Logic.SchedulerService.Instance.Start();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Silently fail or log to event viewer if needed, to not block UI
+                try
+                {
+                    new Service.Logic.BitacoraService().Log($"Error iniciando SchedulerService: {ex.Message}", "ERROR", ex);
+                }
+                catch { }
             }
 
             Application.EnableVisualStyles();
