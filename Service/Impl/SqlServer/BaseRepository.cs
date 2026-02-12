@@ -66,5 +66,25 @@ namespace Service.Impl
                 }
             }
         }
+
+        /// <summary>
+        /// Ejecuta una consulta SQL que devuelve un solo valor (escalar).
+        /// </summary>
+        /// <typeparam name="T">El tipo de dato esperado.</typeparam>
+        /// <param name="query">Consulta SQL (SELECT COUNT, SELECT MAX, etc).</param>
+        /// <param name="parameters">Parámetros SQL.</param>
+        /// <returns>El valor escalar obtenido.</returns>
+        protected T ExecuteScalar<T>(string query, SqlParameter[] parameters)
+        {
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                if (parameters != null) cmd.Parameters.AddRange(parameters);
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                if (result == null || result == DBNull.Value) return default(T);
+                return (T)Convert.ChangeType(result, typeof(T));
+            }
+        }
     }
 }
