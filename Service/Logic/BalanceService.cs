@@ -17,6 +17,7 @@ namespace Service.Logic
 
         public void CalcularSaldoMensual()
         {
+            // TODO: Implementar algun sistema x worker o scheduler
             _bitacoraService.Log("Inicio de Job CalcularSaldoMensual", "INFO");
             int processedCount = 0;
 
