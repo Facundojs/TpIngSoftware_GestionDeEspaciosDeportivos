@@ -23,5 +23,31 @@ namespace DAL.Factory
                 return _clienteRepository;
             }
         }
+
+        private static IMembresiaRepository _membresiaRepository;
+        public static IMembresiaRepository MembresiaRepository
+        {
+            get
+            {
+                if (_membresiaRepository == null)
+                {
+                    _membresiaRepository = new MembresiaRepository();
+                }
+                return _membresiaRepository;
+            }
+        }
+
+        private static IMovimientoRepository _movimientoRepository;
+        public static IMovimientoRepository MovimientoRepository
+        {
+            get
+            {
+                if (_movimientoRepository == null)
+                {
+                    _movimientoRepository = new MovimientoRepository();
+                }
+                return _movimientoRepository;
+            }
+        }
     }
 }

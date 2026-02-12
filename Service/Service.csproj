@@ -70,7 +70,9 @@
     <Compile Include="Impl\Text\LanguageManager.cs" />
     <Compile Include="Impl\Text\LanguageRepository.cs" />
     <Compile Include="Logic\BackupService.cs" />
+    <Compile Include="Logic\BalanceService.cs" />
     <Compile Include="Logic\BitacoraService.cs" />
+    <Compile Include="Logic\CronService.cs" />
     <Compile Include="Logic\LanguageLogic.cs" />
     <Compile Include="Logic\UsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
