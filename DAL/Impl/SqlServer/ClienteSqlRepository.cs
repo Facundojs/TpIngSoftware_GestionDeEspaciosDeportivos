@@ -3,13 +3,14 @@ using DAL.Contracts;
 using Service.Helpers;
 using Service.Impl;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace DAL.Repositories
+namespace DAL.Impl
 {
-    public class ClienteRepository : BaseRepository, IClienteRepository
+    public class ClienteSqlRepository : BaseBusinessSqlRepository, IClienteRepository
     {
-        public ClienteRepository() : base(ConnectionManager.BusinessConnectionName)
+        public ClienteSqlRepository() : base()
         {
         }
 
@@ -33,6 +34,29 @@ namespace DAL.Repositories
                     };
                 }
                 return null;
+            });
+        }
+
+        public List<Cliente> ListarTodos()
+        {
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID FROM Cliente";
+
+            return ExecuteReader(query, null, reader =>
+            {
+                var list = new List<Cliente>();
+                while (reader.Read())
+                {
+                    list.Add(new Cliente
+                    {
+                        Id = reader.GetGuid(0),
+                        Nombre = reader.GetString(1),
+                        Apellido = reader.GetString(2),
+                        DNI = reader.GetInt32(3),
+                        FechaNacimiento = reader.GetDateTime(4),
+                        MembresiaID = reader.IsDBNull(5) ? (Guid?)null : reader.GetGuid(5)
+                    });
+                }
+                return list;
             });
         }
     }

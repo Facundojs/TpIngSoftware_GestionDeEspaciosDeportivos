@@ -3,9 +3,9 @@ using Domain.Entities;
 using System;
 using System.Data.SqlClient;
 
-namespace DAL.Repositories
+namespace DAL.Impl
 {
-    public class MovimientoRepository : BaseBusinessRepository, IMovimientoRepository
+    public class MovimientoSqlRepository : BaseBusinessSqlRepository, IMovimientoRepository
     {
         public void Insertar(Movimiento obj, SqlConnection conn = null, SqlTransaction tran = null)
         {
