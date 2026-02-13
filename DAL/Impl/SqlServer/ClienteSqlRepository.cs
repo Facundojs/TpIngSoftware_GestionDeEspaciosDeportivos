@@ -15,7 +15,7 @@ namespace DAL.Impl
 
         public void Add(Cliente obj)
         {
-            string query = "INSERT INTO Cliente (Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Activo) VALUES (@Id, @Nombre, @Apellido, @DNI, @FechaNacimiento, @MembresiaID, @Activo)";
+            string query = "INSERT INTO Cliente (Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado) VALUES (@Id, @Nombre, @Apellido, @DNI, @FechaNacimiento, @MembresiaID, @Estado)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre),
@@ -23,14 +23,14 @@ namespace DAL.Impl
                 new SqlParameter("@DNI", obj.DNI),
                 new SqlParameter("@FechaNacimiento", obj.FechaNacimiento),
                 new SqlParameter("@MembresiaID", (object)obj.MembresiaID ?? DBNull.Value),
-                new SqlParameter("@Activo", obj.Activo)
+                new SqlParameter("@Estado", obj.Estado)
             };
             ExecuteNonQuery(query, parameters);
         }
 
         public void Update(Cliente obj)
         {
-            string query = "UPDATE Cliente SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, FechaNacimiento = @FechaNacimiento, MembresiaID = @MembresiaID, Activo = @Activo WHERE Id = @Id";
+            string query = "UPDATE Cliente SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, FechaNacimiento = @FechaNacimiento, MembresiaID = @MembresiaID, Estado = @Estado WHERE Id = @Id";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre),
@@ -38,7 +38,7 @@ namespace DAL.Impl
                 new SqlParameter("@DNI", obj.DNI),
                 new SqlParameter("@FechaNacimiento", obj.FechaNacimiento),
                 new SqlParameter("@MembresiaID", (object)obj.MembresiaID ?? DBNull.Value),
-                new SqlParameter("@Activo", obj.Activo)
+                new SqlParameter("@Estado", obj.Estado)
             };
             ExecuteNonQuery(query, parameters);
         }
@@ -52,7 +52,7 @@ namespace DAL.Impl
 
         public Cliente GetById(Guid id)
         {
-            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Activo FROM Cliente WHERE Id = @Id";
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado FROM Cliente WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
 
             return ExecuteReader(query, parameters, reader =>
@@ -67,7 +67,7 @@ namespace DAL.Impl
 
         public List<Cliente> GetAll()
         {
-            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Activo FROM Cliente";
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado FROM Cliente";
 
             return ExecuteReader(query, null, reader =>
             {
@@ -82,7 +82,7 @@ namespace DAL.Impl
 
         public Cliente GetByDNI(int dni)
         {
-            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Activo FROM Cliente WHERE DNI = @DNI";
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado FROM Cliente WHERE DNI = @DNI";
             SqlParameter[] parameters = { new SqlParameter("@DNI", dni) };
 
             return ExecuteReader(query, parameters, reader =>
@@ -122,7 +122,7 @@ namespace DAL.Impl
                 DNI = reader.GetInt32(3),
                 FechaNacimiento = reader.GetDateTime(4),
                 MembresiaID = reader.IsDBNull(5) ? (Guid?)null : reader.GetGuid(5),
-                Activo = reader.IsDBNull(6) ? true : reader.GetBoolean(6)
+                Estado = reader.IsDBNull(6) ? 0 : reader.GetInt32(6)
             };
         }
     }

@@ -5,10 +5,10 @@ IF NOT EXISTS (
   SELECT *
   FROM   sys.columns
   WHERE  object_id = OBJECT_ID(N'[dbo].[Cliente]')
-         AND name = 'Activo'
+         AND name = 'Estado'
 )
 BEGIN
     ALTER TABLE Cliente
-    ADD Activo BIT NOT NULL DEFAULT 1;
+    ADD Estado INT NOT NULL DEFAULT 0;
 END
 GO
