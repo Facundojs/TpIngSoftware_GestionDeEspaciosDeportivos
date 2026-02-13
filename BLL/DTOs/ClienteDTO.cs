@@ -18,7 +18,7 @@ namespace BLL.DTOs
         // Extras
         public MembresiaDTO MembresiaDetalle { get; set; }
         public decimal Balance { get; set; }
-        public string EstadoBalance { get; set; }
+        public EstadoBalance EstadoBalance { get; set; }
 
         public ClienteDTO()
         {

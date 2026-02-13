@@ -25,15 +25,15 @@ namespace BLL.Mappers
 
             if (dto.Balance < 0)
             {
-                dto.EstadoBalance = "Deudor";
+                dto.EstadoBalance = EstadoBalance.Deudor;
             }
             else if (dto.Balance > 0)
             {
-                dto.EstadoBalance = "A favor";
+                dto.EstadoBalance = EstadoBalance.AFavor;
             }
             else
             {
-                dto.EstadoBalance = "Al día";
+                dto.EstadoBalance = EstadoBalance.AlDia;
             }
 
             return dto;
