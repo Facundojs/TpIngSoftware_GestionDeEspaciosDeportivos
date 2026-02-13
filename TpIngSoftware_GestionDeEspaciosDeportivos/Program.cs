@@ -17,7 +17,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // Iniciar el servicio de cron job para deudas mensuales
             try
             {
-                DAL.Logic.SchedulerService.Instance.Start();
+                BLL.SchedulerService.Instance.Start();
             }
             catch (Exception ex)
             {

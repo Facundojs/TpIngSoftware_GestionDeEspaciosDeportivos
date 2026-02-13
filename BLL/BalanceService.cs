@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DAL.Logic
+namespace BLL
 {
     public class BalanceService
     {
@@ -101,6 +101,21 @@ namespace DAL.Logic
             // No se requiere actualización explícita de una tabla de saldos.
             // Este método sirve como punto de extensión o notificación.
             _bitacoraService.Log($"Balance actualizado para el cliente {clienteId}", "INFO");
+        }
+
+        public void ValidarDeuda(Guid clienteId, string contexto = null)
+        {
+            var balance = DalFactory.BalanceRepository.ObtenerBalance(clienteId);
+
+            if (balance != null && balance.Saldo < 0)
+            {
+                string msg = $"El cliente tiene una deuda de ${Math.Abs(balance.Saldo):N2}. Debe saldar antes de continuar.";
+                if (!string.IsNullOrEmpty(contexto))
+                {
+                    msg = $"{contexto}: {msg}";
+                }
+                throw new InvalidOperationException(msg);
+            }
         }
     }
 }

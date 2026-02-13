@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Threading;
 
-namespace DAL.Logic
+namespace BLL
 {
     public class SchedulerService
     {
@@ -53,12 +53,6 @@ namespace DAL.Logic
 
                 // Check if monthly debt calculation has already run for this month via Bitacora
                 bool jobRan = CheckIfJobRanInBitacora(currentMonth, currentYear);
-
-                // Secondary check: if data exists (in case Bitacora was cleared or failed to log)
-                if (!jobRan)
-                {
-                    jobRan = DalFactory.MovimientoRepository.ExisteDeudaMensual(currentMonth, currentYear);
-                }
 
                 if (!jobRan)
                 {
