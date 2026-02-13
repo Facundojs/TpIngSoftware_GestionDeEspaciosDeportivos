@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BLL.Services;
 using BLL.DTOs;
+using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 using Service.DTO;
 using Domain.Composite;
 using Service.Facade.Extension;
@@ -13,14 +14,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
     public partial class FrmMembresias : Form
     {
         private readonly UsuarioDTO _currentUser;
-        private readonly MembresiaService _membresiaService;
+        private readonly MembresiaManager _membresiaManager;
         private MembresiaDTO _selectedMembresia;
 
         public FrmMembresias(UsuarioDTO currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;
-            _membresiaService = new MembresiaService();
+            _membresiaManager = new MembresiaManager();
             UpdateLanguage();
         }
 
@@ -63,7 +64,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             try
             {
-                var list = _membresiaService.ListarMembresias(false);
+                var list = _membresiaManager.ListarMembresias(false);
                 dgvMembresias.DataSource = null;
                 dgvMembresias.DataSource = list;
 
@@ -167,7 +168,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 var dto = GetFormData();
                 // ID is handled in service
-                _membresiaService.CrearMembresia(dto);
+                _membresiaManager.CrearMembresia(dto);
                 MessageBox.Show("MSG_MEMBRESIA_CREATED".Translate());
                 LoadMembresias();
                 ClearForm();
@@ -189,7 +190,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dto.Id = _selectedMembresia.Id;
                 dto.Activa = _selectedMembresia.Activa; // Preserve state
 
-                _membresiaService.ActualizarMembresia(dto);
+                _membresiaManager.ActualizarMembresia(dto);
                 MessageBox.Show("MSG_MEMBRESIA_UPDATED".Translate());
                 LoadMembresias();
             }
@@ -207,7 +208,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 try
                 {
-                    _membresiaService.DeshabilitarMembresia(_selectedMembresia.Id);
+                    _membresiaManager.DeshabilitarMembresia(_selectedMembresia.Id);
                     MessageBox.Show("MSG_MEMBRESIA_DISABLED".Translate());
                     LoadMembresias();
                 }
