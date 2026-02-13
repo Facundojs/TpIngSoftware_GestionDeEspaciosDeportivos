@@ -31,6 +31,7 @@ CREATE TABLE Cliente (
     DNI INT NOT NULL UNIQUE,
     FechaNacimiento DATETIME NOT NULL,
     MembresiaID UNIQUEIDENTIFIER NULL,
+    Activo BIT NOT NULL DEFAULT 1,
     FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id)
 );
 

@@ -103,9 +103,14 @@ namespace BLL
             _bitacoraService.Log($"Balance actualizado para el cliente {clienteId}", "INFO");
         }
 
+        public Balance ConsultarBalance(Guid clienteId)
+        {
+            return DalFactory.BalanceRepository.ObtenerBalance(clienteId);
+        }
+
         public void ValidarDeuda(Guid clienteId, string contexto = null)
         {
-            var balance = DalFactory.BalanceRepository.ObtenerBalance(clienteId);
+            var balance = ConsultarBalance(clienteId);
 
             if (balance != null && balance.Saldo < 0)
             {

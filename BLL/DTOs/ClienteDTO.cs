@@ -1,8 +1,8 @@
 using System;
 
-namespace Domain.Entities
+namespace BLL.DTOs
 {
-    public class Cliente
+    public class ClienteDTO
     {
         public Guid Id { get; set; }
         public string Nombre { get; set; }
@@ -12,7 +12,15 @@ namespace Domain.Entities
         public Guid? MembresiaID { get; set; }
         public bool Activo { get; set; }
 
-        public Cliente()
+        // Computed
+        public string NombreCompleto => $"{Nombre} {Apellido}";
+
+        // Extras
+        public MembresiaDTO MembresiaDetalle { get; set; }
+        public decimal Balance { get; set; }
+        public string EstadoBalance { get; set; }
+
+        public ClienteDTO()
         {
             Activo = true;
         }
