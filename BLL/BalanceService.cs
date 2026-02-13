@@ -27,7 +27,7 @@ namespace BLL
             try
             {
                 // Retrieve all clients
-                var clientes = DalFactory.ClienteRepository.ListarTodos();
+                var clientes = DalFactory.ClienteRepository.GetAll();
 
                 // Ensure repositories are initialized before parallel execution to avoid race conditions in Factory
                 var membresiaRepo = DalFactory.MembresiaRepository;
