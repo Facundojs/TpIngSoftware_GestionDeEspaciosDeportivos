@@ -10,11 +10,11 @@ namespace Domain.Entities
         public int DNI { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public Guid? MembresiaID { get; set; }
-        public int Estado { get; set; }
+        public string Estado { get; set; }
 
         public Cliente()
         {
-            Estado = 0; // Activo
+            Estado = "Activo";
         }
     }
 }

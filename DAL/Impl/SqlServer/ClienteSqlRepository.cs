@@ -122,7 +122,7 @@ namespace DAL.Impl
                 DNI = reader.GetInt32(3),
                 FechaNacimiento = reader.GetDateTime(4),
                 MembresiaID = reader.IsDBNull(5) ? (Guid?)null : reader.GetGuid(5),
-                Estado = reader.IsDBNull(6) ? 0 : reader.GetInt32(6)
+                Estado = reader.IsDBNull(6) ? "Activo" : reader.GetString(6)
             };
         }
     }

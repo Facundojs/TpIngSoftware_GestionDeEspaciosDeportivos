@@ -56,7 +56,7 @@ namespace BLL.Services
 
                 var entity = ClienteMapper.ToEntity(dto);
                 if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
-                entity.Estado = (int)ClienteStatus.Activo;
+                entity.Estado = ClienteStatus.Activo.ToString();
 
                 _repository.Add(entity);
             }
@@ -104,7 +104,7 @@ namespace BLL.Services
                  var cliente = _repository.GetById(clienteId);
                  if (cliente == null) throw new InvalidOperationException("Cliente no encontrado");
 
-                 cliente.Estado = (int)ClienteStatus.Inactivo;
+                 cliente.Estado = ClienteStatus.Inactivo.ToString();
                  _repository.Update(cliente);
 
                  _bitacora.Log($"CU-CLIE-02: Cliente DNI {cliente.DNI} deshabilitado - Razón: {razon}", "INFO");
@@ -123,7 +123,7 @@ namespace BLL.Services
                  var cliente = _repository.GetById(clienteId);
                  if (cliente == null) throw new InvalidOperationException("Cliente no encontrado");
 
-                 cliente.Estado = (int)ClienteStatus.Activo;
+                 cliente.Estado = ClienteStatus.Activo.ToString();
                  _repository.Update(cliente);
 
                  _bitacora.Log($"CU-CLIE-03: Cliente DNI {cliente.DNI} habilitado", "INFO");
@@ -146,7 +146,7 @@ namespace BLL.Services
                      return new ResultadoIngresoDTO { Permitido = false, Razon = "Cliente no encontrado" };
                  }
 
-                 if (cliente.Estado != (int)ClienteStatus.Activo)
+                 if (cliente.Estado != ClienteStatus.Activo.ToString())
                  {
                      _bitacora.Log($"CU-CLIE-04: Ingreso denegado para cliente DNI {dni} - Razón: Cliente deshabilitado", "WARNING");
                      return new ResultadoIngresoDTO

@@ -18,7 +18,7 @@ namespace BLL.Mappers
                 DNI = entity.DNI,
                 FechaNacimiento = entity.FechaNacimiento,
                 MembresiaID = entity.MembresiaID,
-                Status = (ClienteStatus)entity.Estado,
+                Status = (ClienteStatus)Enum.Parse(typeof(ClienteStatus), entity.Estado),
                 Balance = balance != null ? balance.Saldo : 0,
                 MembresiaDetalle = membresia != null ? MembresiaMapper.ToDTO(membresia) : null
             };
@@ -51,7 +51,7 @@ namespace BLL.Mappers
                 DNI = dto.DNI,
                 FechaNacimiento = dto.FechaNacimiento,
                 MembresiaID = dto.MembresiaID,
-                Estado = (int)dto.Status
+                Estado = dto.Status.ToString()
             };
         }
     }
