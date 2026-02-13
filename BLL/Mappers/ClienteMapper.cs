@@ -18,7 +18,7 @@ namespace BLL.Mappers
                 DNI = entity.DNI,
                 FechaNacimiento = entity.FechaNacimiento,
                 MembresiaID = entity.MembresiaID,
-                Activo = entity.Activo,
+                Status = entity.Activo ? ClienteStatus.Activo : ClienteStatus.Inactivo,
                 Balance = balance != null ? balance.Saldo : 0,
                 MembresiaDetalle = membresia != null ? MembresiaMapper.ToDTO(membresia) : null
             };
@@ -51,7 +51,7 @@ namespace BLL.Mappers
                 DNI = dto.DNI,
                 FechaNacimiento = dto.FechaNacimiento,
                 MembresiaID = dto.MembresiaID,
-                Activo = dto.Activo
+                Activo = dto.Status == ClienteStatus.Activo
             };
         }
     }

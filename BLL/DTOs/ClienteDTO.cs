@@ -10,7 +10,7 @@ namespace BLL.DTOs
         public int DNI { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public Guid? MembresiaID { get; set; }
-        public bool Activo { get; set; }
+        public ClienteStatus Status { get; set; }
 
         // Computed
         public string NombreCompleto => $"{Nombre} {Apellido}";
@@ -22,7 +22,7 @@ namespace BLL.DTOs
 
         public ClienteDTO()
         {
-            Activo = true;
+            Status = ClienteStatus.Activo;
         }
     }
 }
