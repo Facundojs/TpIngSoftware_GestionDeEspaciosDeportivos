@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "..\Service\Servi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
-		tables.sql = tables.sql
+		..\create_business_tables.sql = ..\create_business_tables.sql
+		..\3-new_permission.sql = ..\3-new_permission.sql
+		..\2-insert_admin.sql = ..\2-insert_admin.sql
+		1-services-tables.sql = 1-services-tables.sql
+		membresias.sql = membresias.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{E18E9389-C662-4F44-AA34-EFB7D1DF84D3}"
