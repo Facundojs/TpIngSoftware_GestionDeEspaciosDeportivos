@@ -19,5 +19,11 @@ namespace Domain.Composite
 
         // Log Permissions
         public const string BitacoraVer = "PERMISSION_LOG_VIEW";
+
+        // Membership Permissions
+        public const string MembresiaListar = "PERMISSION_MEMBRESIA_LIST";
+        public const string MembresiaCrear = "PERMISSION_MEMBRESIA_CREATE";
+        public const string MembresiaModificar = "PERMISSION_MEMBRESIA_UPDATE";
+        public const string MembresiaDeshabilitar = "PERMISSION_MEMBRESIA_DISABLE";
     }
 }
