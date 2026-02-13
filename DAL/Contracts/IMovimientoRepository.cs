@@ -6,6 +6,5 @@ namespace DAL.Contracts
     public interface IMovimientoRepository
     {
         void Insertar(Movimiento obj, SqlConnection conn = null, SqlTransaction tran = null);
-        bool ExisteDeudaMensual(int mes, int anio);
     }
 }
