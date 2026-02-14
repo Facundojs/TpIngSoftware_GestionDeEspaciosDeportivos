@@ -14,6 +14,8 @@ namespace DAL.Factory
         private static IBalanceRepository _balanceRepository;
         private static IMovimientoRepository _movimientoRepository;
         private static IMembresiaRepository _membresiaRepository;
+        private static IEspacioRepository _espacioRepository;
+        private static IAgendaRepository _agendaRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -60,6 +62,30 @@ namespace DAL.Factory
                     _membresiaRepository = new MembresiaSqlRepository();
                 }
                 return _membresiaRepository;
+            }
+        }
+
+        public static IEspacioRepository EspacioRepository
+        {
+            get
+            {
+                if (_espacioRepository == null)
+                {
+                    _espacioRepository = new EspacioSqlRepository();
+                }
+                return _espacioRepository;
+            }
+        }
+
+        public static IAgendaRepository AgendaRepository
+        {
+            get
+            {
+                if (_agendaRepository == null)
+                {
+                    _agendaRepository = new AgendaSqlRepository();
+                }
+                return _agendaRepository;
             }
         }
     }
