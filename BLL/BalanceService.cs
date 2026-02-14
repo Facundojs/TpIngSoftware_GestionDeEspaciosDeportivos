@@ -27,7 +27,7 @@ namespace BLL
             try
             {
                 // Retrieve all clients
-                var clientes = DalFactory.ClienteRepository.ListarTodos();
+                var clientes = DalFactory.ClienteRepository.GetAll();
 
                 // Ensure repositories are initialized before parallel execution to avoid race conditions in Factory
                 var membresiaRepo = DalFactory.MembresiaRepository;
@@ -103,9 +103,14 @@ namespace BLL
             _bitacoraService.Log($"Balance actualizado para el cliente {clienteId}", "INFO");
         }
 
+        public Balance ConsultarBalance(Guid clienteId)
+        {
+            return DalFactory.BalanceRepository.ObtenerBalance(clienteId);
+        }
+
         public void ValidarDeuda(Guid clienteId, string contexto = null)
         {
-            var balance = DalFactory.BalanceRepository.ObtenerBalance(clienteId);
+            var balance = ConsultarBalance(clienteId);
 
             if (balance != null && balance.Saldo < 0)
             {

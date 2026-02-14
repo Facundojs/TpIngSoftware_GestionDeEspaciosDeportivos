@@ -25,5 +25,12 @@ namespace Domain.Composite
         public const string MembresiaCrear = "PERMISSION_MEMBRESIA_CREATE";
         public const string MembresiaModificar = "PERMISSION_MEMBRESIA_UPDATE";
         public const string MembresiaDeshabilitar = "PERMISSION_MEMBRESIA_DISABLE";
+
+        // Client Permissions
+        public const string ClienteListar = "PERMISSION_CLIENTE_LIST";
+        public const string ClienteCrear = "PERMISSION_CLIENTE_CREATE";
+        public const string ClienteModificar = "PERMISSION_CLIENTE_UPDATE";
+        public const string ClienteDeshabilitar = "PERMISSION_CLIENTE_DISABLE";
+        public const string ClienteCheckIn = "PERMISSION_CLIENTE_CHECKIN";
     }
 }
