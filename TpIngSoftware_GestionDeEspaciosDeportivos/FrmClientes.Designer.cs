@@ -34,6 +34,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.txtDNICheckIn = new System.Windows.Forms.TextBox();
             this.lblDNICheckIn = new System.Windows.Forms.Label();
             this.pnlEdicion = new System.Windows.Forms.Panel();
+            this.btnVerRutina = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnHabilitar = new System.Windows.Forms.Button();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
@@ -104,6 +105,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // pnlEdicion
             //
+            this.pnlEdicion.Controls.Add(this.btnVerRutina);
             this.pnlEdicion.Controls.Add(this.btnLimpiar);
             this.pnlEdicion.Controls.Add(this.btnHabilitar);
             this.pnlEdicion.Controls.Add(this.btnDeshabilitar);
@@ -134,6 +136,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnLimpiar.Text = "BTN_LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            //
+            // btnVerRutina
+            //
+            this.btnVerRutina.Location = new System.Drawing.Point(20, 400);
+            this.btnVerRutina.Name = "btnVerRutina";
+            this.btnVerRutina.Size = new System.Drawing.Size(260, 23);
+            this.btnVerRutina.TabIndex = 15;
+            this.btnVerRutina.Text = "BTN_VER_RUTINA";
+            this.btnVerRutina.UseVisualStyleBackColor = true;
+            this.btnVerRutina.Click += new System.EventHandler(this.btnVerRutina_Click);
             //
             // btnHabilitar
             //
@@ -302,6 +314,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.TextBox txtDNICheckIn;
         private System.Windows.Forms.Label lblDNICheckIn;
+        private System.Windows.Forms.Button btnVerRutina;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnHabilitar;
         private System.Windows.Forms.Button btnDeshabilitar;
