@@ -17,6 +17,7 @@ namespace BLL.Services
         private readonly IRutinaRepository _rutinaRepository;
         private readonly IEjercicioRepository _ejercicioRepository;
         private readonly IRutinaEjercicioRepository _rutinaEjercicioRepository;
+        private readonly IClienteRepository _clienteRepository;
         private readonly BitacoraService _bitacoraService;
 
         public RutinaService()
@@ -24,6 +25,7 @@ namespace BLL.Services
             _rutinaRepository = DalFactory.RutinaRepository;
             _ejercicioRepository = DalFactory.EjercicioRepository;
             _rutinaEjercicioRepository = DalFactory.RutinaEjercicioRepository;
+            _clienteRepository = DalFactory.ClienteRepository;
             _bitacoraService = new BitacoraService();
         }
 
@@ -209,6 +211,63 @@ namespace BLL.Services
             catch (Exception ex)
             {
                 _bitacoraService.Log($"Error al obtener rutina activa: {ex.Message}", "ERROR", ex);
+                throw;
+            }
+        }
+
+        public RutinaDTO ObtenerRutina(Guid rutinaId)
+        {
+            try
+            {
+                var rutina = _rutinaRepository.GetById(rutinaId);
+                if (rutina == null) return null;
+
+                var dto = RutinaMapper.ToDTO(rutina);
+                var rutinaEjercicios = _rutinaEjercicioRepository.GetByRutina(rutina.Id);
+
+                dto.Ejercicios = rutinaEjercicios.Select(re => EjercicioMapper.ToDTO(re)).ToList();
+
+                return dto;
+            }
+            catch (Exception ex)
+            {
+                _bitacoraService.Log($"Error al obtener rutina: {ex.Message}", "ERROR", ex);
+                throw;
+            }
+        }
+
+        public List<RutinaDTO> ListarRutinas(bool soloActivas)
+        {
+            try
+            {
+                var rutinas = _rutinaRepository.GetAll();
+
+                if (soloActivas)
+                {
+                    rutinas = rutinas.Where(r => r.Hasta == null).ToList();
+                }
+
+                // In-memory join for Client Names.
+                // Optimization: fetch only needed clients if list is huge, but for now GetAll is fine.
+                var clientes = _clienteRepository.GetAll().ToDictionary(c => c.Id, c => $"{c.Nombre} {c.Apellido}");
+
+                return rutinas.Select(r =>
+                {
+                    var dto = RutinaMapper.ToDTO(r);
+                    if (clientes.ContainsKey(r.ClienteID))
+                    {
+                        dto.ClienteNombre = clientes[r.ClienteID];
+                    }
+                    else
+                    {
+                        dto.ClienteNombre = "Desconocido";
+                    }
+                    return dto;
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                _bitacoraService.Log($"Error al listar rutinas: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }

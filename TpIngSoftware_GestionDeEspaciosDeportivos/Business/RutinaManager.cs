@@ -19,6 +19,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
             return _service.ObtenerRutinaActiva(clienteId);
         }
 
+        public RutinaDTO ObtenerRutina(Guid rutinaId)
+        {
+            return _service.ObtenerRutina(rutinaId);
+        }
+
+        public List<RutinaDTO> ListarRutinas(bool soloActivas)
+        {
+            return _service.ListarRutinas(soloActivas);
+        }
+
         public void CrearRutina(RutinaDTO dto)
         {
             _service.CrearRutina(dto);

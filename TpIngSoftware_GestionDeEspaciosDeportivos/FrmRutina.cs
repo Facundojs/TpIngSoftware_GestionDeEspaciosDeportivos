@@ -5,8 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using BLL.DTOs;
 using Domain.Composite;
-using Service.DTO;
-using Service.Helpers;
 using Service.Facade.Extension;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 
@@ -18,14 +16,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private readonly UsuarioDTO _usuario;
         private readonly RutinaManager _rutinaManager;
         private readonly ClienteManager _clienteManager;
+        private readonly Guid? _rutinaId; // Optional specific routine ID
         private RutinaDTO _rutinaActual;
         private BindingList<EjercicioDTO> _ejerciciosBinding;
 
-        public FrmRutina(Guid clienteId, UsuarioDTO usuario)
+        public FrmRutina(Guid clienteId, UsuarioDTO usuario, Guid? rutinaId = null)
         {
             InitializeComponent();
             _clienteId = clienteId;
             _usuario = usuario;
+            _rutinaId = rutinaId;
             _rutinaManager = new RutinaManager();
             _clienteManager = new ClienteManager();
             _ejerciciosBinding = new BindingList<EjercicioDTO>();
@@ -126,7 +126,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             try
             {
-                _rutinaActual = _rutinaManager.ObtenerRutinaActiva(_clienteId);
+                if (_rutinaId.HasValue)
+                {
+                    _rutinaActual = _rutinaManager.ObtenerRutina(_rutinaId.Value);
+                }
+                else
+                {
+                    _rutinaActual = _rutinaManager.ObtenerRutinaActiva(_clienteId);
+                }
+
                 _ejerciciosBinding.Clear();
 
                 if (_rutinaActual != null)

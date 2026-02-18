@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\EspacioManager.cs" />
+    <Compile Include="Business\EjercicioManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +72,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEspacios.Designer.cs" />
+    <Compile Include="FrmEjercicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEjercicios.Designer.cs">
+      <DependentUpon>FrmEjercicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSeleccionarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSeleccionarCliente.Designer.cs">
+      <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
