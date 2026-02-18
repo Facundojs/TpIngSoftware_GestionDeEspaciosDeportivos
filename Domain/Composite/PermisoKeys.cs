@@ -32,5 +32,11 @@ namespace Domain.Composite
         public const string ClienteModificar = "PERMISSION_CLIENTE_UPDATE";
         public const string ClienteDeshabilitar = "PERMISSION_CLIENTE_DISABLE";
         public const string ClienteCheckIn = "PERMISSION_CLIENTE_CHECKIN";
+
+        // Espacio Permissions
+        public const string EspacioListar = "PERMISSION_ESPACIO_LIST";
+        public const string EspacioCrear = "PERMISSION_ESPACIO_CREATE";
+        public const string EspacioModificar = "PERMISSION_ESPACIO_UPDATE";
+        public const string EspacioEliminar = "PERMISSION_ESPACIO_DELETE";
     }
 }
