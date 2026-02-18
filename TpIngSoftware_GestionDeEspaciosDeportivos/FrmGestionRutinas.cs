@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using BLL.DTOs;
 using Domain.Composite;
+using Service.DTO;
+using Service.Helpers;
 using Service.Facade.Extension;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 
