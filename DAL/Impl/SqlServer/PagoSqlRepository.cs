@@ -10,6 +10,9 @@ namespace DAL.Impl
     {
         #region IGenericRepository Implementation
 
+        // These methods act as convenience wrappers that delegate to the UoW overloads below.
+        // They allow calling the repository methods without an existing transaction (standalone execution).
+
         public void Add(Pago obj)
         {
             Add(obj, null, null);
@@ -39,6 +42,8 @@ namespace DAL.Impl
 
         #region Custom Methods Implementation
 
+        // Custom methods specific to Pago repository, also delegating to UoW overloads.
+
         public List<Pago> GetByCliente(Guid clienteId, DateTime? desde, DateTime? hasta)
         {
             return GetByCliente(clienteId, desde, hasta, null, null);
@@ -57,6 +62,9 @@ namespace DAL.Impl
         #endregion
 
         #region UoW Overloads
+
+        // These methods contain the actual implementation logic and accept optional SqlConnection and SqlTransaction parameters.
+        // This supports the Unit of Work pattern, allowing multiple operations to participate in a single transaction.
 
         public void Add(Pago obj, SqlConnection conn = null, SqlTransaction tran = null)
         {
