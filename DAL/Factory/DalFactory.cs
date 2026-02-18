@@ -19,6 +19,8 @@ namespace DAL.Factory
         private static IRutinaRepository _rutinaRepository;
         private static IEjercicioRepository _ejercicioRepository;
         private static IRutinaEjercicioRepository _rutinaEjercicioRepository;
+        private static IPagoRepository _pagoRepository;
+        private static IComprobanteRepository _comprobanteRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -125,6 +127,30 @@ namespace DAL.Factory
                     _rutinaEjercicioRepository = new RutinaEjercicioSqlRepository();
                 }
                 return _rutinaEjercicioRepository;
+            }
+        }
+
+        public static IPagoRepository PagoRepository
+        {
+            get
+            {
+                if (_pagoRepository == null)
+                {
+                    _pagoRepository = new PagoSqlRepository();
+                }
+                return _pagoRepository;
+            }
+        }
+
+        public static IComprobanteRepository ComprobanteRepository
+        {
+            get
+            {
+                if (_comprobanteRepository == null)
+                {
+                    _comprobanteRepository = new ComprobanteSqlRepository();
+                }
+                return _comprobanteRepository;
             }
         }
     }
