@@ -22,7 +22,6 @@ CREATE TABLE Espacio (
     PrecioHora DECIMAL(18,2) NOT NULL CHECK (PrecioHora >= 0)
 );
 
--- 3. Cliente (Inherits from Usuario)
 -- 3. Cliente (Business Entity only)
 CREATE TABLE Cliente (
     Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
@@ -137,15 +136,22 @@ CREATE TABLE Rutina (
 -- 12. Ejercicio
 CREATE TABLE Ejercicio (
     Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Nombre NVARCHAR(255) NOT NULL UNIQUE
+);
+
+-- 13. RutinaEjercicio (Intermediate Table)
+CREATE TABLE RutinaEjercicio (
     RutinaID UNIQUEIDENTIFIER NOT NULL,
-    Nombre NVARCHAR(255) NOT NULL,
+    EjercicioID UNIQUEIDENTIFIER NOT NULL,
     Repeticiones INT NOT NULL CHECK (Repeticiones > 0),
     DiaSemana INT NOT NULL CHECK (DiaSemana BETWEEN 1 AND 7),
     Orden INT NOT NULL,
-    FOREIGN KEY (RutinaID) REFERENCES Rutina(Id) ON DELETE CASCADE
+    PRIMARY KEY (RutinaID, EjercicioID),
+    FOREIGN KEY (RutinaID) REFERENCES Rutina(Id) ON DELETE CASCADE,
+    FOREIGN KEY (EjercicioID) REFERENCES Ejercicio(Id) ON DELETE CASCADE
 );
 
--- 13. Vista vw_Balance
+-- 14. Vista vw_Balance
 GO
 
 CREATE VIEW vw_Balance AS
