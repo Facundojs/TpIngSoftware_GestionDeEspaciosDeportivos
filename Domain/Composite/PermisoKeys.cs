@@ -38,5 +38,11 @@ namespace Domain.Composite
         public const string EspacioCrear = "PERMISSION_ESPACIO_CREATE";
         public const string EspacioModificar = "PERMISSION_ESPACIO_UPDATE";
         public const string EspacioEliminar = "PERMISSION_ESPACIO_DELETE";
+
+        // Rutina Permissions
+        public const string RutinaVer = "PERMISSION_RUTINA_VIEW";
+        public const string RutinaCrear = "PERMISSION_RUTINA_CREATE";
+        public const string RutinaModificar = "PERMISSION_RUTINA_UPDATE";
+        public const string RutinaEliminar = "PERMISSION_RUTINA_DELETE";
     }
 }

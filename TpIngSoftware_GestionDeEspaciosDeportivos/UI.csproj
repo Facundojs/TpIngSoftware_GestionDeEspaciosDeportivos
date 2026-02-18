@@ -89,6 +89,13 @@
     <Compile Include="FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\RutinaManager.cs" />
+    <Compile Include="FrmRutina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRutina.Designer.cs">
+      <DependentUpon>FrmRutina.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMembresias.cs">
       <SubType>Form</SubType>
     </Compile>

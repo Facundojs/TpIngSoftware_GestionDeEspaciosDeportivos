@@ -80,6 +80,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             lblDNICheckIn.Text = "LBL_DNI".Translate();
             btnCheckIn.Text = "BTN_CHECK_IN".Translate();
+            btnVerRutina.Text = "BTN_VER_RUTINA".Translate();
 
             // Refresh headers
             if (dgvClientes.Columns.Count > 0)
@@ -102,6 +103,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnDeshabilitar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar);
             btnHabilitar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar); // Assuming same permission for Enable/Disable
             btnCheckIn.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteCheckIn);
+            btnVerRutina.Enabled = false; // Disabled by default until selection
 
             // Edit panel visibility based on permissions? Usually we disable buttons.
         }
@@ -253,6 +255,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnActualizar.Enabled = false;
             btnDeshabilitar.Enabled = false;
             btnHabilitar.Enabled = false;
+            btnVerRutina.Enabled = false;
         }
 
         private void dgvClientes_SelectionChanged(object sender, EventArgs e)
@@ -280,9 +283,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 bool canModify = _usuario.TienePermiso(PermisoKeys.ClienteModificar);
                 bool canDisable = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar);
+                bool canViewRoutine = _usuario.TienePermiso(PermisoKeys.RutinaVer);
 
                 btnCrear.Enabled = false;
                 btnActualizar.Enabled = canModify;
+                btnVerRutina.Enabled = canViewRoutine;
 
                 if (cliente.Status == ClienteStatus.Activo)
                 {
@@ -295,6 +300,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     btnHabilitar.Enabled = canDisable;
                 }
             }
+        }
+
+        private void btnVerRutina_Click(object sender, EventArgs e)
+        {
+            if (_clienteSeleccionado == null) return;
+            var frm = new FrmRutina(_clienteSeleccionado.Id, _usuario);
+            frm.ShowDialog();
         }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
