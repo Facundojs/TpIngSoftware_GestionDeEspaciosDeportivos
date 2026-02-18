@@ -10,21 +10,17 @@ namespace BLL.Mappers
             return new Ejercicio
             {
                 Id = dto.Id,
-                RutinaID = dto.RutinaID,
-                Nombre = dto.Nombre,
-                Repeticiones = dto.Repeticiones,
-                DiaSemana = dto.DiaSemana,
-                Orden = dto.Orden
+                Nombre = dto.Nombre
             };
         }
 
-        public static EjercicioDTO ToDTO(Ejercicio entity)
+        public static EjercicioDTO ToDTO(RutinaEjercicio entity)
         {
             return new EjercicioDTO
             {
-                Id = entity.Id,
-                RutinaID = entity.RutinaID,
-                Nombre = entity.Nombre,
+                Id = entity.EjercicioId, // Using the Exercise ID
+                RutinaID = entity.RutinaId,
+                Nombre = entity.Ejercicio != null ? entity.Ejercicio.Nombre : "Desconocido",
                 Repeticiones = entity.Repeticiones,
                 DiaSemana = entity.DiaSemana,
                 Orden = entity.Orden

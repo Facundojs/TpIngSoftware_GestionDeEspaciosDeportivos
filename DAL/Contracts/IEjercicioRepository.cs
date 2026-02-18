@@ -1,14 +1,12 @@
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
+using Service.Contracts;
 using System.Data.SqlClient;
 
 namespace DAL.Contracts
 {
-    public interface IEjercicioRepository
+    public interface IEjercicioRepository : IGenericRepository<Ejercicio>
     {
-        void Insertar(Ejercicio obj, SqlConnection conn, SqlTransaction tran);
-        List<Ejercicio> GetByRutina(Guid rutinaId);
-        void EliminarPorRutina(Guid rutinaId, SqlConnection conn, SqlTransaction tran);
+        Ejercicio GetByNombre(string nombre);
+        void Add(Ejercicio obj, SqlConnection conn, SqlTransaction tran);
     }
 }

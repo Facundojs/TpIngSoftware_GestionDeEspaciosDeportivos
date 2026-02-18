@@ -18,6 +18,7 @@ namespace DAL.Factory
         private static IAgendaRepository _agendaRepository;
         private static IRutinaRepository _rutinaRepository;
         private static IEjercicioRepository _ejercicioRepository;
+        private static IRutinaEjercicioRepository _rutinaEjercicioRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -112,6 +113,18 @@ namespace DAL.Factory
                     _ejercicioRepository = new EjercicioSqlRepository();
                 }
                 return _ejercicioRepository;
+            }
+        }
+
+        public static IRutinaEjercicioRepository RutinaEjercicioRepository
+        {
+            get
+            {
+                if (_rutinaEjercicioRepository == null)
+                {
+                    _rutinaEjercicioRepository = new RutinaEjercicioSqlRepository();
+                }
+                return _rutinaEjercicioRepository;
             }
         }
     }

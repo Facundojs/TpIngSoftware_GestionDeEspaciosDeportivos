@@ -16,12 +16,14 @@ namespace BLL.Services
     {
         private readonly IRutinaRepository _rutinaRepository;
         private readonly IEjercicioRepository _ejercicioRepository;
+        private readonly IRutinaEjercicioRepository _rutinaEjercicioRepository;
         private readonly BitacoraService _bitacoraService;
 
         public RutinaService()
         {
             _rutinaRepository = DalFactory.RutinaRepository;
             _ejercicioRepository = DalFactory.EjercicioRepository;
+            _rutinaEjercicioRepository = DalFactory.RutinaEjercicioRepository;
             _bitacoraService = new BitacoraService();
         }
 
@@ -38,9 +40,6 @@ namespace BLL.Services
                     if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception($"El ejercicio {ex.Nombre} tiene un día de semana inválido.");
                 }
 
-                // Obtener rutina activa antes de la transacción (para saber si finalizarla)
-                // Nota: Podría haber una condición de carrera si dos usuarios crean rutina al mismo tiempo,
-                // pero asumimos un solo operador por cliente en este contexto.
                 var rutinaActiva = _rutinaRepository.GetActivaByCliente(dto.ClienteID);
 
                 using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
@@ -56,7 +55,6 @@ namespace BLL.Services
                             }
 
                             var nuevaRutina = RutinaMapper.ToEntity(dto);
-                            // Asegurar ID nuevo y fechas correctas
                             if (nuevaRutina.Id == Guid.Empty) nuevaRutina.Id = Guid.NewGuid();
                             nuevaRutina.Desde = DateTime.Now;
                             nuevaRutina.Hasta = null;
@@ -65,10 +63,36 @@ namespace BLL.Services
 
                             foreach (var exDto in dto.Ejercicios)
                             {
-                                var ejercicio = EjercicioMapper.ToEntity(exDto);
-                                ejercicio.RutinaID = nuevaRutina.Id;
-                                if (ejercicio.Id == Guid.Empty) ejercicio.Id = Guid.NewGuid();
-                                _ejercicioRepository.Insertar(ejercicio, conn, tran);
+                                // Ensure Ejercicio exists
+                                Ejercicio ejercicio = null;
+                                if (exDto.Id != Guid.Empty)
+                                {
+                                    // Try to fetch by ID? Or assume it's valid?
+                                    // Better to fetch by Name to be sure or just assume if we are creating.
+                                    // Let's check by Name first to avoid duplicates if user typed existing name
+                                    ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
+                                }
+                                else
+                                {
+                                    ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
+                                }
+
+                                if (ejercicio == null)
+                                {
+                                    ejercicio = new Ejercicio { Id = Guid.NewGuid(), Nombre = exDto.Nombre };
+                                    _ejercicioRepository.Add(ejercicio, conn, tran);
+                                }
+
+                                var rutinaEjercicio = new RutinaEjercicio
+                                {
+                                    RutinaId = nuevaRutina.Id,
+                                    EjercicioId = ejercicio.Id,
+                                    Repeticiones = exDto.Repeticiones,
+                                    DiaSemana = exDto.DiaSemana,
+                                    Orden = exDto.Orden
+                                };
+
+                                _rutinaEjercicioRepository.Insertar(rutinaEjercicio, conn, tran);
                             }
 
                             tran.Commit();
@@ -109,16 +133,27 @@ namespace BLL.Services
                     {
                         try
                         {
-                            // Eliminar ejercicios anteriores
-                            _ejercicioRepository.EliminarPorRutina(rutinaId, conn, tran);
+                            _rutinaEjercicioRepository.EliminarPorRutina(rutinaId, conn, tran);
 
-                            // Insertar nuevos
                             foreach (var exDto in ejercicios)
                             {
-                                var ejercicio = EjercicioMapper.ToEntity(exDto);
-                                ejercicio.RutinaID = rutinaId; // Asegurar FK
-                                if (ejercicio.Id == Guid.Empty) ejercicio.Id = Guid.NewGuid();
-                                _ejercicioRepository.Insertar(ejercicio, conn, tran);
+                                Ejercicio ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
+                                if (ejercicio == null)
+                                {
+                                    ejercicio = new Ejercicio { Id = Guid.NewGuid(), Nombre = exDto.Nombre };
+                                    _ejercicioRepository.Add(ejercicio, conn, tran);
+                                }
+
+                                var rutinaEjercicio = new RutinaEjercicio
+                                {
+                                    RutinaId = rutinaId,
+                                    EjercicioId = ejercicio.Id,
+                                    Repeticiones = exDto.Repeticiones,
+                                    DiaSemana = exDto.DiaSemana,
+                                    Orden = exDto.Orden
+                                };
+
+                                _rutinaEjercicioRepository.Insertar(rutinaEjercicio, conn, tran);
                             }
 
                             tran.Commit();
@@ -143,6 +178,10 @@ namespace BLL.Services
         {
             try
             {
+                // Delete links first (if not cascading) - safer to do it explicit inside logic if we want,
+                // but requirement said cascade. I'll rely on DB cascade for clean code or previous instruction.
+                // However, previous prompt DoD said "Eliminar rutina elimina ejercicios en cascada (FK)".
+                // With Many-to-Many, deleting Rutina should cascade delete RutinaEjercicio rows.
                 _rutinaRepository.Remove(rutinaId);
                 _bitacoraService.Log($"Rutina {rutinaId} eliminada", "INFO");
             }
@@ -161,9 +200,9 @@ namespace BLL.Services
                 if (rutina == null) return null;
 
                 var dto = RutinaMapper.ToDTO(rutina);
-                var ejercicios = _ejercicioRepository.GetByRutina(rutina.Id);
+                var rutinaEjercicios = _rutinaEjercicioRepository.GetByRutina(rutina.Id);
 
-                dto.Ejercicios = ejercicios.Select(e => EjercicioMapper.ToDTO(e)).ToList();
+                dto.Ejercicios = rutinaEjercicios.Select(re => EjercicioMapper.ToDTO(re)).ToList();
 
                 return dto;
             }

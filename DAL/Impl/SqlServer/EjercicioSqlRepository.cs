@@ -9,26 +9,58 @@ namespace DAL.Impl
 {
     public class EjercicioSqlRepository : BaseBusinessSqlRepository, IEjercicioRepository
     {
-        public void Insertar(Ejercicio obj, SqlConnection conn, SqlTransaction tran)
+        public void Add(Ejercicio obj)
         {
-            string query = "INSERT INTO Ejercicio (Id, RutinaID, Nombre, Repeticiones, DiaSemana, Orden) VALUES (@Id, @RutinaID, @Nombre, @Repeticiones, @DiaSemana, @Orden)";
+            Add(obj, null, null);
+        }
+
+        public void Add(Ejercicio obj, SqlConnection conn, SqlTransaction tran)
+        {
+            string query = "INSERT INTO Ejercicio (Id, Nombre) VALUES (@Id, @Nombre)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
-                new SqlParameter("@RutinaID", obj.RutinaID),
-                new SqlParameter("@Nombre", obj.Nombre),
-                new SqlParameter("@Repeticiones", obj.Repeticiones),
-                new SqlParameter("@DiaSemana", obj.DiaSemana),
-                new SqlParameter("@Orden", obj.Orden)
+                new SqlParameter("@Nombre", obj.Nombre)
             };
             ExecuteNonQuery(query, parameters, conn, tran);
         }
 
-        public List<Ejercicio> GetByRutina(Guid rutinaId)
+        public void Update(Ejercicio obj)
         {
-            string query = "SELECT Id, RutinaID, Nombre, Repeticiones, DiaSemana, Orden FROM Ejercicio WHERE RutinaID = @RutinaID ORDER BY DiaSemana, Orden";
-            SqlParameter[] parameters = { new SqlParameter("@RutinaID", rutinaId) };
+            string query = "UPDATE Ejercicio SET Nombre = @Nombre WHERE Id = @Id";
+            SqlParameter[] parameters = {
+                new SqlParameter("@Id", obj.Id),
+                new SqlParameter("@Nombre", obj.Nombre)
+            };
+            ExecuteNonQuery(query, parameters);
+        }
+
+        public void Remove(Guid id)
+        {
+            string query = "DELETE FROM Ejercicio WHERE Id = @Id";
+            SqlParameter[] parameters = { new SqlParameter("@Id", id) };
+            ExecuteNonQuery(query, parameters);
+        }
+
+        public Ejercicio GetById(Guid id)
+        {
+            string query = "SELECT Id, Nombre FROM Ejercicio WHERE Id = @Id";
+            SqlParameter[] parameters = { new SqlParameter("@Id", id) };
 
             return ExecuteReader(query, parameters, reader =>
+            {
+                if (reader.Read())
+                {
+                    return Map(reader);
+                }
+                return null;
+            });
+        }
+
+        public List<Ejercicio> GetAll()
+        {
+            string query = "SELECT Id, Nombre FROM Ejercicio";
+
+            return ExecuteReader(query, null, reader =>
             {
                 var list = new List<Ejercicio>();
                 while (reader.Read())
@@ -39,11 +71,19 @@ namespace DAL.Impl
             });
         }
 
-        public void EliminarPorRutina(Guid rutinaId, SqlConnection conn, SqlTransaction tran)
+        public Ejercicio GetByNombre(string nombre)
         {
-            string query = "DELETE FROM Ejercicio WHERE RutinaID = @RutinaID";
-            SqlParameter[] parameters = { new SqlParameter("@RutinaID", rutinaId) };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            string query = "SELECT Id, Nombre FROM Ejercicio WHERE Nombre = @Nombre";
+            SqlParameter[] parameters = { new SqlParameter("@Nombre", nombre) };
+
+            return ExecuteReader(query, parameters, reader =>
+            {
+                if (reader.Read())
+                {
+                    return Map(reader);
+                }
+                return null;
+            });
         }
 
         private Ejercicio Map(SqlDataReader reader)
@@ -51,11 +91,7 @@ namespace DAL.Impl
             return new Ejercicio
             {
                 Id = reader.GetGuid(0),
-                RutinaID = reader.GetGuid(1),
-                Nombre = reader.GetString(2),
-                Repeticiones = reader.GetInt32(3),
-                DiaSemana = reader.GetInt32(4),
-                Orden = reader.GetInt32(5)
+                Nombre = reader.GetString(1)
             };
         }
     }
