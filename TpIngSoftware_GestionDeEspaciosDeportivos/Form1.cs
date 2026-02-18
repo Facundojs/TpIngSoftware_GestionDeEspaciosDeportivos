@@ -30,6 +30,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private ToolStripMenuItem _menuBitacora;
         private ToolStripMenuItem _menuMembresias;
         private ToolStripMenuItem _menuClientes;
+        private ToolStripMenuItem _menuEspacios;
 
         public Form1(UsuarioDTO usuario)
         {
@@ -64,11 +65,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuClientes = new ToolStripMenuItem("CLIENTE_TITLE".Translate());
             _menuClientes.Click += (s, e) => OpenClientes();
 
+            _menuEspacios = new ToolStripMenuItem("MENU_ESPACIOS".Translate());
+            _menuEspacios.Click += (s, e) => OpenEspacios();
+
             _menuAdmin.DropDownItems.Add(_menuBackups);
             _menuAdmin.DropDownItems.Add(_menuUsuarios);
             _menuAdmin.DropDownItems.Add(_menuBitacora);
             _menuAdmin.DropDownItems.Add(_menuMembresias);
             _menuAdmin.DropDownItems.Add(_menuClientes);
+            _menuAdmin.DropDownItems.Add(_menuEspacios);
 
             _menuStrip.Items.Add(_menuAdmin);
 
@@ -85,6 +90,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuBitacora != null) _menuBitacora.Text = "MENU_BITACORA".Translate();
             if(_menuMembresias != null) _menuMembresias.Text = "MENU_MEMBRESIA".Translate();
             if(_menuClientes != null) _menuClientes.Text = "CLIENTE_TITLE".Translate();
+            if(_menuEspacios != null) _menuEspacios.Text = "MENU_ESPACIOS".Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -113,14 +119,22 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             bool canViewLogs = _usuario.TienePermiso(PermisoKeys.BitacoraVer);
             bool canManageMembresias = _usuario.TienePermiso(PermisoKeys.MembresiaListar);
             bool canManageClientes = _usuario.TienePermiso(PermisoKeys.ClienteListar);
+            bool canManageEspacios = _usuario.TienePermiso(PermisoKeys.EspacioListar);
 
             if(_menuBackups != null) _menuBackups.Visible = canBackup;
             if(_menuUsuarios != null) _menuUsuarios.Visible = canManageUsers;
             if(_menuBitacora != null) _menuBitacora.Visible = canViewLogs;
             if(_menuMembresias != null) _menuMembresias.Visible = canManageMembresias;
             if(_menuClientes != null) _menuClientes.Visible = canManageClientes;
+            if(_menuEspacios != null) _menuEspacios.Visible = canManageEspacios;
 
-            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canViewLogs || canManageMembresias || canManageClientes;
+            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canViewLogs || canManageMembresias || canManageClientes || canManageEspacios;
+        }
+
+        private void OpenEspacios()
+        {
+            var frm = new FrmEspacios(_usuario);
+            frm.ShowDialog();
         }
 
         private void OpenClientes()
