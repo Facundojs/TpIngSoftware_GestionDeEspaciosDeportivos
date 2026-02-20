@@ -185,6 +185,19 @@ namespace BLL.Services
             }
         }
 
+        public ComprobanteDTO ObtenerComprobante(Guid pagoId)
+        {
+            try
+            {
+                return _comprobanteFacade.Obtener(pagoId);
+            }
+            catch (Exception ex)
+            {
+                _bitacora.Log($"Error al obtener comprobante del pago {pagoId}: {ex.Message}", "ERROR", ex);
+                throw;
+            }
+        }
+
         public List<PagoDTO> ListarPagos(Guid? clienteId, DateTime? desde, DateTime? hasta)
         {
             List<Pago> list;

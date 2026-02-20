@@ -28,27 +28,36 @@ namespace BLL.Facades
             var entity = PagoMapper.ToEntity(dto);
             if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
 
-            // Set file path if not provided or to standardize
-            // Using a "Comprobantes" folder in the base directory
-            string baseFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Comprobantes");
-
-            // Generate a safe file name
-            string extension = Path.GetExtension(dto.NombreArchivo);
-            if (string.IsNullOrEmpty(extension)) extension = ".dat"; // Fallback
-
-            string fileName = $"{entity.Id}{extension}";
-            string fullPath = Path.Combine(baseFolder, fileName);
-
-            entity.RutaArchivo = fullPath;
+            // RutaArchivo is now handled by the File Repository to ensure determinism.
+            // We just ensure metadata is set.
             entity.FechaSubida = DateTime.Now;
 
-            // 1. Save File to Disk
-            // The file repo uses the entity's RutaArchivo and Contenido
+            // 1. Save File to Disk (this updates entity.RutaArchivo)
             _fileRepo.Agregar(entity);
 
             // 2. Save Metadata to DB
-            // The SQL repo uses the entity's properties (Id, PagoId, RutaArchivo, etc)
             _sqlRepo.Agregar(entity);
+        }
+
+        public ComprobanteDTO Obtener(Guid pagoId)
+        {
+            if (pagoId == Guid.Empty) throw new ArgumentException("El ID del pago es requerido");
+
+            // 1. Get Metadata
+            var metadata = _sqlRepo.GetByPago(pagoId);
+            if (metadata == null) return null;
+
+            // 2. Get Content
+            var fileData = _fileRepo.GetByPago(pagoId);
+
+            // Merge
+            var dto = PagoMapper.ToDTO(metadata);
+            if (fileData != null && fileData.Contenido != null)
+            {
+                dto.Contenido = fileData.Contenido;
+            }
+
+            return dto;
         }
     }
 }

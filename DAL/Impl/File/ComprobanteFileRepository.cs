@@ -7,22 +7,30 @@ namespace DAL.Impl.File
 {
     public class ComprobanteFileRepository : IComprobanteRepository
     {
+        private readonly string _baseFolder;
+
+        public ComprobanteFileRepository()
+        {
+            _baseFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Comprobantes");
+            if (!System.IO.Directory.Exists(_baseFolder))
+            {
+                System.IO.Directory.CreateDirectory(_baseFolder);
+            }
+        }
+
         public void Agregar(Comprobante obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (string.IsNullOrWhiteSpace(obj.RutaArchivo)) throw new ArgumentException("RutaArchivo es requerido");
+            if (obj.PagoID == Guid.Empty) throw new ArgumentException("PagoID es requerido para generar la ruta del archivo");
             if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException("El contenido del archivo es requerido");
 
             try
             {
-                // Ensure directory exists
-                string directory = Path.GetDirectoryName(obj.RutaArchivo);
-                if (!string.IsNullOrEmpty(directory) && !System.IO.Directory.Exists(directory))
-                {
-                    System.IO.Directory.CreateDirectory(directory);
-                }
+                // Deterministic path based on PagoID
+                string filePath = GetFilePath(obj.PagoID);
+                obj.RutaArchivo = filePath; // Update the entity with the generated path
 
-                System.IO.File.WriteAllBytes(obj.RutaArchivo, obj.Contenido);
+                System.IO.File.WriteAllBytes(filePath, obj.Contenido);
             }
             catch (Exception ex)
             {
@@ -32,29 +40,30 @@ namespace DAL.Impl.File
 
         public Comprobante GetByPago(Guid pagoId)
         {
-            // This method is primarily for retrieval. In a file-based repo, we might not be able to query by PagoId directly
-            // without an index. However, the requirement is to orchestrate storage.
-            // If the caller provides the path, we can read it. But GetByPago implies we know the path from PagoId.
-            // Typically, the SQL repo holds the metadata (Path) and the File repo reads using the Path.
-            // For this implementation, returning null or throwing NotImplemented might be acceptable if not used,
-            // but let's implement a basic read if we assume a standard path convention or if this method isn't the primary way to read content.
+            if (pagoId == Guid.Empty) return null;
 
-            // Since we can't look up the file path from PagoId without the SQL DB, this method is limited in a standalone FileRepo
-            // unless we enforce a naming convention like "Comprobantes/{PagoId}.ext".
+            string filePath = GetFilePath(pagoId);
 
-            // Returning null as this responsibility (metadata lookup) belongs to SQL repo.
-            // The Facade will handle the coordination: Get from SQL (get path) -> Read from File.
+            if (System.IO.File.Exists(filePath))
+            {
+                return new Comprobante
+                {
+                    PagoID = pagoId,
+                    RutaArchivo = filePath,
+                    Contenido = System.IO.File.ReadAllBytes(filePath)
+                    // Other properties like NombreArchivo, FechaSubida are stored in SQL
+                };
+            }
+
             return null;
         }
 
-        // Helper method to read file if path is known
-        public byte[] LeerArchivo(string ruta)
+        private string GetFilePath(Guid pagoId)
         {
-            if (System.IO.File.Exists(ruta))
-            {
-                return System.IO.File.ReadAllBytes(ruta);
-            }
-            return null;
+            // We use a fixed extension ".dat" or similar because we store the original filename in SQL.
+            // If we needed to support original extensions here without SQL lookup, we'd need to store the extension in the filename too (e.g. {id}_{ext}).
+            // For now, assuming raw content storage.
+            return Path.Combine(_baseFolder, $"{pagoId}.dat");
         }
     }
 }
