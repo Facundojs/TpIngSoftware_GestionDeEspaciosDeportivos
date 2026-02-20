@@ -4,6 +4,7 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
+using Domain.Enums;
 using Service.Helpers;
 using Service.Logic;
 using System;
@@ -49,7 +50,7 @@ namespace BLL.Services
                         try
                         {
                             // 1. INSERT Pago
-                            dto.Estado = "Abonado";
+                            dto.Estado = EstadoPago.Abonado;
                             // Ensure Fecha is set
                             if (dto.Fecha == default) dto.Fecha = DateTime.Now;
 
@@ -121,7 +122,7 @@ namespace BLL.Services
                             if (pago == null) throw new InvalidOperationException("El pago no existe");
 
                             // Validate State
-                            if (pago.Estado != "Abonado")
+                            if (pago.Estado != EstadoPago.Abonado.ToString())
                             {
                                 throw new InvalidOperationException($"Solo se pueden reembolsar pagos en estado 'Abonado'. Estado actual: {pago.Estado}");
                             }
@@ -129,7 +130,7 @@ namespace BLL.Services
                             pagoParaLog = pago;
 
                             // 2. UPDATE Pago
-                            pago.Estado = "Reembolsado";
+                            pago.Estado = EstadoPago.Reembolsado.ToString();
                             _pagoRepo.Update(pago, conn, tran);
 
                             // 3. INSERT Movimiento negativo

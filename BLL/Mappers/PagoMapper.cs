@@ -1,5 +1,6 @@
 using BLL.DTOs;
 using Domain.Entities;
+using Domain.Enums;
 using System;
 
 namespace BLL.Mappers
@@ -19,7 +20,7 @@ namespace BLL.Mappers
                 Metodo = entity.Metodo,
                 Detalle = entity.Detalle,
                 Fecha = entity.Fecha,
-                Estado = entity.Estado,
+                Estado = (EstadoPago)Enum.Parse(typeof(EstadoPago), entity.Estado),
                 MembresiaID = entity.MembresiaID,
                 ReservaID = entity.ReservaID
             };
@@ -37,7 +38,7 @@ namespace BLL.Mappers
                 Metodo = dto.Metodo,
                 Detalle = dto.Detalle,
                 Fecha = dto.Fecha,
-                Estado = dto.Estado,
+                Estado = dto.Estado.ToString(),
                 MembresiaID = dto.MembresiaID,
                 ReservaID = dto.ReservaID
             };

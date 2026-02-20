@@ -1,3 +1,4 @@
+using Domain.Enums;
 using System;
 
 namespace BLL.DTOs
@@ -11,7 +12,7 @@ namespace BLL.DTOs
         public string Metodo { get; set; }
         public string Detalle { get; set; }
         public DateTime Fecha { get; set; }
-        public string Estado { get; set; }
+        public EstadoPago Estado { get; set; }
         public Guid? MembresiaID { get; set; }
         public Guid? ReservaID { get; set; }
 
