@@ -13,5 +13,15 @@ namespace Service.Logic
         {
             return FactoryDao.LanguageRepository.Translate(key);
         }
+
+        public static Dictionary<string, string> GetLanguages()
+        {
+            return FactoryDao.LanguageRepository.GetLanguages();
+        }
+
+        public static void SaveUserLanguage(string languageCode)
+        {
+            FactoryDao.LanguageRepository.SaveUserLanguage(languageCode);
+        }
     }
 }

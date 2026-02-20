@@ -29,31 +29,54 @@ namespace Service.Impl.Text
             // Obtener el código de idioma actual (es-ES, en-EN)
             string language = Thread.CurrentThread.CurrentUICulture.Name;
 
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string cleanLanguagePath = LanguagePath.Trim('\\', '/');
-            string fileName = Path.Combine(baseDirectory, cleanLanguagePath, $"Language.{language}");
-            System.Diagnostics.Debug.WriteLine($"Ruta buscada: {fileName}");
-            if (!File.Exists(fileName))
-            {
-                throw new Exception($"No se encontró el archivo de idioma para {language}");
-            }
+            string translation = TryGetTranslation(language, key);
+            if (translation != null) return translation;
 
-            using (StreamReader reader = new StreamReader(fileName))
+            // Fallback to default if current language file not found or key missing
+            if (language != "es-MX")
             {
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    string[] columns = line.Split('=');
-
-                    if (columns[0].ToLower() == key.ToLower())
-                    {
-                        return columns[1];
-                    }
-                }
+                translation = TryGetTranslation("es-MX", key);
+                if (translation != null) return translation;
             }
 
             return $"TODO: [{key}]";
-            //throw new Exception($"No se encontró la palabra {key} en el archivo de idioma {fileName}"); // Esto luego se guarda en el log de errores
+        }
+
+        private static string TryGetTranslation(string language, string key)
+        {
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string cleanLanguagePath = LanguagePath.Trim('\\', '/');
+            string fileName = Path.Combine(baseDirectory, cleanLanguagePath, $"Language.{language}");
+
+            if (!File.Exists(fileName))
+            {
+                // Log warning but don't crash
+                System.Diagnostics.Debug.WriteLine($"WARN: Language file not found: {fileName}");
+                return null;
+            }
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(fileName))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        if (string.IsNullOrWhiteSpace(line)) continue;
+
+                        string[] columns = line.Split('=');
+                        if (columns.Length >= 2 && columns[0].Trim().Equals(key.Trim(), StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            return string.Join("=", columns.Skip(1)); // Handle values containing =
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ERROR: Reading language file {fileName}: {ex.Message}");
+            }
+            return null;
         }
 
         /// <summary>
@@ -65,8 +88,9 @@ namespace Service.Impl.Text
             Dictionary<string, string> languages = new Dictionary<string, string>();
 
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
-            string languageFolderPath = Path.Combine(baseDirectory, LanguagePath);
+            // Clean path to avoid double slashes issues if LanguagePath starts with \
+            string cleanLanguagePath = LanguagePath.Trim('\\', '/');
+            string languageFolderPath = Path.Combine(baseDirectory, cleanLanguagePath);
 
             // Verifica si la ruta de idiomas existe
             if (Directory.Exists(languageFolderPath))
@@ -84,15 +108,27 @@ namespace Service.Impl.Text
                             // Intenta crear un objeto CultureInfo para obtener el nombre nativo del idioma
                             var culture = new CultureInfo(languageCode);
                             string languageName = culture.NativeName;
-                            languages.Add(languageCode, languageName); // Agrega el código y el nombre al diccionario
+                            // Capitalize first letter
+                            languageName = char.ToUpper(languageName[0]) + languageName.Substring(1);
+                            if (!languages.ContainsKey(languageCode))
+                            {
+                                languages.Add(languageCode, languageName);
+                            }
                         }
                         catch (CultureNotFoundException)
                         {
-                            // Si el código de cultura no es válido, continúa con el siguiente archivo
-                            continue;
+                            // Si el código de cultura no es válido, usa el código como nombre
+                            if (!languages.ContainsKey(languageCode))
+                            {
+                                languages.Add(languageCode, languageCode);
+                            }
                         }
                     }
                 }
+            }
+            else
+            {
+                 System.Diagnostics.Debug.WriteLine($"WARN: Language folder not found: {languageFolderPath}");
             }
 
             return languages;
@@ -105,6 +141,20 @@ namespace Service.Impl.Text
         /// <param name="languageCode">El código del idioma que se desea guardar.</param>
         public static void SaveUserLanguage(string languageCode)
         {
+            // Ensure directory exists
+            try
+            {
+                string dir = Path.GetDirectoryName(UserLanguageConfigPath);
+                if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"WARN: Could not create directory for user config: {ex.Message}");
+            }
+
             // Sobrescribe el archivo de configuración con el nuevo código de idioma
             using (StreamWriter writer = new StreamWriter(UserLanguageConfigPath, false))
             {
