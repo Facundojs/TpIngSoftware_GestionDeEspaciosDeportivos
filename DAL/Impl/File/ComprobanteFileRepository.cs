@@ -51,7 +51,6 @@ namespace DAL.Impl.File
                     PagoID = pagoId,
                     RutaArchivo = filePath,
                     Contenido = System.IO.File.ReadAllBytes(filePath)
-                    // Other properties like NombreArchivo, FechaSubida are stored in SQL
                 };
             }
 
@@ -60,9 +59,6 @@ namespace DAL.Impl.File
 
         private string GetFilePath(Guid pagoId)
         {
-            // We use a fixed extension ".dat" or similar because we store the original filename in SQL.
-            // If we needed to support original extensions here without SQL lookup, we'd need to store the extension in the filename too (e.g. {id}_{ext}).
-            // For now, assuming raw content storage.
             return Path.Combine(_baseFolder, $"{pagoId}.dat");
         }
     }
