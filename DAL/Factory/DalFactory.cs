@@ -1,5 +1,6 @@
 using DAL.Contracts;
 using DAL.Impl;
+using DAL.Impl.File;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace DAL.Factory
         private static IRutinaEjercicioRepository _rutinaEjercicioRepository;
         private static IPagoRepository _pagoRepository;
         private static IComprobanteRepository _comprobanteRepository;
+        private static IComprobanteRepository _comprobanteFileRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -151,6 +153,18 @@ namespace DAL.Factory
                     _comprobanteRepository = new ComprobanteSqlRepository();
                 }
                 return _comprobanteRepository;
+            }
+        }
+
+        public static IComprobanteRepository ComprobanteFileRepository
+        {
+            get
+            {
+                if (_comprobanteFileRepository == null)
+                {
+                    _comprobanteFileRepository = new ComprobanteFileRepository();
+                }
+                return _comprobanteFileRepository;
             }
         }
     }

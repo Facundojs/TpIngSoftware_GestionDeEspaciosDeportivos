@@ -1,8 +1,8 @@
 using System;
 
-namespace Domain.Entities
+namespace BLL.DTOs
 {
-    public class Comprobante
+    public class ComprobanteDTO
     {
         public Guid Id { get; set; }
         public Guid PagoID { get; set; }
@@ -11,7 +11,7 @@ namespace Domain.Entities
         public DateTime FechaSubida { get; set; }
         public byte[] Contenido { get; set; }
 
-        public Comprobante()
+        public ComprobanteDTO()
         {
             Id = Guid.NewGuid();
         }
