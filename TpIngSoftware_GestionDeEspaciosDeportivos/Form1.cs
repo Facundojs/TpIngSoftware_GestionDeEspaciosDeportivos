@@ -17,6 +17,10 @@ using Service.DTO;
 using Domain.Composite;
 using Service.Helpers;
 using Service.Logic;
+using Service.Factory;
+using System.Threading;
+using System.Globalization;
+using TpIngSoftware_GestionDeEspaciosDeportivos.Helpers;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -32,6 +36,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private ToolStripMenuItem _menuClientes;
         private ToolStripMenuItem _menuRutinas;
         private ToolStripMenuItem _menuEspacios;
+        private ToolStripMenuItem _menuIdioma;
 
         public Form1(UsuarioDTO usuario)
         {
@@ -80,10 +85,37 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuAdmin.DropDownItems.Add(_menuRutinas);
             _menuAdmin.DropDownItems.Add(_menuEspacios);
 
+            // Menu Idioma
+            _menuIdioma = new ToolStripMenuItem("Idioma");
+            var languages = FactoryDao.LanguageRepository.GetLanguages();
+            foreach (var lang in languages)
+            {
+                var item = new ToolStripMenuItem(lang.Value);
+                item.Tag = lang.Key;
+                item.Image = FlagHelper.GetFlag(lang.Key);
+                item.Click += (s, e) => ChangeLanguage(lang.Key);
+                _menuIdioma.DropDownItems.Add(item);
+            }
+
             _menuStrip.Items.Add(_menuAdmin);
+            _menuStrip.Items.Add(_menuIdioma);
 
             this.Controls.Add(_menuStrip);
             this.MainMenuStrip = _menuStrip;
+        }
+
+        private void ChangeLanguage(string code)
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(code);
+                FactoryDao.LanguageRepository.SaveUserLanguage(code);
+                UpdateLanguage();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error changing language: " + ex.Message);
+            }
         }
 
         private void UpdateLanguage()
@@ -97,6 +129,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuClientes != null) _menuClientes.Text = "CLIENTE_TITLE".Translate();
             if(_menuRutinas != null) _menuRutinas.Text = "MENU_RUTINAS".Translate();
             if(_menuEspacios != null) _menuEspacios.Text = "MENU_ESPACIOS".Translate();
+            if (_menuIdioma != null) _menuIdioma.Text = Thread.CurrentThread.CurrentUICulture.NativeName;
         }
 
         private void Form1_Load(object sender, EventArgs e)
