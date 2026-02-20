@@ -60,7 +60,8 @@ namespace BLL.Mappers
                 PagoID = entity.PagoID,
                 NombreArchivo = entity.NombreArchivo,
                 RutaArchivo = entity.RutaArchivo,
-                FechaSubida = entity.FechaSubida
+                FechaSubida = entity.FechaSubida,
+                Contenido = entity.Contenido
             };
         }
 
@@ -73,7 +74,8 @@ namespace BLL.Mappers
                 PagoID = dto.PagoID,
                 NombreArchivo = dto.NombreArchivo,
                 RutaArchivo = dto.RutaArchivo,
-                FechaSubida = dto.FechaSubida
+                FechaSubida = dto.FechaSubida,
+                Contenido = dto.Contenido
             };
 
             if (dto.Id != Guid.Empty)

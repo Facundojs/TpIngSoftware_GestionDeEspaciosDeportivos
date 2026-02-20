@@ -1,4 +1,5 @@
 using BLL.DTOs;
+using BLL.Facades;
 using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
@@ -16,7 +17,7 @@ namespace BLL.Services
     {
         private readonly IPagoRepository _pagoRepo;
         private readonly IMovimientoRepository _movimientoRepo;
-        private readonly IComprobanteRepository _comprobanteRepo;
+        private readonly ComprobanteFacade _comprobanteFacade;
         private readonly IClienteRepository _clienteRepo;
         private readonly BitacoraService _bitacora;
 
@@ -24,7 +25,7 @@ namespace BLL.Services
         {
             _pagoRepo = DalFactory.PagoRepository;
             _movimientoRepo = DalFactory.MovimientoRepository;
-            _comprobanteRepo = DalFactory.ComprobanteRepository;
+            _comprobanteFacade = new ComprobanteFacade();
             _clienteRepo = DalFactory.ClienteRepository;
             _bitacora = new BitacoraService();
         }
@@ -173,8 +174,7 @@ namespace BLL.Services
                 dto.PagoID = pagoId;
                 if (dto.FechaSubida == default) dto.FechaSubida = DateTime.Now;
 
-                var entity = PagoMapper.ToEntity(dto);
-                _comprobanteRepo.Agregar(entity);
+                _comprobanteFacade.Adjuntar(dto);
 
                 _bitacora.Log($"CU-PA-003: Comprobante adjuntado al Pago {pagoId}", "INFO");
             }

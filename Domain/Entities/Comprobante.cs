@@ -9,6 +9,7 @@ namespace Domain.Entities
         public string NombreArchivo { get; set; }
         public string RutaArchivo { get; set; }
         public DateTime FechaSubida { get; set; }
+        public byte[] Contenido { get; set; }
 
         public Comprobante()
         {
