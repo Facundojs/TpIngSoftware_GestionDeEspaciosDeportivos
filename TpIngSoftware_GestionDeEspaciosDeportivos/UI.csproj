@@ -165,7 +165,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Service\Languages\Language.en-ES">
-      <Link>Languages\Language.es-US</Link>
+      <Link>Languages\Language.es-ES</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
