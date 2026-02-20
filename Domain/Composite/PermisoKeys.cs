@@ -50,5 +50,11 @@ namespace Domain.Composite
         public const string EjercicioCrear = "PERMISSION_EJERCICIO_CREATE";
         public const string EjercicioModificar = "PERMISSION_EJERCICIO_UPDATE";
         public const string EjercicioEliminar = "PERMISSION_EJERCICIO_DELETE";
+
+        // Pago Permissions
+        public const string PagoListar = "PERMISSION_PAGO_LIST";
+        public const string PagoRegistrar = "PERMISSION_PAGO_CREATE";
+        public const string PagoReembolsar = "PERMISSION_PAGO_REFUND";
+        public const string PagoAdjuntarComprobante = "PERMISSION_PAGO_ATTACH";
     }
 }

@@ -218,5 +218,19 @@ namespace BLL.Services
              }
              return ClienteMapper.ToDTO(cliente, membresia, balance);
         }
+
+        public ClienteDTO ObtenerClientePorDNI(int dni)
+        {
+             var cliente = _repository.GetByDNI(dni);
+             if (cliente == null) return null;
+
+             var balance = _balanceService.ConsultarBalance(cliente.Id);
+             Membresia membresia = null;
+             if (cliente.MembresiaID.HasValue)
+             {
+                 membresia = DalFactory.MembresiaRepository.GetById(cliente.MembresiaID.Value);
+             }
+             return ClienteMapper.ToDTO(cliente, membresia, balance);
+        }
     }
 }
