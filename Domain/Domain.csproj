@@ -46,6 +46,7 @@
     <Compile Include="Composite\Patente.cs" />
     <Compile Include="Composite\PermisoKeys.cs" />
     <Compile Include="Entities\RutinaEjercicio.cs" />
+    <Compile Include="Enums\EstadoPago.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
@@ -61,5 +62,6 @@
     <Compile Include="Entities\Reserva.cs" />
     <Compile Include="Entities\Rutina.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
