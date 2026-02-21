@@ -1,8 +1,8 @@
 namespace BLL.DTOs
 {
-    public enum ClienteStatus
+    public enum ClienteStatus : int
     {
-        Activo,
-        Inactivo
+        Activo = 0,
+        Inactivo = 1
     }
 }

@@ -1,7 +1,6 @@
 using BLL.DTOs;
 using Domain.Composite;
-using Service.DTO;
-using Service.Helpers;
+using Domain.Enums;
 using Service.Facade.Extension;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,6 @@
 using BLL.DTOs;
 using Domain.Entities;
+using Domain.Enums;
 using System;
 
 namespace BLL.Mappers
