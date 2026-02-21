@@ -39,6 +39,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblMonto = new System.Windows.Forms.Label();
             this.txtDNICliente = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
+            this.lblNombreCliente = new System.Windows.Forms.Label();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtDNIFiltro = new System.Windows.Forms.TextBox();

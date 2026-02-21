@@ -102,12 +102,12 @@ namespace BLL.Services
                         {
                             var savedPago = _pagoRepo.GetById(pagoId);
                             var codigo = savedPago?.Codigo ?? 0;
-                            _bitacora.Log($"CU-PA-001: Pago #{codigo} registrado por ${dto.Monto} - Cliente {cliente.DNI}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Pago #{codigo} registrado por ${dto.Monto} - Cliente {cliente.Dni}", "INFO");
                         }
                         catch (Exception logEx)
                         {
                             // Fallback logging if retrieval fails
-                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.DNI}. Warning: Could not retrieve code for log: {logEx.Message}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.Dni}. Warning: Could not retrieve code for log: {logEx.Message}", "INFO");
                         }
                     }
                 }
@@ -171,7 +171,7 @@ namespace BLL.Services
                     if (pagoParaLog != null)
                     {
                         var cliente = _clienteRepo.GetById(pagoParaLog.ClienteID);
-                        _bitacora.Log($"CU-PA-004: Pago #{pagoParaLog.Codigo} reembolsado - Cliente {cliente?.DNI}", "INFO");
+                        _bitacora.Log($"CU-PA-004: Pago #{pagoParaLog.Codigo} reembolsado - Cliente {cliente?.Dni ?? "Desconocido"}", "INFO");
                     }
                 }
             }
