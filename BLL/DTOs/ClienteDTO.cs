@@ -12,10 +12,8 @@ namespace BLL.DTOs
         public Guid? MembresiaID { get; set; }
         public ClienteStatus Status { get; set; }
 
-        // Computed
         public string NombreCompleto => $"{Nombre} {Apellido}";
 
-        // Extras
         public MembresiaDTO MembresiaDetalle { get; set; }
         public decimal Balance { get; set; }
         public EstadoBalance EstadoBalance { get; set; }
