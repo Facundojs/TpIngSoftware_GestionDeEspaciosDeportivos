@@ -1,8 +1,6 @@
 using BLL.DTOs;
 using Domain.Composite;
 using Domain.Enums;
-using Service.DTO;
-using Service.Helpers;
 using Service.Facade.Extension;
 using System;
 using System.Collections.Generic;
@@ -212,6 +210,35 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             txtMonto.Text = "";
             cmbMetodo.SelectedIndex = -1;
             txtDetalle.Text = "";
+            lblNombreCliente.Text = "";
+        }
+
+        private void txtDNICliente_Leave(object sender, EventArgs e)
+        {
+            string input = txtDNICliente.Text.Trim();
+            if (input.Length > 7 && int.TryParse(input, out int dni))
+            {
+                try
+                {
+                    var cliente = _clienteManager.ObtenerClientePorDNI(dni);
+                    if (cliente != null)
+                    {
+                        lblNombreCliente.Text = $"{cliente.Nombre} {cliente.Apellido}";
+                    }
+                    else
+                    {
+                        lblNombreCliente.Text = "Cliente no encontrado";
+                    }
+                }
+                catch (Exception)
+                {
+                    lblNombreCliente.Text = "Error al buscar cliente";
+                }
+            }
+            else
+            {
+                 lblNombreCliente.Text = "";
+            }
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)

@@ -82,6 +82,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.grpRegistro.Controls.Add(this.lblMonto);
             this.grpRegistro.Controls.Add(this.txtDNICliente);
             this.grpRegistro.Controls.Add(this.lblDNI);
+            this.grpRegistro.Controls.Add(this.lblNombreCliente);
             this.grpRegistro.Location = new System.Drawing.Point(12, 12);
             this.grpRegistro.Name = "grpRegistro";
             this.grpRegistro.Size = new System.Drawing.Size(960, 80);
@@ -159,6 +160,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.txtDNICliente.Name = "txtDNICliente";
             this.txtDNICliente.Size = new System.Drawing.Size(100, 20);
             this.txtDNICliente.TabIndex = 1;
+            this.txtDNICliente.Leave += new System.EventHandler(this.txtDNICliente_Leave);
             //
             // lblDNI
             //
@@ -168,6 +170,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblDNI.Size = new System.Drawing.Size(29, 13);
             this.lblDNI.TabIndex = 0;
             this.lblDNI.Text = "DNI:";
+            //
+            // lblNombreCliente
+            //
+            this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.Location = new System.Drawing.Point(60, 60);
+            this.lblNombreCliente.Name = "lblNombreCliente";
+            this.lblNombreCliente.Size = new System.Drawing.Size(0, 13);
+            this.lblNombreCliente.TabIndex = 9;
+            this.lblNombreCliente.ForeColor = System.Drawing.Color.Blue;
             //
             // grpFiltros
             //
@@ -295,6 +306,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.GroupBox grpRegistro;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.TextBox txtDNICliente;
+        private System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label lblMetodo;
