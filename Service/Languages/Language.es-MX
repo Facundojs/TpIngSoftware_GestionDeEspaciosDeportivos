@@ -162,3 +162,5 @@ ERR_SOLO_ABONADO=Solo se pueden reembolsar pagos abonados.
 ERR_NO_FILE=Debe seleccionar un archivo.
 MENU_PAGOS=Pagos
 MSG_CONFIRM=¿Confirma la operación?
+BTN_VER_COMPROBANTE=Ver Comprobante
+ERR_NO_COMPROBANTE=No existe comprobante para este pago.

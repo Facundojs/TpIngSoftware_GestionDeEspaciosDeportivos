@@ -50,6 +50,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblDesde = new System.Windows.Forms.Label();
             this.btnReembolsar = new System.Windows.Forms.Button();
             this.btnAdjuntarComprobante = new System.Windows.Forms.Button();
+            this.btnVerComprobante = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).BeginInit();
             this.grpRegistro.SuspendLayout();
             this.grpFiltros.SuspendLayout();
@@ -279,11 +280,23 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnAdjuntarComprobante.UseVisualStyleBackColor = true;
             this.btnAdjuntarComprobante.Click += new System.EventHandler(this.btnAdjuntarComprobante_Click);
             //
+            // btnVerComprobante
+            //
+            this.btnVerComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVerComprobante.Location = new System.Drawing.Point(498, 510);
+            this.btnVerComprobante.Name = "btnVerComprobante";
+            this.btnVerComprobante.Size = new System.Drawing.Size(150, 30);
+            this.btnVerComprobante.TabIndex = 5;
+            this.btnVerComprobante.Text = "Ver Comprobante";
+            this.btnVerComprobante.UseVisualStyleBackColor = true;
+            this.btnVerComprobante.Click += new System.EventHandler(this.btnVerComprobante_Click);
+            //
             // FrmPagos
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.btnVerComprobante);
             this.Controls.Add(this.btnAdjuntarComprobante);
             this.Controls.Add(this.btnReembolsar);
             this.Controls.Add(this.grpFiltros);
@@ -325,5 +338,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Button btnReembolsar;
         private System.Windows.Forms.Button btnAdjuntarComprobante;
+        private System.Windows.Forms.Button btnVerComprobante;
     }
 }
