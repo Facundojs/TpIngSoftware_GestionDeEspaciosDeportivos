@@ -79,6 +79,13 @@
     <Compile Include="FrmEjercicios.Designer.cs">
       <DependentUpon>FrmEjercicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\PagoManager.cs" />
+    <Compile Include="FrmPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagos.Designer.cs">
+      <DependentUpon>FrmPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>

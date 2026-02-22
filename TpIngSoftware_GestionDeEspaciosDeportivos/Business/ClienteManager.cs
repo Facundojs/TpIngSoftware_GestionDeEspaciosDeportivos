@@ -48,5 +48,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
         {
             return _service.ObtenerCliente(id);
         }
+
+        public ClienteDTO ObtenerClientePorDNI(int dni)
+        {
+            return _service.ObtenerClientePorDNI(dni);
+        }
     }
 }
