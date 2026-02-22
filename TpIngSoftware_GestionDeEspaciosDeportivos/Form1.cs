@@ -32,6 +32,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private ToolStripMenuItem _menuClientes;
         private ToolStripMenuItem _menuRutinas;
         private ToolStripMenuItem _menuEspacios;
+        private ToolStripMenuItem _menuPagos;
 
         public Form1(UsuarioDTO usuario)
         {
@@ -72,6 +73,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuEspacios = new ToolStripMenuItem("MENU_ESPACIOS".Translate());
             _menuEspacios.Click += (s, e) => OpenEspacios();
 
+            _menuPagos = new ToolStripMenuItem("MENU_PAGOS".Translate());
+            _menuPagos.Click += (s, e) => OpenPagos();
+
             _menuAdmin.DropDownItems.Add(_menuBackups);
             _menuAdmin.DropDownItems.Add(_menuUsuarios);
             _menuAdmin.DropDownItems.Add(_menuBitacora);
@@ -79,6 +83,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuAdmin.DropDownItems.Add(_menuClientes);
             _menuAdmin.DropDownItems.Add(_menuRutinas);
             _menuAdmin.DropDownItems.Add(_menuEspacios);
+            _menuAdmin.DropDownItems.Add(_menuPagos);
 
             _menuStrip.Items.Add(_menuAdmin);
 
@@ -97,6 +102,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuClientes != null) _menuClientes.Text = "CLIENTE_TITLE".Translate();
             if(_menuRutinas != null) _menuRutinas.Text = "MENU_RUTINAS".Translate();
             if(_menuEspacios != null) _menuEspacios.Text = "MENU_ESPACIOS".Translate();
+            if(_menuPagos != null) _menuPagos.Text = "MENU_PAGOS".Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -127,6 +133,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             bool canManageClientes = _usuario.TienePermiso(PermisoKeys.ClienteListar);
             bool canManageRutinas = _usuario.TienePermiso(PermisoKeys.RutinaVer);
             bool canManageEspacios = _usuario.TienePermiso(PermisoKeys.EspacioListar);
+            bool canManagePagos = _usuario.TienePermiso(PermisoKeys.PagoListar);
 
             if(_menuBackups != null) _menuBackups.Visible = canBackup;
             if(_menuUsuarios != null) _menuUsuarios.Visible = canManageUsers;
@@ -135,8 +142,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuClientes != null) _menuClientes.Visible = canManageClientes;
             if(_menuRutinas != null) _menuRutinas.Visible = canManageRutinas;
             if(_menuEspacios != null) _menuEspacios.Visible = canManageEspacios;
+            if(_menuPagos != null) _menuPagos.Visible = canManagePagos;
 
-            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canViewLogs || canManageMembresias || canManageClientes || canManageRutinas || canManageEspacios;
+            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canViewLogs || canManageMembresias || canManageClientes || canManageRutinas || canManageEspacios || canManagePagos;
+        }
+
+        private void OpenPagos()
+        {
+            var frm = new FrmPagos(_usuario);
+            frm.ShowDialog();
         }
 
         private void OpenRutinas()

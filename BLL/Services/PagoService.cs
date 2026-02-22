@@ -63,12 +63,26 @@ namespace BLL.Services
                             _pagoRepo.Add(pagoEntity, conn, tran);
 
                             // 2. INSERT Movimiento positivo
+                            string tipoMovimiento = "PagoGenerico";
+                            string descMovimiento = $"Pago a Cuenta - {dto.Metodo}";
+
+                            if (dto.EsMembresia)
+                            {
+                                tipoMovimiento = "PagoMembresia";
+                                descMovimiento = $"Pago de Membresía - {dto.Metodo}";
+                            }
+                            else if (dto.ReservaID.HasValue)
+                            {
+                                tipoMovimiento = "PagoReserva";
+                                descMovimiento = $"Pago de Reserva - {dto.Metodo}";
+                            }
+
                             var movimiento = new Movimiento
                             {
                                 ClienteID = dto.ClienteID,
                                 Monto = dto.Monto,
-                                Tipo = dto.EsMembresia ? "PagoMembresia" : "PagoReserva",
-                                Descripcion = $"Pago de {(dto.EsMembresia ? "Membresía" : "Reserva")} - {dto.Metodo}",
+                                Tipo = tipoMovimiento,
+                                Descripcion = descMovimiento,
                                 Fecha = DateTime.Now,
                                 PagoID = pagoEntity.Id
                             };
@@ -88,12 +102,12 @@ namespace BLL.Services
                         {
                             var savedPago = _pagoRepo.GetById(pagoId);
                             var codigo = savedPago?.Codigo ?? 0;
-                            _bitacora.Log($"CU-PA-001: Pago #{codigo} registrado por ${dto.Monto} - Cliente {cliente.Dni}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Pago #{codigo} registrado por ${dto.Monto} - Cliente {cliente.DNI}", "INFO");
                         }
                         catch (Exception logEx)
                         {
                             // Fallback logging if retrieval fails
-                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.Dni}. Warning: Could not retrieve code for log: {logEx.Message}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.DNI}. Warning: Could not retrieve code for log: {logEx.Message}", "INFO");
                         }
                     }
                 }
@@ -157,7 +171,7 @@ namespace BLL.Services
                     if (pagoParaLog != null)
                     {
                         var cliente = _clienteRepo.GetById(pagoParaLog.ClienteID);
-                        _bitacora.Log($"CU-PA-004: Pago #{pagoParaLog.Codigo} reembolsado - Cliente {cliente?.Dni ?? "Desconocido"}", "INFO");
+                        _bitacora.Log($"CU-PA-004: Pago #{pagoParaLog.Codigo} reembolsado - Cliente {cliente?.DNI}", "INFO");
                     }
                 }
             }

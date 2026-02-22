@@ -92,8 +92,7 @@ CREATE TABLE Pago (
     FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id),
     FOREIGN KEY (ReservaID) REFERENCES Reserva(Id),
     CONSTRAINT CK_Pago_Origen CHECK (
-        (MembresiaID IS NOT NULL AND ReservaID IS NULL) OR
-        (MembresiaID IS NULL AND ReservaID IS NOT NULL)
+        NOT (MembresiaID IS NOT NULL AND ReservaID IS NOT NULL)
     )
 );
 
