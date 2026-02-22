@@ -1,5 +1,6 @@
 using DAL.Contracts;
 using Domain.Entities;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -194,14 +195,15 @@ namespace DAL.Impl
                 SELECT COUNT(*)
                 FROM Reserva
                 WHERE EspacioID = @EspacioId
-                  AND Estado != 'Cancelada'
+                  AND Estado != @EstadoCancelado
                   AND FechaHora < DATEADD(minute, @Duracion, @FechaHoraInicio)
                   AND DATEADD(minute, Duracion, FechaHora) > @FechaHoraInicio";
 
             SqlParameter[] parameters = {
                 new SqlParameter("@EspacioId", espacioId),
                 new SqlParameter("@FechaHoraInicio", fechaHora),
-                new SqlParameter("@Duracion", duracion)
+                new SqlParameter("@Duracion", duracion),
+                new SqlParameter("@EstadoCancelado", EstadoReserva.Cancelada.ToString())
             };
 
             int count = ExecuteReader(query, parameters, reader =>
