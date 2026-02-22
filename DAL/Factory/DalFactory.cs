@@ -23,6 +23,7 @@ namespace DAL.Factory
         private static IPagoRepository _pagoRepository;
         private static IComprobanteRepository _comprobanteRepository;
         private static IComprobanteRepository _comprobanteFileRepository;
+        private static IReservaRepository _reservaRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -165,6 +166,18 @@ namespace DAL.Factory
                     _comprobanteFileRepository = new ComprobanteFileRepository();
                 }
                 return _comprobanteFileRepository;
+            }
+        }
+
+        public static IReservaRepository ReservaRepository
+        {
+            get
+            {
+                if (_reservaRepository == null)
+                {
+                    _reservaRepository = new ReservaSqlRepository();
+                }
+                return _reservaRepository;
             }
         }
     }
