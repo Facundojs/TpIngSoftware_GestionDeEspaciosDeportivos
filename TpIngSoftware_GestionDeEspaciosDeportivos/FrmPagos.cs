@@ -101,6 +101,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             btnReembolsar.Text = "BTN_REEMBOLSAR".Translate();
             btnAdjuntarComprobante.Text = "BTN_ADJUNTAR_COMPROBANTE".Translate();
+            btnVerComprobante.Text = "BTN_VER_COMPROBANTE".Translate();
 
             if (dgvPagos.Columns.Count > 0)
             {
@@ -350,11 +351,47 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 btnReembolsar.Enabled = canRefund && pago.Estado == EstadoPago.Abonado;
                 btnAdjuntarComprobante.Enabled = canAttach;
+                btnVerComprobante.Enabled = true;
             }
             else
             {
                 btnReembolsar.Enabled = false;
                 btnAdjuntarComprobante.Enabled = false;
+                btnVerComprobante.Enabled = false;
+            }
+        }
+
+        private void btnVerComprobante_Click(object sender, EventArgs e)
+        {
+            if (dgvPagos.SelectedRows.Count == 0) return;
+            var pago = (PagoDTO)dgvPagos.SelectedRows[0].DataBoundItem;
+
+            try
+            {
+                var comprobante = _pagoManager.ObtenerComprobante(pago.Id);
+                if (comprobante == null)
+                {
+                    MessageBox.Show("ERR_NO_COMPROBANTE".Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (comprobante.Contenido == null || comprobante.Contenido.Length == 0)
+                {
+                     MessageBox.Show("El comprobante existe pero no tiene contenido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     return;
+                }
+
+                string extension = Path.GetExtension(comprobante.NombreArchivo);
+                if (string.IsNullOrEmpty(extension)) extension = ".dat";
+
+                string tempPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}{extension}");
+                File.WriteAllBytes(tempPath, comprobante.Contenido);
+
+                System.Diagnostics.Process.Start(tempPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
