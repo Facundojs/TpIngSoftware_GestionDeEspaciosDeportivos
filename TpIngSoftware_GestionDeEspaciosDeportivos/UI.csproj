@@ -56,6 +56,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FlagHelper.cs" />
     <Compile Include="FrmBackups.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +165,14 @@
   <ItemGroup>
     <Content Include="..\Service\Languages\Language.es-MX">
       <Link>Languages\Language.es-MX</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Service\Languages\Language.en-US">
+      <Link>Languages\Language.en-US</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Service\Languages\Language.pt-BR">
+      <Link>Languages\Language.pt-BR</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
