@@ -86,6 +86,13 @@
     <Compile Include="FrmPagos.Designer.cs">
       <DependentUpon>FrmPagos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\ReservaManager.cs" />
+    <Compile Include="FrmReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReservas.Designer.cs">
+      <DependentUpon>FrmReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
