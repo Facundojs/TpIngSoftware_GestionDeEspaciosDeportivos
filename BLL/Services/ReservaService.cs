@@ -34,24 +34,20 @@ namespace BLL.Services
 
         public void GenerarReserva(GenerarReservaDTO dto)
         {
-            // Validaciones Técnicas
             if (dto.Adelanto < 0) throw new ArgumentException("El adelanto no puede ser negativo");
             if (dto.Duracion <= 0) throw new ArgumentException("La duración debe ser mayor a cero");
             if (dto.FechaHora < DateTime.Now) throw new ArgumentException("La fecha de reserva no puede ser en el pasado");
 
-            // Validaciones de Negocio (Existencia)
             var cliente = _clienteRepo.GetById(dto.ClienteId);
             if (cliente == null) throw new InvalidOperationException($"El cliente con ID {dto.ClienteId} no existe");
 
             var espacio = _espacioRepo.GetById(dto.EspacioId);
             if (espacio == null) throw new InvalidOperationException($"El espacio con ID {dto.EspacioId} no existe");
 
-            // Calcular Monto Total
             decimal montoTotal = espacio.PrecioHora * (dto.Duracion / 60.0m);
 
             if (dto.Adelanto > montoTotal) throw new ArgumentException($"El adelanto ({dto.Adelanto:C}) no puede ser mayor al monto total ({montoTotal:C})");
 
-            // 1. Validar disponibilidad (antes de transacción para performance, non-transactional check)
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
                 throw new InvalidOperationException("El espacio no está disponible en el horario seleccionado");
@@ -66,13 +62,11 @@ namespace BLL.Services
                     {
                         try
                         {
-                            // Re-check Availability inside Transaction to prevent Race Conditions
                             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion, conn, tran))
                             {
                                 throw new InvalidOperationException("El espacio ya no está disponible (Race Condition detected)");
                             }
 
-                            // 2. INSERT Reserva
                             var reserva = new Reserva
                             {
                                 Id = Guid.NewGuid(),
@@ -88,7 +82,6 @@ namespace BLL.Services
 
                             _reservaRepo.Add(reserva, conn, tran);
 
-                            // 3. INSERT Movimiento deuda total (negativo)
                             var movDeuda = new Movimiento
                             {
                                 ClienteID = dto.ClienteId,
@@ -99,7 +92,6 @@ namespace BLL.Services
                             };
                             _movimientoRepo.Insertar(movDeuda, conn, tran);
 
-                            // 4. Si adelanto > 0: registrar pago
                             if (dto.Adelanto > 0)
                             {
                                 var pago = new Pago
@@ -119,7 +111,7 @@ namespace BLL.Services
                                 var movPago = new Movimiento
                                 {
                                     ClienteID = dto.ClienteId,
-                                    Monto = dto.Adelanto, // POSITIVO
+                                    Monto = dto.Adelanto,
                                     Tipo = "PagoReserva",
                                     Descripcion = $"Pago Adelanto Reserva {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now,
@@ -159,8 +151,6 @@ namespace BLL.Services
                     {
                         try
                         {
-                            // 1. Get Reserva (Transactional Read)
-                            // Now using interface overload without casting
                             var reserva = _reservaRepo.GetById(reservaId, conn, tran);
 
                             if (reserva == null) throw new InvalidOperationException("La reserva no existe");
@@ -176,40 +166,34 @@ namespace BLL.Services
 
                             reservaParaLog = reserva;
 
-                            // 2. UPDATE Reserva
                             reserva.Estado = EstadoReserva.Cancelada.ToString();
                             _reservaRepo.Update(reserva, conn, tran);
 
-                            // Calculate amount to reverse (Total Debt)
                             var espacio = _espacioRepo.GetById(reserva.EspacioID);
 
                             decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
 
-                            // 2. INSERT Movimiento reversa (positivo) por monto total
                             var movReversa = new Movimiento
                             {
                                 ClienteID = reserva.ClienteID,
-                                Monto = montoTotal, // Positive to cancel debt
+                                Monto = montoTotal,
                                 Tipo = "CancelacionReserva",
                                 Descripcion = $"Cancelación Reserva {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
                             _movimientoRepo.Insertar(movReversa, conn, tran);
 
-                            // 3. Check for Payment (Adelanto)
-                            // Use Transactional GetByReserva
                             var pago = _pagoRepo.GetByReserva(reservaId, conn, tran);
 
                             if (pago != null && pago.Estado == EstadoPago.Abonado.ToString())
                             {
-                                // Refund Logic
                                 pago.Estado = EstadoPago.Reembolsado.ToString();
                                 _pagoRepo.Update(pago, conn, tran);
 
                                 var movReembolso = new Movimiento
                                 {
                                     ClienteID = pago.ClienteID,
-                                    Monto = -pago.Monto, // Negative
+                                    Monto = -pago.Monto,
                                     Tipo = "Reembolso",
                                     Descripcion = $"Reembolso Reserva {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now,
@@ -241,7 +225,6 @@ namespace BLL.Services
         {
             List<Reserva> reservas;
 
-            // Simple filtering strategy
             if (clienteId.HasValue)
             {
                 reservas = _reservaRepo.GetByCliente(clienteId.Value);
@@ -263,7 +246,6 @@ namespace BLL.Services
 
             var dtos = reservas.Select(ReservaMapper.ToDTO).ToList();
 
-            // Enrich with Names
             foreach (var dto in dtos)
             {
                 var c = _clienteRepo.GetById(dto.ClienteID);
