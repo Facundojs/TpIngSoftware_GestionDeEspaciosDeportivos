@@ -56,5 +56,10 @@ namespace Domain.Composite
         public const string PagoRegistrar = "PERMISSION_PAGO_CREATE";
         public const string PagoReembolsar = "PERMISSION_PAGO_REFUND";
         public const string PagoAdjuntarComprobante = "PERMISSION_PAGO_ATTACH";
+
+        // Reserva Permissions
+        public const string ReservaListar = "PERMISSION_RESERVA_LIST";
+        public const string ReservaCrear = "PERMISSION_RESERVA_CREATE";
+        public const string ReservaCancelar = "PERMISSION_RESERVA_CANCEL";
     }
 }

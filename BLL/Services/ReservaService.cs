@@ -32,6 +32,11 @@ namespace BLL.Services
             _bitacora = new BitacoraService();
         }
 
+        public bool VerificarDisponibilidad(Guid espacioId, DateTime fechaHora, int duracion)
+        {
+            return _reservaRepo.EspacioDisponible(espacioId, fechaHora, duracion);
+        }
+
         public void GenerarReserva(GenerarReservaDTO dto)
         {
             if (dto.Adelanto < 0) throw new ArgumentException("El adelanto no puede ser negativo");
