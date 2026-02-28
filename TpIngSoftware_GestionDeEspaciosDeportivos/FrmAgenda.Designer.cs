@@ -40,7 +40,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // dtpDesde
             //
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDesde.CustomFormat = "HH:mm";
             this.dtpDesde.Location = new System.Drawing.Point(340, 30);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowUpDown = true;
@@ -49,7 +50,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // dtpHasta
             //
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHasta.CustomFormat = "HH:mm";
             this.dtpHasta.Location = new System.Drawing.Point(340, 80);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowUpDown = true;

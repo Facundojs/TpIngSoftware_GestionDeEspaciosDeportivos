@@ -33,6 +33,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             LoadReservas();
             ApplyPermissions();
             EnableReservaControls(false); // Init state
+            dtpFecha.Value = DateTime.Now.AddDays(1).Date;
         }
 
         private void ApplyPermissions()
@@ -134,8 +135,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 Guid espacioId = (Guid)cbEspacio.SelectedValue;
                 DateTime fecha = dtpFecha.Value.Date;
                 DateTime hora = dtpHora.Value;
+                if (hora.Minute != 0 && hora.Minute != 30)
+                {
+                    MessageBox.Show("La hora debe ser en múltiplos de 30 minutos (ej. 14:00, 14:30).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 DateTime fechaHora = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora.Hour, hora.Minute, 0);
                 int duracion = (int)numDuracion.Value;
+                if (duracion % 30 != 0)
+                {
+                    MessageBox.Show("La duración debe ser en múltiplos de 30 minutos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if (fechaHora < DateTime.Now)
                 {
@@ -152,7 +163,27 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 else
                 {
-                    MessageBox.Show(Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    try
+                    {
+                        var horarios = _reservaManager.ObtenerHorariosDisponibles(espacioId, fechaHora.Date);
+                        string msj = Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate() + "\n\nHorarios disponibles hoy:\n";
+                        if (horarios.Count > 0)
+                        {
+                            foreach (var h in horarios)
+                            {
+                                msj += $"{h:hh\\:mm} - {h.Add(TimeSpan.FromMinutes(30)):hh\\:mm}\n";
+                            }
+                        }
+                        else
+                        {
+                            msj += "Ninguno en este día.";
+                        }
+                        MessageBox.Show(msj, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show(Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     EnableReservaControls(false);
                 }
             }
@@ -165,6 +196,45 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 else
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnVerHorarios_Click(object sender, EventArgs e)
+        {
+            if (cbEspacio.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione un espacio");
+                return;
+            }
+            Guid espacioId = (Guid)cbEspacio.SelectedValue;
+            DateTime fecha = dtpFecha.Value.Date;
+            try
+            {
+                var horarios = _reservaManager.ObtenerHorariosDisponibles(espacioId, fecha);
+                string msj = "Horarios disponibles el " + fecha.ToShortDateString() + ":\n\n";
+                if (horarios.Count > 0)
+                {
+                    foreach (var h in horarios)
+                    {
+                        msj += $"{h:hh\\:mm} - {h.Add(TimeSpan.FromMinutes(30)):hh\\:mm}\n";
+                    }
+                }
+                else
+                {
+                    msj += "Ninguno en este día.";
+                }
+                MessageBox.Show(msj, "Horarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Error al obtener horarios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -231,8 +301,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 Guid espacioId = (Guid)cbEspacio.SelectedValue;
                 DateTime fecha = dtpFecha.Value.Date;
                 DateTime hora = dtpHora.Value;
+                if (hora.Minute != 0 && hora.Minute != 30)
+                {
+                    MessageBox.Show("La hora debe ser en múltiplos de 30 minutos (ej. 14:00, 14:30).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 DateTime fechaHora = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora.Hour, hora.Minute, 0);
                 int duracion = (int)numDuracion.Value;
+                if (duracion % 30 != 0)
+                {
+                    MessageBox.Show("La duración debe ser en múltiplos de 30 minutos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 decimal adelanto = numAdelanto.Value;
 
                 var dto = new GenerarReservaDTO
