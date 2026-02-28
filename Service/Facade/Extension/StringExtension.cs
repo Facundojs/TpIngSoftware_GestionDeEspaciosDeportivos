@@ -1,9 +1,10 @@
-﻿using Service.Logic;
+using Service.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Enums;
 
 namespace Service.Facade.Extension
 {
@@ -20,6 +21,16 @@ namespace Service.Facade.Extension
         public static string Translate(this string key)
         {
             return LanguageLogic.Translate(key);
+        }
+
+        /// <summary>
+        /// Traducir una clave de texto usando la enumeración Translations.
+        /// </summary>
+        /// <param name="key">La clave del texto a traducir.</param>
+        /// <returns>La cadena traducida correspondiente a la clave.</returns>
+        public static string Translate(this Translations key)
+        {
+            return LanguageLogic.Translate(key.ToString());
         }
     }
 }

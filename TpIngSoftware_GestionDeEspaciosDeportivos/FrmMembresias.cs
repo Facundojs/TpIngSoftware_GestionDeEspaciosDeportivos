@@ -1,3 +1,4 @@
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,16 +29,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "FRM_MEMBRESIA_TITLE".Translate();
-            lblCodigo.Text = "LBL_CODIGO".Translate();
-            lblNombre.Text = "LBL_NOMBRE".Translate();
-            lblPrecio.Text = "LBL_PRECIO".Translate();
-            lblRegularidad.Text = "LBL_REGULARIDAD".Translate();
-            lblDetalle.Text = "LBL_DETALLE".Translate();
-            btnCrear.Text = "BTN_CREAR".Translate();
-            btnActualizar.Text = "BTN_ACTUALIZAR".Translate();
-            btnDeshabilitar.Text = "BTN_DESHABILITAR".Translate();
-            btnLimpiar.Text = "BTN_LIMPIAR".Translate();
+            this.Text = Translations.FRM_MEMBRESIA_TITLE.Translate();
+            lblCodigo.Text = Translations.LBL_CODIGO.Translate();
+            lblNombre.Text = Translations.LBL_NOMBRE.Translate();
+            lblPrecio.Text = Translations.LBL_PRECIO.Translate();
+            lblRegularidad.Text = Translations.LBL_REGULARIDAD.Translate();
+            lblDetalle.Text = Translations.LBL_DETALLE.Translate();
+            btnCrear.Text = Translations.BTN_CREAR.Translate();
+            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+            btnDeshabilitar.Text = Translations.BTN_DESHABILITAR.Translate();
+            btnLimpiar.Text = Translations.BTN_LIMPIAR.Translate();
         }
 
         private void FrmMembresias_Load(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.MembresiaListar))
             {
-                MessageBox.Show("MSG_NO_PERM_LIST".Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
                 this.Close();
             }
         }
@@ -71,7 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 // Hide ID column if exists
                 if(dgvMembresias.Columns["Id"] != null) dgvMembresias.Columns["Id"].Visible = false;
-                if(dgvMembresias.Columns["PrecioFormateado"] != null) dgvMembresias.Columns["PrecioFormateado"].HeaderText = "LBL_PRECIO".Translate();
+                if(dgvMembresias.Columns["PrecioFormateado"] != null) dgvMembresias.Columns["PrecioFormateado"].HeaderText = Translations.LBL_PRECIO.Translate();
             }
             catch (Exception ex)
             {
@@ -123,25 +124,25 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (string.IsNullOrWhiteSpace(txtCodigo.Text) || !int.TryParse(txtCodigo.Text, out int cod) || cod <= 0)
             {
-                errorProvider.SetError(txtCodigo, "ERR_INVALID_NUMBER".Translate());
+                errorProvider.SetError(txtCodigo, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                errorProvider.SetError(txtNombre, "ERR_REQUIRED_FIELD".Translate());
+                errorProvider.SetError(txtNombre, Translations.ERR_REQUIRED_FIELD.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtPrecio.Text) || !decimal.TryParse(txtPrecio.Text, out decimal precio) || precio <= 0)
             {
-                errorProvider.SetError(txtPrecio, "ERR_INVALID_NUMBER".Translate());
+                errorProvider.SetError(txtPrecio, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtRegularidad.Text) || !int.TryParse(txtRegularidad.Text, out int reg) || reg <= 0)
             {
-                errorProvider.SetError(txtRegularidad, "ERR_INVALID_NUMBER".Translate());
+                errorProvider.SetError(txtRegularidad, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
@@ -170,7 +171,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var dto = GetFormData();
                 // ID is handled in service
                 _membresiaManager.CrearMembresia(dto);
-                MessageBox.Show("MSG_MEMBRESIA_CREATED".Translate());
+                MessageBox.Show(Translations.MSG_MEMBRESIA_CREATED.Translate());
                 LoadMembresias();
                 ClearForm();
             }
@@ -192,7 +193,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dto.Activa = _selectedMembresia.Activa; // Preserve state
 
                 _membresiaManager.ActualizarMembresia(dto);
-                MessageBox.Show("MSG_MEMBRESIA_UPDATED".Translate());
+                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate());
                 LoadMembresias();
             }
             catch (Exception ex)
@@ -205,12 +206,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedMembresia == null) return;
 
-            if (MessageBox.Show("MSG_CONFIRM_DESHABILITAR".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_DESHABILITAR.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
                     _membresiaManager.DeshabilitarMembresia(_selectedMembresia.Id);
-                    MessageBox.Show("MSG_MEMBRESIA_DISABLED".Translate());
+                    MessageBox.Show(Translations.MSG_MEMBRESIA_DISABLED.Translate());
                     LoadMembresias();
                 }
                 catch (Exception ex)

@@ -1,3 +1,4 @@
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -26,14 +27,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "FRM_ESPACIO_TITLE".Translate();
-            lblNombre.Text = "LBL_NOMBRE".Translate();
-            lblDescripcion.Text = "LBL_DESCRIPCION".Translate();
-            lblPrecioHora.Text = "LBL_PRECIO_HORA".Translate();
-            btnCrear.Text = "BTN_CREAR".Translate();
-            btnActualizar.Text = "BTN_ACTUALIZAR".Translate();
-            btnEliminar.Text = "BTN_DELETE".Translate();
-            btnLimpiar.Text = "BTN_LIMPIAR".Translate();
+            this.Text = Translations.FRM_ESPACIO_TITLE.Translate();
+            lblNombre.Text = Translations.LBL_NOMBRE.Translate();
+            lblDescripcion.Text = Translations.LBL_DESCRIPCION.Translate();
+            lblPrecioHora.Text = Translations.LBL_PRECIO_HORA.Translate();
+            btnCrear.Text = Translations.BTN_CREAR.Translate();
+            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+            btnEliminar.Text = Translations.BTN_DELETE.Translate();
+            btnLimpiar.Text = Translations.BTN_LIMPIAR.Translate();
         }
 
         private void FrmEspacios_Load(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.EspacioListar))
             {
-                MessageBox.Show("MSG_NO_PERM_LIST".Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
                 this.Close();
             }
         }
@@ -67,9 +68,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 // Configure Grid Columns
                 if (dgvEspacios.Columns["Id"] != null) dgvEspacios.Columns["Id"].Visible = false;
-                if (dgvEspacios.Columns["Nombre"] != null) dgvEspacios.Columns["Nombre"].HeaderText = "LBL_NOMBRE".Translate();
-                if (dgvEspacios.Columns["Descripcion"] != null) dgvEspacios.Columns["Descripcion"].HeaderText = "LBL_DESCRIPCION".Translate();
-                if (dgvEspacios.Columns["PrecioHora"] != null) dgvEspacios.Columns["PrecioHora"].HeaderText = "LBL_PRECIO_HORA".Translate();
+                if (dgvEspacios.Columns["Nombre"] != null) dgvEspacios.Columns["Nombre"].HeaderText = Translations.LBL_NOMBRE.Translate();
+                if (dgvEspacios.Columns["Descripcion"] != null) dgvEspacios.Columns["Descripcion"].HeaderText = Translations.LBL_DESCRIPCION.Translate();
+                if (dgvEspacios.Columns["PrecioHora"] != null) dgvEspacios.Columns["PrecioHora"].HeaderText = Translations.LBL_PRECIO_HORA.Translate();
             }
             catch (Exception ex)
             {
@@ -113,13 +114,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                errorProvider.SetError(txtNombre, "ERR_REQUIRED_FIELD".Translate());
+                errorProvider.SetError(txtNombre, Translations.ERR_REQUIRED_FIELD.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtPrecioHora.Text) || !decimal.TryParse(txtPrecioHora.Text, out decimal precio) || precio < 0)
             {
-                errorProvider.SetError(txtPrecioHora, "ERR_INVALID_NUMBER".Translate());
+                errorProvider.SetError(txtPrecioHora, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
@@ -144,7 +145,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 var dto = GetFormData();
                 _espacioManager.CrearEspacio(dto);
-                MessageBox.Show("MSG_ESPACIO_CREATED".Translate());
+                MessageBox.Show(Translations.MSG_ESPACIO_CREATED.Translate());
                 LoadEspacios();
                 ClearForm();
             }
@@ -165,7 +166,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dto.Id = _selectedEspacio.Id;
 
                 _espacioManager.ActualizarEspacio(dto);
-                MessageBox.Show("MSG_ESPACIO_UPDATED".Translate());
+                MessageBox.Show(Translations.MSG_ESPACIO_UPDATED.Translate());
                 LoadEspacios();
             }
             catch (Exception ex)
@@ -178,12 +179,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedEspacio == null) return;
 
-            if (MessageBox.Show("MSG_CONFIRM_DELETE_ESPACIO".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_DELETE_ESPACIO.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
                     _espacioManager.EliminarEspacio(_selectedEspacio.Id);
-                    MessageBox.Show("MSG_ESPACIO_DELETED".Translate());
+                    MessageBox.Show(Translations.MSG_ESPACIO_DELETED.Translate());
                     LoadEspacios();
                     ClearForm();
                     _selectedEspacio = null;
@@ -192,7 +193,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     if (ex.Message.Contains("reservas futuras"))
                     {
-                        MessageBox.Show("ERR_ESPACIO_CON_RESERVAS".Translate());
+                        MessageBox.Show(Translations.ERR_ESPACIO_CON_RESERVAS.Translate());
                     }
                     else
                     {

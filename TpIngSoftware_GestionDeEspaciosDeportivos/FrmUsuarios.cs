@@ -1,3 +1,4 @@
+using Domain.Enums;
 using Domain.Composite;
 using Service.DTO;
 using Service.Facade.Extension;
@@ -31,15 +32,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "USERS_TITLE".Translate();
-            lblUser.Text = "LBL_USER".Translate();
-            lblPass.Text = "LBL_PASS".Translate();
-            chkActive.Text = "CHK_ACTIVE".Translate();
-            btnAdd.Text = "BTN_ADD".Translate();
-            btnUpdate.Text = "BTN_UPDATE".Translate();
-            btnDelete.Text = "BTN_DELETE".Translate();
-            btnPermisos.Text = "BTN_PERMISSIONS".Translate();
-            btnClear.Text = "BTN_CLEAR".Translate();
+            this.Text = Translations.USERS_TITLE.Translate();
+            lblUser.Text = Translations.LBL_USER.Translate();
+            lblPass.Text = Translations.LBL_PASS.Translate();
+            chkActive.Text = Translations.CHK_ACTIVE.Translate();
+            btnAdd.Text = Translations.BTN_ADD.Translate();
+            btnUpdate.Text = Translations.BTN_UPDATE.Translate();
+            btnDelete.Text = Translations.BTN_DELETE.Translate();
+            btnPermisos.Text = Translations.BTN_PERMISSIONS.Translate();
+            btnClear.Text = Translations.BTN_CLEAR.Translate();
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.UsuarioListar))
             {
-                MessageBox.Show("MSG_NO_PERM_USERS".Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate());
                 this.Close();
             }
         }
@@ -72,7 +73,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch(Exception ex)
             {
-                MessageBox.Show("MSG_ERR_LOAD_USERS".Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_LOAD_USERS.Translate() + ex.Message);
             }
         }
 
@@ -105,7 +106,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || (string.IsNullOrWhiteSpace(txtPassword.Text) && txtPassword.Enabled))
             {
-                MessageBox.Show("MSG_COMPLETE_FIELDS".Translate());
+                MessageBox.Show(Translations.MSG_COMPLETE_FIELDS.Translate());
                 return;
             }
 
@@ -118,13 +119,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 };
 
                 _usuarioService.Register(newUser, txtPassword.Text);
-                MessageBox.Show("MSG_USER_CREATED".Translate());
+                MessageBox.Show(Translations.MSG_USER_CREATED.Translate());
                 LoadUsuarios();
                 ClearForm();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
             }
         }
 
@@ -139,12 +140,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _usuarioService.Update(_selectedUser);
 
-                MessageBox.Show("MSG_USER_UPDATED".Translate());
+                MessageBox.Show(Translations.MSG_USER_UPDATED.Translate());
                 LoadUsuarios();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
             }
         }
 
@@ -152,7 +153,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedUser == null) return;
 
-            if (MessageBox.Show("MSG_CONFIRM_DELETE_USER".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_DELETE_USER.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
@@ -162,7 +163,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 catch(Exception ex)
                 {
-                     MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message);
+                     MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
                 }
             }
         }

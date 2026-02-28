@@ -1,3 +1,4 @@
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,30 +55,30 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void SetupMenu()
         {
             _menuStrip = new MenuStrip();
-            _menuAdmin = new ToolStripMenuItem("MENU_ADMIN".Translate());
+            _menuAdmin = new ToolStripMenuItem(Translations.MENU_ADMIN.Translate());
 
-            _menuBackups = new ToolStripMenuItem("MENU_BACKUPS".Translate());
+            _menuBackups = new ToolStripMenuItem(Translations.MENU_BACKUPS.Translate());
             _menuBackups.Click += (s, e) => OpenBackups();
 
-            _menuUsuarios = new ToolStripMenuItem("MENU_USERS".Translate());
+            _menuUsuarios = new ToolStripMenuItem(Translations.MENU_USERS.Translate());
             _menuUsuarios.Click += (s, e) => OpenUsuarios();
 
-            _menuBitacora = new ToolStripMenuItem("MENU_BITACORA".Translate());
+            _menuBitacora = new ToolStripMenuItem(Translations.MENU_BITACORA.Translate());
             _menuBitacora.Click += (s, e) => OpenBitacora();
 
-            _menuMembresias = new ToolStripMenuItem("MENU_MEMBRESIA".Translate());
+            _menuMembresias = new ToolStripMenuItem(Translations.MENU_MEMBRESIA.Translate());
             _menuMembresias.Click += (s, e) => OpenMembresias();
 
-            _menuClientes = new ToolStripMenuItem("CLIENTE_TITLE".Translate());
+            _menuClientes = new ToolStripMenuItem(Translations.CLIENTE_TITLE.Translate());
             _menuClientes.Click += (s, e) => OpenClientes();
 
-            _menuRutinas = new ToolStripMenuItem("MENU_RUTINAS".Translate());
+            _menuRutinas = new ToolStripMenuItem(Translations.MENU_RUTINAS.Translate());
             _menuRutinas.Click += (s, e) => OpenRutinas();
 
-            _menuEspacios = new ToolStripMenuItem("MENU_ESPACIOS".Translate());
+            _menuEspacios = new ToolStripMenuItem(Translations.MENU_ESPACIOS.Translate());
             _menuEspacios.Click += (s, e) => OpenEspacios();
 
-            _menuPagos = new ToolStripMenuItem("MENU_PAGOS".Translate());
+            _menuPagos = new ToolStripMenuItem(Translations.MENU_PAGOS.Translate());
             _menuPagos.Click += (s, e) => OpenPagos();
 
             _menuAdmin.DropDownItems.Add(_menuBackups);
@@ -151,16 +152,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "MAIN_TITLE".Translate();
-            if(_menuAdmin != null) _menuAdmin.Text = "MENU_ADMIN".Translate();
-            if(_menuBackups != null) _menuBackups.Text = "MENU_BACKUPS".Translate();
-            if(_menuUsuarios != null) _menuUsuarios.Text = "MENU_USERS".Translate();
-            if(_menuBitacora != null) _menuBitacora.Text = "MENU_BITACORA".Translate();
-            if(_menuMembresias != null) _menuMembresias.Text = "MENU_MEMBRESIA".Translate();
-            if(_menuClientes != null) _menuClientes.Text = "CLIENTE_TITLE".Translate();
-            if(_menuRutinas != null) _menuRutinas.Text = "MENU_RUTINAS".Translate();
-            if(_menuEspacios != null) _menuEspacios.Text = "MENU_ESPACIOS".Translate();
-            if(_menuPagos != null) _menuPagos.Text = "MENU_PAGOS".Translate();
+            this.Text = Translations.MAIN_TITLE.Translate();
+            if(_menuAdmin != null) _menuAdmin.Text = Translations.MENU_ADMIN.Translate();
+            if(_menuBackups != null) _menuBackups.Text = Translations.MENU_BACKUPS.Translate();
+            if(_menuUsuarios != null) _menuUsuarios.Text = Translations.MENU_USERS.Translate();
+            if(_menuBitacora != null) _menuBitacora.Text = Translations.MENU_BITACORA.Translate();
+            if(_menuMembresias != null) _menuMembresias.Text = Translations.MENU_MEMBRESIA.Translate();
+            if(_menuClientes != null) _menuClientes.Text = Translations.CLIENTE_TITLE.Translate();
+            if(_menuRutinas != null) _menuRutinas.Text = Translations.MENU_RUTINAS.Translate();
+            if(_menuEspacios != null) _menuEspacios.Text = Translations.MENU_ESPACIOS.Translate();
+            if(_menuPagos != null) _menuPagos.Text = Translations.MENU_PAGOS.Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
