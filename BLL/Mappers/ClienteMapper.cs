@@ -10,6 +10,13 @@ namespace BLL.Mappers
         {
             if (entity == null) return null;
 
+            ClienteStatus status;
+            if (!Enum.TryParse(entity.Estado, out status))
+            {
+                status = ClienteStatus.Activo;
+                new Service.Logic.BitacoraService().Log($"Valor de estado no reconocido: '{entity.Estado}' para el cliente ID: {entity.Id}. Se asume 'Activo'.", "WARNING");
+            }
+
             var dto = new ClienteDTO
             {
                 Id = entity.Id,
@@ -18,7 +25,7 @@ namespace BLL.Mappers
                 DNI = entity.DNI,
                 FechaNacimiento = entity.FechaNacimiento,
                 MembresiaID = entity.MembresiaID,
-                Status = (ClienteStatus)Enum.Parse(typeof(ClienteStatus), entity.Estado),
+                Status = status,
                 Balance = balance != null ? balance.Saldo : 0,
                 MembresiaDetalle = membresia != null ? MembresiaMapper.ToDTO(membresia) : null
             };
