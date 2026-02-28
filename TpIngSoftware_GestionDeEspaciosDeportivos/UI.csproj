@@ -124,6 +124,12 @@
     <Compile Include="FrmRutina.Designer.cs">
       <DependentUpon>FrmRutina.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionFamilias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionFamilias.Designer.cs">
+      <DependentUpon>FrmGestionFamilias.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionRutinas.cs">
       <SubType>Form</SubType>
     </Compile>
