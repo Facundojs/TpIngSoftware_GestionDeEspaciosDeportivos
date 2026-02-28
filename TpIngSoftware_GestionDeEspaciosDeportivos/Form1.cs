@@ -55,33 +55,33 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void SetupMenu()
         {
             _menuStrip = new MenuStrip();
-            _menuAdmin = new ToolStripMenuItem("MENU_ADMIN".Translate());
+            _menuAdmin = new ToolStripMenuItem(Domain.Enums.Translations.MENU_ADMIN.Translate());
 
-            _menuBackups = new ToolStripMenuItem("MENU_BACKUPS".Translate());
+            _menuBackups = new ToolStripMenuItem(Domain.Enums.Translations.MENU_BACKUPS.Translate());
             _menuBackups.Click += (s, e) => OpenBackups();
 
-            _menuUsuarios = new ToolStripMenuItem("MENU_USERS".Translate());
+            _menuUsuarios = new ToolStripMenuItem(Domain.Enums.Translations.MENU_USERS.Translate());
             _menuUsuarios.Click += (s, e) => OpenUsuarios();
 
-            _menuBitacora = new ToolStripMenuItem("MENU_BITACORA".Translate());
+            _menuBitacora = new ToolStripMenuItem(Domain.Enums.Translations.MENU_BITACORA.Translate());
             _menuBitacora.Click += (s, e) => OpenBitacora();
 
-            _menuMembresias = new ToolStripMenuItem("MENU_MEMBRESIA".Translate());
+            _menuMembresias = new ToolStripMenuItem(Domain.Enums.Translations.MENU_MEMBRESIA.Translate());
             _menuMembresias.Click += (s, e) => OpenMembresias();
 
-            _menuClientes = new ToolStripMenuItem("CLIENTE_TITLE".Translate());
+            _menuClientes = new ToolStripMenuItem(Domain.Enums.Translations.CLIENTE_TITLE.Translate());
             _menuClientes.Click += (s, e) => OpenClientes();
 
-            _menuRutinas = new ToolStripMenuItem("MENU_RUTINAS".Translate());
+            _menuRutinas = new ToolStripMenuItem(Domain.Enums.Translations.MENU_RUTINAS.Translate());
             _menuRutinas.Click += (s, e) => OpenRutinas();
 
-            _menuEspacios = new ToolStripMenuItem("MENU_ESPACIOS".Translate());
+            _menuEspacios = new ToolStripMenuItem(Domain.Enums.Translations.MENU_ESPACIOS.Translate());
             _menuEspacios.Click += (s, e) => OpenEspacios();
 
-            _menuPagos = new ToolStripMenuItem("MENU_PAGOS".Translate());
+            _menuPagos = new ToolStripMenuItem(Domain.Enums.Translations.MENU_PAGOS.Translate());
             _menuPagos.Click += (s, e) => OpenPagos();
 
-            _menuReservas = new ToolStripMenuItem("MENU_RESERVAS".Translate());
+            _menuReservas = new ToolStripMenuItem(Domain.Enums.Translations.MENU_RESERVAS.Translate());
             _menuReservas.Click += (s, e) => OpenReservas();
 
             _menuAdmin.DropDownItems.Add(_menuBackups);
@@ -156,17 +156,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "MAIN_TITLE".Translate();
-            if(_menuAdmin != null) _menuAdmin.Text = "MENU_ADMIN".Translate();
-            if(_menuBackups != null) _menuBackups.Text = "MENU_BACKUPS".Translate();
-            if(_menuUsuarios != null) _menuUsuarios.Text = "MENU_USERS".Translate();
-            if(_menuBitacora != null) _menuBitacora.Text = "MENU_BITACORA".Translate();
-            if(_menuMembresias != null) _menuMembresias.Text = "MENU_MEMBRESIA".Translate();
-            if(_menuClientes != null) _menuClientes.Text = "CLIENTE_TITLE".Translate();
-            if(_menuRutinas != null) _menuRutinas.Text = "MENU_RUTINAS".Translate();
-            if(_menuEspacios != null) _menuEspacios.Text = "MENU_ESPACIOS".Translate();
-            if(_menuPagos != null) _menuPagos.Text = "MENU_PAGOS".Translate();
-            if(_menuReservas != null) _menuReservas.Text = "MENU_RESERVAS".Translate();
+            this.Text = Domain.Enums.Translations.MAIN_TITLE.Translate();
+            if(_menuAdmin != null) _menuAdmin.Text = Domain.Enums.Translations.MENU_ADMIN.Translate();
+            if(_menuBackups != null) _menuBackups.Text = Domain.Enums.Translations.MENU_BACKUPS.Translate();
+            if(_menuUsuarios != null) _menuUsuarios.Text = Domain.Enums.Translations.MENU_USERS.Translate();
+            if(_menuBitacora != null) _menuBitacora.Text = Domain.Enums.Translations.MENU_BITACORA.Translate();
+            if(_menuMembresias != null) _menuMembresias.Text = Domain.Enums.Translations.MENU_MEMBRESIA.Translate();
+            if(_menuClientes != null) _menuClientes.Text = Domain.Enums.Translations.CLIENTE_TITLE.Translate();
+            if(_menuRutinas != null) _menuRutinas.Text = Domain.Enums.Translations.MENU_RUTINAS.Translate();
+            if(_menuEspacios != null) _menuEspacios.Text = Domain.Enums.Translations.MENU_ESPACIOS.Translate();
+            if(_menuPagos != null) _menuPagos.Text = Domain.Enums.Translations.MENU_PAGOS.Translate();
+            if(_menuReservas != null) _menuReservas.Text = Domain.Enums.Translations.MENU_RESERVAS.Translate();
         }
 
         private void Form1_Load(object sender, EventArgs e)

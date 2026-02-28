@@ -33,16 +33,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void ConfigurarUI()
         {
-            this.Text = "FRM_EJERCICIOS_TITLE".Translate();
-            lblNombre.Text = "LBL_NOMBRE_EJERCICIO".Translate();
-            btnAgregar.Text = "BTN_AGREGAR".Translate();
-            btnActualizar.Text = "BTN_ACTUALIZAR".Translate();
-            btnEliminar.Text = "BTN_ELIMINAR".Translate();
-            btnLimpiar.Text = "BTN_LIMPIAR".Translate();
+            this.Text = Domain.Enums.Translations.FRM_EJERCICIOS_TITLE.Translate();
+            lblNombre.Text = Domain.Enums.Translations.LBL_NOMBRE_EJERCICIO.Translate();
+            btnAgregar.Text = Domain.Enums.Translations.BTN_AGREGAR.Translate();
+            btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
+            btnEliminar.Text = Domain.Enums.Translations.BTN_ELIMINAR.Translate();
+            btnLimpiar.Text = Domain.Enums.Translations.BTN_LIMPIAR.Translate();
 
             dgvEjercicios.AutoGenerateColumns = false;
             dgvEjercicios.Columns.Clear();
-            dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "LBL_NOMBRE_EJERCICIO".Translate(), Width = 200 });
+            dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Domain.Enums.Translations.LBL_NOMBRE_EJERCICIO.Translate(), Width = 200 });
         }
 
         private void ApplyPermissions()
@@ -72,14 +72,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show("ERR_NOMBRE_EJERCICIO".Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NOMBRE_EJERCICIO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 var dto = new EjercicioDTO { Nombre = txtNombre.Text.Trim() };
                 _ejercicioManager.CrearEjercicio(dto);
 
-                MessageBox.Show("MSG_EJERCICIO_CREADO".Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Domain.Enums.Translations.MSG_EJERCICIO_CREADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEjercicios();
                 LimpiarControles();
             }
@@ -97,14 +97,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show("ERR_NOMBRE_EJERCICIO".Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NOMBRE_EJERCICIO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 _ejercicioSeleccionado.Nombre = txtNombre.Text.Trim();
                 _ejercicioManager.ModificarEjercicio(_ejercicioSeleccionado);
 
-                MessageBox.Show("MSG_EJERCICIO_ACTUALIZADO".Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Domain.Enums.Translations.MSG_EJERCICIO_ACTUALIZADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEjercicios();
                 LimpiarControles();
             }
@@ -120,10 +120,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             try
             {
-                if (MessageBox.Show("MSG_CONFIRM_ELIMINAR_EJERCICIO".Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _ejercicioManager.EliminarEjercicio(_ejercicioSeleccionado.Id);
-                    MessageBox.Show("MSG_EJERCICIO_ELIMINADO".Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Domain.Enums.Translations.MSG_EJERCICIO_ELIMINADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarEjercicios();
                     LimpiarControles();
                 }
