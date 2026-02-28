@@ -16,7 +16,7 @@ namespace DAL.Impl
             {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@ClienteID", obj.ClienteID),
-                new SqlParameter("@Tipo", obj.Tipo),
+                new SqlParameter("@Tipo", obj.Tipo.ToString()),
                 new SqlParameter("@Monto", obj.Monto),
                 new SqlParameter("@Descripcion", (object)obj.Descripcion ?? DBNull.Value),
                 new SqlParameter("@Fecha", obj.Fecha),
