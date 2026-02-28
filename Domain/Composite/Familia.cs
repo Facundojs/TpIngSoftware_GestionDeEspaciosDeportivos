@@ -25,5 +25,10 @@ namespace Domain.Composite
             var item = _hijos.FirstOrDefault(x => x.Id == componente.Id);
             if (item != null) _hijos.Remove(item);
         }
+
+        public void ClearAccesos()
+        {
+            _hijos.Clear();
+        }
     }
 }

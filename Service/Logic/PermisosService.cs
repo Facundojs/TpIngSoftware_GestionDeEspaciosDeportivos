@@ -42,6 +42,16 @@ namespace Service.Logic
             _familiaRepository.Update(familia);
         }
 
+        public void CrearFamilia(Familia familia)
+        {
+            _familiaRepository.Add(familia);
+        }
+
+        public void EliminarFamilia(Guid id)
+        {
+            _familiaRepository.Remove(id);
+        }
+
         public void EnsurePermissions()
         {
             // 1. Ensure all String Constants exist as Patents

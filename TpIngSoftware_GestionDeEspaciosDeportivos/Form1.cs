@@ -32,6 +32,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private ToolStripMenuItem _menuBitacora;
         private ToolStripMenuItem _menuMembresias;
         private ToolStripMenuItem _menuClientes;
+        private ToolStripMenuItem _menuFamilias;
         private ToolStripMenuItem _menuRutinas;
         private ToolStripMenuItem _menuEspacios;
         private ToolStripMenuItem _menuPagos;
@@ -72,6 +73,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuClientes = new ToolStripMenuItem(Domain.Enums.Translations.CLIENTE_TITLE.Translate());
             _menuClientes.Click += (s, e) => OpenClientes();
 
+            _menuFamilias = new ToolStripMenuItem("Familias");
+            _menuFamilias.Click += (s, e) => OpenFamilias();
+
             _menuRutinas = new ToolStripMenuItem(Domain.Enums.Translations.MENU_RUTINAS.Translate());
             _menuRutinas.Click += (s, e) => OpenRutinas();
 
@@ -89,6 +93,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuAdmin.DropDownItems.Add(_menuBitacora);
             _menuAdmin.DropDownItems.Add(_menuMembresias);
             _menuAdmin.DropDownItems.Add(_menuClientes);
+            _menuAdmin.DropDownItems.Add(_menuFamilias);
             _menuAdmin.DropDownItems.Add(_menuRutinas);
             _menuAdmin.DropDownItems.Add(_menuEspacios);
             _menuAdmin.DropDownItems.Add(_menuPagos);
@@ -163,6 +168,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuBitacora != null) _menuBitacora.Text = Domain.Enums.Translations.MENU_BITACORA.Translate();
             if(_menuMembresias != null) _menuMembresias.Text = Domain.Enums.Translations.MENU_MEMBRESIA.Translate();
             if(_menuClientes != null) _menuClientes.Text = Domain.Enums.Translations.CLIENTE_TITLE.Translate();
+            if(_menuFamilias != null) _menuFamilias.Text = "Familias"; // Can be localized later
             if(_menuRutinas != null) _menuRutinas.Text = Domain.Enums.Translations.MENU_RUTINAS.Translate();
             if(_menuEspacios != null) _menuEspacios.Text = Domain.Enums.Translations.MENU_ESPACIOS.Translate();
             if(_menuPagos != null) _menuPagos.Text = Domain.Enums.Translations.MENU_PAGOS.Translate();
@@ -192,6 +198,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             bool canBackup = _usuario.TienePermiso(PermisoKeys.BackupListar);
             bool canManageUsers = _usuario.TienePermiso(PermisoKeys.UsuarioListar);
+            bool canManagePermissions = _usuario.TienePermiso(PermisoKeys.PermisoAsignar);
             bool canViewLogs = _usuario.TienePermiso(PermisoKeys.BitacoraVer);
             bool canManageMembresias = _usuario.TienePermiso(PermisoKeys.MembresiaListar);
             bool canManageClientes = _usuario.TienePermiso(PermisoKeys.ClienteListar);
@@ -205,12 +212,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuBitacora != null) _menuBitacora.Visible = canViewLogs;
             if(_menuMembresias != null) _menuMembresias.Visible = canManageMembresias;
             if(_menuClientes != null) _menuClientes.Visible = canManageClientes;
+            if(_menuFamilias != null) _menuFamilias.Visible = canManagePermissions;
             if(_menuRutinas != null) _menuRutinas.Visible = canManageRutinas;
             if(_menuEspacios != null) _menuEspacios.Visible = canManageEspacios;
             if(_menuPagos != null) _menuPagos.Visible = canManagePagos;
             if(_menuReservas != null) _menuReservas.Visible = canManageReservas;
 
-            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canViewLogs || canManageMembresias || canManageClientes || canManageRutinas || canManageEspacios || canManagePagos || canManageReservas;
+            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canManagePermissions || canViewLogs || canManageMembresias || canManageClientes || canManageRutinas || canManageEspacios || canManagePagos || canManageReservas;
         }
 
         private void OpenPagos()
@@ -264,6 +272,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void OpenUsuarios()
         {
              var frm = new FrmUsuarios(_usuario);
+             frm.ShowDialog();
+        }
+
+        private void OpenFamilias()
+        {
+             var frm = new FrmGestionFamilias(_usuario);
              frm.ShowDialog();
         }
     }
