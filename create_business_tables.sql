@@ -69,7 +69,7 @@ CREATE TABLE Reserva (
     Duracion INT NOT NULL,
     Adelanto DECIMAL(18,2) NOT NULL,
     CodigoReserva NVARCHAR(50) NOT NULL UNIQUE,
-    Estado NVARCHAR(50) NOT NULL CHECK (Estado IN ('Pendiente', 'Pagada', 'Cancelada')),
+    Estado NVARCHAR(50) NOT NULL,
     FOREIGN KEY (ClienteID) REFERENCES Cliente(Id),
     FOREIGN KEY (EspacioID) REFERENCES Espacio(Id)
 );
@@ -85,7 +85,7 @@ CREATE TABLE Pago (
     Metodo NVARCHAR(50) NOT NULL,
     Detalle NVARCHAR(MAX),
     Fecha DATETIME NOT NULL,
-    Estado NVARCHAR(50) NOT NULL CHECK (Estado IN ('Abonado', 'Reembolsado')),
+    Estado NVARCHAR(50) NOT NULL,
     MembresiaID UNIQUEIDENTIFIER NULL,
     ReservaID UNIQUEIDENTIFIER NULL,
     FOREIGN KEY (ClienteID) REFERENCES Cliente(Id),
