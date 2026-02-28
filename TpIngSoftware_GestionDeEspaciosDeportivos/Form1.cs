@@ -105,58 +105,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _languageService = new LanguageService();
             _cmbLanguage = new ToolStripComboBox();
             _cmbLanguage.Alignment = ToolStripItemAlignment.Right;
-            _cmbLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
-            _cmbLanguage.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
-            _cmbLanguage.ComboBox.DrawItem += CmbLanguage_DrawItem;
-            _cmbLanguage.SelectedIndexChanged += CmbLanguage_SelectedIndexChanged;
 
-            // Load Data
-            var languages = _languageService.GetLanguages();
-            _cmbLanguage.ComboBox.DataSource = new BindingSource(languages, null);
-            _cmbLanguage.ComboBox.DisplayMember = "Value";
-            _cmbLanguage.ComboBox.ValueMember = "Key";
-
-            // Set Selection
-            string currentCulture = Thread.CurrentThread.CurrentUICulture.Name;
-            if (languages.ContainsKey(currentCulture))
-                _cmbLanguage.ComboBox.SelectedValue = currentCulture;
-            else if (_cmbLanguage.Items.Count > 0)
-                _cmbLanguage.SelectedIndex = 0;
+            LanguageSelectorHelper.SetupToolStripComboBox(_cmbLanguage, _languageService, UpdateLanguage);
 
             _menuStrip.Items.Add(_cmbLanguage);
 
             this.Controls.Add(_menuStrip);
             this.MainMenuStrip = _menuStrip;
-        }
-
-        private void CmbLanguage_DrawItem(object sender, DrawItemEventArgs e)
-        {
-             if (e.Index < 0) return;
-             e.DrawBackground();
-
-             var item = (KeyValuePair<string, string>)((ComboBox)sender).Items[e.Index];
-             string code = item.Key;
-             string name = item.Value;
-
-             Image flag = FlagHelper.DrawFlag(code, 25, 15);
-             e.Graphics.DrawImage(flag, e.Bounds.Left + 2, e.Bounds.Top + 2);
-
-             using (Brush textBrush = new SolidBrush(e.ForeColor))
-             {
-                 e.Graphics.DrawString(name, e.Font, textBrush, e.Bounds.Left + 30, e.Bounds.Top + 2);
-             }
-
-             e.DrawFocusRectangle();
-        }
-
-        private void CmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-             if (_cmbLanguage.ComboBox.SelectedValue is string code)
-             {
-                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(code);
-                 _languageService.SaveUserLanguage(code);
-                 UpdateLanguage();
-             }
         }
 
         private void UpdateLanguage()
