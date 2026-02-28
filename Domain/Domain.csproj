@@ -49,6 +49,7 @@
     <Compile Include="Enums\EstadoPago.cs" />
     <Compile Include="Enums\EstadoReserva.cs" />
     <Compile Include="Enums\Translations.cs" />
+    <Compile Include="Enums\TipoMovimiento.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />

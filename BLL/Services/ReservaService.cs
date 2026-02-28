@@ -91,7 +91,7 @@ namespace BLL.Services
                             {
                                 ClienteID = dto.ClienteId,
                                 Monto = -montoTotal,
-                                Tipo = "DeudaReserva",
+                                Tipo = TipoMovimiento.DeudaReserva,
                                 Descripcion = $"Reserva {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
@@ -117,7 +117,7 @@ namespace BLL.Services
                                 {
                                     ClienteID = dto.ClienteId,
                                     Monto = dto.Adelanto,
-                                    Tipo = "PagoReserva",
+                                    Tipo = TipoMovimiento.PagoReserva,
                                     Descripcion = $"Pago Adelanto Reserva {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now,
                                     PagoID = pago.Id
@@ -182,7 +182,7 @@ namespace BLL.Services
                             {
                                 ClienteID = reserva.ClienteID,
                                 Monto = montoTotal,
-                                Tipo = "CancelacionReserva",
+                                Tipo = TipoMovimiento.CancelacionReserva,
                                 Descripcion = $"Cancelación Reserva {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
@@ -199,7 +199,7 @@ namespace BLL.Services
                                 {
                                     ClienteID = pago.ClienteID,
                                     Monto = -pago.Monto,
-                                    Tipo = "Reembolso",
+                                    Tipo = TipoMovimiento.Reembolso,
                                     Descripcion = $"Reembolso Reserva {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now,
                                     PagoID = pago.Id

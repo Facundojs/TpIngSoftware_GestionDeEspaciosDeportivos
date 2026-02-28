@@ -63,17 +63,17 @@ namespace BLL.Services
                             _pagoRepo.Add(pagoEntity, conn, tran);
 
                             // 2. INSERT Movimiento positivo
-                            string tipoMovimiento = "PagoGenerico";
+                            TipoMovimiento tipoMovimiento = TipoMovimiento.PagoGenerico;
                             string descMovimiento = $"Pago a Cuenta - {dto.Metodo}";
 
                             if (dto.EsMembresia)
                             {
-                                tipoMovimiento = "PagoMembresia";
+                                tipoMovimiento = TipoMovimiento.PagoMembresia;
                                 descMovimiento = $"Pago de Membresía - {dto.Metodo}";
                             }
                             else if (dto.ReservaID.HasValue)
                             {
-                                tipoMovimiento = "PagoReserva";
+                                tipoMovimiento = TipoMovimiento.PagoReserva;
                                 descMovimiento = $"Pago de Reserva - {dto.Metodo}";
                             }
 
@@ -152,7 +152,7 @@ namespace BLL.Services
                             {
                                 ClienteID = pago.ClienteID,
                                 Monto = -pago.Monto, // Negative
-                                Tipo = "Reembolso",
+                                Tipo = TipoMovimiento.Reembolso,
                                 Descripcion = $"Reembolso de Pago #{pago.Codigo}",
                                 Fecha = DateTime.Now,
                                 PagoID = pago.Id

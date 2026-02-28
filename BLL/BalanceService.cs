@@ -1,5 +1,6 @@
 using DAL.Factory;
 using Domain.Entities;
+using Domain.Enums;
 using Service.Logic;
 using System;
 using System.Linq;
@@ -70,7 +71,7 @@ namespace BLL
                             Id = Guid.NewGuid(),
                             ClienteID = cliente.Id,
                             Monto = -membresia.Precio, // Negative for debt
-                            Tipo = "DeudaMembresia",
+                            Tipo = TipoMovimiento.DeudaMembresia,
                             Descripcion = $"Cargo mensual membresía {membresia.Nombre}",
                             Fecha = DateTime.Now
                         };

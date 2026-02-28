@@ -1,3 +1,4 @@
+using Domain.Enums;
 using System;
 
 namespace Domain.Entities
@@ -6,7 +7,7 @@ namespace Domain.Entities
     {
         public Guid Id { get; set; }
         public Guid ClienteID { get; set; }
-        public string Tipo { get; set; }
+        public TipoMovimiento Tipo { get; set; }
         public decimal Monto { get; set; }
         public string Descripcion { get; set; }
         public DateTime Fecha { get; set; }

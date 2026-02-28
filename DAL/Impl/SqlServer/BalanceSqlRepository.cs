@@ -1,5 +1,6 @@
 using DAL.Contracts;
 using Domain.Entities;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -61,7 +62,7 @@ namespace DAL.Impl
                     {
                         Id = reader.GetGuid(0),
                         ClienteID = reader.GetGuid(1),
-                        Tipo = reader.GetString(2),
+                        Tipo = (TipoMovimiento)Enum.Parse(typeof(TipoMovimiento), reader.GetString(2)),
                         Monto = reader.GetDecimal(3),
                         Descripcion = reader.IsDBNull(4) ? null : reader.GetString(4),
                         Fecha = reader.GetDateTime(5),
