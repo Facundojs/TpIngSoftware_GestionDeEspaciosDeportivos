@@ -31,9 +31,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "PERMISSIONS_TITLE".Translate();
-            btnSave.Text = "BTN_SAVE".Translate();
-            btnCancel.Text = "BTN_CANCEL".Translate();
+            this.Text = Domain.Enums.Translations.PERMISSIONS_TITLE.Translate();
+            btnSave.Text = Domain.Enums.Translations.BTN_SAVE.Translate();
+            btnCancel.Text = Domain.Enums.Translations.BTN_CANCEL.Translate();
         }
 
         private void FrmGestionPermisos_Load(object sender, EventArgs e)
@@ -89,12 +89,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              {
                  _usuario.Permisos = nuevosPermisos;
                  _usuarioService.Update(_usuario);
-                 MessageBox.Show("MSG_PERMISSIONS_UPDATED".Translate());
+                 MessageBox.Show(Domain.Enums.Translations.MSG_PERMISSIONS_UPDATED.Translate());
                  this.Close();
              }
              catch(Exception ex)
              {
-                 MessageBox.Show("MSG_ERR_SAVE".Translate() + ex.Message);
+                 MessageBox.Show(Domain.Enums.Translations.MSG_ERR_SAVE.Translate() + ex.Message);
              }
         }
 

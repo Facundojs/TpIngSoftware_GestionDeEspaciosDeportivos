@@ -49,19 +49,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = "BITACORA_TITLE".Translate();
-            lblFrom.Text = "LBL_DATE_FROM".Translate();
-            lblTo.Text = "LBL_DATE_TO".Translate();
-            lblLevel.Text = "LBL_LOG_LEVEL".Translate();
-            lblMessage.Text = "LBL_MESSAGE".Translate();
-            btnFilter.Text = "BTN_FILTER".Translate();
+            this.Text = Domain.Enums.Translations.BITACORA_TITLE.Translate();
+            lblFrom.Text = Domain.Enums.Translations.LBL_DATE_FROM.Translate();
+            lblTo.Text = Domain.Enums.Translations.LBL_DATE_TO.Translate();
+            lblLevel.Text = Domain.Enums.Translations.LBL_LOG_LEVEL.Translate();
+            lblMessage.Text = Domain.Enums.Translations.LBL_MESSAGE.Translate();
+            btnFilter.Text = Domain.Enums.Translations.BTN_FILTER.Translate();
         }
 
         private void FrmBitacora_Load(object sender, EventArgs e)
         {
             if (_usuario != null && !_usuario.TienePermiso(PermisoKeys.BitacoraVer))
             {
-                MessageBox.Show("MSG_NO_PERM_LOGS".Translate());
+                MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_LOGS.Translate());
                 this.Close();
                 return;
             }
@@ -82,7 +82,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvLogs.DataSource = logs;
                 dgvLogs.AutoResizeColumns();
 
-                lblPage.Text = "LBL_PAGE".Translate() + " " + _page;
+                lblPage.Text = Domain.Enums.Translations.LBL_PAGE.Translate() + " " + _page;
                 btnPrev.Enabled = _page > 1;
                 btnNext.Enabled = logs.Count == PageSize;
             }

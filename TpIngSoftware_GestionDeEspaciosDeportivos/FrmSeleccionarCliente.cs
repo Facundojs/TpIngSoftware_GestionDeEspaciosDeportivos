@@ -33,16 +33,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ConfigurarGrid()
         {
             dgvClientes.AutoGenerateColumns = false;
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = "LBL_DNI".Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "LBL_NOMBRE".Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = "LBL_APELLIDO".Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Domain.Enums.Translations.LBL_DNI.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Domain.Enums.Translations.LBL_APELLIDO.Translate() });
         }
 
         private void UpdateLanguage()
         {
-            this.Text = "FRM_SELECCIONAR_CLIENTE_TITLE".Translate();
-            lblBuscar.Text = "LBL_DNI".Translate();
-            btnSeleccionar.Text = "BTN_SELECCIONAR".Translate();
+            this.Text = Domain.Enums.Translations.FRM_SELECCIONAR_CLIENTE_TITLE.Translate();
+            lblBuscar.Text = Domain.Enums.Translations.LBL_DNI.Translate();
+            btnSeleccionar.Text = Domain.Enums.Translations.BTN_SELECCIONAR.Translate();
         }
 
         private void CargarClientes()

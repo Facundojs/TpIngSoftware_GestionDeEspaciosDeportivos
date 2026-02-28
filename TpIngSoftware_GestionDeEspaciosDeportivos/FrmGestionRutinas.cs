@@ -32,18 +32,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void ConfigurarUI()
         {
-            this.Text = "FRM_GESTION_RUTINAS_TITLE".Translate();
-            btnGestionarEjercicios.Text = "BTN_GESTIONAR_EJERCICIOS".Translate();
-            chkVerHistorial.Text = "CHK_VER_HISTORIAL".Translate();
-            btnNueva.Text = "BTN_NUEVA_RUTINA".Translate();
-            btnModificar.Text = "BTN_MODIFICAR".Translate();
-            btnEliminar.Text = "BTN_ELIMINAR".Translate();
+            this.Text = Domain.Enums.Translations.FRM_GESTION_RUTINAS_TITLE.Translate();
+            btnGestionarEjercicios.Text = Domain.Enums.Translations.BTN_GESTIONAR_EJERCICIOS.Translate();
+            chkVerHistorial.Text = Domain.Enums.Translations.CHK_VER_HISTORIAL.Translate();
+            btnNueva.Text = Domain.Enums.Translations.BTN_NUEVA_RUTINA.Translate();
+            btnModificar.Text = Domain.Enums.Translations.BTN_MODIFICAR.Translate();
+            btnEliminar.Text = Domain.Enums.Translations.BTN_ELIMINAR.Translate();
 
             dgvRutinas.AutoGenerateColumns = false;
             dgvRutinas.Columns.Clear();
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteNombre", HeaderText = "LBL_CLIENTE".Translate(), Width = 200 });
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Desde", HeaderText = "LBL_RUTINA_DESDE".Translate() });
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Hasta", HeaderText = "LBL_RUTINA_HASTA".Translate() });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteNombre", HeaderText = Domain.Enums.Translations.LBL_CLIENTE.Translate(), Width = 200 });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Desde", HeaderText = Domain.Enums.Translations.LBL_RUTINA_DESDE.Translate() });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Hasta", HeaderText = Domain.Enums.Translations.LBL_RUTINA_HASTA.Translate() });
         }
 
         private void ApplyPermissions()
@@ -106,16 +106,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_usuario.TienePermiso(PermisoKeys.RutinaEliminar))
             {
-                MessageBox.Show("MSG_NO_PERM_USERS".Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_USERS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (MessageBox.Show("MSG_CONFIRM_BORRAR_RUTINA".Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     _rutinaManager.BorrarRutina(_rutinaSeleccionada.Id);
-                    MessageBox.Show("MSG_RUTINA_ELIMINADA".Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Domain.Enums.Translations.MSG_RUTINA_ELIMINADA.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarRutinas();
                 }
                 catch (Exception ex)

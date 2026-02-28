@@ -45,6 +45,7 @@
     <Compile Include="Contracts\IBackup.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\ILanguage.cs" />
+    <Compile Include="Facade\Extension\TranslationsExtension.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
     <Compile Include="Logic\BackupService.cs" />
     <Compile Include="Logic\PermisosService.cs" />
@@ -54,7 +55,6 @@
     <Compile Include="Contracts\IUsuarioRepository.cs" />
     <Compile Include="DTO\BackupFile.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
-    <Compile Include="Facade\Extension\StringExtension.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
     <Compile Include="Helpers\ConnectionManager.cs" />
     <Compile Include="Helpers\CryptographyHelper.cs" />

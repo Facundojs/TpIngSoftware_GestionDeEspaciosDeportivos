@@ -45,18 +45,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void Translate()
         {
-            this.Text = "RESERVA_TITLE".Translate();
-            btnVerificar.Text = "BTN_VERIFICAR_DISPONIBILIDAD".Translate();
-            btnGenerar.Text = "BTN_GENERAR_RESERVA".Translate();
-            btnCancelar.Text = "BTN_CANCELAR_RESERVA".Translate();
-            btnBuscarCliente.Text = "BTN_SELECCIONAR".Translate();
+            this.Text = Domain.Enums.Translations.RESERVA_TITLE.Translate();
+            btnVerificar.Text = Domain.Enums.Translations.BTN_VERIFICAR_DISPONIBILIDAD.Translate();
+            btnGenerar.Text = Domain.Enums.Translations.BTN_GENERAR_RESERVA.Translate();
+            btnCancelar.Text = Domain.Enums.Translations.BTN_CANCELAR_RESERVA.Translate();
+            btnBuscarCliente.Text = Domain.Enums.Translations.BTN_SELECCIONAR.Translate();
 
-            lblEspacio.Text = "LBL_ESPACIO".Translate();
-            lblFecha.Text = "LBL_FECHA".Translate();
-            lblHora.Text = "LBL_HORA".Translate();
-            lblDuracion.Text = "LBL_DURACION".Translate();
-            lblAdelanto.Text = "LBL_ADELANTO".Translate();
-            lblDni.Text = "LBL_DNI".Translate();
+            lblEspacio.Text = Domain.Enums.Translations.LBL_ESPACIO.Translate();
+            lblFecha.Text = Domain.Enums.Translations.LBL_FECHA.Translate();
+            lblHora.Text = Domain.Enums.Translations.LBL_HORA.Translate();
+            lblDuracion.Text = Domain.Enums.Translations.LBL_DURACION.Translate();
+            lblAdelanto.Text = Domain.Enums.Translations.LBL_ADELANTO.Translate();
+            lblDni.Text = Domain.Enums.Translations.LBL_DNI.Translate();
             lblNombreCliente.Text = "";
         }
 
@@ -98,13 +98,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if (dgvReservas.Columns.Contains("ClienteID")) dgvReservas.Columns["ClienteID"].Visible = false;
             if (dgvReservas.Columns.Contains("EspacioID")) dgvReservas.Columns["EspacioID"].Visible = false;
 
-            if (dgvReservas.Columns.Contains("CodigoReserva")) dgvReservas.Columns["CodigoReserva"].HeaderText = "LBL_CODIGO_RESERVA".Translate();
-            if (dgvReservas.Columns.Contains("ClienteNombre")) dgvReservas.Columns["ClienteNombre"].HeaderText = "LBL_CLIENTE".Translate();
-            if (dgvReservas.Columns.Contains("EspacioNombre")) dgvReservas.Columns["EspacioNombre"].HeaderText = "LBL_ESPACIO".Translate();
-            if (dgvReservas.Columns.Contains("FechaHora")) dgvReservas.Columns["FechaHora"].HeaderText = "LBL_FECHA".Translate();
-            if (dgvReservas.Columns.Contains("Duracion")) dgvReservas.Columns["Duracion"].HeaderText = "LBL_DURACION".Translate();
-            if (dgvReservas.Columns.Contains("Adelanto")) dgvReservas.Columns["Adelanto"].HeaderText = "LBL_ADELANTO".Translate();
-            if (dgvReservas.Columns.Contains("Estado")) dgvReservas.Columns["Estado"].HeaderText = "LBL_ESTADO".Translate();
+            if (dgvReservas.Columns.Contains("CodigoReserva")) dgvReservas.Columns["CodigoReserva"].HeaderText = Domain.Enums.Translations.LBL_CODIGO_RESERVA.Translate();
+            if (dgvReservas.Columns.Contains("ClienteNombre")) dgvReservas.Columns["ClienteNombre"].HeaderText = Domain.Enums.Translations.LBL_CLIENTE.Translate();
+            if (dgvReservas.Columns.Contains("EspacioNombre")) dgvReservas.Columns["EspacioNombre"].HeaderText = Domain.Enums.Translations.LBL_ESPACIO.Translate();
+            if (dgvReservas.Columns.Contains("FechaHora")) dgvReservas.Columns["FechaHora"].HeaderText = Domain.Enums.Translations.LBL_FECHA.Translate();
+            if (dgvReservas.Columns.Contains("Duracion")) dgvReservas.Columns["Duracion"].HeaderText = Domain.Enums.Translations.LBL_DURACION.Translate();
+            if (dgvReservas.Columns.Contains("Adelanto")) dgvReservas.Columns["Adelanto"].HeaderText = Domain.Enums.Translations.LBL_ADELANTO.Translate();
+            if (dgvReservas.Columns.Contains("Estado")) dgvReservas.Columns["Estado"].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
         }
 
         private void btnVerificar_Click(object sender, EventArgs e)
@@ -133,12 +133,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (disponible)
                 {
-                    MessageBox.Show("MSG_ESPACIO_DISPONIBLE".Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Domain.Enums.Translations.MSG_ESPACIO_DISPONIBLE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EnableReservaControls(true);
                 }
                 else
                 {
-                    MessageBox.Show("MSG_ESPACIO_NO_DISPONIBLE".Translate(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     EnableReservaControls(false);
                 }
             }
@@ -218,7 +218,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _reservaManager.GenerarReserva(dto);
 
-                MessageBox.Show("MSG_RESERVA_GENERADA".Translate(), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Domain.Enums.Translations.MSG_RESERVA_GENERADA.Translate(), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Clear fields
                 _clienteIdSeleccionado = null;
@@ -248,7 +248,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var row = dgvReservas.SelectedRows[0];
                 var reserva = (ReservaDTO)row.DataBoundItem;
 
-                if (MessageBox.Show("MSG_CONFIRM_CANCELAR".Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_CANCELAR.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _reservaManager.CancelarReserva(reserva.Id);
                     LoadReservas();
