@@ -115,6 +115,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             //
+            // btnAgenda
+            //
+            this.btnAgenda.Location = new System.Drawing.Point(23, 310);
+            this.btnAgenda.Name = "btnAgenda";
+            this.btnAgenda.Size = new System.Drawing.Size(250, 23);
+            this.btnAgenda.TabIndex = 10;
+            this.btnAgenda.Text = "Configurar Agenda";
+            this.btnAgenda.UseVisualStyleBackColor = true;
+            this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
+
+            //
             // btnEliminar
             //
             this.btnEliminar.Location = new System.Drawing.Point(185, 240);
