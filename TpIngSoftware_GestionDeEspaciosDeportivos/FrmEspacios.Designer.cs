@@ -33,6 +33,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvEspacios = new System.Windows.Forms.DataGridView();
             this.panelEditor = new System.Windows.Forms.Panel();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnAgenda = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -87,6 +88,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // panelEditor
             //
             this.panelEditor.Controls.Add(this.btnLimpiar);
+            this.panelEditor.Controls.Add(this.btnAgenda);
             this.panelEditor.Controls.Add(this.btnEliminar);
             this.panelEditor.Controls.Add(this.btnActualizar);
             this.panelEditor.Controls.Add(this.btnCrear);
@@ -112,6 +114,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            //
+            // btnAgenda
+            //
+            this.btnAgenda.Location = new System.Drawing.Point(23, 310);
+            this.btnAgenda.Name = "btnAgenda";
+            this.btnAgenda.Size = new System.Drawing.Size(250, 23);
+            this.btnAgenda.TabIndex = 10;
+            this.btnAgenda.Text = "Configurar Agenda";
+            this.btnAgenda.UseVisualStyleBackColor = true;
+            this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
+
             //
             // btnEliminar
             //
@@ -232,6 +245,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnAgenda;
         private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

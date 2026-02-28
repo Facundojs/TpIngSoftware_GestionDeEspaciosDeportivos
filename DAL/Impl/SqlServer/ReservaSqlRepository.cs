@@ -189,8 +189,45 @@ namespace DAL.Impl
             }, conn, tran);
         }
 
+
         public bool EspacioDisponible(Guid espacioId, DateTime fechaHora, int duracion, SqlConnection conn = null, SqlTransaction tran = null)
         {
+            string agendaQuery = "SELECT HoraDesde, HoraHasta FROM Agenda WHERE EspacioID = @EspacioId";
+            SqlParameter[] agendaParams = { new SqlParameter("@EspacioId", espacioId) };
+
+            var agendas = ExecuteReader(agendaQuery, agendaParams, reader =>
+            {
+                var list = new List<Tuple<TimeSpan, TimeSpan>>();
+                while (reader.Read())
+                {
+                    list.Add(Tuple.Create(reader.GetTimeSpan(0), reader.GetTimeSpan(1)));
+                }
+                return list;
+            }, conn, tran);
+
+            if (agendas.Count == 0)
+            {
+                throw new InvalidOperationException("ERR_NO_AGENDA");
+            }
+
+            TimeSpan reqDesde = fechaHora.TimeOfDay;
+            TimeSpan reqHasta = fechaHora.AddMinutes(duracion).TimeOfDay;
+            bool withinAgenda = false;
+
+            foreach (var a in agendas)
+            {
+                if (reqDesde >= a.Item1 && reqHasta <= a.Item2)
+                {
+                    withinAgenda = true;
+                    break;
+                }
+            }
+
+            if (!withinAgenda)
+            {
+                return false;
+            }
+
             string query = @"
                 SELECT COUNT(*)
                 FROM Reserva

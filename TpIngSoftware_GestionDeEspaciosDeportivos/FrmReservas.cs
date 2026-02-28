@@ -69,9 +69,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 cbEspacio.DisplayMember = "Nombre";
                 cbEspacio.ValueMember = "Id";
             }
-            catch (Exception ex)
+                        catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -84,9 +91,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvReservas.DataSource = reservas;
                 FormatGrid();
             }
-            catch (Exception ex)
+                        catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -142,9 +156,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     EnableReservaControls(false);
                 }
             }
-            catch (Exception ex)
+                        catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -179,9 +200,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     MessageBox.Show("Ingrese un DNI válido");
                 }
             }
-            catch (Exception ex)
+                        catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -229,9 +257,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 LoadReservas();
             }
-            catch (Exception ex)
+                        catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -254,9 +289,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     LoadReservas();
                 }
             }
-            catch (Exception ex)
+                        catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message == "ERR_NO_AGENDA")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
