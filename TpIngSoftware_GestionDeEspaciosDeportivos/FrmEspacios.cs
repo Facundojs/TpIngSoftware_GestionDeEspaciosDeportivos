@@ -34,6 +34,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
             btnEliminar.Text = Domain.Enums.Translations.BTN_DELETE.Translate();
             btnLimpiar.Text = Domain.Enums.Translations.BTN_LIMPIAR.Translate();
+            btnAgenda.Text = Domain.Enums.Translations.BTN_CONFIGURAR_AGENDA.Translate();
         }
 
         private void FrmEspacios_Load(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnCrear.Enabled = _currentUser.TienePermiso(PermisoKeys.EspacioCrear);
             btnActualizar.Enabled = _currentUser.TienePermiso(PermisoKeys.EspacioModificar);
             btnEliminar.Enabled = _currentUser.TienePermiso(PermisoKeys.EspacioEliminar);
+            btnAgenda.Enabled = _currentUser.TienePermiso(PermisoKeys.EspacioModificar);
 
             if (!_currentUser.TienePermiso(PermisoKeys.EspacioListar))
             {
@@ -207,6 +209,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             dgvEspacios.ClearSelection();
             ClearForm();
             _selectedEspacio = null;
+        }
+
+        private void btnAgenda_Click(object sender, EventArgs e)
+        {
+            if (_selectedEspacio == null)
+            {
+                MessageBox.Show("Seleccione un espacio");
+                return;
+            }
+
+            var frm = new FrmAgenda(_selectedEspacio.Id);
+            frm.ShowDialog();
         }
     }
 }

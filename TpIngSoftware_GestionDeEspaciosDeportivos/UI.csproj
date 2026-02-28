@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\EspacioManager.cs" />
+    <Compile Include="Business\AgendaManager.cs" />
     <Compile Include="Business\EjercicioManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -69,6 +70,12 @@
     </Compile>
     <Compile Include="FrmBitacora.Designer.cs">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </Compile>
+        <Compile Include="FrmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgenda.Designer.cs">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEspacios.cs">
       <SubType>Form</SubType>

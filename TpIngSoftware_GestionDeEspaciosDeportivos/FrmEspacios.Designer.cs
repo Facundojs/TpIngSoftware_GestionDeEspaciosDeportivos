@@ -33,6 +33,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvEspacios = new System.Windows.Forms.DataGridView();
             this.panelEditor = new System.Windows.Forms.Panel();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnAgenda = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -232,6 +233,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnAgenda;
         private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
