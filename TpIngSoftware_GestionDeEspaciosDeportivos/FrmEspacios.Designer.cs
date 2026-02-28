@@ -88,6 +88,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // panelEditor
             //
             this.panelEditor.Controls.Add(this.btnLimpiar);
+            this.panelEditor.Controls.Add(this.btnAgenda);
             this.panelEditor.Controls.Add(this.btnEliminar);
             this.panelEditor.Controls.Add(this.btnActualizar);
             this.panelEditor.Controls.Add(this.btnCrear);
