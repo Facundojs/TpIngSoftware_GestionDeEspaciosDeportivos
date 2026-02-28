@@ -28,6 +28,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _languageService = new LanguageService();
             SetupLanguageSelector();
             UpdateLanguage();
+            this.AcceptButton = btnLogin;
         }
 
         private void SetupLanguageSelector()
