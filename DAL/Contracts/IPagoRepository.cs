@@ -15,5 +15,6 @@ namespace DAL.Contracts
         void Add(Pago obj, SqlConnection conn = null, SqlTransaction tran = null);
         void Update(Pago obj, SqlConnection conn = null, SqlTransaction tran = null);
         Pago GetById(Guid id, SqlConnection conn = null, SqlTransaction tran = null);
+        Pago GetByReserva(Guid reservaId, SqlConnection conn = null, SqlTransaction tran = null);
     }
 }
