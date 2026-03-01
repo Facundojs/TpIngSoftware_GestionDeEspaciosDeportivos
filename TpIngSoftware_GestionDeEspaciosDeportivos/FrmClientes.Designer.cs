@@ -67,7 +67,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlCheckIn.Controls.Add(this.txtDNICheckIn);
             this.pnlCheckIn.Controls.Add(this.lblDNICheckIn);
             this.pnlCheckIn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCheckIn.Location = new System.Drawing.Point(0, 500);
+            this.pnlCheckIn.Location = new System.Drawing.Point(0, 542);
             this.pnlCheckIn.Name = "pnlCheckIn";
             this.pnlCheckIn.Size = new System.Drawing.Size(900, 58);
             this.pnlCheckIn.TabIndex = 0;
@@ -132,12 +132,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlEdicion.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlEdicion.Location = new System.Drawing.Point(600, 0);
             this.pnlEdicion.Name = "pnlEdicion";
-            this.pnlEdicion.Size = new System.Drawing.Size(300, 500);
+            this.pnlEdicion.Size = new System.Drawing.Size(300, 542);
             this.pnlEdicion.TabIndex = 1;
             // 
             // btnVerRutina
             // 
-            this.btnVerRutina.Location = new System.Drawing.Point(20, 452);
+            this.btnVerRutina.Location = new System.Drawing.Point(20, 513);
             this.btnVerRutina.Name = "btnVerRutina";
             this.btnVerRutina.Size = new System.Drawing.Size(260, 23);
             this.btnVerRutina.TabIndex = 15;
@@ -147,7 +147,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // btnVerIngresos
             // 
-            this.btnVerIngresos.Location = new System.Drawing.Point(20, 394);
+            this.btnVerIngresos.Location = new System.Drawing.Point(20, 426);
             this.btnVerIngresos.Name = "btnVerIngresos";
             this.btnVerIngresos.Size = new System.Drawing.Size(260, 23);
             this.btnVerIngresos.TabIndex = 17;
@@ -156,8 +156,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnVerIngresos.Click += new System.EventHandler(this.btnVerIngresos_Click);
             // 
             // btnVerMovimientos
-            //
-            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 410);
+            // 
+            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 455);
             this.btnVerMovimientos.Name = "btnVerMovimientos";
             this.btnVerMovimientos.Size = new System.Drawing.Size(260, 23);
             this.btnVerMovimientos.TabIndex = 16;
@@ -166,27 +166,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnVerMovimientos.Click += new System.EventHandler(this.btnVerMovimientos_Click);
             // 
             // btnLimpiar
-            //
-            this.btnLimpiar.Location = new System.Drawing.Point(20, 440);
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(20, 484);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(260, 23);
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "BTN_LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            //
-            // btnVerRutina
-            //
-            this.btnVerRutina.Location = new System.Drawing.Point(20, 470);
-            this.btnVerRutina.Name = "btnVerRutina";
-            this.btnVerRutina.Size = new System.Drawing.Size(260, 23);
-            this.btnVerRutina.TabIndex = 15;
-            this.btnVerRutina.Text = "BTN_VER_RUTINA";
-            this.btnVerRutina.UseVisualStyleBackColor = true;
-            this.btnVerRutina.Click += new System.EventHandler(this.btnVerRutina_Click);
-            //
+            // 
             // btnHabilitar
-            //
+            // 
             this.btnHabilitar.Location = new System.Drawing.Point(160, 370);
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Size = new System.Drawing.Size(120, 23);
@@ -196,7 +186,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnHabilitar.Click += new System.EventHandler(this.btnHabilitar_Click);
             // 
             // btnDeshabilitar
-            //
+            // 
             this.btnDeshabilitar.Location = new System.Drawing.Point(20, 370);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(120, 23);
@@ -206,7 +196,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnActualizar
-            //
+            // 
             this.btnActualizar.Location = new System.Drawing.Point(160, 330);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(120, 23);
@@ -216,7 +206,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnCrear
-            //
+            // 
             this.btnCrear.Location = new System.Drawing.Point(20, 330);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(120, 23);
@@ -259,23 +249,23 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblFechaNacimiento.Size = new System.Drawing.Size(95, 13);
             this.lblFechaNacimiento.TabIndex = 6;
             this.lblFechaNacimiento.Text = "LBL_FECHA_NAC";
-            //
+            // 
             // txtEmail
-            //
+            // 
             this.txtEmail.Location = new System.Drawing.Point(20, 240);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(260, 20);
             this.txtEmail.TabIndex = 9;
-            //
+            // 
             // lblEmail
-            //
+            // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(20, 220);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(65, 13);
+            this.lblEmail.Size = new System.Drawing.Size(64, 13);
             this.lblEmail.TabIndex = 8;
             this.lblEmail.Text = "LBL_EMAIL";
-            //
+            // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(20, 140);
@@ -335,7 +325,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(600, 500);
+            this.dgvClientes.Size = new System.Drawing.Size(600, 542);
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             // 
