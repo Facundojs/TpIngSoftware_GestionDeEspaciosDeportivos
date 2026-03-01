@@ -120,6 +120,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if (dgvReservas.Columns.Contains("Duracion")) dgvReservas.Columns["Duracion"].HeaderText = Domain.Enums.Translations.LBL_DURACION.Translate();
             if (dgvReservas.Columns.Contains("Adelanto")) dgvReservas.Columns["Adelanto"].HeaderText = Domain.Enums.Translations.LBL_ADELANTO.Translate();
             if (dgvReservas.Columns.Contains("Estado")) dgvReservas.Columns["Estado"].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
+            btnVerHorarios.Text = Domain.Enums.Translations.BTN_VER_HORARIOS.Translate();
         }
 
         private void btnVerificar_Click(object sender, EventArgs e)
@@ -128,7 +129,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (cbEspacio.SelectedValue == null)
                 {
-                    MessageBox.Show("Seleccione un espacio");
+                    MessageBox.Show(Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO.Translate());
                     return;
                 }
 
@@ -137,20 +138,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 DateTime hora = dtpHora.Value;
                 if (hora.Minute != 0 && hora.Minute != 30)
                 {
-                    MessageBox.Show("La hora debe ser en múltiplos de 30 minutos (ej. 14:00, 14:30).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 DateTime fechaHora = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora.Hour, hora.Minute, 0);
                 int duracion = (int)numDuracion.Value;
                 if (duracion % 30 != 0)
                 {
-                    MessageBox.Show("La duración debe ser en múltiplos de 30 minutos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.ERR_DURACION_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (fechaHora < DateTime.Now)
                 {
-                    MessageBox.Show("La fecha no puede ser anterior a la actual");
+                    MessageBox.Show(Domain.Enums.Translations.ERR_FECHA_PASADA.Translate());
                     return;
                 }
 
@@ -166,7 +167,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     try
                     {
                         var horarios = _reservaManager.ObtenerHorariosDisponibles(espacioId, fechaHora.Date);
-                        string msj = Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate() + "\n\nHorarios disponibles hoy:\n";
+                        string formatMsj = Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL.Translate();
+                        string msgDate = formatMsj.Contains("{0}") ? string.Format(formatMsj, fecha.ToShortDateString()) : formatMsj;
+                        string msj = Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate() + "\n\n" + msgDate;
                         if (horarios.Count > 0)
                         {
                             foreach (var h in horarios)
@@ -176,7 +179,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                         }
                         else
                         {
-                            msj += "Ninguno en este día.";
+                            msj += Domain.Enums.Translations.MSG_NINGUNO_ESTE_DIA.Translate();
                         }
                         MessageBox.Show(msj, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -204,7 +207,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (cbEspacio.SelectedValue == null)
             {
-                MessageBox.Show("Seleccione un espacio");
+                MessageBox.Show(Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO.Translate());
                 return;
             }
             Guid espacioId = (Guid)cbEspacio.SelectedValue;
@@ -212,7 +215,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             try
             {
                 var horarios = _reservaManager.ObtenerHorariosDisponibles(espacioId, fecha);
-                string msj = "Horarios disponibles el " + fecha.ToShortDateString() + ":\n\n";
+                string formatMsj = Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL.Translate();
+                string msj = formatMsj.Contains("{0}") ? string.Format(formatMsj, fecha.ToShortDateString()) : formatMsj;
                 if (horarios.Count > 0)
                 {
                     foreach (var h in horarios)
@@ -222,7 +226,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 else
                 {
-                    msj += "Ninguno en este día.";
+                    msj += Domain.Enums.Translations.MSG_NINGUNO_ESTE_DIA.Translate();
                 }
                 MessageBox.Show(msj, "Horarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -294,7 +298,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 if (cbEspacio.SelectedValue == null)
                 {
-                    MessageBox.Show("Seleccione un espacio");
+                    MessageBox.Show(Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO.Translate());
                     return;
                 }
 
@@ -303,14 +307,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 DateTime hora = dtpHora.Value;
                 if (hora.Minute != 0 && hora.Minute != 30)
                 {
-                    MessageBox.Show("La hora debe ser en múltiplos de 30 minutos (ej. 14:00, 14:30).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 DateTime fechaHora = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora.Hour, hora.Minute, 0);
                 int duracion = (int)numDuracion.Value;
                 if (duracion % 30 != 0)
                 {
-                    MessageBox.Show("La duración debe ser en múltiplos de 30 minutos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Domain.Enums.Translations.ERR_DURACION_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 decimal adelanto = numAdelanto.Value;

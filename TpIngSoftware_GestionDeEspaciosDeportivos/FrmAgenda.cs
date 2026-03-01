@@ -65,13 +65,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (desde.Minutes != 0 && desde.Minutes != 30)
             {
-                MessageBox.Show("La hora 'Desde' debe ser en múltiplos de 30 minutos (ej. 14:00, 14:30).");
+                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate());
                 return;
             }
 
             if (hasta.Minutes != 0 && hasta.Minutes != 30)
             {
-                MessageBox.Show("La hora 'Hasta' debe ser en múltiplos de 30 minutos (ej. 14:00, 14:30).");
+                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate());
                 return;
             }
 
