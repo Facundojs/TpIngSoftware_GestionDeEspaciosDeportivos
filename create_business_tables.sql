@@ -20,7 +20,7 @@ CREATE TABLE Espacio (
     Nombre NVARCHAR(255) NOT NULL,
     Descripcion NVARCHAR(MAX),
     PrecioHora DECIMAL(18,2) NOT NULL CHECK (PrecioHora >= 0),
-    Estado NVARCHAR(50) NOT NULL DEFAULT 'Activo'
+    Estado NVARCHAR(50) NOT NULL
 );
 
 -- 3. Cliente (Business Entity only)
