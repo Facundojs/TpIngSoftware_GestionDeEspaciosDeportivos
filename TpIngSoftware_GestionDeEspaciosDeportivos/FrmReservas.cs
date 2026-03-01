@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using BLL.DTOs;
 using BLL.Services;
@@ -17,6 +19,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private readonly ReservaManager _reservaManager;
         private readonly EspacioManager _espacioManager;
         private readonly ClienteManager _clienteManager;
+        private readonly PagoManager _pagoManager;
         private readonly UsuarioDTO _usuario;
         private Guid? _clienteIdSeleccionado = null;
 
@@ -27,6 +30,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _reservaManager = new ReservaManager();
             _espacioManager = new EspacioManager();
             _clienteManager = new ClienteManager();
+            _pagoManager = new PagoManager();
 
             Translate();
             LoadEspacios();
@@ -51,6 +55,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnGenerar.Text = Domain.Enums.Translations.BTN_GENERAR_RESERVA.Translate();
             btnCancelar.Text = Domain.Enums.Translations.BTN_CANCELAR_RESERVA.Translate();
             btnBuscarCliente.Text = Domain.Enums.Translations.BTN_SELECCIONAR.Translate();
+            btnVerComprobante.Text = Domain.Enums.Translations.BTN_VER_COMPROBANTE.Translate();
 
             lblEspacio.Text = Domain.Enums.Translations.LBL_ESPACIO.Translate();
             lblFecha.Text = Domain.Enums.Translations.LBL_FECHA.Translate();
@@ -383,6 +388,54 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnVerComprobante_Click(object sender, EventArgs e)
+        {
+            if (dgvReservas.SelectedRows.Count == 0) return;
+            var reserva = (ReservaDTO)dgvReservas.SelectedRows[0].DataBoundItem;
+
+            try
+            {
+                var pagos = _pagoManager.ObtenerPagosPorReserva(reserva.Id);
+                // Look for the advance payment or placeholder
+                var pagoAsociado = pagos.FirstOrDefault(p => p.Metodo == "Adelanto" || p.Metodo == "Reserva sin Adelanto") ?? pagos.FirstOrDefault();
+
+                if (pagoAsociado == null)
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_COMPROBANTE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var comprobante = _pagoManager.ObtenerComprobante(pagoAsociado.Id);
+                if (comprobante == null)
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_NO_COMPROBANTE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (comprobante.Contenido == null || comprobante.Contenido.Length == 0)
+                {
+                     MessageBox.Show("El comprobante existe pero no tiene contenido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     return;
+                }
+
+                string extension = Path.GetExtension(comprobante.NombreArchivo);
+                if (string.IsNullOrEmpty(extension)) extension = ".dat";
+
+                string tempPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}{extension}");
+                File.WriteAllBytes(tempPath, comprobante.Contenido);
+
+                var psi = new System.Diagnostics.ProcessStartInfo(tempPath)
+                {
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

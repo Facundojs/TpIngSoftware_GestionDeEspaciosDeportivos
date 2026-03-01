@@ -28,6 +28,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnVerHorarios = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnVerComprobante = new System.Windows.Forms.Button();
             this.lblEspacio = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
@@ -190,6 +191,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             //
+            // btnVerComprobante
+            //
+            this.btnVerComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVerComprobante.Location = new System.Drawing.Point(486, 426);
+            this.btnVerComprobante.Name = "btnVerComprobante";
+            this.btnVerComprobante.Size = new System.Drawing.Size(140, 23);
+            this.btnVerComprobante.TabIndex = 21;
+            this.btnVerComprobante.Text = "Ver Comprobante";
+            this.btnVerComprobante.UseVisualStyleBackColor = true;
+            this.btnVerComprobante.Click += new System.EventHandler(this.btnVerComprobante_Click);
+            //
             // lblEspacio
             //
             this.lblEspacio.AutoSize = true;
@@ -268,6 +280,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Controls.Add(this.dtpHora);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.cbEspacio);
+            this.Controls.Add(this.btnVerComprobante);
             this.Name = "FrmReservas";
             this.Text = "Gestión de Reservas";
             ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).EndInit();
@@ -291,6 +304,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnVerHorarios;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnVerComprobante;
         private System.Windows.Forms.Label lblEspacio;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
