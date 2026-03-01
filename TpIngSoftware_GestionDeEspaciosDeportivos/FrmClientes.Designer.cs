@@ -66,7 +66,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlCheckIn.Controls.Add(this.txtDNICheckIn);
             this.pnlCheckIn.Controls.Add(this.lblDNICheckIn);
             this.pnlCheckIn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCheckIn.Location = new System.Drawing.Point(0, 450);
+            this.pnlCheckIn.Location = new System.Drawing.Point(0, 500);
             this.pnlCheckIn.Name = "pnlCheckIn";
             this.pnlCheckIn.Size = new System.Drawing.Size(900, 100);
             this.pnlCheckIn.TabIndex = 0;
@@ -130,12 +130,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlEdicion.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlEdicion.Location = new System.Drawing.Point(600, 0);
             this.pnlEdicion.Name = "pnlEdicion";
-            this.pnlEdicion.Size = new System.Drawing.Size(300, 450);
+            this.pnlEdicion.Size = new System.Drawing.Size(300, 500);
             this.pnlEdicion.TabIndex = 1;
             //
             // btnVerMovimientos
             //
-            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 360);
+            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 410);
             this.btnVerMovimientos.Name = "btnVerMovimientos";
             this.btnVerMovimientos.Size = new System.Drawing.Size(260, 23);
             this.btnVerMovimientos.TabIndex = 16;
@@ -145,7 +145,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnLimpiar
             //
-            this.btnLimpiar.Location = new System.Drawing.Point(20, 390);
+            this.btnLimpiar.Location = new System.Drawing.Point(20, 440);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(260, 23);
             this.btnLimpiar.TabIndex = 14;
@@ -155,7 +155,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnVerRutina
             //
-            this.btnVerRutina.Location = new System.Drawing.Point(20, 420);
+            this.btnVerRutina.Location = new System.Drawing.Point(20, 470);
             this.btnVerRutina.Name = "btnVerRutina";
             this.btnVerRutina.Size = new System.Drawing.Size(260, 23);
             this.btnVerRutina.TabIndex = 15;
@@ -165,7 +165,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnHabilitar
             //
-            this.btnHabilitar.Location = new System.Drawing.Point(160, 320);
+            this.btnHabilitar.Location = new System.Drawing.Point(160, 370);
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Size = new System.Drawing.Size(120, 23);
             this.btnHabilitar.TabIndex = 13;
@@ -175,7 +175,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnDeshabilitar
             //
-            this.btnDeshabilitar.Location = new System.Drawing.Point(20, 320);
+            this.btnDeshabilitar.Location = new System.Drawing.Point(20, 370);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(120, 23);
             this.btnDeshabilitar.TabIndex = 12;
@@ -185,7 +185,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnActualizar
             //
-            this.btnActualizar.Location = new System.Drawing.Point(160, 280);
+            this.btnActualizar.Location = new System.Drawing.Point(160, 330);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(120, 23);
             this.btnActualizar.TabIndex = 11;
@@ -195,7 +195,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnCrear
             //
-            this.btnCrear.Location = new System.Drawing.Point(20, 280);
+            this.btnCrear.Location = new System.Drawing.Point(20, 330);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(120, 23);
             this.btnCrear.TabIndex = 10;
@@ -206,7 +206,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblMembresia
             //
             this.lblMembresia.AutoSize = true;
-            this.lblMembresia.Location = new System.Drawing.Point(20, 220);
+            this.lblMembresia.Location = new System.Drawing.Point(20, 270);
             this.lblMembresia.Name = "lblMembresia";
             this.lblMembresia.Size = new System.Drawing.Size(91, 13);
             this.lblMembresia.TabIndex = 9;
@@ -216,7 +216,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             this.cmbMembresia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMembresia.FormattingEnabled = true;
-            this.cmbMembresia.Location = new System.Drawing.Point(20, 240);
+            this.cmbMembresia.Location = new System.Drawing.Point(20, 290);
             this.cmbMembresia.Name = "cmbMembresia";
             this.cmbMembresia.Size = new System.Drawing.Size(260, 21);
             this.cmbMembresia.TabIndex = 8;
@@ -313,7 +313,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(600, 450);
+            this.dgvClientes.Size = new System.Drawing.Size(600, 500);
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             //
@@ -321,7 +321,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 550);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.pnlEdicion);
             this.Controls.Add(this.pnlCheckIn);
