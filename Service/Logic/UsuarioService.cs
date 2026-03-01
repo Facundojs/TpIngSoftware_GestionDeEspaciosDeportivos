@@ -24,37 +24,46 @@ namespace Service.Logic
 
         public UsuarioDTO Login(string username, string password)
         {
-            var user = _repository.GetByUsername(username);
-            if (user == null) throw new Exception("Usuario no encontrado");
-
-            string hashedPassword = CryptographyHelper.HashPassword(password);
-            if (user.Password != hashedPassword) throw new Exception("Contraseña incorrecta");
-
-            if (!user.Estado) throw new Exception("Usuario bloqueado o inactivo");
-
-            var dto = new UsuarioDTO
+            try
             {
-                Id = user.Id,
-                Username = user.NombreUsuario,
-                Estado = user.Estado ? "Activo" : "Bloqueado",
-                Permisos = user.Permisos
-            };
+                var user = _repository.GetByUsername(username);
+                if (user == null) throw new Exception("Usuario no encontrado");
 
-            // Determine Role based on Families (Permisos)
-            if (user.Permisos.Any(p => p.Nombre == "Administrador"))
-            {
-                dto.RolNegocio = "Administrador";
+                string hashedPassword = CryptographyHelper.HashPassword(password);
+                if (user.Password != hashedPassword) throw new Exception("Contraseña incorrecta");
+
+                if (!user.Estado) throw new Exception("Usuario bloqueado o inactivo");
+
+                var dto = new UsuarioDTO
+                {
+                    Id = user.Id,
+                    Username = user.NombreUsuario,
+                    Estado = user.Estado ? "Activo" : "Bloqueado",
+                    Permisos = user.Permisos
+                };
+
+                // Determine Role based on Families (Permisos)
+                if (user.Permisos.Any(p => p.Nombre == "Administrador"))
+                {
+                    dto.RolNegocio = "Administrador";
+                }
+                else if (user.Permisos.Any(p => p.Nombre == "Operador"))
+                {
+                    dto.RolNegocio = "Operador";
+                }
+                else
+                {
+                    dto.RolNegocio = string.Join(", ", user.Permisos.Select(p => p.Nombre));
+                }
+
+                return dto;
             }
-            else if (user.Permisos.Any(p => p.Nombre == "Operador"))
+            catch (Exception ex)
             {
-                dto.RolNegocio = "Operador";
+                var bitacora = new BitacoraService();
+                bitacora.Log($"Login fallido para usuario '{username}' - Razón: {ex.Message}", "WARNING");
+                throw;
             }
-            else
-            {
-                dto.RolNegocio = string.Join(", ", user.Permisos.Select(p => p.Nombre));
-            }
-
-            return dto;
         }
 
         public void Register(UsuarioDTO dto, string password)
