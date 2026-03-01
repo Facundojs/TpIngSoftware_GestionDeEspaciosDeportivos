@@ -33,5 +33,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
         {
             return _service.ListarEspacios();
         }
+
+        public List<EspacioDTO> ListarTodos()
+        {
+            return _service.ListarTodos();
+        }
     }
 }

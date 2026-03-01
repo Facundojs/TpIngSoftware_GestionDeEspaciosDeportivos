@@ -63,7 +63,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             try
             {
-                var list = _espacioManager.ListarEspacios();
+                var list = _espacioManager.ListarTodos();
                 dgvEspacios.DataSource = null;
                 dgvEspacios.DataSource = list;
 

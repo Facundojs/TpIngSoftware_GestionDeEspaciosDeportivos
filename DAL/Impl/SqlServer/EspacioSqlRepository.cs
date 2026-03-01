@@ -40,11 +40,7 @@ namespace DAL.Impl
 
         public void Remove(Guid id)
         {
-            string query = @"
-                IF EXISTS (SELECT 1 FROM Reserva WHERE EspacioID = @Id AND FechaHora > GETDATE() AND Estado NOT IN ('Cancelada', 'Finalizada'))
-                    UPDATE Espacio SET Estado = 'Inactivo' WHERE Id = @Id
-                ELSE
-                    DELETE FROM Espacio WHERE Id = @Id";
+            string query = "DELETE FROM Espacio WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
             ExecuteNonQuery(query, parameters);
         }

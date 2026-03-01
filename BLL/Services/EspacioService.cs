@@ -91,6 +91,12 @@ namespace BLL.Services
 
         public List<EspacioDTO> ListarEspacios()
         {
+            var entities = _espacioRepository.ListarDisponibles();
+            return EspacioMapper.Map(entities);
+        }
+
+        public List<EspacioDTO> ListarTodos()
+        {
             var entities = _espacioRepository.GetAll();
             return EspacioMapper.Map(entities);
         }
