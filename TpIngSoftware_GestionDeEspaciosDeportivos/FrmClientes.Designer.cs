@@ -44,6 +44,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnCrear = new System.Windows.Forms.Button();
             this.lblMembresia = new System.Windows.Forms.Label();
             this.cmbMembresia = new System.Windows.Forms.ComboBox();
+            this.lblProximaFechaPago = new System.Windows.Forms.Label();
+            this.txtProximaFechaPago = new System.Windows.Forms.TextBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -117,6 +119,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlEdicion.Controls.Add(this.btnDeshabilitar);
             this.pnlEdicion.Controls.Add(this.btnActualizar);
             this.pnlEdicion.Controls.Add(this.btnCrear);
+            this.pnlEdicion.Controls.Add(this.lblProximaFechaPago);
+            this.pnlEdicion.Controls.Add(this.txtProximaFechaPago);
             this.pnlEdicion.Controls.Add(this.lblMembresia);
             this.pnlEdicion.Controls.Add(this.cmbMembresia);
             this.pnlEdicion.Controls.Add(this.dtpFechaNacimiento);
@@ -233,6 +237,23 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.cmbMembresia.Size = new System.Drawing.Size(260, 21);
             this.cmbMembresia.TabIndex = 8;
             // 
+            // lblProximaFechaPago
+            //
+            this.lblProximaFechaPago.AutoSize = true;
+            this.lblProximaFechaPago.Location = new System.Drawing.Point(20, 320);
+            this.lblProximaFechaPago.Name = "lblProximaFechaPago";
+            this.lblProximaFechaPago.Size = new System.Drawing.Size(147, 13);
+            this.lblProximaFechaPago.TabIndex = 15;
+            this.lblProximaFechaPago.Text = "LBL_PROXIMA_FECHA_PAGO";
+            //
+            // txtProximaFechaPago
+            //
+            this.txtProximaFechaPago.Location = new System.Drawing.Point(20, 340);
+            this.txtProximaFechaPago.Name = "txtProximaFechaPago";
+            this.txtProximaFechaPago.ReadOnly = true;
+            this.txtProximaFechaPago.Size = new System.Drawing.Size(260, 20);
+            this.txtProximaFechaPago.TabIndex = 16;
+            //
             // dtpFechaNacimiento
             // 
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -368,6 +389,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Label lblMembresia;
         private System.Windows.Forms.ComboBox cmbMembresia;
+        private System.Windows.Forms.Label lblProximaFechaPago;
+        private System.Windows.Forms.TextBox txtProximaFechaPago;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label lblFechaNacimiento;
         private System.Windows.Forms.TextBox txtEmail;

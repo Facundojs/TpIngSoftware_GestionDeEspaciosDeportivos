@@ -61,6 +61,19 @@ namespace BLL.Services
                 entity.CreatedAt = DateTime.Now;
 
                 _repository.Add(entity);
+
+                if (dto.MembresiaID.HasValue)
+                {
+                    var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
+                    var clienteMembresia = new ClienteMembresia
+                    {
+                        ClienteID = entity.Id,
+                        MembresiaID = dto.MembresiaID.Value,
+                        FechaAsignacion = DateTime.Now,
+                        ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
+                    };
+                    DalFactory.ClienteMembresiaRepository.Add(clienteMembresia);
+                }
             }
             catch (Exception ex)
             {
@@ -87,6 +100,23 @@ namespace BLL.Services
                 var membresia = _membresiaService.ObtenerMembresia(nuevaMembresiaId);
                 if (membresia == null) throw new InvalidOperationException("La membresía no existe");
                 if (!membresia.Activa) throw new InvalidOperationException("La membresía no está activa");
+
+                // Update ClienteMembresia history
+                var activeMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(clienteId);
+                if (activeMembresia != null)
+                {
+                    activeMembresia.FechaBaja = DateTime.Now;
+                    DalFactory.ClienteMembresiaRepository.Update(activeMembresia);
+                }
+
+                var newMembresia = new ClienteMembresia
+                {
+                    ClienteID = clienteId,
+                    MembresiaID = nuevaMembresiaId,
+                    FechaAsignacion = DateTime.Now,
+                    ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
+                };
+                DalFactory.ClienteMembresiaRepository.Add(newMembresia);
 
                 _repository.AsignarMembresia(clienteId, nuevaMembresiaId, null, null);
 
@@ -206,11 +236,17 @@ namespace BLL.Services
             {
                  var balance = _balanceService.ConsultarBalance(c.Id);
                  Membresia membresia = null;
+                 DateTime? proximaFechaPago = null;
                  if (c.MembresiaID.HasValue)
                  {
                      membresia = DalFactory.MembresiaRepository.GetById(c.MembresiaID.Value);
+                     var clMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(c.Id);
+                     if (clMembresia != null)
+                     {
+                         proximaFechaPago = clMembresia.ProximaFechaPago;
+                     }
                  }
-                 list.Add(ClienteMapper.ToDTO(c, membresia, balance));
+                 list.Add(ClienteMapper.ToDTO(c, membresia, balance, proximaFechaPago));
             }
             return list;
         }
@@ -222,11 +258,17 @@ namespace BLL.Services
 
              var balance = _balanceService.ConsultarBalance(cliente.Id);
              Membresia membresia = null;
+             DateTime? proximaFechaPago = null;
              if (cliente.MembresiaID.HasValue)
              {
                  membresia = DalFactory.MembresiaRepository.GetById(cliente.MembresiaID.Value);
+                 var clMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(cliente.Id);
+                 if (clMembresia != null)
+                 {
+                     proximaFechaPago = clMembresia.ProximaFechaPago;
+                 }
              }
-             return ClienteMapper.ToDTO(cliente, membresia, balance);
+             return ClienteMapper.ToDTO(cliente, membresia, balance, proximaFechaPago);
         }
 
         public ClienteDTO ObtenerClientePorDNI(int dni)
@@ -236,11 +278,17 @@ namespace BLL.Services
 
              var balance = _balanceService.ConsultarBalance(cliente.Id);
              Membresia membresia = null;
+             DateTime? proximaFechaPago = null;
              if (cliente.MembresiaID.HasValue)
              {
                  membresia = DalFactory.MembresiaRepository.GetById(cliente.MembresiaID.Value);
+                 var clMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(cliente.Id);
+                 if (clMembresia != null)
+                 {
+                     proximaFechaPago = clMembresia.ProximaFechaPago;
+                 }
              }
-             return ClienteMapper.ToDTO(cliente, membresia, balance);
+             return ClienteMapper.ToDTO(cliente, membresia, balance, proximaFechaPago);
         }
     }
 }

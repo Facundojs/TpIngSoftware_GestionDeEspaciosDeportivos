@@ -49,6 +49,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // Let's use CellFormatting for Membresia and Status.
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { Name = "Membresia", HeaderText = Domain.Enums.Translations.LBL_MEMBRESIA.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Balance", HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ProximaFechaPago", HeaderText = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate() });
 
             dgvClientes.CellFormatting += DgvClientes_CellFormatting;
@@ -74,6 +75,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lblFechaNacimiento.Text = Domain.Enums.Translations.LBL_FECHA_NAC.Translate();
             lblEmail.Text = Domain.Enums.Translations.LBL_EMAIL.Translate();
             lblMembresia.Text = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
+            lblProximaFechaPago.Text = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
             btnCrear.Text = Domain.Enums.Translations.BTN_CREAR.Translate();
             btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
             btnDeshabilitar.Text = Domain.Enums.Translations.BTN_DESHABILITAR.Translate();
@@ -95,7 +97,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvClientes.Columns[3].HeaderText = Domain.Enums.Translations.LBL_EMAIL.Translate();
                 dgvClientes.Columns[4].HeaderText = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
                 dgvClientes.Columns[5].HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate();
-                dgvClientes.Columns[6].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
+                dgvClientes.Columns[6].HeaderText = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
+                dgvClientes.Columns[7].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
             }
         }
 
@@ -251,6 +254,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             txtEmail.Text = "";
             dtpFechaNacimiento.Value = DateTime.Now;
             cmbMembresia.SelectedIndex = -1;
+            txtProximaFechaPago.Text = "";
             txtDNICheckIn.Text = "";
             lblResultado.Text = "";
 
@@ -287,6 +291,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 else
                 {
                     cmbMembresia.SelectedIndex = -1;
+                }
+
+                if (cliente.ProximaFechaPago.HasValue)
+                {
+                    txtProximaFechaPago.Text = cliente.ProximaFechaPago.Value.ToString("d");
+                }
+                else
+                {
+                    txtProximaFechaPago.Text = "-";
                 }
 
                 txtDNI.Enabled = false; // Cannot change DNI of existing client

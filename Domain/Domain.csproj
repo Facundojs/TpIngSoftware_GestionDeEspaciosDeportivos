@@ -55,6 +55,7 @@
     <Compile Include="Usuario.cs" />
     <Compile Include="Entities\Agenda.cs" />
     <Compile Include="Entities\Balance.cs" />
+    <Compile Include="Entities\ClienteMembresia.cs" />
     <Compile Include="Entities\Ingreso.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Comprobante.cs" />

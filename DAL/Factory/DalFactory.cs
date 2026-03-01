@@ -26,6 +26,7 @@ namespace DAL.Factory
         private static IComprobanteRepository _comprobanteFileRepository;
         private static IReservaRepository _reservaRepository;
         private static IIngresoRepository _ingresoRepository;
+        private static IClienteMembresiaRepository _clienteMembresiaRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -192,6 +193,18 @@ namespace DAL.Factory
                     _ingresoRepository = new IngresoSqlRepository();
                 }
                 return _ingresoRepository;
+            }
+        }
+
+        public static IClienteMembresiaRepository ClienteMembresiaRepository
+        {
+            get
+            {
+                if (_clienteMembresiaRepository == null)
+                {
+                    _clienteMembresiaRepository = new DAL.Impl.SqlServer.ClienteMembresiaSqlRepository();
+                }
+                return _clienteMembresiaRepository;
             }
         }
     }
