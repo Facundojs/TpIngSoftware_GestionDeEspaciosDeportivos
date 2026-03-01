@@ -63,7 +63,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             try
             {
-                var list = _espacioManager.ListarEspacios();
+                var list = _espacioManager.ListarTodos();
                 dgvEspacios.DataSource = null;
                 dgvEspacios.DataSource = list;
 
@@ -72,6 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 if (dgvEspacios.Columns["Nombre"] != null) dgvEspacios.Columns["Nombre"].HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate();
                 if (dgvEspacios.Columns["Descripcion"] != null) dgvEspacios.Columns["Descripcion"].HeaderText = Domain.Enums.Translations.LBL_DESCRIPCION.Translate();
                 if (dgvEspacios.Columns["PrecioHora"] != null) dgvEspacios.Columns["PrecioHora"].HeaderText = Domain.Enums.Translations.LBL_PRECIO_HORA.Translate();
+                if (dgvEspacios.Columns["Estado"] != null) dgvEspacios.Columns["Estado"].HeaderText = "Estado";
             }
             catch (Exception ex)
             {

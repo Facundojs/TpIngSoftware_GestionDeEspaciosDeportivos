@@ -14,24 +14,26 @@ namespace DAL.Impl
 
         public void Add(Espacio obj)
         {
-            string query = "INSERT INTO Espacio (Id, Nombre, Descripcion, PrecioHora) VALUES (@Id, @Nombre, @Descripcion, @PrecioHora)";
+            string query = "INSERT INTO Espacio (Id, Nombre, Descripcion, PrecioHora, Estado) VALUES (@Id, @Nombre, @Descripcion, @PrecioHora, @Estado)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre),
                 new SqlParameter("@Descripcion", (object)obj.Descripcion ?? DBNull.Value),
-                new SqlParameter("@PrecioHora", obj.PrecioHora)
+                new SqlParameter("@PrecioHora", obj.PrecioHora),
+                new SqlParameter("@Estado", obj.Estado)
             };
             ExecuteNonQuery(query, parameters);
         }
 
         public void Update(Espacio obj)
         {
-            string query = "UPDATE Espacio SET Nombre = @Nombre, Descripcion = @Descripcion, PrecioHora = @PrecioHora WHERE Id = @Id";
+            string query = "UPDATE Espacio SET Nombre = @Nombre, Descripcion = @Descripcion, PrecioHora = @PrecioHora, Estado = @Estado WHERE Id = @Id";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre),
                 new SqlParameter("@Descripcion", (object)obj.Descripcion ?? DBNull.Value),
-                new SqlParameter("@PrecioHora", obj.PrecioHora)
+                new SqlParameter("@PrecioHora", obj.PrecioHora),
+                new SqlParameter("@Estado", obj.Estado)
             };
             ExecuteNonQuery(query, parameters);
         }
@@ -45,7 +47,7 @@ namespace DAL.Impl
 
         public Espacio GetById(Guid id)
         {
-            string query = "SELECT Id, Nombre, Descripcion, PrecioHora FROM Espacio WHERE Id = @Id";
+            string query = "SELECT Id, Nombre, Descripcion, PrecioHora, Estado FROM Espacio WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
 
             return ExecuteReader(query, parameters, reader =>
@@ -60,12 +62,21 @@ namespace DAL.Impl
 
         public List<Espacio> GetAll()
         {
-            return ListarDisponibles();
+            string query = "SELECT Id, Nombre, Descripcion, PrecioHora, Estado FROM Espacio ORDER BY Nombre";
+            return ExecuteReader(query, null, reader =>
+            {
+                List<Espacio> list = new List<Espacio>();
+                while (reader.Read())
+                {
+                    list.Add(MapFromReader(reader));
+                }
+                return list;
+            }, null, null);
         }
 
         public List<Espacio> ListarDisponibles()
         {
-            string query = "SELECT Id, Nombre, Descripcion, PrecioHora FROM Espacio ORDER BY Nombre";
+            string query = "SELECT Id, Nombre, Descripcion, PrecioHora, Estado FROM Espacio WHERE Estado = 'Activo' ORDER BY Nombre";
             return ExecuteReader(query, null, reader =>
             {
                 List<Espacio> list = new List<Espacio>();
@@ -84,7 +95,8 @@ namespace DAL.Impl
                 Id = reader.GetGuid(0),
                 Nombre = reader.GetString(1),
                 Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2),
-                PrecioHora = reader.GetDecimal(3)
+                PrecioHora = reader.GetDecimal(3),
+                Estado = reader.GetString(4)
             };
         }
     }

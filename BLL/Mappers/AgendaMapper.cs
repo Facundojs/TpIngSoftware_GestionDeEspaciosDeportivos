@@ -14,6 +14,7 @@ namespace BLL.Mappers
             return new AgendaDTO
             {
                 EspacioID = entity.EspacioID,
+                DiaSemana = entity.DiaSemana,
                 HoraDesde = entity.HoraDesde,
                 HoraHasta = entity.HoraHasta
             };
@@ -26,6 +27,7 @@ namespace BLL.Mappers
             return new Agenda
             {
                 EspacioID = dto.EspacioID,
+                DiaSemana = dto.DiaSemana,
                 HoraDesde = dto.HoraDesde,
                 HoraHasta = dto.HoraHasta
             };

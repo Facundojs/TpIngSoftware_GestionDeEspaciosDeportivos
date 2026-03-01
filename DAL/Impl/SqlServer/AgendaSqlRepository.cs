@@ -14,9 +14,10 @@ namespace DAL.Impl
 
         public void CrearAgenda(Agenda obj, SqlConnection conn, SqlTransaction tran)
         {
-            string query = "INSERT INTO Agenda (EspacioID, HoraDesde, HoraHasta) VALUES (@EspacioID, @HoraDesde, @HoraHasta)";
+            string query = "INSERT INTO Agenda (EspacioID, DiaSemana, HoraDesde, HoraHasta) VALUES (@EspacioID, @DiaSemana, @HoraDesde, @HoraHasta)";
             SqlParameter[] parameters = {
                 new SqlParameter("@EspacioID", obj.EspacioID),
+                new SqlParameter("@DiaSemana", obj.DiaSemana),
                 new SqlParameter("@HoraDesde", obj.HoraDesde),
                 new SqlParameter("@HoraHasta", obj.HoraHasta)
             };
@@ -32,7 +33,7 @@ namespace DAL.Impl
 
         public List<Agenda> GetByEspacio(Guid espacioId)
         {
-            string query = "SELECT EspacioID, HoraDesde, HoraHasta FROM Agenda WHERE EspacioID = @EspacioID ORDER BY HoraDesde";
+            string query = "SELECT EspacioID, DiaSemana, HoraDesde, HoraHasta FROM Agenda WHERE EspacioID = @EspacioID ORDER BY DiaSemana, HoraDesde";
             SqlParameter[] parameters = { new SqlParameter("@EspacioID", espacioId) };
 
             return ExecuteReader(query, parameters, reader =>
@@ -43,8 +44,9 @@ namespace DAL.Impl
                     list.Add(new Agenda
                     {
                         EspacioID = reader.GetGuid(0),
-                        HoraDesde = reader.GetTimeSpan(1),
-                        HoraHasta = reader.GetTimeSpan(2)
+                        DiaSemana = reader.GetInt32(1),
+                        HoraDesde = reader.GetTimeSpan(2),
+                        HoraHasta = reader.GetTimeSpan(3)
                     });
                 }
                 return list;

@@ -44,8 +44,9 @@ namespace BLL.Services
             var reservas = _reservaRepo.GetByEspacio(espacioId, fecha.Date, fecha.Date.AddDays(1));
 
             var disponibles = new List<TimeSpan>();
+            int dayOfWeek = (int)fecha.DayOfWeek;
 
-            foreach (var bloque in agenda)
+            foreach (var bloque in agenda.Where(a => a.DiaSemana == dayOfWeek))
             {
                 var inicio = bloque.HoraDesde;
                 var fin = bloque.HoraHasta;
