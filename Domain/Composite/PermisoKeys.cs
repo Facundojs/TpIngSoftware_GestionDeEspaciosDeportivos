@@ -61,5 +61,8 @@ namespace Domain.Composite
         public const string ReservaListar = "PERMISSION_RESERVA_LIST";
         public const string ReservaCrear = "PERMISSION_RESERVA_CREATE";
         public const string ReservaCancelar = "PERMISSION_RESERVA_CANCEL";
+
+        // Ingreso Permissions
+        public const string IngresoListar = "PERMISSION_INGRESO_LIST";
     }
 }

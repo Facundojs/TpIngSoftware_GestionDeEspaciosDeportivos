@@ -1,0 +1,3 @@
+FRM_INGRESOS_TITLE=Ingresos
+MENU_INGRESOS=Ingresos
+LBL_CLIENTE_NOMBRE=Nombre Cliente
