@@ -171,6 +171,14 @@ namespace BLL.Services
                      };
                  }
 
+                 var ingreso = new Ingreso
+                 {
+                     Id = Guid.NewGuid(),
+                     ClienteID = cliente.Id,
+                     FechaHora = DateTime.Now
+                 };
+                 DalFactory.IngresoRepository.Add(ingreso);
+
                  _bitacora.Log($"CU-CLIE-04: Ingreso autorizado para cliente DNI {dni}", "INFO");
                  return new ResultadoIngresoDTO
                  {
