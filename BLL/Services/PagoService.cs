@@ -156,11 +156,46 @@ namespace BLL.Services
                             var savedPago = _pagoRepo.GetById(pagoId);
                             var codigo = savedPago?.Codigo ?? 0;
                             _bitacora.Log($"CU-PA-001: Pago #{codigo} registrado por ${dto.Monto} - Cliente {cliente.DNI}", "INFO");
+
+                            // Auto-generate Comprobante de Pago
+                            var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobantePago(
+                                dto.Fecha,
+                                cliente.DNI.ToString(),
+                                dto.Monto,
+                                dto.Metodo,
+                                codigo.ToString()
+                            );
+                            var comprobanteDto = new ComprobanteDTO
+                            {
+                                PagoID = pagoId,
+                                NombreArchivo = $"Comprobante_Pago_{codigo}.txt",
+                                Contenido = bytes
+                            };
+                            _comprobanteFacade.Adjuntar(comprobanteDto);
                         }
                         catch (Exception logEx)
                         {
                             // Fallback logging if retrieval fails
-                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.DNI}. Warning: Could not retrieve code for log: {logEx.Message}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.DNI}. Warning: Could not retrieve code for log or generate comprobante: {logEx.Message}", "INFO");
+
+                            try
+                            {
+                                var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobantePago(
+                                    dto.Fecha,
+                                    cliente.DNI.ToString(),
+                                    dto.Monto,
+                                    dto.Metodo,
+                                    "N/A"
+                                );
+                                var comprobanteDto = new ComprobanteDTO
+                                {
+                                    PagoID = pagoId,
+                                    NombreArchivo = $"Comprobante_Pago_{pagoId}.txt",
+                                    Contenido = bytes
+                                };
+                                _comprobanteFacade.Adjuntar(comprobanteDto);
+                            }
+                            catch { }
                         }
                     }
                 }
@@ -283,6 +318,20 @@ namespace BLL.Services
             }
 
             return list.Select(PagoMapper.ToDTO).ToList();
+        }
+
+        public List<PagoDTO> ObtenerPagosPorReserva(Guid reservaId)
+        {
+            try
+            {
+                var list = _pagoRepo.GetByReserva(reservaId);
+                return list.Select(PagoMapper.ToDTO).ToList();
+            }
+            catch (Exception ex)
+            {
+                _bitacora.Log($"Error al obtener pagos de reserva {reservaId}: {ex.Message}", "ERROR", ex);
+                throw;
+            }
         }
     }
 }

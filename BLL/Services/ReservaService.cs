@@ -151,6 +151,7 @@ namespace BLL.Services
                             };
                             _movimientoRepo.Insertar(movDeuda, conn, tran);
 
+                            Guid pagoIdParaComprobante = Guid.Empty;
                             if (dto.Adelanto > 0)
                             {
                                 var pago = new Pago
@@ -164,6 +165,7 @@ namespace BLL.Services
                                     Detalle = $"Adelanto Reserva {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now
                                 };
+                                pagoIdParaComprobante = pago.Id;
 
                                 _pagoRepo.Add(pago, conn, tran);
 
@@ -178,8 +180,53 @@ namespace BLL.Services
                                 };
                                 _movimientoRepo.Insertar(movPago, conn, tran);
                             }
+                            else
+                            {
+                                // Create a 0-amount placeholder Pago to hold the Comprobante
+                                var pagoCero = new Pago
+                                {
+                                    Id = Guid.NewGuid(),
+                                    ClienteID = dto.ClienteId,
+                                    Monto = 0,
+                                    ReservaID = reserva.Id,
+                                    Estado = EstadoPago.Abonado.ToString(),
+                                    Metodo = "Reserva sin Adelanto",
+                                    Detalle = $"Comprobante Reserva {reserva.CodigoReserva}",
+                                    Fecha = DateTime.Now
+                                };
+                                pagoIdParaComprobante = pagoCero.Id;
+                                _pagoRepo.Add(pagoCero, conn, tran);
+                            }
 
                             tran.Commit();
+
+                            // Generate and attach Comprobante de Reserva after successful commit
+                            try
+                            {
+                                decimal saldo = montoTotal - dto.Adelanto;
+                                var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobanteReserva(
+                                    reserva.CodigoReserva,
+                                    espacio.Nombre,
+                                    reserva.FechaHora,
+                                    montoTotal,
+                                    dto.Adelanto,
+                                    saldo
+                                );
+
+                                var comprobanteDto = new ComprobanteDTO
+                                {
+                                    PagoID = pagoIdParaComprobante,
+                                    NombreArchivo = $"Comprobante_Reserva_{reserva.CodigoReserva}.txt",
+                                    Contenido = bytes
+                                };
+
+                                var comprobanteFacade = new Facades.ComprobanteFacade();
+                                comprobanteFacade.Adjuntar(comprobanteDto);
+                            }
+                            catch (Exception compEx)
+                            {
+                                _bitacora.Log($"Warning: Error generating comprobante for Reserva {reserva.CodigoReserva}: {compEx.Message}", "WARN");
+                            }
 
                             _bitacora.Log($"CU-RES-01: Reserva {reserva.CodigoReserva} generada para cliente {cliente.DNI} - Espacio {espacio.Nombre} - Fecha {reserva.FechaHora} - Seña ${dto.Adelanto}", "INFO");
                         }

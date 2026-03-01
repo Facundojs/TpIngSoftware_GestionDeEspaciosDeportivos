@@ -38,5 +38,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
         {
             return _service.ListarPagos(clienteId, desde, hasta);
         }
+
+        public List<PagoDTO> ObtenerPagosPorReserva(Guid reservaId)
+        {
+            return _service.ObtenerPagosPorReserva(reservaId);
+        }
     }
 }
