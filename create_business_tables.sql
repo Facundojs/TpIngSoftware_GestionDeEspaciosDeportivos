@@ -19,7 +19,8 @@ CREATE TABLE Espacio (
     Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     Nombre NVARCHAR(255) NOT NULL,
     Descripcion NVARCHAR(MAX),
-    PrecioHora DECIMAL(18,2) NOT NULL CHECK (PrecioHora >= 0)
+    PrecioHora DECIMAL(18,2) NOT NULL CHECK (PrecioHora >= 0),
+    Estado NVARCHAR(50) NOT NULL DEFAULT 'Activo'
 );
 
 -- 3. Cliente (Business Entity only)
@@ -54,9 +55,10 @@ CREATE TABLE Administrador (
 -- 6. Agenda
 CREATE TABLE Agenda (
     EspacioID UNIQUEIDENTIFIER NOT NULL,
+    DiaSemana INT NOT NULL CHECK (DiaSemana BETWEEN 0 AND 6),
     HoraDesde TIME NOT NULL,
     HoraHasta TIME NOT NULL,
-    PRIMARY KEY (EspacioID, HoraDesde, HoraHasta),
+    PRIMARY KEY (EspacioID, DiaSemana, HoraDesde, HoraHasta),
     FOREIGN KEY (EspacioID) REFERENCES Espacio(Id) ON DELETE CASCADE,
     CHECK (HoraDesde < HoraHasta)
 );
