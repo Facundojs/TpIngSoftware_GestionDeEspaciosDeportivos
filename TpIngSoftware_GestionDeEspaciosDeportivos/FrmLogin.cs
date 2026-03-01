@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Service.Logic;
 using Service.DTO;
 using Service.Facade.Extension;
+using Service.Helpers;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Helpers;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
@@ -67,6 +68,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (usuario != null)
                 {
+                    SessionContext.CurrentUser = usuario;
                     MessageBox.Show(string.Format(Domain.Enums.Translations.MSG_WELCOME.Translate() + ", {0}!", usuario.Username), Domain.Enums.Translations.TITLE_SUCCESS.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Hide();

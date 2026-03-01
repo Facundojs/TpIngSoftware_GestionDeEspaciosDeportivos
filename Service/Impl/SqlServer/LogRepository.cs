@@ -32,8 +32,9 @@ namespace Service.Impl
         /// <param name="exceptionDetails">Detalles de la excepción (opcional).</param>
         private void InsertLog(string logLevel, string message, string exceptionDetails)
         {
-            string query = "INSERT INTO Bitacora (BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails) " +
-                           "VALUES (@BitacoraID, @Timestamp, @LogLevel, @Message, @ExceptionDetails)";
+            string usuarioNombre = SessionContext.CurrentUser?.Username;
+            string query = "INSERT INTO Bitacora (BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails, UsuarioNombre) " +
+                           "VALUES (@BitacoraID, @Timestamp, @LogLevel, @Message, @ExceptionDetails, @UsuarioNombre)";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -41,7 +42,8 @@ namespace Service.Impl
                 new SqlParameter("@Timestamp", DateTime.Now),
                 new SqlParameter("@LogLevel", logLevel),
                 new SqlParameter("@Message", message),
-                new SqlParameter("@ExceptionDetails", (object)exceptionDetails ?? DBNull.Value)
+                new SqlParameter("@ExceptionDetails", (object)exceptionDetails ?? DBNull.Value),
+                new SqlParameter("@UsuarioNombre", (object)usuarioNombre ?? DBNull.Value)
             };
             try { 
             ExecuteNonQuery(query, parameters);
@@ -61,7 +63,7 @@ namespace Service.Impl
             int offset = (pageNumber - 1) * pageSize;
 
             var sb = new StringBuilder();
-            sb.Append("SELECT BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails FROM Bitacora WHERE 1=1 ");
+            sb.Append("SELECT BitacoraID, Timestamp, LogLevel, Message, ExceptionDetails, UsuarioNombre FROM Bitacora WHERE 1=1 ");
 
             var parameters = new List<SqlParameter>();
 
@@ -104,7 +106,10 @@ namespace Service.Impl
                         Message = reader.GetString(reader.GetOrdinal("Message")),
                         ExceptionDetails = reader.IsDBNull(reader.GetOrdinal("ExceptionDetails"))
                                            ? null
-                                           : reader.GetString(reader.GetOrdinal("ExceptionDetails"))
+                                           : reader.GetString(reader.GetOrdinal("ExceptionDetails")),
+                        UsuarioNombre = reader.IsDBNull(reader.GetOrdinal("UsuarioNombre"))
+                                           ? null
+                                           : reader.GetString(reader.GetOrdinal("UsuarioNombre"))
                     });
                 }
                 return list;
