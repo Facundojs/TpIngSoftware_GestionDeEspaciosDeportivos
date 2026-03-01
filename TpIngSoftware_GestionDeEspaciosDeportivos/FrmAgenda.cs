@@ -63,6 +63,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             TimeSpan desde = new TimeSpan(dtpDesde.Value.Hour, dtpDesde.Value.Minute, 0);
             TimeSpan hasta = new TimeSpan(dtpHasta.Value.Hour, dtpHasta.Value.Minute, 0);
 
+            if (desde.Minutes != 0 && desde.Minutes != 30)
+            {
+                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate());
+                return;
+            }
+
+            if (hasta.Minutes != 0 && hasta.Minutes != 30)
+            {
+                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate());
+                return;
+            }
+
             if (desde >= hasta)
             {
                 MessageBox.Show("La hora 'Desde' debe ser menor a la hora 'Hasta'");

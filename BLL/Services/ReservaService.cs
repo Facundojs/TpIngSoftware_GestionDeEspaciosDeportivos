@@ -32,6 +32,60 @@ namespace BLL.Services
             _bitacora = new BitacoraService();
         }
 
+        public List<TimeSpan> ObtenerHorariosDisponibles(Guid espacioId, DateTime fecha)
+        {
+            var agendaService = new AgendaService();
+            var agenda = agendaService.GetAgendaPorEspacio(espacioId);
+            if (agenda == null || agenda.Count == 0)
+            {
+                throw new InvalidOperationException("ERR_NO_AGENDA");
+            }
+
+            var reservas = _reservaRepo.GetByEspacio(espacioId, fecha.Date, fecha.Date.AddDays(1));
+
+            var disponibles = new List<TimeSpan>();
+
+            foreach (var bloque in agenda)
+            {
+                var inicio = bloque.HoraDesde;
+                var fin = bloque.HoraHasta;
+
+                var current = inicio;
+                while (current.Add(TimeSpan.FromMinutes(30)) <= fin)
+                {
+                    var currTime = current;
+                    var nextTime = current.Add(TimeSpan.FromMinutes(30));
+
+                    // Check if there is any overlapping reservation
+                    bool overlaps = false;
+                    foreach (var r in reservas)
+                    {
+                        if (r.Estado == EstadoReserva.Cancelada.ToString())
+                            continue;
+
+                        var rInicio = r.FechaHora.TimeOfDay;
+                        var rFin = r.FechaHora.AddMinutes(r.Duracion).TimeOfDay;
+
+                        // overlap condition
+                        if (currTime < rFin && rInicio < nextTime)
+                        {
+                            overlaps = true;
+                            break;
+                        }
+                    }
+
+                    if (!overlaps)
+                    {
+                        disponibles.Add(currTime);
+                    }
+
+                    current = nextTime;
+                }
+            }
+
+            return disponibles;
+        }
+
         public bool VerificarDisponibilidad(Guid espacioId, DateTime fechaHora, int duracion)
         {
             return _reservaRepo.EspacioDisponible(espacioId, fechaHora, duracion);

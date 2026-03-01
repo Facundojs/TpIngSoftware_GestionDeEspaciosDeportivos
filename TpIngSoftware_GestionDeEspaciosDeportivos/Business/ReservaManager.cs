@@ -14,6 +14,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
             _service = new ReservaService();
         }
 
+        public List<TimeSpan> ObtenerHorariosDisponibles(Guid espacioId, DateTime fecha)
+        {
+            return _service.ObtenerHorariosDisponibles(espacioId, fecha);
+        }
+
         public bool VerificarDisponibilidad(Guid espacioId, DateTime fechaHora, int duracion)
         {
             return _service.VerificarDisponibilidad(espacioId, fechaHora, duracion);

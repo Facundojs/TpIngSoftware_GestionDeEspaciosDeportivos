@@ -25,6 +25,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.numAdelanto = new System.Windows.Forms.NumericUpDown();
             this.dgvReservas = new System.Windows.Forms.DataGridView();
             this.btnVerificar = new System.Windows.Forms.Button();
+            this.btnVerHorarios = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblEspacio = new System.Windows.Forms.Label();
@@ -57,7 +58,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // dtpHora
             //
-            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHora.CustomFormat = "HH:mm";
             this.dtpHora.ShowUpDown = true;
             this.dtpHora.Location = new System.Drawing.Point(370, 30);
             this.dtpHora.Name = "dtpHora";
@@ -73,7 +75,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             0,
             0});
             this.numDuracion.Minimum = new decimal(new int[] {
-            15,
+            30,
+            0,
+            0,
+            0});
+            this.numDuracion.Increment = new decimal(new int[] {
+            30,
             0,
             0,
             0});
@@ -95,6 +102,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnVerificar.Text = "Verificar Disponibilidad";
             this.btnVerificar.UseVisualStyleBackColor = true;
             this.btnVerificar.Click += new System.EventHandler(this.btnVerificar_Click);
+            //
+            // btnVerHorarios
+            //
+            this.btnVerHorarios.Location = new System.Drawing.Point(630, 52);
+            this.btnVerHorarios.Name = "btnVerHorarios";
+            this.btnVerHorarios.Size = new System.Drawing.Size(140, 23);
+            this.btnVerHorarios.TabIndex = 20;
+            this.btnVerHorarios.Text = "Ver Horarios Libres";
+            this.btnVerHorarios.UseVisualStyleBackColor = true;
+            this.btnVerHorarios.Click += new System.EventHandler(this.btnVerHorarios_Click);
             //
             // txtDniCliente
             //
@@ -245,6 +262,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Controls.Add(this.lblNombreCliente);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.txtDniCliente);
+            this.Controls.Add(this.btnVerHorarios);
             this.Controls.Add(this.btnVerificar);
             this.Controls.Add(this.numDuracion);
             this.Controls.Add(this.dtpHora);
@@ -270,6 +288,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.NumericUpDown numAdelanto;
         private System.Windows.Forms.DataGridView dgvReservas;
         private System.Windows.Forms.Button btnVerificar;
+        private System.Windows.Forms.Button btnVerHorarios;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblEspacio;
