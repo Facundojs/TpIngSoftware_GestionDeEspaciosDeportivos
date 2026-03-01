@@ -109,6 +109,7 @@ namespace Domain.Enums
         LBL_FECHA_NAC,
         LBL_EMAIL,
         LBL_FILENAME,
+        LBL_PROXIMA_FECHA_PAGO,
         LBL_HORA,
         LBL_LOG_LEVEL,
         LBL_MEMBRESIA,

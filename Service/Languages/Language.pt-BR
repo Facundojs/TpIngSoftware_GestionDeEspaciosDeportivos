@@ -168,3 +168,4 @@ LBL_EMAIL=E-mail
 FRM_INGRESOS_TITLE=Accesos
 MENU_INGRESOS=Accesos
 LBL_CLIENTE_NOMBRE=Nome do cliente
+LBL_PROXIMA_FECHA_PAGO=Próxima Data de Pagamento

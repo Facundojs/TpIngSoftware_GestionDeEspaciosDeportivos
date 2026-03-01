@@ -101,6 +101,17 @@ namespace BLL.Services
                             {
                                 tipoMovimiento = TipoMovimiento.PagoMembresia;
                                 descMovimiento = $"Pago de Membresía - {dto.Metodo}";
+
+                                var clienteMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(dto.ClienteID, conn, tran);
+                                if (clienteMembresia != null && clienteMembresia.ProximaFechaPago.HasValue && dto.MembresiaID.HasValue)
+                                {
+                                    var membresia = DalFactory.MembresiaRepository.GetById(dto.MembresiaID.Value);
+                                    if (membresia != null)
+                                    {
+                                        clienteMembresia.ProximaFechaPago = clienteMembresia.ProximaFechaPago.Value.AddDays(membresia.Regularidad);
+                                        DalFactory.ClienteMembresiaRepository.Update(clienteMembresia, conn, tran);
+                                    }
+                                }
                             }
                             else if (dto.ReservaID.HasValue)
                             {

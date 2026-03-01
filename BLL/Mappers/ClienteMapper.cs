@@ -6,7 +6,7 @@ namespace BLL.Mappers
 {
     public static class ClienteMapper
     {
-        public static ClienteDTO ToDTO(Cliente entity, Membresia membresia, Balance balance)
+        public static ClienteDTO ToDTO(Cliente entity, Membresia membresia, Balance balance, DateTime? proximaFechaPago = null)
         {
             if (entity == null) return null;
 
@@ -28,6 +28,7 @@ namespace BLL.Mappers
                 CreatedAt = entity.CreatedAt,
                 MembresiaID = entity.MembresiaID,
                 Status = status,
+                ProximaFechaPago = proximaFechaPago,
                 Balance = balance != null ? balance.Saldo : 0,
                 MembresiaDetalle = membresia != null ? MembresiaMapper.ToDTO(membresia) : null
             };

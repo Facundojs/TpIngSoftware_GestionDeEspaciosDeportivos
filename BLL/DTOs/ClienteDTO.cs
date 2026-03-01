@@ -13,6 +13,7 @@ namespace BLL.DTOs
         public DateTime CreatedAt { get; set; }
         public Guid? MembresiaID { get; set; }
         public ClienteStatus Status { get; set; }
+        public DateTime? ProximaFechaPago { get; set; }
 
         // Computed
         public string NombreCompleto => $"{Nombre} {Apellido}";
