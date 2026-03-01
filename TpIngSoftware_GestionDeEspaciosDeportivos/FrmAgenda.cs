@@ -33,10 +33,24 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnAgregar.Text = Domain.Enums.Translations.BTN_AGREGAR.Translate();
             btnEliminar.Text = Domain.Enums.Translations.BTN_ELIMINAR.Translate();
             btnGuardar.Text = Domain.Enums.Translations.BTN_SAVE.Translate();
+            lblDiaSemana.Text = Domain.Enums.Translations.LBL_EJERCICIO_DIA.Translate();
         }
 
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
+            cmbDiaSemana.Items.Clear();
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, "Domingo"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, "Lunes"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, "Martes"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, "Miércoles"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, "Jueves"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, "Viernes"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, "Sábado"));
+
+            cmbDiaSemana.DisplayMember = "Value";
+            cmbDiaSemana.ValueMember = "Key";
+            cmbDiaSemana.SelectedIndex = 0;
+
             LoadData();
         }
 
@@ -49,6 +63,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvAgenda.DataSource = _agendas;
 
                 if (dgvAgenda.Columns["EspacioID"] != null) dgvAgenda.Columns["EspacioID"].Visible = false;
+                if (dgvAgenda.Columns["DiaSemana"] != null) dgvAgenda.Columns["DiaSemana"].HeaderText = Domain.Enums.Translations.LBL_EJERCICIO_DIA.Translate();
                 if (dgvAgenda.Columns["HoraDesde"] != null) dgvAgenda.Columns["HoraDesde"].HeaderText = Domain.Enums.Translations.LBL_HORA_DESDE.Translate();
                 if (dgvAgenda.Columns["HoraHasta"] != null) dgvAgenda.Columns["HoraHasta"].HeaderText = Domain.Enums.Translations.LBL_HORA_HASTA.Translate();
             }
@@ -60,6 +75,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            var selectedDay = (KeyValuePair<int, string>)cmbDiaSemana.SelectedItem;
+            int diaSemana = selectedDay.Key;
+
             TimeSpan desde = new TimeSpan(dtpDesde.Value.Hour, dtpDesde.Value.Minute, 0);
             TimeSpan hasta = new TimeSpan(dtpHasta.Value.Hour, dtpHasta.Value.Minute, 0);
 
@@ -84,6 +102,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             var nueva = new AgendaDTO
             {
                 EspacioID = _espacioId,
+                DiaSemana = diaSemana,
                 HoraDesde = desde,
                 HoraHasta = hasta
             };

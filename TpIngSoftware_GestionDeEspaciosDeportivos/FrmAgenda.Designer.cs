@@ -23,6 +23,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cmbDiaSemana = new System.Windows.Forms.ComboBox();
+            this.lblDiaSemana = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgenda)).BeginInit();
             this.SuspendLayout();
             //
@@ -38,11 +40,29 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvAgenda.Size = new System.Drawing.Size(300, 200);
             this.dgvAgenda.TabIndex = 0;
             //
+            // cmbDiaSemana
+            //
+            this.cmbDiaSemana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDiaSemana.FormattingEnabled = true;
+            this.cmbDiaSemana.Location = new System.Drawing.Point(340, 30);
+            this.cmbDiaSemana.Name = "cmbDiaSemana";
+            this.cmbDiaSemana.Size = new System.Drawing.Size(100, 21);
+            this.cmbDiaSemana.TabIndex = 8;
+            //
+            // lblDiaSemana
+            //
+            this.lblDiaSemana.AutoSize = true;
+            this.lblDiaSemana.Location = new System.Drawing.Point(337, 14);
+            this.lblDiaSemana.Name = "lblDiaSemana";
+            this.lblDiaSemana.Size = new System.Drawing.Size(68, 13);
+            this.lblDiaSemana.TabIndex = 9;
+            this.lblDiaSemana.Text = "Día Semana";
+            //
             // dtpDesde
             //
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDesde.CustomFormat = "HH:mm";
-            this.dtpDesde.Location = new System.Drawing.Point(340, 30);
+            this.dtpDesde.Location = new System.Drawing.Point(340, 80);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowUpDown = true;
             this.dtpDesde.Size = new System.Drawing.Size(100, 20);
@@ -52,7 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHasta.CustomFormat = "HH:mm";
-            this.dtpHasta.Location = new System.Drawing.Point(340, 80);
+            this.dtpHasta.Location = new System.Drawing.Point(340, 130);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowUpDown = true;
             this.dtpHasta.Size = new System.Drawing.Size(100, 20);
@@ -61,7 +81,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblDesde
             //
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(337, 14);
+            this.lblDesde.Location = new System.Drawing.Point(337, 64);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(65, 13);
             this.lblDesde.TabIndex = 3;
@@ -70,7 +90,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblHasta
             //
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(337, 64);
+            this.lblHasta.Location = new System.Drawing.Point(337, 114);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(62, 13);
             this.lblHasta.TabIndex = 4;
@@ -78,7 +98,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnAgregar
             //
-            this.btnAgregar.Location = new System.Drawing.Point(340, 115);
+            this.btnAgregar.Location = new System.Drawing.Point(340, 165);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 23);
             this.btnAgregar.TabIndex = 5;
@@ -88,7 +108,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnEliminar
             //
-            this.btnEliminar.Location = new System.Drawing.Point(340, 144);
+            this.btnEliminar.Location = new System.Drawing.Point(340, 194);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 23);
             this.btnEliminar.TabIndex = 6;
@@ -98,7 +118,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnGuardar
             //
-            this.btnGuardar.Location = new System.Drawing.Point(340, 189);
+            this.btnGuardar.Location = new System.Drawing.Point(340, 239);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 23);
             this.btnGuardar.TabIndex = 7;
@@ -110,7 +130,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 230);
+            this.ClientSize = new System.Drawing.Size(460, 280);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -118,6 +138,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Controls.Add(this.lblDesde);
             this.Controls.Add(this.dtpHasta);
             this.Controls.Add(this.dtpDesde);
+            this.Controls.Add(this.lblDiaSemana);
+            this.Controls.Add(this.cmbDiaSemana);
             this.Controls.Add(this.dgvAgenda);
             this.Name = "FrmAgenda";
             this.Text = "FrmAgenda";
@@ -136,5 +158,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox cmbDiaSemana;
+        private System.Windows.Forms.Label lblDiaSemana;
     }
 }

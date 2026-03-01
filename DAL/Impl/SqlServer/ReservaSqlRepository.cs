@@ -192,8 +192,11 @@ namespace DAL.Impl
 
         public bool EspacioDisponible(Guid espacioId, DateTime fechaHora, int duracion, SqlConnection conn = null, SqlTransaction tran = null)
         {
-            string agendaQuery = "SELECT HoraDesde, HoraHasta FROM Agenda WHERE EspacioID = @EspacioId";
-            SqlParameter[] agendaParams = { new SqlParameter("@EspacioId", espacioId) };
+            string agendaQuery = "SELECT HoraDesde, HoraHasta FROM Agenda WHERE EspacioID = @EspacioId AND DiaSemana = @DiaSemana";
+            SqlParameter[] agendaParams = {
+                new SqlParameter("@EspacioId", espacioId),
+                new SqlParameter("@DiaSemana", (int)fechaHora.DayOfWeek)
+            };
 
             var agendas = ExecuteReader(agendaQuery, agendaParams, reader =>
             {

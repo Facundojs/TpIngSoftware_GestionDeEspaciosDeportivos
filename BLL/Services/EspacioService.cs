@@ -65,15 +65,22 @@ namespace BLL.Services
         {
             try
             {
-                // Validar reservas futuras
-                var reservasFuturas = GetReservasFuturas(id);
-                if (reservasFuturas.Any(r => r.Estado != "Cancelada"))
+                var reservasFuturas = DalFactory.ReservaRepository.GetByEspacio(id, DateTime.Now, DateTime.MaxValue);
+                if (reservasFuturas.Any(r => r.Estado != "Cancelada" && r.Estado != "Finalizada"))
                 {
-                    throw new InvalidOperationException("Espacio tiene reservas futuras activas");
+                    var entity = _espacioRepository.GetById(id);
+                    if (entity != null)
+                    {
+                        entity.Estado = "Inactivo";
+                        _espacioRepository.Update(entity);
+                        _bitacora.Log($"Espacio {id} marcado como inactivo (soft-delete).", "INFO");
+                    }
                 }
-
-                _espacioRepository.Remove(id);
-                _bitacora.Log($"Espacio {id} eliminado.", "INFO");
+                else
+                {
+                    _espacioRepository.Remove(id);
+                    _bitacora.Log($"Espacio {id} eliminado.", "INFO");
+                }
             }
             catch (Exception ex)
             {
@@ -84,15 +91,8 @@ namespace BLL.Services
 
         public List<EspacioDTO> ListarEspacios()
         {
-            var entities = _espacioRepository.ListarDisponibles();
+            var entities = _espacioRepository.GetAll();
             return EspacioMapper.Map(entities);
-        }
-
-        // Mock implementation
-        private List<Reserva> GetReservasFuturas(Guid espacioId)
-        {
-            // Retorna lista vacía por ahora
-            return new List<Reserva>();
         }
     }
 }

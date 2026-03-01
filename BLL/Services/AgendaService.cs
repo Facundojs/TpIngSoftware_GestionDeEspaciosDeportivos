@@ -42,7 +42,9 @@ namespace BLL.Services
                 }
                 for (int j = i + 1; j < agendasDto.Count; j++)
                 {
-                    if (agendasDto[i].HoraDesde < agendasDto[j].HoraHasta && agendasDto[j].HoraDesde < agendasDto[i].HoraHasta)
+                    if (agendasDto[i].DiaSemana == agendasDto[j].DiaSemana &&
+                        agendasDto[i].HoraDesde < agendasDto[j].HoraHasta &&
+                        agendasDto[j].HoraDesde < agendasDto[i].HoraHasta)
                     {
                         throw new ArgumentException("ERR_AGENDA_OVERLAP");
                     }
