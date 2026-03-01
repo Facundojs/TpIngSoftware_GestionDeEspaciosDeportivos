@@ -152,7 +152,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message == "ERR_MONTO_SUPERA_SALDO")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_MONTO_SUPERA_SALDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (ex.Message == "ERR_RESERVA_NO_EXISTE")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_RESERVA_NO_EXISTE.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -205,7 +216,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     }
                     else
                     {
-                        MessageBox.Show("No se encontró la reserva con ese código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(Domain.Enums.Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }

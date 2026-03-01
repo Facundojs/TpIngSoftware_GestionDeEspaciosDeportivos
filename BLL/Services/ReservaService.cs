@@ -212,7 +212,7 @@ namespace BLL.Services
                         {
                             var reserva = _reservaRepo.GetById(reservaId, conn, tran);
 
-                            if (reserva == null) throw new InvalidOperationException("La reserva no existe");
+                            if (reserva == null) throw new InvalidOperationException("ERR_RESERVA_NO_EXISTE");
 
                             if (reserva.Estado == EstadoReserva.Cancelada.ToString())
                             {

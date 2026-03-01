@@ -57,7 +57,7 @@ namespace BLL.Services
                             if (dto.ReservaID.HasValue)
                             {
                                 reserva = _reservaRepo.GetById(dto.ReservaID.Value, conn, tran);
-                                if (reserva == null) throw new InvalidOperationException("La reserva no existe");
+                                if (reserva == null) throw new InvalidOperationException("ERR_RESERVA_NO_EXISTE");
 
                                 var espacio = _espacioRepo.GetById(reserva.EspacioID);
                                 decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
@@ -76,7 +76,7 @@ namespace BLL.Services
 
                                 if (dto.Monto > saldoRestante)
                                 {
-                                    throw new InvalidOperationException("El monto supera el saldo pendiente de la reserva.");
+                                    throw new InvalidOperationException("ERR_MONTO_SUPERA_SALDO");
                                 }
                             }
 
