@@ -48,7 +48,7 @@ namespace BLL.Services
                     if (membresia == null) throw new InvalidOperationException("La membresía seleccionada no existe");
                     if (!membresia.Activa) throw new InvalidOperationException("La membresía seleccionada no está activa");
 
-                    _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}", "INFO");
+                    _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}, sin deuda. Próximo cobro: {DateTime.Now.AddDays(membresia.Regularidad):dd/MM/yyyy}", "INFO");
                 }
                 else
                 {
@@ -73,17 +73,6 @@ namespace BLL.Services
                         ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
                     };
                     DalFactory.ClienteMembresiaRepository.Add(clienteMembresia);
-
-                    var movimiento = new Movimiento
-                    {
-                        Id = Guid.NewGuid(),
-                        ClienteID = entity.Id,
-                        Monto = -membresia.Precio,
-                        Tipo = Domain.Enums.TipoMovimiento.DeudaMembresia,
-                        Descripcion = $"Cargo inicial membresía {membresia.Nombre}",
-                        Fecha = DateTime.Now
-                    };
-                    DalFactory.MovimientoRepository.Insertar(movimiento);
                 }
             }
             catch (Exception ex)

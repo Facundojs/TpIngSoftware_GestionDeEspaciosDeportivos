@@ -33,12 +33,20 @@ namespace BLL
                 // Ensure repositories are initialized before parallel execution to avoid race conditions in Factory
                 var membresiaRepo = DalFactory.MembresiaRepository;
                 var movimientoRepo = DalFactory.MovimientoRepository;
+                var clienteMembresiaRepo = DalFactory.ClienteMembresiaRepository;
 
                 Parallel.ForEach(clientes, (cliente) =>
                 {
                     try
                     {
                         if (!cliente.MembresiaID.HasValue)
+                        {
+                            Interlocked.Increment(ref skippedCount);
+                            return;
+                        }
+
+                        var activeMembresia = clienteMembresiaRepo.GetActiveByClienteId(cliente.Id);
+                        if (activeMembresia == null || !activeMembresia.ProximaFechaPago.HasValue || activeMembresia.ProximaFechaPago.Value > DateTime.Now)
                         {
                             Interlocked.Increment(ref skippedCount);
                             return;
@@ -78,6 +86,10 @@ namespace BLL
 
                         movimientoRepo.Insertar(movimiento);
                         ActualizarBalance(cliente.Id);
+
+                        activeMembresia.ProximaFechaPago = activeMembresia.ProximaFechaPago.Value.AddDays(membresia.Regularidad);
+                        clienteMembresiaRepo.Update(activeMembresia);
+
                         Interlocked.Increment(ref processedCount);
                     }
                     catch (Exception ex)
