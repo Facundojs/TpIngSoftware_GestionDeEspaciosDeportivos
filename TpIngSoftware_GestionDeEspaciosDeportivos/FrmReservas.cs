@@ -427,7 +427,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 string tempPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}{extension}");
                 File.WriteAllBytes(tempPath, comprobante.Contenido);
 
-                System.Diagnostics.Process.Start(tempPath);
+                var psi = new System.Diagnostics.ProcessStartInfo(tempPath)
+                {
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
             }
             catch (Exception ex)
             {

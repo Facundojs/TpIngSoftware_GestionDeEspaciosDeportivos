@@ -206,6 +206,7 @@ namespace BLL.Services
                                 decimal saldo = montoTotal - dto.Adelanto;
                                 var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobanteReserva(
                                     reserva.CodigoReserva,
+                                    cliente.DNI.ToString(),
                                     espacio.Nombre,
                                     reserva.FechaHora,
                                     montoTotal,
@@ -216,7 +217,7 @@ namespace BLL.Services
                                 var comprobanteDto = new ComprobanteDTO
                                 {
                                     PagoID = pagoIdParaComprobante,
-                                    NombreArchivo = $"Comprobante_Reserva_{reserva.CodigoReserva}.txt",
+                                    NombreArchivo = $"Comprobante_Reserva_{reserva.CodigoReserva}.html",
                                     Contenido = bytes
                                 };
 

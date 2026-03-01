@@ -168,7 +168,7 @@ namespace BLL.Services
                             var comprobanteDto = new ComprobanteDTO
                             {
                                 PagoID = pagoId,
-                                NombreArchivo = $"Comprobante_Pago_{codigo}.txt",
+                                NombreArchivo = $"Comprobante_Pago_{codigo}.html",
                                 Contenido = bytes
                             };
                             _comprobanteFacade.Adjuntar(comprobanteDto);
@@ -190,7 +190,7 @@ namespace BLL.Services
                                 var comprobanteDto = new ComprobanteDTO
                                 {
                                     PagoID = pagoId,
-                                    NombreArchivo = $"Comprobante_Pago_{pagoId}.txt",
+                                    NombreArchivo = $"Comprobante_Pago_{pagoId}.html",
                                     Contenido = bytes
                                 };
                                 _comprobanteFacade.Adjuntar(comprobanteDto);
