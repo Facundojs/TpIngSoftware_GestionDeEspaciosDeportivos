@@ -10,11 +10,11 @@ namespace DAL.Contracts
     {
         List<Pago> GetByCliente(Guid clienteId, DateTime? desde, DateTime? hasta);
         Pago GetByCodigo(int codigo);
-        Pago GetByReserva(Guid reservaId);
+        List<Pago> GetByReserva(Guid reservaId);
 
         void Add(Pago obj, SqlConnection conn = null, SqlTransaction tran = null);
         void Update(Pago obj, SqlConnection conn = null, SqlTransaction tran = null);
         Pago GetById(Guid id, SqlConnection conn = null, SqlTransaction tran = null);
-        Pago GetByReserva(Guid reservaId, SqlConnection conn = null, SqlTransaction tran = null);
+        List<Pago> GetByReserva(Guid reservaId, SqlConnection conn = null, SqlTransaction tran = null);
     }
 }

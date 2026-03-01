@@ -54,7 +54,7 @@ namespace DAL.Impl
             return GetByCodigo(codigo, null, null);
         }
 
-        public Pago GetByReserva(Guid reservaId)
+        public List<Pago> GetByReserva(Guid reservaId)
         {
             return GetByReserva(reservaId, null, null);
         }
@@ -181,18 +181,19 @@ namespace DAL.Impl
             }, conn, tran);
         }
 
-        public Pago GetByReserva(Guid reservaId, SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Pago> GetByReserva(Guid reservaId, SqlConnection conn = null, SqlTransaction tran = null)
         {
-            string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago WHERE ReservaID = @ReservaID";
+            string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago WHERE ReservaID = @ReservaID ORDER BY Fecha DESC";
             SqlParameter[] parameters = { new SqlParameter("@ReservaID", reservaId) };
 
             return ExecuteReader(query, parameters, reader =>
             {
-                if (reader.Read())
+                List<Pago> list = new List<Pago>();
+                while (reader.Read())
                 {
-                    return MapFromReader(reader);
+                    list.Add(MapFromReader(reader));
                 }
-                return null;
+                return list;
             }, conn, tran);
         }
 

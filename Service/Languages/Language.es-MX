@@ -198,3 +198,6 @@ MSG_HORARIOS_DISPONIBLES_HOY=Horarios disponibles hoy:\n
 MSG_HORARIOS_DISPONIBLES_EL=Horarios disponibles el {0}:\n\n
 MSG_NINGUNO_ESTE_DIA=Ninguno en este día.
 MSG_SELECCIONE_ESPACIO=Seleccione un espacio.
+ERR_RESERVA_NO_EXISTE=La reserva no existe
+ERR_MONTO_SUPERA_SALDO=El monto supera el saldo pendiente de la reserva.
+ERR_RESERVA_NO_ENCONTRADA_CODIGO=No se encontró la reserva con ese código.

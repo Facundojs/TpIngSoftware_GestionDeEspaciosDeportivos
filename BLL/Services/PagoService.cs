@@ -20,6 +20,8 @@ namespace BLL.Services
         private readonly IMovimientoRepository _movimientoRepo;
         private readonly ComprobanteFacade _comprobanteFacade;
         private readonly IClienteRepository _clienteRepo;
+        private readonly IReservaRepository _reservaRepo;
+        private readonly IEspacioRepository _espacioRepo;
         private readonly BitacoraService _bitacora;
 
         public PagoService()
@@ -28,6 +30,8 @@ namespace BLL.Services
             _movimientoRepo = DalFactory.MovimientoRepository;
             _comprobanteFacade = new ComprobanteFacade();
             _clienteRepo = DalFactory.ClienteRepository;
+            _reservaRepo = DalFactory.ReservaRepository;
+            _espacioRepo = DalFactory.EspacioRepository;
             _bitacora = new BitacoraService();
         }
 
@@ -49,6 +53,33 @@ namespace BLL.Services
                         Guid pagoId = Guid.Empty;
                         try
                         {
+                            Reserva reserva = null;
+                            if (dto.ReservaID.HasValue)
+                            {
+                                reserva = _reservaRepo.GetById(dto.ReservaID.Value, conn, tran);
+                                if (reserva == null) throw new InvalidOperationException("ERR_RESERVA_NO_EXISTE");
+
+                                var espacio = _espacioRepo.GetById(reserva.EspacioID);
+                                decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
+
+                                var pagosAnteriores = _pagoRepo.GetByReserva(reserva.Id, conn, tran);
+                                decimal pagadoHastaAhora = 0;
+                                foreach (var p in pagosAnteriores)
+                                {
+                                    if (p.Estado == EstadoPago.Abonado.ToString())
+                                    {
+                                        pagadoHastaAhora += p.Monto;
+                                    }
+                                }
+
+                                decimal saldoRestante = montoTotal - pagadoHastaAhora;
+
+                                if (dto.Monto > saldoRestante)
+                                {
+                                    throw new InvalidOperationException("ERR_MONTO_SUPERA_SALDO");
+                                }
+                            }
+
                             // 1. INSERT Pago
                             dto.Estado = EstadoPago.Abonado;
                             // Ensure Fecha is set
@@ -88,6 +119,28 @@ namespace BLL.Services
                             };
 
                             _movimientoRepo.Insertar(movimiento, conn, tran);
+
+                            if (reserva != null)
+                            {
+                                var pagosAnteriores = _pagoRepo.GetByReserva(reserva.Id, conn, tran);
+                                decimal pagadoTotal = 0;
+                                foreach (var p in pagosAnteriores)
+                                {
+                                    if (p.Estado == EstadoPago.Abonado.ToString())
+                                    {
+                                        pagadoTotal += p.Monto;
+                                    }
+                                }
+
+                                var espacio = _espacioRepo.GetById(reserva.EspacioID);
+                                decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
+
+                                if (pagadoTotal == montoTotal)
+                                {
+                                    reserva.Estado = EstadoReserva.Pagada.ToString();
+                                    _reservaRepo.Update(reserva, conn, tran);
+                                }
+                            }
 
                             tran.Commit();
                         }

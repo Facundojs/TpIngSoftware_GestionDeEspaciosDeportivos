@@ -5,6 +5,7 @@ namespace Domain.Enums
         Pendiente,
         Confirmada,
         Cancelada,
-        Finalizada
+        Finalizada,
+        Pagada
     }
 }

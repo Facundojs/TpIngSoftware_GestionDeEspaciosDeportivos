@@ -34,6 +34,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
             _service.CancelarReserva(reservaId);
         }
 
+        public ReservaDTO ObtenerPorCodigo(string codigo)
+        {
+            return _service.ObtenerPorCodigo(codigo);
+        }
+
         public List<ReservaDTO> ListarReservas(Guid? clienteId, Guid? espacioId, DateTime? desde)
         {
             return _service.ListarReservas(clienteId, espacioId, desde);

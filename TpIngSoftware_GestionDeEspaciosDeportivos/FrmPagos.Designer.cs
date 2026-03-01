@@ -40,6 +40,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.txtDNICliente = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblNombreCliente = new System.Windows.Forms.Label();
+            this.lblCodigoReserva = new System.Windows.Forms.Label();
+            this.txtCodigoReserva = new System.Windows.Forms.TextBox();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtDNIFiltro = new System.Windows.Forms.TextBox();
@@ -85,6 +87,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.grpRegistro.Controls.Add(this.txtDNICliente);
             this.grpRegistro.Controls.Add(this.lblDNI);
             this.grpRegistro.Controls.Add(this.lblNombreCliente);
+            this.grpRegistro.Controls.Add(this.txtCodigoReserva);
+            this.grpRegistro.Controls.Add(this.lblCodigoReserva);
             this.grpRegistro.Location = new System.Drawing.Point(12, 12);
             this.grpRegistro.Name = "grpRegistro";
             this.grpRegistro.Size = new System.Drawing.Size(960, 80);
@@ -181,6 +185,22 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblNombreCliente.Size = new System.Drawing.Size(0, 13);
             this.lblNombreCliente.TabIndex = 9;
             this.lblNombreCliente.ForeColor = System.Drawing.Color.Blue;
+            //
+            // lblCodigoReserva
+            //
+            this.lblCodigoReserva.AutoSize = true;
+            this.lblCodigoReserva.Location = new System.Drawing.Point(540, 60);
+            this.lblCodigoReserva.Name = "lblCodigoReserva";
+            this.lblCodigoReserva.Size = new System.Drawing.Size(90, 13);
+            this.lblCodigoReserva.TabIndex = 10;
+            this.lblCodigoReserva.Text = "Cód. Reserva:";
+            //
+            // txtCodigoReserva
+            //
+            this.txtCodigoReserva.Location = new System.Drawing.Point(630, 57);
+            this.txtCodigoReserva.Name = "txtCodigoReserva";
+            this.txtCodigoReserva.Size = new System.Drawing.Size(120, 20);
+            this.txtCodigoReserva.TabIndex = 11;
             //
             // grpFiltros
             //
@@ -316,6 +336,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         #endregion
 
+        private System.Windows.Forms.Label lblCodigoReserva;
+        private System.Windows.Forms.TextBox txtCodigoReserva;
         private System.Windows.Forms.DataGridView dgvPagos;
         private System.Windows.Forms.GroupBox grpRegistro;
         private System.Windows.Forms.Label lblDNI;

@@ -19,6 +19,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private readonly UsuarioDTO _usuario;
         private readonly PagoManager _pagoManager;
         private readonly ClienteManager _clienteManager;
+        private readonly ReservaManager _reservaManager;
         private Dictionary<Guid, string> _clientesCache;
 
         public FrmPagos(UsuarioDTO usuario)
@@ -27,6 +28,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _usuario = usuario;
             _pagoManager = new PagoManager();
             _clienteManager = new ClienteManager();
+            _reservaManager = new ReservaManager();
             _clientesCache = new Dictionary<Guid, string>();
         }
 
@@ -92,6 +94,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lblMetodo.Text = Domain.Enums.Translations.LBL_METODO.Translate();
             lblDetalle.Text = Domain.Enums.Translations.LBL_DETALLE.Translate();
             btnRegistrar.Text = Domain.Enums.Translations.BTN_REGISTRAR_PAGO.Translate();
+            lblCodigoReserva.Text = Domain.Enums.Translations.LBL_CODIGO_RESERVA.Translate();
 
             grpFiltros.Text = Domain.Enums.Translations.BTN_FILTER.Translate();
             lblDesde.Text = Domain.Enums.Translations.LBL_DATE_FROM.Translate();
@@ -149,7 +152,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message == "ERR_MONTO_SUPERA_SALDO")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_MONTO_SUPERA_SALDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (ex.Message == "ERR_RESERVA_NO_EXISTE")
+                {
+                    MessageBox.Show(Domain.Enums.Translations.ERR_RESERVA_NO_EXISTE.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -191,8 +205,21 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     Metodo = cmbMetodo.Text,
                     Detalle = txtDetalle.Text,
                     Fecha = DateTime.Now
-                    // MembresiaID/ReservaID remain null as per current UI scope
                 };
+
+                if (!string.IsNullOrWhiteSpace(txtCodigoReserva.Text))
+                {
+                    var reserva = _reservaManager.ObtenerPorCodigo(txtCodigoReserva.Text.Trim());
+                    if (reserva != null)
+                    {
+                        dto.ReservaID = reserva.Id;
+                    }
+                    else
+                    {
+                        MessageBox.Show(Domain.Enums.Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
 
                 _pagoManager.RegistrarPago(dto);
 
@@ -213,6 +240,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             txtMonto.Text = "";
             cmbMetodo.SelectedIndex = -1;
             txtDetalle.Text = "";
+            txtCodigoReserva.Text = "";
             lblNombreCliente.Text = "";
         }
 
