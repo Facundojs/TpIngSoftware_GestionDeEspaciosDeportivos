@@ -3,6 +3,7 @@ CREATE TABLE Bitacora (
         Timestamp DATETIME NOT NULL,
         LogLevel NVARCHAR(50),
         Message NVARCHAR(MAX),
+        UsuarioNombre NVARCHAR(150) NULL,
         ExceptionDetails NVARCHAR(MAX)
  );
 

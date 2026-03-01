@@ -1,0 +1,1 @@
+ALTER TABLE Bitacora ADD UsuarioNombre NVARCHAR(150) NULL;

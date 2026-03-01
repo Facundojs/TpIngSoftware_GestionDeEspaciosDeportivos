@@ -1,6 +1,7 @@
 using DAL.Contracts;
 using DAL.Impl;
 using DAL.Impl.File;
+using DAL.Impl.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace DAL.Factory
         private static IComprobanteRepository _comprobanteRepository;
         private static IComprobanteRepository _comprobanteFileRepository;
         private static IReservaRepository _reservaRepository;
+        private static IIngresoRepository _ingresoRepository;
 
         public static IClienteRepository ClienteRepository
         {
@@ -178,6 +180,18 @@ namespace DAL.Factory
                     _reservaRepository = new ReservaSqlRepository();
                 }
                 return _reservaRepository;
+            }
+        }
+
+        public static IIngresoRepository IngresoRepository
+        {
+            get
+            {
+                if (_ingresoRepository == null)
+                {
+                    _ingresoRepository = new IngresoSqlRepository();
+                }
+                return _ingresoRepository;
             }
         }
     }

@@ -49,6 +49,7 @@
     <Compile Include="Business\EspacioManager.cs" />
     <Compile Include="Business\AgendaManager.cs" />
     <Compile Include="Business\BalanceManager.cs" />
+    <Compile Include="Business\IngresoManager.cs" />
     <Compile Include="Business\EjercicioManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -72,7 +73,7 @@
     <Compile Include="FrmBitacora.Designer.cs">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
     </Compile>
-        <Compile Include="FrmAgenda.cs">
+    <Compile Include="FrmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAgenda.Designer.cs">
@@ -151,6 +152,12 @@
     <Compile Include="FrmGestionRutinas.Designer.cs">
       <DependentUpon>FrmGestionRutinas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIngresos.Designer.cs">
+      <DependentUpon>FrmIngresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMembresias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +174,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresos.resx">
+      <DependentUpon>FrmIngresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

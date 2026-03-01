@@ -59,6 +59,7 @@
     <Compile Include="Helpers\ConnectionManager.cs" />
     <Compile Include="Helpers\CryptographyHelper.cs" />
     <Compile Include="Helpers\PermisoHelper.cs" />
+    <Compile Include="Helpers\SessionContext.cs" />
     <Compile Include="Helpers\SqlHelper.cs" />
     <Compile Include="Impl\SqlServer\BaseRepository.cs" />
     <Compile Include="Impl\SqlServer\FamiliaRepository.cs" />
