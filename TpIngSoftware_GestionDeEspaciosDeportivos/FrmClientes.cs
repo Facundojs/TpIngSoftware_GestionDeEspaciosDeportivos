@@ -81,6 +81,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lblDNICheckIn.Text = Domain.Enums.Translations.LBL_DNI.Translate();
             btnCheckIn.Text = Domain.Enums.Translations.BTN_CHECK_IN.Translate();
             btnVerRutina.Text = Domain.Enums.Translations.BTN_VER_RUTINA.Translate();
+            btnVerMovimientos.Text = Domain.Enums.Translations.BTN_VER_MOVIMIENTOS.Translate();
 
             // Refresh headers
             if (dgvClientes.Columns.Count > 0)
@@ -104,6 +105,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnHabilitar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar); // Assuming same permission for Enable/Disable
             btnCheckIn.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteCheckIn);
             btnVerRutina.Enabled = false; // Disabled by default until selection
+            btnVerMovimientos.Enabled = false; // Disabled by default until selection
 
             // Edit panel visibility based on permissions? Usually we disable buttons.
         }
@@ -256,6 +258,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnDeshabilitar.Enabled = false;
             btnHabilitar.Enabled = false;
             btnVerRutina.Enabled = false;
+            btnVerMovimientos.Enabled = false;
         }
 
         private void dgvClientes_SelectionChanged(object sender, EventArgs e)
@@ -288,6 +291,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 btnCrear.Enabled = false;
                 btnActualizar.Enabled = canModify;
                 btnVerRutina.Enabled = canViewRoutine;
+                btnVerMovimientos.Enabled = true;
 
                 if (cliente.Status == ClienteStatus.Activo)
                 {
@@ -306,6 +310,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_clienteSeleccionado == null) return;
             var frm = new FrmRutina(_clienteSeleccionado.Id, _usuario);
+            frm.ShowDialog();
+        }
+
+        private void btnVerMovimientos_Click(object sender, EventArgs e)
+        {
+            if (_clienteSeleccionado == null) return;
+            var frm = new FrmMovimientos(_clienteSeleccionado);
             frm.ShowDialog();
         }
 
