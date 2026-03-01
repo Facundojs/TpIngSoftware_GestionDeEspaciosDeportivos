@@ -182,8 +182,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (_clienteSeleccionado == null) return;
-
             try
             {
                 if (cmbMembresia.SelectedValue == null)
@@ -192,12 +190,72 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     return;
                 }
 
+                if (_clienteSeleccionado == null)
+                {
+                    if (string.IsNullOrWhiteSpace(txtDNI.Text))
+                    {
+                        MessageBox.Show(Domain.Enums.Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    int dni;
+                    if (!int.TryParse(txtDNI.Text, out dni))
+                    {
+                        MessageBox.Show(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    var existente = _clienteManager.ObtenerClientePorDNI(dni);
+                    if (existente == null)
+                    {
+                        if (!_usuario.TienePermiso(PermisoKeys.ClienteCrear))
+                        {
+                            MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERMISSION.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            var dto = new ClienteDTO
+                            {
+                                DNI = dni,
+                                Nombre = txtNombre.Text,
+                                Apellido = txtApellido.Text,
+                                Email = txtEmail.Text,
+                                FechaNacimiento = dtpFechaNacimiento.Value
+                            };
+
+                            dto.MembresiaID = (Guid)cmbMembresia.SelectedValue;
+
+                            _clienteManager.RegistrarCliente(dto);
+                            CargarClientes();
+                            LimpiarControles();
+                            return; // Done, no need to update membership as RegistrarCliente did it
+                        }
+                        else
+                        {
+                            return; // Cancelled
+                        }
+                    }
+
+                    if (existente != null)
+                    {
+                        _clienteSeleccionado = existente;
+                    }
+                }
+
+                if (_clienteSeleccionado == null) return; // safety check
+
                 Guid nuevaMembresiaId = (Guid)cmbMembresia.SelectedValue;
                 _clienteManager.ActualizarMembresia(_clienteSeleccionado.Id, nuevaMembresiaId);
 
                 MessageBox.Show(Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarClientes();
                 LimpiarControles();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -264,7 +322,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             // Reset button states based on permissions and selection
             btnCrear.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteCrear);
-            btnActualizar.Enabled = false;
+            btnActualizar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteModificar);
             btnDeshabilitar.Enabled = false;
             btnHabilitar.Enabled = false;
             btnVerRutina.Enabled = false;

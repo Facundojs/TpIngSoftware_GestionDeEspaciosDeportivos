@@ -13,6 +13,7 @@ MSG_ENTER_BACKUP_NAME=Enter a name for the backup.
 MSG_BACKUP_SUCCESS=Backup successful.
 MSG_ERR_BACKUP=Error performing backup:
 MSG_CONFIRM_RESTORE=Are you sure you want to restore the database? This will overwrite current data.
+MSG_CONFIRM_CREAR_CLIENTE_NUEVO=Client not found. Do you want to create a new client with these details and assign the membership?
 TITLE_CONFIRM_RESTORE=Confirm Restore
 MSG_RESTORE_SUCCESS=Restore successful. The application will restart.
 MSG_ERR_RESTORE=Error performing restore:
