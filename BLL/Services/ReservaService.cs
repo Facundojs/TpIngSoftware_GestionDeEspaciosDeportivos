@@ -242,23 +242,26 @@ namespace BLL.Services
                             };
                             _movimientoRepo.Insertar(movReversa, conn, tran);
 
-                            var pago = _pagoRepo.GetByReserva(reservaId, conn, tran);
+                            var pagos = _pagoRepo.GetByReserva(reservaId, conn, tran);
 
-                            if (pago != null && pago.Estado == EstadoPago.Abonado.ToString())
+                            foreach (var pago in pagos)
                             {
-                                pago.Estado = EstadoPago.Reembolsado.ToString();
-                                _pagoRepo.Update(pago, conn, tran);
-
-                                var movReembolso = new Movimiento
+                                if (pago.Estado == EstadoPago.Abonado.ToString())
                                 {
-                                    ClienteID = pago.ClienteID,
-                                    Monto = -pago.Monto,
-                                    Tipo = TipoMovimiento.Reembolso,
-                                    Descripcion = $"Reembolso Reserva {reserva.CodigoReserva}",
-                                    Fecha = DateTime.Now,
-                                    PagoID = pago.Id
-                                };
-                                _movimientoRepo.Insertar(movReembolso, conn, tran);
+                                    pago.Estado = EstadoPago.Reembolsado.ToString();
+                                    _pagoRepo.Update(pago, conn, tran);
+
+                                    var movReembolso = new Movimiento
+                                    {
+                                        ClienteID = pago.ClienteID,
+                                        Monto = -pago.Monto,
+                                        Tipo = TipoMovimiento.Reembolso,
+                                        Descripcion = $"Reembolso Reserva {reserva.CodigoReserva}",
+                                        Fecha = DateTime.Now,
+                                        PagoID = pago.Id
+                                    };
+                                    _movimientoRepo.Insertar(movReembolso, conn, tran);
+                                }
                             }
 
                             tran.Commit();
@@ -278,6 +281,21 @@ namespace BLL.Services
                 _bitacora.Log($"Error en CU-RES-02: {ex.Message}", "ERROR", ex);
                 throw;
             }
+        }
+
+        public ReservaDTO ObtenerPorCodigo(string codigo)
+        {
+            var r = _reservaRepo.GetByCodigo(codigo);
+            if (r == null) return null;
+
+            var dto = ReservaMapper.ToDTO(r);
+            var c = _clienteRepo.GetById(dto.ClienteID);
+            dto.ClienteNombre = c != null ? $"{c.Nombre} {c.Apellido}" : "Desconocido";
+
+            var e = _espacioRepo.GetById(dto.EspacioID);
+            dto.EspacioNombre = e != null ? e.Nombre : "Desconocido";
+
+            return dto;
         }
 
         public List<ReservaDTO> ListarReservas(Guid? clienteId, Guid? espacioId, DateTime? desde)
