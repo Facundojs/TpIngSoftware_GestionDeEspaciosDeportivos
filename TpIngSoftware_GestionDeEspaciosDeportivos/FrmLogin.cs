@@ -35,7 +35,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void SetupLanguageSelector()
         {
             cmbLanguage = new ComboBox();
-            cmbLanguage.Width = 150;
+            cmbLanguage.Width = 200;
             cmbLanguage.Location = new Point(this.ClientSize.Width - cmbLanguage.Width - 10, 10);
 
             LanguageSelectorHelper.SetupComboBox(cmbLanguage, _languageService, UpdateLanguage);

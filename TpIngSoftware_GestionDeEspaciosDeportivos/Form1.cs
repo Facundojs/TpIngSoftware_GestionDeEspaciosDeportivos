@@ -110,6 +110,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _languageService = new LanguageService();
             _cmbLanguage = new ToolStripComboBox();
             _cmbLanguage.Alignment = ToolStripItemAlignment.Right;
+            _cmbLanguage.Width = 200;
 
             LanguageSelectorHelper.SetupToolStripComboBox(_cmbLanguage, _languageService, UpdateLanguage);
 

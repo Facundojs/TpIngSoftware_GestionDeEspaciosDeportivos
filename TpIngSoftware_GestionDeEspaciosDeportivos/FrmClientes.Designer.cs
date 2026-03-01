@@ -42,10 +42,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnDeshabilitar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
-            this.lblMembresia = new System.Windows.Forms.Label();
-            this.cmbMembresia = new System.Windows.Forms.ComboBox();
             this.lblProximaFechaPago = new System.Windows.Forms.Label();
             this.txtProximaFechaPago = new System.Windows.Forms.TextBox();
+            this.lblMembresia = new System.Windows.Forms.Label();
+            this.cmbMembresia = new System.Windows.Forms.ComboBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -181,7 +181,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // btnHabilitar
             // 
-            this.btnHabilitar.Location = new System.Drawing.Point(160, 370);
+            this.btnHabilitar.Location = new System.Drawing.Point(160, 399);
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Size = new System.Drawing.Size(120, 23);
             this.btnHabilitar.TabIndex = 13;
@@ -191,7 +191,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // btnDeshabilitar
             // 
-            this.btnDeshabilitar.Location = new System.Drawing.Point(20, 370);
+            this.btnDeshabilitar.Location = new System.Drawing.Point(20, 399);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(120, 23);
             this.btnDeshabilitar.TabIndex = 12;
@@ -201,7 +201,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(160, 330);
+            this.btnActualizar.Location = new System.Drawing.Point(160, 359);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(120, 23);
             this.btnActualizar.TabIndex = 11;
@@ -211,13 +211,30 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(20, 330);
+            this.btnCrear.Location = new System.Drawing.Point(20, 359);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(120, 23);
             this.btnCrear.TabIndex = 10;
             this.btnCrear.Text = "BTN_CREAR";
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
+            // lblProximaFechaPago
+            // 
+            this.lblProximaFechaPago.AutoSize = true;
+            this.lblProximaFechaPago.Location = new System.Drawing.Point(20, 320);
+            this.lblProximaFechaPago.Name = "lblProximaFechaPago";
+            this.lblProximaFechaPago.Size = new System.Drawing.Size(158, 13);
+            this.lblProximaFechaPago.TabIndex = 15;
+            this.lblProximaFechaPago.Text = "LBL_PROXIMA_FECHA_PAGO";
+            // 
+            // txtProximaFechaPago
+            // 
+            this.txtProximaFechaPago.Location = new System.Drawing.Point(20, 337);
+            this.txtProximaFechaPago.Name = "txtProximaFechaPago";
+            this.txtProximaFechaPago.ReadOnly = true;
+            this.txtProximaFechaPago.Size = new System.Drawing.Size(260, 20);
+            this.txtProximaFechaPago.TabIndex = 16;
             // 
             // lblMembresia
             // 
@@ -237,24 +254,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.cmbMembresia.Size = new System.Drawing.Size(260, 21);
             this.cmbMembresia.TabIndex = 8;
             this.cmbMembresia.SelectedIndexChanged += new System.EventHandler(this.cmbMembresia_SelectedIndexChanged);
-            //
-            // lblProximaFechaPago
-            //
-            this.lblProximaFechaPago.AutoSize = true;
-            this.lblProximaFechaPago.Location = new System.Drawing.Point(20, 320);
-            this.lblProximaFechaPago.Name = "lblProximaFechaPago";
-            this.lblProximaFechaPago.Size = new System.Drawing.Size(147, 13);
-            this.lblProximaFechaPago.TabIndex = 15;
-            this.lblProximaFechaPago.Text = "LBL_PROXIMA_FECHA_PAGO";
-            //
-            // txtProximaFechaPago
-            //
-            this.txtProximaFechaPago.Location = new System.Drawing.Point(20, 340);
-            this.txtProximaFechaPago.Name = "txtProximaFechaPago";
-            this.txtProximaFechaPago.ReadOnly = true;
-            this.txtProximaFechaPago.Size = new System.Drawing.Size(260, 20);
-            this.txtProximaFechaPago.TabIndex = 16;
-            //
+            // 
             // dtpFechaNacimiento
             // 
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
