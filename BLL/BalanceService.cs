@@ -123,5 +123,10 @@ namespace BLL
                 throw new InvalidOperationException(msg);
             }
         }
+
+        public System.Collections.Generic.List<Movimiento> ListarMovimientos(Guid clienteId, DateTime? desde, DateTime? hasta)
+        {
+            return DalFactory.BalanceRepository.ListarMovimientos(clienteId, desde, hasta);
+        }
     }
 }

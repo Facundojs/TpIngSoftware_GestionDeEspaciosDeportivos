@@ -35,6 +35,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblDNICheckIn = new System.Windows.Forms.Label();
             this.pnlEdicion = new System.Windows.Forms.Panel();
             this.btnVerRutina = new System.Windows.Forms.Button();
+            this.btnVerMovimientos = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnHabilitar = new System.Windows.Forms.Button();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
@@ -106,6 +107,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // pnlEdicion
             //
             this.pnlEdicion.Controls.Add(this.btnVerRutina);
+            this.pnlEdicion.Controls.Add(this.btnVerMovimientos);
             this.pnlEdicion.Controls.Add(this.btnLimpiar);
             this.pnlEdicion.Controls.Add(this.btnHabilitar);
             this.pnlEdicion.Controls.Add(this.btnDeshabilitar);
@@ -127,9 +129,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlEdicion.Size = new System.Drawing.Size(300, 450);
             this.pnlEdicion.TabIndex = 1;
             //
+            // btnVerMovimientos
+            //
+            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 360);
+            this.btnVerMovimientos.Name = "btnVerMovimientos";
+            this.btnVerMovimientos.Size = new System.Drawing.Size(260, 23);
+            this.btnVerMovimientos.TabIndex = 16;
+            this.btnVerMovimientos.Text = "BTN_VER_MOVIMIENTOS";
+            this.btnVerMovimientos.UseVisualStyleBackColor = true;
+            this.btnVerMovimientos.Click += new System.EventHandler(this.btnVerMovimientos_Click);
+            //
             // btnLimpiar
             //
-            this.btnLimpiar.Location = new System.Drawing.Point(20, 360);
+            this.btnLimpiar.Location = new System.Drawing.Point(20, 390);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(260, 23);
             this.btnLimpiar.TabIndex = 14;
@@ -139,7 +151,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnVerRutina
             //
-            this.btnVerRutina.Location = new System.Drawing.Point(20, 400);
+            this.btnVerRutina.Location = new System.Drawing.Point(20, 420);
             this.btnVerRutina.Name = "btnVerRutina";
             this.btnVerRutina.Size = new System.Drawing.Size(260, 23);
             this.btnVerRutina.TabIndex = 15;
@@ -315,6 +327,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.TextBox txtDNICheckIn;
         private System.Windows.Forms.Label lblDNICheckIn;
         private System.Windows.Forms.Button btnVerRutina;
+        private System.Windows.Forms.Button btnVerMovimientos;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnHabilitar;
         private System.Windows.Forms.Button btnDeshabilitar;
