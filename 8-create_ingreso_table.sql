@@ -1,3 +1,5 @@
+USE IngSoftwareNegocio;
+GO
 CREATE TABLE [dbo].[Ingreso] (
     [Id] UNIQUEIDENTIFIER PRIMARY KEY,
     [ClienteID] UNIQUEIDENTIFIER FOREIGN KEY REFERENCES [dbo].[Cliente]([Id]),
