@@ -13,5 +13,6 @@ namespace Domain
         public string LogLevel { get; set; }
         public string Message { get; set; }
         public string ExceptionDetails { get; set; }
+        public string UsuarioNombre { get; set; }
     }
 }
