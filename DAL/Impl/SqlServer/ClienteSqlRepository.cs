@@ -15,13 +15,15 @@ namespace DAL.Impl
 
         public void Add(Cliente obj)
         {
-            string query = "INSERT INTO Cliente (Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado) VALUES (@Id, @Nombre, @Apellido, @DNI, @FechaNacimiento, @MembresiaID, @Estado)";
+            string query = "INSERT INTO Cliente (Id, Nombre, Apellido, DNI, FechaNacimiento, Email, CreatedAt, MembresiaID, Estado) VALUES (@Id, @Nombre, @Apellido, @DNI, @FechaNacimiento, @Email, @CreatedAt, @MembresiaID, @Estado)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre),
                 new SqlParameter("@Apellido", obj.Apellido),
                 new SqlParameter("@DNI", obj.DNI),
                 new SqlParameter("@FechaNacimiento", obj.FechaNacimiento),
+                new SqlParameter("@Email", (object)obj.Email ?? DBNull.Value),
+                new SqlParameter("@CreatedAt", obj.CreatedAt),
                 new SqlParameter("@MembresiaID", (object)obj.MembresiaID ?? DBNull.Value),
                 new SqlParameter("@Estado", obj.Estado)
             };
@@ -30,13 +32,14 @@ namespace DAL.Impl
 
         public void Update(Cliente obj)
         {
-            string query = "UPDATE Cliente SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, FechaNacimiento = @FechaNacimiento, MembresiaID = @MembresiaID, Estado = @Estado WHERE Id = @Id";
+            string query = "UPDATE Cliente SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI, FechaNacimiento = @FechaNacimiento, Email = @Email, MembresiaID = @MembresiaID, Estado = @Estado WHERE Id = @Id";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre),
                 new SqlParameter("@Apellido", obj.Apellido),
                 new SqlParameter("@DNI", obj.DNI),
                 new SqlParameter("@FechaNacimiento", obj.FechaNacimiento),
+                new SqlParameter("@Email", (object)obj.Email ?? DBNull.Value),
                 new SqlParameter("@MembresiaID", (object)obj.MembresiaID ?? DBNull.Value),
                 new SqlParameter("@Estado", obj.Estado)
             };
@@ -52,7 +55,7 @@ namespace DAL.Impl
 
         public Cliente GetById(Guid id)
         {
-            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado FROM Cliente WHERE Id = @Id";
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, Email, CreatedAt, MembresiaID, Estado FROM Cliente WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
 
             return ExecuteReader(query, parameters, reader =>
@@ -67,7 +70,7 @@ namespace DAL.Impl
 
         public List<Cliente> GetAll()
         {
-            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado FROM Cliente";
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, Email, CreatedAt, MembresiaID, Estado FROM Cliente";
 
             return ExecuteReader(query, null, reader =>
             {
@@ -82,7 +85,7 @@ namespace DAL.Impl
 
         public Cliente GetByDNI(int dni)
         {
-            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, MembresiaID, Estado FROM Cliente WHERE DNI = @DNI";
+            string query = "SELECT Id, Nombre, Apellido, DNI, FechaNacimiento, Email, CreatedAt, MembresiaID, Estado FROM Cliente WHERE DNI = @DNI";
             SqlParameter[] parameters = { new SqlParameter("@DNI", dni) };
 
             return ExecuteReader(query, parameters, reader =>
@@ -121,8 +124,10 @@ namespace DAL.Impl
                 Apellido = reader.GetString(2),
                 DNI = reader.GetInt32(3),
                 FechaNacimiento = reader.GetDateTime(4),
-                MembresiaID = reader.IsDBNull(5) ? (Guid?)null : reader.GetGuid(5),
-                Estado = reader.IsDBNull(6) ? "Activo" : reader.GetString(6)
+                Email = reader.IsDBNull(5) ? null : reader.GetString(5),
+                CreatedAt = reader.GetDateTime(6),
+                MembresiaID = reader.IsDBNull(7) ? (Guid?)null : reader.GetGuid(7),
+                Estado = reader.IsDBNull(8) ? "Activo" : reader.GetString(8)
             };
         }
     }

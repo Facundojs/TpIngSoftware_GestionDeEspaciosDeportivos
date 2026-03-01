@@ -45,6 +45,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.cmbMembresia = new System.Windows.Forms.ComboBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -117,6 +119,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlEdicion.Controls.Add(this.cmbMembresia);
             this.pnlEdicion.Controls.Add(this.dtpFechaNacimiento);
             this.pnlEdicion.Controls.Add(this.lblFechaNacimiento);
+            this.pnlEdicion.Controls.Add(this.txtEmail);
+            this.pnlEdicion.Controls.Add(this.lblEmail);
             this.pnlEdicion.Controls.Add(this.txtApellido);
             this.pnlEdicion.Controls.Add(this.lblApellido);
             this.pnlEdicion.Controls.Add(this.txtNombre);
@@ -234,6 +238,22 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblFechaNacimiento.TabIndex = 6;
             this.lblFechaNacimiento.Text = "LBL_FECHA_NAC";
             //
+            // txtEmail
+            //
+            this.txtEmail.Location = new System.Drawing.Point(20, 240);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(260, 20);
+            this.txtEmail.TabIndex = 9;
+            //
+            // lblEmail
+            //
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(20, 220);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(65, 13);
+            this.lblEmail.TabIndex = 8;
+            this.lblEmail.Text = "LBL_EMAIL";
+            //
             // txtApellido
             //
             this.txtApellido.Location = new System.Drawing.Point(20, 140);
@@ -337,6 +357,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.ComboBox cmbMembresia;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label lblFechaNacimiento;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox txtNombre;

@@ -9,6 +9,8 @@ namespace BLL.DTOs
         public string Apellido { get; set; }
         public int DNI { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public string Email { get; set; }
+        public DateTime CreatedAt { get; set; }
         public Guid? MembresiaID { get; set; }
         public ClienteStatus Status { get; set; }
 

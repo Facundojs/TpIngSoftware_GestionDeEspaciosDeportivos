@@ -34,6 +34,7 @@ namespace BLL.Services
                 if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("Nombre es requerido");
                 if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException("Apellido es requerido");
                 if (dto.FechaNacimiento > DateTime.Now) throw new ArgumentException("Fecha de nacimiento no puede ser futura");
+                if (!string.IsNullOrWhiteSpace(dto.Email) && !dto.Email.Contains("@")) throw new ArgumentException("Email tiene un formato inválido");
 
                 // Validaciones de Negocio
                 if (_repository.ExistsByDNI(dto.DNI))
@@ -57,6 +58,7 @@ namespace BLL.Services
                 var entity = ClienteMapper.ToEntity(dto);
                 if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
                 entity.Estado = ClienteStatus.Activo.ToString();
+                entity.CreatedAt = DateTime.Now;
 
                 _repository.Add(entity);
             }

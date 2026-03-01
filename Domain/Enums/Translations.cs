@@ -104,6 +104,7 @@ namespace Domain.Enums
         LBL_ESTADO,
         LBL_FECHA,
         LBL_FECHA_NAC,
+        LBL_EMAIL,
         LBL_FILENAME,
         LBL_HORA,
         LBL_LOG_LEVEL,
