@@ -236,7 +236,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.cmbMembresia.Name = "cmbMembresia";
             this.cmbMembresia.Size = new System.Drawing.Size(260, 21);
             this.cmbMembresia.TabIndex = 8;
-            // 
+            this.cmbMembresia.SelectedIndexChanged += new System.EventHandler(this.cmbMembresia_SelectedIndexChanged);
+            //
             // lblProximaFechaPago
             //
             this.lblProximaFechaPago.AutoSize = true;

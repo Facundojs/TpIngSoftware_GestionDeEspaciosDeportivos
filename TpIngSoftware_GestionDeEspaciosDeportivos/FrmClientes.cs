@@ -347,6 +347,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             frm.ShowDialog();
         }
 
+        private void cmbMembresia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool hasMembresia = cmbMembresia.SelectedIndex != -1;
+            lblProximaFechaPago.Visible = hasMembresia;
+            txtProximaFechaPago.Visible = hasMembresia;
+        }
+
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
             try
