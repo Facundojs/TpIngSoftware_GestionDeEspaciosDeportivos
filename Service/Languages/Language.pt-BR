@@ -151,6 +151,7 @@ LBL_HORA_HASTA=Hora Até
 MSG_AGENDA_UPDATED=Agenda atualizada com sucesso.
 BTN_VER_HORARIOS=Ver Horários Livres
 BTN_VER_MOVIMIENTOS=Ver Movimentos
+BTN_VER_INGRESOS=Ver Entradas
 FRM_MOVIMIENTOS_TITLE=Histórico de Movimentos
 LBL_TIPO_MOVIMIENTO=Tipo de Movimento
 ERR_HORA_MULTIPLO_30=A hora deve estar em intervalos de 30 minutos (ex: 14:00, 14:30).
