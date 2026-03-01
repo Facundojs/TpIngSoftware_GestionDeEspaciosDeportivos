@@ -81,6 +81,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lblDNICheckIn.Text = Domain.Enums.Translations.LBL_DNI.Translate();
             btnCheckIn.Text = Domain.Enums.Translations.BTN_CHECK_IN.Translate();
             btnVerRutina.Text = Domain.Enums.Translations.BTN_VER_RUTINA.Translate();
+            btnVerIngresos.Text = Domain.Enums.Translations.BTN_VER_INGRESOS.Translate();
             btnVerMovimientos.Text = Domain.Enums.Translations.BTN_VER_MOVIMIENTOS.Translate();
 
             // Refresh headers
@@ -317,6 +318,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_clienteSeleccionado == null) return;
             var frm = new FrmMovimientos(_clienteSeleccionado);
+            frm.ShowDialog();
+        }
+
+        private void btnVerIngresos_Click(object sender, EventArgs e)
+        {
+            if (_clienteSeleccionado == null) return;
+            var frm = new FrmIngresos(_usuario, _clienteSeleccionado);
             frm.ShowDialog();
         }
 

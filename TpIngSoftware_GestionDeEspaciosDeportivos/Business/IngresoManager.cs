@@ -17,5 +17,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
         {
             return _service.ListarIngresos();
         }
+
+        public List<IngresoDTO> ListarIngresosPorCliente(System.Guid clienteId)
+        {
+            return _service.ListarIngresosPorCliente(clienteId);
+        }
     }
 }

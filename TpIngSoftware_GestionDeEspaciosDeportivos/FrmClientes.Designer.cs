@@ -35,6 +35,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.lblDNICheckIn = new System.Windows.Forms.Label();
             this.pnlEdicion = new System.Windows.Forms.Panel();
             this.btnVerRutina = new System.Windows.Forms.Button();
+            this.btnVerIngresos = new System.Windows.Forms.Button();
             this.btnVerMovimientos = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnHabilitar = new System.Windows.Forms.Button();
@@ -107,6 +108,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // pnlEdicion
             //
             this.pnlEdicion.Controls.Add(this.btnVerRutina);
+            this.pnlEdicion.Controls.Add(this.btnVerIngresos);
             this.pnlEdicion.Controls.Add(this.btnVerMovimientos);
             this.pnlEdicion.Controls.Add(this.btnLimpiar);
             this.pnlEdicion.Controls.Add(this.btnHabilitar);
@@ -131,13 +133,23 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             //
             // btnVerMovimientos
             //
-            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 360);
+            this.btnVerMovimientos.Location = new System.Drawing.Point(20, 330);
             this.btnVerMovimientos.Name = "btnVerMovimientos";
             this.btnVerMovimientos.Size = new System.Drawing.Size(260, 23);
             this.btnVerMovimientos.TabIndex = 16;
             this.btnVerMovimientos.Text = "BTN_VER_MOVIMIENTOS";
             this.btnVerMovimientos.UseVisualStyleBackColor = true;
             this.btnVerMovimientos.Click += new System.EventHandler(this.btnVerMovimientos_Click);
+            //
+            // btnVerIngresos
+            //
+            this.btnVerIngresos.Location = new System.Drawing.Point(20, 360);
+            this.btnVerIngresos.Name = "btnVerIngresos";
+            this.btnVerIngresos.Size = new System.Drawing.Size(260, 23);
+            this.btnVerIngresos.TabIndex = 17;
+            this.btnVerIngresos.Text = "BTN_VER_INGRESOS";
+            this.btnVerIngresos.UseVisualStyleBackColor = true;
+            this.btnVerIngresos.Click += new System.EventHandler(this.btnVerIngresos_Click);
             //
             // btnLimpiar
             //
@@ -327,6 +339,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private System.Windows.Forms.TextBox txtDNICheckIn;
         private System.Windows.Forms.Label lblDNICheckIn;
         private System.Windows.Forms.Button btnVerRutina;
+        private System.Windows.Forms.Button btnVerIngresos;
         private System.Windows.Forms.Button btnVerMovimientos;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnHabilitar;
