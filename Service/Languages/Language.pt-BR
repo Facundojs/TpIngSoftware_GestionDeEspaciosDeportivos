@@ -164,6 +164,7 @@ MSG_SELECCIONE_ESPACIO=Selecione um espaço.
 ERR_RESERVA_NO_EXISTE=A reserva não existe
 ERR_MONTO_SUPERA_SALDO=O valor excede o saldo pendente da reserva.
 ERR_RESERVA_NO_ENCONTRADA_CODIGO=Nenhuma reserva foi encontrada com esse código.
+LBL_EMAIL=E-mail
 FRM_INGRESOS_TITLE=Accesos
 MENU_INGRESOS=Accesos
 LBL_CLIENTE_NOMBRE=Nome do cliente

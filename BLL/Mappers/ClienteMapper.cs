@@ -24,6 +24,8 @@ namespace BLL.Mappers
                 Apellido = entity.Apellido,
                 DNI = entity.DNI,
                 FechaNacimiento = entity.FechaNacimiento,
+                Email = entity.Email,
+                CreatedAt = entity.CreatedAt,
                 MembresiaID = entity.MembresiaID,
                 Status = status,
                 Balance = balance != null ? balance.Saldo : 0,
@@ -57,6 +59,8 @@ namespace BLL.Mappers
                 Apellido = dto.Apellido,
                 DNI = dto.DNI,
                 FechaNacimiento = dto.FechaNacimiento,
+                Email = dto.Email,
+                CreatedAt = dto.CreatedAt,
                 MembresiaID = dto.MembresiaID,
                 Estado = dto.Status.ToString()
             };

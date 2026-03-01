@@ -42,6 +42,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Domain.Enums.Translations.LBL_DNI.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Domain.Enums.Translations.LBL_APELLIDO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = Domain.Enums.Translations.LBL_EMAIL.Translate() });
 
             // For complex properties like Membresia Name, we can use CellFormatting or a wrapper.
             // Simplified: We'll handle it in CellFormatting or DataBinding if possible.
@@ -71,6 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lblNombre.Text = Domain.Enums.Translations.LBL_NOMBRE.Translate();
             lblApellido.Text = Domain.Enums.Translations.LBL_APELLIDO.Translate();
             lblFechaNacimiento.Text = Domain.Enums.Translations.LBL_FECHA_NAC.Translate();
+            lblEmail.Text = Domain.Enums.Translations.LBL_EMAIL.Translate();
             lblMembresia.Text = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
             btnCrear.Text = Domain.Enums.Translations.BTN_CREAR.Translate();
             btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
@@ -90,9 +92,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvClientes.Columns[0].HeaderText = Domain.Enums.Translations.LBL_DNI.Translate();
                 dgvClientes.Columns[1].HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate();
                 dgvClientes.Columns[2].HeaderText = Domain.Enums.Translations.LBL_APELLIDO.Translate();
-                dgvClientes.Columns[3].HeaderText = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
-                dgvClientes.Columns[4].HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate();
-                dgvClientes.Columns[5].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
+                dgvClientes.Columns[3].HeaderText = Domain.Enums.Translations.LBL_EMAIL.Translate();
+                dgvClientes.Columns[4].HeaderText = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
+                dgvClientes.Columns[5].HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate();
+                dgvClientes.Columns[6].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
             }
         }
 
@@ -150,6 +153,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     DNI = int.Parse(txtDNI.Text),
                     Nombre = txtNombre.Text,
                     Apellido = txtApellido.Text,
+                    Email = txtEmail.Text,
                     FechaNacimiento = dtpFechaNacimiento.Value
                 };
 
@@ -244,6 +248,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             txtDNI.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
+            txtEmail.Text = "";
             dtpFechaNacimiento.Value = DateTime.Now;
             cmbMembresia.SelectedIndex = -1;
             txtDNICheckIn.Text = "";
@@ -272,6 +277,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 txtDNI.Text = cliente.DNI.ToString();
                 txtNombre.Text = cliente.Nombre;
                 txtApellido.Text = cliente.Apellido;
+                txtEmail.Text = cliente.Email;
                 dtpFechaNacimiento.Value = cliente.FechaNacimiento;
 
                 if (cliente.MembresiaID.HasValue)
