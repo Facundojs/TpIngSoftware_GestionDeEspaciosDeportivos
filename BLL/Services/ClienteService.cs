@@ -73,6 +73,17 @@ namespace BLL.Services
                         ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
                     };
                     DalFactory.ClienteMembresiaRepository.Add(clienteMembresia);
+
+                    var movimiento = new Movimiento
+                    {
+                        Id = Guid.NewGuid(),
+                        ClienteID = entity.Id,
+                        Monto = -membresia.Precio,
+                        Tipo = Domain.Enums.TipoMovimiento.DeudaMembresia,
+                        Descripcion = $"Cargo inicial membresía {membresia.Nombre}",
+                        Fecha = DateTime.Now
+                    };
+                    DalFactory.MovimientoRepository.Insertar(movimiento);
                 }
             }
             catch (Exception ex)
