@@ -36,6 +36,18 @@ CREATE TABLE Cliente (
     FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id)
 );
 
+-- 3.5. ClienteMembresia
+CREATE TABLE ClienteMembresia (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    ClienteID UNIQUEIDENTIFIER NOT NULL,
+    MembresiaID UNIQUEIDENTIFIER NOT NULL,
+    FechaAsignacion DATETIME NOT NULL DEFAULT GETDATE(),
+    ProximaFechaPago DATETIME NULL,
+    FechaBaja DATETIME NULL,
+    FOREIGN KEY (ClienteID) REFERENCES Cliente(Id),
+    FOREIGN KEY (MembresiaID) REFERENCES Membresia(Id)
+);
+
 -- 4. Operador (Inherits from Usuario)
 CREATE TABLE Operador (
     Id UNIQUEIDENTIFIER PRIMARY KEY,
