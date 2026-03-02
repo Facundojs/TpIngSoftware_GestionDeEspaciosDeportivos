@@ -12,6 +12,7 @@ namespace BLL.DTOs
         public string Email { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid? MembresiaID { get; set; }
+        public string Razon { get; set; }
         public ClienteStatus Status { get; set; }
         public DateTime? ProximaFechaPago { get; set; }
 

@@ -155,10 +155,13 @@ namespace BLL.Services
         {
              try
              {
+                 if (string.IsNullOrWhiteSpace(razon)) throw new ArgumentException("La razón de deshabilitación es obligatoria");
+
                  var cliente = _repository.GetById(clienteId);
                  if (cliente == null) throw new InvalidOperationException("Cliente no encontrado");
 
                  cliente.Estado = ClienteStatus.Inactivo.ToString();
+                 cliente.Razon = razon;
                  _repository.Update(cliente);
 
                  _bitacora.Log($"CU-CLIE-02: Cliente DNI {cliente.DNI} deshabilitado - Razón: {razon}", "INFO");
@@ -178,6 +181,7 @@ namespace BLL.Services
                  if (cliente == null) throw new InvalidOperationException("Cliente no encontrado");
 
                  cliente.Estado = ClienteStatus.Activo.ToString();
+                 cliente.Razon = null;
                  _repository.Update(cliente);
 
                  _bitacora.Log($"CU-CLIE-03: Cliente DNI {cliente.DNI} habilitado", "INFO");
@@ -202,11 +206,12 @@ namespace BLL.Services
 
                  if (cliente.Estado != ClienteStatus.Activo.ToString())
                  {
-                     _bitacora.Log($"CU-CLIE-04: Ingreso denegado para cliente DNI {dni} - Razón: Cliente deshabilitado", "WARNING");
+                     string razonMsg = !string.IsNullOrEmpty(cliente.Razon) ? $"Cliente deshabilitado - Razón: {cliente.Razon}" : "Cliente deshabilitado";
+                     _bitacora.Log($"CU-CLIE-04: Ingreso denegado para cliente DNI {dni} - Razón: {razonMsg}", "WARNING");
                      return new ResultadoIngresoDTO
                      {
                          Permitido = false,
-                         Razon = "Cliente deshabilitado",
+                         Razon = razonMsg,
                          NombreCliente = $"{cliente.Nombre} {cliente.Apellido}"
                      };
                  }
