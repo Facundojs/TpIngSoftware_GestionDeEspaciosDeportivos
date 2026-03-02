@@ -15,23 +15,49 @@ namespace Service.Logic
 
         public BitacoraService()
         {
-            _repository = FactoryDao.LogRepository;
+            try
+            {
+                _repository = FactoryDao.LogRepository;
+            }
+            catch (Exception ex)
+            {
+                // No lanzamos excepción para no bloquear el servicio principal
+                Console.WriteLine($"ERROR: No se pudo instanciar el repositorio de bitácora: {ex.Message}");
+            }
         }
 
         public void Log(string message, string level = "INFO", Exception ex = null)
         {
-            if (level.ToUpper() == "ERROR")
+            try
             {
-                _repository.Error(message, ex);
+                if (_repository == null)
+                {
+                    Console.WriteLine($"FALLBACK: {level} - {message} {(ex != null ? ex.ToString() : "")}");
+                    return;
+                }
+
+                if (level.ToUpper() == "ERROR")
+                {
+                    _repository.Error(message, ex);
+                }
+                else
+                {
+                    _repository.Info(message);
+                }
             }
-            else
+            catch (Exception logEx)
             {
-                _repository.Info(message);
+                // Fallback logging if repository fails
+                Console.WriteLine($"FATAL: Error al escribir en bitácora: {logEx.Message}. Mensaje original: {message}");
             }
         }
 
         public List<Log> GetLogs(int page, int pageSize, DateTime? from = null, DateTime? to = null, string logLevel = null, string message = null)
         {
+            if (_repository == null)
+            {
+                return new List<Log>();
+            }
             return _repository.GetLogs(page, pageSize, from, to, logLevel, message);
         }
     }
