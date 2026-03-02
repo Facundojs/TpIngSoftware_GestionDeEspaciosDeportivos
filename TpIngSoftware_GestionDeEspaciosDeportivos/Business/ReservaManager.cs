@@ -24,9 +24,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
             return _service.VerificarDisponibilidad(espacioId, fechaHora, duracion);
         }
 
-        public void GenerarReserva(GenerarReservaDTO dto)
+        public string GenerarReserva(GenerarReservaDTO dto)
         {
-            _service.GenerarReserva(dto);
+            return _service.GenerarReserva(dto);
         }
 
         public void CancelarReserva(Guid reservaId)

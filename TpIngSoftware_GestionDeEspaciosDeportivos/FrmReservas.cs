@@ -333,9 +333,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     Adelanto = adelanto
                 };
 
-                _reservaManager.GenerarReserva(dto);
+                string codigoGenerado = _reservaManager.GenerarReserva(dto);
 
-                MessageBox.Show(Domain.Enums.Translations.MSG_RESERVA_GENERADA.Translate(), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string successMsg = Domain.Enums.Translations.MSG_RESERVA_GENERADA.Translate().Replace("{codigo}", codigoGenerado);
+                MessageBox.Show(successMsg, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Clear fields
                 _clienteIdSeleccionado = null;

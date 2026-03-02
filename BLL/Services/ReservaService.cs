@@ -92,7 +92,7 @@ namespace BLL.Services
             return _reservaRepo.EspacioDisponible(espacioId, fechaHora, duracion);
         }
 
-        public void GenerarReserva(GenerarReservaDTO dto)
+        public string GenerarReserva(GenerarReservaDTO dto)
         {
             if (dto.Adelanto < 0) throw new ArgumentException("El adelanto no puede ser negativo");
             if (dto.Duracion <= 0) throw new ArgumentException("La duración debe ser mayor a cero");
@@ -107,6 +107,12 @@ namespace BLL.Services
             decimal montoTotal = espacio.PrecioHora * (dto.Duracion / 60.0m);
 
             if (dto.Adelanto > montoTotal) throw new ArgumentException($"El adelanto ({dto.Adelanto:C}) no puede ser mayor al monto total ({montoTotal:C})");
+
+            decimal minimoRequerido = montoTotal * 0.1m;
+            if (dto.Adelanto < minimoRequerido)
+            {
+                throw new ArgumentException($"El adelanto es insuficiente. Debe abonar al menos el 10% del total ({minimoRequerido:C}) para confirmar la reserva.");
+            }
 
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
@@ -231,6 +237,8 @@ namespace BLL.Services
                             }
 
                             _bitacora.Log($"CU-RES-01: Reserva {reserva.CodigoReserva} generada para cliente {cliente.DNI} - Espacio {espacio.Nombre} - Fecha {reserva.FechaHora} - Seña ${dto.Adelanto}", "INFO");
+
+                            return reserva.CodigoReserva;
                         }
                         catch
                         {
