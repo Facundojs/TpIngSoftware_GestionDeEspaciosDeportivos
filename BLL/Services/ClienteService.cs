@@ -48,7 +48,7 @@ namespace BLL.Services
                     if (membresia == null) throw new InvalidOperationException("La membresía seleccionada no existe");
                     if (!membresia.Activa) throw new InvalidOperationException("La membresía seleccionada no está activa");
 
-                    _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}", "INFO");
+                    _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}, sin deuda. Próximo cobro: {DateTime.Now.AddDays(membresia.Regularidad):dd/MM/yyyy}", "INFO");
                 }
                 else
                 {

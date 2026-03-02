@@ -48,17 +48,8 @@ namespace BLL
 
             try
             {
-                int currentMonth = DateTime.Now.Month;
-                int currentYear = DateTime.Now.Year;
-
-                // Check if monthly debt calculation has already run for this month via Bitacora
-                bool jobRan = CheckIfJobRanInBitacora(currentMonth, currentYear);
-
-                if (!jobRan)
-                {
-                    var balanceService = new BalanceService();
-                    balanceService.CalcularSaldoMensual();
-                }
+                var balanceService = new BalanceService();
+                balanceService.CalcularSaldoMensual();
             }
             catch (Exception ex)
             {
@@ -69,24 +60,6 @@ namespace BLL
             finally
             {
                 _isRunning = false;
-            }
-        }
-
-        private bool CheckIfJobRanInBitacora(int month, int year)
-        {
-            try
-            {
-                var bitacora = new BitacoraService();
-                var start = new DateTime(year, month, 1);
-                var end = start.AddMonths(1).AddSeconds(-1);
-
-                // Search for the success message logged by BalanceService
-                var logs = bitacora.GetLogs(1, 1, start, end, "INFO", "Job CalcularSaldoMensual finalizado");
-                return logs != null && logs.Any();
-            }
-            catch
-            {
-                return false;
             }
         }
     }
