@@ -85,6 +85,12 @@ namespace BLL.Services
                 var entity = _repository.GetById(id);
                 if (entity == null) throw new InvalidOperationException("La membresía no existe");
 
+                var clienteRepo = DalFactory.ClienteRepository;
+                if (clienteRepo.HasActiveClientsByMembresia(id))
+                {
+                    throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES.ToString());
+                }
+
                 entity.Activa = false;
                 _repository.Update(entity);
 

@@ -115,6 +115,13 @@ namespace DAL.Impl
             ExecuteNonQuery(query, parameters, conn, tran);
         }
 
+        public bool HasActiveClientsByMembresia(Guid membresiaId)
+        {
+            string query = "SELECT CASE WHEN EXISTS(SELECT 1 FROM Cliente WHERE MembresiaID = @MembresiaID AND Estado = 'Activo') THEN 1 ELSE 0 END";
+            SqlParameter[] parameters = { new SqlParameter("@MembresiaID", membresiaId) };
+            return ExecuteScalar<int>(query, parameters) == 1;
+        }
+
         private Cliente Map(SqlDataReader reader)
         {
             return new Cliente
