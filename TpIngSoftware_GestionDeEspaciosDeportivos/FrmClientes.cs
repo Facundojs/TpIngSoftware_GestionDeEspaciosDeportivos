@@ -272,9 +272,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    _clienteManager.DeshabilitarCliente(_clienteSeleccionado.Id, "Deshabilitado por usuario");
-                    CargarClientes();
-                    LimpiarControles();
+                    using (var prompt = new FrmPrompt(Domain.Enums.Translations.LBL_RAZON_DESHABILITAR.Translate(), Domain.Enums.Translations.TITLE_DESHABILITAR.Translate()))
+                    {
+                        if (prompt.ShowDialog() == DialogResult.OK)
+                        {
+                            string razon = string.IsNullOrWhiteSpace(prompt.InputText) ? "Deshabilitado por usuario" : prompt.InputText;
+                            _clienteManager.DeshabilitarCliente(_clienteSeleccionado.Id, razon);
+                            CargarClientes();
+                            LimpiarControles();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -423,13 +430,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (resultado.Permitido)
                 {
-                    lblResultado.Text = Domain.Enums.Translations.MSG_INGRESO_PERMITIDO.Translate().Replace("{nombre}", resultado.NombreCliente);
+                    string msg = Domain.Enums.Translations.MSG_INGRESO_PERMITIDO.Translate().Replace("{nombre}", resultado.NombreCliente);
+                    lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Green;
+                    MessageBox.Show(msg, "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtDNICheckIn.Text = string.Empty; // Clear after success
                 }
                 else
                 {
-                    lblResultado.Text = Domain.Enums.Translations.MSG_INGRESO_DENEGADO.Translate().Replace("{razon}", resultado.Razon);
+                    string msg = Domain.Enums.Translations.MSG_INGRESO_DENEGADO.Translate().Replace("{razon}", resultado.Razon);
+                    lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Red;
+                    MessageBox.Show(msg, "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (FormatException)

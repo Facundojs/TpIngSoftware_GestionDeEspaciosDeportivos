@@ -170,3 +170,7 @@ FRM_INGRESOS_TITLE=Accesos
 MENU_INGRESOS=Accesos
 LBL_CLIENTE_NOMBRE=Nome do cliente
 LBL_PROXIMA_FECHA_PAGO=Próxima Data de Pagamento
+
+LBL_RAZON_DESHABILITAR=Motivo para desativar:
+TITLE_DESHABILITAR=Desativar cliente
+BTN_OK=OK
