@@ -13,6 +13,7 @@ MSG_ENTER_BACKUP_NAME=Digite um nome para o backup.
 MSG_BACKUP_SUCCESS=Backup realizado com sucesso.
 MSG_ERR_BACKUP=Erro ao realizar backup:
 MSG_CONFIRM_RESTORE=Tem certeza de que deseja restaurar o banco de dados? Isso substituirá os dados atuais.
+MSG_CONFIRM_CREAR_CLIENTE_NUEVO=O cliente não existe. Deseja criar um novo cliente com esses dados e atribuir a associação?
 TITLE_CONFIRM_RESTORE=Confirmar Restauração
 MSG_RESTORE_SUCCESS=Restauração realizada com sucesso. O aplicativo será reiniciado.
 MSG_ERR_RESTORE=Erro ao realizar restauração:
