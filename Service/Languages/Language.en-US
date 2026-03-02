@@ -174,3 +174,4 @@ LBL_PROXIMA_FECHA_PAGO=Next Payment Date
 LBL_RAZON_DESHABILITAR=Reason for disabling:
 TITLE_DESHABILITAR=Disable client
 BTN_OK=OK
+ERR_MEMBRESIA_CON_CLIENTES=Cannot disable membership because it has active clients. Please update those clients first.

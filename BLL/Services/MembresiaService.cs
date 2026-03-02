@@ -3,6 +3,7 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
+using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,12 @@ namespace BLL.Services
             {
                 var entity = _repository.GetById(id);
                 if (entity == null) throw new InvalidOperationException("La membresía no existe");
+
+                var clienteRepo = DalFactory.ClienteRepository;
+                if (clienteRepo.HasActiveClientsByMembresia(id))
+                {
+                    throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES.Translate());
+                }
 
                 entity.Activa = false;
                 _repository.Update(entity);

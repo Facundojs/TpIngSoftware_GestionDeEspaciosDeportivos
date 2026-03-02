@@ -11,5 +11,6 @@ namespace DAL.Contracts
         Cliente GetByDNI(int dni);
         bool ExistsByDNI(int dni);
         void AsignarMembresia(Guid clienteId, Guid membresiaId, SqlConnection conn, SqlTransaction tran);
+        bool HasActiveClientsByMembresia(Guid membresiaId);
     }
 }

@@ -174,3 +174,4 @@ LBL_PROXIMA_FECHA_PAGO=Próxima Data de Pagamento
 LBL_RAZON_DESHABILITAR=Motivo para desativar:
 TITLE_DESHABILITAR=Desativar cliente
 BTN_OK=OK
+ERR_MEMBRESIA_CON_CLIENTES=Não é possível desativar a associação porque ela tem clientes ativos. Por favor, atualize esses clientes primeiro.

@@ -212,3 +212,4 @@ LBL_PROXIMA_FECHA_PAGO=Próxima Fecha de Pago
 LBL_RAZON_DESHABILITAR=Razón para deshabilitar:
 TITLE_DESHABILITAR=Deshabilitar cliente
 BTN_OK=Aceptar
+ERR_MEMBRESIA_CON_CLIENTES=No se puede deshabilitar la membresía porque tiene clientes activos. Por favor actualice dichos clientes primero.
