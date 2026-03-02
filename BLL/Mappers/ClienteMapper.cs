@@ -27,6 +27,7 @@ namespace BLL.Mappers
                 Email = entity.Email,
                 CreatedAt = entity.CreatedAt,
                 MembresiaID = entity.MembresiaID,
+                Razon = entity.Razon,
                 Status = status,
                 ProximaFechaPago = proximaFechaPago,
                 Balance = balance != null ? balance.Saldo : 0,
@@ -63,7 +64,8 @@ namespace BLL.Mappers
                 Email = dto.Email,
                 CreatedAt = dto.CreatedAt,
                 MembresiaID = dto.MembresiaID,
-                Estado = dto.Status.ToString()
+                Estado = dto.Status.ToString(),
+                Razon = dto.Razon
             };
         }
     }

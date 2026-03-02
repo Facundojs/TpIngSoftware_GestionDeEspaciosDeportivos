@@ -21,7 +21,6 @@ namespace Service.Logic
             }
             catch (Exception ex)
             {
-                // No lanzamos excepción para no bloquear el servicio principal
                 Console.WriteLine($"ERROR: No se pudo instanciar el repositorio de bitácora: {ex.Message}");
             }
         }

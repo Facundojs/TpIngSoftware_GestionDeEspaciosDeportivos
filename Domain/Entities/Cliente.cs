@@ -13,6 +13,7 @@ namespace Domain.Entities
         public DateTime CreatedAt { get; set; }
         public Guid? MembresiaID { get; set; }
         public string Estado { get; set; }
+        public string Razon { get; set; }
 
         public Cliente()
         {
