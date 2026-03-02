@@ -3,6 +3,7 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
+using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
@@ -88,7 +89,7 @@ namespace BLL.Services
                 var clienteRepo = DalFactory.ClienteRepository;
                 if (clienteRepo.HasActiveClientsByMembresia(id))
                 {
-                    throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES.ToString());
+                    throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES.Translate());
                 }
 
                 entity.Activa = false;
