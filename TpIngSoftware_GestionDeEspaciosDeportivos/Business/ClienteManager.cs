@@ -29,9 +29,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
             _service.DeshabilitarCliente(clienteId, razon);
         }
 
-        public void HabilitarCliente(Guid clienteId)
+        public void HabilitarCliente(Guid clienteId, string razon)
         {
-            _service.HabilitarCliente(clienteId);
+            _service.HabilitarCliente(clienteId, razon);
         }
 
         public ResultadoIngresoDTO ValidarIngreso(int dni)

@@ -287,15 +287,59 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_clienteSeleccionado == null) return;
 
+            string razon = SolicitarRazon();
+            if (string.IsNullOrWhiteSpace(razon)) return;
+
             try
             {
-                _clienteManager.HabilitarCliente(_clienteSeleccionado.Id);
+                _clienteManager.HabilitarCliente(_clienteSeleccionado.Id, razon);
                 CargarClientes();
                 LimpiarControles();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string SolicitarRazon()
+        {
+            Form prompt = new Form()
+            {
+                Width = 400,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = Domain.Enums.Translations.MSG_INGRESE_RAZON.Translate(),
+                StartPosition = FormStartPosition.CenterScreen,
+                MaximizeBox = false,
+                MinimizeBox = false
+            };
+            Label textLabel = new Label() { Left = 20, Top = 20, Width = 340, Text = Domain.Enums.Translations.MSG_INGRESE_RAZON.Translate() };
+            TextBox textBox = new TextBox() { Left = 20, Top = 40, Width = 340 };
+            Button confirmation = new Button() { Text = "OK", Left = 260, Top = 70, Width = 100, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textBox);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.AcceptButton = confirmation;
+
+            while (true)
+            {
+                if (prompt.ShowDialog() == DialogResult.OK)
+                {
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        MessageBox.Show(Domain.Enums.Translations.MSG_RAZON_REQUERIDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        return textBox.Text;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 

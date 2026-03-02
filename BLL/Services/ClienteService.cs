@@ -170,7 +170,7 @@ namespace BLL.Services
              }
         }
 
-        public void HabilitarCliente(Guid clienteId)
+        public void HabilitarCliente(Guid clienteId, string razon)
         {
              try
              {
@@ -180,7 +180,7 @@ namespace BLL.Services
                  cliente.Estado = ClienteStatus.Activo.ToString();
                  _repository.Update(cliente);
 
-                 _bitacora.Log($"CU-CLIE-03: Cliente DNI {cliente.DNI} habilitado", "INFO");
+                 _bitacora.Log($"CU-CLIE-03: Cliente DNI {cliente.DNI} habilitado - Razón: {razon}", "INFO");
              }
              catch (Exception ex)
              {

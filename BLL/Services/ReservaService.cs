@@ -108,6 +108,32 @@ namespace BLL.Services
 
             if (dto.Adelanto > montoTotal) throw new ArgumentException($"El adelanto ({dto.Adelanto:C}) no puede ser mayor al monto total ({montoTotal:C})");
 
+            var agendaService = new AgendaService();
+            var agenda = agendaService.GetAgendaPorEspacio(dto.EspacioId);
+            if (agenda == null || agenda.Count == 0)
+            {
+                throw new InvalidOperationException("ERR_NO_AGENDA");
+            }
+
+            int dayOfWeek = (int)dto.FechaHora.DayOfWeek;
+            TimeSpan inicioReserva = dto.FechaHora.TimeOfDay;
+            TimeSpan finReserva = dto.FechaHora.AddMinutes(dto.Duracion).TimeOfDay;
+
+            bool isWithinAgenda = false;
+            foreach (var bloque in agenda.Where(a => a.DiaSemana == dayOfWeek))
+            {
+                if (inicioReserva >= bloque.HoraDesde && finReserva <= bloque.HoraHasta)
+                {
+                    isWithinAgenda = true;
+                    break;
+                }
+            }
+
+            if (!isWithinAgenda)
+            {
+                throw new InvalidOperationException("El horario seleccionado está fuera de la agenda disponible para el espacio");
+            }
+
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
                 throw new InvalidOperationException("El espacio no está disponible en el horario seleccionado");
