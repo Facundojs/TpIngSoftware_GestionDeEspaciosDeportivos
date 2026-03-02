@@ -9,5 +9,10 @@ namespace Service.Facade.Extension
         {
             return Service.Logic.LanguageLogic.Translate(key.ToString());
         }
+
+        public static string ToString(this Translations key)
+        {
+            return key.Translate();
+        }
     }
 }
