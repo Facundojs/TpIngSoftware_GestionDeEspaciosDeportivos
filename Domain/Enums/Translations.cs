@@ -138,6 +138,7 @@ namespace Domain.Enums
         MAIN_TITLE,
         MENU_ADMIN,
         MENU_BACKUPS,
+        MENU_PERMISOS,
         MENU_BITACORA,
         MENU_ESPACIOS,
         MENU_INGRESOS,
