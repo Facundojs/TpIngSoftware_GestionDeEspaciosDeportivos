@@ -253,7 +253,6 @@ namespace BLL.Services
             var clientes = _repository.GetAll();
             var list = new List<ClienteDTO>();
 
-            // Note: N+1 issue is accepted for this architecture
             foreach (var c in clientes)
             {
                  var balance = _balanceService.ConsultarBalance(c.Id);
