@@ -12,7 +12,7 @@ namespace DAL.Impl
         {
         }
 
-        public void CrearAgenda(Agenda obj, SqlConnection conn, SqlTransaction tran)
+        public void CrearAgenda(Agenda obj)
         {
             string query = "INSERT INTO Agenda (EspacioID, DiaSemana, HoraDesde, HoraHasta) VALUES (@EspacioID, @DiaSemana, @HoraDesde, @HoraHasta)";
             SqlParameter[] parameters = {
@@ -21,14 +21,14 @@ namespace DAL.Impl
                 new SqlParameter("@HoraDesde", obj.HoraDesde),
                 new SqlParameter("@HoraHasta", obj.HoraHasta)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void EliminarPorEspacio(Guid espacioId, SqlConnection conn, SqlTransaction tran)
+        public void EliminarPorEspacio(Guid espacioId)
         {
             string query = "DELETE FROM Agenda WHERE EspacioID = @EspacioID";
             SqlParameter[] parameters = { new SqlParameter("@EspacioID", espacioId) };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public List<Agenda> GetByEspacio(Guid espacioId)
@@ -50,7 +50,7 @@ namespace DAL.Impl
                     });
                 }
                 return list;
-            }, null, null);
+            });
         }
     }
 }

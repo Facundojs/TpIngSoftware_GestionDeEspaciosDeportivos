@@ -107,14 +107,14 @@ namespace DAL.Impl
             return ExecuteScalar<int>(query, parameters) == 1;
         }
 
-        public void AsignarMembresia(Guid clienteId, Guid membresiaId, SqlConnection conn, SqlTransaction tran)
+        public void AsignarMembresia(Guid clienteId, Guid membresiaId)
         {
             string query = "UPDATE Cliente SET MembresiaID = @MembresiaID WHERE Id = @Id";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", clienteId),
                 new SqlParameter("@MembresiaID", membresiaId)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public bool HasActiveClientsByMembresia(Guid membresiaId)

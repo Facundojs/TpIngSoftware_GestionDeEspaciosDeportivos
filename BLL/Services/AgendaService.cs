@@ -8,83 +8,67 @@ using Service.Logic;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace BLL.Services
 {
     public class AgendaService
     {
-        private readonly IAgendaRepository _agendaRepo;
+        private readonly IAgendaRepository _agendaRepository;
         private readonly BitacoraService _bitacora;
 
         public AgendaService()
         {
-            _agendaRepo = DalFactory.AgendaRepository;
+            _agendaRepository = DalFactory.AgendaRepository;
             _bitacora = new BitacoraService();
         }
 
         public List<AgendaDTO> GetAgendaPorEspacio(Guid espacioId)
         {
-            var agendas = _agendaRepo.GetByEspacio(espacioId);
-            return AgendaMapper.Map(agendas);
+            var entities = _agendaRepository.GetByEspacio(espacioId);
+            return entities.Select(AgendaMapper.ToDTO).ToList();
         }
 
         public void ConfigurarAgenda(Guid espacioId, List<AgendaDTO> agendasDto)
         {
-            if (agendasDto == null) throw new ArgumentNullException(nameof(agendasDto));
-
-            // Validate no overlaps within the new list
-            for (int i = 0; i < agendasDto.Count; i++)
+            using (var uow = DalFactory.CreateUnitOfWork())
             {
-                // Known limitation: Agenda ranges crossing midnight (e.g., 22:00-02:00) are explicitly prevented by the UI validation here. They must be split into two ranges: 22:00-23:59 and 00:00-02:00.
-                if (agendasDto[i].HoraDesde >= agendasDto[i].HoraHasta)
+                try
                 {
-                    throw new ArgumentException(Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR.Translate());
-                }
-                for (int j = i + 1; j < agendasDto.Count; j++)
-                {
-                    if (agendasDto[i].DiaSemana == agendasDto[j].DiaSemana &&
-                        agendasDto[i].HoraDesde < agendasDto[j].HoraHasta &&
-                        agendasDto[j].HoraDesde < agendasDto[i].HoraHasta)
-                    {
-                        throw new ArgumentException(Domain.Enums.Translations.ERR_AGENDA_OVERLAP.Translate());
-                    }
-                }
-            }
+                    uow.BeginTransaction();
 
-            var entities = AgendaMapper.Map(agendasDto);
+                    uow.AgendaRepository.EliminarPorEspacio(espacioId);
 
-            try
-            {
-                using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
-                {
-                    conn.Open();
-                    using (var tran = conn.BeginTransaction())
+                    for (int i = 0; i < agendasDto.Count; i++)
                     {
-                        try
+                        if (agendasDto[i].HoraDesde >= agendasDto[i].HoraHasta)
                         {
-                            _agendaRepo.EliminarPorEspacio(espacioId, conn, tran);
-
-                            foreach (var agenda in entities)
+                            throw new ArgumentException(Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR.Translate());
+                        }
+                        for (int j = i + 1; j < agendasDto.Count; j++)
+                        {
+                            if (agendasDto[i].DiaSemana == agendasDto[j].DiaSemana &&
+                                agendasDto[i].HoraDesde < agendasDto[j].HoraHasta &&
+                                agendasDto[j].HoraDesde < agendasDto[i].HoraHasta)
                             {
-                                agenda.EspacioID = espacioId;
-                                _agendaRepo.CrearAgenda(agenda, conn, tran);
+                                throw new ArgumentException(Domain.Enums.Translations.ERR_AGENDA_OVERLAP.Translate());
                             }
+                        }
 
-                            tran.Commit();
-                            _bitacora.Log($"Agenda configurada para el espacio {espacioId}.", "INFO");
-                        }
-                        catch
-                        {
-                            tran.Rollback();
-                            throw;
-                        }
+                        var entity = AgendaMapper.ToEntity(agendasDto[i]);
+                        entity.EspacioID = espacioId;
+                        uow.AgendaRepository.CrearAgenda(entity);
                     }
+
+                    uow.Commit();
+                    _bitacora.Log($"Agenda for space {espacioId} configured successfully.", "INFO");
                 }
-            }
-            catch (Exception ex)
-            {
-                _bitacora.Log($"Error configurando agenda: {ex.Message}", "ERROR", ex);
-                throw;
+                catch (Exception ex)
+                {
+                    uow.Rollback();
+                    _bitacora.Log($"Error configuring agenda: {ex.Message}", "ERROR", ex);
+                    throw;
+                }
             }
         }
     }

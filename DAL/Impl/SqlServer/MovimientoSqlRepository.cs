@@ -7,7 +7,7 @@ namespace DAL.Impl
 {
     public class MovimientoSqlRepository : BaseBusinessSqlRepository, IMovimientoRepository
     {
-        public void Insertar(Movimiento obj, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Insertar(Movimiento obj)
         {
             string query = @"INSERT INTO Movimiento (Id, ClienteID, Tipo, Monto, Descripcion, Fecha, PagoID)
                              VALUES (@Id, @ClienteID, @Tipo, @Monto, @Descripcion, @Fecha, @PagoID)";
@@ -23,8 +23,7 @@ namespace DAL.Impl
                 new SqlParameter("@PagoID", (object)obj.PagoID ?? DBNull.Value)
             };
 
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
-
     }
 }

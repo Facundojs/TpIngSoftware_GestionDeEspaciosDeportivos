@@ -9,7 +9,7 @@ namespace DAL.Impl
 {
     public class RutinaEjercicioSqlRepository : BaseBusinessSqlRepository, IRutinaEjercicioRepository
     {
-        public void Insertar(RutinaEjercicio obj, SqlConnection conn, SqlTransaction tran)
+        public void Insertar(RutinaEjercicio obj)
         {
             string query = "INSERT INTO RutinaEjercicio (RutinaID, EjercicioID, Repeticiones, DiaSemana, Orden) VALUES (@RutinaID, @EjercicioID, @Repeticiones, @DiaSemana, @Orden)";
             SqlParameter[] parameters = {
@@ -19,7 +19,7 @@ namespace DAL.Impl
                 new SqlParameter("@DiaSemana", obj.DiaSemana),
                 new SqlParameter("@Orden", obj.Orden)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public List<RutinaEjercicio> GetByRutina(Guid rutinaId)
@@ -42,11 +42,11 @@ namespace DAL.Impl
             });
         }
 
-        public void EliminarPorRutina(Guid rutinaId, SqlConnection conn, SqlTransaction tran)
+        public void EliminarPorRutina(Guid rutinaId)
         {
             string query = "DELETE FROM RutinaEjercicio WHERE RutinaID = @RutinaID";
             SqlParameter[] parameters = { new SqlParameter("@RutinaID", rutinaId) };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         private RutinaEjercicio Map(SqlDataReader reader)

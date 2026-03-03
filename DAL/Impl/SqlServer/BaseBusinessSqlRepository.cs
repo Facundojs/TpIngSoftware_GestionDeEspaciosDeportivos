@@ -5,18 +5,25 @@ using System.Data.SqlClient;
 
 namespace DAL.Impl
 {
-    public class BaseBusinessSqlRepository : BaseRepository
+    public abstract class BaseBusinessSqlRepository : BaseRepository
     {
+        internal SqlConnection CurrentConnection { get; set; }
+        internal SqlTransaction CurrentTransaction { get; set; }
+
         public BaseBusinessSqlRepository() : base(ConnectionManager.BusinessConnectionName)
         {
         }
 
-        protected T ExecuteReader<T>(string query, SqlParameter[] parameters, Func<SqlDataReader, T> map, SqlConnection conn, SqlTransaction tran)
+        protected override void ExecuteNonQuery(string query, SqlParameter[] parameters, SqlConnection conn = null, SqlTransaction tran = null)
         {
-            if (conn != null)
+            base.ExecuteNonQuery(query, parameters, conn ?? CurrentConnection, tran ?? CurrentTransaction);
+        }
+
+        protected override T ExecuteReader<T>(string query, SqlParameter[] parameters, Func<SqlDataReader, T> map)
+        {
+            if (CurrentConnection != null)
             {
-                // Use existing connection (UoW)
-                using (var cmd = new SqlCommand(query, conn, tran))
+                using (var cmd = new SqlCommand(query, CurrentConnection, CurrentTransaction))
                 {
                     if (parameters != null) cmd.Parameters.AddRange(parameters);
                     using (var reader = cmd.ExecuteReader())
@@ -25,11 +32,22 @@ namespace DAL.Impl
                     }
                 }
             }
-            else
+            return base.ExecuteReader(query, parameters, map);
+        }
+
+        protected override T ExecuteScalar<T>(string query, SqlParameter[] parameters)
+        {
+            if (CurrentConnection != null)
             {
-                // Call base method which handles connection creation/opening
-                return base.ExecuteReader(query, parameters, map);
+                using (var cmd = new SqlCommand(query, CurrentConnection, CurrentTransaction))
+                {
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    object result = cmd.ExecuteScalar();
+                    if (result == null || result == DBNull.Value) return default(T);
+                    return (T)Convert.ChangeType(result, typeof(T));
+                }
             }
+            return base.ExecuteScalar<T>(query, parameters);
         }
     }
 }

@@ -3,7 +3,6 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
-using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
@@ -24,105 +23,61 @@ namespace BLL.Services
 
         public void CrearMembresia(MembresiaDTO dto)
         {
-            try
-            {
-                if (dto.Precio <= 0) throw new ArgumentException("Precio debe ser mayor a cero");
-                if (dto.Regularidad <= 0) throw new ArgumentException("Regularidad debe ser mayor a cero");
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("Nombre es requerido");
+            if (dto.Precio <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_PRECIO_MAYOR_CERO.Translate());
+            if (dto.Regularidad <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_REGULARIDAD_MAYOR_CERO.Translate());
+            if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
 
-                var existing = _repository.GetByCodigo(dto.Codigo);
-                if (existing != null)
-                {
-                    throw new InvalidOperationException($"Ya existe membresía con código {dto.Codigo}");
-                }
+            var existing = _repository.GetByCodigo(dto.Codigo);
+            if (existing != null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_EXISTE.Translate());
 
-                var entity = MembresiaMapper.ToEntity(dto);
-                if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
+            var entity = MembresiaMapper.ToEntity(dto);
+            if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
+            entity.Activa = true;
 
-                _repository.Add(entity);
-
-                _bitacora.Log($"CU-ME-003: Membresía '{dto.Nombre}' creada con código {dto.Codigo} y precio ${dto.Precio}", "INFO");
-            }
-            catch (Exception ex)
-            {
-                _bitacora.Log($"Error en CU-ME-003: {ex.Message}", "ERROR", ex);
-                throw;
-            }
+            _repository.Add(entity);
+            _bitacora.Log($"CU-ME-003: Membership {entity.Nombre} (Code: {entity.Codigo}) created", "INFO");
         }
 
         public void ActualizarMembresia(MembresiaDTO dto)
         {
-            try
-            {
-                if (dto.Precio <= 0) throw new ArgumentException("Precio debe ser mayor a cero");
-                if (dto.Regularidad <= 0) throw new ArgumentException("Regularidad debe ser mayor a cero");
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("Nombre es requerido");
+            if (dto.Precio <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_PRECIO_MAYOR_CERO.Translate());
+            if (dto.Regularidad <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_REGULARIDAD_MAYOR_CERO.Translate());
+            if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
 
-                var existing = _repository.GetById(dto.Id);
-                if (existing == null) throw new InvalidOperationException("La membresía no existe");
+            var existing = _repository.GetById(dto.Id);
+            if (existing == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE.Translate());
 
-                var codeCheck = _repository.GetByCodigo(dto.Codigo);
-                if (codeCheck != null && codeCheck.Id != dto.Id)
-                {
-                    throw new InvalidOperationException($"Ya existe membresía con código {dto.Codigo}");
-                }
-
-                var entity = MembresiaMapper.ToEntity(dto);
-                // Ensure we are updating the correct ID
-                entity.Id = dto.Id;
-                _repository.Update(entity);
-            }
-            catch (Exception ex)
-            {
-                _bitacora.Log($"Error en CU-ME-001: {ex.Message}", "ERROR", ex);
-                throw;
-            }
+            var entity = MembresiaMapper.ToEntity(dto);
+            _repository.Update(entity);
+            _bitacora.Log($"CU-ME-001: Membership {entity.Nombre} (Code: {entity.Codigo}) updated", "INFO");
         }
 
         public void DeshabilitarMembresia(Guid id)
         {
-            try
+            var entity = _repository.GetById(id);
+            if (entity == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE.Translate());
+
+            bool hasClients = DalFactory.ClienteRepository.HasActiveClientsByMembresia(id);
+            if (hasClients)
             {
-                var entity = _repository.GetById(id);
-                if (entity == null) throw new InvalidOperationException("La membresía no existe");
-
-                var clienteRepo = DalFactory.ClienteRepository;
-                if (clienteRepo.HasActiveClientsByMembresia(id))
-                {
-                    throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES.Translate());
-                }
-
-                entity.Activa = false;
-                _repository.Update(entity);
-
-                _bitacora.Log($"CU-ME-004: Membresía '{entity.Nombre}' deshabilitada", "INFO");
+                throw new InvalidOperationException("ERR_MEMBRESIA_CON_CLIENTES");
             }
-            catch (Exception ex)
-            {
-                _bitacora.Log($"Error en CU-ME-004: {ex.Message}", "ERROR", ex);
-                throw;
-            }
+
+            entity.Activa = false;
+            _repository.Update(entity);
+            _bitacora.Log($"CU-ME-004: Membership {entity.Nombre} disabled", "INFO");
         }
 
-        public List<MembresiaDTO> ListarMembresias(bool soloActivas)
+        public List<MembresiaDTO> ListarMembresias(bool soloActivas = false)
         {
-            List<Membresia> list;
-            if (soloActivas)
-            {
-                list = _repository.ListarActivas();
-            }
-            else
-            {
-                list = _repository.GetAll();
-            }
-
-            return list.Select(m => MembresiaMapper.ToDTO(m)).ToList();
+            var entities = soloActivas ? _repository.ListarActivas() : _repository.GetAll();
+            return entities.Select(m => MembresiaMapper.ToDTO(m)).ToList();
         }
 
         public MembresiaDTO ObtenerMembresia(Guid id)
         {
             var entity = _repository.GetById(id);
-            return MembresiaMapper.ToDTO(entity);
+            return entity == null ? null : MembresiaMapper.ToDTO(entity);
         }
     }
 }

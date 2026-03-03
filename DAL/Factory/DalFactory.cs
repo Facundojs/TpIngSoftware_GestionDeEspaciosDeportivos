@@ -1,211 +1,57 @@
 using DAL.Contracts;
 using DAL.Impl;
-using DAL.Impl.File;
 using DAL.Impl.SqlServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Factory
 {
     public static class DalFactory
     {
+        public static IUnitOfWork CreateUnitOfWork()
+        {
+            return new UnitOfWork();
+        }
+
+        // Keep existing singleton-style access for non-transactional reads if preferred
         private static IClienteRepository _clienteRepository;
-        private static IBalanceRepository _balanceRepository;
-        private static IMovimientoRepository _movimientoRepository;
+        public static IClienteRepository ClienteRepository => _clienteRepository ?? (_clienteRepository = new ClienteSqlRepository());
+
         private static IMembresiaRepository _membresiaRepository;
-        private static IEspacioRepository _espacioRepository;
-        private static IAgendaRepository _agendaRepository;
-        private static IRutinaRepository _rutinaRepository;
-        private static IEjercicioRepository _ejercicioRepository;
-        private static IRutinaEjercicioRepository _rutinaEjercicioRepository;
-        private static IPagoRepository _pagoRepository;
-        private static IComprobanteRepository _comprobanteRepository;
-        private static IComprobanteRepository _comprobanteFileRepository;
+        public static IMembresiaRepository MembresiaRepository => _membresiaRepository ?? (_membresiaRepository = new MembresiaSqlRepository());
+
         private static IReservaRepository _reservaRepository;
-        private static IIngresoRepository _ingresoRepository;
+        public static IReservaRepository ReservaRepository => _reservaRepository ?? (_reservaRepository = new ReservaSqlRepository());
+
+        private static IEspacioRepository _espacioRepository;
+        public static IEspacioRepository EspacioRepository => _espacioRepository ?? (_espacioRepository = new EspacioSqlRepository());
+
+        private static IAgendaRepository _agendaRepository;
+        public static IAgendaRepository AgendaRepository => _agendaRepository ?? (_agendaRepository = new AgendaSqlRepository());
+
+        private static IPagoRepository _pagoRepository;
+        public static IPagoRepository PagoRepository => _pagoRepository ?? (_pagoRepository = new PagoSqlRepository());
+
+        private static IMovimientoRepository _movimientoRepository;
+        public static IMovimientoRepository MovimientoRepository => _movimientoRepository ?? (_movimientoRepository = new MovimientoSqlRepository());
+
+        private static IBalanceRepository _balanceRepository;
+        public static IBalanceRepository BalanceRepository => _balanceRepository ?? (_balanceRepository = new BalanceSqlRepository());
+
+        private static IRutinaRepository _rutinaRepository;
+        public static IRutinaRepository RutinaRepository => _rutinaRepository ?? (_rutinaRepository = new RutinaSqlRepository());
+
+        private static IEjercicioRepository _ejercicioRepository;
+        public static IEjercicioRepository EjercicioRepository => _ejercicioRepository ?? (_ejercicioRepository = new EjercicioSqlRepository());
+
+        private static IRutinaEjercicioRepository _rutinaEjercicioRepository;
+        public static IRutinaEjercicioRepository RutinaEjercicioRepository => _rutinaEjercicioRepository ?? (_rutinaEjercicioRepository = new RutinaEjercicioSqlRepository());
+
         private static IClienteMembresiaRepository _clienteMembresiaRepository;
+        public static IClienteMembresiaRepository ClienteMembresiaRepository => _clienteMembresiaRepository ?? (_clienteMembresiaRepository = new ClienteMembresiaSqlRepository());
 
-        public static IClienteRepository ClienteRepository
-        {
-            get
-            {
-                if (_clienteRepository == null)
-                {
-                    _clienteRepository = new ClienteSqlRepository();
-                }
-                return _clienteRepository;
-            }
-        }
+        private static IIngresoRepository _ingresoRepository;
+        public static IIngresoRepository IngresoRepository => _ingresoRepository ?? (_ingresoRepository = new IngresoSqlRepository());
 
-        public static IBalanceRepository BalanceRepository
-        {
-            get
-            {
-                if (_balanceRepository == null)
-                {
-                    _balanceRepository = new BalanceSqlRepository();
-                }
-                return _balanceRepository;
-            }
-        }
-
-        public static IMovimientoRepository MovimientoRepository
-        {
-            get
-            {
-                if (_movimientoRepository == null)
-                {
-                    _movimientoRepository = new MovimientoSqlRepository();
-                }
-                return _movimientoRepository;
-            }
-        }
-
-        public static IMembresiaRepository MembresiaRepository
-        {
-            get
-            {
-                if (_membresiaRepository == null)
-                {
-                    _membresiaRepository = new MembresiaSqlRepository();
-                }
-                return _membresiaRepository;
-            }
-        }
-
-        public static IEspacioRepository EspacioRepository
-        {
-            get
-            {
-                if (_espacioRepository == null)
-                {
-                    _espacioRepository = new EspacioSqlRepository();
-                }
-                return _espacioRepository;
-            }
-        }
-
-        public static IAgendaRepository AgendaRepository
-        {
-            get
-            {
-                if (_agendaRepository == null)
-                {
-                    _agendaRepository = new AgendaSqlRepository();
-                }
-                return _agendaRepository;
-            }
-        }
-
-        public static IRutinaRepository RutinaRepository
-        {
-            get
-            {
-                if (_rutinaRepository == null)
-                {
-                    _rutinaRepository = new RutinaSqlRepository();
-                }
-                return _rutinaRepository;
-            }
-        }
-
-        public static IEjercicioRepository EjercicioRepository
-        {
-            get
-            {
-                if (_ejercicioRepository == null)
-                {
-                    _ejercicioRepository = new EjercicioSqlRepository();
-                }
-                return _ejercicioRepository;
-            }
-        }
-
-        public static IRutinaEjercicioRepository RutinaEjercicioRepository
-        {
-            get
-            {
-                if (_rutinaEjercicioRepository == null)
-                {
-                    _rutinaEjercicioRepository = new RutinaEjercicioSqlRepository();
-                }
-                return _rutinaEjercicioRepository;
-            }
-        }
-
-        public static IPagoRepository PagoRepository
-        {
-            get
-            {
-                if (_pagoRepository == null)
-                {
-                    _pagoRepository = new PagoSqlRepository();
-                }
-                return _pagoRepository;
-            }
-        }
-
-        public static IComprobanteRepository ComprobanteRepository
-        {
-            get
-            {
-                if (_comprobanteRepository == null)
-                {
-                    _comprobanteRepository = new ComprobanteSqlRepository();
-                }
-                return _comprobanteRepository;
-            }
-        }
-
-        public static IComprobanteRepository ComprobanteFileRepository
-        {
-            get
-            {
-                if (_comprobanteFileRepository == null)
-                {
-                    _comprobanteFileRepository = new ComprobanteFileRepository();
-                }
-                return _comprobanteFileRepository;
-            }
-        }
-
-        public static IReservaRepository ReservaRepository
-        {
-            get
-            {
-                if (_reservaRepository == null)
-                {
-                    _reservaRepository = new ReservaSqlRepository();
-                }
-                return _reservaRepository;
-            }
-        }
-
-        public static IIngresoRepository IngresoRepository
-        {
-            get
-            {
-                if (_ingresoRepository == null)
-                {
-                    _ingresoRepository = new IngresoSqlRepository();
-                }
-                return _ingresoRepository;
-            }
-        }
-
-        public static IClienteMembresiaRepository ClienteMembresiaRepository
-        {
-            get
-            {
-                if (_clienteMembresiaRepository == null)
-                {
-                    _clienteMembresiaRepository = new DAL.Impl.SqlServer.ClienteMembresiaSqlRepository();
-                }
-                return _clienteMembresiaRepository;
-            }
-        }
+        private static IComprobanteRepository _comprobanteRepository;
+        public static IComprobanteRepository ComprobanteRepository => _comprobanteRepository ?? (_comprobanteRepository = new ComprobanteSqlRepository());
     }
 }

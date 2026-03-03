@@ -11,11 +11,6 @@ namespace DAL.Impl
     {
         public void Add(Rutina obj)
         {
-            Add(obj, null, null);
-        }
-
-        public void Add(Rutina obj, SqlConnection conn, SqlTransaction tran)
-        {
             string query = "INSERT INTO Rutina (Id, ClienteID, Desde, Hasta, Detalle) VALUES (@Id, @ClienteID, @Desde, @Hasta, @Detalle)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
@@ -24,7 +19,7 @@ namespace DAL.Impl
                 new SqlParameter("@Hasta", (object)obj.Hasta ?? DBNull.Value),
                 new SqlParameter("@Detalle", (object)obj.Detalle ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public void Update(Rutina obj)
@@ -92,14 +87,14 @@ namespace DAL.Impl
             });
         }
 
-        public void FinalizarRutina(Guid rutinaId, SqlConnection conn, SqlTransaction tran)
+        public void FinalizarRutina(Guid rutinaId)
         {
             string query = "UPDATE Rutina SET Hasta = @Hasta WHERE Id = @Id";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", rutinaId),
                 new SqlParameter("@Hasta", DateTime.Now)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         private Rutina Map(SqlDataReader reader)

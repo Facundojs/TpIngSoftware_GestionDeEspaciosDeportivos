@@ -10,18 +10,6 @@ namespace DAL.Impl
     {
         public void Agregar(Comprobante obj)
         {
-            Agregar(obj, null, null);
-        }
-
-        public Comprobante GetByPago(Guid pagoId)
-        {
-            return GetByPago(pagoId, null, null);
-        }
-
-        #region UoW Overloads
-
-        public void Agregar(Comprobante obj, SqlConnection conn = null, SqlTransaction tran = null)
-        {
             string query = "INSERT INTO Comprobante (Id, PagoID, NombreArchivo, RutaArchivo, FechaSubida) VALUES (@Id, @PagoID, @NombreArchivo, @RutaArchivo, @FechaSubida)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
@@ -30,10 +18,10 @@ namespace DAL.Impl
                 new SqlParameter("@RutaArchivo", obj.RutaArchivo),
                 new SqlParameter("@FechaSubida", obj.FechaSubida)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public Comprobante GetByPago(Guid pagoId, SqlConnection conn = null, SqlTransaction tran = null)
+        public Comprobante GetByPago(Guid pagoId)
         {
             string query = "SELECT Id, PagoID, NombreArchivo, RutaArchivo, FechaSubida FROM Comprobante WHERE PagoID = @PagoID";
             SqlParameter[] parameters = { new SqlParameter("@PagoID", pagoId) };
@@ -52,9 +40,7 @@ namespace DAL.Impl
                     };
                 }
                 return null;
-            }, conn, tran);
+            });
         }
-
-        #endregion
     }
 }

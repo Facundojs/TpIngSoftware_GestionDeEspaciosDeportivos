@@ -12,52 +12,7 @@ namespace DAL.Impl
         {
         }
 
-        #region IGenericRepository Implementation
-
         public void Add(Membresia obj)
-        {
-            Add(obj, null, null);
-        }
-
-        public void Update(Membresia obj)
-        {
-            Update(obj, null, null);
-        }
-
-        public void Remove(Guid id)
-        {
-            Remove(id, null, null);
-        }
-
-        public Membresia GetById(Guid id)
-        {
-            return GetById(id, null, null);
-        }
-
-        public List<Membresia> GetAll()
-        {
-            return GetAll(null, null);
-        }
-
-        #endregion
-
-        #region Custom Methods Implementation
-
-        public Membresia GetByCodigo(int codigo)
-        {
-            return GetByCodigo(codigo, null, null);
-        }
-
-        public List<Membresia> ListarActivas()
-        {
-            return ListarActivas(null, null);
-        }
-
-        #endregion
-
-        #region UoW Overloads
-
-        public void Add(Membresia obj, SqlConnection conn = null, SqlTransaction tran = null)
         {
             string query = "INSERT INTO Membresia (Id, Codigo, Nombre, Precio, Regularidad, Activa, Detalle) VALUES (@Id, @Codigo, @Nombre, @Precio, @Regularidad, @Activa, @Detalle)";
             SqlParameter[] parameters = {
@@ -69,10 +24,10 @@ namespace DAL.Impl
                 new SqlParameter("@Activa", obj.Activa),
                 new SqlParameter("@Detalle", (object)obj.Detalle ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void Update(Membresia obj, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Update(Membresia obj)
         {
             string query = "UPDATE Membresia SET Codigo = @Codigo, Nombre = @Nombre, Precio = @Precio, Regularidad = @Regularidad, Activa = @Activa, Detalle = @Detalle WHERE Id = @Id";
              SqlParameter[] parameters = {
@@ -84,17 +39,17 @@ namespace DAL.Impl
                 new SqlParameter("@Activa", obj.Activa),
                 new SqlParameter("@Detalle", (object)obj.Detalle ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void Remove(Guid id, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Remove(Guid id)
         {
             string query = "DELETE FROM Membresia WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public Membresia GetById(Guid id, SqlConnection conn = null, SqlTransaction tran = null)
+        public Membresia GetById(Guid id)
         {
             string query = "SELECT Id, Codigo, Nombre, Precio, Regularidad, Activa, Detalle FROM Membresia WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
@@ -106,10 +61,10 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
-        public List<Membresia> GetAll(SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Membresia> GetAll()
         {
             string query = "SELECT Id, Codigo, Nombre, Precio, Regularidad, Activa, Detalle FROM Membresia ORDER BY Nombre";
              return ExecuteReader(query, null, reader =>
@@ -120,10 +75,10 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
 
-        public Membresia GetByCodigo(int codigo, SqlConnection conn = null, SqlTransaction tran = null)
+        public Membresia GetByCodigo(int codigo)
         {
             string query = "SELECT Id, Codigo, Nombre, Precio, Regularidad, Activa, Detalle FROM Membresia WHERE Codigo = @Codigo";
             SqlParameter[] parameters = { new SqlParameter("@Codigo", codigo) };
@@ -135,10 +90,10 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
-        public List<Membresia> ListarActivas(SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Membresia> ListarActivas()
         {
             string query = "SELECT Id, Codigo, Nombre, Precio, Regularidad, Activa, Detalle FROM Membresia WHERE Activa = 1 ORDER BY Nombre";
              return ExecuteReader(query, null, reader =>
@@ -149,10 +104,8 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
-
-        #endregion
 
         private Membresia MapFromReader(SqlDataReader reader)
         {

@@ -31,136 +31,117 @@ namespace BLL.Services
 
         public void CrearRutina(RutinaDTO dto)
         {
-            try
+            if (dto.Ejercicios == null || dto.Ejercicios.Count == 0)
+                throw new Exception(Domain.Enums.Translations.ERR_RUTINA_SIN_EJERCICIOS.Translate());
+
+            foreach (var ex in dto.Ejercicios)
             {
-                if (dto.Ejercicios == null || dto.Ejercicios.Count == 0)
-                    throw new Exception(Domain.Enums.Translations.ERR_RUTINA_SIN_EJERCICIOS.Translate());
-
-                foreach (var ex in dto.Ejercicios)
-                {
-                    if (ex.Repeticiones <= 0) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N.Translate(), ex.Nombre));
-                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N.Translate(), ex.Nombre));
-                }
-
-                var rutinaActiva = _rutinaRepository.GetActivaByCliente(dto.ClienteID);
-
-                using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
-                {
-                    conn.Open();
-                    using (var tran = conn.BeginTransaction())
-                    {
-                        try
-                        {
-                            if (rutinaActiva != null)
-                            {
-                                _rutinaRepository.FinalizarRutina(rutinaActiva.Id, conn, tran);
-                            }
-
-                            var nuevaRutina = RutinaMapper.ToEntity(dto);
-                            if (nuevaRutina.Id == Guid.Empty) nuevaRutina.Id = Guid.NewGuid();
-                            nuevaRutina.Desde = DateTime.Now;
-                            nuevaRutina.Hasta = null;
-
-                            _rutinaRepository.Add(nuevaRutina, conn, tran);
-
-                            foreach (var exDto in dto.Ejercicios)
-                            {
-                                Ejercicio ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
-
-                                if (ejercicio == null)
-                                {
-                                    ejercicio = new Ejercicio { Id = Guid.NewGuid(), Nombre = exDto.Nombre };
-                                    _ejercicioRepository.Add(ejercicio, conn, tran);
-                                }
-
-                                var rutinaEjercicio = new RutinaEjercicio
-                                {
-                                    RutinaId = nuevaRutina.Id,
-                                    EjercicioId = ejercicio.Id,
-                                    Repeticiones = exDto.Repeticiones,
-                                    DiaSemana = exDto.DiaSemana,
-                                    Orden = exDto.Orden
-                                };
-
-                                _rutinaEjercicioRepository.Insertar(rutinaEjercicio, conn, tran);
-                            }
-
-                            tran.Commit();
-                            _bitacoraService.Log($"Routine created for client {dto.ClienteID}", "INFO");
-                        }
-                        catch (Exception)
-                        {
-                            tran.Rollback();
-                            throw;
-                        }
-                    }
-                }
+                if (ex.Repeticiones <= 0) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N.Translate(), ex.Nombre));
+                if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N.Translate(), ex.Nombre));
             }
-            catch (Exception ex)
+
+            using (var uow = DalFactory.CreateUnitOfWork())
             {
-                _bitacoraService.Log($"Error creating routine: {ex.Message}", "ERROR", ex);
-                throw;
+                try
+                {
+                    uow.BeginTransaction();
+
+                    var rutinaActiva = uow.RutinaRepository.GetActivaByCliente(dto.ClienteID);
+                    if (rutinaActiva != null)
+                    {
+                        uow.RutinaRepository.FinalizarRutina(rutinaActiva.Id);
+                    }
+
+                    var nuevaRutina = RutinaMapper.ToEntity(dto);
+                    if (nuevaRutina.Id == Guid.Empty) nuevaRutina.Id = Guid.NewGuid();
+                    nuevaRutina.Desde = DateTime.Now;
+                    nuevaRutina.Hasta = null;
+
+                    uow.RutinaRepository.Add(nuevaRutina);
+
+                    foreach (var exDto in dto.Ejercicios)
+                    {
+                        Ejercicio ejercicio = uow.EjercicioRepository.GetByNombre(exDto.Nombre);
+
+                        if (ejercicio == null)
+                        {
+                            ejercicio = new Ejercicio { Id = Guid.NewGuid(), Nombre = exDto.Nombre };
+                            uow.EjercicioRepository.Add(ejercicio);
+                        }
+
+                        var rutinaEjercicio = new RutinaEjercicio
+                        {
+                            RutinaId = nuevaRutina.Id,
+                            EjercicioId = ejercicio.Id,
+                            Repeticiones = exDto.Repeticiones,
+                            DiaSemana = exDto.DiaSemana,
+                            Orden = exDto.Orden
+                        };
+
+                        uow.RutinaEjercicioRepository.Insertar(rutinaEjercicio);
+                    }
+
+                    uow.Commit();
+                    _bitacoraService.Log($"Routine created for client {dto.ClienteID}", "INFO");
+                }
+                catch (Exception ex)
+                {
+                    uow.Rollback();
+                    _bitacoraService.Log($"Error creating routine: {ex.Message}", "ERROR", ex);
+                    throw;
+                }
             }
         }
 
         public void ModificarRutina(Guid rutinaId, List<EjercicioDTO> ejercicios)
         {
-            try
+            if (ejercicios == null || ejercicios.Count == 0)
+                throw new Exception("Exercise list cannot be empty.");
+
+            foreach (var ex in ejercicios)
             {
-                if (ejercicios == null || ejercicios.Count == 0)
-                    throw new Exception("Exercise list cannot be empty.");
-
-                foreach (var ex in ejercicios)
-                {
-                    if (ex.Repeticiones <= 0) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N.Translate(), ex.Nombre));
-                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N.Translate(), ex.Nombre));
-                }
-
-                using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
-                {
-                    conn.Open();
-                    using (var tran = conn.BeginTransaction())
-                    {
-                        try
-                        {
-                            _rutinaEjercicioRepository.EliminarPorRutina(rutinaId, conn, tran);
-
-                            foreach (var exDto in ejercicios)
-                            {
-                                Ejercicio ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
-                                if (ejercicio == null)
-                                {
-                                    ejercicio = new Ejercicio { Id = Guid.NewGuid(), Nombre = exDto.Nombre };
-                                    _ejercicioRepository.Add(ejercicio, conn, tran);
-                                }
-
-                                var rutinaEjercicio = new RutinaEjercicio
-                                {
-                                    RutinaId = rutinaId,
-                                    EjercicioId = ejercicio.Id,
-                                    Repeticiones = exDto.Repeticiones,
-                                    DiaSemana = exDto.DiaSemana,
-                                    Orden = exDto.Orden
-                                };
-
-                                _rutinaEjercicioRepository.Insertar(rutinaEjercicio, conn, tran);
-                            }
-
-                            tran.Commit();
-                            _bitacoraService.Log($"Routine {rutinaId} modified", "INFO");
-                        }
-                        catch (Exception)
-                        {
-                            tran.Rollback();
-                            throw;
-                        }
-                    }
-                }
+                if (ex.Repeticiones <= 0) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N.Translate(), ex.Nombre));
+                if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format(Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N.Translate(), ex.Nombre));
             }
-            catch (Exception ex)
+
+            using (var uow = DalFactory.CreateUnitOfWork())
             {
-                _bitacoraService.Log($"Error modifying routine: {ex.Message}", "ERROR", ex);
-                throw;
+                try
+                {
+                    uow.BeginTransaction();
+
+                    uow.RutinaEjercicioRepository.EliminarPorRutina(rutinaId);
+
+                    foreach (var exDto in ejercicios)
+                    {
+                        Ejercicio ejercicio = uow.EjercicioRepository.GetByNombre(exDto.Nombre);
+                        if (ejercicio == null)
+                        {
+                            ejercicio = new Ejercicio { Id = Guid.NewGuid(), Nombre = exDto.Nombre };
+                            uow.EjercicioRepository.Add(ejercicio);
+                        }
+
+                        var rutinaEjercicio = new RutinaEjercicio
+                        {
+                            RutinaId = rutinaId,
+                            EjercicioId = ejercicio.Id,
+                            Repeticiones = exDto.Repeticiones,
+                            DiaSemana = exDto.DiaSemana,
+                            Orden = exDto.Orden
+                        };
+
+                        uow.RutinaEjercicioRepository.Insertar(rutinaEjercicio);
+                    }
+
+                    uow.Commit();
+                    _bitacoraService.Log($"Routine {rutinaId} modified", "INFO");
+                }
+                catch (Exception ex)
+                {
+                    uow.Rollback();
+                    _bitacoraService.Log($"Error modifying routine: {ex.Message}", "ERROR", ex);
+                    throw;
+                }
             }
         }
 
