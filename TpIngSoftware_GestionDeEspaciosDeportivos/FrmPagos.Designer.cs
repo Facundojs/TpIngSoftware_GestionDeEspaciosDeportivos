@@ -40,8 +40,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.txtDNICliente = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblNombreCliente = new System.Windows.Forms.Label();
-            this.lblCodigoReserva = new System.Windows.Forms.Label();
             this.txtCodigoReserva = new System.Windows.Forms.TextBox();
+            this.lblCodigoReserva = new System.Windows.Forms.Label();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtDNIFiltro = new System.Windows.Forms.TextBox();
@@ -57,13 +57,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.grpRegistro.SuspendLayout();
             this.grpFiltros.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // dgvPagos
-            //
+            // 
             this.dgvPagos.AllowUserToAddRows = false;
             this.dgvPagos.AllowUserToDeleteRows = false;
-            this.dgvPagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvPagos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPagos.Location = new System.Drawing.Point(12, 190);
@@ -74,9 +74,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvPagos.Size = new System.Drawing.Size(960, 310);
             this.dgvPagos.TabIndex = 0;
             this.dgvPagos.SelectionChanged += new System.EventHandler(this.dgvPagos_SelectionChanged);
-            //
+            // 
             // grpRegistro
-            //
+            // 
             this.grpRegistro.Controls.Add(this.btnRegistrar);
             this.grpRegistro.Controls.Add(this.txtDetalle);
             this.grpRegistro.Controls.Add(this.lblDetalle);
@@ -95,9 +95,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.grpRegistro.TabIndex = 1;
             this.grpRegistro.TabStop = false;
             this.grpRegistro.Text = "Registrar Nuevo Pago";
-            //
+            // 
             // btnRegistrar
-            //
+            // 
             this.btnRegistrar.Location = new System.Drawing.Point(850, 30);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(100, 30);
@@ -105,25 +105,25 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            //
+            // 
             // txtDetalle
-            //
+            // 
             this.txtDetalle.Location = new System.Drawing.Point(620, 35);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(200, 20);
             this.txtDetalle.TabIndex = 7;
-            //
+            // 
             // lblDetalle
-            //
+            // 
             this.lblDetalle.AutoSize = true;
             this.lblDetalle.Location = new System.Drawing.Point(570, 38);
             this.lblDetalle.Name = "lblDetalle";
             this.lblDetalle.Size = new System.Drawing.Size(43, 13);
             this.lblDetalle.TabIndex = 6;
             this.lblDetalle.Text = "Detalle:";
-            //
+            // 
             // cmbMetodo
-            //
+            // 
             this.cmbMetodo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMetodo.FormattingEnabled = true;
             this.cmbMetodo.Items.AddRange(new object[] {
@@ -134,76 +134,76 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.cmbMetodo.Name = "cmbMetodo";
             this.cmbMetodo.Size = new System.Drawing.Size(150, 21);
             this.cmbMetodo.TabIndex = 5;
-            //
+            // 
             // lblMetodo
-            //
+            // 
             this.lblMetodo.AutoSize = true;
             this.lblMetodo.Location = new System.Drawing.Point(350, 38);
             this.lblMetodo.Name = "lblMetodo";
             this.lblMetodo.Size = new System.Drawing.Size(46, 13);
             this.lblMetodo.TabIndex = 4;
             this.lblMetodo.Text = "Método:";
-            //
+            // 
             // txtMonto
-            //
+            // 
             this.txtMonto.Location = new System.Drawing.Point(230, 35);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 20);
             this.txtMonto.TabIndex = 3;
-            //
+            // 
             // lblMonto
-            //
+            // 
             this.lblMonto.AutoSize = true;
             this.lblMonto.Location = new System.Drawing.Point(180, 38);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(40, 13);
             this.lblMonto.TabIndex = 2;
             this.lblMonto.Text = "Monto:";
-            //
+            // 
             // txtDNICliente
-            //
-            this.txtDNICliente.Location = new System.Drawing.Point(60, 35);
+            // 
+            this.txtDNICliente.Location = new System.Drawing.Point(13, 35);
             this.txtDNICliente.Name = "txtDNICliente";
             this.txtDNICliente.Size = new System.Drawing.Size(100, 20);
             this.txtDNICliente.TabIndex = 1;
             this.txtDNICliente.Leave += new System.EventHandler(this.txtDNICliente_Leave);
-            //
+            // 
             // lblDNI
-            //
+            // 
             this.lblDNI.AutoSize = true;
-            this.lblDNI.Location = new System.Drawing.Point(20, 38);
+            this.lblDNI.Location = new System.Drawing.Point(10, 16);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(29, 13);
             this.lblDNI.TabIndex = 0;
             this.lblDNI.Text = "DNI:";
-            //
+            // 
             // lblNombreCliente
-            //
+            // 
             this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.ForeColor = System.Drawing.Color.Blue;
             this.lblNombreCliente.Location = new System.Drawing.Point(60, 60);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(0, 13);
             this.lblNombreCliente.TabIndex = 9;
-            this.lblNombreCliente.ForeColor = System.Drawing.Color.Blue;
-            //
-            // lblCodigoReserva
-            //
-            this.lblCodigoReserva.AutoSize = true;
-            this.lblCodigoReserva.Location = new System.Drawing.Point(540, 60);
-            this.lblCodigoReserva.Name = "lblCodigoReserva";
-            this.lblCodigoReserva.Size = new System.Drawing.Size(90, 13);
-            this.lblCodigoReserva.TabIndex = 10;
-            this.lblCodigoReserva.Text = "Cód. Reserva:";
-            //
+            // 
             // txtCodigoReserva
-            //
+            // 
             this.txtCodigoReserva.Location = new System.Drawing.Point(630, 57);
             this.txtCodigoReserva.Name = "txtCodigoReserva";
             this.txtCodigoReserva.Size = new System.Drawing.Size(120, 20);
             this.txtCodigoReserva.TabIndex = 11;
-            //
+            // 
+            // lblCodigoReserva
+            // 
+            this.lblCodigoReserva.AutoSize = true;
+            this.lblCodigoReserva.Location = new System.Drawing.Point(540, 60);
+            this.lblCodigoReserva.Name = "lblCodigoReserva";
+            this.lblCodigoReserva.Size = new System.Drawing.Size(75, 13);
+            this.lblCodigoReserva.TabIndex = 10;
+            this.lblCodigoReserva.Text = "Cód. Reserva:";
+            // 
             // grpFiltros
-            //
+            // 
             this.grpFiltros.Controls.Add(this.btnFiltrar);
             this.grpFiltros.Controls.Add(this.txtDNIFiltro);
             this.grpFiltros.Controls.Add(this.lblDNIFiltro);
@@ -217,9 +217,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.grpFiltros.TabIndex = 2;
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros";
-            //
+            // 
             // btnFiltrar
-            //
+            // 
             this.btnFiltrar.Location = new System.Drawing.Point(850, 25);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(100, 30);
@@ -227,59 +227,59 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            //
+            // 
             // txtDNIFiltro
-            //
+            // 
             this.txtDNIFiltro.Location = new System.Drawing.Point(500, 30);
             this.txtDNIFiltro.Name = "txtDNIFiltro";
             this.txtDNIFiltro.Size = new System.Drawing.Size(100, 20);
             this.txtDNIFiltro.TabIndex = 5;
-            //
+            // 
             // lblDNIFiltro
-            //
+            // 
             this.lblDNIFiltro.AutoSize = true;
             this.lblDNIFiltro.Location = new System.Drawing.Point(460, 33);
             this.lblDNIFiltro.Name = "lblDNIFiltro";
             this.lblDNIFiltro.Size = new System.Drawing.Size(29, 13);
             this.lblDNIFiltro.TabIndex = 4;
             this.lblDNIFiltro.Text = "DNI:";
-            //
+            // 
             // dtpHasta
-            //
+            // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpHasta.Location = new System.Drawing.Point(280, 30);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(100, 20);
             this.dtpHasta.TabIndex = 3;
-            //
+            // 
             // lblHasta
-            //
+            // 
             this.lblHasta.AutoSize = true;
             this.lblHasta.Location = new System.Drawing.Point(230, 33);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(38, 13);
             this.lblHasta.TabIndex = 2;
             this.lblHasta.Text = "Hasta:";
-            //
+            // 
             // dtpDesde
-            //
+            // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDesde.Location = new System.Drawing.Point(60, 30);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(100, 20);
             this.dtpDesde.TabIndex = 1;
-            //
+            // 
             // lblDesde
-            //
+            // 
             this.lblDesde.AutoSize = true;
             this.lblDesde.Location = new System.Drawing.Point(10, 33);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(41, 13);
             this.lblDesde.TabIndex = 0;
             this.lblDesde.Text = "Desde:";
-            //
+            // 
             // btnReembolsar
-            //
+            // 
             this.btnReembolsar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReembolsar.Location = new System.Drawing.Point(822, 510);
             this.btnReembolsar.Name = "btnReembolsar";
@@ -288,9 +288,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnReembolsar.Text = "Reembolsar";
             this.btnReembolsar.UseVisualStyleBackColor = true;
             this.btnReembolsar.Click += new System.EventHandler(this.btnReembolsar_Click);
-            //
+            // 
             // btnAdjuntarComprobante
-            //
+            // 
             this.btnAdjuntarComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdjuntarComprobante.Location = new System.Drawing.Point(660, 510);
             this.btnAdjuntarComprobante.Name = "btnAdjuntarComprobante";
@@ -299,9 +299,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnAdjuntarComprobante.Text = "Adjuntar Comprobante";
             this.btnAdjuntarComprobante.UseVisualStyleBackColor = true;
             this.btnAdjuntarComprobante.Click += new System.EventHandler(this.btnAdjuntarComprobante_Click);
-            //
+            // 
             // btnVerComprobante
-            //
+            // 
             this.btnVerComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVerComprobante.Location = new System.Drawing.Point(498, 510);
             this.btnVerComprobante.Name = "btnVerComprobante";
@@ -310,9 +310,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnVerComprobante.Text = "Ver Comprobante";
             this.btnVerComprobante.UseVisualStyleBackColor = true;
             this.btnVerComprobante.Click += new System.EventHandler(this.btnVerComprobante_Click);
-            //
+            // 
             // FrmPagos
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);

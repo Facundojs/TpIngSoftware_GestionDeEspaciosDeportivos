@@ -38,7 +38,7 @@ namespace BLL.Services
                 // Known limitation: Agenda ranges crossing midnight (e.g., 22:00-02:00) are explicitly prevented by the UI validation here. They must be split into two ranges: 22:00-23:59 and 00:00-02:00.
                 if (agendasDto[i].HoraDesde >= agendasDto[i].HoraHasta)
                 {
-                    throw new ArgumentException("La hora 'Desde' debe ser anterior a la hora 'Hasta'.");
+                    throw new ArgumentException(Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR.Translate());
                 }
                 for (int j = i + 1; j < agendasDto.Count; j++)
                 {
@@ -46,7 +46,7 @@ namespace BLL.Services
                         agendasDto[i].HoraDesde < agendasDto[j].HoraHasta &&
                         agendasDto[j].HoraDesde < agendasDto[i].HoraHasta)
                     {
-                        throw new ArgumentException("ERR_AGENDA_OVERLAP");
+                        throw new ArgumentException(Domain.Enums.Translations.ERR_AGENDA_OVERLAP.Translate());
                     }
                 }
             }

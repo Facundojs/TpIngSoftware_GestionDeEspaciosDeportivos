@@ -21,8 +21,8 @@ namespace DAL.Impl.File
         public void Agregar(Comprobante obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (obj.PagoID == Guid.Empty) throw new ArgumentException("PagoID is required.");
-            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException("File content is required.");
+            if (obj.PagoID == Guid.Empty) throw new ArgumentException(Domain.Enums.Translations.ERR_PAGOID_REQUERIDO.Translate());
+            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException(Domain.Enums.Translations.ERR_COMPROBANTE_VACIO.Translate());
 
             try
             {

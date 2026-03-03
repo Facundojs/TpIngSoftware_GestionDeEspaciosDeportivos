@@ -37,8 +37,8 @@ namespace BLL.Services
 
         public void RegistrarPago(PagoDTO dto)
         {
-            if (dto.Monto <= 0) throw new ArgumentException("Amount must be greater than zero.");
-            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException("Payment method is required.");
+            if (dto.Monto <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_MONTO_INVALIDO.Translate());
+            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException(Domain.Enums.Translations.ERR_METODO_REQUERIDO.Translate());
 
             try
             {

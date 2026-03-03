@@ -26,8 +26,8 @@ namespace BLL.Services
             try
             {
                 if (dto == null) throw new ArgumentNullException(nameof(dto));
-                if (dto.PrecioHora < 0) throw new ArgumentException("El precio por hora no puede ser negativo.");
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("El nombre es requerido.");
+                if (dto.PrecioHora < 0) throw new ArgumentException(Domain.Enums.Translations.ERR_PRECIO_NEGATIVO.Translate());
+                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
 
                 var entity = EspacioMapper.Map(dto);
                 if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
@@ -47,8 +47,8 @@ namespace BLL.Services
             try
             {
                 if (dto == null) throw new ArgumentNullException(nameof(dto));
-                if (dto.PrecioHora < 0) throw new ArgumentException("El precio por hora no puede ser negativo.");
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("El nombre es requerido.");
+                if (dto.PrecioHora < 0) throw new ArgumentException(Domain.Enums.Translations.ERR_PRECIO_NEGATIVO.Translate());
+                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
 
                 var entity = EspacioMapper.Map(dto);
                 _espacioRepository.Update(entity);

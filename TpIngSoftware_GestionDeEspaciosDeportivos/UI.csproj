@@ -181,6 +181,9 @@
     <EmbeddedResource Include="FrmIngresos.resx">
       <DependentUpon>FrmIngresos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSeleccionarCliente.resx">
+      <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

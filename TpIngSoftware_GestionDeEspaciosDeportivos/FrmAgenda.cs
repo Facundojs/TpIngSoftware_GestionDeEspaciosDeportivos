@@ -72,7 +72,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading agenda: " + ex.Message);
+                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -112,7 +112,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (desde >= hasta)
             {
-                MessageBox.Show("La hora 'Desde' debe ser menor a la hora 'Hasta'");
+                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR.Translate());
                 return;
             }
 
@@ -151,7 +151,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
     }
