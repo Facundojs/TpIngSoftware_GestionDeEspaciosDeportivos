@@ -20,17 +20,14 @@ namespace BLL
 
         public void CalcularSaldoMensual()
         {
-            _bitacoraService.Log("Inicio de Job CalcularSaldoMensual", "INFO");
+            _bitacoraService.Log("Starting CalcularSaldoMensual Job", "INFO");
             int processedCount = 0;
             int skippedCount = 0;
             int errorCount = 0;
 
             try
             {
-                // Retrieve all clients
                 var clientes = DalFactory.ClienteRepository.GetAll();
-
-                // Ensure repositories are initialized before parallel execution to avoid race conditions in Factory
                 var membresiaRepo = DalFactory.MembresiaRepository;
                 var movimientoRepo = DalFactory.MovimientoRepository;
                 var clienteMembresiaRepo = DalFactory.ClienteMembresiaRepository;
@@ -56,7 +53,7 @@ namespace BLL
 
                         if (membresia == null)
                         {
-                            _bitacoraService.Log($"Membresia {cliente.MembresiaID} no encontrada para cliente {cliente.Id}", "WARNING");
+                            _bitacoraService.Log($"Membership {cliente.MembresiaID} not found for client {cliente.Id}", "WARNING");
                             Interlocked.Increment(ref errorCount);
                             return;
                         }
@@ -69,7 +66,7 @@ namespace BLL
 
                         if (membresia.Precio == 0)
                         {
-                            _bitacoraService.Log($"Membresia {membresia.Id} tiene precio 0, omitiendo cargo.", "WARNING");
+                            _bitacoraService.Log($"Membership {membresia.Id} has price 0, skipping charge.", "WARNING");
                             Interlocked.Increment(ref skippedCount);
                             return;
                         }
@@ -78,9 +75,9 @@ namespace BLL
                         {
                             Id = Guid.NewGuid(),
                             ClienteID = cliente.Id,
-                            Monto = -membresia.Precio, // Negative for debt
+                            Monto = -membresia.Precio,
                             Tipo = TipoMovimiento.DeudaMembresia,
-                            Descripcion = $"Cargo mensual membresía {membresia.Nombre}",
+                            Descripcion = $"Monthly charge for membership {membresia.Nombre}",
                             Fecha = DateTime.Now
                         };
 
@@ -94,26 +91,24 @@ namespace BLL
                     }
                     catch (Exception ex)
                     {
-                        _bitacoraService.Log($"Error procesando cliente {cliente.Id}: {ex.Message}", "ERROR", ex);
+                        _bitacoraService.Log($"Error processing client {cliente.Id}: {ex.Message}", "ERROR", ex);
                         Interlocked.Increment(ref errorCount);
                     }
                 });
 
-                _bitacoraService.Log($"Job CalcularSaldoMensual finalizado. Procesados: {processedCount}, Omitidos: {skippedCount}, Errores: {errorCount}", "INFO");
+                _bitacoraService.Log($"CalcularSaldoMensual Job finished. Processed: {processedCount}, Skipped: {skippedCount}, Errors: {errorCount}", "INFO");
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error general en CalcularSaldoMensual: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"General error in CalcularSaldoMensual: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
 
         private void ActualizarBalance(Guid clienteId)
         {
-            // En esta arquitectura, el balance es una vista calculada (vw_Balance).
-            // No se requiere actualización explícita de una tabla de saldos.
-            // Este método sirve como punto de extensión o notificación.
-            _bitacoraService.Log($"Balance actualizado para el cliente {clienteId}", "INFO");
+            // Balance is a calculated view (vw_Balance) in SQL.
+            _bitacoraService.Log($"Balance updated for client {clienteId}", "INFO");
         }
 
         public Balance ConsultarBalance(Guid clienteId)
@@ -127,7 +122,7 @@ namespace BLL
 
             if (balance != null && balance.Saldo < 0)
             {
-                string msg = $"El cliente tiene una deuda de ${Math.Abs(balance.Saldo):N2}. Debe saldar antes de continuar.";
+                string msg = $"Client has a debt of ${Math.Abs(balance.Saldo):N2}. Must settle before continuing.";
                 if (!string.IsNullOrEmpty(contexto))
                 {
                     msg = $"{contexto}: {msg}";

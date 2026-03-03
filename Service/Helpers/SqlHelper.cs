@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -9,23 +9,15 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers
 {
-    /// <summary>
-    /// Clase estática que proporciona métodos de ayuda para la ejecución de comandos SQL en una base de datos SQL Server.
-    /// </summary>
     internal static class SqlHelper
     {
-        // Cadena de conexión a la base de datos.
         public readonly static string conString;
 
-        // Constructor estático que inicializa la cadena de conexión.
         static SqlHelper()
         {
             conString = ConnectionManager.GetConnectionString();
         }
 
-        /// <summary>
-        /// Ejecuta un comando SQL que no devuelve filas (INSERT, UPDATE, DELETE).
-        /// </summary>
         public static Int32 ExecuteNonQuery(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
         {
@@ -44,9 +36,6 @@ namespace Service.Helpers
             }
         }
 
-        /// <summary>
-        /// Verifica si los parámetros son nulos y los establece en DBNull.Value si es necesario.
-        /// </summary>
         private static void CheckNullables(SqlParameter[] parameters)
         {
             foreach (SqlParameter item in parameters)
@@ -58,9 +47,6 @@ namespace Service.Helpers
             }
         }
 
-        /// <summary>
-        /// Ejecuta un comando SQL y devuelve un solo valor (por ejemplo, un conteo o un ID).
-        /// </summary>
         public static Object ExecuteScalar(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
         {
@@ -77,9 +63,6 @@ namespace Service.Helpers
             }
         }
 
-        /// <summary>
-        /// Ejecuta un comando SQL y devuelve un SqlDataReader para leer los resultados.
-        /// </summary>
         public static SqlDataReader ExecuteReader(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
         {
@@ -91,16 +74,10 @@ namespace Service.Helpers
                 cmd.Parameters.AddRange(parameters);
 
                 conn.Open();
-                // Cuando se usa CommandBehavior.CloseConnection, la conexión se cerrará cuando el IDataReader se cierre.
-                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-                return reader;
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
             }
         }
 
-        /// <summary>
-        /// Ejecuta un comando SQL y devuelve un DataTable con los resultados.
-        /// </summary>
         public static DataTable ExecuteDataTable(string commandText, CommandType commandType, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(conString))
@@ -117,7 +94,7 @@ namespace Service.Helpers
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
-                        adapter.Fill(dt);  // Llenar el DataTable con los resultados de la consulta
+                        adapter.Fill(dt);
                         return dt;
                     }
                 }

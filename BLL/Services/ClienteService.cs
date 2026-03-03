@@ -29,14 +29,12 @@ namespace BLL.Services
         {
             try
             {
-                // Validaciones Técnicas
                 if (dto.DNI <= 0) throw new ArgumentException("DNI debe ser mayor a cero");
                 if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("Nombre es requerido");
                 if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException("Apellido es requerido");
                 if (dto.FechaNacimiento > DateTime.Now) throw new ArgumentException("Fecha de nacimiento no puede ser futura");
                 if (!string.IsNullOrWhiteSpace(dto.Email) && !dto.Email.Contains("@")) throw new ArgumentException("Email tiene un formato inválido");
 
-                // Validaciones de Negocio
                 if (_repository.ExistsByDNI(dto.DNI))
                 {
                     throw new InvalidOperationException($"Ya existe un cliente con DNI {dto.DNI}");
@@ -100,19 +98,16 @@ namespace BLL.Services
                 var cliente = _repository.GetById(clienteId);
                 if (cliente == null) throw new InvalidOperationException("Cliente no encontrado");
 
-                // Validar Deuda
                 var balance = _balanceService.ConsultarBalance(clienteId);
                 if (balance != null && balance.Saldo < 0)
                 {
                      throw new InvalidOperationException($"Cliente tiene deuda de ${Math.Abs(balance.Saldo):N2}");
                 }
 
-                // Validar Membresia
                 var membresia = _membresiaService.ObtenerMembresia(nuevaMembresiaId);
                 if (membresia == null) throw new InvalidOperationException("La membresía no existe");
                 if (!membresia.Activa) throw new InvalidOperationException("La membresía no está activa");
 
-                // Update ClienteMembresia history
                 var activeMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(clienteId);
                 if (activeMembresia != null)
                 {
@@ -258,7 +253,7 @@ namespace BLL.Services
             var clientes = _repository.GetAll();
             var list = new List<ClienteDTO>();
 
-            // Note: N+1 issue here is known but accepted for this architecture/scale.
+            // Note: N+1 issue is accepted for this architecture
             foreach (var c in clientes)
             {
                  var balance = _balanceService.ConsultarBalance(c.Id);

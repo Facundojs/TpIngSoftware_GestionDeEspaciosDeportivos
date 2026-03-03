@@ -37,13 +37,13 @@ namespace BLL.Services
 
         public void RegistrarPago(PagoDTO dto)
         {
-            if (dto.Monto <= 0) throw new ArgumentException("El monto debe ser mayor a cero");
-            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException("El método de pago es requerido");
+            if (dto.Monto <= 0) throw new ArgumentException("Amount must be greater than zero.");
+            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException("Payment method is required.");
 
             try
             {
                 var cliente = _clienteRepo.GetById(dto.ClienteID);
-                if (cliente == null) throw new InvalidOperationException($"El cliente con ID {dto.ClienteID} no existe");
+                if (cliente == null) throw new InvalidOperationException($"Client with ID {dto.ClienteID} does not exist.");
 
                 using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
                 {
@@ -80,27 +80,23 @@ namespace BLL.Services
                                 }
                             }
 
-                            // 1. INSERT Pago
                             dto.Estado = EstadoPago.Abonado;
-                            // Ensure Fecha is set
                             if (dto.Fecha == default) dto.Fecha = DateTime.Now;
 
                             var pagoEntity = PagoMapper.ToEntity(dto);
-                            // New ID if empty
                             if (pagoEntity.Id == Guid.Empty) pagoEntity.Id = Guid.NewGuid();
 
                             pagoId = pagoEntity.Id;
 
                             _pagoRepo.Add(pagoEntity, conn, tran);
 
-                            // 2. INSERT Movimiento positivo
                             TipoMovimiento tipoMovimiento = TipoMovimiento.PagoGenerico;
-                            string descMovimiento = $"Pago a Cuenta - {dto.Metodo}";
+                            string descMovimiento = $"Account Payment - {dto.Metodo}";
 
                             if (dto.EsMembresia)
                             {
                                 tipoMovimiento = TipoMovimiento.PagoMembresia;
-                                descMovimiento = $"Pago de Membresía - {dto.Metodo}";
+                                descMovimiento = $"Membership Payment - {dto.Metodo}";
 
                                 var clienteMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(dto.ClienteID, conn, tran);
                                 if (clienteMembresia != null && clienteMembresia.ProximaFechaPago.HasValue && dto.MembresiaID.HasValue)
@@ -116,7 +112,7 @@ namespace BLL.Services
                             else if (dto.ReservaID.HasValue)
                             {
                                 tipoMovimiento = TipoMovimiento.PagoReserva;
-                                descMovimiento = $"Pago de Reserva - {dto.Metodo}";
+                                descMovimiento = $"Reservation Payment - {dto.Metodo}";
                             }
 
                             var movimiento = new Movimiento
@@ -161,14 +157,12 @@ namespace BLL.Services
                             throw;
                         }
 
-                        // Retrieve Saved Pago to get Identity Code for logging (separate operation)
                         try
                         {
                             var savedPago = _pagoRepo.GetById(pagoId);
                             var codigo = savedPago?.Codigo ?? 0;
-                            _bitacora.Log($"CU-PA-001: Pago #{codigo} registrado por ${dto.Monto} - Cliente {cliente.DNI}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Payment #{codigo} registered for ${dto.Monto} - Client {cliente.DNI}", "INFO");
 
-                            // Auto-generate Comprobante de Pago
                             var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobantePago(
                                 dto.Fecha,
                                 cliente.DNI.ToString(),
@@ -179,15 +173,14 @@ namespace BLL.Services
                             var comprobanteDto = new ComprobanteDTO
                             {
                                 PagoID = pagoId,
-                                NombreArchivo = $"Comprobante_Pago_{codigo}.html",
+                                NombreArchivo = $"Payment_Receipt_{codigo}.html",
                                 Contenido = bytes
                             };
                             _comprobanteFacade.Adjuntar(comprobanteDto);
                         }
                         catch (Exception logEx)
                         {
-                            // Fallback logging if retrieval fails
-                            _bitacora.Log($"CU-PA-001: Pago registrado (ID: {pagoId}) por ${dto.Monto} - Cliente {cliente.DNI}. Warning: Could not retrieve code for log or generate comprobante: {logEx.Message}", "INFO");
+                            _bitacora.Log($"CU-PA-001: Payment registered (ID: {pagoId}) for ${dto.Monto} - Client {cliente.DNI}. Receipt generation failed: {logEx.Message}", "INFO");
 
                             try
                             {
@@ -201,7 +194,7 @@ namespace BLL.Services
                                 var comprobanteDto = new ComprobanteDTO
                                 {
                                     PagoID = pagoId,
-                                    NombreArchivo = $"Comprobante_Pago_{pagoId}.html",
+                                    NombreArchivo = $"Payment_Receipt_{pagoId}.html",
                                     Contenido = bytes
                                 };
                                 _comprobanteFacade.Adjuntar(comprobanteDto);
@@ -213,7 +206,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error en CU-PA-001: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error in CU-PA-001: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -230,29 +223,25 @@ namespace BLL.Services
                     {
                         try
                         {
-                            // 1. Get Pago
                             var pago = _pagoRepo.GetById(pagoId, conn, tran);
-                            if (pago == null) throw new InvalidOperationException("El pago no existe");
+                            if (pago == null) throw new InvalidOperationException("Payment does not exist.");
 
-                            // Validate State
                             if (pago.Estado != EstadoPago.Abonado.ToString())
                             {
-                                throw new InvalidOperationException($"Solo se pueden reembolsar pagos en estado 'Abonado'. Estado actual: {pago.Estado}");
+                                throw new InvalidOperationException($"Only 'Paid' payments can be refunded. Current status: {pago.Estado}");
                             }
 
                             pagoParaLog = pago;
 
-                            // 2. UPDATE Pago
                             pago.Estado = EstadoPago.Reembolsado.ToString();
                             _pagoRepo.Update(pago, conn, tran);
 
-                            // 3. INSERT Movimiento negativo
                             var movimiento = new Movimiento
                             {
                                 ClienteID = pago.ClienteID,
-                                Monto = -pago.Monto, // Negative
+                                Monto = -pago.Monto,
                                 Tipo = TipoMovimiento.Reembolso,
-                                Descripcion = $"Reembolso de Pago #{pago.Codigo}",
+                                Descripcion = $"Refund of Payment #{pago.Codigo}",
                                 Fecha = DateTime.Now,
                                 PagoID = pago.Id
                             };
@@ -270,13 +259,13 @@ namespace BLL.Services
                     if (pagoParaLog != null)
                     {
                         var cliente = _clienteRepo.GetById(pagoParaLog.ClienteID);
-                        _bitacora.Log($"CU-PA-004: Pago #{pagoParaLog.Codigo} reembolsado - Cliente {cliente?.DNI}", "INFO");
+                        _bitacora.Log($"CU-PA-004: Payment #{pagoParaLog.Codigo} refunded - Client {cliente?.DNI}", "INFO");
                     }
                 }
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error en CU-PA-004: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error in CU-PA-004: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -290,11 +279,11 @@ namespace BLL.Services
 
                 _comprobanteFacade.Adjuntar(dto);
 
-                _bitacora.Log($"CU-PA-003: Comprobante adjuntado al Pago {pagoId}", "INFO");
+                _bitacora.Log($"CU-PA-003: Receipt attached to Payment {pagoId}", "INFO");
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error en CU-PA-003: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error in CU-PA-003: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -307,7 +296,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error al obtener comprobante del pago {pagoId}: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error fetching receipt for payment {pagoId}: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -323,7 +312,6 @@ namespace BLL.Services
             {
                 list = _pagoRepo.GetAll();
 
-                // InMemory filter for dates if provided
                 if (desde.HasValue) list = list.Where(x => x.Fecha >= desde.Value).ToList();
                 if (hasta.HasValue) list = list.Where(x => x.Fecha <= hasta.Value).ToList();
             }
@@ -340,7 +328,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error al obtener pagos de reserva {reservaId}: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error fetching payments for reservation {reservaId}: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }

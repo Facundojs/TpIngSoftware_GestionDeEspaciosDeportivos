@@ -57,7 +57,6 @@ namespace BLL.Services
                     var currTime = current;
                     var nextTime = current.Add(TimeSpan.FromMinutes(30));
 
-                    // Check if there is any overlapping reservation
                     bool overlaps = false;
                     foreach (var r in reservas)
                     {
@@ -67,7 +66,6 @@ namespace BLL.Services
                         var rInicio = r.FechaHora.TimeOfDay;
                         var rFin = r.FechaHora.AddMinutes(r.Duracion).TimeOfDay;
 
-                        // overlap condition
                         if (currTime < rFin && rInicio < nextTime)
                         {
                             overlaps = true;
@@ -94,29 +92,29 @@ namespace BLL.Services
 
         public string GenerarReserva(GenerarReservaDTO dto)
         {
-            if (dto.Adelanto < 0) throw new ArgumentException("El adelanto no puede ser negativo");
-            if (dto.Duracion <= 0) throw new ArgumentException("La duración debe ser mayor a cero");
-            if (dto.FechaHora < DateTime.Now) throw new ArgumentException("La fecha de reserva no puede ser en el pasado");
+            if (dto.Adelanto < 0) throw new ArgumentException("Down payment cannot be negative.");
+            if (dto.Duracion <= 0) throw new ArgumentException("Duration must be greater than zero.");
+            if (dto.FechaHora < DateTime.Now) throw new ArgumentException("Reservation date cannot be in the past.");
 
             var cliente = _clienteRepo.GetById(dto.ClienteId);
-            if (cliente == null) throw new InvalidOperationException($"El cliente con ID {dto.ClienteId} no existe");
+            if (cliente == null) throw new InvalidOperationException($"Client with ID {dto.ClienteId} does not exist.");
 
             var espacio = _espacioRepo.GetById(dto.EspacioId);
-            if (espacio == null) throw new InvalidOperationException($"El espacio con ID {dto.EspacioId} no existe");
+            if (espacio == null) throw new InvalidOperationException($"Space with ID {dto.EspacioId} does not exist.");
 
             decimal montoTotal = espacio.PrecioHora * (dto.Duracion / 60.0m);
 
-            if (dto.Adelanto > montoTotal) throw new ArgumentException($"El adelanto ({dto.Adelanto:C}) no puede ser mayor al monto total ({montoTotal:C})");
+            if (dto.Adelanto > montoTotal) throw new ArgumentException($"Down payment ({dto.Adelanto:C}) cannot exceed total amount ({montoTotal:C}).");
 
             decimal minimoRequerido = montoTotal * 0.1m;
             if (dto.Adelanto < minimoRequerido)
             {
-                throw new ArgumentException($"El adelanto es insuficiente. Debe abonar al menos el 10% del total ({minimoRequerido:C}) para confirmar la reserva.");
+                throw new ArgumentException($"Insufficient down payment. At least 10% ({minimoRequerido:C}) is required.");
             }
 
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
-                throw new InvalidOperationException("El espacio no está disponible en el horario seleccionado");
+                throw new InvalidOperationException("Space is not available at the selected time.");
             }
 
             try
@@ -130,7 +128,7 @@ namespace BLL.Services
                         {
                             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion, conn, tran))
                             {
-                                throw new InvalidOperationException("El espacio ya no está disponible (Race Condition detected)");
+                                throw new InvalidOperationException("Space is no longer available (Race Condition).");
                             }
 
                             var reserva = new Reserva
@@ -153,7 +151,7 @@ namespace BLL.Services
                                 ClienteID = dto.ClienteId,
                                 Monto = -montoTotal,
                                 Tipo = TipoMovimiento.DeudaReserva,
-                                Descripcion = $"Reserva {reserva.CodigoReserva}",
+                                Descripcion = $"Reservation {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
                             _movimientoRepo.Insertar(movDeuda, conn, tran);
@@ -169,7 +167,7 @@ namespace BLL.Services
                                     ReservaID = reserva.Id,
                                     Estado = EstadoPago.Abonado.ToString(),
                                     Metodo = "Adelanto",
-                                    Detalle = $"Adelanto Reserva {reserva.CodigoReserva}",
+                                    Detalle = $"Down payment Reservation {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now
                                 };
                                 pagoIdParaComprobante = pago.Id;
@@ -181,7 +179,7 @@ namespace BLL.Services
                                     ClienteID = dto.ClienteId,
                                     Monto = dto.Adelanto,
                                     Tipo = TipoMovimiento.PagoReserva,
-                                    Descripcion = $"Pago Adelanto Reserva {reserva.CodigoReserva}",
+                                    Descripcion = $"Down payment Reservation {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now,
                                     PagoID = pago.Id
                                 };
@@ -189,7 +187,6 @@ namespace BLL.Services
                             }
                             else
                             {
-                                // Create a 0-amount placeholder Pago to hold the Comprobante
                                 var pagoCero = new Pago
                                 {
                                     Id = Guid.NewGuid(),
@@ -198,7 +195,7 @@ namespace BLL.Services
                                     ReservaID = reserva.Id,
                                     Estado = EstadoPago.Abonado.ToString(),
                                     Metodo = "Reserva sin Adelanto",
-                                    Detalle = $"Comprobante Reserva {reserva.CodigoReserva}",
+                                    Detalle = $"Receipt Reservation {reserva.CodigoReserva}",
                                     Fecha = DateTime.Now
                                 };
                                 pagoIdParaComprobante = pagoCero.Id;
@@ -207,7 +204,6 @@ namespace BLL.Services
 
                             tran.Commit();
 
-                            // Generate and attach Comprobante de Reserva after successful commit
                             try
                             {
                                 decimal saldo = montoTotal - dto.Adelanto;
@@ -224,7 +220,7 @@ namespace BLL.Services
                                 var comprobanteDto = new ComprobanteDTO
                                 {
                                     PagoID = pagoIdParaComprobante,
-                                    NombreArchivo = $"Comprobante_Reserva_{reserva.CodigoReserva}.html",
+                                    NombreArchivo = $"Reservation_Receipt_{reserva.CodigoReserva}.html",
                                     Contenido = bytes
                                 };
 
@@ -233,10 +229,10 @@ namespace BLL.Services
                             }
                             catch (Exception compEx)
                             {
-                                _bitacora.Log($"Warning: Error generating comprobante for Reserva {reserva.CodigoReserva}: {compEx.Message}", "WARN");
+                                _bitacora.Log($"Warning: Receipt generation failed for Reservation {reserva.CodigoReserva}: {compEx.Message}", "WARN");
                             }
 
-                            _bitacora.Log($"CU-RES-01: Reserva {reserva.CodigoReserva} generada para cliente {cliente.DNI} - Espacio {espacio.Nombre} - Fecha {reserva.FechaHora} - Seña ${dto.Adelanto}", "INFO");
+                            _bitacora.Log($"CU-RES-01: Reservation {reserva.CodigoReserva} generated for client {cliente.DNI}", "INFO");
 
                             return reserva.CodigoReserva;
                         }
@@ -250,7 +246,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error en CU-RES-01: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error in CU-RES-01: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -273,11 +269,11 @@ namespace BLL.Services
 
                             if (reserva.Estado == EstadoReserva.Cancelada.ToString())
                             {
-                                throw new InvalidOperationException("La reserva ya está cancelada");
+                                throw new InvalidOperationException("Reservation is already cancelled.");
                             }
                             if (reserva.Estado == EstadoReserva.Finalizada.ToString())
                             {
-                                throw new InvalidOperationException("No se puede cancelar una reserva finalizada");
+                                throw new InvalidOperationException("Cannot cancel a completed reservation.");
                             }
 
                             reservaParaLog = reserva;
@@ -294,7 +290,7 @@ namespace BLL.Services
                                 ClienteID = reserva.ClienteID,
                                 Monto = montoTotal,
                                 Tipo = TipoMovimiento.CancelacionReserva,
-                                Descripcion = $"Cancelación Reserva {reserva.CodigoReserva}",
+                                Descripcion = $"Cancellation Reservation {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
                             _movimientoRepo.Insertar(movReversa, conn, tran);
@@ -313,7 +309,7 @@ namespace BLL.Services
                                         ClienteID = pago.ClienteID,
                                         Monto = -pago.Monto,
                                         Tipo = TipoMovimiento.Reembolso,
-                                        Descripcion = $"Reembolso Reserva {reserva.CodigoReserva}",
+                                        Descripcion = $"Refund Reservation {reserva.CodigoReserva}",
                                         Fecha = DateTime.Now,
                                         PagoID = pago.Id
                                     };
@@ -323,7 +319,7 @@ namespace BLL.Services
 
                             tran.Commit();
 
-                            _bitacora.Log($"CU-RES-02: Reserva {reservaParaLog.CodigoReserva} cancelada", "INFO");
+                            _bitacora.Log($"CU-RES-02: Reservation {reservaParaLog.CodigoReserva} cancelled", "INFO");
                         }
                         catch
                         {
@@ -335,7 +331,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacora.Log($"Error en CU-RES-02: {ex.Message}", "ERROR", ex);
+                _bitacora.Log($"Error in CU-RES-02: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -347,10 +343,10 @@ namespace BLL.Services
 
             var dto = ReservaMapper.ToDTO(r);
             var c = _clienteRepo.GetById(dto.ClienteID);
-            dto.ClienteNombre = c != null ? $"{c.Nombre} {c.Apellido}" : "Desconocido";
+            dto.ClienteNombre = c != null ? $"{c.Nombre} {c.Apellido}" : "Unknown";
 
             var e = _espacioRepo.GetById(dto.EspacioID);
-            dto.EspacioNombre = e != null ? e.Nombre : "Desconocido";
+            dto.EspacioNombre = e != null ? e.Nombre : "Unknown";
 
             return dto;
         }
@@ -383,10 +379,10 @@ namespace BLL.Services
             foreach (var dto in dtos)
             {
                 var c = _clienteRepo.GetById(dto.ClienteID);
-                dto.ClienteNombre = c != null ? $"{c.Nombre} {c.Apellido}" : "Desconocido";
+                dto.ClienteNombre = c != null ? $"{c.Nombre} {c.Apellido}" : "Unknown";
 
                 var e = _espacioRepo.GetById(dto.EspacioID);
-                dto.EspacioNombre = e != null ? e.Nombre : "Desconocido";
+                dto.EspacioNombre = e != null ? e.Nombre : "Unknown";
             }
 
             return dtos;

@@ -54,10 +54,8 @@ namespace Service.Logic
 
         public void EnsurePermissions()
         {
-            // 1. Ensure all String Constants exist as Patents
             var existingPatents = _patenteRepository.GetAll();
 
-            // Get all public constant strings from PermisoKeys
             var permissionFields = typeof(Domain.Composite.PermisoKeys).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(string));
 
@@ -79,7 +77,6 @@ namespace Service.Logic
                 }
             }
 
-            // 2. Ensure "Administrador" family exists
             var families = _familiaRepository.GetAll();
             var adminFamily = families.FirstOrDefault(f => f.Nombre == "Administrador");
 
@@ -92,7 +89,6 @@ namespace Service.Logic
                 };
                 _familiaRepository.Add(adminFamily);
 
-                // Add all patents to Admin
                 var allPatents = _patenteRepository.GetAll();
                 foreach (var pat in allPatents)
                 {
@@ -102,7 +98,6 @@ namespace Service.Logic
             }
             else
             {
-                // Update Admin family to have all patents (in case we added new ones)
                 var fullAdmin = _familiaRepository.GetById(adminFamily.Id);
                 var allPatents = _patenteRepository.GetAll();
                 bool changed = false;
