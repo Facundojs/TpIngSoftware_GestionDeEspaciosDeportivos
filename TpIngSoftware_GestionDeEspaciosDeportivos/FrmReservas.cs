@@ -243,7 +243,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 else
                 {
-                    MessageBox.Show("Error al obtener horarios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -271,12 +271,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     else
                     {
                         _clienteIdSeleccionado = null;
-                        lblNombreCliente.Text = "Cliente no encontrado";
+                        lblNombreCliente.Text = Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese un DNI válido");
+                    MessageBox.Show(Domain.Enums.Translations.ERR_INGRESE_DNI_VALIDO.Translate());
                 }
             }
                         catch (Exception ex)
@@ -298,7 +298,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (_clienteIdSeleccionado == null)
                 {
-                    MessageBox.Show("Seleccione un cliente válido");
+                    MessageBox.Show(Domain.Enums.Translations.ERR_SELECCIONE_CLIENTE.Translate());
                     return;
                 }
                 if (cbEspacio.SelectedValue == null)
@@ -366,7 +366,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (dgvReservas.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Seleccione una reserva");
+                    MessageBox.Show(Domain.Enums.Translations.ERR_SELECCIONE_RESERVA.Translate());
                     return;
                 }
 
@@ -418,7 +418,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (comprobante.Contenido == null || comprobante.Contenido.Length == 0)
                 {
-                     MessageBox.Show("El comprobante existe pero no tiene contenido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show(Domain.Enums.Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                      return;
                 }
 

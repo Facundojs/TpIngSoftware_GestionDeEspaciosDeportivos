@@ -27,12 +27,12 @@ namespace Service.Logic
             try
             {
                 var user = _repository.GetByUsername(username);
-                if (user == null) throw new Exception("User not found.");
+                if (user == null) throw new Exception(Domain.Enums.Translations.ERR_USER_NOT_FOUND.Translate());
 
                 string hashedPassword = CryptographyHelper.HashPassword(password);
-                if (user.Password != hashedPassword) throw new Exception("Incorrect password.");
+                if (user.Password != hashedPassword) throw new Exception(Domain.Enums.Translations.ERR_INCORRECT_PASSWORD.Translate());
 
-                if (!user.Estado) throw new Exception("User blocked or inactive.");
+                if (!user.Estado) throw new Exception(Domain.Enums.Translations.ERR_USER_BLOCKED.Translate());
 
                 var dto = new UsuarioDTO
                 {
@@ -68,7 +68,7 @@ namespace Service.Logic
         public void Register(UsuarioDTO dto, string password)
         {
              var existing = _repository.GetByUsername(dto.Username);
-             if (existing != null) throw new Exception("User already exists.");
+             if (existing != null) throw new Exception(Domain.Enums.Translations.ERR_USER_ALREADY_EXISTS.Translate());
 
              var user = new Usuario
              {
@@ -91,7 +91,7 @@ namespace Service.Logic
         public void Update(UsuarioDTO dto)
         {
             var user = _repository.GetById(dto.Id);
-            if (user == null) throw new Exception("User does not exist.");
+            if (user == null) throw new Exception(Domain.Enums.Translations.ERR_USER_NOT_EXIST.Translate());
 
             user.NombreUsuario = dto.Username;
             user.Estado = dto.Estado == "Activo";
@@ -108,7 +108,7 @@ namespace Service.Logic
         public void ResetPassword(Guid id, string newPassword)
         {
             var user = _repository.GetById(id);
-            if (user == null) throw new Exception("User does not exist.");
+            if (user == null) throw new Exception(Domain.Enums.Translations.ERR_USER_NOT_EXIST.Translate());
 
             user.Password = CryptographyHelper.HashPassword(newPassword);
             UpdateDV(user);

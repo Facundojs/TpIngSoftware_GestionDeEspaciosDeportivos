@@ -76,7 +76,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading spaces: " + ex.Message);
+                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -153,7 +153,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -173,7 +173,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -199,7 +199,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     }
                     else
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
                     }
                 }
             }
@@ -216,7 +216,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedEspacio == null)
             {
-                MessageBox.Show("Seleccione un espacio");
+                MessageBox.Show(Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO.Translate());
                 return;
             }
 
