@@ -172,14 +172,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     try
                     {
                         var horarios = _reservaManager.ObtenerHorariosDisponibles(espacioId, fechaHora.Date);
-                        string formatMsj = Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL.Translate();
+                        string formatMsj = Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL.Translate() + Environment.NewLine;
                         string msgDate = formatMsj.Contains("{0}") ? string.Format(formatMsj, fecha.ToShortDateString()) : formatMsj;
-                        string msj = Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate() + "\n\n" + msgDate;
+                        string msj = Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate() + Environment.NewLine + Environment.NewLine + msgDate;
                         if (horarios.Count > 0)
                         {
                             foreach (var h in horarios)
                             {
-                                msj += $"{h:hh\\:mm} - {h.Add(TimeSpan.FromMinutes(30)):hh\\:mm}\n";
+                                msj += $"{h:hh\\:mm} - {h.Add(TimeSpan.FromMinutes(30)):hh\\:mm}" + Environment.NewLine;
                             }
                         }
                         else
@@ -220,13 +220,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             try
             {
                 var horarios = _reservaManager.ObtenerHorariosDisponibles(espacioId, fecha);
-                string formatMsj = Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL.Translate();
+                string formatMsj = Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL.Translate() + Environment.NewLine;
                 string msj = formatMsj.Contains("{0}") ? string.Format(formatMsj, fecha.ToShortDateString()) : formatMsj;
                 if (horarios.Count > 0)
                 {
                     foreach (var h in horarios)
                     {
-                        msj += $"{h:hh\\:mm} - {h.Add(TimeSpan.FromMinutes(30)):hh\\:mm}\n";
+                        msj += $"{h:hh\\:mm} - {h.Add(TimeSpan.FromMinutes(30)):hh\\:mm}{Environment.NewLine}";
                     }
                 }
                 else

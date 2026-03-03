@@ -51,6 +51,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Balance", HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ProximaFechaPago", HeaderText = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Razon", HeaderText = "Razón" });
 
             dgvClientes.CellFormatting += DgvClientes_CellFormatting;
         }

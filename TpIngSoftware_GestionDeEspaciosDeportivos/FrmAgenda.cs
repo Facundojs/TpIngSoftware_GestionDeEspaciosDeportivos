@@ -66,10 +66,27 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 if (dgvAgenda.Columns["DiaSemana"] != null) dgvAgenda.Columns["DiaSemana"].HeaderText = Domain.Enums.Translations.LBL_EJERCICIO_DIA.Translate();
                 if (dgvAgenda.Columns["HoraDesde"] != null) dgvAgenda.Columns["HoraDesde"].HeaderText = Domain.Enums.Translations.LBL_HORA_DESDE.Translate();
                 if (dgvAgenda.Columns["HoraHasta"] != null) dgvAgenda.Columns["HoraHasta"].HeaderText = Domain.Enums.Translations.LBL_HORA_HASTA.Translate();
+
+                dgvAgenda.CellFormatting -= DgvAgenda_CellFormatting;
+                dgvAgenda.CellFormatting += DgvAgenda_CellFormatting;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading agenda: " + ex.Message);
+            }
+        }
+
+        private void DgvAgenda_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvAgenda.Columns[e.ColumnIndex].Name == "DiaSemana" && e.Value is int diaInt)
+            {
+                // Use translations from the project
+                string translationKey = $"DAY_{diaInt}";
+                if (Enum.TryParse(translationKey, out Domain.Enums.Translations transEnum))
+                {
+                    e.Value = transEnum.Translate();
+                    e.FormattingApplied = true;
+                }
             }
         }
 

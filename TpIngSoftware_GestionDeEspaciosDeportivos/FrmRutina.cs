@@ -61,13 +61,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             // ComboBox Days
             cmbDiaSemana.Items.Clear();
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, "Lunes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, "Martes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, "Miércoles"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, "Jueves"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, "Viernes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, "Sábado"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(7, "Domingo"));
+            for (int i = 1; i <= 7; i++)
+            {
+                string translationKey = $"DAY_{i % 7}";
+                if (Enum.TryParse(translationKey, out Domain.Enums.Translations dayTrans))
+                {
+                    cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(i, dayTrans.Translate()));
+                }
+            }
 
             cmbDiaSemana.DisplayMember = "Value";
             cmbDiaSemana.ValueMember = "Key";
@@ -92,19 +93,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if (dgvEjercicios.Columns[e.ColumnIndex].DataPropertyName == "DiaSemana" && e.Value != null)
             {
                 int day = (int)e.Value;
-                string dayName = "";
-                switch(day)
+                string translationKey = $"DAY_{day % 7}";
+                if (Enum.TryParse(translationKey, out Domain.Enums.Translations transEnum))
                 {
-                    case 1: dayName = "Lunes"; break;
-                    case 2: dayName = "Martes"; break;
-                    case 3: dayName = "Miércoles"; break;
-                    case 4: dayName = "Jueves"; break;
-                    case 5: dayName = "Viernes"; break;
-                    case 6: dayName = "Sábado"; break;
-                    case 7: dayName = "Domingo"; break;
+                    e.Value = transEnum.Translate();
+                    e.FormattingApplied = true;
                 }
-                e.Value = dayName;
-                e.FormattingApplied = true;
             }
         }
 
