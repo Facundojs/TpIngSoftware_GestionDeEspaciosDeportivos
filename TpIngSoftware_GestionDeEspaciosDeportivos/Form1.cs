@@ -56,14 +56,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void SetupUIStructure()
         {
-            // --- Top Menu Strip (Integrated Language Selector) ---
             var menuStrip = new MenuStrip { Dock = DockStyle.Top };
             
             _languageService = new LanguageService();
             _cmbLanguage = new ToolStripComboBox { Alignment = ToolStripItemAlignment.Right, Width = 200 };
             LanguageSelectorHelper.SetupToolStripComboBox(_cmbLanguage, _languageService, UpdateLanguage);
             
-            // Optional: Add a label for the user in the bar
             if (_usuario != null)
             {
                 var lblUser = new ToolStripMenuItem($"[{_usuario.RolNegocio}] {_usuario.Username}") { Enabled = false, Alignment = ToolStripItemAlignment.Left };
@@ -74,7 +72,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.MainMenuStrip = menuStrip;
             this.Controls.Add(menuStrip);
 
-            // --- Level 1 TabControl (Fills remaining space) ---
             _tabControlMain = new TabControl { Dock = DockStyle.Fill };
             _tabPageNegocio = new TabPage("Negocio") { Tag = "MAIN_NEGOCIO" };
             _tabPageAdmin = new TabPage("Administración") { Tag = Domain.Enums.Translations.MENU_ADMIN };
@@ -82,11 +79,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _tabControlMain.TabPages.Add(_tabPageNegocio);
             _tabControlMain.TabPages.Add(_tabPageAdmin);
             
-            // Add TabControl to form
             this.Controls.Add(_tabControlMain);
-            _tabControlMain.BringToFront(); // Ensure it takes the space below the MenuStrip
+            _tabControlMain.BringToFront();
 
-            // --- Level 2 TabControls ---
             _tabControlNegocio = new TabControl { Dock = DockStyle.Fill };
             _tabPageNegocio.Controls.Add(_tabControlNegocio);
 
@@ -96,7 +91,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void InitializeAllTabs()
         {
-            // Negocio Sub-tabs
             CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_INGRESOS, () => new FrmIngresos(_usuario));
             CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.CLIENTE_TITLE, () => new FrmClientes(_usuario));
             CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_MEMBRESIA, () => new FrmMembresias(_usuario));
@@ -105,7 +99,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_RUTINAS, () => new FrmGestionRutinas(_usuario));
             CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_PAGOS, () => new FrmPagos(_usuario));
 
-            // Admin Sub-tabs
             CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_USERS, () => new FrmUsuarios(_usuario));
             CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_PERMISOS, () => new FrmGestionFamilias(_usuario));
             CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_BITACORA, () => new FrmBitacora(_usuario));
@@ -176,14 +169,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                new PermisosService().EnsurePermissions();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error seeding permissions: " + ex.Message);
-            }
+            new PermisosService().EnsurePermissions();
         }
     }
 }
