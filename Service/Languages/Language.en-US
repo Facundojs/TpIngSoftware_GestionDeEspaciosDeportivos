@@ -168,6 +168,7 @@ ERR_RESERVA_NO_ENCONTRADA_CODIGO=No reservation was found with that code.
 LBL_EMAIL=Email
 FRM_INGRESOS_TITLE=Ingresses
 MENU_INGRESOS=Ingresses
+MENU_FAMILIAS=Manage Families
 LBL_CLIENTE_NOMBRE=Client Name
 LBL_PROXIMA_FECHA_PAGO=Next Payment Date
 

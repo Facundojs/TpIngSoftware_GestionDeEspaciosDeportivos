@@ -206,6 +206,7 @@ ERR_RESERVA_NO_ENCONTRADA_CODIGO=No se encontró la reserva con ese código.
 LBL_EMAIL=Email
 FRM_INGRESOS_TITLE=Ingresos
 MENU_INGRESOS=Ingresos
+MENU_FAMILIAS=Gestionar Familias
 LBL_CLIENTE_NOMBRE=Nombre Cliente
 LBL_PROXIMA_FECHA_PAGO=Próxima Fecha de Pago
 

@@ -26,6 +26,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
     {
         private UsuarioDTO _usuario;
         private MenuStrip _menuStrip;
+        private TabControl _tabControl;
         private ToolStripMenuItem _menuAdmin;
         private ToolStripMenuItem _menuBackups;
         private ToolStripMenuItem _menuUsuarios;
@@ -45,6 +46,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             InitializeComponent();
             _usuario = usuario;
+            SetupTabControl();
             SetupMenu();
             UpdateLanguage();
         }
@@ -52,6 +54,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         public Form1()
         {
             InitializeComponent();
+            SetupTabControl();
+        }
+
+        private void SetupTabControl()
+        {
+            _tabControl = new TabControl();
+            _tabControl.Dock = DockStyle.Fill;
+            this.Controls.Add(_tabControl);
         }
 
         private void SetupMenu()
@@ -74,7 +84,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _menuClientes = new ToolStripMenuItem(Domain.Enums.Translations.CLIENTE_TITLE.Translate());
             _menuClientes.Click += (s, e) => OpenClientes();
 
-            _menuFamilias = new ToolStripMenuItem("Familias");
+            _menuFamilias = new ToolStripMenuItem(Domain.Enums.Translations.PERMISSIONS_TITLE.Translate());
             _menuFamilias.Click += (s, e) => OpenFamilias();
 
             _menuRutinas = new ToolStripMenuItem(Domain.Enums.Translations.MENU_RUTINAS.Translate());
@@ -129,12 +139,24 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuBitacora != null) _menuBitacora.Text = Domain.Enums.Translations.MENU_BITACORA.Translate();
             if(_menuMembresias != null) _menuMembresias.Text = Domain.Enums.Translations.MENU_MEMBRESIA.Translate();
             if(_menuClientes != null) _menuClientes.Text = Domain.Enums.Translations.CLIENTE_TITLE.Translate();
-            if(_menuFamilias != null) _menuFamilias.Text = "Familias"; // Can be localized later
+            if(_menuFamilias != null) _menuFamilias.Text = Domain.Enums.Translations.PERMISSIONS_TITLE.Translate();
             if(_menuRutinas != null) _menuRutinas.Text = Domain.Enums.Translations.MENU_RUTINAS.Translate();
             if(_menuEspacios != null) _menuEspacios.Text = Domain.Enums.Translations.MENU_ESPACIOS.Translate();
             if(_menuPagos != null) _menuPagos.Text = Domain.Enums.Translations.MENU_PAGOS.Translate();
             if(_menuReservas != null) _menuReservas.Text = Domain.Enums.Translations.MENU_RESERVAS.Translate();
             if(_menuIngresos != null) _menuIngresos.Text = Domain.Enums.Translations.MENU_INGRESOS.Translate();
+
+            // Update Tab Titles
+            if (_tabControl != null)
+            {
+                foreach (TabPage tab in _tabControl.TabPages)
+                {
+                    if (tab.Tag is Domain.Enums.Translations transKey)
+                    {
+                        tab.Text = transKey.Translate();
+                    }
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -185,70 +207,86 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canManagePermissions || canViewLogs || canManageMembresias || canManageClientes || canManageRutinas || canManageEspacios || canManagePagos || canManageReservas || canManageIngresos;
         }
 
+        private void OpenFormInTab<T>(Domain.Enums.Translations transKey, Func<T> formFactory) where T : Form
+        {
+            // Check if tab already exists
+            foreach (TabPage tab in _tabControl.TabPages)
+            {
+                if (tab.Tag is Domain.Enums.Translations tagKey && tagKey == transKey)
+                {
+                    _tabControl.SelectedTab = tab;
+                    return;
+                }
+            }
+
+            // Create new tab
+            TabPage newTab = new TabPage(transKey.Translate());
+            newTab.Tag = transKey;
+            T form = formFactory();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            
+            newTab.Controls.Add(form);
+            _tabControl.TabPages.Add(newTab);
+            _tabControl.SelectedTab = newTab;
+            
+            form.Show();
+        }
+
         private void OpenIngresos()
         {
-            var frm = new FrmIngresos(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_INGRESOS, () => new FrmIngresos(_usuario));
         }
 
         private void OpenPagos()
         {
-            var frm = new FrmPagos(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_PAGOS, () => new FrmPagos(_usuario));
         }
 
         private void OpenReservas()
         {
-            var frm = new FrmReservas(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_RESERVAS, () => new FrmReservas(_usuario));
         }
 
         private void OpenRutinas()
         {
-            var frm = new FrmGestionRutinas(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_RUTINAS, () => new FrmGestionRutinas(_usuario));
         }
 
         private void OpenEspacios()
         {
-            var frm = new FrmEspacios(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_ESPACIOS, () => new FrmEspacios(_usuario));
         }
 
         private void OpenClientes()
         {
-            var frm = new FrmClientes(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.CLIENTE_TITLE, () => new FrmClientes(_usuario));
         }
 
         private void OpenMembresias()
         {
-            var frm = new FrmMembresias(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_MEMBRESIA, () => new FrmMembresias(_usuario));
         }
 
         private void OpenBitacora()
         {
-            var frm = new FrmBitacora(_usuario);
-            frm.ShowDialog();
+            OpenFormInTab(Domain.Enums.Translations.MENU_BITACORA, () => new FrmBitacora(_usuario));
         }
 
         private void OpenBackups()
         {
-             var frm = new FrmBackups(_usuario);
-             frm.ShowDialog();
+             OpenFormInTab(Domain.Enums.Translations.MENU_BACKUPS, () => new FrmBackups(_usuario));
         }
 
         private void OpenUsuarios()
         {
-             var frm = new FrmUsuarios(_usuario);
-             frm.ShowDialog();
+             OpenFormInTab(Domain.Enums.Translations.MENU_USERS, () => new FrmUsuarios(_usuario));
         }
 
         private void OpenFamilias()
         {
-             var frm = new FrmGestionFamilias(_usuario);
-             frm.ShowDialog();
+             OpenFormInTab(Domain.Enums.Translations.PERMISSIONS_TITLE, () => new FrmGestionFamilias(_usuario));
         }
     }
 }

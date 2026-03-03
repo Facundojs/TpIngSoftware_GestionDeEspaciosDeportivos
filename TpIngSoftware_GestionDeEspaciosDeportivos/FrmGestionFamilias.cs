@@ -143,7 +143,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (fam.Nombre == "Administrador")
                 {
-                    MessageBox.Show("Cannot edit Administrador family.");
+                    MessageBox.Show(Domain.Enums.Translations.ERR_CANNOT_EDIT_ADMIN.Translate());
                     return;
                 }
 
@@ -184,7 +184,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (fam.Nombre == "Administrador")
                 {
-                    MessageBox.Show("Cannot delete Administrador family.");
+                    MessageBox.Show(Domain.Enums.Translations.ERR_CANNOT_DELETE_ADMIN.Translate());
                     return;
                 }
 

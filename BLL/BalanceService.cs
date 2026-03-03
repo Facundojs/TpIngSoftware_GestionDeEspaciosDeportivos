@@ -1,6 +1,7 @@
 using DAL.Factory;
 using Domain.Entities;
 using Domain.Enums;
+using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Linq;
