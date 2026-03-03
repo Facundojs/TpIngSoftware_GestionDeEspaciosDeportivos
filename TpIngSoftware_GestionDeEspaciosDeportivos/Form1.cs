@@ -25,19 +25,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
     public partial class Form1: Form
     {
         private UsuarioDTO _usuario;
-        private MenuStrip _menuStrip;
-        private ToolStripMenuItem _menuAdmin;
-        private ToolStripMenuItem _menuBackups;
-        private ToolStripMenuItem _menuUsuarios;
-        private ToolStripMenuItem _menuBitacora;
-        private ToolStripMenuItem _menuMembresias;
-        private ToolStripMenuItem _menuClientes;
-        private ToolStripMenuItem _menuFamilias;
-        private ToolStripMenuItem _menuRutinas;
-        private ToolStripMenuItem _menuEspacios;
-        private ToolStripMenuItem _menuPagos;
-        private ToolStripMenuItem _menuReservas;
-        private ToolStripMenuItem _menuIngresos;
+        private TabControl _tabControlMain;
+        private TabControl _tabControlNegocio;
+        private TabControl _tabControlAdmin;
+        
+        private Dictionary<Domain.Enums.Translations, TabPage> _allTabs;
+        private TabPage _tabPageNegocio;
+        private TabPage _tabPageAdmin;
+
         private ToolStripComboBox _cmbLanguage;
         private LanguageService _languageService;
 
@@ -45,210 +40,136 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             InitializeComponent();
             _usuario = usuario;
-            SetupMenu();
+            _allTabs = new Dictionary<Domain.Enums.Translations, TabPage>();
+            SetupUIStructure();
+            InitializeAllTabs();
             UpdateLanguage();
+            ApplyPermissions();
         }
 
         public Form1()
         {
             InitializeComponent();
+            _allTabs = new Dictionary<Domain.Enums.Translations, TabPage>();
+            SetupUIStructure();
         }
 
-        private void SetupMenu()
+        private void SetupUIStructure()
         {
-            _menuStrip = new MenuStrip();
-            _menuAdmin = new ToolStripMenuItem(Domain.Enums.Translations.MENU_ADMIN.Translate());
-
-            _menuBackups = new ToolStripMenuItem(Domain.Enums.Translations.MENU_BACKUPS.Translate());
-            _menuBackups.Click += (s, e) => OpenBackups();
-
-            _menuUsuarios = new ToolStripMenuItem(Domain.Enums.Translations.MENU_USERS.Translate());
-            _menuUsuarios.Click += (s, e) => OpenUsuarios();
-
-            _menuBitacora = new ToolStripMenuItem(Domain.Enums.Translations.MENU_BITACORA.Translate());
-            _menuBitacora.Click += (s, e) => OpenBitacora();
-
-            _menuMembresias = new ToolStripMenuItem(Domain.Enums.Translations.MENU_MEMBRESIA.Translate());
-            _menuMembresias.Click += (s, e) => OpenMembresias();
-
-            _menuClientes = new ToolStripMenuItem(Domain.Enums.Translations.CLIENTE_TITLE.Translate());
-            _menuClientes.Click += (s, e) => OpenClientes();
-
-            _menuFamilias = new ToolStripMenuItem("Familias");
-            _menuFamilias.Click += (s, e) => OpenFamilias();
-
-            _menuRutinas = new ToolStripMenuItem(Domain.Enums.Translations.MENU_RUTINAS.Translate());
-            _menuRutinas.Click += (s, e) => OpenRutinas();
-
-            _menuEspacios = new ToolStripMenuItem(Domain.Enums.Translations.MENU_ESPACIOS.Translate());
-            _menuEspacios.Click += (s, e) => OpenEspacios();
-
-            _menuPagos = new ToolStripMenuItem(Domain.Enums.Translations.MENU_PAGOS.Translate());
-            _menuPagos.Click += (s, e) => OpenPagos();
-
-            _menuReservas = new ToolStripMenuItem(Domain.Enums.Translations.MENU_RESERVAS.Translate());
-            _menuReservas.Click += (s, e) => OpenReservas();
-
-            _menuIngresos = new ToolStripMenuItem(Domain.Enums.Translations.MENU_INGRESOS.Translate());
-            _menuIngresos.Click += (s, e) => OpenIngresos();
-
-            _menuAdmin.DropDownItems.Add(_menuBackups);
-            _menuAdmin.DropDownItems.Add(_menuUsuarios);
-            _menuAdmin.DropDownItems.Add(_menuBitacora);
-            _menuAdmin.DropDownItems.Add(_menuMembresias);
-            _menuAdmin.DropDownItems.Add(_menuClientes);
-            _menuAdmin.DropDownItems.Add(_menuFamilias);
-            _menuAdmin.DropDownItems.Add(_menuRutinas);
-            _menuAdmin.DropDownItems.Add(_menuEspacios);
-            _menuAdmin.DropDownItems.Add(_menuPagos);
-            _menuAdmin.DropDownItems.Add(_menuReservas);
-            _menuAdmin.DropDownItems.Add(_menuIngresos);
-
-            _menuStrip.Items.Add(_menuAdmin);
-
-            // Language Selector
+            var menuStrip = new MenuStrip { Dock = DockStyle.Top };
+            
             _languageService = new LanguageService();
-            _cmbLanguage = new ToolStripComboBox();
-            _cmbLanguage.Alignment = ToolStripItemAlignment.Right;
-            _cmbLanguage.Width = 200;
-
+            _cmbLanguage = new ToolStripComboBox { Alignment = ToolStripItemAlignment.Right, Width = 200 };
             LanguageSelectorHelper.SetupToolStripComboBox(_cmbLanguage, _languageService, UpdateLanguage);
+            
+            if (_usuario != null)
+            {
+                var lblUser = new ToolStripMenuItem($"[{_usuario.RolNegocio}] {_usuario.Username}") { Enabled = false, Alignment = ToolStripItemAlignment.Left };
+                menuStrip.Items.Add(lblUser);
+            }
 
-            _menuStrip.Items.Add(_cmbLanguage);
+            menuStrip.Items.Add(_cmbLanguage);
+            this.MainMenuStrip = menuStrip;
+            this.Controls.Add(menuStrip);
 
-            this.Controls.Add(_menuStrip);
-            this.MainMenuStrip = _menuStrip;
+            _tabControlMain = new TabControl { Dock = DockStyle.Fill };
+            _tabPageNegocio = new TabPage("Negocio") { Tag = "MAIN_NEGOCIO" };
+            _tabPageAdmin = new TabPage("Administración") { Tag = Domain.Enums.Translations.MENU_ADMIN };
+            
+            _tabControlMain.TabPages.Add(_tabPageNegocio);
+            _tabControlMain.TabPages.Add(_tabPageAdmin);
+            
+            this.Controls.Add(_tabControlMain);
+            _tabControlMain.BringToFront();
+
+            _tabControlNegocio = new TabControl { Dock = DockStyle.Fill };
+            _tabPageNegocio.Controls.Add(_tabControlNegocio);
+
+            _tabControlAdmin = new TabControl { Dock = DockStyle.Fill };
+            _tabPageAdmin.Controls.Add(_tabControlAdmin);
+        }
+
+        private void InitializeAllTabs()
+        {
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_INGRESOS, () => new FrmIngresos(_usuario));
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.CLIENTE_TITLE, () => new FrmClientes(_usuario));
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_MEMBRESIA, () => new FrmMembresias(_usuario));
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_RESERVAS, () => new FrmReservas(_usuario));
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_ESPACIOS, () => new FrmEspacios(_usuario));
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_RUTINAS, () => new FrmGestionRutinas(_usuario));
+            CreateFixedTab(_tabControlNegocio, Domain.Enums.Translations.MENU_PAGOS, () => new FrmPagos(_usuario));
+
+            CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_USERS, () => new FrmUsuarios(_usuario));
+            CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_PERMISOS, () => new FrmGestionFamilias(_usuario));
+            CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_BITACORA, () => new FrmBitacora(_usuario));
+            CreateFixedTab(_tabControlAdmin, Domain.Enums.Translations.MENU_BACKUPS, () => new FrmBackups(_usuario));
+        }
+
+        private void CreateFixedTab(TabControl parent, Domain.Enums.Translations transKey, Func<Form> formFactory)
+        {
+            var tab = new TabPage(transKey.Translate()) { Tag = transKey };
+            var form = formFactory();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            tab.Controls.Add(form);
+            form.Show();
+            _allTabs.Add(transKey, tab);
+        }
+
+        private void ApplyPermissions()
+        {
+            _tabControlNegocio.TabPages.Clear();
+            _tabControlAdmin.TabPages.Clear();
+            _tabControlMain.TabPages.Clear();
+
+            if (_usuario == null) return;
+
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.MENU_INGRESOS, PermisoKeys.IngresoListar);
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.CLIENTE_TITLE, PermisoKeys.ClienteListar);
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.MENU_MEMBRESIA, PermisoKeys.MembresiaListar);
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.MENU_RESERVAS, PermisoKeys.ReservaListar);
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.MENU_ESPACIOS, PermisoKeys.EspacioListar);
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.MENU_RUTINAS, PermisoKeys.RutinaVer);
+            CheckAndAddSubTab(_tabControlNegocio, Domain.Enums.Translations.MENU_PAGOS, PermisoKeys.PagoListar);
+
+            CheckAndAddSubTab(_tabControlAdmin, Domain.Enums.Translations.MENU_USERS, PermisoKeys.UsuarioListar);
+            CheckAndAddSubTab(_tabControlAdmin, Domain.Enums.Translations.MENU_PERMISOS, PermisoKeys.PermisoAsignar);
+            CheckAndAddSubTab(_tabControlAdmin, Domain.Enums.Translations.MENU_BITACORA, PermisoKeys.BitacoraVer);
+            CheckAndAddSubTab(_tabControlAdmin, Domain.Enums.Translations.MENU_BACKUPS, PermisoKeys.BackupListar);
+
+            if (_tabControlNegocio.TabPages.Count > 0) _tabControlMain.TabPages.Add(_tabPageNegocio);
+            if (_tabControlAdmin.TabPages.Count > 0) _tabControlMain.TabPages.Add(_tabPageAdmin);
+        }
+
+        private void CheckAndAddSubTab(TabControl parent, Domain.Enums.Translations transKey, string permission)
+        {
+            if (_usuario.TienePermiso(permission) && _allTabs.ContainsKey(transKey))
+            {
+                parent.TabPages.Add(_allTabs[transKey]);
+            }
         }
 
         private void UpdateLanguage()
         {
             this.Text = Domain.Enums.Translations.MAIN_TITLE.Translate();
-            if(_menuAdmin != null) _menuAdmin.Text = Domain.Enums.Translations.MENU_ADMIN.Translate();
-            if(_menuBackups != null) _menuBackups.Text = Domain.Enums.Translations.MENU_BACKUPS.Translate();
-            if(_menuUsuarios != null) _menuUsuarios.Text = Domain.Enums.Translations.MENU_USERS.Translate();
-            if(_menuBitacora != null) _menuBitacora.Text = Domain.Enums.Translations.MENU_BITACORA.Translate();
-            if(_menuMembresias != null) _menuMembresias.Text = Domain.Enums.Translations.MENU_MEMBRESIA.Translate();
-            if(_menuClientes != null) _menuClientes.Text = Domain.Enums.Translations.CLIENTE_TITLE.Translate();
-            if(_menuFamilias != null) _menuFamilias.Text = "Familias"; // Can be localized later
-            if(_menuRutinas != null) _menuRutinas.Text = Domain.Enums.Translations.MENU_RUTINAS.Translate();
-            if(_menuEspacios != null) _menuEspacios.Text = Domain.Enums.Translations.MENU_ESPACIOS.Translate();
-            if(_menuPagos != null) _menuPagos.Text = Domain.Enums.Translations.MENU_PAGOS.Translate();
-            if(_menuReservas != null) _menuReservas.Text = Domain.Enums.Translations.MENU_RESERVAS.Translate();
-            if(_menuIngresos != null) _menuIngresos.Text = Domain.Enums.Translations.MENU_INGRESOS.Translate();
+            
+            _tabPageNegocio.Text = "Negocio";
+            if (_tabPageAdmin.Tag is Domain.Enums.Translations adminKey)
+                _tabPageAdmin.Text = adminKey.Translate();
+
+            foreach (var tab in _allTabs.Values)
+            {
+                if (tab.Tag is Domain.Enums.Translations transKey)
+                {
+                    tab.Text = transKey.Translate();
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                new PermisosService().EnsurePermissions();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error seeding permissions: " + ex.Message);
-            }
-            ApplyPermissions();
-        }
-
-        private void ApplyPermissions()
-        {
-            if (_usuario == null)
-            {
-                if(_menuAdmin != null) _menuAdmin.Visible = false;
-                return;
-            }
-
-            bool canBackup = _usuario.TienePermiso(PermisoKeys.BackupListar);
-            bool canManageUsers = _usuario.TienePermiso(PermisoKeys.UsuarioListar);
-            bool canManagePermissions = _usuario.TienePermiso(PermisoKeys.PermisoAsignar);
-            bool canViewLogs = _usuario.TienePermiso(PermisoKeys.BitacoraVer);
-            bool canManageMembresias = _usuario.TienePermiso(PermisoKeys.MembresiaListar);
-            bool canManageClientes = _usuario.TienePermiso(PermisoKeys.ClienteListar);
-            bool canManageRutinas = _usuario.TienePermiso(PermisoKeys.RutinaVer);
-            bool canManageEspacios = _usuario.TienePermiso(PermisoKeys.EspacioListar);
-            bool canManagePagos = _usuario.TienePermiso(PermisoKeys.PagoListar);
-            bool canManageReservas = _usuario.TienePermiso(PermisoKeys.ReservaListar);
-            bool canManageIngresos = _usuario.TienePermiso(PermisoKeys.IngresoListar);
-
-            if(_menuBackups != null) _menuBackups.Visible = canBackup;
-            if(_menuUsuarios != null) _menuUsuarios.Visible = canManageUsers;
-            if(_menuBitacora != null) _menuBitacora.Visible = canViewLogs;
-            if(_menuMembresias != null) _menuMembresias.Visible = canManageMembresias;
-            if(_menuClientes != null) _menuClientes.Visible = canManageClientes;
-            if(_menuFamilias != null) _menuFamilias.Visible = canManagePermissions;
-            if(_menuRutinas != null) _menuRutinas.Visible = canManageRutinas;
-            if(_menuEspacios != null) _menuEspacios.Visible = canManageEspacios;
-            if(_menuPagos != null) _menuPagos.Visible = canManagePagos;
-            if(_menuReservas != null) _menuReservas.Visible = canManageReservas;
-            if(_menuIngresos != null) _menuIngresos.Visible = canManageIngresos;
-
-            if(_menuAdmin != null) _menuAdmin.Visible = canBackup || canManageUsers || canManagePermissions || canViewLogs || canManageMembresias || canManageClientes || canManageRutinas || canManageEspacios || canManagePagos || canManageReservas || canManageIngresos;
-        }
-
-        private void OpenIngresos()
-        {
-            var frm = new FrmIngresos(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenPagos()
-        {
-            var frm = new FrmPagos(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenReservas()
-        {
-            var frm = new FrmReservas(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenRutinas()
-        {
-            var frm = new FrmGestionRutinas(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenEspacios()
-        {
-            var frm = new FrmEspacios(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenClientes()
-        {
-            var frm = new FrmClientes(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenMembresias()
-        {
-            var frm = new FrmMembresias(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenBitacora()
-        {
-            var frm = new FrmBitacora(_usuario);
-            frm.ShowDialog();
-        }
-
-        private void OpenBackups()
-        {
-             var frm = new FrmBackups(_usuario);
-             frm.ShowDialog();
-        }
-
-        private void OpenUsuarios()
-        {
-             var frm = new FrmUsuarios(_usuario);
-             frm.ShowDialog();
-        }
-
-        private void OpenFamilias()
-        {
-             var frm = new FrmGestionFamilias(_usuario);
-             frm.ShowDialog();
+            new PermisosService().EnsurePermissions();
         }
     }
 }

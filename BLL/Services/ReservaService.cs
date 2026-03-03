@@ -4,6 +4,7 @@ using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
 using Domain.Enums;
+using Service.Facade.Extension;
 using Service.Helpers;
 using Service.Logic;
 using System;
