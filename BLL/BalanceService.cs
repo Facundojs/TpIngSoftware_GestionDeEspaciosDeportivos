@@ -122,7 +122,7 @@ namespace BLL
 
             if (balance != null && balance.Saldo < 0)
             {
-                string msg = $"Client has a debt of ${Math.Abs(balance.Saldo):N2}. Must settle before continuing.";
+                string msg = Domain.Enums.Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE.Translate();
                 if (!string.IsNullOrEmpty(contexto))
                 {
                     msg = $"{contexto}: {msg}";

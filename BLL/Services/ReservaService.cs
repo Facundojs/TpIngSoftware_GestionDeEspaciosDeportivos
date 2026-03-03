@@ -92,29 +92,29 @@ namespace BLL.Services
 
         public string GenerarReserva(GenerarReservaDTO dto)
         {
-            if (dto.Adelanto < 0) throw new ArgumentException("Down payment cannot be negative.");
-            if (dto.Duracion <= 0) throw new ArgumentException("Duration must be greater than zero.");
-            if (dto.FechaHora < DateTime.Now) throw new ArgumentException("Reservation date cannot be in the past.");
+            if (dto.Adelanto < 0) throw new ArgumentException(Domain.Enums.Translations.ERR_ADELANTO_NEGATIVO.Translate());
+            if (dto.Duracion <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_DURACION_CERO.Translate());
+            if (dto.FechaHora < DateTime.Now) throw new ArgumentException(Domain.Enums.Translations.ERR_FECHA_PASADA.Translate());
 
             var cliente = _clienteRepo.GetById(dto.ClienteId);
-            if (cliente == null) throw new InvalidOperationException($"Client with ID {dto.ClienteId} does not exist.");
+            if (cliente == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate());
 
             var espacio = _espacioRepo.GetById(dto.EspacioId);
-            if (espacio == null) throw new InvalidOperationException($"Space with ID {dto.EspacioId} does not exist.");
+            if (espacio == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_ESPACIO_NO_ENCONTRADO.Translate());
 
             decimal montoTotal = espacio.PrecioHora * (dto.Duracion / 60.0m);
 
-            if (dto.Adelanto > montoTotal) throw new ArgumentException($"Down payment ({dto.Adelanto:C}) cannot exceed total amount ({montoTotal:C}).");
+            if (dto.Adelanto > montoTotal) throw new ArgumentException(Domain.Enums.Translations.ERR_ADELANTO_MAYOR_TOTAL.Translate());
 
             decimal minimoRequerido = montoTotal * 0.1m;
             if (dto.Adelanto < minimoRequerido)
             {
-                throw new ArgumentException($"Insufficient down payment. At least 10% ({minimoRequerido:C}) is required.");
+                throw new ArgumentException(Domain.Enums.Translations.ERR_ADELANTO_MINIMO.Translate());
             }
 
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
-                throw new InvalidOperationException("Space is not available at the selected time.");
+                throw new InvalidOperationException(Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate());
             }
 
             try
