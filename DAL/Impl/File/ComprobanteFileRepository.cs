@@ -21,20 +21,19 @@ namespace DAL.Impl.File
         public void Agregar(Comprobante obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (obj.PagoID == Guid.Empty) throw new ArgumentException("PagoID es requerido para generar la ruta del archivo");
-            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException("El contenido del archivo es requerido");
+            if (obj.PagoID == Guid.Empty) throw new ArgumentException("PagoID is required.");
+            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException("File content is required.");
 
             try
             {
-                // Deterministic path based on PagoID
                 string filePath = GetFilePath(obj.PagoID);
-                obj.RutaArchivo = filePath; // Update the entity with the generated path
+                obj.RutaArchivo = filePath;
 
                 System.IO.File.WriteAllBytes(filePath, obj.Contenido);
             }
             catch (Exception ex)
             {
-                throw new IOException($"Error al guardar el archivo de comprobante: {ex.Message}", ex);
+                throw new IOException($"Error saving receipt file: {ex.Message}", ex);
             }
         }
 

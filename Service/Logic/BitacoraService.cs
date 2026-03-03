@@ -21,7 +21,7 @@ namespace Service.Logic
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"ERROR: No se pudo instanciar el repositorio de bitácora: {ex.Message}");
+                Console.WriteLine($"Error initializing log repository: {ex.Message}");
             }
         }
 
@@ -46,8 +46,7 @@ namespace Service.Logic
             }
             catch (Exception logEx)
             {
-                // Fallback logging if repository fails
-                Console.WriteLine($"FATAL: Error al escribir en bitácora: {logEx.Message}. Mensaje original: {message}");
+                Console.WriteLine($"Fatal error writing to log: {logEx.Message}. Original message: {message}");
             }
         }
 

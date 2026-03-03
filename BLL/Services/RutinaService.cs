@@ -34,12 +34,12 @@ namespace BLL.Services
             try
             {
                 if (dto.Ejercicios == null || dto.Ejercicios.Count == 0)
-                    throw new Exception("La rutina debe tener al menos un ejercicio.");
+                    throw new Exception("The routine must have at least one exercise.");
 
                 foreach (var ex in dto.Ejercicios)
                 {
-                    if (ex.Repeticiones <= 0) throw new Exception($"El ejercicio {ex.Nombre} debe tener repeticiones mayor a 0.");
-                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception($"El ejercicio {ex.Nombre} tiene un día de semana inválido.");
+                    if (ex.Repeticiones <= 0) throw new Exception($"Exercise {ex.Nombre} repetitions must be greater than 0.");
+                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception($"Exercise {ex.Nombre} has an invalid week day.");
                 }
 
                 var rutinaActiva = _rutinaRepository.GetActivaByCliente(dto.ClienteID);
@@ -65,19 +65,7 @@ namespace BLL.Services
 
                             foreach (var exDto in dto.Ejercicios)
                             {
-                                // Ensure Ejercicio exists
-                                Ejercicio ejercicio = null;
-                                if (exDto.Id != Guid.Empty)
-                                {
-                                    // Try to fetch by ID? Or assume it's valid?
-                                    // Better to fetch by Name to be sure or just assume if we are creating.
-                                    // Let's check by Name first to avoid duplicates if user typed existing name
-                                    ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
-                                }
-                                else
-                                {
-                                    ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
-                                }
+                                Ejercicio ejercicio = _ejercicioRepository.GetByNombre(exDto.Nombre);
 
                                 if (ejercicio == null)
                                 {
@@ -98,7 +86,7 @@ namespace BLL.Services
                             }
 
                             tran.Commit();
-                            _bitacoraService.Log($"Rutina creada para cliente {dto.ClienteID}", "INFO");
+                            _bitacoraService.Log($"Routine created for client {dto.ClienteID}", "INFO");
                         }
                         catch (Exception)
                         {
@@ -110,7 +98,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error al crear rutina: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"Error creating routine: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -120,12 +108,12 @@ namespace BLL.Services
             try
             {
                 if (ejercicios == null || ejercicios.Count == 0)
-                    throw new Exception("La lista de ejercicios no puede estar vacía.");
+                    throw new Exception("Exercise list cannot be empty.");
 
                 foreach (var ex in ejercicios)
                 {
-                    if (ex.Repeticiones <= 0) throw new Exception($"El ejercicio {ex.Nombre} debe tener repeticiones mayor a 0.");
-                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception($"El ejercicio {ex.Nombre} tiene un día de semana inválido.");
+                    if (ex.Repeticiones <= 0) throw new Exception($"Exercise {ex.Nombre} repetitions must be greater than 0.");
+                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception($"Exercise {ex.Nombre} has an invalid week day.");
                 }
 
                 using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
@@ -159,7 +147,7 @@ namespace BLL.Services
                             }
 
                             tran.Commit();
-                            _bitacoraService.Log($"Rutina {rutinaId} modificada", "INFO");
+                            _bitacoraService.Log($"Routine {rutinaId} modified", "INFO");
                         }
                         catch (Exception)
                         {
@@ -171,7 +159,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error al modificar rutina: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"Error modifying routine: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -180,16 +168,12 @@ namespace BLL.Services
         {
             try
             {
-                // Delete links first (if not cascading) - safer to do it explicit inside logic if we want,
-                // but requirement said cascade. I'll rely on DB cascade for clean code or previous instruction.
-                // However, previous prompt DoD said "Eliminar rutina elimina ejercicios en cascada (FK)".
-                // With Many-to-Many, deleting Rutina should cascade delete RutinaEjercicio rows.
                 _rutinaRepository.Remove(rutinaId);
-                _bitacoraService.Log($"Rutina {rutinaId} eliminada", "INFO");
+                _bitacoraService.Log($"Routine {rutinaId} deleted", "INFO");
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error al borrar rutina: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"Error deleting routine: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -210,7 +194,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error al obtener rutina activa: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"Error fetching active routine: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -231,7 +215,7 @@ namespace BLL.Services
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error al obtener rutina: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"Error fetching routine: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }
@@ -247,8 +231,6 @@ namespace BLL.Services
                     rutinas = rutinas.Where(r => r.Hasta == null).ToList();
                 }
 
-                // In-memory join for Client Names.
-                // Optimization: fetch only needed clients if list is huge, but for now GetAll is fine.
                 var clientes = _clienteRepository.GetAll().ToDictionary(c => c.Id, c => $"{c.Nombre} {c.Apellido}");
 
                 return rutinas.Select(r =>
@@ -260,14 +242,14 @@ namespace BLL.Services
                     }
                     else
                     {
-                        dto.ClienteNombre = "Desconocido";
+                        dto.ClienteNombre = "Unknown";
                     }
                     return dto;
                 }).ToList();
             }
             catch (Exception ex)
             {
-                _bitacoraService.Log($"Error al listar rutinas: {ex.Message}", "ERROR", ex);
+                _bitacoraService.Log($"Error listing routines: {ex.Message}", "ERROR", ex);
                 throw;
             }
         }

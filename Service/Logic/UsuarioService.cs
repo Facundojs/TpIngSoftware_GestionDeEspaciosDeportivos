@@ -27,12 +27,12 @@ namespace Service.Logic
             try
             {
                 var user = _repository.GetByUsername(username);
-                if (user == null) throw new Exception("Usuario no encontrado");
+                if (user == null) throw new Exception("User not found.");
 
                 string hashedPassword = CryptographyHelper.HashPassword(password);
-                if (user.Password != hashedPassword) throw new Exception("Contraseña incorrecta");
+                if (user.Password != hashedPassword) throw new Exception("Incorrect password.");
 
-                if (!user.Estado) throw new Exception("Usuario bloqueado o inactivo");
+                if (!user.Estado) throw new Exception("User blocked or inactive.");
 
                 var dto = new UsuarioDTO
                 {
@@ -42,7 +42,6 @@ namespace Service.Logic
                     Permisos = user.Permisos
                 };
 
-                // Determine Role based on Families (Permisos)
                 if (user.Permisos.Any(p => p.Nombre == "Administrador"))
                 {
                     dto.RolNegocio = "Administrador";
@@ -61,7 +60,7 @@ namespace Service.Logic
             catch (Exception ex)
             {
                 var bitacora = new BitacoraService();
-                bitacora.Log($"Login fallido para usuario '{username}' - Razón: {ex.Message}", "WARNING");
+                bitacora.Log($"Failed login for user '{username}' - Reason: {ex.Message}", "WARNING");
                 throw;
             }
         }
@@ -69,7 +68,7 @@ namespace Service.Logic
         public void Register(UsuarioDTO dto, string password)
         {
              var existing = _repository.GetByUsername(dto.Username);
-             if (existing != null) throw new Exception("El usuario ya existe");
+             if (existing != null) throw new Exception("User already exists.");
 
              var user = new Usuario
              {
@@ -92,7 +91,7 @@ namespace Service.Logic
         public void Update(UsuarioDTO dto)
         {
             var user = _repository.GetById(dto.Id);
-            if (user == null) throw new Exception("Usuario no existe");
+            if (user == null) throw new Exception("User does not exist.");
 
             user.NombreUsuario = dto.Username;
             user.Estado = dto.Estado == "Activo";
@@ -109,7 +108,7 @@ namespace Service.Logic
         public void ResetPassword(Guid id, string newPassword)
         {
             var user = _repository.GetById(id);
-            if (user == null) throw new Exception("Usuario no existe");
+            if (user == null) throw new Exception("User does not exist.");
 
             user.Password = CryptographyHelper.HashPassword(newPassword);
             UpdateDV(user);
