@@ -73,7 +73,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Controls.Add(menuStrip);
 
             _tabControlMain = new TabControl { Dock = DockStyle.Fill };
-            _tabPageNegocio = new TabPage("Negocio") { Tag = "MAIN_NEGOCIO" };
+            _tabPageNegocio = new TabPage(Domain.Enums.Translations.MAIN_NEGOCIO.Translate()) { Tag = Domain.Enums.Translations.MAIN_NEGOCIO };
             _tabPageAdmin = new TabPage("Administración") { Tag = Domain.Enums.Translations.MENU_ADMIN };
             
             _tabControlMain.TabPages.Add(_tabPageNegocio);
@@ -154,7 +154,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             this.Text = Domain.Enums.Translations.MAIN_TITLE.Translate();
             
-            _tabPageNegocio.Text = "Negocio";
+            if (_tabPageNegocio.Tag is Domain.Enums.Translations negocioKey)
+                _tabPageNegocio.Text = negocioKey.Translate();
             if (_tabPageAdmin.Tag is Domain.Enums.Translations adminKey)
                 _tabPageAdmin.Text = adminKey.Translate();
 

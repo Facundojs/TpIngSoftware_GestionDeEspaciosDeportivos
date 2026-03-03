@@ -103,7 +103,7 @@ namespace Service.Impl.SqlServer
             }
             else
             {
-                throw new FileNotFoundException("El archivo de backup no existe.", safeFilename);
+                throw new FileNotFoundException(Domain.Enums.Translations.ERR_BACKUP_NO_EXISTE.Translate(), safeFilename);
             }
         }
     }

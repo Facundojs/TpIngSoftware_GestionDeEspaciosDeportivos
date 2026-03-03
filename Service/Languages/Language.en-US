@@ -228,3 +228,6 @@ ERR_COMPROBANTE_TAMANO=File exceeds the maximum allowed size.
 ERR_NOMBRE_ARCHIVO_REQUERIDO=File name is required.
 ERR_FORMATO_ARCHIVO_NO_PERMITIDO=File format not allowed. Use: PDF, JPG, or PNG.
 ERR_CLIENTE_DEUDA_BLOQUEANTE=Client has a debt. Must settle before continuing.
+ERR_PATENTE_ADD_CHILD=Cannot add children to a Patente.
+ERR_PATENTE_REMOVE_CHILD=Cannot remove children from a Patente.
+ERR_BACKUP_NO_EXISTE=Backup file does not exist.

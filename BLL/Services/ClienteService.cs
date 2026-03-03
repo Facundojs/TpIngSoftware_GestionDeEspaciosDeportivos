@@ -29,22 +29,22 @@ namespace BLL.Services
         {
             try
             {
-                if (dto.DNI <= 0) throw new ArgumentException("DNI debe ser mayor a cero");
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("Nombre es requerido");
-                if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException("Apellido es requerido");
-                if (dto.FechaNacimiento > DateTime.Now) throw new ArgumentException("Fecha de nacimiento no puede ser futura");
-                if (!string.IsNullOrWhiteSpace(dto.Email) && !dto.Email.Contains("@")) throw new ArgumentException("Email tiene un formato inválido");
+                if (dto.DNI <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate());
+                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
+                if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException(Domain.Enums.Translations.ERR_APELLIDO_REQUERIDO.Translate());
+                if (dto.FechaNacimiento > DateTime.Now) throw new ArgumentException(Domain.Enums.Translations.ERR_FECHA_NAC_FUTURA.Translate());
+                if (!string.IsNullOrWhiteSpace(dto.Email) && !dto.Email.Contains("@")) throw new ArgumentException(Domain.Enums.Translations.ERR_EMAIL_INVALIDO.Translate());
 
                 if (_repository.ExistsByDNI(dto.DNI))
                 {
-                    throw new InvalidOperationException($"Ya existe un cliente con DNI {dto.DNI}");
+                    throw new InvalidOperationException(Domain.Enums.Translations.ERR_DNI_DUPLICADO_MSG.Translate());
                 }
 
                 if (dto.MembresiaID.HasValue)
                 {
                     var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
-                    if (membresia == null) throw new InvalidOperationException("La membresía seleccionada no existe");
-                    if (!membresia.Activa) throw new InvalidOperationException("La membresía seleccionada no está activa");
+                    if (membresia == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE.Translate());
+                    if (!membresia.Activa) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA.Translate());
 
                     _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}, sin deuda. Próximo cobro: {DateTime.Now.AddDays(membresia.Regularidad):dd/MM/yyyy}", "INFO");
                 }

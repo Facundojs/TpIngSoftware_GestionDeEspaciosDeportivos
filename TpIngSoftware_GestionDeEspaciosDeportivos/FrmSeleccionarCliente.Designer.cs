@@ -25,9 +25,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // pnlSearch
-            //
+            // 
             this.pnlSearch.Controls.Add(this.txtBuscar);
             this.pnlSearch.Controls.Add(this.lblBuscar);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
@@ -35,35 +35,35 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(500, 50);
             this.pnlSearch.TabIndex = 0;
-            //
+            // 
             // txtBuscar
-            //
+            // 
             this.txtBuscar.Location = new System.Drawing.Point(100, 15);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(200, 20);
             this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            //
+            // 
             // lblBuscar
-            //
+            // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Location = new System.Drawing.Point(12, 18);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(70, 13);
+            this.lblBuscar.Size = new System.Drawing.Size(51, 13);
             this.lblBuscar.TabIndex = 0;
             this.lblBuscar.Text = "LBL_DNI";
-            //
+            // 
             // pnlBottom
-            //
+            // 
             this.pnlBottom.Controls.Add(this.btnSeleccionar);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.Location = new System.Drawing.Point(0, 350);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(500, 50);
             this.pnlBottom.TabIndex = 1;
-            //
+            // 
             // btnSeleccionar
-            //
+            // 
             this.btnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSeleccionar.Location = new System.Drawing.Point(350, 10);
             this.btnSeleccionar.Name = "btnSeleccionar";
@@ -72,9 +72,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.btnSeleccionar.Text = "BTN_SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
-            //
+            // 
             // dgvClientes
-            //
+            // 
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -88,9 +88,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             this.dgvClientes.DoubleClick += new System.EventHandler(this.dgvClientes_DoubleClick);
-            //
+            // 
             // FrmSeleccionarCliente
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 400);

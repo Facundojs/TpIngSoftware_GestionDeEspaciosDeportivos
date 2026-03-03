@@ -16,12 +16,12 @@ namespace Domain.Composite
 
         public override void Agregar(Acceso componente)
         {
-            throw new InvalidOperationException("No se pueden agregar hijos a una Patente.");
-        }
+            throw new InvalidOperationException(Domain.Enums.Translations.ERR_PATENTE_ADD_CHILD.Translate());
+            }
 
-        public override void Eliminar(Acceso componente)
-        {
-            throw new InvalidOperationException("No se pueden eliminar hijos de una Patente.");
+            public override void Eliminar(Acceso acceso)
+            {
+            throw new InvalidOperationException(Domain.Enums.Translations.ERR_PATENTE_REMOVE_CHILD.Translate());
         }
     }
 }
