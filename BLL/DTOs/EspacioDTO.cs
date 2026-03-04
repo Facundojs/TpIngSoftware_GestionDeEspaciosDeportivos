@@ -9,5 +9,6 @@ namespace BLL.DTOs
         public string Descripcion { get; set; }
         public decimal PrecioHora { get; set; }
         public string Estado { get; set; }
+        public string Razon { get; set; }
     }
 }
