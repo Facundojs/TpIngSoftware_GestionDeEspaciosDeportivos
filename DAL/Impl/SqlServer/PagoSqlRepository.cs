@@ -8,67 +8,8 @@ namespace DAL.Impl
 {
     public class PagoSqlRepository : BaseBusinessSqlRepository, IPagoRepository
     {
-        #region IGenericRepository Implementation
-
-        // These methods act as convenience wrappers that delegate to the UoW overloads below.
-        // They allow calling the repository methods without an existing transaction (standalone execution).
-
         public void Add(Pago obj)
         {
-            Add(obj, null, null);
-        }
-
-        public void Update(Pago obj)
-        {
-            Update(obj, null, null);
-        }
-
-        public void Remove(Guid id)
-        {
-            Remove(id, null, null);
-        }
-
-        public Pago GetById(Guid id)
-        {
-            return GetById(id, null, null);
-        }
-
-        public List<Pago> GetAll()
-        {
-            return GetAll(null, null);
-        }
-
-        #endregion
-
-        #region Custom Methods Implementation
-
-        // Custom methods specific to Pago repository, also delegating to UoW overloads.
-
-        public List<Pago> GetByCliente(Guid clienteId, DateTime? desde, DateTime? hasta)
-        {
-            return GetByCliente(clienteId, desde, hasta, null, null);
-        }
-
-        public Pago GetByCodigo(int codigo)
-        {
-            return GetByCodigo(codigo, null, null);
-        }
-
-        public List<Pago> GetByReserva(Guid reservaId)
-        {
-            return GetByReserva(reservaId, null, null);
-        }
-
-        #endregion
-
-        #region UoW Overloads
-
-        // These methods contain the actual implementation logic and accept optional SqlConnection and SqlTransaction parameters.
-        // This supports the Unit of Work pattern, allowing multiple operations to participate in a single transaction.
-
-        public void Add(Pago obj, SqlConnection conn = null, SqlTransaction tran = null)
-        {
-            // Codigo is IDENTITY, so we don't insert it.
             string query = "INSERT INTO Pago (Id, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID) VALUES (@Id, @ClienteID, @Monto, @Metodo, @Detalle, @Fecha, @Estado, @MembresiaID, @ReservaID)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
@@ -81,10 +22,10 @@ namespace DAL.Impl
                 new SqlParameter("@MembresiaID", (object)obj.MembresiaID ?? DBNull.Value),
                 new SqlParameter("@ReservaID", (object)obj.ReservaID ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void Update(Pago obj, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Update(Pago obj)
         {
             string query = "UPDATE Pago SET ClienteID = @ClienteID, Monto = @Monto, Metodo = @Metodo, Detalle = @Detalle, Fecha = @Fecha, Estado = @Estado, MembresiaID = @MembresiaID, ReservaID = @ReservaID WHERE Id = @Id";
             SqlParameter[] parameters = {
@@ -98,17 +39,17 @@ namespace DAL.Impl
                 new SqlParameter("@MembresiaID", (object)obj.MembresiaID ?? DBNull.Value),
                 new SqlParameter("@ReservaID", (object)obj.ReservaID ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void Remove(Guid id, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Remove(Guid id)
         {
             string query = "DELETE FROM Pago WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public Pago GetById(Guid id, SqlConnection conn = null, SqlTransaction tran = null)
+        public Pago GetById(Guid id)
         {
             string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
@@ -120,10 +61,10 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
-        public List<Pago> GetAll(SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Pago> GetAll()
         {
             string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago ORDER BY Fecha DESC";
             return ExecuteReader(query, null, reader =>
@@ -134,10 +75,10 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
 
-        public List<Pago> GetByCliente(Guid clienteId, DateTime? desde, DateTime? hasta, SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Pago> GetByCliente(Guid clienteId, DateTime? desde, DateTime? hasta)
         {
             string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago WHERE ClienteID = @ClienteID";
 
@@ -163,10 +104,10 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
 
-        public Pago GetByCodigo(int codigo, SqlConnection conn = null, SqlTransaction tran = null)
+        public Pago GetByCodigo(int codigo)
         {
             string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago WHERE Codigo = @Codigo";
             SqlParameter[] parameters = { new SqlParameter("@Codigo", codigo) };
@@ -178,10 +119,10 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
-        public List<Pago> GetByReserva(Guid reservaId, SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Pago> GetByReserva(Guid reservaId)
         {
             string query = "SELECT Id, Codigo, ClienteID, Monto, Metodo, Detalle, Fecha, Estado, MembresiaID, ReservaID FROM Pago WHERE ReservaID = @ReservaID ORDER BY Fecha DESC";
             SqlParameter[] parameters = { new SqlParameter("@ReservaID", reservaId) };
@@ -194,10 +135,8 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
-
-        #endregion
 
         private Pago MapFromReader(SqlDataReader reader)
         {

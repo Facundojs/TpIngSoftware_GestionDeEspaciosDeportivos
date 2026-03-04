@@ -5,11 +5,9 @@ using DAL.Factory;
 using Domain.Entities;
 using Domain.Enums;
 using Service.Facade.Extension;
-using Service.Helpers;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace BLL.Services
@@ -93,155 +91,153 @@ namespace BLL.Services
 
         public string GenerarReserva(GenerarReservaDTO dto)
         {
-            if (dto.Adelanto < 0) throw new ArgumentException(Domain.Enums.Translations.ERR_ADELANTO_NEGATIVO.Translate());
-            if (dto.Duracion <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_DURACION_CERO.Translate());
-            if (dto.FechaHora < DateTime.Now) throw new ArgumentException(Domain.Enums.Translations.ERR_FECHA_PASADA.Translate());
+            if (dto.Adelanto < 0) throw new ArgumentException(Translations.ERR_ADELANTO_NEGATIVO.Translate());
+            if (dto.Duracion <= 0) throw new ArgumentException(Translations.ERR_DURACION_CERO.Translate());
+            if (dto.FechaHora < DateTime.Now) throw new ArgumentException(Translations.ERR_FECHA_PASADA.Translate());
 
             var cliente = _clienteRepo.GetById(dto.ClienteId);
-            if (cliente == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate());
+            if (cliente == null) throw new InvalidOperationException(Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate());
 
             var espacio = _espacioRepo.GetById(dto.EspacioId);
-            if (espacio == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_ESPACIO_NO_ENCONTRADO.Translate());
+            if (espacio == null) throw new InvalidOperationException(Translations.ERR_ESPACIO_NO_ENCONTRADO.Translate());
 
             decimal montoTotal = espacio.PrecioHora * (dto.Duracion / 60.0m);
 
-            if (dto.Adelanto > montoTotal) throw new ArgumentException(Domain.Enums.Translations.ERR_ADELANTO_MAYOR_TOTAL.Translate());
+            if (dto.Adelanto > montoTotal) throw new ArgumentException(Translations.ERR_ADELANTO_MAYOR_TOTAL.Translate());
 
             decimal minimoRequerido = montoTotal * 0.1m;
             if (dto.Adelanto < minimoRequerido)
             {
-                throw new ArgumentException(Domain.Enums.Translations.ERR_ADELANTO_MINIMO.Translate());
+                throw new ArgumentException(Translations.ERR_ADELANTO_MINIMO.Translate());
             }
 
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
-                throw new InvalidOperationException(Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate());
+                throw new InvalidOperationException(Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate());
             }
 
             try
             {
-                using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
+                using (var uow = DalFactory.CreateUnitOfWork())
                 {
-                    conn.Open();
-                    using (var tran = conn.BeginTransaction())
+                    try
                     {
-                        try
-                        {
-                            if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion, conn, tran))
-                            {
-                                throw new InvalidOperationException("Space is no longer available (Race Condition).");
-                            }
+                        uow.BeginTransaction();
 
-                            var reserva = new Reserva
+                        if (!uow.ReservaRepository.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
+                        {
+                            throw new InvalidOperationException("Space is no longer available (Race Condition).");
+                        }
+
+                        var reserva = new Reserva
+                        {
+                            Id = Guid.NewGuid(),
+                            ClienteID = dto.ClienteId,
+                            EspacioID = dto.EspacioId,
+                            Fecha = dto.FechaHora.Date,
+                            FechaHora = dto.FechaHora,
+                            Duracion = dto.Duracion,
+                            Adelanto = dto.Adelanto,
+                            CodigoReserva = GenerarCodigoUnico(),
+                            Estado = EstadoReserva.Pendiente.ToString()
+                        };
+
+                        uow.ReservaRepository.Add(reserva);
+
+                        var movDeuda = new Movimiento
+                        {
+                            ClienteID = dto.ClienteId,
+                            Monto = -montoTotal,
+                            Tipo = TipoMovimiento.DeudaReserva,
+                            Descripcion = $"Reservation {reserva.CodigoReserva}",
+                            Fecha = DateTime.Now
+                        };
+                        uow.MovimientoRepository.Insertar(movDeuda);
+
+                        Guid pagoIdParaComprobante = Guid.Empty;
+                        if (dto.Adelanto > 0)
+                        {
+                            var pago = new Pago
                             {
                                 Id = Guid.NewGuid(),
                                 ClienteID = dto.ClienteId,
-                                EspacioID = dto.EspacioId,
-                                Fecha = dto.FechaHora.Date,
-                                FechaHora = dto.FechaHora,
-                                Duracion = dto.Duracion,
-                                Adelanto = dto.Adelanto,
-                                CodigoReserva = GenerarCodigoUnico(),
-                                Estado = EstadoReserva.Pendiente.ToString()
-                            };
-
-                            _reservaRepo.Add(reserva, conn, tran);
-
-                            var movDeuda = new Movimiento
-                            {
-                                ClienteID = dto.ClienteId,
-                                Monto = -montoTotal,
-                                Tipo = TipoMovimiento.DeudaReserva,
-                                Descripcion = $"Reservation {reserva.CodigoReserva}",
+                                Monto = dto.Adelanto,
+                                ReservaID = reserva.Id,
+                                Estado = EstadoPago.Abonado.ToString(),
+                                Metodo = "Adelanto",
+                                Detalle = $"Down payment Reservation {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
-                            _movimientoRepo.Insertar(movDeuda, conn, tran);
+                            pagoIdParaComprobante = pago.Id;
 
-                            Guid pagoIdParaComprobante = Guid.Empty;
-                            if (dto.Adelanto > 0)
+                            uow.PagoRepository.Add(pago);
+
+                            var movPago = new Movimiento
                             {
-                                var pago = new Pago
-                                {
-                                    Id = Guid.NewGuid(),
-                                    ClienteID = dto.ClienteId,
-                                    Monto = dto.Adelanto,
-                                    ReservaID = reserva.Id,
-                                    Estado = EstadoPago.Abonado.ToString(),
-                                    Metodo = "Adelanto",
-                                    Detalle = $"Down payment Reservation {reserva.CodigoReserva}",
-                                    Fecha = DateTime.Now
-                                };
-                                pagoIdParaComprobante = pago.Id;
-
-                                _pagoRepo.Add(pago, conn, tran);
-
-                                var movPago = new Movimiento
-                                {
-                                    ClienteID = dto.ClienteId,
-                                    Monto = dto.Adelanto,
-                                    Tipo = TipoMovimiento.PagoReserva,
-                                    Descripcion = $"Down payment Reservation {reserva.CodigoReserva}",
-                                    Fecha = DateTime.Now,
-                                    PagoID = pago.Id
-                                };
-                                _movimientoRepo.Insertar(movPago, conn, tran);
-                            }
-                            else
-                            {
-                                var pagoCero = new Pago
-                                {
-                                    Id = Guid.NewGuid(),
-                                    ClienteID = dto.ClienteId,
-                                    Monto = 0,
-                                    ReservaID = reserva.Id,
-                                    Estado = EstadoPago.Abonado.ToString(),
-                                    Metodo = "Reserva sin Adelanto",
-                                    Detalle = $"Receipt Reservation {reserva.CodigoReserva}",
-                                    Fecha = DateTime.Now
-                                };
-                                pagoIdParaComprobante = pagoCero.Id;
-                                _pagoRepo.Add(pagoCero, conn, tran);
-                            }
-
-                            tran.Commit();
-
-                            try
-                            {
-                                decimal saldo = montoTotal - dto.Adelanto;
-                                var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobanteReserva(
-                                    reserva.CodigoReserva,
-                                    cliente.DNI.ToString(),
-                                    espacio.Nombre,
-                                    reserva.FechaHora,
-                                    montoTotal,
-                                    dto.Adelanto,
-                                    saldo
-                                );
-
-                                var comprobanteDto = new ComprobanteDTO
-                                {
-                                    PagoID = pagoIdParaComprobante,
-                                    NombreArchivo = $"Reservation_Receipt_{reserva.CodigoReserva}.html",
-                                    Contenido = bytes
-                                };
-
-                                var comprobanteFacade = new Facades.ComprobanteFacade();
-                                comprobanteFacade.Adjuntar(comprobanteDto);
-                            }
-                            catch (Exception compEx)
-                            {
-                                _bitacora.Log($"Warning: Receipt generation failed for Reservation {reserva.CodigoReserva}: {compEx.Message}", "WARN");
-                            }
-
-                            _bitacora.Log($"CU-RES-01: Reservation {reserva.CodigoReserva} generated for client {cliente.DNI}", "INFO");
-
-                            return reserva.CodigoReserva;
+                                ClienteID = dto.ClienteId,
+                                Monto = dto.Adelanto,
+                                Tipo = TipoMovimiento.PagoReserva,
+                                Descripcion = $"Down payment Reservation {reserva.CodigoReserva}",
+                                Fecha = DateTime.Now,
+                                PagoID = pago.Id
+                            };
+                            uow.MovimientoRepository.Insertar(movPago);
                         }
-                        catch
+                        else
                         {
-                            tran.Rollback();
-                            throw;
+                            var pagoCero = new Pago
+                            {
+                                Id = Guid.NewGuid(),
+                                ClienteID = dto.ClienteId,
+                                Monto = 0,
+                                ReservaID = reserva.Id,
+                                Estado = EstadoPago.Abonado.ToString(),
+                                Metodo = "Reserva sin Adelanto",
+                                Detalle = $"Receipt Reservation {reserva.CodigoReserva}",
+                                Fecha = DateTime.Now
+                            };
+                            pagoIdParaComprobante = pagoCero.Id;
+                            uow.PagoRepository.Add(pagoCero);
                         }
+
+                        uow.Commit();
+
+                        try
+                        {
+                            decimal saldo = montoTotal - dto.Adelanto;
+                            var bytes = BLL.Helpers.ComprobanteGenerator.GenerarComprobanteReserva(
+                                reserva.CodigoReserva,
+                                cliente.DNI.ToString(),
+                                espacio.Nombre,
+                                reserva.FechaHora,
+                                montoTotal,
+                                dto.Adelanto,
+                                saldo
+                            );
+
+                            var comprobanteDto = new ComprobanteDTO
+                            {
+                                PagoID = pagoIdParaComprobante,
+                                NombreArchivo = $"Reservation_Receipt_{reserva.CodigoReserva}.html",
+                                Contenido = bytes
+                            };
+
+                            var comprobanteFacade = new Facades.ComprobanteFacade();
+                            comprobanteFacade.Adjuntar(comprobanteDto);
+                        }
+                        catch (Exception compEx)
+                        {
+                            _bitacora.Log($"Warning: Receipt generation failed for Reservation {reserva.CodigoReserva}: {compEx.Message}", "WARN");
+                        }
+
+                        _bitacora.Log($"CU-RES-01: Reservation {reserva.CodigoReserva} generated for client {cliente.DNI}", "INFO");
+
+                        return reserva.CodigoReserva;
+                    }
+                    catch
+                    {
+                        uow.Rollback();
+                        throw;
                     }
                 }
             }
@@ -256,77 +252,75 @@ namespace BLL.Services
         {
             try
             {
-                using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
+                using (var uow = DalFactory.CreateUnitOfWork())
                 {
-                    conn.Open();
                     Reserva reservaParaLog = null;
-                    using (var tran = conn.BeginTransaction())
+                    try
                     {
-                        try
+                        uow.BeginTransaction();
+
+                        var reserva = uow.ReservaRepository.GetById(reservaId);
+
+                        if (reserva == null) throw new InvalidOperationException("ERR_RESERVA_NO_EXISTE");
+
+                        if (reserva.Estado == EstadoReserva.Cancelada.ToString())
                         {
-                            var reserva = _reservaRepo.GetById(reservaId, conn, tran);
+                            throw new InvalidOperationException("Reservation is already cancelled.");
+                        }
+                        if (reserva.Estado == EstadoReserva.Finalizada.ToString())
+                        {
+                            throw new InvalidOperationException("Cannot cancel a completed reservation.");
+                        }
 
-                            if (reserva == null) throw new InvalidOperationException("ERR_RESERVA_NO_EXISTE");
+                        reservaParaLog = reserva;
 
-                            if (reserva.Estado == EstadoReserva.Cancelada.ToString())
+                        reserva.Estado = EstadoReserva.Cancelada.ToString();
+                        uow.ReservaRepository.Update(reserva);
+
+                        var espacio = _espacioRepo.GetById(reserva.EspacioID);
+
+                        decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
+
+                        var movReversa = new Movimiento
+                        {
+                            ClienteID = reserva.ClienteID,
+                            Monto = montoTotal,
+                            Tipo = TipoMovimiento.CancelacionReserva,
+                            Descripcion = $"Cancellation Reservation {reserva.CodigoReserva}",
+                            Fecha = DateTime.Now
+                        };
+                        uow.MovimientoRepository.Insertar(movReversa);
+
+                        var pagos = uow.PagoRepository.GetByReserva(reservaId);
+
+                        foreach (var pago in pagos)
+                        {
+                            if (pago.Estado == EstadoPago.Abonado.ToString())
                             {
-                                throw new InvalidOperationException("Reservation is already cancelled.");
-                            }
-                            if (reserva.Estado == EstadoReserva.Finalizada.ToString())
-                            {
-                                throw new InvalidOperationException("Cannot cancel a completed reservation.");
-                            }
+                                pago.Estado = EstadoPago.Reembolsado.ToString();
+                                uow.PagoRepository.Update(pago);
 
-                            reservaParaLog = reserva;
-
-                            reserva.Estado = EstadoReserva.Cancelada.ToString();
-                            _reservaRepo.Update(reserva, conn, tran);
-
-                            var espacio = _espacioRepo.GetById(reserva.EspacioID);
-
-                            decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
-
-                            var movReversa = new Movimiento
-                            {
-                                ClienteID = reserva.ClienteID,
-                                Monto = montoTotal,
-                                Tipo = TipoMovimiento.CancelacionReserva,
-                                Descripcion = $"Cancellation Reservation {reserva.CodigoReserva}",
-                                Fecha = DateTime.Now
-                            };
-                            _movimientoRepo.Insertar(movReversa, conn, tran);
-
-                            var pagos = _pagoRepo.GetByReserva(reservaId, conn, tran);
-
-                            foreach (var pago in pagos)
-                            {
-                                if (pago.Estado == EstadoPago.Abonado.ToString())
+                                var movReembolso = new Movimiento
                                 {
-                                    pago.Estado = EstadoPago.Reembolsado.ToString();
-                                    _pagoRepo.Update(pago, conn, tran);
-
-                                    var movReembolso = new Movimiento
-                                    {
-                                        ClienteID = pago.ClienteID,
-                                        Monto = -pago.Monto,
-                                        Tipo = TipoMovimiento.Reembolso,
-                                        Descripcion = $"Refund Reservation {reserva.CodigoReserva}",
-                                        Fecha = DateTime.Now,
-                                        PagoID = pago.Id
-                                    };
-                                    _movimientoRepo.Insertar(movReembolso, conn, tran);
-                                }
+                                    ClienteID = pago.ClienteID,
+                                    Monto = -pago.Monto,
+                                    Tipo = TipoMovimiento.Reembolso,
+                                    Descripcion = $"Refund Reservation {reserva.CodigoReserva}",
+                                    Fecha = DateTime.Now,
+                                    PagoID = pago.Id
+                                };
+                                uow.MovimientoRepository.Insertar(movReembolso);
                             }
-
-                            tran.Commit();
-
-                            _bitacora.Log($"CU-RES-02: Reservation {reservaParaLog.CodigoReserva} cancelled", "INFO");
                         }
-                        catch
-                        {
-                            tran.Rollback();
-                            throw;
-                        }
+
+                        uow.Commit();
+
+                        _bitacora.Log($"CU-RES-02: Reservation {reservaParaLog.CodigoReserva} cancelled", "INFO");
+                    }
+                    catch
+                    {
+                        uow.Rollback();
+                        throw;
                     }
                 }
             }

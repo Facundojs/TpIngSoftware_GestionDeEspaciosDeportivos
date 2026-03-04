@@ -9,6 +9,7 @@ using Service.DTO;
 using Service.Helpers;
 using Domain.Composite;
 using Service.Facade.Extension;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -28,16 +29,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.FRM_MEMBRESIA_TITLE.Translate();
-            lblCodigo.Text = Domain.Enums.Translations.LBL_CODIGO.Translate();
-            lblNombre.Text = Domain.Enums.Translations.LBL_NOMBRE.Translate();
-            lblPrecio.Text = Domain.Enums.Translations.LBL_PRECIO.Translate();
-            lblRegularidad.Text = Domain.Enums.Translations.LBL_REGULARIDAD.Translate();
-            lblDetalle.Text = Domain.Enums.Translations.LBL_DETALLE.Translate();
-            btnCrear.Text = Domain.Enums.Translations.BTN_CREAR.Translate();
-            btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
-            btnDeshabilitar.Text = Domain.Enums.Translations.BTN_DESHABILITAR.Translate();
-            btnLimpiar.Text = Domain.Enums.Translations.BTN_LIMPIAR.Translate();
+            this.Text = Translations.FRM_MEMBRESIA_TITLE.Translate();
+            lblCodigo.Text = Translations.LBL_CODIGO.Translate();
+            lblNombre.Text = Translations.LBL_NOMBRE.Translate();
+            lblPrecio.Text = Translations.LBL_PRECIO.Translate();
+            lblRegularidad.Text = Translations.LBL_REGULARIDAD.Translate();
+            lblDetalle.Text = Translations.LBL_DETALLE.Translate();
+            btnCrear.Text = Translations.BTN_CREAR.Translate();
+            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+            btnDeshabilitar.Text = Translations.BTN_DESHABILITAR.Translate();
+            btnLimpiar.Text = Translations.BTN_LIMPIAR.Translate();
         }
 
         private void FrmMembresias_Load(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.MembresiaListar))
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_LIST.Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
                 this.Close();
             }
         }
@@ -71,11 +72,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 // Hide ID column if exists
                 if(dgvMembresias.Columns["Id"] != null) dgvMembresias.Columns["Id"].Visible = false;
-                if(dgvMembresias.Columns["PrecioFormateado"] != null) dgvMembresias.Columns["PrecioFormateado"].HeaderText = Domain.Enums.Translations.LBL_PRECIO.Translate();
+                if(dgvMembresias.Columns["PrecioFormateado"] != null) dgvMembresias.Columns["PrecioFormateado"].HeaderText = Translations.LBL_PRECIO.Translate();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -123,25 +124,25 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (string.IsNullOrWhiteSpace(txtCodigo.Text) || !int.TryParse(txtCodigo.Text, out int cod) || cod <= 0)
             {
-                errorProvider.SetError(txtCodigo, Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate());
+                errorProvider.SetError(txtCodigo, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                errorProvider.SetError(txtNombre, Domain.Enums.Translations.ERR_REQUIRED_FIELD.Translate());
+                errorProvider.SetError(txtNombre, Translations.ERR_REQUIRED_FIELD.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtPrecio.Text) || !decimal.TryParse(txtPrecio.Text, out decimal precio) || precio <= 0)
             {
-                errorProvider.SetError(txtPrecio, Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate());
+                errorProvider.SetError(txtPrecio, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(txtRegularidad.Text) || !int.TryParse(txtRegularidad.Text, out int reg) || reg <= 0)
             {
-                errorProvider.SetError(txtRegularidad, Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate());
+                errorProvider.SetError(txtRegularidad, Translations.ERR_INVALID_NUMBER.Translate());
                 isValid = false;
             }
 
@@ -170,13 +171,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var dto = GetFormData();
                 // ID is handled in service
                 _membresiaManager.CrearMembresia(dto);
-                MessageBox.Show(Domain.Enums.Translations.MSG_MEMBRESIA_CREATED.Translate());
+                MessageBox.Show(Translations.MSG_MEMBRESIA_CREATED.Translate());
                 LoadMembresias();
                 ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -192,12 +193,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dto.Activa = _selectedMembresia.Activa; // Preserve state
 
                 _membresiaManager.ActualizarMembresia(dto);
-                MessageBox.Show(Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED.Translate());
+                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate());
                 LoadMembresias();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -205,17 +206,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedMembresia == null) return;
 
-            if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR.Translate(), Domain.Enums.Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_DESHABILITAR.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
                     _membresiaManager.DeshabilitarMembresia(_selectedMembresia.Id);
-                    MessageBox.Show(Domain.Enums.Translations.MSG_MEMBRESIA_DISABLED.Translate());
+                    MessageBox.Show(Translations.MSG_MEMBRESIA_DISABLED.Translate());
                     LoadMembresias();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
                 }
             }
         }

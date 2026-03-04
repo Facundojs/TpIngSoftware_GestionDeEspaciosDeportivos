@@ -1,6 +1,5 @@
 using DAL.Contracts;
 using Domain.Entities;
-using Service.Impl;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,17 +10,12 @@ namespace DAL.Impl
     {
         public void Add(Ejercicio obj)
         {
-            Add(obj, null, null);
-        }
-
-        public void Add(Ejercicio obj, SqlConnection conn, SqlTransaction tran)
-        {
             string query = "INSERT INTO Ejercicio (Id, Nombre) VALUES (@Id, @Nombre)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
                 new SqlParameter("@Nombre", obj.Nombre)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public void Update(Ejercicio obj)

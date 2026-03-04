@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Service.DTO;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 using Service.Facade.Extension;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -32,18 +33,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_clienteFiltro != null)
             {
-                this.Text = $"{Domain.Enums.Translations.FRM_INGRESOS_TITLE.Translate()} - {_clienteFiltro.Nombre} {_clienteFiltro.Apellido}";
+                this.Text = $"{Translations.FRM_INGRESOS_TITLE.Translate()} - {_clienteFiltro.Nombre} {_clienteFiltro.Apellido}";
             }
             else
             {
-                this.Text = Domain.Enums.Translations.FRM_INGRESOS_TITLE.Translate();
+                this.Text = Translations.FRM_INGRESOS_TITLE.Translate();
             }
-            btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
+            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
 
             if (dgvIngresos.Columns.Count > 0)
             {
-                dgvIngresos.Columns["ClienteNombre"].HeaderText = Domain.Enums.Translations.LBL_CLIENTE_NOMBRE.Translate();
-                dgvIngresos.Columns["FechaHora"].HeaderText = Domain.Enums.Translations.LBL_FECHA.Translate();
+                dgvIngresos.Columns["ClienteNombre"].HeaderText = Translations.LBL_CLIENTE_NOMBRE.Translate();
+                dgvIngresos.Columns["FechaHora"].HeaderText = Translations.LBL_FECHA.Translate();
             }
         }
 
@@ -66,7 +67,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -76,9 +77,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 dgvIngresos.Columns["Id"].Visible = false;
                 dgvIngresos.Columns["ClienteID"].Visible = false;
-                dgvIngresos.Columns["ClienteNombre"].HeaderText = Domain.Enums.Translations.LBL_CLIENTE_NOMBRE.Translate();
+                dgvIngresos.Columns["ClienteNombre"].HeaderText = Translations.LBL_CLIENTE_NOMBRE.Translate();
                 dgvIngresos.Columns["ClienteNombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvIngresos.Columns["FechaHora"].HeaderText = Domain.Enums.Translations.LBL_FECHA.Translate();
+                dgvIngresos.Columns["FechaHora"].HeaderText = Translations.LBL_FECHA.Translate();
                 dgvIngresos.Columns["FechaHora"].DefaultCellStyle.Format = "g";
             }
         }

@@ -3,6 +3,8 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
+using Domain.Enums;
+using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
@@ -26,8 +28,8 @@ namespace BLL.Services
             try
             {
                 if (dto == null) throw new ArgumentNullException(nameof(dto));
-                if (dto.PrecioHora < 0) throw new ArgumentException(Domain.Enums.Translations.ERR_PRECIO_NEGATIVO.Translate());
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
+                if (dto.PrecioHora < 0) throw new ArgumentException(Translations.ERR_PRECIO_NEGATIVO.Translate());
+                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Translations.ERR_NOMBRE_REQUERIDO.Translate());
 
                 var entity = EspacioMapper.Map(dto);
                 if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
@@ -47,8 +49,8 @@ namespace BLL.Services
             try
             {
                 if (dto == null) throw new ArgumentNullException(nameof(dto));
-                if (dto.PrecioHora < 0) throw new ArgumentException(Domain.Enums.Translations.ERR_PRECIO_NEGATIVO.Translate());
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO.Translate());
+                if (dto.PrecioHora < 0) throw new ArgumentException(Translations.ERR_PRECIO_NEGATIVO.Translate());
+                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Translations.ERR_NOMBRE_REQUERIDO.Translate());
 
                 var entity = EspacioMapper.Map(dto);
                 _espacioRepository.Update(entity);

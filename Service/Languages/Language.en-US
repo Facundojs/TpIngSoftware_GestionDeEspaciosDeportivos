@@ -171,7 +171,7 @@ MENU_INGRESOS=Ingresses
 MENU_FAMILIAS=Manage Families
 LBL_CLIENTE_NOMBRE=Client Name
 LBL_PROXIMA_FECHA_PAGO=Next Payment Date
-
+ERR_METODO_REQUERIDO=Payment method required.
 LBL_RAZON_DESHABILITAR=Reason for disabling:
 TITLE_DESHABILITAR=Disable client
 BTN_OK=OK

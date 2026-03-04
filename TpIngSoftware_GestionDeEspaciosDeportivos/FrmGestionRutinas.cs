@@ -7,6 +7,7 @@ using Service.DTO;
 using Service.Helpers;
 using Service.Facade.Extension;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -32,18 +33,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void ConfigurarUI()
         {
-            this.Text = Domain.Enums.Translations.FRM_GESTION_RUTINAS_TITLE.Translate();
-            btnGestionarEjercicios.Text = Domain.Enums.Translations.BTN_GESTIONAR_EJERCICIOS.Translate();
-            chkVerHistorial.Text = Domain.Enums.Translations.CHK_VER_HISTORIAL.Translate();
-            btnNueva.Text = Domain.Enums.Translations.BTN_NUEVA_RUTINA.Translate();
-            btnModificar.Text = Domain.Enums.Translations.BTN_MODIFICAR.Translate();
-            btnEliminar.Text = Domain.Enums.Translations.BTN_ELIMINAR.Translate();
+            this.Text = Translations.FRM_GESTION_RUTINAS_TITLE.Translate();
+            btnGestionarEjercicios.Text = Translations.BTN_GESTIONAR_EJERCICIOS.Translate();
+            chkVerHistorial.Text = Translations.CHK_VER_HISTORIAL.Translate();
+            btnNueva.Text = Translations.BTN_NUEVA_RUTINA.Translate();
+            btnModificar.Text = Translations.BTN_MODIFICAR.Translate();
+            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
 
             dgvRutinas.AutoGenerateColumns = false;
             dgvRutinas.Columns.Clear();
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteNombre", HeaderText = Domain.Enums.Translations.LBL_CLIENTE.Translate(), Width = 200 });
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Desde", HeaderText = Domain.Enums.Translations.LBL_RUTINA_DESDE.Translate() });
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Hasta", HeaderText = Domain.Enums.Translations.LBL_RUTINA_HASTA.Translate() });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteNombre", HeaderText = Translations.LBL_CLIENTE.Translate(), Width = 200 });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Desde", HeaderText = Translations.LBL_RUTINA_DESDE.Translate() });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Hasta", HeaderText = Translations.LBL_RUTINA_HASTA.Translate() });
         }
 
         private void ApplyPermissions()
@@ -68,7 +69,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -106,21 +107,21 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_usuario.TienePermiso(PermisoKeys.RutinaEliminar))
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_USERS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     _rutinaManager.BorrarRutina(_rutinaSeleccionada.Id);
-                    MessageBox.Show(Domain.Enums.Translations.MSG_RUTINA_ELIMINADA.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.MSG_RUTINA_ELIMINADA.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarRutinas();
                 }
                 catch (Exception ex)
                 {
-                     MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

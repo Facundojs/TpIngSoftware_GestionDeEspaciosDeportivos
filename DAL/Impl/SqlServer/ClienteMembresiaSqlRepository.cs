@@ -1,6 +1,5 @@
 using DAL.Contracts;
 using Domain.Entities;
-using Service.Impl;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -15,11 +14,6 @@ namespace DAL.Impl.SqlServer
 
         public void Add(ClienteMembresia obj)
         {
-            Add(obj, null, null);
-        }
-
-        public void Add(ClienteMembresia obj, SqlConnection conn, SqlTransaction tran)
-        {
             string query = "INSERT INTO ClienteMembresia (Id, ClienteID, MembresiaID, FechaAsignacion, ProximaFechaPago, FechaBaja) VALUES (@Id, @ClienteID, @MembresiaID, @FechaAsignacion, @ProximaFechaPago, @FechaBaja)";
             SqlParameter[] parameters = {
                 new SqlParameter("@Id", obj.Id),
@@ -29,15 +23,10 @@ namespace DAL.Impl.SqlServer
                 new SqlParameter("@ProximaFechaPago", (object)obj.ProximaFechaPago ?? DBNull.Value),
                 new SqlParameter("@FechaBaja", (object)obj.FechaBaja ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public void Update(ClienteMembresia obj)
-        {
-            Update(obj, null, null);
-        }
-
-        public void Update(ClienteMembresia obj, SqlConnection conn, SqlTransaction tran)
         {
             string query = "UPDATE ClienteMembresia SET ClienteID = @ClienteID, MembresiaID = @MembresiaID, FechaAsignacion = @FechaAsignacion, ProximaFechaPago = @ProximaFechaPago, FechaBaja = @FechaBaja WHERE Id = @Id";
             SqlParameter[] parameters = {
@@ -48,7 +37,7 @@ namespace DAL.Impl.SqlServer
                 new SqlParameter("@ProximaFechaPago", (object)obj.ProximaFechaPago ?? DBNull.Value),
                 new SqlParameter("@FechaBaja", (object)obj.FechaBaja ?? DBNull.Value)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
         public void Remove(Guid id)
@@ -88,7 +77,7 @@ namespace DAL.Impl.SqlServer
             });
         }
 
-        public ClienteMembresia GetActiveByClienteId(Guid clienteId, SqlConnection conn = null, SqlTransaction tran = null)
+        public ClienteMembresia GetActiveByClienteId(Guid clienteId)
         {
             string query = "SELECT TOP 1 Id, ClienteID, MembresiaID, FechaAsignacion, ProximaFechaPago, FechaBaja FROM ClienteMembresia WHERE ClienteID = @ClienteID AND FechaBaja IS NULL ORDER BY FechaAsignacion DESC";
             SqlParameter[] parameters = { new SqlParameter("@ClienteID", clienteId) };
@@ -100,7 +89,7 @@ namespace DAL.Impl.SqlServer
                     return Map(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
         private ClienteMembresia Map(SqlDataReader reader)

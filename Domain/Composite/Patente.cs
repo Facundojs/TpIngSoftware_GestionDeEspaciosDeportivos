@@ -1,3 +1,4 @@
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,12 @@ namespace Domain.Composite
 
         public override void Agregar(Acceso componente)
         {
-            throw new InvalidOperationException(Domain.Enums.Translations.ERR_PATENTE_ADD_CHILD.Translate());
+            throw new InvalidOperationException(Translations.ERR_PATENTE_ADD_CHILD.ToString());
             }
 
             public override void Eliminar(Acceso acceso)
             {
-            throw new InvalidOperationException(Domain.Enums.Translations.ERR_PATENTE_REMOVE_CHILD.Translate());
+            throw new InvalidOperationException(Translations.ERR_PATENTE_REMOVE_CHILD.ToString());
         }
     }
 }

@@ -12,6 +12,7 @@ using Service.Logic;
 using Service.Facade.Extension;
 using Domain.Composite;
 using Service.Helpers;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -49,19 +50,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.BITACORA_TITLE.Translate();
-            lblFrom.Text = Domain.Enums.Translations.LBL_DATE_FROM.Translate();
-            lblTo.Text = Domain.Enums.Translations.LBL_DATE_TO.Translate();
-            lblLevel.Text = Domain.Enums.Translations.LBL_LOG_LEVEL.Translate();
-            lblMessage.Text = Domain.Enums.Translations.LBL_MESSAGE.Translate();
-            btnFilter.Text = Domain.Enums.Translations.BTN_FILTER.Translate();
+            this.Text = Translations.BITACORA_TITLE.Translate();
+            lblFrom.Text = Translations.LBL_DATE_FROM.Translate();
+            lblTo.Text = Translations.LBL_DATE_TO.Translate();
+            lblLevel.Text = Translations.LBL_LOG_LEVEL.Translate();
+            lblMessage.Text = Translations.LBL_MESSAGE.Translate();
+            btnFilter.Text = Translations.BTN_FILTER.Translate();
         }
 
         private void FrmBitacora_Load(object sender, EventArgs e)
         {
             if (_usuario != null && !_usuario.TienePermiso(PermisoKeys.BitacoraVer))
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_LOGS.Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LOGS.Translate());
                 this.Close();
                 return;
             }
@@ -83,18 +84,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (dgvLogs.Columns["UsuarioNombre"] != null)
                 {
-                    dgvLogs.Columns["UsuarioNombre"].HeaderText = Domain.Enums.Translations.LBL_USERNAME.Translate();
+                    dgvLogs.Columns["UsuarioNombre"].HeaderText = Translations.LBL_USERNAME.Translate();
                 }
 
                 dgvLogs.AutoResizeColumns();
 
-                lblPage.Text = Domain.Enums.Translations.LBL_PAGE.Translate() + " " + _page;
+                lblPage.Text = Translations.LBL_PAGE.Translate() + " " + _page;
                 btnPrev.Enabled = _page > 1;
                 btnNext.Enabled = logs.Count == PageSize;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 

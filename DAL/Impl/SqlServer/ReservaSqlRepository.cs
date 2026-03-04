@@ -13,62 +13,7 @@ namespace DAL.Impl
         {
         }
 
-        #region IGenericRepository Implementation
-
         public void Add(Reserva obj)
-        {
-            Add(obj, null, null);
-        }
-
-        public void Update(Reserva obj)
-        {
-            Update(obj, null, null);
-        }
-
-        public void Remove(Guid id)
-        {
-            Remove(id, null, null);
-        }
-
-        public Reserva GetById(Guid id)
-        {
-            return GetById(id, null, null);
-        }
-
-        public List<Reserva> GetAll()
-        {
-            return GetAll(null, null);
-        }
-
-        #endregion
-
-        #region Custom Methods Implementation
-
-        public List<Reserva> GetByEspacio(Guid espacioId, DateTime desde, DateTime hasta)
-        {
-            return GetByEspacio(espacioId, desde, hasta, null, null);
-        }
-
-        public List<Reserva> GetByCliente(Guid clienteId)
-        {
-            return GetByCliente(clienteId, null, null);
-        }
-
-        public Reserva GetByCodigo(string codigoReserva)
-        {
-            return GetByCodigo(codigoReserva, null, null);
-        }
-
-        public bool EspacioDisponible(Guid espacioId, DateTime fechaHora, int duracion)
-        {
-            return EspacioDisponible(espacioId, fechaHora, duracion, null, null);
-        }
-
-        #endregion
-
-        #region UoW Overloads & Implementation
-
-        public void Add(Reserva obj, SqlConnection conn = null, SqlTransaction tran = null)
         {
             string query = "INSERT INTO Reserva (Id, ClienteID, EspacioID, Fecha, FechaHora, Duracion, Adelanto, CodigoReserva, Estado) VALUES (@Id, @ClienteID, @EspacioID, @Fecha, @FechaHora, @Duracion, @Adelanto, @CodigoReserva, @Estado)";
             SqlParameter[] parameters = {
@@ -82,10 +27,10 @@ namespace DAL.Impl
                 new SqlParameter("@CodigoReserva", obj.CodigoReserva),
                 new SqlParameter("@Estado", obj.Estado)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void Update(Reserva obj, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Update(Reserva obj)
         {
             string query = "UPDATE Reserva SET ClienteID = @ClienteID, EspacioID = @EspacioID, Fecha = @Fecha, FechaHora = @FechaHora, Duracion = @Duracion, Adelanto = @Adelanto, CodigoReserva = @CodigoReserva, Estado = @Estado WHERE Id = @Id";
             SqlParameter[] parameters = {
@@ -99,17 +44,17 @@ namespace DAL.Impl
                 new SqlParameter("@CodigoReserva", obj.CodigoReserva),
                 new SqlParameter("@Estado", obj.Estado)
             };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public void Remove(Guid id, SqlConnection conn = null, SqlTransaction tran = null)
+        public void Remove(Guid id)
         {
             string query = "DELETE FROM Reserva WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
-            ExecuteNonQuery(query, parameters, conn, tran);
+            ExecuteNonQuery(query, parameters);
         }
 
-        public Reserva GetById(Guid id, SqlConnection conn = null, SqlTransaction tran = null)
+        public Reserva GetById(Guid id)
         {
             string query = "SELECT Id, ClienteID, EspacioID, Fecha, FechaHora, Duracion, Adelanto, CodigoReserva, Estado FROM Reserva WHERE Id = @Id";
             SqlParameter[] parameters = { new SqlParameter("@Id", id) };
@@ -121,10 +66,10 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
-        public List<Reserva> GetAll(SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Reserva> GetAll()
         {
             string query = "SELECT Id, ClienteID, EspacioID, Fecha, FechaHora, Duracion, Adelanto, CodigoReserva, Estado FROM Reserva ORDER BY FechaHora DESC";
             return ExecuteReader(query, null, reader =>
@@ -135,10 +80,10 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
 
-        public List<Reserva> GetByEspacio(Guid espacioId, DateTime desde, DateTime hasta, SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Reserva> GetByEspacio(Guid espacioId, DateTime desde, DateTime hasta)
         {
             string query = "SELECT Id, ClienteID, EspacioID, Fecha, FechaHora, Duracion, Adelanto, CodigoReserva, Estado FROM Reserva WHERE EspacioID = @EspacioID AND Fecha >= @Desde AND Fecha <= @Hasta ORDER BY FechaHora";
             SqlParameter[] parameters = {
@@ -155,10 +100,10 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
 
-        public List<Reserva> GetByCliente(Guid clienteId, SqlConnection conn = null, SqlTransaction tran = null)
+        public List<Reserva> GetByCliente(Guid clienteId)
         {
             string query = "SELECT Id, ClienteID, EspacioID, Fecha, FechaHora, Duracion, Adelanto, CodigoReserva, Estado FROM Reserva WHERE ClienteID = @ClienteID ORDER BY FechaHora DESC";
             SqlParameter[] parameters = { new SqlParameter("@ClienteID", clienteId) };
@@ -171,10 +116,10 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, conn, tran);
+            });
         }
 
-        public Reserva GetByCodigo(string codigoReserva, SqlConnection conn = null, SqlTransaction tran = null)
+        public Reserva GetByCodigo(string codigoReserva)
         {
             string query = "SELECT Id, ClienteID, EspacioID, Fecha, FechaHora, Duracion, Adelanto, CodigoReserva, Estado FROM Reserva WHERE CodigoReserva = @CodigoReserva";
             SqlParameter[] parameters = { new SqlParameter("@CodigoReserva", codigoReserva) };
@@ -186,11 +131,10 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, conn, tran);
+            });
         }
 
-
-        public bool EspacioDisponible(Guid espacioId, DateTime fechaHora, int duracion, SqlConnection conn = null, SqlTransaction tran = null)
+        public bool EspacioDisponible(Guid espacioId, DateTime fechaHora, int duracion)
         {
             string agendaQuery = "SELECT HoraDesde, HoraHasta FROM Agenda WHERE EspacioID = @EspacioId AND DiaSemana = @DiaSemana";
             SqlParameter[] agendaParams = {
@@ -206,7 +150,7 @@ namespace DAL.Impl
                     list.Add(Tuple.Create(reader.GetTimeSpan(0), reader.GetTimeSpan(1)));
                 }
                 return list;
-            }, conn, tran);
+            });
 
             if (agendas.Count == 0)
             {
@@ -246,19 +190,10 @@ namespace DAL.Impl
                 new SqlParameter("@EstadoCancelado", EstadoReserva.Cancelada.ToString())
             };
 
-            int count = ExecuteReader(query, parameters, reader =>
-            {
-                if (reader.Read())
-                {
-                    return reader.GetInt32(0);
-                }
-                return 0;
-            }, conn, tran);
+            int count = ExecuteScalar<int>(query, parameters);
 
             return count == 0;
         }
-
-        #endregion
 
         private Reserva MapFromReader(SqlDataReader reader)
         {

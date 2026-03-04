@@ -1,4 +1,5 @@
 using Domain.Composite;
+using Domain.Enums;
 using Service.DTO;
 using Service.Facade.Extension;
 using Service.Logic;
@@ -31,9 +32,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.PERMISSIONS_TITLE.Translate();
-            btnSave.Text = Domain.Enums.Translations.BTN_SAVE.Translate();
-            btnCancel.Text = Domain.Enums.Translations.BTN_CANCEL.Translate();
+            this.Text = Translations.PERMISSIONS_TITLE.Translate();
+            btnSave.Text = Translations.BTN_SAVE.Translate();
+            btnCancel.Text = Translations.BTN_CANCEL.Translate();
         }
 
         private void FrmGestionPermisos_Load(object sender, EventArgs e)
@@ -89,12 +90,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              {
                  _usuario.Permisos = nuevosPermisos;
                  _usuarioService.Update(_usuario);
-                 MessageBox.Show(Domain.Enums.Translations.MSG_PERMISSIONS_UPDATED.Translate());
+                 MessageBox.Show(Translations.MSG_PERMISSIONS_UPDATED.Translate());
                  this.Close();
              }
              catch(Exception ex)
              {
-                 MessageBox.Show(Domain.Enums.Translations.MSG_ERR_SAVE.Translate() + ex.Message);
+                 MessageBox.Show(Translations.MSG_ERR_SAVE.Translate() + ex.Message);
              }
         }
 

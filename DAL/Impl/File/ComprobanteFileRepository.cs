@@ -1,5 +1,7 @@
 using DAL.Contracts;
 using Domain.Entities;
+using Domain.Enums;
+using Service.Facade.Extension;
 using System;
 using System.IO;
 
@@ -21,8 +23,8 @@ namespace DAL.Impl.File
         public void Agregar(Comprobante obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (obj.PagoID == Guid.Empty) throw new ArgumentException(Domain.Enums.Translations.ERR_PAGOID_REQUERIDO.Translate());
-            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException(Domain.Enums.Translations.ERR_COMPROBANTE_VACIO.Translate());
+            if (obj.PagoID == Guid.Empty) throw new ArgumentException(Translations.ERR_PAGOID_REQUERIDO.Translate());
+            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException(Translations.ERR_COMPROBANTE_VACIO.Translate());
 
             try
             {

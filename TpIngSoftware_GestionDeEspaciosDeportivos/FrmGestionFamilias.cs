@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Service.Helpers;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -25,13 +26,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.PERMISSIONS_TITLE.Translate();
+            this.Text = Translations.PERMISSIONS_TITLE.Translate();
             lblFamilias.Text = "Familias";
             lblPatentes.Text = "Patentes";
-            lblNombreFamilia.Text = Domain.Enums.Translations.LBL_NOMBRE.Translate();
-            btnCrear.Text = Domain.Enums.Translations.BTN_CREAR.Translate();
-            btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
-            btnEliminar.Text = Domain.Enums.Translations.BTN_ELIMINAR.Translate();
+            lblNombreFamilia.Text = Translations.LBL_NOMBRE.Translate();
+            btnCrear.Text = Translations.BTN_CREAR.Translate();
+            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
         }
 
         private void FrmGestionFamilias_Load(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_usuario.TienePermiso(PermisoKeys.PermisoAsignar))
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_LIST.Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
                 this.Close();
             }
         }
@@ -105,7 +106,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (string.IsNullOrWhiteSpace(txtNombreFamilia.Text))
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_REQUIRED_FIELD.Translate());
+                MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate());
                 return;
             }
 
@@ -128,12 +129,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 _permisosService.CrearFamilia(nuevaFamilia);
                 _permisosService.GuardarFamilia(nuevaFamilia);
 
-                MessageBox.Show(Domain.Enums.Translations.MSG_SUCCESS.Translate());
+                MessageBox.Show(Translations.MSG_SUCCESS.Translate());
                 LoadFamilias();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
             }
         }
 
@@ -143,7 +144,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (fam.Nombre == "Administrador")
                 {
-                    MessageBox.Show(Domain.Enums.Translations.ERR_CANNOT_EDIT_ADMIN.Translate());
+                    MessageBox.Show(Translations.ERR_CANNOT_EDIT_ADMIN.Translate());
                     return;
                 }
 
@@ -168,12 +169,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     }
 
                     _permisosService.GuardarFamilia(fam);
-                    MessageBox.Show(Domain.Enums.Translations.MSG_SUCCESS.Translate());
+                    MessageBox.Show(Translations.MSG_SUCCESS.Translate());
                     LoadFamilias();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
                 }
             }
         }
@@ -184,19 +185,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (fam.Nombre == "Administrador")
                 {
-                    MessageBox.Show(Domain.Enums.Translations.ERR_CANNOT_DELETE_ADMIN.Translate());
+                    MessageBox.Show(Translations.ERR_CANNOT_DELETE_ADMIN.Translate());
                     return;
                 }
 
                 try
                 {
                     _permisosService.EliminarFamilia(fam.Id);
-                    MessageBox.Show(Domain.Enums.Translations.MSG_SUCCESS.Translate());
+                    MessageBox.Show(Translations.MSG_SUCCESS.Translate());
                     LoadFamilias();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
                 }
             }
         }

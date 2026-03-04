@@ -1,5 +1,7 @@
-﻿using Service.Contracts;
+﻿using Domain.Enums;
+using Service.Contracts;
 using Service.DTO;
+using Service.Facade.Extension;
 using Service.Helpers;
 using System;
 using System.Collections.Generic;
@@ -103,7 +105,7 @@ namespace Service.Impl.SqlServer
             }
             else
             {
-                throw new FileNotFoundException(Domain.Enums.Translations.ERR_BACKUP_NO_EXISTE.Translate(), safeFilename);
+                throw new FileNotFoundException(Translations.ERR_BACKUP_NO_EXISTE.Translate(), safeFilename);
             }
         }
     }
