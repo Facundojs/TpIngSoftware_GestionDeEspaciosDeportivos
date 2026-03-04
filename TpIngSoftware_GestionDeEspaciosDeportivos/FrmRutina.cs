@@ -195,13 +195,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 // Validate
                 if (string.IsNullOrWhiteSpace(txtNombreEjercicio.Text))
                 {
-                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!int.TryParse(txtRepeticiones.Text, out int rep) || rep <= 0)
                 {
-                    MessageBox.Show(Translations.ERR_EJERCICIO_REP_ZERO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_EJERCICIO_REP_ZERO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -231,7 +231,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -249,7 +249,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (_ejerciciosBinding.Count == 0)
                 {
-                    MessageBox.Show(Translations.ERR_RUTINA_SIN_EJERCICIOS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_RUTINA_SIN_EJERCICIOS.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -262,7 +262,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     if (!_usuario.TienePermiso(PermisoKeys.RutinaCrear))
                     {
-                        MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Generic no perm
+                        MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error); // Generic no perm
                         return;
                     }
                     _rutinaManager.CrearRutina(_rutinaActual);
@@ -271,7 +271,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     if (!_usuario.TienePermiso(PermisoKeys.RutinaModificar))
                     {
-                         MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                         MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                          return;
                     }
                     // For modification, the service expects RutinaId and List<Ejercicio>
@@ -279,7 +279,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     _rutinaManager.ModificarRutina(_rutinaActual.Id, _rutinaActual.Ejercicios);
                 }
 
-                MessageBox.Show(Translations.MSG_RUTINA_GUARDADA.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_RUTINA_GUARDADA.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarRutina(); // Refresh
             }
             catch (Exception ex)
@@ -292,17 +292,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_rutinaActual == null || _rutinaActual.Id == Guid.Empty) return;
 
-            if (MessageBox.Show(Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     _rutinaManager.BorrarRutina(_rutinaActual.Id);
-                    MessageBox.Show(Translations.MSG_RUTINA_ELIMINADA.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.MSG_RUTINA_ELIMINADA.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarRutina();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al borrar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -98,9 +98,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(850, 30);
+            this.btnRegistrar.Location = new System.Drawing.Point(822, 30);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(100, 30);
+            this.btnRegistrar.Size = new System.Drawing.Size(100, 26);
             this.btnRegistrar.TabIndex = 8;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // txtDetalle
             // 
-            this.txtDetalle.Location = new System.Drawing.Point(620, 35);
+            this.txtDetalle.Location = new System.Drawing.Point(463, 36);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(200, 20);
             this.txtDetalle.TabIndex = 7;
@@ -116,7 +116,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblDetalle
             // 
             this.lblDetalle.AutoSize = true;
-            this.lblDetalle.Location = new System.Drawing.Point(570, 38);
+            this.lblDetalle.Location = new System.Drawing.Point(460, 16);
             this.lblDetalle.Name = "lblDetalle";
             this.lblDetalle.Size = new System.Drawing.Size(43, 13);
             this.lblDetalle.TabIndex = 6;
@@ -130,15 +130,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             "Efectivo",
             "Tarjeta",
             "Transferencia"});
-            this.cmbMetodo.Location = new System.Drawing.Point(400, 35);
+            this.cmbMetodo.Location = new System.Drawing.Point(255, 35);
             this.cmbMetodo.Name = "cmbMetodo";
-            this.cmbMetodo.Size = new System.Drawing.Size(150, 21);
+            this.cmbMetodo.Size = new System.Drawing.Size(186, 21);
             this.cmbMetodo.TabIndex = 5;
             // 
             // lblMetodo
             // 
             this.lblMetodo.AutoSize = true;
-            this.lblMetodo.Location = new System.Drawing.Point(350, 38);
+            this.lblMetodo.Location = new System.Drawing.Point(252, 16);
             this.lblMetodo.Name = "lblMetodo";
             this.lblMetodo.Size = new System.Drawing.Size(46, 13);
             this.lblMetodo.TabIndex = 4;
@@ -146,7 +146,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(230, 35);
+            this.txtMonto.Location = new System.Drawing.Point(138, 35);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 20);
             this.txtMonto.TabIndex = 3;
@@ -154,7 +154,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Location = new System.Drawing.Point(180, 38);
+            this.lblMonto.Location = new System.Drawing.Point(135, 16);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(40, 13);
             this.lblMonto.TabIndex = 2;
@@ -188,7 +188,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // txtCodigoReserva
             // 
-            this.txtCodigoReserva.Location = new System.Drawing.Point(700, 61);
+            this.txtCodigoReserva.Location = new System.Drawing.Point(678, 36);
             this.txtCodigoReserva.Name = "txtCodigoReserva";
             this.txtCodigoReserva.Size = new System.Drawing.Size(120, 20);
             this.txtCodigoReserva.TabIndex = 11;
@@ -196,7 +196,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblCodigoReserva
             // 
             this.lblCodigoReserva.AutoSize = true;
-            this.lblCodigoReserva.Location = new System.Drawing.Point(570, 64);
+            this.lblCodigoReserva.Location = new System.Drawing.Point(675, 16);
             this.lblCodigoReserva.Name = "lblCodigoReserva";
             this.lblCodigoReserva.Size = new System.Drawing.Size(75, 13);
             this.lblCodigoReserva.TabIndex = 10;

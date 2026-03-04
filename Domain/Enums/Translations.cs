@@ -270,6 +270,14 @@ namespace Domain.Enums
         DAY_3,
         DAY_4,
         DAY_5,
-        DAY_6
+        DAY_6,
+        TITLE_INFO,
+        LBL_TODOS,
+        LBL_DESCONOCIDO,
+        MSG_DEFAULT_DISABLE_REASON,
+        DIALOG_SELECT_VOUCHER,
+        MSG_ERR_SEARCH_CLIENT,
+        LBL_RAZON,
+        LBL_PATENTES
     }
 }

@@ -8,7 +8,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmIngresos : Form, IRefreshable
+    public partial class FrmIngresos : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _usuario;
         private readonly IngresoManager _manager;
@@ -85,6 +85,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         }
 
         public void RefreshData() => CargarIngresos();
+
+        public void UpdateLanguage() => ApplyLanguage();
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {

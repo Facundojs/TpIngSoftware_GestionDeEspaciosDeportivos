@@ -40,13 +40,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
             cmbDiaSemana.Items.Clear();
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, "Domingo"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, "Lunes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, "Martes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, "Miércoles"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, "Jueves"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, "Viernes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, "Sábado"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, Translations.DAY_0.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, Translations.DAY_1.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, Translations.DAY_2.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, Translations.DAY_3.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, Translations.DAY_4.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, Translations.DAY_5.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, Translations.DAY_6.Translate()));
 
             cmbDiaSemana.DisplayMember = "Value";
             cmbDiaSemana.ValueMember = "Key";
@@ -73,7 +73,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,19 +101,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (desde.Minutes != 0 && desde.Minutes != 30)
             {
-                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate());
+                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (hasta.Minutes != 0 && hasta.Minutes != 30)
             {
-                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate());
+                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (desde >= hasta)
             {
-                MessageBox.Show(Translations.ERR_HORA_DESDE_MAYOR.Translate());
+                MessageBox.Show(Translations.ERR_HORA_DESDE_MAYOR.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -143,16 +143,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 var list = _agendas.ToList();
                 _agendaManager.ConfigurarAgenda(_espacioId, list);
-                MessageBox.Show(Translations.MSG_AGENDA_UPDATED.Translate());
+                MessageBox.Show(Translations.MSG_AGENDA_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (ArgumentException ex) when (ex.Message == "ERR_AGENDA_OVERLAP")
             {
-                MessageBox.Show(Translations.ERR_AGENDA_OVERLAP.Translate());
+                MessageBox.Show(Translations.ERR_AGENDA_OVERLAP.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

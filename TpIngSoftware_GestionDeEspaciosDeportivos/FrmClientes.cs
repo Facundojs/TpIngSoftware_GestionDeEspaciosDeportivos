@@ -12,7 +12,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmClientes : Form, IRefreshable
+    public partial class FrmClientes : Form, IRefreshable, ITranslatable
     {
         private readonly ClienteManager _clienteManager;
         private readonly MembresiaManager _membresiaManager;
@@ -58,7 +58,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Balance", HeaderText = Translations.LBL_BALANCE.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ProximaFechaPago", HeaderText = Translations.LBL_PROXIMA_FECHA_PAGO.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = Translations.LBL_ESTADO.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Razon", HeaderText = "Razón" });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Razon", HeaderText = Translations.LBL_RAZON.Translate() });
 
             dgvClientes.CellFormatting += DgvClientes_CellFormatting;
         }
@@ -74,7 +74,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.CLIENTE_TITLE.Translate();
             lblDNI.Text = Translations.LBL_DNI.Translate();
@@ -96,8 +96,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnVerIngresos.Text = Translations.BTN_VER_INGRESOS.Translate();
             btnVerMovimientos.Text = Translations.BTN_VER_MOVIMIENTOS.Translate();
 
-            // Refresh headers
-            if (dgvClientes.Columns.Count > 0)
+            if (dgvClientes.Columns.Count >= 9)
             {
                 dgvClientes.Columns[0].HeaderText = Translations.LBL_DNI.Translate();
                 dgvClientes.Columns[1].HeaderText = Translations.LBL_NOMBRE.Translate();
@@ -107,6 +106,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvClientes.Columns[5].HeaderText = Translations.LBL_BALANCE.Translate();
                 dgvClientes.Columns[6].HeaderText = Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
                 dgvClientes.Columns[7].HeaderText = Translations.LBL_ESTADO.Translate();
+                dgvClientes.Columns[8].HeaderText = Translations.LBL_RAZON.Translate();
             }
         }
 
@@ -174,13 +174,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
 
                 _clienteManager.RegistrarCliente(dto);
-                MessageBox.Show(Translations.MSG_CLIENTE_CREADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_CLIENTE_CREADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarClientes();
                 LimpiarControles();
             }
             catch (FormatException)
             {
-                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -194,7 +194,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (cmbMembresia.SelectedValue == null)
                 {
-                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -202,14 +202,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     if (string.IsNullOrWhiteSpace(txtDNI.Text))
                     {
-                        MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     int dni;
                     if (!int.TryParse(txtDNI.Text, out dni))
                     {
-                        MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -218,11 +218,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     {
                         if (!_usuario.TienePermiso(PermisoKeys.ClienteCrear))
                         {
-                            MessageBox.Show(Translations.MSG_NO_PERMISSION.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Translations.MSG_NO_PERMISSION.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
-                        if (MessageBox.Show(Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show(Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             var dto = new ClienteDTO
                             {
@@ -257,13 +257,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 Guid nuevaMembresiaId = (Guid)cmbMembresia.SelectedValue;
                 _clienteManager.ActualizarMembresia(_clienteSeleccionado.Id, nuevaMembresiaId);
 
-                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarClientes();
                 LimpiarControles();
             }
             catch (FormatException)
             {
-                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -278,13 +278,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             try
             {
-                if (MessageBox.Show(Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     using (var prompt = new FrmPrompt(Translations.LBL_RAZON_DESHABILITAR.Translate(), Translations.TITLE_DESHABILITAR.Translate()))
                     {
                         if (prompt.ShowDialog() == DialogResult.OK)
                         {
-                            string razon = string.IsNullOrWhiteSpace(prompt.InputText) ? "Deshabilitado por usuario" : prompt.InputText;
+                            string razon = string.IsNullOrWhiteSpace(prompt.InputText) ? Translations.MSG_DEFAULT_DISABLE_REASON.Translate() : prompt.InputText;
                             _clienteManager.DeshabilitarCliente(_clienteSeleccionado.Id, razon);
                             CargarClientes();
                             LimpiarControles();
@@ -441,7 +441,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     string msg = Translations.MSG_INGRESO_PERMITIDO.Translate().Replace("{nombre}", resultado.NombreCliente);
                     lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Green;
-                    MessageBox.Show(msg, "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(msg, Translations.BTN_CHECK_IN.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtDNICheckIn.Text = string.Empty; // Clear after success
                 }
                 else
@@ -449,12 +449,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     string msg = Translations.MSG_INGRESO_DENEGADO.Translate().Replace("{razon}", resultado.Razon);
                     lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Red;
-                    MessageBox.Show(msg, "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(msg, Translations.BTN_CHECK_IN.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {

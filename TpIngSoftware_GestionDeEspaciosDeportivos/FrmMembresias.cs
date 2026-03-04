@@ -13,7 +13,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmMembresias : Form, IRefreshable
+    public partial class FrmMembresias : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _currentUser;
         private readonly MembresiaManager _membresiaManager;
@@ -27,7 +27,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             UpdateLanguage();
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.FRM_MEMBRESIA_TITLE.Translate();
             lblCodigo.Text = Translations.LBL_CODIGO.Translate();
@@ -59,7 +59,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.MembresiaListar))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
         }
@@ -78,7 +78,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -173,13 +173,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var dto = GetFormData();
                 // ID is handled in service
                 _membresiaManager.CrearMembresia(dto);
-                MessageBox.Show(Translations.MSG_MEMBRESIA_CREATED.Translate());
+                MessageBox.Show(Translations.MSG_MEMBRESIA_CREATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadMembresias();
                 ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -195,12 +195,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dto.Activa = _selectedMembresia.Activa; // Preserve state
 
                 _membresiaManager.ActualizarMembresia(dto);
-                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate());
+                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadMembresias();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -213,12 +213,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 try
                 {
                     _membresiaManager.DeshabilitarMembresia(_selectedMembresia.Id);
-                    MessageBox.Show(Translations.MSG_MEMBRESIA_DISABLED.Translate());
+                    MessageBox.Show(Translations.MSG_MEMBRESIA_DISABLED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadMembresias();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

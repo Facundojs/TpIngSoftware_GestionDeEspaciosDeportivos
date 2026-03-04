@@ -11,7 +11,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmGestionRutinas : Form, IRefreshable
+    public partial class FrmGestionRutinas : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _usuario;
         private readonly RutinaManager _rutinaManager;
@@ -32,6 +32,23 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         }
 
         public void RefreshData() => CargarRutinas();
+
+        public void UpdateLanguage()
+        {
+            this.Text = Translations.FRM_GESTION_RUTINAS_TITLE.Translate();
+            btnGestionarEjercicios.Text = Translations.BTN_GESTIONAR_EJERCICIOS.Translate();
+            chkVerHistorial.Text = Translations.CHK_VER_HISTORIAL.Translate();
+            btnNueva.Text = Translations.BTN_NUEVA_RUTINA.Translate();
+            btnModificar.Text = Translations.BTN_MODIFICAR.Translate();
+            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
+
+            if (dgvRutinas.Columns.Count >= 3)
+            {
+                dgvRutinas.Columns[0].HeaderText = Translations.LBL_CLIENTE.Translate();
+                dgvRutinas.Columns[1].HeaderText = Translations.LBL_RUTINA_DESDE.Translate();
+                dgvRutinas.Columns[2].HeaderText = Translations.LBL_RUTINA_HASTA.Translate();
+            }
+        }
 
         private void ConfigurarUI()
         {
@@ -109,16 +126,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_usuario.TienePermiso(PermisoKeys.RutinaEliminar))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (MessageBox.Show(Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     _rutinaManager.BorrarRutina(_rutinaSeleccionada.Id);
-                    MessageBox.Show(Translations.MSG_RUTINA_ELIMINADA.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.MSG_RUTINA_ELIMINADA.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarRutinas();
                 }
                 catch (Exception ex)

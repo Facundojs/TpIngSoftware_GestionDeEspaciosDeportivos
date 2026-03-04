@@ -90,12 +90,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              {
                  _usuario.Permisos = nuevosPermisos;
                  _usuarioService.Update(_usuario);
-                 MessageBox.Show(Translations.MSG_PERMISSIONS_UPDATED.Translate());
+                 MessageBox.Show(Translations.MSG_PERMISSIONS_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                  this.Close();
              }
              catch(Exception ex)
              {
-                 MessageBox.Show(Translations.MSG_ERR_SAVE.Translate() + ex.Message);
+                 MessageBox.Show(Translations.MSG_ERR_SAVE.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
              }
         }
 

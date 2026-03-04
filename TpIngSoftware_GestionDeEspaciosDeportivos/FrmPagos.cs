@@ -14,7 +14,7 @@ using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmPagos : Form, IRefreshable
+    public partial class FrmPagos : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _usuario;
         private readonly PagoManager _pagoManager;
@@ -83,14 +83,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                         }
                         else
                         {
-                            e.Value = "Desconocido";
+                            e.Value = Translations.LBL_DESCONOCIDO.Translate();
                         }
                     }
                 }
             }
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.PAGO_TITLE.Translate();
 
@@ -160,11 +160,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_MONTO_SUPERA_SALDO")
                 {
-                    MessageBox.Show(Translations.ERR_MONTO_SUPERA_SALDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_MONTO_SUPERA_SALDO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (ex.Message == "ERR_RESERVA_NO_EXISTE")
                 {
-                    MessageBox.Show(Translations.ERR_RESERVA_NO_EXISTE.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_RESERVA_NO_EXISTE.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -181,26 +181,26 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     string.IsNullOrWhiteSpace(txtMonto.Text) ||
                     cmbMetodo.SelectedIndex == -1)
                 {
-                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!int.TryParse(txtDNICliente.Text, out int dni))
                 {
-                    MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!decimal.TryParse(txtMonto.Text, out decimal monto) || monto <= 0)
                 {
-                    MessageBox.Show(Translations.ERR_MONTO_INVALIDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_MONTO_INVALIDO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 var cliente = _clienteManager.ObtenerClientePorDNI(dni);
                 if (cliente == null)
                 {
-                    MessageBox.Show(Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -222,14 +222,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     }
                     else
                     {
-                        MessageBox.Show(Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
 
                 _pagoManager.RegistrarPago(dto);
 
-                MessageBox.Show(Translations.MSG_PAGO_REGISTRADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_PAGO_REGISTRADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LimpiarRegistro();
                 CargarPagos();
@@ -264,12 +264,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     }
                     else
                     {
-                        lblNombreCliente.Text = "Cliente no encontrado";
+                        lblNombreCliente.Text = Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate();
                     }
                 }
                 catch (Exception)
                 {
-                    lblNombreCliente.Text = "Error al buscar cliente";
+                    lblNombreCliente.Text = Translations.MSG_ERR_SEARCH_CLIENT.Translate();
                 }
             }
             else
@@ -322,16 +322,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (pago.Estado != EstadoPago.Abonado)
             {
-                MessageBox.Show(Translations.ERR_SOLO_ABONADO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Translations.ERR_SOLO_ABONADO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (MessageBox.Show(Translations.MSG_CONFIRM.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Translations.MSG_CONFIRM.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     _pagoManager.ReembolsarPago(pago.Id);
-                    MessageBox.Show(Translations.MSG_PAGO_REEMBOLSADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.MSG_PAGO_REEMBOLSADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarPagos();
                 }
                 catch (Exception ex)
@@ -348,7 +348,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             using (var dialog = new OpenFileDialog())
             {
-                dialog.Title = "Seleccionar Comprobante";
+                dialog.Title = Translations.DIALOG_SELECT_VOUCHER.Translate();
                 dialog.Filter = "Archivos de Imagen y PDF|*.jpg;*.jpeg;*.png;*.pdf|Todos los archivos|*.*";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -365,7 +365,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                         };
 
                         _pagoManager.AdjuntarComprobante(pago.Id, comprobante);
-                        MessageBox.Show(Translations.MSG_COMPROBANTE_ADJUNTADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Translations.MSG_COMPROBANTE_ADJUNTADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -405,13 +405,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var comprobante = _pagoManager.ObtenerComprobante(pago.Id);
                 if (comprobante == null)
                 {
-                    MessageBox.Show(Translations.ERR_NO_COMPROBANTE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.ERR_NO_COMPROBANTE.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
                 if (comprobante.Contenido == null || comprobante.Contenido.Length == 0)
                 {
-                     MessageBox.Show(Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show(Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                      return;
                 }
 

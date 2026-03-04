@@ -69,7 +69,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlCheckIn.Controls.Add(this.txtDNICheckIn);
             this.pnlCheckIn.Controls.Add(this.lblDNICheckIn);
             this.pnlCheckIn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCheckIn.Location = new System.Drawing.Point(0, 542);
+            this.pnlCheckIn.Location = new System.Drawing.Point(0, 622);
             this.pnlCheckIn.Name = "pnlCheckIn";
             this.pnlCheckIn.Size = new System.Drawing.Size(900, 58);
             this.pnlCheckIn.TabIndex = 0;
@@ -136,7 +136,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.pnlEdicion.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlEdicion.Location = new System.Drawing.Point(600, 0);
             this.pnlEdicion.Name = "pnlEdicion";
-            this.pnlEdicion.Size = new System.Drawing.Size(300, 542);
+            this.pnlEdicion.Size = new System.Drawing.Size(300, 622);
             this.pnlEdicion.TabIndex = 1;
             // 
             // btnVerRutina
@@ -347,7 +347,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(600, 542);
+            this.dgvClientes.Size = new System.Drawing.Size(600, 622);
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             // 
@@ -355,7 +355,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(900, 680);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.pnlEdicion);
             this.Controls.Add(this.pnlCheckIn);
