@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,33 +6,22 @@ using System.Threading.Tasks;
 
 namespace Service.Contracts
 {
+    /// <summary>
+    /// Abstraction for structured application logging.
+    /// </summary>
     interface ILogger
     {
         /// <summary>
-        /// Registra un mensaje de información en los logs.
+        /// Records an informational message.
         /// </summary>
-        /// <param name="message">El mensaje informativo a registrar.</param>
-        /// <example>
-        /// Ejemplo de uso:
-        /// <code>
-        /// ILogger logger = new Logger();
-        /// logger.Info("Este es un mensaje informativo.");
-        /// </code>
-        /// </example>
+        /// <param name="message">The message to log.</param>
         void Info(string message);
 
         /// <summary>
-        /// Registra un mensaje de error en los logs con información opcional de la excepción asociada.
+        /// Records an error message with an optional associated exception.
         /// </summary>
-        /// <param name="message">El mensaje de error a registrar.</param>
-        /// <param name="ex">La excepción asociada al error (opcional).</param>
-        /// <example>
-        /// Ejemplo de uso:
-        /// <code>
-        /// ILogger logger = new Logger();
-        /// logger.Error("Ha ocurrido un error en el sistema.", exception);
-        /// </code>
-        /// </example>
+        /// <param name="message">Descriptive error message.</param>
+        /// <param name="ex">The exception that caused the error, or <c>null</c> if not applicable.</param>
         void Error(string message, Exception ex = null);
     }
 }

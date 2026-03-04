@@ -12,6 +12,14 @@ using System.Linq;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// Business logic service for workout routine lifecycle management.
+    /// </summary>
+    /// <remarks>
+    /// A client can have at most one active routine at any time. Creating a new routine
+    /// automatically finalizes the existing one within the same transaction.
+    /// Exercises are resolved by name and auto-created in the catalog if not found.
+    /// </remarks>
     public class RutinaService
     {
         private readonly IRutinaRepository _rutinaRepository;
@@ -20,6 +28,7 @@ namespace BLL.Services
         private readonly IClienteRepository _clienteRepository;
         private readonly BitacoraService _bitacoraService;
 
+        /// <summary>Initializes all dependencies from <see cref="DAL.Factory.DalFactory"/> singletons.</summary>
         public RutinaService()
         {
             _rutinaRepository = DalFactory.RutinaRepository;
@@ -29,6 +38,25 @@ namespace BLL.Services
             _bitacoraService = new BitacoraService();
         }
 
+        /// <summary>
+        /// Creates a new routine for a client. If an active routine exists it is finalized first.
+        /// Exercises not found in the catalog are auto-created.
+        /// </summary>
+        /// <param name="dto">
+        /// Routine data including a non-empty exercise list.
+        /// Each exercise must have positive repetitions and a valid day (1–7).
+        /// </param>
+        /// <exception cref="Exception">
+        /// Thrown for an empty exercise list, zero/negative repetitions, or out-of-range day values.
+        /// </exception>
+        /// <summary>
+        /// Creates a new routine for a client. If an active routine already exists,
+        /// it is finalized (its <c>Hasta</c> date is set) before the new one is created.
+        /// New exercises are created in the catalog if they don't exist by name.
+        /// All operations execute within a single transaction.
+        /// </summary>
+        /// <param name="dto">Routine data including a non-empty <see cref="RutinaDTO.Ejercicios"/> list.</param>
+        /// <exception cref="Exception">Thrown if the exercise list is empty, reps are zero, or day of week is out of range.</exception>
         public void CrearRutina(RutinaDTO dto)
         {
             try
@@ -101,6 +129,18 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Replaces the exercise set of an existing routine within a transaction
+        /// (clears all existing routine-exercise links, then re-inserts the new set).
+        /// </summary>
+        /// <param name="rutinaId">The routine to modify.</param>
+        /// <param name="ejercicios">Non-empty replacement exercise list.</param>
+        /// <summary>
+        /// Replaces the exercise set of an existing routine within a single transaction.
+        /// All current exercise mappings are deleted and the new list is re-inserted.
+        /// </summary>
+        /// <param name="rutinaId">The routine to modify.</param>
+        /// <param name="ejercicios">New exercise list. Must not be empty.</param>
         public void ModificarRutina(Guid rutinaId, List<EjercicioDTO> ejercicios)
         {
             try
@@ -160,6 +200,10 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>Permanently deletes a routine and its associated exercise links.</summary>
+        /// <param name="rutinaId">The routine to delete.</param>
+        /// <summary>Permanently deletes a routine and its exercise mappings.</summary>
+        /// <param name="rutinaId">The routine to delete.</param>
         public void BorrarRutina(Guid rutinaId)
         {
             try
@@ -174,6 +218,16 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Returns the client's currently active routine with its full exercise list hydrated.
+        /// </summary>
+        /// <param name="clienteId">The client to look up.</param>
+        /// <returns>The active <see cref="RutinaDTO"/>, or <c>null</c> if none exists.</returns>
+        /// <summary>
+        /// Retrieves the active (open-ended) routine for a client, with its exercise list hydrated.
+        /// </summary>
+        /// <param name="clienteId">The client to look up.</param>
+        /// <returns>The active <see cref="RutinaDTO"/> including exercises, or <c>null</c> if none exists.</returns>
         public RutinaDTO ObtenerRutinaActiva(Guid clienteId)
         {
             try
@@ -195,6 +249,14 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Returns a specific routine by ID with its full exercise list hydrated.
+        /// </summary>
+        /// <param name="rutinaId">The routine identifier.</param>
+        /// <returns>The <see cref="RutinaDTO"/>, or <c>null</c> if not found.</returns>
+        /// <summary>Retrieves a specific routine by its identifier, with its exercise list hydrated.</summary>
+        /// <param name="rutinaId">The routine identifier.</param>
+        /// <returns>The <see cref="RutinaDTO"/> with exercises, or <c>null</c> if not found.</returns>
         public RutinaDTO ObtenerRutina(Guid rutinaId)
         {
             try
@@ -216,6 +278,12 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Returns all routines, optionally restricted to active ones, with <c>ClienteNombre</c> hydrated.
+        /// </summary>
+        /// <param name="soloActivas">When <c>true</c>, includes only routines with no end date.</param>
+        /// <summary>Returns all routines, optionally filtered to active-only. Each DTO includes the client name.</summary>
+        /// <param name="soloActivas">If <c>true</c>, only routines with no <c>Hasta</c> date are returned.</param>
         public List<RutinaDTO> ListarRutinas(bool soloActivas)
         {
             try

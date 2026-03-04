@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,40 +7,30 @@ using System.Threading.Tasks;
 namespace Service.Contracts
 {
     /// <summary>
-    /// Interfaz genérica que define operaciones CRUD para cualquier entidad.
+    /// Generic repository contract defining standard CRUD operations for any entity type.
     /// </summary>
-    /// <typeparam name="T">Tipo de entidad que se manejará.</typeparam>
+    /// <typeparam name="T">The domain entity type managed by this repository.</typeparam>
     public interface IGenericRepository<T>
     {
-        /// <summary>
-        /// Agrega una nueva entidad.
-        /// </summary>
-        /// <param name="obj">La entidad a agregar.</param>
+        /// <summary>Persists a new entity.</summary>
+        /// <param name="obj">The entity to insert.</param>
         void Add(T obj);
 
-        /// <summary>
-        /// Actualiza una entidad existente.
-        /// </summary>
-        /// <param name="obj">La entidad con los datos actualizados.</param>
+        /// <summary>Applies changes to an existing entity.</summary>
+        /// <param name="obj">The entity with updated values.</param>
         void Update(T obj);
 
-        /// <summary>
-        /// Elimina una entidad por su identificador.
-        /// </summary>
-        /// <param name="id">El identificador de la entidad a eliminar.</param>
+        /// <summary>Deletes an entity by its primary key.</summary>
+        /// <param name="id">The unique identifier of the entity to delete.</param>
         void Remove(Guid id);
 
-        /// <summary>
-        /// Obtiene una entidad por su identificador.
-        /// </summary>
-        /// <param name="id">El identificador de la entidad a obtener.</param>
-        /// <returns>La entidad correspondiente al identificador.</returns>
+        /// <summary>Retrieves a single entity by its primary key.</summary>
+        /// <param name="id">The unique identifier to look up.</param>
+        /// <returns>The matching entity, or <c>null</c> if not found.</returns>
         T GetById(Guid id);
 
-        /// <summary>
-        /// Obtiene todas las entidades.
-        /// </summary>
-        /// <returns>Una lista de todas las entidades.</returns>
+        /// <summary>Retrieves all entities of this type.</summary>
+        /// <returns>A list of all stored entities; empty list if none exist.</returns>
         List<T> GetAll();
     }
 }

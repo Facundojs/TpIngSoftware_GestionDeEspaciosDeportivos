@@ -1,5 +1,5 @@
 using Service.DTO;
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,34 +8,34 @@ using System.Threading.Tasks;
 namespace Service.Contracts
 {
     /// <summary>
-    /// Interfaz que define los métodos para realizar copias de seguridad y restaurar bases de datos.
+    /// Contract for database backup and restore operations.
     /// </summary>
     public interface IBackup
     {
         /// <summary>
-        /// Realiza una copia de seguridad de la base de datos especificada.
+        /// Creates a backup of the specified database at the given path.
         /// </summary>
-        /// <param name="database">El nombre de la base de datos a respaldar.</param>
-        /// <param name="path">La ruta donde se almacenará la copia de seguridad.</param>
+        /// <param name="database">Name of the database to back up.</param>
+        /// <param name="path">Directory path where the backup file will be written.</param>
         void BackUpDataBase(string database, string path);
 
         /// <summary>
-        /// Restaura la base de datos desde una copia de seguridad.
+        /// Restores a database from a backup file.
         /// </summary>
-        /// <param name="database">El nombre de la base de datos a restaurar.</param>
-        /// <param name="path">La ruta de la copia de seguridad desde la cual se restaurará.</param>
+        /// <param name="database">Name of the target database to restore into.</param>
+        /// <param name="path">Full path of the backup file to restore from.</param>
         void RestoreDataBase(string database, string path);
 
         /// <summary>
-        /// Lista los archivos de copia de seguridad disponibles.
+        /// Lists all available backup files in the configured backup directory.
         /// </summary>
-        /// <returns>Una lista de objetos BackupFile con la información de las copias de seguridad.</returns>
+        /// <returns>A list of <see cref="BackupFile"/> descriptors; empty if no backups exist.</returns>
         List<BackupFile> ListBackups();
 
         /// <summary>
-        /// Elimina una copia de seguridad específica.
+        /// Deletes a backup file by its file name.
         /// </summary>
-        /// <param name="filename">El nombre del archivo de la copia de seguridad a eliminar.</param>
+        /// <param name="filename">Name of the backup file to delete (not a full path).</param>
         void DeleteBackup(string filename);
     }
 }

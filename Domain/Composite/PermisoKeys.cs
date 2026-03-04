@@ -1,5 +1,15 @@
 namespace Domain.Composite
 {
+    /// <summary>
+    /// Defines the canonical string keys for every permission in the system.
+    /// </summary>
+    /// <remarks>
+    /// Each constant maps to the <see cref="Patente.TipoAcceso"/> value stored in the database and
+    /// is the single source of truth for authorization checks performed by
+    /// <see cref="Service.Helpers.PermisoHelper.TienePermiso"/>.
+    /// <see cref="Service.Logic.PermisosService.EnsurePermissions"/> uses reflection over this class
+    /// to auto-provision any missing <see cref="Patente"/> records on startup.
+    /// </remarks>
     public static class PermisoKeys
     {
         // Backup Permissions

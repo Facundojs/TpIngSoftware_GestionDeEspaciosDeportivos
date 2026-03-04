@@ -8,32 +8,31 @@ using System.Threading.Tasks;
 namespace Service.DTO
 {
     /// <summary>
-    /// Data Transfer Object (DTO) para representar un usuario.
+    /// Data Transfer Object representing an authenticated or listed application user.
     /// </summary>
+    /// <remarks>
+    /// Carries the user's permission tree (<see cref="Permisos"/>) from the service layer to the UI.
+    /// UI components use <see cref="Service.Helpers.PermisoHelper.TienePermiso"/> on this DTO to
+    /// drive button visibility and access control without hitting the database again.
+    /// </remarks>
     public class UsuarioDTO
     {
-        /// <summary>
-        /// Identificador único del usuario.
-        /// </summary>
+        /// <summary>Unique identifier of the user.</summary>
         public Guid Id { get; set; }
 
-        /// <summary>
-        /// Nombre de usuario.
-        /// </summary>
+        /// <summary>Login name.</summary>
         public string Username { get; set; }
 
-        /// <summary>
-        /// Estado del usuario.
-        /// </summary>
+        /// <summary>Account status string (e.g., <c>"Activo"</c>, <c>"Inactivo"</c>).</summary>
         public string Estado { get; set; }
 
         /// <summary>
-        /// Lista de permisos (Familias/Patentes) asignados al usuario.
+        /// Permission tree roots assigned to this user (mix of <see cref="Familia"/> and <see cref="Patente"/> nodes).
         /// </summary>
         public List<Acceso> Permisos { get; set; } = new List<Acceso>();
 
         /// <summary>
-        /// Rol de negocio del usuario (Operador, Administrador) basado en sus familias.
+        /// Business role label derived from the user's family assignments (e.g., <c>"Administrador"</c>, <c>"Operador"</c>).
         /// </summary>
         public string RolNegocio { get; set; }
     }

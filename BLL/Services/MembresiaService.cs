@@ -12,17 +12,27 @@ using System.Linq;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// Business logic service for membership plan management.
+    /// </summary>
     public class MembresiaService
     {
         private readonly IMembresiaRepository _repository;
         private readonly BitacoraService _bitacora;
 
+        /// <summary>Initializes dependencies from <see cref="DAL.Factory.DalFactory"/> singletons.</summary>
         public MembresiaService()
         {
             _repository = DalFactory.MembresiaRepository;
             _bitacora = new BitacoraService();
         }
 
+        /// <summary>
+        /// Creates a new membership plan.
+        /// </summary>
+        /// <param name="dto">Membership data. <see cref="MembresiaDTO.Codigo"/> must be unique.</param>
+        /// <exception cref="ArgumentException">Thrown for invalid price, regularidad, or missing name.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when the numeric code is already in use.</exception>
         public void CrearMembresia(MembresiaDTO dto)
         {
             try
@@ -51,6 +61,19 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Updates an existing membership plan.
+        /// The numeric code may be changed only if it is not already in use by another plan.
+        /// </summary>
+        /// <param name="dto">Updated membership data. <see cref="MembresiaDTO.Id"/> must identify an existing record.</param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the membership does not exist or the new code conflicts with another plan.
+        /// </exception>
+        /// <summary>
+        /// Updates an existing membership plan. Code uniqueness is enforced across other plans.
+        /// </summary>
+        /// <param name="dto">Updated membership data including <see cref="MembresiaDTO.Id"/>.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the plan does not exist or the code conflicts with another plan.</exception>
         public void ActualizarMembresia(MembresiaDTO dto)
         {
             try
@@ -79,6 +102,20 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Disables a membership plan by setting <c>Activa = false</c>.
+        /// Blocked when at least one active client is still subscribed to this plan.
+        /// </summary>
+        /// <param name="id">The membership to disable.</param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the membership does not exist or has active subscribers.
+        /// </exception>
+        /// <summary>
+        /// Sets a membership plan's <c>Activa</c> flag to <c>false</c>.
+        /// Blocked if any active client is currently subscribed to this plan.
+        /// </summary>
+        /// <param name="id">The plan to disable.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the plan has active subscribers.</exception>
         public void DeshabilitarMembresia(Guid id)
         {
             try
@@ -104,6 +141,15 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Returns all membership plans, optionally restricted to active ones.
+        /// </summary>
+        /// <param name="soloActivas">
+        /// When <c>true</c>, returns only plans with <c>Activa = true</c>;
+        /// when <c>false</c>, returns all plans including disabled ones.
+        /// </param>
+        /// <summary>Returns all membership plans, optionally filtered to active-only.</summary>
+        /// <param name="soloActivas">If <c>true</c>, returns only plans with <c>Activa = true</c>.</param>
         public List<MembresiaDTO> ListarMembresias(bool soloActivas)
         {
             List<Membresia> list;
@@ -119,6 +165,12 @@ namespace BLL.Services
             return list.Select(m => MembresiaMapper.ToDTO(m)).ToList();
         }
 
+        /// <summary>Retrieves a single membership plan by primary key.</summary>
+        /// <param name="id">The membership identifier.</param>
+        /// <returns>The <see cref="MembresiaDTO"/>, or <c>null</c> if not found.</returns>
+        /// <summary>Retrieves a single membership plan by its identifier.</summary>
+        /// <param name="id">The plan identifier.</param>
+        /// <returns>The matching <see cref="MembresiaDTO"/>, or <c>null</c> if not found.</returns>
         public MembresiaDTO ObtenerMembresia(Guid id)
         {
             var entity = _repository.GetById(id);

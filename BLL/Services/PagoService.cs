@@ -13,6 +13,19 @@ using System.Linq;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// Business logic service for payment registration, refunds, and receipt management.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// All write operations run inside <see cref="DAL.Contracts.IUnitOfWork"/> transactions.
+    /// Receipt (comprobante) generation is non-fatal: failures are logged but do not abort the payment.
+    /// </para>
+    /// <para>
+    /// Payment types are determined by the presence of <see cref="PagoDTO.MembresiaID"/> or
+    /// <see cref="PagoDTO.ReservaID"/>; otherwise the payment is treated as a generic account credit.
+    /// </para>
+    /// </remarks>
     public class PagoService
     {
         private readonly IPagoRepository _pagoRepo;
@@ -23,6 +36,7 @@ namespace BLL.Services
         private readonly IEspacioRepository _espacioRepo;
         private readonly BitacoraService _bitacora;
 
+        /// <summary>Initializes all dependencies from <see cref="DAL.Factory.DalFactory"/> singletons.</summary>
         public PagoService()
         {
             _pagoRepo = DalFactory.PagoRepository;
@@ -34,6 +48,15 @@ namespace BLL.Services
             _bitacora = new BitacoraService();
         }
 
+        /// <summary>
+        /// Registers a payment, updates the corresponding membership next-payment date (if applicable),
+        /// auto-transitions the reservation to <c>Pagada</c> when fully settled, and generates a receipt.
+        /// </summary>
+        /// <param name="dto">Payment data. <see cref="PagoDTO.Monto"/> must be positive.</param>
+        /// <exception cref="ArgumentException">Thrown for invalid amount or missing payment method.</exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown with code <c>"ERR_MONTO_SUPERA_SALDO"</c> when the payment amount exceeds the reservation's outstanding balance.
+        /// </exception>
         public void RegistrarPago(PagoDTO dto)
         {
             if (dto.Monto <= 0) throw new ArgumentException(Translations.ERR_MONTO_INVALIDO.Translate());
@@ -208,6 +231,14 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Refunds a payment: transitions its status from <c>Abonado</c> to <c>Reembolsado</c>
+        /// and inserts a negative <c>Reembolso</c> movement.
+        /// </summary>
+        /// <param name="pagoId">The payment to refund.</param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the payment does not exist or its status is not <c>Abonado</c>.
+        /// </exception>
         public void ReembolsarPago(Guid pagoId)
         {
             try
@@ -265,6 +296,11 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Attaches a receipt file to an existing payment.
+        /// </summary>
+        /// <param name="pagoId">The payment to attach the receipt to.</param>
+        /// <param name="dto">Receipt metadata and content.</param>
         public void AdjuntarComprobante(Guid pagoId, ComprobanteDTO dto)
         {
             try
@@ -283,6 +319,11 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves the receipt attached to a payment.
+        /// </summary>
+        /// <param name="pagoId">The payment identifier.</param>
+        /// <returns>The <see cref="ComprobanteDTO"/>, or <c>null</c> if not found.</returns>
         public ComprobanteDTO ObtenerComprobante(Guid pagoId)
         {
             try
@@ -296,6 +337,13 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Returns payments filtered by client and optional date range.
+        /// When <paramref name="clienteId"/> is <c>null</c>, returns all payments filtered by date only.
+        /// </summary>
+        /// <param name="clienteId">Optional client filter.</param>
+        /// <param name="desde">Optional inclusive lower bound on payment date.</param>
+        /// <param name="hasta">Optional inclusive upper bound on payment date.</param>
         public List<PagoDTO> ListarPagos(Guid? clienteId, DateTime? desde, DateTime? hasta)
         {
             List<Pago> list;
@@ -314,6 +362,8 @@ namespace BLL.Services
             return list.Select(PagoMapper.ToDTO).ToList();
         }
 
+        /// <summary>Retrieves all payments linked to a specific reservation.</summary>
+        /// <param name="reservaId">The reservation to query.</param>
         public List<PagoDTO> ObtenerPagosPorReserva(Guid reservaId)
         {
             try
