@@ -58,7 +58,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (!_usuario.TienePermiso(PermisoKeys.BackupListar))
             {
-                 MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
+                 MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                  this.Close();
                  return;
             }
@@ -69,7 +69,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_LOAD_BACKUP.Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_LOAD_BACKUP.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -78,20 +78,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              string filename = txtBackupName.Text;
              if (string.IsNullOrWhiteSpace(filename))
              {
-                 MessageBox.Show(Translations.MSG_ENTER_BACKUP_NAME.Translate());
+                 MessageBox.Show(Translations.MSG_ENTER_BACKUP_NAME.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                  return;
              }
 
              try
              {
                  _backupService.Backup("IngSoftwareBase", filename);
-                 MessageBox.Show(Translations.MSG_BACKUP_SUCCESS.Translate());
+                 MessageBox.Show(Translations.MSG_BACKUP_SUCCESS.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                  LoadBackups();
                  txtBackupName.Text = "";
              }
              catch(Exception ex)
              {
-                 MessageBox.Show(Translations.MSG_ERR_BACKUP.Translate() + ex.Message);
+                 MessageBox.Show(Translations.MSG_ERR_BACKUP.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
              }
         }
 
@@ -105,12 +105,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                  try
                  {
                      _backupService.Restore("IngSoftwareBase", selected.Nombre);
-                     MessageBox.Show(Translations.MSG_RESTORE_SUCCESS.Translate());
+                     MessageBox.Show(Translations.MSG_RESTORE_SUCCESS.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                      Application.Restart();
                  }
                  catch(Exception ex)
                  {
-                     MessageBox.Show(Translations.MSG_ERR_RESTORE.Translate() + ex.Message);
+                     MessageBox.Show(Translations.MSG_ERR_RESTORE.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                  }
              }
         }
@@ -129,7 +129,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                  }
                  catch(Exception ex)
                  {
-                     MessageBox.Show(Translations.MSG_ERR_DELETE_BACKUP.Translate() + ex.Message);
+                     MessageBox.Show(Translations.MSG_ERR_DELETE_BACKUP.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                  }
              }
         }

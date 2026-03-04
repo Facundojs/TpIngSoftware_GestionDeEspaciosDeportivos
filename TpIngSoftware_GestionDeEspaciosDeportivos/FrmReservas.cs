@@ -131,7 +131,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (cbEspacio.SelectedValue == null)
                 {
-                    MessageBox.Show(Translations.MSG_SELECCIONE_ESPACIO.Translate());
+                    MessageBox.Show(Translations.MSG_SELECCIONE_ESPACIO.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -153,7 +153,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (fechaHora < DateTime.Now)
                 {
-                    MessageBox.Show(Translations.ERR_FECHA_PASADA.Translate());
+                    MessageBox.Show(Translations.ERR_FECHA_PASADA.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -209,7 +209,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (cbEspacio.SelectedValue == null)
             {
-                MessageBox.Show(Translations.MSG_SELECCIONE_ESPACIO.Translate());
+                MessageBox.Show(Translations.MSG_SELECCIONE_ESPACIO.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             Guid espacioId = (Guid)cbEspacio.SelectedValue;
@@ -273,7 +273,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 else
                 {
-                    MessageBox.Show(Translations.ERR_INGRESE_DNI_VALIDO.Translate());
+                    MessageBox.Show(Translations.ERR_INGRESE_DNI_VALIDO.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
                         catch (Exception ex)
@@ -295,12 +295,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (_clienteIdSeleccionado == null)
                 {
-                    MessageBox.Show(Translations.ERR_SELECCIONE_CLIENTE.Translate());
+                    MessageBox.Show(Translations.ERR_SELECCIONE_CLIENTE.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if (cbEspacio.SelectedValue == null)
                 {
-                    MessageBox.Show(Translations.MSG_SELECCIONE_ESPACIO.Translate());
+                    MessageBox.Show(Translations.MSG_SELECCIONE_ESPACIO.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -363,7 +363,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (dgvReservas.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show(Translations.ERR_SELECCIONE_RESERVA.Translate());
+                    MessageBox.Show(Translations.ERR_SELECCIONE_RESERVA.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

@@ -73,7 +73,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,19 +101,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (desde.Minutes != 0 && desde.Minutes != 30)
             {
-                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate());
+                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (hasta.Minutes != 0 && hasta.Minutes != 30)
             {
-                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate());
+                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (desde >= hasta)
             {
-                MessageBox.Show(Translations.ERR_HORA_DESDE_MAYOR.Translate());
+                MessageBox.Show(Translations.ERR_HORA_DESDE_MAYOR.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -143,16 +143,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 var list = _agendas.ToList();
                 _agendaManager.ConfigurarAgenda(_espacioId, list);
-                MessageBox.Show(Translations.MSG_AGENDA_UPDATED.Translate());
+                MessageBox.Show(Translations.MSG_AGENDA_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (ArgumentException ex) when (ex.Message == "ERR_AGENDA_OVERLAP")
             {
-                MessageBox.Show(Translations.ERR_AGENDA_OVERLAP.Translate());
+                MessageBox.Show(Translations.ERR_AGENDA_OVERLAP.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

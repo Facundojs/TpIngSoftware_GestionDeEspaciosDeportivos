@@ -69,7 +69,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_usuario != null && !_usuario.TienePermiso(PermisoKeys.BitacoraVer))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_LOGS.Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_LOGS.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
                 return;
             }
@@ -103,7 +103,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

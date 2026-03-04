@@ -61,7 +61,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.UsuarioListar))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate());
+                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
         }
@@ -75,7 +75,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch(Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_LOAD_USERS.Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_LOAD_USERS.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -108,7 +108,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || (string.IsNullOrWhiteSpace(txtPassword.Text) && txtPassword.Enabled))
             {
-                MessageBox.Show(Translations.MSG_COMPLETE_FIELDS.Translate());
+                MessageBox.Show(Translations.MSG_COMPLETE_FIELDS.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -121,13 +121,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 };
 
                 _usuarioService.Register(newUser, txtPassword.Text);
-                MessageBox.Show(Translations.MSG_USER_CREATED.Translate());
+                MessageBox.Show(Translations.MSG_USER_CREATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadUsuarios();
                 ClearForm();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -142,12 +142,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _usuarioService.Update(_selectedUser);
 
-                MessageBox.Show(Translations.MSG_USER_UPDATED.Translate());
+                MessageBox.Show(Translations.MSG_USER_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadUsuarios();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -165,7 +165,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 catch(Exception ex)
                 {
-                     MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message);
+                     MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
