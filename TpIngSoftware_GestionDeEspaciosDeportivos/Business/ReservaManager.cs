@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BLL.DTOs;
+using BLL.Facades;
 using BLL.Services;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
@@ -42,6 +43,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos.Business
         public List<ReservaDTO> ListarReservas(Guid? clienteId, Guid? espacioId, DateTime? desde)
         {
             return _service.ListarReservas(clienteId, espacioId, desde);
+        }
+
+        public ComprobanteDTO ObtenerComprobantePorReserva(Guid reservaId)
+        {
+            return new ComprobanteFacade().ObtenerPorReserva(reservaId);
         }
     }
 }

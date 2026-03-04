@@ -23,12 +23,11 @@ namespace DAL.Impl.File
         public void Agregar(Comprobante obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (obj.PagoID == Guid.Empty) throw new ArgumentException(Translations.ERR_PAGOID_REQUERIDO.Translate());
             if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException(Translations.ERR_COMPROBANTE_VACIO.Translate());
 
             try
             {
-                string filePath = GetFilePath(obj.PagoID);
+                string filePath = GetFilePath(obj.Id);
                 obj.RutaArchivo = filePath;
 
                 System.IO.File.WriteAllBytes(filePath, obj.Contenido);
@@ -39,17 +38,16 @@ namespace DAL.Impl.File
             }
         }
 
-        public Comprobante GetByPago(Guid pagoId)
+        public Comprobante GetById(Guid comprobanteId)
         {
-            if (pagoId == Guid.Empty) return null;
+            if (comprobanteId == Guid.Empty) return null;
 
-            string filePath = GetFilePath(pagoId);
+            string filePath = GetFilePath(comprobanteId);
 
             if (System.IO.File.Exists(filePath))
             {
                 return new Comprobante
                 {
-                    PagoID = pagoId,
                     RutaArchivo = filePath,
                     Contenido = System.IO.File.ReadAllBytes(filePath)
                 };
@@ -58,9 +56,19 @@ namespace DAL.Impl.File
             return null;
         }
 
-        private string GetFilePath(Guid pagoId)
+        public Comprobante GetByPago(Guid pagoId)
         {
-            return Path.Combine(_baseFolder, $"{pagoId}.dat");
+            return null;
+        }
+
+        public Comprobante GetByReserva(Guid reservaId)
+        {
+            return null;
+        }
+
+        private string GetFilePath(Guid id)
+        {
+            return Path.Combine(_baseFolder, $"{id}.dat");
         }
     }
 }

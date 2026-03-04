@@ -46,6 +46,7 @@
     <Compile Include="Composite\Patente.cs" />
     <Compile Include="Composite\PermisoKeys.cs" />
     <Compile Include="Entities\RutinaEjercicio.cs" />
+    <Compile Include="Enums\EstadoEspacio.cs" />
     <Compile Include="Enums\EstadoPago.cs" />
     <Compile Include="Enums\EstadoReserva.cs" />
     <Compile Include="Enums\Translations.cs" />

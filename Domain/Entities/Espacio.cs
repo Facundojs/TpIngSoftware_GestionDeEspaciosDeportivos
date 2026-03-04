@@ -1,4 +1,5 @@
 using System;
+using Domain.Enums;
 
 namespace Domain.Entities
 {
@@ -8,7 +9,7 @@ namespace Domain.Entities
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal PrecioHora { get; set; }
-        public string Estado { get; set; } = "Activo";
+        public EstadoEspacio Estado { get; set; } = EstadoEspacio.Activo;
 
         public Espacio()
         {

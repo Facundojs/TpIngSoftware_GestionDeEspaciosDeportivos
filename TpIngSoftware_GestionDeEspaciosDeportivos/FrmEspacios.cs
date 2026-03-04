@@ -136,7 +136,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 Nombre = txtNombre.Text,
                 Descripcion = txtDescripcion.Text,
-                PrecioHora = decimal.Parse(txtPrecioHora.Text)
+                PrecioHora = decimal.Parse(txtPrecioHora.Text),
+                Estado = _selectedEspacio?.Estado ?? EstadoEspacio.Activo
             };
         }
 

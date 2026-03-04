@@ -1,5 +1,6 @@
 using DAL.Contracts;
 using Domain.Entities;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -20,7 +21,7 @@ namespace DAL.Impl
                 new SqlParameter("@Nombre", obj.Nombre),
                 new SqlParameter("@Descripcion", (object)obj.Descripcion ?? DBNull.Value),
                 new SqlParameter("@PrecioHora", obj.PrecioHora),
-                new SqlParameter("@Estado", obj.Estado)
+                new SqlParameter("@Estado", obj.Estado.ToString())
             };
             ExecuteNonQuery(query, parameters);
         }
@@ -33,7 +34,7 @@ namespace DAL.Impl
                 new SqlParameter("@Nombre", obj.Nombre),
                 new SqlParameter("@Descripcion", (object)obj.Descripcion ?? DBNull.Value),
                 new SqlParameter("@PrecioHora", obj.PrecioHora),
-                new SqlParameter("@Estado", obj.Estado)
+                new SqlParameter("@Estado", obj.Estado.ToString())
             };
             ExecuteNonQuery(query, parameters);
         }
@@ -96,7 +97,7 @@ namespace DAL.Impl
                 Nombre = reader.GetString(1),
                 Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2),
                 PrecioHora = reader.GetDecimal(3),
-                Estado = reader.GetString(4)
+                Estado = (EstadoEspacio)Enum.Parse(typeof(EstadoEspacio), reader.GetString(4))
             };
         }
     }

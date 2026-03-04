@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using BLL.DTOs;
-using BLL.Services;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 using Service.Facade.Extension;
 using Domain.Composite;
@@ -20,7 +18,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private readonly ReservaManager _reservaManager;
         private readonly EspacioManager _espacioManager;
         private readonly ClienteManager _clienteManager;
-        private readonly PagoManager _pagoManager;
         private readonly UsuarioDTO _usuario;
         private Guid? _clienteIdSeleccionado = null;
 
@@ -31,7 +28,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             _reservaManager = new ReservaManager();
             _espacioManager = new EspacioManager();
             _clienteManager = new ClienteManager();
-            _pagoManager = new PagoManager();
 
             Translate();
             LoadEspacios();
@@ -400,17 +396,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             try
             {
-                var pagos = _pagoManager.ObtenerPagosPorReserva(reserva.Id);
-                // Look for the advance payment or placeholder
-                var pagoAsociado = pagos.FirstOrDefault(p => p.Metodo == "Adelanto" || p.Metodo == "Reserva sin Adelanto") ?? pagos.FirstOrDefault();
-
-                if (pagoAsociado == null)
-                {
-                    MessageBox.Show(Translations.ERR_NO_COMPROBANTE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                var comprobante = _pagoManager.ObtenerComprobante(pagoAsociado.Id);
+                var comprobante = _reservaManager.ObtenerComprobantePorReserva(reserva.Id);
                 if (comprobante == null)
                 {
                     MessageBox.Show(Translations.ERR_NO_COMPROBANTE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -419,8 +405,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (comprobante.Contenido == null || comprobante.Contenido.Length == 0)
                 {
-                     MessageBox.Show(Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     return;
+                    MessageBox.Show(Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 string extension = Path.GetExtension(comprobante.NombreArchivo);

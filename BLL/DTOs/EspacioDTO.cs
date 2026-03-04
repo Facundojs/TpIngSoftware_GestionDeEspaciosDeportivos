@@ -1,4 +1,5 @@
 using System;
+using Domain.Enums;
 
 namespace BLL.DTOs
 {
@@ -8,6 +9,6 @@ namespace BLL.DTOs
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal PrecioHora { get; set; }
-        public string Estado { get; set; }
+        public EstadoEspacio Estado { get; set; }
     }
 }
