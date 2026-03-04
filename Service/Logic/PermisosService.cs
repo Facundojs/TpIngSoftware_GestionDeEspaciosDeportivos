@@ -11,17 +11,27 @@ using System.Reflection;
 
 namespace Service.Logic
 {
+    /// <summary>
+    /// Manages the permission tree: creation and modification of <see cref="Familia"/> groups,
+    /// and provisioning of <see cref="Patente"/> leaf nodes from <see cref="PermisoKeys"/>.
+    /// </summary>
     public class PermisosService
     {
         private readonly FamiliaRepository _familiaRepository;
         private readonly PatenteRepository _patenteRepository;
 
+        /// <summary>Initializes a new instance with default SQL repositories.</summary>
         public PermisosService()
         {
             _familiaRepository = new FamiliaRepository();
             _patenteRepository = new PatenteRepository();
         }
 
+        /// <summary>
+        /// Returns all <see cref="Familia"/> records, each fully hydrated via <c>GetById</c>
+        /// (recursive children loaded).
+        /// </summary>
+        /// <returns>List of fully-loaded families.</returns>
         public List<Familia> GetAllFamilias()
         {
             var familias = _familiaRepository.GetAll();
@@ -34,11 +44,18 @@ namespace Service.Logic
             return result;
         }
 
+        /// <summary>Returns all <see cref="Patente"/> records (flat list, no hydration needed).</summary>
         public List<Patente> GetAllPatentes()
         {
             return _patenteRepository.GetAll();
         }
 
+        /// <summary>
+        /// Persists changes to a <see cref="Familia"/> after validating that the update
+        /// would not introduce a cycle in the permission tree.
+        /// </summary>
+        /// <param name="familia">The family to save. Must have been loaded via <c>GetById</c> (full recursive load).</param>
+        /// <exception cref="InvalidOperationException">Thrown when a circular reference is detected.</exception>
         public void GuardarFamilia(Familia familia)
         {
             DetectarCiclo(familia);
@@ -64,16 +81,29 @@ namespace Service.Logic
             }
         }
 
+        /// <summary>Persists a new <see cref="Familia"/>.</summary>
+        /// <param name="familia">The family to create.</param>
         public void CrearFamilia(Familia familia)
         {
             _familiaRepository.Add(familia);
         }
 
+        /// <summary>Deletes a <see cref="Familia"/> by its identifier.</summary>
+        /// <param name="id">The unique identifier of the family to delete.</param>
         public void EliminarFamilia(Guid id)
         {
             _familiaRepository.Remove(id);
         }
 
+        /// <summary>
+        /// Ensures all constants declared in <see cref="PermisoKeys"/> exist as <see cref="Patente"/>
+        /// records in the database, and that the <c>"Administrador"</c> family holds all of them.
+        /// </summary>
+        /// <remarks>
+        /// Intended to run on application startup. Uses reflection to enumerate
+        /// <see cref="PermisoKeys"/> string constants and inserts any that are missing.
+        /// The <c>Administrador</c> family is created if it does not exist.
+        /// </remarks>
         public void EnsurePermissions()
         {
             var existingPatents = _patenteRepository.GetAll();

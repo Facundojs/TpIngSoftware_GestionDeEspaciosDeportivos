@@ -12,6 +12,14 @@ using System.Linq;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// Business logic service for client lifecycle management.
+    /// </summary>
+    /// <remarks>
+    /// Coordinates client registration, membership changes, status transitions, and facility check-in.
+    /// Multi-step write operations are executed inside <see cref="DAL.Contracts.IUnitOfWork"/> transactions.
+    /// All operations are audited via <see cref="BitacoraService"/>.
+    /// </remarks>
     public class ClienteService
     {
         private readonly IClienteRepository _repository;
@@ -19,6 +27,7 @@ namespace BLL.Services
         private readonly MembresiaService _membresiaService;
         private readonly BitacoraService _bitacora;
 
+        /// <summary>Initializes all dependencies from <see cref="DAL.Factory.DalFactory"/> singletons.</summary>
         public ClienteService()
         {
             _repository = DalFactory.ClienteRepository;
@@ -27,6 +36,20 @@ namespace BLL.Services
             _bitacora = new BitacoraService();
         }
 
+        /// <summary>
+        /// Registers a new client. If a membership is specified, creates the client-membership
+        /// record and inserts an initial <c>DeudaMembresia</c> movement in the same transaction.
+        /// </summary>
+        /// <param name="dto">Client data including optional <see cref="ClienteDTO.MembresiaID"/>.</param>
+        /// <exception cref="ArgumentException">Thrown for invalid field values (DNI, name, email format, future birth date).</exception>
+        /// <exception cref="InvalidOperationException">Thrown when the DNI is already registered or the membership is inactive.</exception>
+        /// <summary>
+        /// Registers a new client. If a membership is provided, it creates the <c>ClienteMembresia</c>
+        /// link and an initial <c>DeudaMembresia</c> movement, all within a single transaction.
+        /// </summary>
+        /// <param name="dto">Client data. DNI must be unique, date of birth must be in the past.</param>
+        /// <exception cref="ArgumentException">Thrown for invalid field values.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if the DNI already exists or the membership is inactive.</exception>
         public void RegistrarCliente(ClienteDTO dto)
         {
             try
@@ -108,6 +131,23 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Switches a client's active membership to a new plan within a transaction.
+        /// Closes the current <c>ClienteMembresia</c> record, creates a new one, and inserts
+        /// a <c>DeudaMembresia</c> movement for the new plan's price.
+        /// </summary>
+        /// <param name="clienteId">The client to update.</param>
+        /// <param name="nuevaMembresiaId">The new membership plan to assign.</param>
+        /// <exception cref="InvalidOperationException">Thrown when the client has an outstanding negative balance.</exception>
+        /// <summary>
+        /// Switches a client to a different membership plan.
+        /// Closes the current <c>ClienteMembresia</c> record, opens a new one, and inserts a
+        /// <c>DeudaMembresia</c> movement for the new plan — all within a single transaction.
+        /// Blocked if the client has an outstanding debt.
+        /// </summary>
+        /// <param name="clienteId">The client to update.</param>
+        /// <param name="nuevaMembresiaId">The new membership plan identifier.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the client has a negative balance, or the membership is inactive.</exception>
         public void ActualizarMembresia(Guid clienteId, Guid nuevaMembresiaId)
         {
             try
@@ -181,6 +221,18 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Sets the client status to <c>Inactivo</c> and records the reason.
+        /// </summary>
+        /// <param name="clienteId">The client to disable.</param>
+        /// <param name="razon">Mandatory reason for disabling; must not be null or whitespace.</param>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="razon"/> is empty.</exception>
+        /// <summary>
+        /// Sets a client's status to <c>Inactivo</c> and records the reason.
+        /// </summary>
+        /// <param name="clienteId">The client to disable.</param>
+        /// <param name="razon">Mandatory non-empty reason for the disabling.</param>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="razon"/> is empty.</exception>
         public void DeshabilitarCliente(Guid clienteId, string razon)
         {
              try
@@ -203,6 +255,12 @@ namespace BLL.Services
              }
         }
 
+        /// <summary>
+        /// Sets the client status to <c>Activo</c> and clears the previously recorded reason.
+        /// </summary>
+        /// <param name="clienteId">The client to re-enable.</param>
+        /// <summary>Sets a client's status back to <c>Activo</c> and clears the disabling reason.</summary>
+        /// <param name="clienteId">The client to re-enable.</param>
         public void HabilitarCliente(Guid clienteId)
         {
              try
@@ -223,6 +281,25 @@ namespace BLL.Services
              }
         }
 
+        /// <summary>
+        /// Validates whether a client may enter the facility and, if so, records the check-in.
+        /// Access is denied when the client is inactive or has a negative balance.
+        /// </summary>
+        /// <param name="dni">The client's DNI to look up.</param>
+        /// <returns>
+        /// A <see cref="ResultadoIngresoDTO"/> with <c>Permitido = true</c> on success, or
+        /// <c>Permitido = false</c> with a reason string when access is denied.
+        /// </returns>
+        /// <summary>
+        /// Validates whether a client identified by <paramref name="dni"/> may enter the facility.
+        /// If access is granted, persists an <see cref="Domain.Entities.Ingreso"/> record.
+        /// Denies access if the client is not found, is inactive, or has a negative balance.
+        /// </summary>
+        /// <param name="dni">The client's national identity number.</param>
+        /// <returns>
+        /// A <see cref="ResultadoIngresoDTO"/> with <c>Permitido = true</c> on success,
+        /// or <c>Permitido = false</c> with a human-readable <c>Razon</c> on denial.
+        /// </returns>
         public ResultadoIngresoDTO ValidarIngreso(int dni)
         {
              try
@@ -283,6 +360,12 @@ namespace BLL.Services
              }
         }
 
+        /// <summary>
+        /// Returns all clients with their current balance, membership detail, and next payment date hydrated.
+        /// </summary>
+        /// <summary>
+        /// Returns all clients with their balance, membership details, and next payment date hydrated.
+        /// </summary>
         public List<ClienteDTO> ListarClientes()
         {
             var clientes = _repository.GetAll();
@@ -307,6 +390,15 @@ namespace BLL.Services
             return list;
         }
 
+        /// <summary>
+        /// Returns a single client by primary key with balance and membership detail hydrated.
+        /// </summary>
+        /// <param name="id">The client's unique identifier.</param>
+        /// <returns>The hydrated <see cref="ClienteDTO"/>, or <c>null</c> if not found.</returns>
+        /// <summary>
+        /// Retrieves a single client by identifier with balance, membership, and next payment date hydrated.
+        /// </summary>
+        /// <returns>The hydrated <see cref="ClienteDTO"/>, or <c>null</c> if not found.</returns>
         public ClienteDTO ObtenerCliente(Guid id)
         {
              var cliente = _repository.GetById(id);
@@ -327,6 +419,13 @@ namespace BLL.Services
              return ClienteMapper.ToDTO(cliente, membresia, balance, proximaFechaPago);
         }
 
+        /// <summary>
+        /// Returns a single client by DNI with balance and membership detail hydrated.
+        /// </summary>
+        /// <param name="dni">The client's national identity number.</param>
+        /// <returns>The hydrated <see cref="ClienteDTO"/>, or <c>null</c> if not found.</returns>
+        /// <summary>Retrieves a client by DNI with balance, membership, and next payment date hydrated.</summary>
+        /// <returns>The hydrated <see cref="ClienteDTO"/>, or <c>null</c> if not found.</returns>
         public ClienteDTO ObtenerClientePorDNI(int dni)
         {
              var cliente = _repository.GetByDNI(dni);

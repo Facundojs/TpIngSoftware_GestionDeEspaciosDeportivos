@@ -10,15 +10,27 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+    /// <summary>
+    /// Manages client account balances: periodic membership billing, balance enquiry,
+    /// debt validation, and movement history.
+    /// </summary>
     public class BalanceService
     {
         private readonly BitacoraService _bitacoraService;
 
+        /// <summary>Initializes the service with a new <see cref="BitacoraService"/> instance.</summary>
         public BalanceService()
         {
             _bitacoraService = new BitacoraService();
         }
 
+        /// <summary>
+        /// Iterates over all clients in parallel and inserts a <c>DeudaMembresia</c> movement for
+        /// those whose <c>ProximaFechaPago</c> has passed. Advances <c>ProximaFechaPago</c> by
+        /// the membership's <c>Regularidad</c> days after each charge.
+        /// Clients without a membership, with an inactive or free membership, or whose next
+        /// payment date is still in the future are skipped silently.
+        /// </summary>
         public void CalcularSaldoMensual()
         {
             _bitacoraService.Log("Starting CalcularSaldoMensual Job", "INFO");
@@ -112,11 +124,23 @@ namespace BLL
             _bitacoraService.Log($"Balance updated for client {clienteId}", "INFO");
         }
 
+        /// <summary>
+        /// Retrieves the current balance for a client from the <c>vw_Balance</c> SQL view.
+        /// </summary>
+        /// <param name="clienteId">The client identifier.</param>
+        /// <returns>The <see cref="Balance"/> record, or <c>null</c> if no movements exist.</returns>
         public Balance ConsultarBalance(Guid clienteId)
         {
             return DalFactory.BalanceRepository.ObtenerBalance(clienteId);
         }
 
+        /// <summary>
+        /// Throws if the client's balance is negative, optionally prefixing the message with a context label.
+        /// Used as a guard in operations that require the client to be current on payments.
+        /// </summary>
+        /// <param name="clienteId">The client to validate.</param>
+        /// <param name="contexto">Optional operation name prepended to the error message for clarity.</param>
+        /// <exception cref="InvalidOperationException">Thrown when the client has an outstanding debt.</exception>
         public void ValidarDeuda(Guid clienteId, string contexto = null)
         {
             var balance = ConsultarBalance(clienteId);
@@ -132,6 +156,12 @@ namespace BLL
             }
         }
 
+        /// <summary>
+        /// Returns the ledger movement history for a client, optionally filtered by date range.
+        /// </summary>
+        /// <param name="clienteId">The client whose movements to fetch.</param>
+        /// <param name="desde">Optional inclusive lower bound on movement date.</param>
+        /// <param name="hasta">Optional inclusive upper bound on movement date.</param>
         public System.Collections.Generic.List<Movimiento> ListarMovimientos(Guid clienteId, DateTime? desde, DateTime? hasta)
         {
             return DalFactory.BalanceRepository.ListarMovimientos(clienteId, desde, hasta);

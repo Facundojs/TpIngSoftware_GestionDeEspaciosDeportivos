@@ -5,8 +5,21 @@ using System;
 
 namespace BLL.Mappers
 {
+    /// <summary>
+    /// Bidirectional mapper between payment and receipt domain entities and their DTO projections.
+    /// </summary>
+    /// <remarks>
+    /// Handles <see cref="Pago"/> ↔ <see cref="PagoDTO"/> and <see cref="Comprobante"/> ↔ <see cref="ComprobanteDTO"/>.
+    /// <c>Estado</c> is stored as a string in the database and parsed to <see cref="EstadoPago"/> on read.
+    /// When mapping to entity, <see cref="Pago.Id"/> is only set when the DTO's <see cref="PagoDTO.Id"/>
+    /// is non-empty, allowing the database to assign the key on insert.
+    /// </remarks>
     public static class PagoMapper
     {
+        /// <summary>
+        /// Projects a <see cref="Pago"/> entity to a <see cref="PagoDTO"/>.
+        /// </summary>
+        /// <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
         public static PagoDTO ToDTO(Pago entity)
         {
             if (entity == null) return null;
@@ -26,6 +39,11 @@ namespace BLL.Mappers
             };
         }
 
+        /// <summary>
+        /// Projects a <see cref="PagoDTO"/> back to a <see cref="Pago"/> entity.
+        /// </summary>
+        /// <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+        /// <remarks><see cref="Pago.Id"/> is only assigned when <see cref="PagoDTO.Id"/> is non-empty.</remarks>
         public static Pago ToEntity(PagoDTO dto)
         {
             if (dto == null) return null;
@@ -51,6 +69,10 @@ namespace BLL.Mappers
             return entity;
         }
 
+        /// <summary>
+        /// Projects a <see cref="Comprobante"/> entity to a <see cref="ComprobanteDTO"/>.
+        /// </summary>
+        /// <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
         public static ComprobanteDTO ToDTO(Comprobante entity)
         {
             if (entity == null) return null;
@@ -67,6 +89,11 @@ namespace BLL.Mappers
             };
         }
 
+        /// <summary>
+        /// Projects a <see cref="ComprobanteDTO"/> back to a <see cref="Comprobante"/> entity.
+        /// </summary>
+        /// <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+        /// <remarks><see cref="Comprobante.Id"/> is only assigned when <see cref="ComprobanteDTO.Id"/> is non-empty.</remarks>
         public static Comprobante ToEntity(ComprobanteDTO dto)
         {
             if (dto == null) return null;

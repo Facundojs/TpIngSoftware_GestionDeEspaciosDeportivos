@@ -19,7 +19,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private readonly UsuarioDTO _usuario;
         private readonly RutinaManager _rutinaManager;
         private readonly ClienteManager _clienteManager;
-        private readonly Guid? _rutinaId; // Optional specific routine ID
+        private readonly Guid? _rutinaId;
         private RutinaDTO _rutinaActual;
         private BindingList<EjercicioDTO> _ejerciciosBinding;
 
@@ -44,7 +44,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void ConfigurarUI()
         {
-            // Translations
             this.Text = Translations.RUTINA_TITLE.Translate();
             lblCliente.Text = Translations.LBL_CLIENTE.Translate();
             lblDesde.Text = Translations.LBL_RUTINA_DESDE.Translate();
@@ -60,7 +59,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnGuardar.Text = Translations.BTN_GUARDAR_RUTINA.Translate();
             btnBorrarRutina.Text = Translations.BTN_BORRAR_RUTINA.Translate();
 
-            // ComboBox Days
             cmbDiaSemana.Items.Clear();
             for (int i = 1; i <= 7; i++)
             {
@@ -75,14 +73,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             cmbDiaSemana.ValueMember = "Key";
             cmbDiaSemana.SelectedIndex = 0;
 
-            // Grid Config
             dgvEjercicios.AutoGenerateColumns = false;
             dgvEjercicios.Columns.Clear();
             dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Translations.LBL_EJERCICIO_NOMBRE.Translate(), Width = 150 });
             dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Repeticiones", HeaderText = Translations.LBL_EJERCICIO_REP.Translate() });
             dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Orden", HeaderText = Translations.LBL_EJERCICIO_ORDEN.Translate() });
-
-            // For Day column, we might want to format it, but for now let's just show the number or handle in CellFormatting
             dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DiaSemana", HeaderText = Translations.LBL_EJERCICIO_DIA.Translate() });
 
             dgvEjercicios.DataSource = _ejerciciosBinding;
@@ -147,7 +142,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                         }
                     }
 
-                    btnGuardar.Text = Translations.BTN_GUARDAR_RUTINA.Translate(); // Could start with "Actualizar"
+                    btnGuardar.Text = Translations.BTN_GUARDAR_RUTINA.Translate();
                     btnBorrarRutina.Enabled = _usuario.TienePermiso(PermisoKeys.RutinaEliminar);
                 }
                 else
@@ -155,7 +150,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     lblDesde.Text = Translations.LBL_RUTINA_VACIA.Translate();
                     lblHasta.Text = "";
                     btnBorrarRutina.Enabled = false;
-                    // Prepare for new routine
                     _rutinaActual = new RutinaDTO { ClienteID = _clienteId };
                 }
             }
@@ -169,30 +163,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             bool canCreate = _usuario.TienePermiso(PermisoKeys.RutinaCrear);
             bool canModify = _usuario.TienePermiso(PermisoKeys.RutinaModificar);
-            bool canDelete = _usuario.TienePermiso(PermisoKeys.RutinaEliminar);
 
-            // Logic:
-            // If Routine Exists: Guardar needs Modify permission. Borrar needs Delete permission.
-            // If Routine New: Guardar needs Create permission.
-
-            // Enable/Disable controls based on permissions?
-            // Usually we disable buttons.
-
-            // Also check if routine exists to decide between Create/Modify
-            // But we do that in CargarRutina mostly.
-
-            // Simplified:
             pnlEdicion.Enabled = canCreate || canModify;
             btnGuardar.Enabled = canCreate || canModify;
-
-            // Further refinement in Save logic
         }
 
         private void btnAgregarEjercicio_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validate
                 if (string.IsNullOrWhiteSpace(txtNombreEjercicio.Text))
                 {
                     MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -214,7 +193,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 var ejercicio = new EjercicioDTO
                 {
-                    Id = Guid.Empty, // Will be handled by service/BL
+                    Id = Guid.Empty,
                     Nombre = txtNombreEjercicio.Text.Trim(),
                     Repeticiones = rep,
                     DiaSemana = selectedDay.Key,
@@ -223,7 +202,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _ejerciciosBinding.Add(ejercicio);
 
-                // Clear inputs
                 txtNombreEjercicio.Text = "";
                 txtRepeticiones.Text = "";
                 txtOrden.Text = "";
@@ -255,7 +233,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _rutinaActual.Ejercicios = _ejerciciosBinding.ToList();
 
-                // Check permissions again based on state
                 bool isNew = _rutinaActual.Id == Guid.Empty || _rutinaManager.ObtenerRutinaActiva(_clienteId) == null;
 
                 if (isNew)
@@ -274,13 +251,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                          MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                          return;
                     }
-                    // For modification, the service expects RutinaId and List<Ejercicio>
-                    // But wait, if I retrieved it, it has an ID.
                     _rutinaManager.ModificarRutina(_rutinaActual.Id, _rutinaActual.Ejercicios);
                 }
 
                 MessageBox.Show(Translations.MSG_RUTINA_GUARDADA.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarRutina(); // Refresh
+                CargarRutina();
             }
             catch (Exception ex)
             {
@@ -309,14 +284,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void dgvEjercicios_SelectionChanged(object sender, EventArgs e)
         {
-             // Optional: Fill edit controls with selected exercise
              if (dgvEjercicios.CurrentRow?.DataBoundItem is EjercicioDTO selected)
              {
                  txtNombreEjercicio.Text = selected.Nombre;
                  txtRepeticiones.Text = selected.Repeticiones.ToString();
                  txtOrden.Text = selected.Orden.ToString();
 
-                 // Select Day
                  foreach (var item in cmbDiaSemana.Items)
                  {
                      if (((KeyValuePair<int, string>)item).Key == selected.DiaSemana)

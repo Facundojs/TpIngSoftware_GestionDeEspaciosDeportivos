@@ -6,6 +6,13 @@ using System.Threading;
 
 namespace BLL
 {
+    /// <summary>
+    /// Singleton background scheduler that periodically triggers <see cref="BalanceService.CalcularSaldoMensual"/>.
+    /// </summary>
+    /// <remarks>
+    /// Uses a double-checked lock to prevent concurrent job executions. The job fires 5 seconds
+    /// after <see cref="Start"/> is called, then repeats every hour.
+    /// </remarks>
     public class SchedulerService
     {
         private static SchedulerService _instance;
@@ -15,6 +22,7 @@ namespace BLL
 
         private SchedulerService() { }
 
+        /// <summary>Returns the singleton instance, creating it lazily on first access.</summary>
         public static SchedulerService Instance
         {
             get
@@ -27,6 +35,10 @@ namespace BLL
             }
         }
 
+        /// <summary>
+        /// Starts the background timer if it has not already been started.
+        /// Safe to call multiple times; subsequent calls are no-ops.
+        /// </summary>
         public void Start()
         {
             // Initial delay 5 seconds, then check every 1 hour
@@ -53,7 +65,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-                // Log error via BitacoraService
                  var bitacora = new BitacoraService();
                  bitacora.Log($"Error in SchedulerService: {ex.Message}", "ERROR", ex);
             }

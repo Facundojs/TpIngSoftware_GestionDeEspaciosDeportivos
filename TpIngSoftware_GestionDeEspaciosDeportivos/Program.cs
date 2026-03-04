@@ -14,7 +14,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         [STAThread]
         static void Main()
         {
-            // Iniciar el servicio de cron job para deudas mensuales
             try
             {
                 BLL.SchedulerService.Instance.Start();

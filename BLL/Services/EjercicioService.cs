@@ -10,17 +10,27 @@ using System.Linq;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// Business logic service for managing the exercise catalog.
+    /// </summary>
+    /// <remarks>
+    /// Exercises are shared across all routines (<see cref="RutinaDTO.Ejercicios"/>).
+    /// CRUD operations are performed directly on the repository without a Unit of Work,
+    /// as exercise management does not involve cross-entity transactional boundaries.
+    /// </remarks>
     public class EjercicioService
     {
         private readonly IEjercicioRepository _ejercicioRepository;
         private readonly BitacoraService _bitacoraService;
 
+        /// <summary>Initializes dependencies from <see cref="DalFactory"/> singletons.</summary>
         public EjercicioService()
         {
             _ejercicioRepository = DalFactory.EjercicioRepository;
             _bitacoraService = new BitacoraService();
         }
 
+        /// <summary>Returns all exercises in the catalog.</summary>
         public List<EjercicioDTO> ListarEjercicios()
         {
             try
@@ -30,8 +40,6 @@ namespace BLL.Services
                 {
                     Id = e.Id,
                     Nombre = e.Nombre
-                    // RutinaID, Reps, etc are context specific, but DTO has them.
-                    // For pure list, we just map basic info.
                 }).ToList();
             }
             catch (Exception ex)
@@ -41,6 +49,11 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Creates a new exercise in the catalog.
+        /// </summary>
+        /// <param name="dto">Exercise data. <see cref="EjercicioDTO.Nombre"/> is required and must be unique.</param>
+        /// <exception cref="Exception">Thrown when the name is empty or already exists in the catalog.</exception>
         public void CrearEjercicio(EjercicioDTO dto)
         {
             try
@@ -68,6 +81,11 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Updates the name of an existing exercise.
+        /// </summary>
+        /// <param name="dto">Exercise data with the updated <see cref="EjercicioDTO.Nombre"/>. <see cref="EjercicioDTO.Id"/> must identify an existing record.</param>
+        /// <exception cref="Exception">Thrown when the name is empty or the exercise does not exist.</exception>
         public void ModificarEjercicio(EjercicioDTO dto)
         {
             try
@@ -89,12 +107,14 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Permanently deletes an exercise from the catalog.
+        /// </summary>
+        /// <param name="id">Primary key of the exercise to delete.</param>
         public void EliminarEjercicio(Guid id)
         {
             try
             {
-                // Check dependencies? Usually cascading or prevent if used.
-                // Assuming simple delete for now or database constraints handle it.
                 _ejercicioRepository.Remove(id);
                 _bitacoraService.Log($"Ejercicio eliminado: {id}", "INFO");
             }

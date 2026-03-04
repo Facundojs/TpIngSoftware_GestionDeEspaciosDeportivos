@@ -6,6 +6,31 @@ using System.Data.SqlClient;
 
 namespace DAL.Impl.SqlServer
 {
+    /// <summary>
+    /// Implements the Unit of Work pattern for SQL Server.
+    /// Manages a single <see cref="SqlConnection"/> and <see cref="SqlTransaction"/> shared across
+    /// all enrolled repositories for the duration of one logical operation.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Obtain an instance via <see cref="DAL.Factory.DalFactory.CreateUnitOfWork"/>.
+    /// Usage pattern:
+    /// <code>
+    /// using (var uow = DalFactory.CreateUnitOfWork())
+    /// {
+    ///     uow.BeginTransaction();
+    ///     // ...operations on uow.*Repository...
+    ///     uow.Commit();
+    /// }
+    /// </code>
+    /// </para>
+    /// <para>
+    /// After <see cref="Commit"/> or <see cref="Rollback"/>, the instance is <em>spent</em>
+    /// and cannot be reused; <see cref="BeginTransaction"/> will throw <see cref="ObjectDisposedException"/>.
+    /// <see cref="Dispose"/> will roll back any uncommitted transaction if the <c>using</c> block
+    /// exits without an explicit commit.
+    /// </para>
+    /// </remarks>
     public class UnitOfWork : IUnitOfWork
     {
         private SqlConnection _connection;
@@ -25,6 +50,7 @@ namespace DAL.Impl.SqlServer
         private readonly EjercicioSqlRepository _ejercicioRepository;
         private readonly EspacioSqlRepository _espacioRepository;
 
+        /// <summary>Constructs all repository instances without opening a connection.</summary>
         public UnitOfWork()
         {
             _agendaRepository = new AgendaSqlRepository();
@@ -40,6 +66,11 @@ namespace DAL.Impl.SqlServer
             _espacioRepository = new EspacioSqlRepository();
         }
 
+        /// <summary>
+        /// Opens the shared connection and begins a database transaction, injecting both into all repositories.
+        /// </summary>
+        /// <exception cref="ObjectDisposedException">Thrown if the instance has already been disposed or spent.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if a transaction is already active on this instance.</exception>
         public void BeginTransaction()
         {
             if (_disposed) throw new ObjectDisposedException(nameof(UnitOfWork));
@@ -74,6 +105,8 @@ namespace DAL.Impl.SqlServer
             _espacioRepository.CurrentTransaction = _transaction;
         }
 
+        /// <summary>Commits the active transaction and closes the shared connection.</summary>
+        /// <exception cref="InvalidOperationException">Thrown if no transaction is active.</exception>
         public void Commit()
         {
             if (_transaction == null) throw new InvalidOperationException("No active transaction to commit.");
@@ -82,6 +115,10 @@ namespace DAL.Impl.SqlServer
             _spent = true;
         }
 
+        /// <summary>
+        /// Rolls back the active transaction and closes the shared connection.
+        /// Safe to call even when no transaction is active (no-op in that case).
+        /// </summary>
         public void Rollback()
         {
             if (_transaction == null) return;
@@ -90,6 +127,10 @@ namespace DAL.Impl.SqlServer
             _spent = true;
         }
 
+        /// <summary>
+        /// Rolls back any uncommitted transaction and releases all resources.
+        /// Called automatically at the end of a <c>using</c> block.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed) return;
@@ -110,16 +151,27 @@ namespace DAL.Impl.SqlServer
             _connection = null;
         }
 
+        /// <inheritdoc/>
         public IAgendaRepository AgendaRepository => _agendaRepository;
+        /// <inheritdoc/>
         public IClienteRepository ClienteRepository => _clienteRepository;
+        /// <inheritdoc/>
         public IPagoRepository PagoRepository => _pagoRepository;
+        /// <inheritdoc/>
         public IReservaRepository ReservaRepository => _reservaRepository;
+        /// <inheritdoc/>
         public IRutinaRepository RutinaRepository => _rutinaRepository;
+        /// <inheritdoc/>
         public IMovimientoRepository MovimientoRepository => _movimientoRepository;
+        /// <inheritdoc/>
         public IClienteMembresiaRepository ClienteMembresiaRepository => _clienteMembresiaRepository;
+        /// <inheritdoc/>
         public IRutinaEjercicioRepository RutinaEjercicioRepository => _rutinaEjercicioRepository;
+        /// <inheritdoc/>
         public IMembresiaRepository MembresiaRepository => _membresiaRepository;
+        /// <inheritdoc/>
         public IEjercicioRepository EjercicioRepository => _ejercicioRepository;
+        /// <inheritdoc/>
         public IEspacioRepository EspacioRepository => _espacioRepository;
     }
 }

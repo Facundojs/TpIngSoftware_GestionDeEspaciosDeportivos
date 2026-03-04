@@ -4,8 +4,20 @@ using System;
 
 namespace BLL.Mappers
 {
+    /// <summary>
+    /// Bidirectional mapper between <see cref="Membresia"/> domain entities and <see cref="MembresiaDTO"/> projections.
+    /// </summary>
+    /// <remarks>
+    /// When mapping to entity, <see cref="Membresia.Id"/> is only set when the DTO's <see cref="MembresiaDTO.Id"/>
+    /// is non-empty. This allows the database to assign the primary key on insert while preserving
+    /// the existing key on update.
+    /// </remarks>
     public static class MembresiaMapper
     {
+        /// <summary>
+        /// Projects a <see cref="Membresia"/> entity to a <see cref="MembresiaDTO"/>.
+        /// </summary>
+        /// <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
         public static MembresiaDTO ToDTO(Membresia entity)
         {
             if (entity == null) return null;
@@ -22,6 +34,11 @@ namespace BLL.Mappers
             };
         }
 
+        /// <summary>
+        /// Projects a <see cref="MembresiaDTO"/> back to a <see cref="Membresia"/> entity.
+        /// </summary>
+        /// <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+        /// <remarks><see cref="Membresia.Id"/> is only assigned when <see cref="MembresiaDTO.Id"/> is non-empty.</remarks>
         public static Membresia ToEntity(MembresiaDTO dto)
         {
             if (dto == null) return null;

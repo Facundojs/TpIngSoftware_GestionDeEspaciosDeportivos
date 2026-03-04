@@ -1,4 +1,4 @@
-﻿using Domain.Composite;
+using Domain.Composite;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -10,37 +10,38 @@ using Service.DTO;
 namespace Service.Contracts
 {
     /// <summary>
-    /// Interfaz que define las operaciones específicas para el repositorio de usuarios.
-    /// Hereda de IGenericInterface para operaciones CRUD básicas.
+    /// Repository contract for <see cref="Usuario"/> entities, extending standard CRUD with
+    /// user-specific permission and lookup operations.
     /// </summary>
     public interface IUsuarioRepository : IGenericRepository<Usuario>
     {
-
         /// <summary>
-        /// Actualiza los accesos de un usuario.
+        /// Replaces the full set of <see cref="Acceso"/> nodes assigned to a user.
+        /// The existing permission associations are deleted and re-inserted atomically.
         /// </summary>
-        /// <param name="idUsuario">El identificador del usuario.</param>
-        /// <param name="accesos">Lista de accesos a asignar al usuario.</param>
+        /// <param name="idUsuario">The user whose permissions will be replaced.</param>
+        /// <param name="accesos">New list of <see cref="Acceso"/> roots to assign.</param>
         void UpdateAccesos(Guid idUsuario, List<Acceso> accesos);
 
         /// <summary>
-        /// Obtiene las familias asociadas a un usuario por su identificador.
+        /// Retrieves the top-level <see cref="Familia"/> nodes assigned to a user.
+        /// Each family is fully hydrated (recursive children loaded).
         /// </summary>
-        /// <param name="usuarioId">El identificador del usuario.</param>
-        /// <returns>Lista de familias asociadas al usuario.</returns>
+        /// <param name="usuarioId">The user to look up.</param>
+        /// <returns>List of assigned families; empty list if none.</returns>
         List<Familia> GetFamiliasByUsuarioId(Guid usuarioId);
 
         /// <summary>
-        /// Obtiene una lista de usuarios en formato DTO.
+        /// Returns all users projected as <see cref="UsuarioDTO"/>, including their permission trees.
         /// </summary>
-        /// <returns>Lista de usuarios como objetos DTO.</returns>
+        /// <returns>List of user DTOs; empty list if no users exist.</returns>
         List<UsuarioDTO> GetUsuariosDTO();
 
         /// <summary>
-        /// Obtiene un usuario por su nombre de usuario.
+        /// Finds a user by login name (case-insensitive comparison depends on database collation).
         /// </summary>
-        /// <param name="username">El nombre de usuario a buscar.</param>
-        /// <returns>El objeto Usuario si se encuentra, null si no.</returns>
+        /// <param name="username">The login name to search for.</param>
+        /// <returns>The matching <see cref="Usuario"/>, or <c>null</c> if not found.</returns>
         Usuario GetByUsername(string username);
     }
 }

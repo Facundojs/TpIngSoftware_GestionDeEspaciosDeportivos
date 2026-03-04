@@ -12,6 +12,14 @@ using System.Linq;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// Business logic service for reservation management.
+    /// </summary>
+    /// <remarks>
+    /// Handles availability computation, reservation creation (with race-condition guard),
+    /// cancellation with automatic refunds, and receipt generation (non-fatal).
+    /// All multi-step write operations run inside <see cref="DAL.Contracts.IUnitOfWork"/> transactions.
+    /// </remarks>
     public class ReservaService
     {
         private readonly IReservaRepository _reservaRepo;
@@ -21,6 +29,7 @@ namespace BLL.Services
         private readonly IClienteRepository _clienteRepo;
         private readonly BitacoraService _bitacora;
 
+        /// <summary>Initializes all dependencies from <see cref="DAL.Factory.DalFactory"/> singletons.</summary>
         public ReservaService()
         {
             _reservaRepo = DalFactory.ReservaRepository;
@@ -31,6 +40,25 @@ namespace BLL.Services
             _bitacora = new BitacoraService();
         }
 
+        /// <summary>
+        /// Returns all free 30-minute time slots for a space on a given date based on the space's agenda.
+        /// </summary>
+        /// <param name="espacioId">The space to query.</param>
+        /// <param name="fecha">The date to check (time component is ignored).</param>
+        /// <returns>List of available start times as <see cref="TimeSpan"/> values.</returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown with code <c>"ERR_NO_AGENDA"</c> if no agenda is configured for this space.
+        /// </exception>
+        /// <summary>
+        /// Returns the list of 30-minute time slots that are available for reservation on <paramref name="fecha"/>
+        /// based on the space's agenda and existing non-cancelled bookings.
+        /// </summary>
+        /// <param name="espacioId">The space to query.</param>
+        /// <param name="fecha">The date to check. Day-of-week is used to match agenda blocks.</param>
+        /// <returns>List of available start times as <see cref="TimeSpan"/> values.</returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown with code <c>"ERR_NO_AGENDA"</c> if the space has no configured schedule.
+        /// </exception>
         public List<TimeSpan> ObtenerHorariosDisponibles(Guid espacioId, DateTime fecha)
         {
             var agendaService = new AgendaService();
@@ -84,11 +112,48 @@ namespace BLL.Services
             return disponibles;
         }
 
+        /// <summary>
+        /// Checks whether a space is available for the requested time slot (delegates to repository).
+        /// </summary>
+        /// <param name="espacioId">The space to check.</param>
+        /// <param name="fechaHora">Proposed start date and time.</param>
+        /// <param name="duracion">Duration in minutes.</param>
+        /// <returns><c>true</c> if no conflicting active reservation exists.</returns>
+        /// <summary>
+        /// Performs a point-in-time availability check (pre-booking verification, outside a transaction).
+        /// </summary>
+        /// <param name="espacioId">The space to check.</param>
+        /// <param name="fechaHora">Proposed reservation start.</param>
+        /// <param name="duracion">Duration in minutes.</param>
+        /// <returns><c>true</c> if the space is available; <c>false</c> if already booked.</returns>
         public bool VerificarDisponibilidad(Guid espacioId, DateTime fechaHora, int duracion)
         {
             return _reservaRepo.EspacioDisponible(espacioId, fechaHora, duracion);
         }
 
+        /// <summary>
+        /// Creates a reservation with a down payment, guarding against race conditions via
+        /// a double-checked availability lock inside the transaction.
+        /// </summary>
+        /// <param name="dto">Reservation parameters including optional advance payment amount.</param>
+        /// <returns>The generated reservation code (e.g., <c>"RES-123456-ABCD"</c>).</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown for invalid inputs: negative advance, zero duration, past date, advance exceeding total,
+        /// or advance below the 10% minimum.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the space is no longer available at transaction time (race condition).
+        /// </exception>
+        /// <summary>
+        /// Creates a reservation and optionally records an advance payment, all within one transaction.
+        /// Availability is verified twice (before and inside the transaction) to guard against race conditions.
+        /// A <c>DeudaReserva</c> movement and, if an advance is provided, a <c>PagoReserva</c> movement
+        /// are inserted. An HTML receipt is generated post-commit (failure is non-fatal and only logged).
+        /// </summary>
+        /// <param name="dto">Reservation parameters including client, space, time, duration, and advance amount.</param>
+        /// <returns>The unique reservation code (e.g., <c>"RES-123456-ABCD"</c>).</returns>
+        /// <exception cref="ArgumentException">Thrown for invalid amount, duration, or past date.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if the space is unavailable or the advance exceeds the total.</exception>
         public string GenerarReserva(GenerarReservaDTO dto)
         {
             if (dto.Adelanto < 0) throw new ArgumentException(Translations.ERR_ADELANTO_NEGATIVO.Translate());
@@ -230,6 +295,20 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Cancels a reservation: marks it <c>Cancelada</c>, inserts a reversal movement,
+        /// and transitions all <c>Abonado</c> payments to <c>Reembolsado</c> with corresponding negative movements.
+        /// </summary>
+        /// <param name="reservaId">The reservation to cancel.</param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the reservation does not exist, is already cancelled, or is finalized.
+        /// </exception>
+        /// <summary>
+        /// Cancels a reservation, reverses its debt movement, and refunds all <c>Abonado</c> payments.
+        /// All operations execute within a single transaction.
+        /// </summary>
+        /// <param name="reservaId">The reservation to cancel.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the reservation is already cancelled or finalized.</exception>
         public void CancelarReserva(Guid reservaId)
         {
             try
@@ -313,6 +392,14 @@ namespace BLL.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves a reservation by its unique code, with <c>ClienteNombre</c> and <c>EspacioNombre</c> hydrated.
+        /// </summary>
+        /// <param name="codigo">The reservation code.</param>
+        /// <returns>The hydrated <see cref="ReservaDTO"/>, or <c>null</c> if not found.</returns>
+        /// <summary>Retrieves a single reservation by its unique code, with client and space names hydrated.</summary>
+        /// <param name="codigo">The reservation code.</param>
+        /// <returns>The hydrated <see cref="ReservaDTO"/>, or <c>null</c> if not found.</returns>
         public ReservaDTO ObtenerPorCodigo(string codigo)
         {
             var r = _reservaRepo.GetByCodigo(codigo);
@@ -328,6 +415,20 @@ namespace BLL.Services
             return dto;
         }
 
+        /// <summary>
+        /// Returns reservations filtered by any combination of client, space, and minimum date.
+        /// All returned DTOs have <c>ClienteNombre</c> and <c>EspacioNombre</c> hydrated.
+        /// </summary>
+        /// <param name="clienteId">Optional client filter.</param>
+        /// <param name="espacioId">Optional space filter.</param>
+        /// <param name="desde">Optional minimum <c>FechaHora</c> filter.</param>
+        /// <summary>
+        /// Returns reservations filtered by any combination of client, space, and start date.
+        /// All returned DTOs include client and space names.
+        /// </summary>
+        /// <param name="clienteId">Optional client filter.</param>
+        /// <param name="espacioId">Optional space filter.</param>
+        /// <param name="desde">Optional lower bound on reservation date/time.</param>
         public List<ReservaDTO> ListarReservas(Guid? clienteId, Guid? espacioId, DateTime? desde)
         {
             List<Reserva> reservas;

@@ -51,9 +51,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Translations.LBL_APELLIDO.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = Translations.LBL_EMAIL.Translate() });
 
-            // For complex properties like Membresia Name, we can use CellFormatting or a wrapper.
-            // Simplified: We'll handle it in CellFormatting or DataBinding if possible.
-            // Let's use CellFormatting for Membresia and Status.
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { Name = "Membresia", HeaderText = Translations.LBL_MEMBRESIA.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Balance", HeaderText = Translations.LBL_BALANCE.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ProximaFechaPago", HeaderText = Translations.LBL_PROXIMA_FECHA_PAGO.Translate() });
@@ -117,12 +114,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnCrear.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteCrear);
             btnActualizar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteModificar);
             btnDeshabilitar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar);
-            btnHabilitar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar); // Assuming same permission for Enable/Disable
+            btnHabilitar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteDeshabilitar);
             btnCheckIn.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteCheckIn);
-            btnVerRutina.Enabled = false; // Disabled by default until selection
-            btnVerMovimientos.Enabled = false; // Disabled by default until selection
-
-            // Edit panel visibility based on permissions? Usually we disable buttons.
+            btnVerRutina.Enabled = false;
+            btnVerMovimientos.Enabled = false;
         }
 
         private void CargarMembresias()
@@ -242,7 +237,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                         }
                         else
                         {
-                            return; // Cancelled
+                            return;
                         }
                     }
 
@@ -252,7 +247,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     }
                 }
 
-                if (_clienteSeleccionado == null) return; // safety check
+                if (_clienteSeleccionado == null) return;
 
                 Guid nuevaMembresiaId = (Guid)cmbMembresia.SelectedValue;
                 _clienteManager.ActualizarMembresia(_clienteSeleccionado.Id, nuevaMembresiaId);
@@ -267,7 +262,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                 // Handle explicit message for debt if it comes from service
                  MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -333,9 +327,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             _clienteSeleccionado = null;
 
-            txtDNI.Enabled = true; // Allow DNI edit only for new
-
-            // Reset button states based on permissions and selection
+            txtDNI.Enabled = true; // Allow DNI edit only for new clients
             btnCrear.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteCrear);
             btnActualizar.Enabled = _usuario.TienePermiso(PermisoKeys.ClienteModificar);
             btnDeshabilitar.Enabled = false;
@@ -442,7 +434,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Green;
                     MessageBox.Show(msg, Translations.BTN_CHECK_IN.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtDNICheckIn.Text = string.Empty; // Clear after success
+                    txtDNICheckIn.Text = string.Empty;
                 }
                 else
                 {

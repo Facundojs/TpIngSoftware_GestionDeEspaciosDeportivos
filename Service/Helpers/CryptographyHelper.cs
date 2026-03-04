@@ -7,8 +7,19 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers
 {
+    /// <summary>
+    /// Provides cryptographic utilities used for password storage and integrity verification.
+    /// </summary>
     public static class CryptographyHelper
     {
+        /// <summary>
+        /// Computes a SHA-256 hash of the given password and returns it as a lowercase hex string.
+        /// </summary>
+        /// <param name="password">The plain-text password to hash.</param>
+        /// <returns>
+        /// A 64-character lowercase hex string (SHA-256 digest), or <see cref="string.Empty"/>
+        /// if <paramref name="password"/> is <c>null</c> or empty.
+        /// </returns>
         public static string HashPassword(string password)
         {
             if (string.IsNullOrEmpty(password)) return string.Empty;
