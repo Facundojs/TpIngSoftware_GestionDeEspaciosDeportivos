@@ -12,7 +12,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmClientes : Form
+    public partial class FrmClientes : Form, IRefreshable
     {
         private readonly ClienteManager _clienteManager;
         private readonly MembresiaManager _membresiaManager;
@@ -35,6 +35,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             CargarMembresias();
             CargarClientes();
             LimpiarControles();
+        }
+
+        public void RefreshData()
+        {
+            CargarMembresias();
+            CargarClientes();
         }
 
         private void ConfigurarGrid()

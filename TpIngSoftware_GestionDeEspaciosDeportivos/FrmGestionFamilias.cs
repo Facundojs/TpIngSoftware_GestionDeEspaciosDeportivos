@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmGestionFamilias : Form
+    public partial class FrmGestionFamilias : Form, IRefreshable
     {
         private readonly UsuarioDTO _usuario;
         private readonly PermisosService _permisosService;
@@ -45,6 +45,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             ApplyPermissions();
             LoadData();
         }
+
+        public void RefreshData() => LoadData();
 
         private void ApplyPermissions()
         {

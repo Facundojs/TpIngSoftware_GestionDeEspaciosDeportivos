@@ -8,7 +8,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmIngresos : Form
+    public partial class FrmIngresos : Form, IRefreshable
     {
         private readonly UsuarioDTO _usuario;
         private readonly IngresoManager _manager;
@@ -83,6 +83,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvIngresos.Columns["FechaHora"].DefaultCellStyle.Format = "g";
             }
         }
+
+        public void RefreshData() => CargarIngresos();
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {

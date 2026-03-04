@@ -13,7 +13,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmMembresias : Form
+    public partial class FrmMembresias : Form, IRefreshable
     {
         private readonly UsuarioDTO _currentUser;
         private readonly MembresiaManager _membresiaManager;
@@ -46,6 +46,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             ApplyPermissions();
             LoadMembresias();
         }
+
+        public void RefreshData() => LoadMembresias();
 
         private void ApplyPermissions()
         {

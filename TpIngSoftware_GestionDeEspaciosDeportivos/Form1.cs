@@ -88,6 +88,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             _tabControlAdmin = new TabControl { Dock = DockStyle.Fill };
             _tabPageAdmin.Controls.Add(_tabControlAdmin);
+
+            _tabControlMain.SelectedIndexChanged += TabMain_SelectedIndexChanged;
+            _tabControlNegocio.SelectedIndexChanged += TabInner_SelectedIndexChanged;
+            _tabControlAdmin.SelectedIndexChanged += TabInner_SelectedIndexChanged;
         }
 
         private void InitializeAllTabs()
@@ -172,6 +176,23 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void Form1_Load(object sender, EventArgs e)
         {
             new PermisosService().EnsurePermissions();
+        }
+
+        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var inner = _tabControlMain.SelectedTab == _tabPageNegocio ? _tabControlNegocio : _tabControlAdmin;
+            RefreshActiveForm(inner);
+        }
+
+        private void TabInner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshActiveForm((TabControl)sender);
+        }
+
+        private void RefreshActiveForm(TabControl tabControl)
+        {
+            var form = tabControl.SelectedTab?.Controls.OfType<IRefreshable>().FirstOrDefault();
+            form?.RefreshData();
         }
     }
 }

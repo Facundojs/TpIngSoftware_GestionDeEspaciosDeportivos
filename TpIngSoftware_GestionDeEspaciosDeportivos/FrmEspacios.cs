@@ -11,7 +11,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmEspacios : Form
+    public partial class FrmEspacios : Form, IRefreshable
     {
         private readonly UsuarioDTO _currentUser;
         private readonly EspacioManager _espacioManager;
@@ -43,6 +43,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             ApplyPermissions();
             LoadEspacios();
         }
+
+        public void RefreshData() => LoadEspacios();
 
         private void ApplyPermissions()
         {
