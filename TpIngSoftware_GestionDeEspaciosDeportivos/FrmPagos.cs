@@ -90,7 +90,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.PAGO_TITLE.Translate();
 

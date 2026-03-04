@@ -48,7 +48,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             dtpTo.Value = DateTime.Today;
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.BITACORA_TITLE.Translate();
             lblFrom.Text = Translations.LBL_DATE_FROM.Translate();

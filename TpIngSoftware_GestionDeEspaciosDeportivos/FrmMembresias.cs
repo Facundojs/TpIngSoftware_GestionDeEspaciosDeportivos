@@ -27,7 +27,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             UpdateLanguage();
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.FRM_MEMBRESIA_TITLE.Translate();
             lblCodigo.Text = Translations.LBL_CODIGO.Translate();

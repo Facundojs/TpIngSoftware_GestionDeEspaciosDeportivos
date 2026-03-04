@@ -29,7 +29,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             UpdateLanguage();
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.BACKUP_TITLE.Translate();
             btnBackup.Text = Translations.BTN_BACKUP.Translate();

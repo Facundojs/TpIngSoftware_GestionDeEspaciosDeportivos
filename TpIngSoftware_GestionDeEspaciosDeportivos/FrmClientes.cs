@@ -74,7 +74,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.CLIENTE_TITLE.Translate();
             lblDNI.Text = Translations.LBL_DNI.Translate();

@@ -30,7 +30,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             UpdateLanguage();
         }
 
-        private void UpdateLanguage()
+        public void UpdateLanguage()
         {
             this.Text = Translations.USERS_TITLE.Translate();
             lblUser.Text = Translations.LBL_USER.Translate();
