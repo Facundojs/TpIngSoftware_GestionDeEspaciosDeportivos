@@ -8,6 +8,7 @@ using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 using Service.Facade.Extension;
 using Domain.Composite;
 using Service.DTO;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -39,18 +40,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ConfigurarGrid()
         {
             dgvClientes.AutoGenerateColumns = false;
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Domain.Enums.Translations.LBL_DNI.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Domain.Enums.Translations.LBL_APELLIDO.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = Domain.Enums.Translations.LBL_EMAIL.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Translations.LBL_DNI.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Translations.LBL_NOMBRE.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Translations.LBL_APELLIDO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = Translations.LBL_EMAIL.Translate() });
 
             // For complex properties like Membresia Name, we can use CellFormatting or a wrapper.
             // Simplified: We'll handle it in CellFormatting or DataBinding if possible.
             // Let's use CellFormatting for Membresia and Status.
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { Name = "Membresia", HeaderText = Domain.Enums.Translations.LBL_MEMBRESIA.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Balance", HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ProximaFechaPago", HeaderText = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { Name = "Membresia", HeaderText = Translations.LBL_MEMBRESIA.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Balance", HeaderText = Translations.LBL_BALANCE.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ProximaFechaPago", HeaderText = Translations.LBL_PROXIMA_FECHA_PAGO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = Translations.LBL_ESTADO.Translate() });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Razon", HeaderText = "Razón" });
 
             dgvClientes.CellFormatting += DgvClientes_CellFormatting;
@@ -69,37 +70,37 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.CLIENTE_TITLE.Translate();
-            lblDNI.Text = Domain.Enums.Translations.LBL_DNI.Translate();
-            lblNombre.Text = Domain.Enums.Translations.LBL_NOMBRE.Translate();
-            lblApellido.Text = Domain.Enums.Translations.LBL_APELLIDO.Translate();
-            lblFechaNacimiento.Text = Domain.Enums.Translations.LBL_FECHA_NAC.Translate();
-            lblEmail.Text = Domain.Enums.Translations.LBL_EMAIL.Translate();
-            lblMembresia.Text = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
-            lblProximaFechaPago.Text = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
-            btnCrear.Text = Domain.Enums.Translations.BTN_CREAR.Translate();
-            btnActualizar.Text = Domain.Enums.Translations.BTN_ACTUALIZAR.Translate();
-            btnDeshabilitar.Text = Domain.Enums.Translations.BTN_DESHABILITAR.Translate();
-            btnHabilitar.Text = Domain.Enums.Translations.BTN_HABILITAR.Translate();
-            btnLimpiar.Text = Domain.Enums.Translations.BTN_LIMPIAR.Translate();
+            this.Text = Translations.CLIENTE_TITLE.Translate();
+            lblDNI.Text = Translations.LBL_DNI.Translate();
+            lblNombre.Text = Translations.LBL_NOMBRE.Translate();
+            lblApellido.Text = Translations.LBL_APELLIDO.Translate();
+            lblFechaNacimiento.Text = Translations.LBL_FECHA_NAC.Translate();
+            lblEmail.Text = Translations.LBL_EMAIL.Translate();
+            lblMembresia.Text = Translations.LBL_MEMBRESIA.Translate();
+            lblProximaFechaPago.Text = Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
+            btnCrear.Text = Translations.BTN_CREAR.Translate();
+            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+            btnDeshabilitar.Text = Translations.BTN_DESHABILITAR.Translate();
+            btnHabilitar.Text = Translations.BTN_HABILITAR.Translate();
+            btnLimpiar.Text = Translations.BTN_LIMPIAR.Translate();
 
-            lblDNICheckIn.Text = Domain.Enums.Translations.LBL_DNI.Translate();
-            btnCheckIn.Text = Domain.Enums.Translations.BTN_CHECK_IN.Translate();
-            btnVerRutina.Text = Domain.Enums.Translations.BTN_VER_RUTINA.Translate();
-            btnVerIngresos.Text = Domain.Enums.Translations.BTN_VER_INGRESOS.Translate();
-            btnVerMovimientos.Text = Domain.Enums.Translations.BTN_VER_MOVIMIENTOS.Translate();
+            lblDNICheckIn.Text = Translations.LBL_DNI.Translate();
+            btnCheckIn.Text = Translations.BTN_CHECK_IN.Translate();
+            btnVerRutina.Text = Translations.BTN_VER_RUTINA.Translate();
+            btnVerIngresos.Text = Translations.BTN_VER_INGRESOS.Translate();
+            btnVerMovimientos.Text = Translations.BTN_VER_MOVIMIENTOS.Translate();
 
             // Refresh headers
             if (dgvClientes.Columns.Count > 0)
             {
-                dgvClientes.Columns[0].HeaderText = Domain.Enums.Translations.LBL_DNI.Translate();
-                dgvClientes.Columns[1].HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate();
-                dgvClientes.Columns[2].HeaderText = Domain.Enums.Translations.LBL_APELLIDO.Translate();
-                dgvClientes.Columns[3].HeaderText = Domain.Enums.Translations.LBL_EMAIL.Translate();
-                dgvClientes.Columns[4].HeaderText = Domain.Enums.Translations.LBL_MEMBRESIA.Translate();
-                dgvClientes.Columns[5].HeaderText = Domain.Enums.Translations.LBL_BALANCE.Translate();
-                dgvClientes.Columns[6].HeaderText = Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
-                dgvClientes.Columns[7].HeaderText = Domain.Enums.Translations.LBL_ESTADO.Translate();
+                dgvClientes.Columns[0].HeaderText = Translations.LBL_DNI.Translate();
+                dgvClientes.Columns[1].HeaderText = Translations.LBL_NOMBRE.Translate();
+                dgvClientes.Columns[2].HeaderText = Translations.LBL_APELLIDO.Translate();
+                dgvClientes.Columns[3].HeaderText = Translations.LBL_EMAIL.Translate();
+                dgvClientes.Columns[4].HeaderText = Translations.LBL_MEMBRESIA.Translate();
+                dgvClientes.Columns[5].HeaderText = Translations.LBL_BALANCE.Translate();
+                dgvClientes.Columns[6].HeaderText = Translations.LBL_PROXIMA_FECHA_PAGO.Translate();
+                dgvClientes.Columns[7].HeaderText = Translations.LBL_ESTADO.Translate();
             }
         }
 
@@ -130,7 +131,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -144,7 +145,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -167,17 +168,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
 
                 _clienteManager.RegistrarCliente(dto);
-                MessageBox.Show(Domain.Enums.Translations.MSG_CLIENTE_CREADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_CLIENTE_CREADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarClientes();
                 LimpiarControles();
             }
             catch (FormatException)
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -187,7 +188,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (cmbMembresia.SelectedValue == null)
                 {
-                    MessageBox.Show(Domain.Enums.Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -195,14 +196,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     if (string.IsNullOrWhiteSpace(txtDNI.Text))
                     {
-                        MessageBox.Show(Domain.Enums.Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Translations.ERR_REQUIRED_FIELD.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     int dni;
                     if (!int.TryParse(txtDNI.Text, out dni))
                     {
-                        MessageBox.Show(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -211,11 +212,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     {
                         if (!_usuario.TienePermiso(PermisoKeys.ClienteCrear))
                         {
-                            MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERMISSION.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Translations.MSG_NO_PERMISSION.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
-                        if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show(Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             var dto = new ClienteDTO
                             {
@@ -250,18 +251,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 Guid nuevaMembresiaId = (Guid)cmbMembresia.SelectedValue;
                 _clienteManager.ActualizarMembresia(_clienteSeleccionado.Id, nuevaMembresiaId);
 
-                MessageBox.Show(Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_MEMBRESIA_UPDATED.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarClientes();
                 LimpiarControles();
             }
             catch (FormatException)
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                  // Handle explicit message for debt if it comes from service
-                 MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -271,9 +272,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             try
             {
-                if (MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    using (var prompt = new FrmPrompt(Domain.Enums.Translations.LBL_RAZON_DESHABILITAR.Translate(), Domain.Enums.Translations.TITLE_DESHABILITAR.Translate()))
+                    using (var prompt = new FrmPrompt(Translations.LBL_RAZON_DESHABILITAR.Translate(), Translations.TITLE_DESHABILITAR.Translate()))
                     {
                         if (prompt.ShowDialog() == DialogResult.OK)
                         {
@@ -287,7 +288,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -303,7 +304,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -431,7 +432,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (resultado.Permitido)
                 {
-                    string msg = Domain.Enums.Translations.MSG_INGRESO_PERMITIDO.Translate().Replace("{nombre}", resultado.NombreCliente);
+                    string msg = Translations.MSG_INGRESO_PERMITIDO.Translate().Replace("{nombre}", resultado.NombreCliente);
                     lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Green;
                     MessageBox.Show(msg, "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -439,7 +440,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 else
                 {
-                    string msg = Domain.Enums.Translations.MSG_INGRESO_DENEGADO.Translate().Replace("{razon}", resultado.Razon);
+                    string msg = Translations.MSG_INGRESO_DENEGADO.Translate().Replace("{razon}", resultado.Razon);
                     lblResultado.Text = msg;
                     lblResultado.ForeColor = Color.Red;
                     MessageBox.Show(msg, "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -447,11 +448,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (FormatException)
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.ERR_INVALID_NUMBER.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -3,6 +3,8 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
+using Domain.Enums;
+using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
@@ -36,7 +38,7 @@ namespace BLL.Services
                 // Known limitation: Agenda ranges crossing midnight (e.g., 22:00-02:00) are explicitly prevented by the UI validation here. They must be split into two ranges: 22:00-23:59 and 00:00-02:00.
                 if (agendasDto[i].HoraDesde >= agendasDto[i].HoraHasta)
                 {
-                    throw new ArgumentException(Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR.Translate());
+                    throw new ArgumentException(Translations.ERR_HORA_DESDE_MAYOR.Translate());
                 }
                 for (int j = i + 1; j < agendasDto.Count; j++)
                 {
@@ -44,7 +46,7 @@ namespace BLL.Services
                         agendasDto[i].HoraDesde < agendasDto[j].HoraHasta &&
                         agendasDto[j].HoraDesde < agendasDto[i].HoraHasta)
                     {
-                        throw new ArgumentException(Domain.Enums.Translations.ERR_AGENDA_OVERLAP.Translate());
+                        throw new ArgumentException(Translations.ERR_AGENDA_OVERLAP.Translate());
                     }
                 }
             }

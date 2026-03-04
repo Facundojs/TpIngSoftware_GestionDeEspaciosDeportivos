@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BLL.DTOs;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 using Service.Facade.Extension;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -27,13 +28,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.FRM_AGENDA_TITLE.Translate();
-            lblDesde.Text = Domain.Enums.Translations.LBL_HORA_DESDE.Translate();
-            lblHasta.Text = Domain.Enums.Translations.LBL_HORA_HASTA.Translate();
-            btnAgregar.Text = Domain.Enums.Translations.BTN_AGREGAR.Translate();
-            btnEliminar.Text = Domain.Enums.Translations.BTN_ELIMINAR.Translate();
-            btnGuardar.Text = Domain.Enums.Translations.BTN_SAVE.Translate();
-            lblDiaSemana.Text = Domain.Enums.Translations.LBL_EJERCICIO_DIA.Translate();
+            this.Text = Translations.FRM_AGENDA_TITLE.Translate();
+            lblDesde.Text = Translations.LBL_HORA_DESDE.Translate();
+            lblHasta.Text = Translations.LBL_HORA_HASTA.Translate();
+            btnAgregar.Text = Translations.BTN_AGREGAR.Translate();
+            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
+            btnGuardar.Text = Translations.BTN_SAVE.Translate();
+            lblDiaSemana.Text = Translations.LBL_EJERCICIO_DIA.Translate();
         }
 
         private void FrmAgenda_Load(object sender, EventArgs e)
@@ -63,16 +64,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvAgenda.DataSource = _agendas;
 
                 if (dgvAgenda.Columns["EspacioID"] != null) dgvAgenda.Columns["EspacioID"].Visible = false;
-                if (dgvAgenda.Columns["DiaSemana"] != null) dgvAgenda.Columns["DiaSemana"].HeaderText = Domain.Enums.Translations.LBL_EJERCICIO_DIA.Translate();
-                if (dgvAgenda.Columns["HoraDesde"] != null) dgvAgenda.Columns["HoraDesde"].HeaderText = Domain.Enums.Translations.LBL_HORA_DESDE.Translate();
-                if (dgvAgenda.Columns["HoraHasta"] != null) dgvAgenda.Columns["HoraHasta"].HeaderText = Domain.Enums.Translations.LBL_HORA_HASTA.Translate();
+                if (dgvAgenda.Columns["DiaSemana"] != null) dgvAgenda.Columns["DiaSemana"].HeaderText = Translations.LBL_EJERCICIO_DIA.Translate();
+                if (dgvAgenda.Columns["HoraDesde"] != null) dgvAgenda.Columns["HoraDesde"].HeaderText = Translations.LBL_HORA_DESDE.Translate();
+                if (dgvAgenda.Columns["HoraHasta"] != null) dgvAgenda.Columns["HoraHasta"].HeaderText = Translations.LBL_HORA_HASTA.Translate();
 
                 dgvAgenda.CellFormatting -= DgvAgenda_CellFormatting;
                 dgvAgenda.CellFormatting += DgvAgenda_CellFormatting;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
 
@@ -82,7 +83,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 // Use translations from the project
                 string translationKey = $"DAY_{diaInt}";
-                if (Enum.TryParse(translationKey, out Domain.Enums.Translations transEnum))
+                if (Enum.TryParse(translationKey, out Translations transEnum))
                 {
                     e.Value = transEnum.Translate();
                     e.FormattingApplied = true;
@@ -100,19 +101,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (desde.Minutes != 0 && desde.Minutes != 30)
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate());
+                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate());
                 return;
             }
 
             if (hasta.Minutes != 0 && hasta.Minutes != 30)
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_MULTIPLO_30.Translate());
+                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate());
                 return;
             }
 
             if (desde >= hasta)
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR.Translate());
+                MessageBox.Show(Translations.ERR_HORA_DESDE_MAYOR.Translate());
                 return;
             }
 
@@ -142,16 +143,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 var list = _agendas.ToList();
                 _agendaManager.ConfigurarAgenda(_espacioId, list);
-                MessageBox.Show(Domain.Enums.Translations.MSG_AGENDA_UPDATED.Translate());
+                MessageBox.Show(Translations.MSG_AGENDA_UPDATED.Translate());
                 this.Close();
             }
             catch (ArgumentException ex) when (ex.Message == "ERR_AGENDA_OVERLAP")
             {
-                MessageBox.Show(Domain.Enums.Translations.ERR_AGENDA_OVERLAP.Translate());
+                MessageBox.Show(Translations.ERR_AGENDA_OVERLAP.Translate());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message);
             }
         }
     }

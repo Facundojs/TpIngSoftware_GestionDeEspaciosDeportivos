@@ -123,7 +123,7 @@ namespace BLL
 
             if (balance != null && balance.Saldo < 0)
             {
-                string msg = Domain.Enums.Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE.Translate();
+                string msg = Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE.Translate();
                 if (!string.IsNullOrEmpty(contexto))
                 {
                     msg = $"{contexto}: {msg}";

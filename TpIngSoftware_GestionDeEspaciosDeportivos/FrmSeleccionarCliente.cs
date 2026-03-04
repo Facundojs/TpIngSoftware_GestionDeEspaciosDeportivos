@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using BLL.DTOs;
+using Domain.Enums;
 using Service.Facade.Extension;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 
@@ -33,16 +34,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ConfigurarGrid()
         {
             dgvClientes.AutoGenerateColumns = false;
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Domain.Enums.Translations.LBL_DNI.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Domain.Enums.Translations.LBL_NOMBRE.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Domain.Enums.Translations.LBL_APELLIDO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Translations.LBL_DNI.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Translations.LBL_NOMBRE.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Translations.LBL_APELLIDO.Translate() });
         }
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.FRM_SELECCIONAR_CLIENTE_TITLE.Translate();
-            lblBuscar.Text = Domain.Enums.Translations.LBL_DNI.Translate();
-            btnSeleccionar.Text = Domain.Enums.Translations.BTN_SELECCIONAR.Translate();
+            this.Text = Translations.FRM_SELECCIONAR_CLIENTE_TITLE.Translate();
+            lblBuscar.Text = Translations.LBL_DNI.Translate();
+            btnSeleccionar.Text = Translations.BTN_SELECCIONAR.Translate();
         }
 
         private void CargarClientes()
@@ -54,7 +55,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -5,6 +5,7 @@ using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
 using Domain.Enums;
+using Service.Facade.Extension;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,8 @@ namespace BLL.Services
 
         public void RegistrarPago(PagoDTO dto)
         {
-            if (dto.Monto <= 0) throw new ArgumentException(Domain.Enums.Translations.ERR_MONTO_INVALIDO.Translate());
-            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException(Domain.Enums.Translations.ERR_METODO_REQUERIDO.Translate());
+            if (dto.Monto <= 0) throw new ArgumentException(Translations.ERR_MONTO_INVALIDO.Translate());
+            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException(Translations.ERR_METODO_REQUERIDO.Translate());
 
             try
             {

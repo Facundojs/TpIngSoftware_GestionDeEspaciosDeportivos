@@ -5,6 +5,7 @@ using BLL.DTOs;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 using Service.Facade.Extension;
 using Domain.Entities;
+using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -35,26 +36,26 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ConfigurarGrid()
         {
             dgvMovimientos.AutoGenerateColumns = false;
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Monto", HeaderText = Domain.Enums.Translations.LBL_MONTO.Translate() });
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Tipo", HeaderText = Domain.Enums.Translations.LBL_TIPO_MOVIMIENTO.Translate() });
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Fecha", HeaderText = Domain.Enums.Translations.LBL_FECHA.Translate() });
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Descripcion", HeaderText = Domain.Enums.Translations.LBL_DESCRIPCION.Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Monto", HeaderText = Translations.LBL_MONTO.Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Tipo", HeaderText = Translations.LBL_TIPO_MOVIMIENTO.Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Fecha", HeaderText = Translations.LBL_FECHA.Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Descripcion", HeaderText = Translations.LBL_DESCRIPCION.Translate() });
         }
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.FRM_MOVIMIENTOS_TITLE.Translate();
-            lblCliente.Text = $"{Domain.Enums.Translations.LBL_CLIENTE.Translate()}: {_cliente.NombreCompleto}";
-            lblDesde.Text = Domain.Enums.Translations.LBL_DATE_FROM.Translate();
-            lblHasta.Text = Domain.Enums.Translations.LBL_DATE_TO.Translate();
-            btnFiltrar.Text = Domain.Enums.Translations.BTN_FILTER.Translate();
+            this.Text = Translations.FRM_MOVIMIENTOS_TITLE.Translate();
+            lblCliente.Text = $"{Translations.LBL_CLIENTE.Translate()}: {_cliente.NombreCompleto}";
+            lblDesde.Text = Translations.LBL_DATE_FROM.Translate();
+            lblHasta.Text = Translations.LBL_DATE_TO.Translate();
+            btnFiltrar.Text = Translations.BTN_FILTER.Translate();
 
             if (dgvMovimientos.Columns.Count > 0)
             {
-                dgvMovimientos.Columns[0].HeaderText = Domain.Enums.Translations.LBL_MONTO.Translate();
-                dgvMovimientos.Columns[1].HeaderText = Domain.Enums.Translations.LBL_TIPO_MOVIMIENTO.Translate();
-                dgvMovimientos.Columns[2].HeaderText = Domain.Enums.Translations.LBL_FECHA.Translate();
-                dgvMovimientos.Columns[3].HeaderText = Domain.Enums.Translations.LBL_DESCRIPCION.Translate();
+                dgvMovimientos.Columns[0].HeaderText = Translations.LBL_MONTO.Translate();
+                dgvMovimientos.Columns[1].HeaderText = Translations.LBL_TIPO_MOVIMIENTO.Translate();
+                dgvMovimientos.Columns[2].HeaderText = Translations.LBL_FECHA.Translate();
+                dgvMovimientos.Columns[3].HeaderText = Translations.LBL_DESCRIPCION.Translate();
             }
         }
 
@@ -70,7 +71,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Domain.Enums.Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

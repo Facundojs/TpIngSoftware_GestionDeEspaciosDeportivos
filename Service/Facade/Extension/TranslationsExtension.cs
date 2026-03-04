@@ -7,7 +7,7 @@ namespace Service.Facade.Extension
     {
         public static string Translate(this Translations key)
         {
-            return Service.Logic.LanguageLogic.Translate(key.ToString());
+            return Logic.LanguageLogic.Translate(key.ToString());
         }
 
         public static string ToString(this Translations key)

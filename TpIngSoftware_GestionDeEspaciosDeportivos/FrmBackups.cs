@@ -1,4 +1,5 @@
 using Domain.Composite;
+using Domain.Enums;
 using Service.DTO;
 using Service.Facade.Extension;
 using Service.Helpers;
@@ -30,11 +31,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Domain.Enums.Translations.BACKUP_TITLE.Translate();
-            btnBackup.Text = Domain.Enums.Translations.BTN_BACKUP.Translate();
-            btnRestore.Text = Domain.Enums.Translations.BTN_RESTORE.Translate();
-            btnDelete.Text = Domain.Enums.Translations.BTN_DELETE_BACKUP.Translate();
-            lblName.Text = Domain.Enums.Translations.LBL_FILENAME.Translate();
+            this.Text = Translations.BACKUP_TITLE.Translate();
+            btnBackup.Text = Translations.BTN_BACKUP.Translate();
+            btnRestore.Text = Translations.BTN_RESTORE.Translate();
+            btnDelete.Text = Translations.BTN_DELETE_BACKUP.Translate();
+            lblName.Text = Translations.LBL_FILENAME.Translate();
         }
 
         private void FrmBackups_Load(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (!_usuario.TienePermiso(PermisoKeys.BackupListar))
             {
-                 MessageBox.Show(Domain.Enums.Translations.MSG_NO_PERM_LIST.Translate());
+                 MessageBox.Show(Translations.MSG_NO_PERM_LIST.Translate());
                  this.Close();
                  return;
             }
@@ -66,7 +67,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Domain.Enums.Translations.MSG_ERR_LOAD_BACKUP.Translate() + ex.Message);
+                MessageBox.Show(Translations.MSG_ERR_LOAD_BACKUP.Translate() + ex.Message);
             }
         }
 
@@ -75,20 +76,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              string filename = txtBackupName.Text;
              if (string.IsNullOrWhiteSpace(filename))
              {
-                 MessageBox.Show(Domain.Enums.Translations.MSG_ENTER_BACKUP_NAME.Translate());
+                 MessageBox.Show(Translations.MSG_ENTER_BACKUP_NAME.Translate());
                  return;
              }
 
              try
              {
                  _backupService.Backup("IngSoftwareBase", filename);
-                 MessageBox.Show(Domain.Enums.Translations.MSG_BACKUP_SUCCESS.Translate());
+                 MessageBox.Show(Translations.MSG_BACKUP_SUCCESS.Translate());
                  LoadBackups();
                  txtBackupName.Text = "";
              }
              catch(Exception ex)
              {
-                 MessageBox.Show(Domain.Enums.Translations.MSG_ERR_BACKUP.Translate() + ex.Message);
+                 MessageBox.Show(Translations.MSG_ERR_BACKUP.Translate() + ex.Message);
              }
         }
 
@@ -97,17 +98,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              if(dgvBackups.SelectedRows.Count == 0) return;
              var selected = (BackupFile)dgvBackups.SelectedRows[0].DataBoundItem;
 
-             if(MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_RESTORE.Translate(), Domain.Enums.Translations.TITLE_CONFIRM_RESTORE.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+             if(MessageBox.Show(Translations.MSG_CONFIRM_RESTORE.Translate(), Translations.TITLE_CONFIRM_RESTORE.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
              {
                  try
                  {
                      _backupService.Restore("IngSoftwareBase", selected.Nombre);
-                     MessageBox.Show(Domain.Enums.Translations.MSG_RESTORE_SUCCESS.Translate());
+                     MessageBox.Show(Translations.MSG_RESTORE_SUCCESS.Translate());
                      Application.Restart();
                  }
                  catch(Exception ex)
                  {
-                     MessageBox.Show(Domain.Enums.Translations.MSG_ERR_RESTORE.Translate() + ex.Message);
+                     MessageBox.Show(Translations.MSG_ERR_RESTORE.Translate() + ex.Message);
                  }
              }
         }
@@ -117,7 +118,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
              if(dgvBackups.SelectedRows.Count == 0) return;
              var selected = (BackupFile)dgvBackups.SelectedRows[0].DataBoundItem;
 
-             if(MessageBox.Show(Domain.Enums.Translations.MSG_CONFIRM_DELETE_BACKUP.Translate(), Domain.Enums.Translations.TITLE_CONFIRM_DELETE.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+             if(MessageBox.Show(Translations.MSG_CONFIRM_DELETE_BACKUP.Translate(), Translations.TITLE_CONFIRM_DELETE.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
              {
                  try
                  {
@@ -126,7 +127,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                  }
                  catch(Exception ex)
                  {
-                     MessageBox.Show(Domain.Enums.Translations.MSG_ERR_DELETE_BACKUP.Translate() + ex.Message);
+                     MessageBox.Show(Translations.MSG_ERR_DELETE_BACKUP.Translate() + ex.Message);
                  }
              }
         }
