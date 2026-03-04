@@ -262,6 +262,7 @@ namespace Domain.Enums
         ERR_BACKUP_NO_EXISTE,
         ERR_FAMILIA_CICLO,
         LBL_SUBFAMILIAS,
+        LBL_VISTA_PREVIA,
         MAIN_NEGOCIO,
         DAY_0,
         DAY_1,

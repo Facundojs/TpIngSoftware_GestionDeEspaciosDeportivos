@@ -271,5 +271,6 @@ ERR_PATENTE_REMOVE_CHILD=No se pueden eliminar hijos de una Patente.
 ERR_BACKUP_NO_EXISTE=El archivo de backup no existe.
 ERR_FAMILIA_CICLO=No se puede guardar la familia porque crea una referencia circular.
 LBL_SUBFAMILIAS=Sub-Familias
+LBL_VISTA_PREVIA=Vista Previa
 MAIN_NEGOCIO=Negocio
 MENU_PERMISOS=Gestión de Permisos

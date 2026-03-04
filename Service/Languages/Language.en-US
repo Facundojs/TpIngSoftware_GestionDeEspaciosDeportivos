@@ -233,3 +233,4 @@ ERR_PATENTE_REMOVE_CHILD=Cannot remove children from a Patente.
 ERR_BACKUP_NO_EXISTE=Backup file does not exist.
 ERR_FAMILIA_CICLO=Cannot save the family because it creates a circular reference.
 LBL_SUBFAMILIAS=Sub-Families
+LBL_VISTA_PREVIA=Preview
