@@ -101,7 +101,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             CreateFixedTab(_tabControlNegocio, Translations.MENU_MEMBRESIA, () => new FrmMembresias(_usuario));
             CreateFixedTab(_tabControlNegocio, Translations.MENU_RESERVAS, () => new FrmReservas(_usuario));
             CreateFixedTab(_tabControlNegocio, Translations.MENU_ESPACIOS, () => new FrmEspacios(_usuario));
-            CreateFixedTab(_tabControlNegocio, Translations.MENU_RUTINAS, () => new FrmGestionRutinas(_usuario));
+            //CreateFixedTab(_tabControlNegocio, Translations.MENU_RUTINAS, () => new FrmGestionRutinas(_usuario));
             CreateFixedTab(_tabControlNegocio, Translations.MENU_PAGOS, () => new FrmPagos(_usuario));
 
             CreateFixedTab(_tabControlAdmin, Translations.MENU_USERS, () => new FrmUsuarios(_usuario));
@@ -135,7 +135,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_MEMBRESIA, PermisoKeys.MembresiaListar);
             CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_RESERVAS, PermisoKeys.ReservaListar);
             CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_ESPACIOS, PermisoKeys.EspacioListar);
-            CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_RUTINAS, PermisoKeys.RutinaVer);
+            //CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_RUTINAS, PermisoKeys.RutinaVer);
             CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_PAGOS, PermisoKeys.PagoListar);
 
             CheckAndAddSubTab(_tabControlAdmin, Translations.MENU_USERS, PermisoKeys.UsuarioListar);
