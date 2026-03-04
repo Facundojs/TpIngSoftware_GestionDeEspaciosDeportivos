@@ -84,7 +84,7 @@ namespace DAL.Impl.SqlServer
 
         public void Rollback()
         {
-            if (_transaction == null) throw new InvalidOperationException("No active transaction to rollback.");
+            if (_transaction == null) return;
             _transaction.Rollback();
             Cleanup();
             _spent = true;
@@ -96,7 +96,7 @@ namespace DAL.Impl.SqlServer
             _disposed = true;
             if (_transaction != null)
             {
-                _transaction.Rollback();
+                try { _transaction.Rollback(); } catch { }
             }
             Cleanup();
         }
