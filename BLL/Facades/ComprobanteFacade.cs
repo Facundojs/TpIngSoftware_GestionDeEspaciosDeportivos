@@ -10,7 +10,7 @@ namespace BLL.Facades
 {
     public class ComprobanteFacade
     {
-        private readonly string[] extensionesPermitidas = { ".pdf", ".jpg", ".jpeg", ".png" };
+        private readonly string[] extensionesPermitidas = { ".pdf", ".jpg", ".jpeg", ".png", ".html" };
         private readonly int maxSizeBytes = 5 * 1024 * 1024; // 5MB
         private readonly IComprobanteRepository _sqlRepo;
         private readonly IComprobanteRepository _fileRepo;
