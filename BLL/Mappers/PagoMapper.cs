@@ -59,6 +59,7 @@ namespace BLL.Mappers
             {
                 Id = entity.Id,
                 PagoID = entity.PagoID,
+                ReservaID = entity.ReservaID,
                 NombreArchivo = entity.NombreArchivo,
                 RutaArchivo = entity.RutaArchivo,
                 FechaSubida = entity.FechaSubida,
@@ -73,6 +74,7 @@ namespace BLL.Mappers
             var entity = new Comprobante
             {
                 PagoID = dto.PagoID,
+                ReservaID = dto.ReservaID,
                 NombreArchivo = dto.NombreArchivo,
                 RutaArchivo = dto.RutaArchivo,
                 FechaSubida = dto.FechaSubida,

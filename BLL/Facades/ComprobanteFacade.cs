@@ -14,7 +14,7 @@ namespace BLL.Facades
         private readonly int maxSizeBytes = 5 * 1024 * 1024; // 5MB
         private readonly IComprobanteRepository _sqlRepo;
         private readonly IComprobanteRepository _fileRepo;
-        
+
         public ComprobanteFacade()
         {
             _sqlRepo = DalFactory.ComprobanteRepository;
@@ -24,7 +24,8 @@ namespace BLL.Facades
         public void Adjuntar(ComprobanteDTO dto)
         {
             if (dto == null) throw new ArgumentNullException(nameof(dto));
-            if (dto.PagoID == Guid.Empty) throw new ArgumentException("El ID del pago es requerido");
+            if (!dto.PagoID.HasValue && !dto.ReservaID.HasValue)
+                throw new ArgumentException("Se requiere PagoID o ReservaID");
 
             if (dto.Contenido == null || dto.Contenido.Length == 0)
                 throw new ArgumentException("El contenido del comprobante no puede estar vacío");
@@ -57,7 +58,25 @@ namespace BLL.Facades
             var metadata = _sqlRepo.GetByPago(pagoId);
             if (metadata == null) return null;
 
-            var fileData = _fileRepo.GetByPago(pagoId);
+            var fileData = _fileRepo.GetById(metadata.Id);
+
+            var dto = PagoMapper.ToDTO(metadata);
+            if (fileData != null && fileData.Contenido != null)
+            {
+                dto.Contenido = fileData.Contenido;
+            }
+
+            return dto;
+        }
+
+        public ComprobanteDTO ObtenerPorReserva(Guid reservaId)
+        {
+            if (reservaId == Guid.Empty) throw new ArgumentException("El ID de la reserva es requerido");
+
+            var metadata = _sqlRepo.GetByReserva(reservaId);
+            if (metadata == null) return null;
+
+            var fileData = _fileRepo.GetById(metadata.Id);
 
             var dto = PagoMapper.ToDTO(metadata);
             if (fileData != null && fileData.Contenido != null)

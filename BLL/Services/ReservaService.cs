@@ -154,7 +154,6 @@ namespace BLL.Services
                         };
                         uow.MovimientoRepository.Insertar(movDeuda);
 
-                        Guid pagoIdParaComprobante = Guid.Empty;
                         if (dto.Adelanto > 0)
                         {
                             var pago = new Pago
@@ -168,7 +167,6 @@ namespace BLL.Services
                                 Detalle = $"Down payment Reservation {reserva.CodigoReserva}",
                                 Fecha = DateTime.Now
                             };
-                            pagoIdParaComprobante = pago.Id;
 
                             uow.PagoRepository.Add(pago);
 
@@ -182,22 +180,6 @@ namespace BLL.Services
                                 PagoID = pago.Id
                             };
                             uow.MovimientoRepository.Insertar(movPago);
-                        }
-                        else
-                        {
-                            var pagoCero = new Pago
-                            {
-                                Id = Guid.NewGuid(),
-                                ClienteID = dto.ClienteId,
-                                Monto = 0,
-                                ReservaID = reserva.Id,
-                                Estado = EstadoPago.Abonado.ToString(),
-                                Metodo = "Reserva sin Adelanto",
-                                Detalle = $"Receipt Reservation {reserva.CodigoReserva}",
-                                Fecha = DateTime.Now
-                            };
-                            pagoIdParaComprobante = pagoCero.Id;
-                            uow.PagoRepository.Add(pagoCero);
                         }
 
                         uow.Commit();
@@ -217,7 +199,7 @@ namespace BLL.Services
 
                             var comprobanteDto = new ComprobanteDTO
                             {
-                                PagoID = pagoIdParaComprobante,
+                                ReservaID = reserva.Id,
                                 NombreArchivo = $"Reservation_Receipt_{reserva.CodigoReserva}.html",
                                 Contenido = bytes
                             };
