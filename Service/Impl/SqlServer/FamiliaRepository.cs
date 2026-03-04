@@ -1,11 +1,7 @@
-﻿using Domain.Composite;
+using Domain.Composite;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Service.Contracts;
 
 namespace Service.Impl
@@ -16,10 +12,9 @@ namespace Service.Impl
         {
             string query = "INSERT INTO Familia (Id, Nombre) VALUES (@Id, @Nom)";
             ExecuteNonQuery(query, new[] {
-            new SqlParameter("@Id", obj.Id),
-            new SqlParameter("@Nom", obj.Nombre)
-        });
-            // Nota: Los hijos se guardan usualmente en un método separado o mediante Update
+                new SqlParameter("@Id", obj.Id),
+                new SqlParameter("@Nom", obj.Nombre)
+            });
         }
 
         public void Update(Familia obj)
@@ -31,28 +26,47 @@ namespace Service.Impl
                 {
                     try
                     {
-                        // 1. Actualizar nombre de la familia
-                        string updateFam = "UPDATE Familia SET Nombre = @Nom WHERE Id = @Id";
-                        SqlCommand cmdFam = new SqlCommand(updateFam, conn, tran);
-                        cmdFam.Parameters.AddWithValue("@Nom", obj.Nombre);
-                        cmdFam.Parameters.AddWithValue("@Id", obj.Id);
-                        cmdFam.ExecuteNonQuery();
+                        using (var cmd = new SqlCommand("UPDATE Familia SET Nombre = @Nom WHERE Id = @Id", conn, tran))
+                        {
+                            cmd.Parameters.AddWithValue("@Nom", obj.Nombre);
+                            cmd.Parameters.AddWithValue("@Id", obj.Id);
+                            cmd.ExecuteNonQuery();
+                        }
 
-                        // 2. Limpiar patentes asociadas (Relación Composite)
-                        string deleteRel = "DELETE FROM FamiliaPatente WHERE IdFamilia = @Id";
-                        SqlCommand cmdDel = new SqlCommand(deleteRel, conn, tran);
-                        cmdDel.Parameters.AddWithValue("@Id", obj.Id);
-                        cmdDel.ExecuteNonQuery();
+                        using (var cmd = new SqlCommand("DELETE FROM FamiliaPatente WHERE IdFamilia = @Id", conn, tran))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", obj.Id);
+                            cmd.ExecuteNonQuery();
+                        }
 
-                        // 3. Insertar nuevas relaciones
+                        using (var cmd = new SqlCommand("DELETE FROM FamiliaFamilia WHERE IdFamiliaPadre = @Id", conn, tran))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", obj.Id);
+                            cmd.ExecuteNonQuery();
+                        }
+
                         foreach (var hijo in obj.Accesos)
                         {
-                            string insertRel = "INSERT INTO FamiliaPatente (IdFamilia, IdPatente) VALUES (@IdF, @IdP)";
-                            SqlCommand cmdIns = new SqlCommand(insertRel, conn, tran);
-                            cmdIns.Parameters.AddWithValue("@IdF", obj.Id);
-                            cmdIns.Parameters.AddWithValue("@IdP", hijo.Id);
-                            cmdIns.ExecuteNonQuery();
+                            if (hijo is Patente)
+                            {
+                                using (var cmd = new SqlCommand("INSERT INTO FamiliaPatente (IdFamilia, IdPatente) VALUES (@IdF, @IdP)", conn, tran))
+                                {
+                                    cmd.Parameters.AddWithValue("@IdF", obj.Id);
+                                    cmd.Parameters.AddWithValue("@IdP", hijo.Id);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                            else if (hijo is Familia)
+                            {
+                                using (var cmd = new SqlCommand("INSERT INTO FamiliaFamilia (IdFamiliaPadre, IdFamiliaHija) VALUES (@IdP, @IdH)", conn, tran))
+                                {
+                                    cmd.Parameters.AddWithValue("@IdP", obj.Id);
+                                    cmd.Parameters.AddWithValue("@IdH", hijo.Id);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
                         }
+
                         tran.Commit();
                     }
                     catch { tran.Rollback(); throw; }
@@ -62,75 +76,93 @@ namespace Service.Impl
 
         public void Remove(Guid id)
         {
-            // Primero borrar relaciones por integridad referencial
+            ExecuteNonQuery("DELETE FROM UsuarioFamilia WHERE IdFamilia = @Id", new[] { new SqlParameter("@Id", id) });
+            ExecuteNonQuery("DELETE FROM FamiliaFamilia WHERE IdFamiliaPadre = @Id", new[] { new SqlParameter("@Id", id) });
+            ExecuteNonQuery("DELETE FROM FamiliaFamilia WHERE IdFamiliaHija = @Id", new[] { new SqlParameter("@Id", id) });
             ExecuteNonQuery("DELETE FROM FamiliaPatente WHERE IdFamilia = @Id", new[] { new SqlParameter("@Id", id) });
             ExecuteNonQuery("DELETE FROM Familia WHERE Id = @Id", new[] { new SqlParameter("@Id", id) });
         }
 
         public Familia GetById(Guid id)
         {
-            Familia fam = null;
-            string query = "SELECT Id, Nombre FROM Familia WHERE Id = @Id";
-
             using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    using (var dr = cmd.ExecuteReader())
-                    {
-                        if (dr.Read())
-                        {
-                            fam = new Familia { Id = dr.GetGuid(0), Nombre = dr.GetString(1) };
-                        }
-                    }
-                }
+                return GetByIdInternal(id, conn, new HashSet<Guid>());
+            }
+        }
 
-                if (fam != null)
+        private Familia GetByIdInternal(Guid id, SqlConnection conn, HashSet<Guid> visited)
+        {
+            if (!visited.Add(id)) return null;
+
+            Familia fam = null;
+            using (var cmd = new SqlCommand("SELECT Id, Nombre FROM Familia WHERE Id = @Id", conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", id);
+                using (var dr = cmd.ExecuteReader())
                 {
-                    // Cargar los hijos (Patentes) de esta familia
-                    string queryHijos = @"SELECT p.Id, p.Nombre, p.TipoAcceso, p.DataKey 
+                    if (dr.Read())
+                        fam = new Familia { Id = dr.GetGuid(0), Nombre = dr.GetString(1) };
+                }
+            }
+
+            if (fam == null) return null;
+
+            string queryPatentes = @"SELECT p.Id, p.Nombre, p.TipoAcceso, p.DataKey
                                      FROM Patente p
                                      INNER JOIN FamiliaPatente fp ON p.Id = fp.IdPatente
                                      WHERE fp.IdFamilia = @Id";
-
-                    using (var cmdHijos = new SqlCommand(queryHijos, conn))
+            using (var cmd = new SqlCommand(queryPatentes, conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", id);
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
                     {
-                        cmdHijos.Parameters.AddWithValue("@Id", id);
-                        using (var drH = cmdHijos.ExecuteReader())
+                        fam.Agregar(new Patente
                         {
-                            while (drH.Read())
-                            {
-                                fam.Agregar(new Patente
-                                {
-                                    Id = drH.GetGuid(0),
-                                    Nombre = drH.GetString(1),
-                                    TipoAcceso = drH.GetString(2),
-                                    DataKey = drH.GetString(3)
-                                });
-                            }
-                        }
+                            Id = dr.GetGuid(0),
+                            Nombre = dr.GetString(1),
+                            TipoAcceso = dr.GetString(2),
+                            DataKey = dr.GetString(3)
+                        });
                     }
                 }
             }
+
+            var childIds = new List<Guid>();
+            using (var cmd = new SqlCommand("SELECT IdFamiliaHija FROM FamiliaFamilia WHERE IdFamiliaPadre = @Id", conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", id);
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                        childIds.Add(dr.GetGuid(0));
+                }
+            }
+
+            foreach (var childId in childIds)
+            {
+                var childFam = GetByIdInternal(childId, conn, visited);
+                if (childFam != null)
+                    fam.Agregar(childFam);
+            }
+
             return fam;
         }
 
         public List<Familia> GetAll()
         {
-            List<Familia> lista = new List<Familia>();
-            string query = "SELECT Id, Nombre FROM Familia";
+            var lista = new List<Familia>();
             using (var conn = new SqlConnection(_connectionString))
-            using (var cmd = new SqlCommand(query, conn))
+            using (var cmd = new SqlCommand("SELECT Id, Nombre FROM Familia", conn))
             {
                 conn.Open();
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
-                    {
                         lista.Add(new Familia { Id = dr.GetGuid(0), Nombre = dr.GetString(1) });
-                    }
                 }
             }
             return lista;

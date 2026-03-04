@@ -2,157 +2,251 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
     partial class FrmGestionFamilias
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.lstFamilias = new System.Windows.Forms.ListBox();
-            this.lstPatentes = new System.Windows.Forms.CheckedListBox();
-            this.txtNombreFamilia = new System.Windows.Forms.TextBox();
-            this.lblNombreFamilia = new System.Windows.Forms.Label();
+            this.splitMain = new System.Windows.Forms.SplitContainer();
+            this.tvHierarchy = new System.Windows.Forms.TreeView();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnCrear = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.lblFamilias = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.splitLists = new System.Windows.Forms.SplitContainer();
             this.lblPatentes = new System.Windows.Forms.Label();
+            this.clbPatentes = new System.Windows.Forms.CheckedListBox();
+            this.lblSubFamilias = new System.Windows.Forms.Label();
+            this.clbSubFamilias = new System.Windows.Forms.CheckedListBox();
+            this.pnlPreview = new System.Windows.Forms.Panel();
+            this.lblPreview = new System.Windows.Forms.Label();
+            this.tvPreview = new System.Windows.Forms.TreeView();
+
+            ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
+            this.splitMain.Panel1.SuspendLayout();
+            this.splitMain.Panel2.SuspendLayout();
+            this.splitMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitLists)).BeginInit();
+            this.splitLists.Panel1.SuspendLayout();
+            this.splitLists.Panel2.SuspendLayout();
+            this.splitLists.SuspendLayout();
+            this.pnlTop.SuspendLayout();
+            this.pnlPreview.SuspendLayout();
             this.SuspendLayout();
-            //
-            // lstFamilias
-            //
-            this.lstFamilias.FormattingEnabled = true;
-            this.lstFamilias.ItemHeight = 16;
-            this.lstFamilias.Location = new System.Drawing.Point(12, 33);
-            this.lstFamilias.Name = "lstFamilias";
-            this.lstFamilias.Size = new System.Drawing.Size(200, 324);
-            this.lstFamilias.TabIndex = 0;
-            this.lstFamilias.SelectedIndexChanged += new System.EventHandler(this.lstFamilias_SelectedIndexChanged);
-            //
-            // lstPatentes
-            //
-            this.lstPatentes.FormattingEnabled = true;
-            this.lstPatentes.Location = new System.Drawing.Point(230, 33);
-            this.lstPatentes.Name = "lstPatentes";
-            this.lstPatentes.Size = new System.Drawing.Size(250, 327);
-            this.lstPatentes.TabIndex = 1;
-            //
-            // txtNombreFamilia
-            //
-            this.txtNombreFamilia.Location = new System.Drawing.Point(500, 50);
-            this.txtNombreFamilia.Name = "txtNombreFamilia";
-            this.txtNombreFamilia.Size = new System.Drawing.Size(200, 22);
-            this.txtNombreFamilia.TabIndex = 2;
-            //
-            // lblNombreFamilia
-            //
-            this.lblNombreFamilia.AutoSize = true;
-            this.lblNombreFamilia.Location = new System.Drawing.Point(497, 30);
-            this.lblNombreFamilia.Name = "lblNombreFamilia";
-            this.lblNombreFamilia.Size = new System.Drawing.Size(61, 16);
-            this.lblNombreFamilia.TabIndex = 3;
-            this.lblNombreFamilia.Text = "Nombre:";
-            //
+
+            // splitMain — main left/right divider
+            this.splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitMain.Location = new System.Drawing.Point(0, 0);
+            this.splitMain.Name = "splitMain";
+            this.splitMain.Size = new System.Drawing.Size(960, 620);
+            this.splitMain.SplitterDistance = 280;
+            this.splitMain.TabIndex = 0;
+
+            // splitMain.Panel1 — hierarchy tree
+            this.splitMain.Panel1.Controls.Add(this.tvHierarchy);
+
+            // splitMain.Panel2 — editor area
+            this.splitMain.Panel2.Controls.Add(this.splitLists);
+            this.splitMain.Panel2.Controls.Add(this.pnlPreview);
+            this.splitMain.Panel2.Controls.Add(this.pnlTop);
+
+            // tvHierarchy
+            this.tvHierarchy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvHierarchy.Name = "tvHierarchy";
+            this.tvHierarchy.TabIndex = 0;
+            this.tvHierarchy.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvHierarchy_AfterSelect);
+
+            // pnlTop — name field + action buttons
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Height = 45;
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.TabIndex = 1;
+            this.pnlTop.Controls.Add(this.lblNombre);
+            this.pnlTop.Controls.Add(this.txtNombre);
+            this.pnlTop.Controls.Add(this.btnCrear);
+            this.pnlTop.Controls.Add(this.btnGuardar);
+            this.pnlTop.Controls.Add(this.btnEliminar);
+            this.pnlTop.Controls.Add(this.btnLimpiar);
+
+            // lblNombre
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(6, 14);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre:";
+
+            // txtNombre
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.txtNombre.Location = new System.Drawing.Point(68, 11);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(160, 22);
+            this.txtNombre.TabIndex = 1;
+
             // btnCrear
-            //
-            this.btnCrear.Location = new System.Drawing.Point(500, 90);
+            this.btnCrear.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.btnCrear.Location = new System.Drawing.Point(236, 9);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(100, 30);
-            this.btnCrear.TabIndex = 4;
+            this.btnCrear.Size = new System.Drawing.Size(75, 26);
+            this.btnCrear.TabIndex = 2;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
-            //
-            // btnActualizar
-            //
-            this.btnActualizar.Location = new System.Drawing.Point(500, 130);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(100, 30);
-            this.btnActualizar.TabIndex = 5;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            //
+
+            // btnGuardar
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Location = new System.Drawing.Point(317, 9);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 26);
+            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+
             // btnEliminar
-            //
-            this.btnEliminar.Location = new System.Drawing.Point(500, 170);
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(398, 9);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 30);
-            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Size = new System.Drawing.Size(75, 26);
+            this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            //
-            // lblFamilias
-            //
-            this.lblFamilias.AutoSize = true;
-            this.lblFamilias.Location = new System.Drawing.Point(12, 14);
-            this.lblFamilias.Name = "lblFamilias";
-            this.lblFamilias.Size = new System.Drawing.Size(61, 16);
-            this.lblFamilias.TabIndex = 7;
-            this.lblFamilias.Text = "Familias";
-            //
+
+            // btnLimpiar
+            this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.btnLimpiar.Location = new System.Drawing.Point(479, 9);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 26);
+            this.btnLimpiar.TabIndex = 5;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+
+            // splitLists — Patentes (left) | Sub-Familias (right)
+            this.splitLists.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitLists.Name = "splitLists";
+            this.splitLists.TabIndex = 2;
+
+            // splitLists.Panel1 — Patentes
+            this.splitLists.Panel1.Controls.Add(this.clbPatentes);
+            this.splitLists.Panel1.Controls.Add(this.lblPatentes);
+
+            // splitLists.Panel2 — Sub-Familias
+            this.splitLists.Panel2.Controls.Add(this.clbSubFamilias);
+            this.splitLists.Panel2.Controls.Add(this.lblSubFamilias);
+
             // lblPatentes
-            //
-            this.lblPatentes.AutoSize = true;
-            this.lblPatentes.Location = new System.Drawing.Point(227, 14);
+            this.lblPatentes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPatentes.Height = 20;
+            this.lblPatentes.AutoSize = false;
             this.lblPatentes.Name = "lblPatentes";
-            this.lblPatentes.Size = new System.Drawing.Size(61, 16);
-            this.lblPatentes.TabIndex = 8;
+            this.lblPatentes.TabIndex = 0;
             this.lblPatentes.Text = "Patentes";
-            //
+            this.lblPatentes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // clbPatentes
+            this.clbPatentes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clbPatentes.FormattingEnabled = true;
+            this.clbPatentes.Name = "clbPatentes";
+            this.clbPatentes.TabIndex = 1;
+            this.clbPatentes.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbPatentes_ItemCheck);
+
+            // lblSubFamilias
+            this.lblSubFamilias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSubFamilias.Height = 20;
+            this.lblSubFamilias.AutoSize = false;
+            this.lblSubFamilias.Name = "lblSubFamilias";
+            this.lblSubFamilias.TabIndex = 0;
+            this.lblSubFamilias.Text = "Sub-Familias";
+            this.lblSubFamilias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // clbSubFamilias
+            this.clbSubFamilias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clbSubFamilias.FormattingEnabled = true;
+            this.clbSubFamilias.Name = "clbSubFamilias";
+            this.clbSubFamilias.TabIndex = 1;
+            this.clbSubFamilias.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbSubFamilias_ItemCheck);
+
+            // pnlPreview — read-only composite preview
+            this.pnlPreview.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlPreview.Height = 200;
+            this.pnlPreview.Name = "pnlPreview";
+            this.pnlPreview.TabIndex = 3;
+            this.pnlPreview.Controls.Add(this.tvPreview);
+            this.pnlPreview.Controls.Add(this.lblPreview);
+
+            // lblPreview
+            this.lblPreview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPreview.Height = 20;
+            this.lblPreview.AutoSize = false;
+            this.lblPreview.Name = "lblPreview";
+            this.lblPreview.TabIndex = 0;
+            this.lblPreview.Text = "Vista Previa";
+            this.lblPreview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // tvPreview
+            this.tvPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvPreview.LabelEdit = false;
+            this.tvPreview.Name = "tvPreview";
+            this.tvPreview.TabIndex = 1;
+
             // FrmGestionFamilias
-            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 380);
-            this.Controls.Add(this.lblPatentes);
-            this.Controls.Add(this.lblFamilias);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.lblNombreFamilia);
-            this.Controls.Add(this.txtNombreFamilia);
-            this.Controls.Add(this.lstPatentes);
-            this.Controls.Add(this.lstFamilias);
+            this.ClientSize = new System.Drawing.Size(960, 620);
+            this.Controls.Add(this.splitMain);
             this.Name = "FrmGestionFamilias";
             this.Text = "Gestión de Familias";
             this.Load += new System.EventHandler(this.FrmGestionFamilias_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
 
+            this.splitMain.Panel1.ResumeLayout(false);
+            this.splitMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
+            this.splitMain.ResumeLayout(false);
+
+            this.splitLists.Panel1.ResumeLayout(false);
+            this.splitLists.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitLists)).EndInit();
+            this.splitLists.ResumeLayout(false);
+
+            this.pnlTop.ResumeLayout(false);
+            this.pnlTop.PerformLayout();
+            this.pnlPreview.ResumeLayout(false);
+
+            this.ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstFamilias;
-        private System.Windows.Forms.CheckedListBox lstPatentes;
-        private System.Windows.Forms.TextBox txtNombreFamilia;
-        private System.Windows.Forms.Label lblNombreFamilia;
+        private System.Windows.Forms.SplitContainer splitMain;
+        private System.Windows.Forms.TreeView tvHierarchy;
+        private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnCrear;
-        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label lblFamilias;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.SplitContainer splitLists;
         private System.Windows.Forms.Label lblPatentes;
+        private System.Windows.Forms.CheckedListBox clbPatentes;
+        private System.Windows.Forms.Label lblSubFamilias;
+        private System.Windows.Forms.CheckedListBox clbSubFamilias;
+        private System.Windows.Forms.Panel pnlPreview;
+        private System.Windows.Forms.Label lblPreview;
+        private System.Windows.Forms.TreeView tvPreview;
     }
 }

@@ -232,3 +232,6 @@ ERR_CLIENTE_DEUDA_BLOQUEANTE=O cliente tem uma dívida. Deve pagar antes de cont
 ERR_PATENTE_ADD_CHILD=Não é possível adicionar filhos a uma Patente.
 ERR_PATENTE_REMOVE_CHILD=Não é possível remover filhos de uma Patente.
 ERR_BACKUP_NO_EXISTE=O arquivo de backup não existe.
+ERR_FAMILIA_CICLO=Não é possível salvar a família porque cria uma referência circular.
+LBL_SUBFAMILIAS=Sub-Famílias
+LBL_VISTA_PREVIA=Pré-visualização

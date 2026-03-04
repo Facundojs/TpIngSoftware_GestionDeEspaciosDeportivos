@@ -46,32 +46,32 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             treeViewPermisos.Nodes.Clear();
             var familias = _permisosService.GetAllFamilias();
-
             var userFamilyIds = _usuario.Permisos.Select(p => p.Id).ToList();
 
             foreach (var familia in familias)
             {
                 var node = new TreeNode(familia.Nombre);
                 node.Tag = familia;
-
-                if (userFamilyIds.Contains(familia.Id))
-                {
-                    node.Checked = true;
-                }
-
-                foreach(var acceso in familia.Accesos)
-                {
-                     var childNode = new TreeNode(acceso.Nombre);
-                     childNode.Tag = acceso;
-                     // Disable checkbox for child? Not easy in standard TreeView without DrawMode.
-                     // Just ignore it in logic.
-                     node.Nodes.Add(childNode);
-                }
-
+                node.Checked = userFamilyIds.Contains(familia.Id);
+                AddChildNodes(node, familia.Accesos);
                 treeViewPermisos.Nodes.Add(node);
             }
 
             treeViewPermisos.ExpandAll();
+        }
+
+        private void AddChildNodes(TreeNode parentNode, System.Collections.Generic.IList<Acceso> accesos)
+        {
+            foreach (var acceso in accesos)
+            {
+                var childNode = new TreeNode(acceso.Nombre);
+                childNode.Tag = acceso;
+
+                if (acceso is Familia subFamilia)
+                    AddChildNodes(childNode, subFamilia.Accesos);
+
+                parentNode.Nodes.Add(childNode);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
