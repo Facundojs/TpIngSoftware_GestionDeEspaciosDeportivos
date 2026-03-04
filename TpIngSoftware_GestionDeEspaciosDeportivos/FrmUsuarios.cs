@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmUsuarios : Form, IRefreshable
+    public partial class FrmUsuarios : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _currentUser;
         private readonly UsuarioService _usuarioService;

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmGestionFamilias : Form, IRefreshable
+    public partial class FrmGestionFamilias : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _usuario;
         private readonly PermisosService _permisosService;
@@ -35,7 +35,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             btnGuardar.Text = Translations.BTN_SAVE.Translate();
             btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
             btnLimpiar.Text = Translations.BTN_LIMPIAR.Translate();
-            lblPatentes.Text = "Patentes";
+            lblPatentes.Text = Translations.LBL_PATENTES.Translate();
             lblSubFamilias.Text = Translations.LBL_SUBFAMILIAS.Translate();
             lblPreview.Text = Translations.LBL_VISTA_PREVIA.Translate();
         }

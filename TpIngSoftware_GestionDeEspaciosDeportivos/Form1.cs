@@ -158,7 +158,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void UpdateLanguage()
         {
             this.Text = Translations.MAIN_TITLE.Translate();
-            
+
             if (_tabPageNegocio.Tag is Translations negocioKey)
                 _tabPageNegocio.Text = negocioKey.Translate();
             if (_tabPageAdmin.Tag is Translations adminKey)
@@ -167,9 +167,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             foreach (var tab in _allTabs.Values)
             {
                 if (tab.Tag is Translations transKey)
-                {
                     tab.Text = transKey.Translate();
-                }
+                tab.Controls.OfType<ITranslatable>().FirstOrDefault()?.UpdateLanguage();
             }
         }
 

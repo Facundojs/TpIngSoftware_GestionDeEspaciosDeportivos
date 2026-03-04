@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmBackups : Form, IRefreshable
+    public partial class FrmBackups : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _usuario;
         private readonly BackupService _backupService;

@@ -16,7 +16,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmBitacora : Form, IRefreshable
+    public partial class FrmBitacora : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _usuario;
         private readonly BitacoraService _bitacoraService;
@@ -40,7 +40,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void SetupControls()
         {
-            cmbLevel.Items.Add("Todos");
+            cmbLevel.Items.Add(Translations.LBL_TODOS.Translate());
             cmbLevel.Items.Add("INFO");
             cmbLevel.Items.Add("ERROR");
             cmbLevel.SelectedIndex = 0;
@@ -56,6 +56,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lblLevel.Text = Translations.LBL_LOG_LEVEL.Translate();
             lblMessage.Text = Translations.LBL_MESSAGE.Translate();
             btnFilter.Text = Translations.BTN_FILTER.Translate();
+
+            if (cmbLevel.Items.Count > 0)
+            {
+                int savedIndex = cmbLevel.SelectedIndex;
+                cmbLevel.Items[0] = Translations.LBL_TODOS.Translate();
+                cmbLevel.SelectedIndex = savedIndex;
+            }
         }
 
         private void FrmBitacora_Load(object sender, EventArgs e)
@@ -75,8 +82,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             try
             {
-                string logLevel = cmbLevel.SelectedItem?.ToString();
-                if (logLevel == "Todos") logLevel = null;
+                string logLevel = cmbLevel.SelectedIndex == 0 ? null : cmbLevel.SelectedItem?.ToString();
 
                 // Adjust To Date to include the end of the day
                 DateTime toDate = dtpTo.Value.Date.AddDays(1).AddTicks(-1);

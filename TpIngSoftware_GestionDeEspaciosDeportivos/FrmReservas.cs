@@ -13,7 +13,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmReservas : Form, IRefreshable
+    public partial class FrmReservas : Form, IRefreshable, ITranslatable
     {
         private readonly ReservaManager _reservaManager;
         private readonly EspacioManager _espacioManager;
@@ -76,7 +76,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -140,14 +140,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 DateTime hora = dtpHora.Value;
                 if (hora.Minute != 0 && hora.Minute != 30)
                 {
-                    MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 DateTime fechaHora = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora.Hour, hora.Minute, 0);
                 int duracion = (int)numDuracion.Value;
                 if (duracion % 30 != 0)
                 {
-                    MessageBox.Show(Translations.ERR_DURACION_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_DURACION_MULTIPLO_30.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -161,7 +161,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (disponible)
                 {
-                    MessageBox.Show(Translations.MSG_ESPACIO_DISPONIBLE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.MSG_ESPACIO_DISPONIBLE.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EnableReservaControls(true);
                 }
                 else
@@ -183,11 +183,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                         {
                             msj += Translations.MSG_NINGUNO_ESTE_DIA.Translate();
                         }
-                        MessageBox.Show(msj, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(msj, Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show(Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate(), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     EnableReservaControls(false);
                 }
@@ -196,7 +196,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -230,17 +230,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 {
                     msj += Translations.MSG_NINGUNO_ESTE_DIA.Translate();
                 }
-                MessageBox.Show(msj, "Horarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(msj, Translations.BTN_VER_HORARIOS.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -280,7 +280,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -309,14 +309,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 DateTime hora = dtpHora.Value;
                 if (hora.Minute != 0 && hora.Minute != 30)
                 {
-                    MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 DateTime fechaHora = new DateTime(fecha.Year, fecha.Month, fecha.Day, hora.Hour, hora.Minute, 0);
                 int duracion = (int)numDuracion.Value;
                 if (duracion % 30 != 0)
                 {
-                    MessageBox.Show(Translations.ERR_DURACION_MULTIPLO_30.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_DURACION_MULTIPLO_30.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 decimal adelanto = numAdelanto.Value;
@@ -333,7 +333,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 string codigoGenerado = _reservaManager.GenerarReserva(dto);
 
                 string successMsg = Translations.MSG_RESERVA_GENERADA.Translate().Replace("{codigo}", codigoGenerado);
-                MessageBox.Show(successMsg, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(successMsg, Translations.TITLE_SUCCESS.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Clear fields
                 _clienteIdSeleccionado = null;
@@ -348,11 +348,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -370,7 +370,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var row = dgvReservas.SelectedRows[0];
                 var reserva = (ReservaDTO)row.DataBoundItem;
 
-                if (MessageBox.Show(Translations.MSG_CONFIRM_CANCELAR.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Translations.MSG_CONFIRM_CANCELAR.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _reservaManager.CancelarReserva(reserva.Id);
                     LoadReservas();
@@ -380,11 +380,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (ex.Message == "ERR_NO_AGENDA")
                 {
-                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_NO_AGENDA.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -394,6 +394,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             LoadEspacios();
             LoadReservas();
         }
+
+        public void UpdateLanguage() => Translate();
 
         private void btnVerComprobante_Click(object sender, EventArgs e)
         {
@@ -405,13 +407,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var comprobante = _reservaManager.ObtenerComprobantePorReserva(reserva.Id);
                 if (comprobante == null)
                 {
-                    MessageBox.Show(Translations.ERR_NO_COMPROBANTE.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.ERR_NO_COMPROBANTE.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
                 if (comprobante.Contenido == null || comprobante.Contenido.Length == 0)
                 {
-                    MessageBox.Show(Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Translations.ERR_COMPROBANTE_SIN_CONTENIDO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -429,7 +431,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

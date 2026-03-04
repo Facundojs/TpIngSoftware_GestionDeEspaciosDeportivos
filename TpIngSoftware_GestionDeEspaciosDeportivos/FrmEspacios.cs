@@ -11,7 +11,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmEspacios : Form, IRefreshable
+    public partial class FrmEspacios : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _currentUser;
         private readonly EspacioManager _espacioManager;
@@ -75,7 +75,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 if (dgvEspacios.Columns["Nombre"] != null) dgvEspacios.Columns["Nombre"].HeaderText = Translations.LBL_NOMBRE.Translate();
                 if (dgvEspacios.Columns["Descripcion"] != null) dgvEspacios.Columns["Descripcion"].HeaderText = Translations.LBL_DESCRIPCION.Translate();
                 if (dgvEspacios.Columns["PrecioHora"] != null) dgvEspacios.Columns["PrecioHora"].HeaderText = Translations.LBL_PRECIO_HORA.Translate();
-                if (dgvEspacios.Columns["Estado"] != null) dgvEspacios.Columns["Estado"].HeaderText = "Estado";
+                if (dgvEspacios.Columns["Estado"] != null) dgvEspacios.Columns["Estado"].HeaderText = Translations.LBL_ESTADO.Translate();
             }
             catch (Exception ex)
             {

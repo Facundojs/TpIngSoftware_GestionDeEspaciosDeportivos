@@ -13,7 +13,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmMembresias : Form, IRefreshable
+    public partial class FrmMembresias : Form, IRefreshable, ITranslatable
     {
         private readonly UsuarioDTO _currentUser;
         private readonly MembresiaManager _membresiaManager;

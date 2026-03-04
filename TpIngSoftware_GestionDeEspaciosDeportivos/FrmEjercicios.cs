@@ -73,14 +73,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show(Translations.ERR_NOMBRE_EJERCICIO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_NOMBRE_EJERCICIO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 var dto = new EjercicioDTO { Nombre = txtNombre.Text.Trim() };
                 _ejercicioManager.CrearEjercicio(dto);
 
-                MessageBox.Show(Translations.MSG_EJERCICIO_CREADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_EJERCICIO_CREADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEjercicios();
                 LimpiarControles();
             }
@@ -98,14 +98,14 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show(Translations.ERR_NOMBRE_EJERCICIO.Translate(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Translations.ERR_NOMBRE_EJERCICIO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 _ejercicioSeleccionado.Nombre = txtNombre.Text.Trim();
                 _ejercicioManager.ModificarEjercicio(_ejercicioSeleccionado);
 
-                MessageBox.Show(Translations.MSG_EJERCICIO_ACTUALIZADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Translations.MSG_EJERCICIO_ACTUALIZADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEjercicios();
                 LimpiarControles();
             }
@@ -121,10 +121,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             try
             {
-                if (MessageBox.Show(Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO.Translate(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _ejercicioManager.EliminarEjercicio(_ejercicioSeleccionado.Id);
-                    MessageBox.Show(Translations.MSG_EJERCICIO_ELIMINADO.Translate(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Translations.MSG_EJERCICIO_ELIMINADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarEjercicios();
                     LimpiarControles();
                 }

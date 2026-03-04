@@ -40,13 +40,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
             cmbDiaSemana.Items.Clear();
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, "Domingo"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, "Lunes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, "Martes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, "Miércoles"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, "Jueves"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, "Viernes"));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, "Sábado"));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, Translations.DAY_0.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, Translations.DAY_1.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, Translations.DAY_2.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, Translations.DAY_3.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, Translations.DAY_4.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, Translations.DAY_5.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, Translations.DAY_6.Translate()));
 
             cmbDiaSemana.DisplayMember = "Value";
             cmbDiaSemana.ValueMember = "Key";
