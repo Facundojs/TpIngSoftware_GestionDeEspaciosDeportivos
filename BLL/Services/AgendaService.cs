@@ -3,11 +3,9 @@ using BLL.Mappers;
 using DAL.Contracts;
 using DAL.Factory;
 using Domain.Entities;
-using Service.Helpers;
 using Service.Logic;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace BLL.Services
 {
@@ -55,29 +53,27 @@ namespace BLL.Services
 
             try
             {
-                using (var conn = new SqlConnection(ConnectionManager.GetBusinessConnectionString()))
+                using (var uow = DalFactory.CreateUnitOfWork())
                 {
-                    conn.Open();
-                    using (var tran = conn.BeginTransaction())
+                    try
                     {
-                        try
-                        {
-                            _agendaRepo.EliminarPorEspacio(espacioId, conn, tran);
+                        uow.BeginTransaction();
 
-                            foreach (var agenda in entities)
-                            {
-                                agenda.EspacioID = espacioId;
-                                _agendaRepo.CrearAgenda(agenda, conn, tran);
-                            }
+                        uow.AgendaRepository.EliminarPorEspacio(espacioId);
 
-                            tran.Commit();
-                            _bitacora.Log($"Agenda configurada para el espacio {espacioId}.", "INFO");
-                        }
-                        catch
+                        foreach (var agenda in entities)
                         {
-                            tran.Rollback();
-                            throw;
+                            agenda.EspacioID = espacioId;
+                            uow.AgendaRepository.CrearAgenda(agenda);
                         }
+
+                        uow.Commit();
+                        _bitacora.Log($"Agenda configurada para el espacio {espacioId}.", "INFO");
+                    }
+                    catch
+                    {
+                        uow.Rollback();
+                        throw;
                     }
                 }
             }

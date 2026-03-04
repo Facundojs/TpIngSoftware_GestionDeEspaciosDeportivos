@@ -40,48 +40,63 @@ namespace BLL.Services
                     throw new InvalidOperationException(Domain.Enums.Translations.ERR_DNI_DUPLICADO_MSG.Translate());
                 }
 
-                if (dto.MembresiaID.HasValue)
+                using (var uow = DalFactory.CreateUnitOfWork())
                 {
-                    var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
-                    if (membresia == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE.Translate());
-                    if (!membresia.Activa) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA.Translate());
-
-                    _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}, sin deuda. Próximo cobro: {DateTime.Now.AddDays(membresia.Regularidad):dd/MM/yyyy}", "INFO");
-                }
-                else
-                {
-                     _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado sin membresía", "INFO");
-                }
-
-                var entity = ClienteMapper.ToEntity(dto);
-                if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
-                entity.Estado = ClienteStatus.Activo.ToString();
-                entity.CreatedAt = DateTime.Now;
-
-                _repository.Add(entity);
-
-                if (dto.MembresiaID.HasValue)
-                {
-                    var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
-                    var clienteMembresia = new ClienteMembresia
+                    try
                     {
-                        ClienteID = entity.Id,
-                        MembresiaID = dto.MembresiaID.Value,
-                        FechaAsignacion = DateTime.Now,
-                        ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
-                    };
-                    DalFactory.ClienteMembresiaRepository.Add(clienteMembresia);
+                        uow.BeginTransaction();
 
-                    var movimiento = new Movimiento
+                        if (dto.MembresiaID.HasValue)
+                        {
+                            var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
+                            if (membresia == null) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE.Translate());
+                            if (!membresia.Activa) throw new InvalidOperationException(Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA.Translate());
+
+                            _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}, sin deuda. Próximo cobro: {DateTime.Now.AddDays(membresia.Regularidad):dd/MM/yyyy}", "INFO");
+                        }
+                        else
+                        {
+                             _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado sin membresía", "INFO");
+                        }
+
+                        var entity = ClienteMapper.ToEntity(dto);
+                        if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
+                        entity.Estado = ClienteStatus.Activo.ToString();
+                        entity.CreatedAt = DateTime.Now;
+
+                        uow.ClienteRepository.Add(entity);
+
+                        if (dto.MembresiaID.HasValue)
+                        {
+                            var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
+                            var clienteMembresia = new ClienteMembresia
+                            {
+                                ClienteID = entity.Id,
+                                MembresiaID = dto.MembresiaID.Value,
+                                FechaAsignacion = DateTime.Now,
+                                ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
+                            };
+                            uow.ClienteMembresiaRepository.Add(clienteMembresia);
+
+                            var movimiento = new Movimiento
+                            {
+                                Id = Guid.NewGuid(),
+                                ClienteID = entity.Id,
+                                Monto = -membresia.Precio,
+                                Tipo = Domain.Enums.TipoMovimiento.DeudaMembresia,
+                                Descripcion = $"Cargo inicial membresía {membresia.Nombre}",
+                                Fecha = DateTime.Now
+                            };
+                            uow.MovimientoRepository.Insertar(movimiento);
+                        }
+
+                        uow.Commit();
+                    }
+                    catch
                     {
-                        Id = Guid.NewGuid(),
-                        ClienteID = entity.Id,
-                        Monto = -membresia.Precio,
-                        Tipo = Domain.Enums.TipoMovimiento.DeudaMembresia,
-                        Descripcion = $"Cargo inicial membresía {membresia.Nombre}",
-                        Fecha = DateTime.Now
-                    };
-                    DalFactory.MovimientoRepository.Insertar(movimiento);
+                        uow.Rollback();
+                        throw;
+                    }
                 }
             }
             catch (Exception ex)
@@ -104,40 +119,58 @@ namespace BLL.Services
                      throw new InvalidOperationException($"Cliente tiene deuda de ${Math.Abs(balance.Saldo):N2}");
                 }
 
-                var membresia = _membresiaService.ObtenerMembresia(nuevaMembresiaId);
-                if (membresia == null) throw new InvalidOperationException("La membresía no existe");
-                if (!membresia.Activa) throw new InvalidOperationException("La membresía no está activa");
-
-                var activeMembresia = DalFactory.ClienteMembresiaRepository.GetActiveByClienteId(clienteId);
-                if (activeMembresia != null)
+                string membresiaNombre = null;
+                using (var uow = DalFactory.CreateUnitOfWork())
                 {
-                    activeMembresia.FechaBaja = DateTime.Now;
-                    DalFactory.ClienteMembresiaRepository.Update(activeMembresia);
+                    try
+                    {
+                        uow.BeginTransaction();
+
+                        var membresia = _membresiaService.ObtenerMembresia(nuevaMembresiaId);
+                        if (membresia == null) throw new InvalidOperationException("La membresía no existe");
+                        if (!membresia.Activa) throw new InvalidOperationException("La membresía no está activa");
+
+                        membresiaNombre = membresia.Nombre;
+
+                        var activeMembresia = uow.ClienteMembresiaRepository.GetActiveByClienteId(clienteId);
+                        if (activeMembresia != null)
+                        {
+                            activeMembresia.FechaBaja = DateTime.Now;
+                            uow.ClienteMembresiaRepository.Update(activeMembresia);
+                        }
+
+                        var newMembresia = new ClienteMembresia
+                        {
+                            ClienteID = clienteId,
+                            MembresiaID = nuevaMembresiaId,
+                            FechaAsignacion = DateTime.Now,
+                            ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
+                        };
+                        uow.ClienteMembresiaRepository.Add(newMembresia);
+
+                        var movimiento = new Movimiento
+                        {
+                            Id = Guid.NewGuid(),
+                            ClienteID = clienteId,
+                            Monto = -membresia.Precio,
+                            Tipo = Domain.Enums.TipoMovimiento.DeudaMembresia,
+                            Descripcion = $"Actualización de Membresía - {membresia.Nombre}",
+                            Fecha = DateTime.Now
+                        };
+                        uow.MovimientoRepository.Insertar(movimiento);
+
+                        uow.ClienteRepository.AsignarMembresia(clienteId, nuevaMembresiaId);
+
+                        uow.Commit();
+                    }
+                    catch
+                    {
+                        uow.Rollback();
+                        throw;
+                    }
                 }
 
-                var newMembresia = new ClienteMembresia
-                {
-                    ClienteID = clienteId,
-                    MembresiaID = nuevaMembresiaId,
-                    FechaAsignacion = DateTime.Now,
-                    ProximaFechaPago = DateTime.Now.AddDays(membresia.Regularidad)
-                };
-                DalFactory.ClienteMembresiaRepository.Add(newMembresia);
-
-                var movimiento = new Movimiento
-                {
-                    Id = Guid.NewGuid(),
-                    ClienteID = clienteId,
-                    Monto = -membresia.Precio,
-                    Tipo = Domain.Enums.TipoMovimiento.DeudaMembresia,
-                    Descripcion = $"Actualización de Membresía - {membresia.Nombre}",
-                    Fecha = DateTime.Now
-                };
-                DalFactory.MovimientoRepository.Insertar(movimiento);
-
-                _repository.AsignarMembresia(clienteId, nuevaMembresiaId, null, null);
-
-                 _bitacora.Log($"Cliente {cliente.DNI} actualizó membresía a {membresia.Nombre}", "INFO");
+                 _bitacora.Log($"Cliente {cliente.DNI} actualizó membresía a {membresiaNombre}", "INFO");
             }
             catch (Exception ex)
             {

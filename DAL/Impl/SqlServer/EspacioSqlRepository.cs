@@ -57,7 +57,7 @@ namespace DAL.Impl
                     return MapFromReader(reader);
                 }
                 return null;
-            }, null, null);
+            });
         }
 
         public List<Espacio> GetAll()
@@ -71,7 +71,7 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, null, null);
+            });
         }
 
         public List<Espacio> ListarDisponibles()
@@ -85,7 +85,7 @@ namespace DAL.Impl
                     list.Add(MapFromReader(reader));
                 }
                 return list;
-            }, null, null);
+            });
         }
 
         private Espacio MapFromReader(SqlDataReader reader)

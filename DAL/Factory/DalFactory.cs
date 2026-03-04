@@ -3,10 +3,6 @@ using DAL.Impl;
 using DAL.Impl.File;
 using DAL.Impl.SqlServer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Factory
 {
@@ -28,184 +24,51 @@ namespace DAL.Factory
         private static IIngresoRepository _ingresoRepository;
         private static IClienteMembresiaRepository _clienteMembresiaRepository;
 
-        public static IClienteRepository ClienteRepository
-        {
-            get
-            {
-                if (_clienteRepository == null)
-                {
-                    _clienteRepository = new ClienteSqlRepository();
-                }
-                return _clienteRepository;
-            }
-        }
+        public static IUnitOfWork CreateUnitOfWork() => new UnitOfWork();
 
-        public static IBalanceRepository BalanceRepository
-        {
-            get
-            {
-                if (_balanceRepository == null)
-                {
-                    _balanceRepository = new BalanceSqlRepository();
-                }
-                return _balanceRepository;
-            }
-        }
+        public static IClienteRepository ClienteRepository =>
+            _clienteRepository ?? (_clienteRepository = new ClienteSqlRepository());
 
-        public static IMovimientoRepository MovimientoRepository
-        {
-            get
-            {
-                if (_movimientoRepository == null)
-                {
-                    _movimientoRepository = new MovimientoSqlRepository();
-                }
-                return _movimientoRepository;
-            }
-        }
+        public static IBalanceRepository BalanceRepository =>
+            _balanceRepository ?? (_balanceRepository = new BalanceSqlRepository());
 
-        public static IMembresiaRepository MembresiaRepository
-        {
-            get
-            {
-                if (_membresiaRepository == null)
-                {
-                    _membresiaRepository = new MembresiaSqlRepository();
-                }
-                return _membresiaRepository;
-            }
-        }
+        public static IMovimientoRepository MovimientoRepository =>
+            _movimientoRepository ?? (_movimientoRepository = new MovimientoSqlRepository());
 
-        public static IEspacioRepository EspacioRepository
-        {
-            get
-            {
-                if (_espacioRepository == null)
-                {
-                    _espacioRepository = new EspacioSqlRepository();
-                }
-                return _espacioRepository;
-            }
-        }
+        public static IMembresiaRepository MembresiaRepository =>
+            _membresiaRepository ?? (_membresiaRepository = new MembresiaSqlRepository());
 
-        public static IAgendaRepository AgendaRepository
-        {
-            get
-            {
-                if (_agendaRepository == null)
-                {
-                    _agendaRepository = new AgendaSqlRepository();
-                }
-                return _agendaRepository;
-            }
-        }
+        public static IEspacioRepository EspacioRepository =>
+            _espacioRepository ?? (_espacioRepository = new EspacioSqlRepository());
 
-        public static IRutinaRepository RutinaRepository
-        {
-            get
-            {
-                if (_rutinaRepository == null)
-                {
-                    _rutinaRepository = new RutinaSqlRepository();
-                }
-                return _rutinaRepository;
-            }
-        }
+        public static IAgendaRepository AgendaRepository =>
+            _agendaRepository ?? (_agendaRepository = new AgendaSqlRepository());
 
-        public static IEjercicioRepository EjercicioRepository
-        {
-            get
-            {
-                if (_ejercicioRepository == null)
-                {
-                    _ejercicioRepository = new EjercicioSqlRepository();
-                }
-                return _ejercicioRepository;
-            }
-        }
+        public static IRutinaRepository RutinaRepository =>
+            _rutinaRepository ?? (_rutinaRepository = new RutinaSqlRepository());
 
-        public static IRutinaEjercicioRepository RutinaEjercicioRepository
-        {
-            get
-            {
-                if (_rutinaEjercicioRepository == null)
-                {
-                    _rutinaEjercicioRepository = new RutinaEjercicioSqlRepository();
-                }
-                return _rutinaEjercicioRepository;
-            }
-        }
+        public static IEjercicioRepository EjercicioRepository =>
+            _ejercicioRepository ?? (_ejercicioRepository = new EjercicioSqlRepository());
 
-        public static IPagoRepository PagoRepository
-        {
-            get
-            {
-                if (_pagoRepository == null)
-                {
-                    _pagoRepository = new PagoSqlRepository();
-                }
-                return _pagoRepository;
-            }
-        }
+        public static IRutinaEjercicioRepository RutinaEjercicioRepository =>
+            _rutinaEjercicioRepository ?? (_rutinaEjercicioRepository = new RutinaEjercicioSqlRepository());
 
-        public static IComprobanteRepository ComprobanteRepository
-        {
-            get
-            {
-                if (_comprobanteRepository == null)
-                {
-                    _comprobanteRepository = new ComprobanteSqlRepository();
-                }
-                return _comprobanteRepository;
-            }
-        }
+        public static IPagoRepository PagoRepository =>
+            _pagoRepository ?? (_pagoRepository = new PagoSqlRepository());
 
-        public static IComprobanteRepository ComprobanteFileRepository
-        {
-            get
-            {
-                if (_comprobanteFileRepository == null)
-                {
-                    _comprobanteFileRepository = new ComprobanteFileRepository();
-                }
-                return _comprobanteFileRepository;
-            }
-        }
+        public static IComprobanteRepository ComprobanteRepository =>
+            _comprobanteRepository ?? (_comprobanteRepository = new ComprobanteSqlRepository());
 
-        public static IReservaRepository ReservaRepository
-        {
-            get
-            {
-                if (_reservaRepository == null)
-                {
-                    _reservaRepository = new ReservaSqlRepository();
-                }
-                return _reservaRepository;
-            }
-        }
+        public static IComprobanteRepository ComprobanteFileRepository =>
+            _comprobanteFileRepository ?? (_comprobanteFileRepository = new ComprobanteFileRepository());
 
-        public static IIngresoRepository IngresoRepository
-        {
-            get
-            {
-                if (_ingresoRepository == null)
-                {
-                    _ingresoRepository = new IngresoSqlRepository();
-                }
-                return _ingresoRepository;
-            }
-        }
+        public static IReservaRepository ReservaRepository =>
+            _reservaRepository ?? (_reservaRepository = new ReservaSqlRepository());
 
-        public static IClienteMembresiaRepository ClienteMembresiaRepository
-        {
-            get
-            {
-                if (_clienteMembresiaRepository == null)
-                {
-                    _clienteMembresiaRepository = new DAL.Impl.SqlServer.ClienteMembresiaSqlRepository();
-                }
-                return _clienteMembresiaRepository;
-            }
-        }
+        public static IIngresoRepository IngresoRepository =>
+            _ingresoRepository ?? (_ingresoRepository = new IngresoSqlRepository());
+
+        public static IClienteMembresiaRepository ClienteMembresiaRepository =>
+            _clienteMembresiaRepository ?? (_clienteMembresiaRepository = new ClienteMembresiaSqlRepository());
     }
 }
