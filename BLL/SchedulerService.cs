@@ -53,7 +53,6 @@ namespace BLL
             }
             catch (Exception ex)
             {
-                // Log error via BitacoraService
                  var bitacora = new BitacoraService();
                  bitacora.Log($"Error in SchedulerService: {ex.Message}", "ERROR", ex);
             }

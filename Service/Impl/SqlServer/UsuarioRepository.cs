@@ -38,13 +38,11 @@ namespace Service.Impl
                 {
                     try
                     {
-                        // 1. Borrar relaciones actuales
                         string delete = "DELETE FROM UsuarioFamilia WHERE IdUsuario = @Id";
                         SqlCommand cmdDel = new SqlCommand(delete, conn, tran);
                         cmdDel.Parameters.AddWithValue("@Id", idUsuario);
                         cmdDel.ExecuteNonQuery();
 
-                        // 2. Insertar nuevos (solo Familias en este ejemplo de tabla intermedia)
                         if (accesos != null)
                         {
                             foreach (var acceso in accesos.OfType<Familia>())
@@ -131,7 +129,6 @@ namespace Service.Impl
                         Estado = reader.GetBoolean(3),
                         DigitoVerificador = reader.GetString(4)
                     };
-                    // Fill permissions
                     u.Permisos.AddRange(GetFamiliasByUsuarioId(u.Id));
                     return u;
                 }
@@ -155,7 +152,6 @@ namespace Service.Impl
                         Estado = reader.GetBoolean(3),
                         DigitoVerificador = reader.GetString(4)
                     };
-                    // Fill permissions
                     u.Permisos.AddRange(GetFamiliasByUsuarioId(u.Id));
                     return u;
                 }

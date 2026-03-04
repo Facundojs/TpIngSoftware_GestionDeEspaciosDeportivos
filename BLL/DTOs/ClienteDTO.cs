@@ -16,10 +16,8 @@ namespace BLL.DTOs
         public ClienteStatus Status { get; set; }
         public DateTime? ProximaFechaPago { get; set; }
 
-        // Computed
         public string NombreCompleto => $"{Nombre} {Apellido}";
 
-        // Extras
         public MembresiaDTO MembresiaDetalle { get; set; }
         public decimal Balance { get; set; }
         public EstadoBalance EstadoBalance { get; set; }

@@ -70,7 +70,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvEspacios.DataSource = null;
                 dgvEspacios.DataSource = list;
 
-                // Configure Grid Columns
                 if (dgvEspacios.Columns["Id"] != null) dgvEspacios.Columns["Id"].Visible = false;
                 if (dgvEspacios.Columns["Nombre"] != null) dgvEspacios.Columns["Nombre"].HeaderText = Translations.LBL_NOMBRE.Translate();
                 if (dgvEspacios.Columns["Descripcion"] != null) dgvEspacios.Columns["Descripcion"].HeaderText = Translations.LBL_DESCRIPCION.Translate();

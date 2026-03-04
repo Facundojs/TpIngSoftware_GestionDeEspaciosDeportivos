@@ -30,8 +30,6 @@ namespace BLL.Services
                 {
                     Id = e.Id,
                     Nombre = e.Nombre
-                    // RutinaID, Reps, etc are context specific, but DTO has them.
-                    // For pure list, we just map basic info.
                 }).ToList();
             }
             catch (Exception ex)
@@ -93,8 +91,6 @@ namespace BLL.Services
         {
             try
             {
-                // Check dependencies? Usually cascading or prevent if used.
-                // Assuming simple delete for now or database constraints handle it.
                 _ejercicioRepository.Remove(id);
                 _bitacoraService.Log($"Ejercicio eliminado: {id}", "INFO");
             }

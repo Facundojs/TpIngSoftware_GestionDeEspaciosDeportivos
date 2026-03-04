@@ -69,7 +69,6 @@ namespace BLL.Services
                 }
 
                 var entity = MembresiaMapper.ToEntity(dto);
-                // Ensure we are updating the correct ID
                 entity.Id = dto.Id;
                 _repository.Update(entity);
             }

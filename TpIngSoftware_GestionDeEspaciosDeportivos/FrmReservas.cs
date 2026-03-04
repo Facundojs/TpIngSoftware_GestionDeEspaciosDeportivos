@@ -33,7 +33,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             LoadEspacios();
             LoadReservas();
             ApplyPermissions();
-            EnableReservaControls(false); // Init state
+            EnableReservaControls(false);
             dtpFecha.Value = DateTime.Now.AddDays(1).Date;
         }
 
@@ -335,12 +335,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 string successMsg = Translations.MSG_RESERVA_GENERADA.Translate().Replace("{codigo}", codigoGenerado);
                 MessageBox.Show(successMsg, Translations.TITLE_SUCCESS.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Clear fields
                 _clienteIdSeleccionado = null;
                 lblNombreCliente.Text = "-";
                 txtDniCliente.Text = "";
                 numAdelanto.Value = 0;
-                EnableReservaControls(false); // Reset availability check
+                EnableReservaControls(false);
 
                 LoadReservas();
             }

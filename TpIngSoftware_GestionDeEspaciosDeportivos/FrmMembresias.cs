@@ -103,10 +103,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             txtPrecio.Text = dto.Precio.ToString("0.00");
             txtRegularidad.Text = dto.Regularidad.ToString();
             txtDetalle.Text = dto.Detalle;
-
-            // Lock code for editing if it's supposed to be unique/immutable, but here I'll leave it open as per requirements imply only updates validation.
-            // Usually ID is not editable, but requirements said "Actualizar... validar cambios".
-            // If code is business key, maybe we shouldn't change it, but I'll follow standard ABM.
         }
 
         private void ClearForm()

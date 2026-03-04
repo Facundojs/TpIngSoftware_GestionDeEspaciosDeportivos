@@ -32,7 +32,6 @@ namespace BLL.Services
         {
             if (agendasDto == null) throw new ArgumentNullException(nameof(agendasDto));
 
-            // Validate no overlaps within the new list
             for (int i = 0; i < agendasDto.Count; i++)
             {
                 // Known limitation: Agenda ranges crossing midnight (e.g., 22:00-02:00) are explicitly prevented by the UI validation here. They must be split into two ranges: 22:00-23:59 and 00:00-02:00.

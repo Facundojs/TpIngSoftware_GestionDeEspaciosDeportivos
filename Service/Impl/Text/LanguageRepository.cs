@@ -26,7 +26,6 @@ namespace Service.Impl.Text
         /// <exception cref="Exception">Lanza una excepción si no se encuentra el archivo de idioma o la clave no existe.</exception>
         public static string Translate(string key)
         {
-            // Obtener el código de idioma actual (es-ES, en-EN)
             string language = Thread.CurrentThread.CurrentUICulture.Name;
 
             string translation = TryGetTranslation(language, key);
@@ -50,7 +49,6 @@ namespace Service.Impl.Text
 
             if (!File.Exists(fileName))
             {
-                // Log warning but don't crash
                 System.Diagnostics.Debug.WriteLine($"WARN: Language file not found: {fileName}");
                 return null;
             }
@@ -92,10 +90,8 @@ namespace Service.Impl.Text
             string cleanLanguagePath = LanguagePath.Trim('\\', '/');
             string languageFolderPath = Path.Combine(baseDirectory, cleanLanguagePath);
 
-            // Verifica si la ruta de idiomas existe
             if (Directory.Exists(languageFolderPath))
             {
-                // Obtiene todos los archivos que coinciden con el patrón "Language.*"
                 foreach (string file in Directory.GetFiles(languageFolderPath, "Language.*"))
                 {
                     string fileName = Path.GetFileName(file);
@@ -105,10 +101,8 @@ namespace Service.Impl.Text
 
                         try
                         {
-                            // Intenta crear un objeto CultureInfo para obtener el nombre nativo del idioma
                             var culture = new CultureInfo(languageCode);
                             string languageName = culture.NativeName;
-                            // Capitalize first letter
                             languageName = char.ToUpper(languageName[0]) + languageName.Substring(1);
                             if (!languages.ContainsKey(languageCode))
                             {
@@ -117,7 +111,6 @@ namespace Service.Impl.Text
                         }
                         catch (CultureNotFoundException)
                         {
-                            // Si el código de cultura no es válido, usa el código como nombre
                             if (!languages.ContainsKey(languageCode))
                             {
                                 languages.Add(languageCode, languageCode);
@@ -141,7 +134,6 @@ namespace Service.Impl.Text
         /// <param name="languageCode">El código del idioma que se desea guardar.</param>
         public static void SaveUserLanguage(string languageCode)
         {
-            // Ensure directory exists
             try
             {
                 string dir = Path.GetDirectoryName(UserLanguageConfigPath);
@@ -155,7 +147,6 @@ namespace Service.Impl.Text
                 System.Diagnostics.Debug.WriteLine($"WARN: Could not create directory for user config: {ex.Message}");
             }
 
-            // Sobrescribe el archivo de configuración con el nuevo código de idioma
             using (StreamWriter writer = new StreamWriter(UserLanguageConfigPath, false))
             {
                 writer.WriteLine(languageCode);
@@ -175,11 +166,10 @@ namespace Service.Impl.Text
                     string languageCode = reader.ReadLine();
                     if (!string.IsNullOrEmpty(languageCode))
                     {
-                        return languageCode;  // devuelve el idioma guardado
+                        return languageCode;
                     }
                 }
             }
-            // Si no existe el archivo o no tiene un valor retorna "es-ES" como idioma predeterminado
             return "es-ES";
         }
     }

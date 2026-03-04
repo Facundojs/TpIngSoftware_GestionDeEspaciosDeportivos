@@ -12,7 +12,6 @@ namespace Domain.Composite
         public string TipoAcceso { get; set; }
         public string DataKey { get; set; }
 
-        // Una patente no tiene hijos, devolvemos lista vacía
         public override List<Acceso> Accesos => new List<Acceso>();
 
         public override void Agregar(Acceso componente)

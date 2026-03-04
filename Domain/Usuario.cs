@@ -15,7 +15,6 @@ namespace Domain
         public bool Estado { get; set; }
         public string DigitoVerificador { get; set; }
 
-        // Lista de componentes (pueden ser Familias o Patentes)
         public List<Acceso> Permisos { get; set; } = new List<Acceso>();
 
         public Usuario()

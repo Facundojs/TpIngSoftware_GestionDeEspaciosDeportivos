@@ -8,13 +8,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // Iniciar el servicio de cron job para deudas mensuales
             try
             {
                 BLL.SchedulerService.Instance.Start();
