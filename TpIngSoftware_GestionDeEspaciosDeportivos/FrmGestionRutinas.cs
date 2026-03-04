@@ -11,7 +11,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmGestionRutinas : Form
+    public partial class FrmGestionRutinas : Form, IRefreshable
     {
         private readonly UsuarioDTO _usuario;
         private readonly RutinaManager _rutinaManager;
@@ -30,6 +30,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             CargarRutinas();
             ApplyPermissions();
         }
+
+        public void RefreshData() => CargarRutinas();
 
         private void ConfigurarUI()
         {

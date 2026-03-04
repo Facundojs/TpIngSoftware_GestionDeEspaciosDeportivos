@@ -16,7 +16,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmBitacora : Form
+    public partial class FrmBitacora : Form, IRefreshable
     {
         private readonly UsuarioDTO _usuario;
         private readonly BitacoraService _bitacoraService;
@@ -68,6 +68,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             LoadLogs();
         }
+
+        public void RefreshData() => LoadLogs();
 
         private void LoadLogs()
         {

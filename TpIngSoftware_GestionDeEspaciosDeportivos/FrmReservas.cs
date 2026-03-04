@@ -13,7 +13,7 @@ using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmReservas : Form
+    public partial class FrmReservas : Form, IRefreshable
     {
         private readonly ReservaManager _reservaManager;
         private readonly EspacioManager _espacioManager;
@@ -387,6 +387,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        public void RefreshData()
+        {
+            LoadEspacios();
+            LoadReservas();
         }
 
         private void btnVerComprobante_Click(object sender, EventArgs e)

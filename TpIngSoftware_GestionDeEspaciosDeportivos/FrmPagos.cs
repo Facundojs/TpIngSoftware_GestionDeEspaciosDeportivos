@@ -14,7 +14,7 @@ using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
-    public partial class FrmPagos : Form
+    public partial class FrmPagos : Form, IRefreshable
     {
         private readonly UsuarioDTO _usuario;
         private readonly PagoManager _pagoManager;
@@ -37,6 +37,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             ConfigurarGrid();
             UpdateLanguage();
             ApplyPermissions();
+            CargarClientesCache();
+            CargarPagos();
+        }
+
+        public void RefreshData()
+        {
             CargarClientesCache();
             CargarPagos();
         }
