@@ -260,6 +260,8 @@ namespace Domain.Enums
         ERR_PATENTE_ADD_CHILD,
         ERR_PATENTE_REMOVE_CHILD,
         ERR_BACKUP_NO_EXISTE,
+        ERR_FAMILIA_CICLO,
+        LBL_SUBFAMILIAS,
         MAIN_NEGOCIO,
         DAY_0,
         DAY_1,

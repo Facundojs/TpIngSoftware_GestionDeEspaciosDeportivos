@@ -29,6 +29,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Text = Translations.PERMISSIONS_TITLE.Translate();
             lblFamilias.Text = "Familias";
             lblPatentes.Text = "Patentes";
+            lblSubFamilias.Text = Translations.LBL_SUBFAMILIAS.Translate();
             lblNombreFamilia.Text = Translations.LBL_NOMBRE.Translate();
             btnCrear.Text = Translations.BTN_CREAR.Translate();
             btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
@@ -56,6 +57,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             LoadPatentes();
             LoadFamilias();
+            LoadSubFamilias(null);
         }
 
         private void LoadFamilias()
@@ -63,9 +65,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lstFamilias.Items.Clear();
             var familias = _permisosService.GetAllFamilias();
             foreach (var fam in familias)
-            {
                 lstFamilias.Items.Add(fam);
-            }
             lstFamilias.DisplayMember = "Nombre";
         }
 
@@ -74,10 +74,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             lstPatentes.Items.Clear();
             var patentes = _permisosService.GetAllPatentes();
             foreach (var pat in patentes)
-            {
                 lstPatentes.Items.Add(pat);
-            }
             lstPatentes.DisplayMember = "Nombre";
+        }
+
+        private void LoadSubFamilias(Guid? excludeId)
+        {
+            lstSubFamilias.Items.Clear();
+            var familias = _permisosService.GetAllFamilias();
+            foreach (var fam in familias)
+            {
+                if (excludeId.HasValue && fam.Id == excludeId.Value) continue;
+                lstSubFamilias.Items.Add(fam);
+            }
+            lstSubFamilias.DisplayMember = "Nombre";
         }
 
         private void lstFamilias_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,20 +95,28 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if (lstFamilias.SelectedItem is Familia fam)
             {
                 txtNombreFamilia.Text = fam.Nombre;
+                LoadSubFamilias(fam.Id);
 
                 for (int i = 0; i < lstPatentes.Items.Count; i++)
                 {
                     var pat = lstPatentes.Items[i] as Patente;
                     lstPatentes.SetItemChecked(i, fam.Accesos.Any(x => x.Id == pat.Id));
                 }
+
+                for (int i = 0; i < lstSubFamilias.Items.Count; i++)
+                {
+                    var sub = lstSubFamilias.Items[i] as Familia;
+                    lstSubFamilias.SetItemChecked(i, fam.Accesos.Any(x => x.Id == sub.Id));
+                }
             }
             else
             {
                 txtNombreFamilia.Text = "";
+                LoadSubFamilias(null);
                 for (int i = 0; i < lstPatentes.Items.Count; i++)
-                {
                     lstPatentes.SetItemChecked(i, false);
-                }
+                for (int i = 0; i < lstSubFamilias.Items.Count; i++)
+                    lstSubFamilias.SetItemChecked(i, false);
             }
         }
 
@@ -121,9 +139,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 foreach (var item in lstPatentes.CheckedItems)
                 {
                     if (item is Patente pat)
-                    {
                         nuevaFamilia.Agregar(pat);
-                    }
+                }
+
+                foreach (var item in lstSubFamilias.CheckedItems)
+                {
+                    if (item is Familia sub)
+                        nuevaFamilia.Agregar(sub);
                 }
 
                 _permisosService.CrearFamilia(nuevaFamilia);
@@ -156,17 +178,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                     foreach (var item in lstPatentes.CheckedItems)
                     {
                         if (item is Patente pat)
-                        {
                             newAccesos.Add(pat);
-                        }
+                    }
+                    foreach (var item in lstSubFamilias.CheckedItems)
+                    {
+                        if (item is Familia sub)
+                            newAccesos.Add(sub);
                     }
 
                     fam.ClearAccesos();
-
-                    foreach (var pat in newAccesos)
-                    {
-                        fam.Agregar(pat);
-                    }
+                    foreach (var acceso in newAccesos)
+                        fam.Agregar(acceso);
 
                     _permisosService.GuardarFamilia(fam);
                     MessageBox.Show(Translations.MSG_SUCCESS.Translate());

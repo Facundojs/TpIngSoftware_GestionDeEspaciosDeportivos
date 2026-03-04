@@ -1,0 +1,670 @@
+diff --git a/Domain/Enums/Translations.cs b/Domain/Enums/Translations.cs
+index e54f4dd..56e8058 100644
+--- a/Domain/Enums/Translations.cs
++++ b/Domain/Enums/Translations.cs
+@@ -260,6 +260,8 @@ namespace Domain.Enums
+         ERR_PATENTE_ADD_CHILD,
+         ERR_PATENTE_REMOVE_CHILD,
+         ERR_BACKUP_NO_EXISTE,
++        ERR_FAMILIA_CICLO,
++        LBL_SUBFAMILIAS,
+         MAIN_NEGOCIO,
+         DAY_0,
+         DAY_1,
+diff --git a/Service/Impl/SqlServer/FamiliaRepository.cs b/Service/Impl/SqlServer/FamiliaRepository.cs
+index 4ebd2ad..41bfb23 100644
+--- a/Service/Impl/SqlServer/FamiliaRepository.cs
++++ b/Service/Impl/SqlServer/FamiliaRepository.cs
+@@ -1,11 +1,7 @@
+-﻿using Domain.Composite;
++using Domain.Composite;
+ using System;
+ using System.Collections.Generic;
+ using System.Data.SqlClient;
+-using System.Data;
+-using System.Linq;
+-using System.Text;
+-using System.Threading.Tasks;
+ using Service.Contracts;
+ 
+ namespace Service.Impl
+@@ -16,10 +12,9 @@ namespace Service.Impl
+         {
+             string query = "INSERT INTO Familia (Id, Nombre) VALUES (@Id, @Nom)";
+             ExecuteNonQuery(query, new[] {
+-            new SqlParameter("@Id", obj.Id),
+-            new SqlParameter("@Nom", obj.Nombre)
+-        });
+-            // Nota: Los hijos se guardan usualmente en un método separado o mediante Update
++                new SqlParameter("@Id", obj.Id),
++                new SqlParameter("@Nom", obj.Nombre)
++            });
+         }
+ 
+         public void Update(Familia obj)
+@@ -31,28 +26,47 @@ namespace Service.Impl
+                 {
+                     try
+                     {
+-                        // 1. Actualizar nombre de la familia
+-                        string updateFam = "UPDATE Familia SET Nombre = @Nom WHERE Id = @Id";
+-                        SqlCommand cmdFam = new SqlCommand(updateFam, conn, tran);
+-                        cmdFam.Parameters.AddWithValue("@Nom", obj.Nombre);
+-                        cmdFam.Parameters.AddWithValue("@Id", obj.Id);
+-                        cmdFam.ExecuteNonQuery();
+-
+-                        // 2. Limpiar patentes asociadas (Relación Composite)
+-                        string deleteRel = "DELETE FROM FamiliaPatente WHERE IdFamilia = @Id";
+-                        SqlCommand cmdDel = new SqlCommand(deleteRel, conn, tran);
+-                        cmdDel.Parameters.AddWithValue("@Id", obj.Id);
+-                        cmdDel.ExecuteNonQuery();
+-
+-                        // 3. Insertar nuevas relaciones
++                        using (var cmd = new SqlCommand("UPDATE Familia SET Nombre = @Nom WHERE Id = @Id", conn, tran))
++                        {
++                            cmd.Parameters.AddWithValue("@Nom", obj.Nombre);
++                            cmd.Parameters.AddWithValue("@Id", obj.Id);
++                            cmd.ExecuteNonQuery();
++                        }
++
++                        using (var cmd = new SqlCommand("DELETE FROM FamiliaPatente WHERE IdFamilia = @Id", conn, tran))
++                        {
++                            cmd.Parameters.AddWithValue("@Id", obj.Id);
++                            cmd.ExecuteNonQuery();
++                        }
++
++                        using (var cmd = new SqlCommand("DELETE FROM FamiliaFamilia WHERE IdFamiliaPadre = @Id", conn, tran))
++                        {
++                            cmd.Parameters.AddWithValue("@Id", obj.Id);
++                            cmd.ExecuteNonQuery();
++                        }
++
+                         foreach (var hijo in obj.Accesos)
+                         {
+-                            string insertRel = "INSERT INTO FamiliaPatente (IdFamilia, IdPatente) VALUES (@IdF, @IdP)";
+-                            SqlCommand cmdIns = new SqlCommand(insertRel, conn, tran);
+-                            cmdIns.Parameters.AddWithValue("@IdF", obj.Id);
+-                            cmdIns.Parameters.AddWithValue("@IdP", hijo.Id);
+-                            cmdIns.ExecuteNonQuery();
++                            if (hijo is Patente)
++                            {
++                                using (var cmd = new SqlCommand("INSERT INTO FamiliaPatente (IdFamilia, IdPatente) VALUES (@IdF, @IdP)", conn, tran))
++                                {
++                                    cmd.Parameters.AddWithValue("@IdF", obj.Id);
++                                    cmd.Parameters.AddWithValue("@IdP", hijo.Id);
++                                    cmd.ExecuteNonQuery();
++                                }
++                            }
++                            else if (hijo is Familia)
++                            {
++                                using (var cmd = new SqlCommand("INSERT INTO FamiliaFamilia (IdFamiliaPadre, IdFamiliaHija) VALUES (@IdP, @IdH)", conn, tran))
++                                {
++                                    cmd.Parameters.AddWithValue("@IdP", obj.Id);
++                                    cmd.Parameters.AddWithValue("@IdH", hijo.Id);
++                                    cmd.ExecuteNonQuery();
++                                }
++                            }
+                         }
++
+                         tran.Commit();
+                     }
+                     catch { tran.Rollback(); throw; }
+@@ -62,75 +76,93 @@ namespace Service.Impl
+ 
+         public void Remove(Guid id)
+         {
+-            // Primero borrar relaciones por integridad referencial
++            ExecuteNonQuery("DELETE FROM UsuarioFamilia WHERE IdFamilia = @Id", new[] { new SqlParameter("@Id", id) });
++            ExecuteNonQuery("DELETE FROM FamiliaFamilia WHERE IdFamiliaPadre = @Id", new[] { new SqlParameter("@Id", id) });
++            ExecuteNonQuery("DELETE FROM FamiliaFamilia WHERE IdFamiliaHija = @Id", new[] { new SqlParameter("@Id", id) });
+             ExecuteNonQuery("DELETE FROM FamiliaPatente WHERE IdFamilia = @Id", new[] { new SqlParameter("@Id", id) });
+             ExecuteNonQuery("DELETE FROM Familia WHERE Id = @Id", new[] { new SqlParameter("@Id", id) });
+         }
+ 
+         public Familia GetById(Guid id)
+         {
+-            Familia fam = null;
+-            string query = "SELECT Id, Nombre FROM Familia WHERE Id = @Id";
+-
+             using (var conn = new SqlConnection(_connectionString))
+             {
+                 conn.Open();
+-                using (var cmd = new SqlCommand(query, conn))
++                return GetByIdInternal(id, conn, new HashSet<Guid>());
++            }
++        }
++
++        private Familia GetByIdInternal(Guid id, SqlConnection conn, HashSet<Guid> visited)
++        {
++            if (!visited.Add(id)) return null;
++
++            Familia fam = null;
++            using (var cmd = new SqlCommand("SELECT Id, Nombre FROM Familia WHERE Id = @Id", conn))
++            {
++                cmd.Parameters.AddWithValue("@Id", id);
++                using (var dr = cmd.ExecuteReader())
+                 {
+-                    cmd.Parameters.AddWithValue("@Id", id);
+-                    using (var dr = cmd.ExecuteReader())
+-                    {
+-                        if (dr.Read())
+-                        {
+-                            fam = new Familia { Id = dr.GetGuid(0), Nombre = dr.GetString(1) };
+-                        }
+-                    }
++                    if (dr.Read())
++                        fam = new Familia { Id = dr.GetGuid(0), Nombre = dr.GetString(1) };
+                 }
++            }
+ 
+-                if (fam != null)
+-                {
+-                    // Cargar los hijos (Patentes) de esta familia
+-                    string queryHijos = @"SELECT p.Id, p.Nombre, p.TipoAcceso, p.DataKey 
++            if (fam == null) return null;
++
++            string queryPatentes = @"SELECT p.Id, p.Nombre, p.TipoAcceso, p.DataKey
+                                      FROM Patente p
+                                      INNER JOIN FamiliaPatente fp ON p.Id = fp.IdPatente
+                                      WHERE fp.IdFamilia = @Id";
+-
+-                    using (var cmdHijos = new SqlCommand(queryHijos, conn))
++            using (var cmd = new SqlCommand(queryPatentes, conn))
++            {
++                cmd.Parameters.AddWithValue("@Id", id);
++                using (var dr = cmd.ExecuteReader())
++                {
++                    while (dr.Read())
+                     {
+-                        cmdHijos.Parameters.AddWithValue("@Id", id);
+-                        using (var drH = cmdHijos.ExecuteReader())
++                        fam.Agregar(new Patente
+                         {
+-                            while (drH.Read())
+-                            {
+-                                fam.Agregar(new Patente
+-                                {
+-                                    Id = drH.GetGuid(0),
+-                                    Nombre = drH.GetString(1),
+-                                    TipoAcceso = drH.GetString(2),
+-                                    DataKey = drH.GetString(3)
+-                                });
+-                            }
+-                        }
++                            Id = dr.GetGuid(0),
++                            Nombre = dr.GetString(1),
++                            TipoAcceso = dr.GetString(2),
++                            DataKey = dr.GetString(3)
++                        });
+                     }
+                 }
+             }
++
++            var childIds = new List<Guid>();
++            using (var cmd = new SqlCommand("SELECT IdFamiliaHija FROM FamiliaFamilia WHERE IdFamiliaPadre = @Id", conn))
++            {
++                cmd.Parameters.AddWithValue("@Id", id);
++                using (var dr = cmd.ExecuteReader())
++                {
++                    while (dr.Read())
++                        childIds.Add(dr.GetGuid(0));
++                }
++            }
++
++            foreach (var childId in childIds)
++            {
++                var childFam = GetByIdInternal(childId, conn, visited);
++                if (childFam != null)
++                    fam.Agregar(childFam);
++            }
++
+             return fam;
+         }
+ 
+         public List<Familia> GetAll()
+         {
+-            List<Familia> lista = new List<Familia>();
+-            string query = "SELECT Id, Nombre FROM Familia";
++            var lista = new List<Familia>();
+             using (var conn = new SqlConnection(_connectionString))
+-            using (var cmd = new SqlCommand(query, conn))
++            using (var cmd = new SqlCommand("SELECT Id, Nombre FROM Familia", conn))
+             {
+                 conn.Open();
+                 using (var dr = cmd.ExecuteReader())
+                 {
+                     while (dr.Read())
+-                    {
+                         lista.Add(new Familia { Id = dr.GetGuid(0), Nombre = dr.GetString(1) });
+-                    }
+                 }
+             }
+             return lista;
+diff --git a/Service/Languages/Language.en-US b/Service/Languages/Language.en-US
+index 97836ed..21ac772 100644
+--- a/Service/Languages/Language.en-US
++++ b/Service/Languages/Language.en-US
+@@ -230,4 +230,6 @@ ERR_FORMATO_ARCHIVO_NO_PERMITIDO=File format not allowed. Use: PDF, JPG, or PNG.
+ ERR_CLIENTE_DEUDA_BLOQUEANTE=Client has a debt. Must settle before continuing.
+ ERR_PATENTE_ADD_CHILD=Cannot add children to a Patente.
+ ERR_PATENTE_REMOVE_CHILD=Cannot remove children from a Patente.
+-ERR_BACKUP_NO_EXISTE=Backup file does not exist.
+\ No newline at end of file
++ERR_BACKUP_NO_EXISTE=Backup file does not exist.
++ERR_FAMILIA_CICLO=Cannot save the family because it creates a circular reference.
++LBL_SUBFAMILIAS=Sub-Families
+\ No newline at end of file
+diff --git a/Service/Languages/Language.es-MX b/Service/Languages/Language.es-MX
+index a576691..89a502d 100644
+--- a/Service/Languages/Language.es-MX
++++ b/Service/Languages/Language.es-MX
+@@ -269,5 +269,7 @@ ERR_CLIENTE_DEUDA_BLOQUEANTE=El cliente tiene una deuda. Debe saldarla antes de
+ ERR_PATENTE_ADD_CHILD=No se pueden agregar hijos a una Patente.
+ ERR_PATENTE_REMOVE_CHILD=No se pueden eliminar hijos de una Patente.
+ ERR_BACKUP_NO_EXISTE=El archivo de backup no existe.
++ERR_FAMILIA_CICLO=No se puede guardar la familia porque crea una referencia circular.
++LBL_SUBFAMILIAS=Sub-Familias
+ MAIN_NEGOCIO=Negocio
+ MENU_PERMISOS=Gestión de Permisos
+\ No newline at end of file
+diff --git a/Service/Languages/Language.pt-BR b/Service/Languages/Language.pt-BR
+index 7a09e42..e8c27fb 100644
+--- a/Service/Languages/Language.pt-BR
++++ b/Service/Languages/Language.pt-BR
+@@ -231,4 +231,6 @@ ERR_FORMATO_ARCHIVO_NO_PERMITIDO=Formato de arquivo não permitido. Use: PDF, JP
+ ERR_CLIENTE_DEUDA_BLOQUEANTE=O cliente tem uma dívida. Deve pagar antes de continuar.
+ ERR_PATENTE_ADD_CHILD=Não é possível adicionar filhos a uma Patente.
+ ERR_PATENTE_REMOVE_CHILD=Não é possível remover filhos de uma Patente.
+-ERR_BACKUP_NO_EXISTE=O arquivo de backup não existe.
+\ No newline at end of file
++ERR_BACKUP_NO_EXISTE=O arquivo de backup não existe.
++ERR_FAMILIA_CICLO=Não é possível salvar a família porque cria uma referência circular.
++LBL_SUBFAMILIAS=Sub-Famílias
+\ No newline at end of file
+diff --git a/Service/Logic/PermisosService.cs b/Service/Logic/PermisosService.cs
+index a2889e0..8134b54 100644
+--- a/Service/Logic/PermisosService.cs
++++ b/Service/Logic/PermisosService.cs
+@@ -1,5 +1,7 @@
+ using Domain;
+ using Domain.Composite;
++using Domain.Enums;
++using Service.Facade.Extension;
+ using Service.Impl;
+ using Service.Impl.SqlServer;
+ using System;
+@@ -39,9 +41,29 @@ namespace Service.Logic
+ 
+         public void GuardarFamilia(Familia familia)
+         {
++            DetectarCiclo(familia);
+             _familiaRepository.Update(familia);
+         }
+ 
++        // Requires that each Familia in the tree was loaded via GetById (full recursive load),
++        // not GetAll() which only returns shallow shells without children.
++        private void DetectarCiclo(Familia familia)
++        {
++            var visited = new HashSet<Guid>();
++            CheckDescendants(familia.Id, familia.Accesos.OfType<Familia>(), visited);
++        }
++
++        private void CheckDescendants(Guid origin, IEnumerable<Familia> children, HashSet<Guid> visited)
++        {
++            foreach (var child in children)
++            {
++                if (child.Id == origin)
++                    throw new InvalidOperationException(Translations.ERR_FAMILIA_CICLO.Translate());
++                if (!visited.Add(child.Id)) continue;
++                CheckDescendants(origin, child.Accesos.OfType<Familia>(), visited);
++            }
++        }
++
+         public void CrearFamilia(Familia familia)
+         {
+             _familiaRepository.Add(familia);
+diff --git a/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.Designer.cs b/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.Designer.cs
+index 0c6fa41..49ccf77 100644
+--- a/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.Designer.cs
++++ b/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.Designer.cs
+@@ -30,6 +30,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+         {
+             this.lstFamilias = new System.Windows.Forms.ListBox();
+             this.lstPatentes = new System.Windows.Forms.CheckedListBox();
++            this.lstSubFamilias = new System.Windows.Forms.CheckedListBox();
+             this.txtNombreFamilia = new System.Windows.Forms.TextBox();
+             this.lblNombreFamilia = new System.Windows.Forms.Label();
+             this.btnCrear = new System.Windows.Forms.Button();
+@@ -37,6 +38,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             this.btnEliminar = new System.Windows.Forms.Button();
+             this.lblFamilias = new System.Windows.Forms.Label();
+             this.lblPatentes = new System.Windows.Forms.Label();
++            this.lblSubFamilias = new System.Windows.Forms.Label();
+             this.SuspendLayout();
+             //
+             // lstFamilias
+@@ -45,60 +47,68 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             this.lstFamilias.ItemHeight = 16;
+             this.lstFamilias.Location = new System.Drawing.Point(12, 33);
+             this.lstFamilias.Name = "lstFamilias";
+-            this.lstFamilias.Size = new System.Drawing.Size(200, 324);
++            this.lstFamilias.Size = new System.Drawing.Size(180, 324);
+             this.lstFamilias.TabIndex = 0;
+             this.lstFamilias.SelectedIndexChanged += new System.EventHandler(this.lstFamilias_SelectedIndexChanged);
+             //
+             // lstPatentes
+             //
+             this.lstPatentes.FormattingEnabled = true;
+-            this.lstPatentes.Location = new System.Drawing.Point(230, 33);
++            this.lstPatentes.Location = new System.Drawing.Point(205, 33);
+             this.lstPatentes.Name = "lstPatentes";
+-            this.lstPatentes.Size = new System.Drawing.Size(250, 327);
++            this.lstPatentes.Size = new System.Drawing.Size(200, 327);
+             this.lstPatentes.TabIndex = 1;
+             //
++            // lstSubFamilias
++            //
++            this.lstSubFamilias.FormattingEnabled = true;
++            this.lstSubFamilias.Location = new System.Drawing.Point(415, 33);
++            this.lstSubFamilias.Name = "lstSubFamilias";
++            this.lstSubFamilias.Size = new System.Drawing.Size(200, 327);
++            this.lstSubFamilias.TabIndex = 2;
++            //
+             // txtNombreFamilia
+             //
+-            this.txtNombreFamilia.Location = new System.Drawing.Point(500, 50);
++            this.txtNombreFamilia.Location = new System.Drawing.Point(630, 50);
+             this.txtNombreFamilia.Name = "txtNombreFamilia";
+-            this.txtNombreFamilia.Size = new System.Drawing.Size(200, 22);
+-            this.txtNombreFamilia.TabIndex = 2;
++            this.txtNombreFamilia.Size = new System.Drawing.Size(180, 22);
++            this.txtNombreFamilia.TabIndex = 3;
+             //
+             // lblNombreFamilia
+             //
+             this.lblNombreFamilia.AutoSize = true;
+-            this.lblNombreFamilia.Location = new System.Drawing.Point(497, 30);
++            this.lblNombreFamilia.Location = new System.Drawing.Point(627, 30);
+             this.lblNombreFamilia.Name = "lblNombreFamilia";
+             this.lblNombreFamilia.Size = new System.Drawing.Size(61, 16);
+-            this.lblNombreFamilia.TabIndex = 3;
++            this.lblNombreFamilia.TabIndex = 4;
+             this.lblNombreFamilia.Text = "Nombre:";
+             //
+             // btnCrear
+             //
+-            this.btnCrear.Location = new System.Drawing.Point(500, 90);
++            this.btnCrear.Location = new System.Drawing.Point(630, 90);
+             this.btnCrear.Name = "btnCrear";
+             this.btnCrear.Size = new System.Drawing.Size(100, 30);
+-            this.btnCrear.TabIndex = 4;
++            this.btnCrear.TabIndex = 5;
+             this.btnCrear.Text = "Crear";
+             this.btnCrear.UseVisualStyleBackColor = true;
+             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+             //
+             // btnActualizar
+             //
+-            this.btnActualizar.Location = new System.Drawing.Point(500, 130);
++            this.btnActualizar.Location = new System.Drawing.Point(630, 130);
+             this.btnActualizar.Name = "btnActualizar";
+             this.btnActualizar.Size = new System.Drawing.Size(100, 30);
+-            this.btnActualizar.TabIndex = 5;
++            this.btnActualizar.TabIndex = 6;
+             this.btnActualizar.Text = "Actualizar";
+             this.btnActualizar.UseVisualStyleBackColor = true;
+             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+             //
+             // btnEliminar
+             //
+-            this.btnEliminar.Location = new System.Drawing.Point(500, 170);
++            this.btnEliminar.Location = new System.Drawing.Point(630, 170);
+             this.btnEliminar.Name = "btnEliminar";
+             this.btnEliminar.Size = new System.Drawing.Size(100, 30);
+-            this.btnEliminar.TabIndex = 6;
++            this.btnEliminar.TabIndex = 7;
+             this.btnEliminar.Text = "Eliminar";
+             this.btnEliminar.UseVisualStyleBackColor = true;
+             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+@@ -109,23 +119,33 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             this.lblFamilias.Location = new System.Drawing.Point(12, 14);
+             this.lblFamilias.Name = "lblFamilias";
+             this.lblFamilias.Size = new System.Drawing.Size(61, 16);
+-            this.lblFamilias.TabIndex = 7;
++            this.lblFamilias.TabIndex = 8;
+             this.lblFamilias.Text = "Familias";
+             //
+             // lblPatentes
+             //
+             this.lblPatentes.AutoSize = true;
+-            this.lblPatentes.Location = new System.Drawing.Point(227, 14);
++            this.lblPatentes.Location = new System.Drawing.Point(205, 14);
+             this.lblPatentes.Name = "lblPatentes";
+             this.lblPatentes.Size = new System.Drawing.Size(61, 16);
+-            this.lblPatentes.TabIndex = 8;
++            this.lblPatentes.TabIndex = 9;
+             this.lblPatentes.Text = "Patentes";
+             //
++            // lblSubFamilias
++            //
++            this.lblSubFamilias.AutoSize = true;
++            this.lblSubFamilias.Location = new System.Drawing.Point(415, 14);
++            this.lblSubFamilias.Name = "lblSubFamilias";
++            this.lblSubFamilias.Size = new System.Drawing.Size(80, 16);
++            this.lblSubFamilias.TabIndex = 10;
++            this.lblSubFamilias.Text = "Sub-Familias";
++            //
+             // FrmGestionFamilias
+             //
+             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+-            this.ClientSize = new System.Drawing.Size(730, 380);
++            this.ClientSize = new System.Drawing.Size(830, 380);
++            this.Controls.Add(this.lblSubFamilias);
+             this.Controls.Add(this.lblPatentes);
+             this.Controls.Add(this.lblFamilias);
+             this.Controls.Add(this.btnEliminar);
+@@ -133,6 +153,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             this.Controls.Add(this.btnCrear);
+             this.Controls.Add(this.lblNombreFamilia);
+             this.Controls.Add(this.txtNombreFamilia);
++            this.Controls.Add(this.lstSubFamilias);
+             this.Controls.Add(this.lstPatentes);
+             this.Controls.Add(this.lstFamilias);
+             this.Name = "FrmGestionFamilias";
+@@ -147,6 +168,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+ 
+         private System.Windows.Forms.ListBox lstFamilias;
+         private System.Windows.Forms.CheckedListBox lstPatentes;
++        private System.Windows.Forms.CheckedListBox lstSubFamilias;
+         private System.Windows.Forms.TextBox txtNombreFamilia;
+         private System.Windows.Forms.Label lblNombreFamilia;
+         private System.Windows.Forms.Button btnCrear;
+@@ -154,5 +176,6 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+         private System.Windows.Forms.Button btnEliminar;
+         private System.Windows.Forms.Label lblFamilias;
+         private System.Windows.Forms.Label lblPatentes;
++        private System.Windows.Forms.Label lblSubFamilias;
+     }
+ }
+diff --git a/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.cs b/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.cs
+index 3cedd53..f8ec654 100644
+--- a/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.cs
++++ b/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionFamilias.cs
+@@ -29,6 +29,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             this.Text = Translations.PERMISSIONS_TITLE.Translate();
+             lblFamilias.Text = "Familias";
+             lblPatentes.Text = "Patentes";
++            lblSubFamilias.Text = Translations.LBL_SUBFAMILIAS.Translate();
+             lblNombreFamilia.Text = Translations.LBL_NOMBRE.Translate();
+             btnCrear.Text = Translations.BTN_CREAR.Translate();
+             btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+@@ -56,6 +57,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+         {
+             LoadPatentes();
+             LoadFamilias();
++            LoadSubFamilias(null);
+         }
+ 
+         private void LoadFamilias()
+@@ -63,9 +65,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             lstFamilias.Items.Clear();
+             var familias = _permisosService.GetAllFamilias();
+             foreach (var fam in familias)
+-            {
+                 lstFamilias.Items.Add(fam);
+-            }
+             lstFamilias.DisplayMember = "Nombre";
+         }
+ 
+@@ -74,31 +74,49 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+             lstPatentes.Items.Clear();
+             var patentes = _permisosService.GetAllPatentes();
+             foreach (var pat in patentes)
+-            {
+                 lstPatentes.Items.Add(pat);
+-            }
+             lstPatentes.DisplayMember = "Nombre";
+         }
+ 
++        private void LoadSubFamilias(Guid? excludeId)
++        {
++            lstSubFamilias.Items.Clear();
++            var familias = _permisosService.GetAllFamilias();
++            foreach (var fam in familias)
++            {
++                if (excludeId.HasValue && fam.Id == excludeId.Value) continue;
++                lstSubFamilias.Items.Add(fam);
++            }
++            lstSubFamilias.DisplayMember = "Nombre";
++        }
++
+         private void lstFamilias_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             if (lstFamilias.SelectedItem is Familia fam)
+             {
+                 txtNombreFamilia.Text = fam.Nombre;
++                LoadSubFamilias(fam.Id);
+ 
+                 for (int i = 0; i < lstPatentes.Items.Count; i++)
+                 {
+                     var pat = lstPatentes.Items[i] as Patente;
+                     lstPatentes.SetItemChecked(i, fam.Accesos.Any(x => x.Id == pat.Id));
+                 }
++
++                for (int i = 0; i < lstSubFamilias.Items.Count; i++)
++                {
++                    var sub = lstSubFamilias.Items[i] as Familia;
++                    lstSubFamilias.SetItemChecked(i, fam.Accesos.Any(x => x.Id == sub.Id));
++                }
+             }
+             else
+             {
+                 txtNombreFamilia.Text = "";
++                LoadSubFamilias(null);
+                 for (int i = 0; i < lstPatentes.Items.Count; i++)
+-                {
+                     lstPatentes.SetItemChecked(i, false);
+-                }
++                for (int i = 0; i < lstSubFamilias.Items.Count; i++)
++                    lstSubFamilias.SetItemChecked(i, false);
+             }
+         }
+ 
+@@ -121,9 +139,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+                 foreach (var item in lstPatentes.CheckedItems)
+                 {
+                     if (item is Patente pat)
+-                    {
+                         nuevaFamilia.Agregar(pat);
+-                    }
++                }
++
++                foreach (var item in lstSubFamilias.CheckedItems)
++                {
++                    if (item is Familia sub)
++                        nuevaFamilia.Agregar(sub);
+                 }
+ 
+                 _permisosService.CrearFamilia(nuevaFamilia);
+@@ -156,18 +178,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+                     foreach (var item in lstPatentes.CheckedItems)
+                     {
+                         if (item is Patente pat)
+-                        {
+                             newAccesos.Add(pat);
+-                        }
+                     }
+-
+-                    fam.ClearAccesos();
+-
+-                    foreach (var pat in newAccesos)
++                    foreach (var item in lstSubFamilias.CheckedItems)
+                     {
+-                        fam.Agregar(pat);
++                        if (item is Familia sub)
++                            newAccesos.Add(sub);
+                     }
+ 
++                    fam.ClearAccesos();
++                    foreach (var acceso in newAccesos)
++                        fam.Agregar(acceso);
++
+                     _permisosService.GuardarFamilia(fam);
+                     MessageBox.Show(Translations.MSG_SUCCESS.Translate());
+                     LoadFamilias();
+diff --git a/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionPermisos.cs b/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionPermisos.cs
+index 394a436..cdd7183 100644
+--- a/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionPermisos.cs
++++ b/TpIngSoftware_GestionDeEspaciosDeportivos/FrmGestionPermisos.cs
+@@ -46,34 +46,34 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
+         {
+             treeViewPermisos.Nodes.Clear();
+             var familias = _permisosService.GetAllFamilias();
+-
+             var userFamilyIds = _usuario.Permisos.Select(p => p.Id).ToList();
+ 
+             foreach (var familia in familias)
+             {
+                 var node = new TreeNode(familia.Nombre);
+                 node.Tag = familia;
+-
+-                if (userFamilyIds.Contains(familia.Id))
+-                {
+-                    node.Checked = true;
+-                }
+-
+-                foreach(var acceso in familia.Accesos)
+-                {
+-                     var childNode = new TreeNode(acceso.Nombre);
+-                     childNode.Tag = acceso;
+-                     // Disable checkbox for child? Not easy in standard TreeView without DrawMode.
+-                     // Just ignore it in logic.
+-                     node.Nodes.Add(childNode);
+-                }
+-
++                node.Checked = userFamilyIds.Contains(familia.Id);
++                AddChildNodes(node, familia.Accesos);
+                 treeViewPermisos.Nodes.Add(node);
+             }
+ 
+             treeViewPermisos.ExpandAll();
+         }
+ 
++        private void AddChildNodes(TreeNode parentNode, System.Collections.Generic.IList<Acceso> accesos)
++        {
++            foreach (var acceso in accesos)
++            {
++                var childNode = new TreeNode(acceso.Nombre);
++                childNode.Tag = acceso;
++
++                if (acceso is Familia subFamilia)
++                    AddChildNodes(childNode, subFamilia.Accesos);
++
++                parentNode.Nodes.Add(childNode);
++            }
++        }
++
+         private void btnSave_Click(object sender, EventArgs e)
+         {
+              var nuevosPermisos = new List<Acceso>();

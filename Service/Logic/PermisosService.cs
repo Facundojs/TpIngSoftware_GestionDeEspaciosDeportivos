@@ -1,5 +1,7 @@
 using Domain;
 using Domain.Composite;
+using Domain.Enums;
+using Service.Facade.Extension;
 using Service.Impl;
 using Service.Impl.SqlServer;
 using System;
@@ -39,7 +41,27 @@ namespace Service.Logic
 
         public void GuardarFamilia(Familia familia)
         {
+            DetectarCiclo(familia);
             _familiaRepository.Update(familia);
+        }
+
+        // Requires that each Familia in the tree was loaded via GetById (full recursive load),
+        // not GetAll() which only returns shallow shells without children.
+        private void DetectarCiclo(Familia familia)
+        {
+            var visited = new HashSet<Guid>();
+            CheckDescendants(familia.Id, familia.Accesos.OfType<Familia>(), visited);
+        }
+
+        private void CheckDescendants(Guid origin, IEnumerable<Familia> children, HashSet<Guid> visited)
+        {
+            foreach (var child in children)
+            {
+                if (child.Id == origin)
+                    throw new InvalidOperationException(Translations.ERR_FAMILIA_CICLO.Translate());
+                if (!visited.Add(child.Id)) continue;
+                CheckDescendants(origin, child.Accesos.OfType<Familia>(), visited);
+            }
         }
 
         public void CrearFamilia(Familia familia)
