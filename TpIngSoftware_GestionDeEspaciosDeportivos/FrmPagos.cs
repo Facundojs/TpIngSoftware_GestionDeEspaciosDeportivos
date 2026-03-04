@@ -88,7 +88,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             this.Text = Translations.PAGO_TITLE.Translate();
 
-            grpRegistro.Text = Translations.PAGO_TITLE.Translate(); // Reusing title or similar? Let's keep it simple or add specific key if needed.
+            grpRegistro.Text = Translations.PAGO_TITLE.Translate();
             lblDNI.Text = Translations.LBL_DNI_CLIENTE.Translate();
             lblMonto.Text = Translations.LBL_MONTO.Translate();
             lblMetodo.Text = Translations.LBL_METODO.Translate();
@@ -108,7 +108,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (dgvPagos.Columns.Count > 0)
             {
-                dgvPagos.Columns[0].HeaderText = Translations.LBL_CODIGO.Translate(); // Reusing Membresia Code label
+                dgvPagos.Columns[0].HeaderText = Translations.LBL_CODIGO.Translate();
                 dgvPagos.Columns[1].HeaderText = Translations.LBL_CLIENTE.Translate();
                 dgvPagos.Columns[2].HeaderText = Translations.LBL_MONTO.Translate();
                 dgvPagos.Columns[3].HeaderText = Translations.LBL_FECHA.Translate();
@@ -425,6 +425,11 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void lblCodigoReserva_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

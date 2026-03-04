@@ -91,7 +91,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.grpRegistro.Controls.Add(this.lblCodigoReserva);
             this.grpRegistro.Location = new System.Drawing.Point(12, 12);
             this.grpRegistro.Name = "grpRegistro";
-            this.grpRegistro.Size = new System.Drawing.Size(960, 80);
+            this.grpRegistro.Size = new System.Drawing.Size(960, 92);
             this.grpRegistro.TabIndex = 1;
             this.grpRegistro.TabStop = false;
             this.grpRegistro.Text = "Registrar Nuevo Pago";
@@ -188,7 +188,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // txtCodigoReserva
             // 
-            this.txtCodigoReserva.Location = new System.Drawing.Point(630, 57);
+            this.txtCodigoReserva.Location = new System.Drawing.Point(700, 61);
             this.txtCodigoReserva.Name = "txtCodigoReserva";
             this.txtCodigoReserva.Size = new System.Drawing.Size(120, 20);
             this.txtCodigoReserva.TabIndex = 11;
@@ -196,11 +196,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // lblCodigoReserva
             // 
             this.lblCodigoReserva.AutoSize = true;
-            this.lblCodigoReserva.Location = new System.Drawing.Point(540, 60);
+            this.lblCodigoReserva.Location = new System.Drawing.Point(570, 64);
             this.lblCodigoReserva.Name = "lblCodigoReserva";
             this.lblCodigoReserva.Size = new System.Drawing.Size(75, 13);
             this.lblCodigoReserva.TabIndex = 10;
             this.lblCodigoReserva.Text = "Cód. Reserva:";
+            this.lblCodigoReserva.Click += new System.EventHandler(this.lblCodigoReserva_Click);
             // 
             // grpFiltros
             // 
@@ -230,7 +231,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             // 
             // txtDNIFiltro
             // 
-            this.txtDNIFiltro.Location = new System.Drawing.Point(500, 30);
+            this.txtDNIFiltro.Location = new System.Drawing.Point(564, 30);
             this.txtDNIFiltro.Name = "txtDNIFiltro";
             this.txtDNIFiltro.Size = new System.Drawing.Size(100, 20);
             this.txtDNIFiltro.TabIndex = 5;
