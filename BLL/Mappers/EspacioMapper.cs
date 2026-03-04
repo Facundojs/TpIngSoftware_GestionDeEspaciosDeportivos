@@ -16,8 +16,7 @@ namespace BLL.Mappers
                 Nombre = entity.Nombre,
                 Descripcion = entity.Descripcion,
                 PrecioHora = entity.PrecioHora,
-                Estado = entity.Estado,
-                Razon = entity.Razon
+                Estado = entity.Estado
             };
         }
 
@@ -30,8 +29,7 @@ namespace BLL.Mappers
                 Nombre = dto.Nombre,
                 Descripcion = dto.Descripcion,
                 PrecioHora = dto.PrecioHora,
-                Estado = dto.Estado,
-                Razon = dto.Razon
+                Estado = dto.Estado
             };
         }
 

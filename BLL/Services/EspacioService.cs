@@ -73,7 +73,7 @@ namespace BLL.Services
                     var entity = _espacioRepository.GetById(id);
                     if (entity != null)
                     {
-                        entity.Estado = "Inactivo";
+                        entity.Estado = EstadoEspacio.Inactivo;
                         _espacioRepository.Update(entity);
                         _bitacora.Log($"Espacio {id} marcado como inactivo (soft-delete).", "INFO");
                     }
