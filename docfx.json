@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": ".",
+          "files": [
+            "BLL/bin/Debug/net472/BLL.dll",
+            "DAL/bin/Debug/net472/DAL.dll",
+            "Domain/bin/Debug/Domain.dll",
+            "Service/bin/Debug/Service.dll",
+            "TpIngSoftware_GestionDeEspaciosDeportivos/bin/Debug/TpIngSoftware_GestionDeEspaciosDeportivos.exe"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "mysite",
+      "_appTitle": "mysite",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}

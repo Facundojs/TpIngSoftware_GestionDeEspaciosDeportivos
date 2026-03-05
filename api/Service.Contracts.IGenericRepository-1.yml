@@ -1,0 +1,370 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  id: IGenericRepository`1
+  parent: Service.Contracts
+  children:
+  - Service.Contracts.IGenericRepository`1.Add(`0)
+  - Service.Contracts.IGenericRepository`1.GetAll
+  - Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  - Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  - Service.Contracts.IGenericRepository`1.Update(`0)
+  langs:
+  - csharp
+  - vb
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  type: Interface
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Generic repository contract defining standard CRUD operations for any entity type.
+  example: []
+  syntax:
+    content: public interface IGenericRepository<T>
+    typeParameters:
+    - id: T
+      description: The domain entity type managed by this repository.
+    content.vb: Public Interface IGenericRepository(Of T)
+  derivedClasses:
+  - DAL.Impl.ClienteSqlRepository
+  - DAL.Impl.EjercicioSqlRepository
+  - DAL.Impl.EspacioSqlRepository
+  - DAL.Impl.MembresiaSqlRepository
+  - DAL.Impl.PagoSqlRepository
+  - DAL.Impl.ReservaSqlRepository
+  - DAL.Impl.RutinaSqlRepository
+  - DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+  - DAL.Impl.SqlServer.IngresoSqlRepository
+  - Service.Impl.FamiliaRepository
+  - Service.Impl.SqlServer.PatenteRepository
+  - Service.Impl.UsuarioRepository
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  id: Add(`0)
+  parent: Service.Contracts.IGenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Persists a new entity.
+  example: []
+  syntax:
+    content: void Add(T obj)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The entity to insert.
+    content.vb: Sub Add(obj As T)
+  overload: Service.Contracts.IGenericRepository`1.Add*
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  id: Update(`0)
+  parent: Service.Contracts.IGenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Applies changes to an existing entity.
+  example: []
+  syntax:
+    content: void Update(T obj)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The entity with updated values.
+    content.vb: Sub Update(obj As T)
+  overload: Service.Contracts.IGenericRepository`1.Update*
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  id: Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Deletes an entity by its primary key.
+  example: []
+  syntax:
+    content: void Remove(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier of the entity to delete.
+    content.vb: Sub Remove(id As Guid)
+  overload: Service.Contracts.IGenericRepository`1.Remove*
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  id: GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Retrieves a single entity by its primary key.
+  example: []
+  syntax:
+    content: T GetById(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier to look up.
+    return:
+      type: '{T}'
+      description: The matching entity, or <code>null</code> if not found.
+    content.vb: Function GetById(id As Guid) As T
+  overload: Service.Contracts.IGenericRepository`1.GetById*
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  id: GetAll
+  parent: Service.Contracts.IGenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Retrieves all entities of this type.
+  example: []
+  syntax:
+    content: List<T> GetAll()
+    return:
+      type: System.Collections.Generic.List{{T}}
+      description: A list of all stored entities; empty list if none exist.
+    content.vb: Function GetAll() As List(Of T)
+  overload: Service.Contracts.IGenericRepository`1.GetAll*
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+references:
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Contracts.IGenericRepository`1.Add*
+  commentId: Overload:Service.Contracts.IGenericRepository`1.Add
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add
+  nameWithType: IGenericRepository<T>.Add
+  fullName: Service.Contracts.IGenericRepository<T>.Add
+  nameWithType.vb: IGenericRepository(Of T).Add
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Service.Contracts.IGenericRepository`1.Update*
+  commentId: Overload:Service.Contracts.IGenericRepository`1.Update
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update
+  nameWithType: IGenericRepository<T>.Update
+  fullName: Service.Contracts.IGenericRepository<T>.Update
+  nameWithType.vb: IGenericRepository(Of T).Update
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update
+- uid: Service.Contracts.IGenericRepository`1.Remove*
+  commentId: Overload:Service.Contracts.IGenericRepository`1.Remove
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove
+  nameWithType: IGenericRepository<T>.Remove
+  fullName: Service.Contracts.IGenericRepository<T>.Remove
+  nameWithType.vb: IGenericRepository(Of T).Remove
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Contracts.IGenericRepository`1.GetById*
+  commentId: Overload:Service.Contracts.IGenericRepository`1.GetById
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById
+  nameWithType: IGenericRepository<T>.GetById
+  fullName: Service.Contracts.IGenericRepository<T>.GetById
+  nameWithType.vb: IGenericRepository(Of T).GetById
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById
+- uid: Service.Contracts.IGenericRepository`1.GetAll*
+  commentId: Overload:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll
+  nameWithType: IGenericRepository<T>.GetAll
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll
+  nameWithType.vb: IGenericRepository(Of T).GetAll
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

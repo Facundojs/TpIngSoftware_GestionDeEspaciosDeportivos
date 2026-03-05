@@ -1,0 +1,738 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Impl.BaseRepository
+  commentId: T:Service.Impl.BaseRepository
+  id: BaseRepository
+  parent: Service.Impl
+  children:
+  - Service.Impl.BaseRepository.#ctor(System.String)
+  - Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  - Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  - Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  - Service.Impl.BaseRepository._connectionString
+  langs:
+  - csharp
+  - vb
+  name: BaseRepository
+  nameWithType: BaseRepository
+  fullName: Service.Impl.BaseRepository
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Abstract base class for all SQL Server repositories, providing low-level ADO.NET helpers.
+  remarks: >-
+    Each helper opens its own <xref href="System.Data.SqlClient.SqlConnection" data-throw-if-not-resolved="false"></xref> unless a shared <code class="paramref">conn</code>
+
+    is injected (used by <code>DAL.Impl.BaseBusinessSqlRepository</code> when enrolled in a
+
+    DAL.Impl.SqlServer.UnitOfWork transaction).
+  example: []
+  syntax:
+    content: public abstract class BaseRepository
+    content.vb: Public MustInherit Class BaseRepository
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - DAL.Impl.BaseBusinessSqlRepository
+  - Service.Impl.FamiliaRepository
+  - Service.Impl.LogRepository
+  - Service.Impl.SqlServer.PatenteRepository
+  - Service.Impl.UsuarioRepository
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Impl.BaseRepository._connectionString
+  commentId: F:Service.Impl.BaseRepository._connectionString
+  id: _connectionString
+  parent: Service.Impl.BaseRepository
+  langs:
+  - csharp
+  - vb
+  name: _connectionString
+  nameWithType: BaseRepository._connectionString
+  fullName: Service.Impl.BaseRepository._connectionString
+  type: Field
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Raw ADO.NET connection string resolved from <xref href="Service.Helpers.ConnectionManager" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected readonly string _connectionString
+    return:
+      type: System.String
+    content.vb: Protected ReadOnly _connectionString As String
+- uid: Service.Impl.BaseRepository.#ctor(System.String)
+  commentId: M:Service.Impl.BaseRepository.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Service.Impl.BaseRepository
+  langs:
+  - csharp
+  - vb
+  name: BaseRepository(string)
+  nameWithType: BaseRepository.BaseRepository(string)
+  fullName: Service.Impl.BaseRepository.BaseRepository(string)
+  type: Constructor
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Initializes the repository with the connection string identified by <code class="paramref">connectionStringName</code>.
+  example: []
+  syntax:
+    content: public BaseRepository(string connectionStringName = "IngSoftwareBase")
+    parameters:
+    - id: connectionStringName
+      type: System.String
+      description: >-
+        Key used to look up the connection string via <xref href="Service.Helpers.ConnectionManager.GetConnectionString(System.String)" data-throw-if-not-resolved="false"></xref>.
+
+        Defaults to <xref href="Service.Helpers.ConnectionManager.BaseConnectionName" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(connectionStringName As String = "IngSoftwareBase")
+  overload: Service.Impl.BaseRepository.#ctor*
+  nameWithType.vb: BaseRepository.New(String)
+  fullName.vb: Service.Impl.BaseRepository.New(String)
+  name.vb: New(String)
+- uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  commentId: M:Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  id: ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  parent: Service.Impl.BaseRepository
+  langs:
+  - csharp
+  - vb
+  name: ExecuteNonQuery(string, SqlParameter[], SqlConnection, SqlTransaction)
+  nameWithType: BaseRepository.ExecuteNonQuery(string, SqlParameter[], SqlConnection, SqlTransaction)
+  fullName: Service.Impl.BaseRepository.ExecuteNonQuery(string, System.Data.SqlClient.SqlParameter[], System.Data.SqlClient.SqlConnection, System.Data.SqlClient.SqlTransaction)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Executes a non-query SQL statement (INSERT, UPDATE, DELETE).
+  example: []
+  syntax:
+    content: protected void ExecuteNonQuery(string query, SqlParameter[] parameters, SqlConnection conn = null, SqlTransaction tran = null)
+    parameters:
+    - id: query
+      type: System.String
+      description: Parameterized SQL statement.
+    - id: parameters
+      type: System.Data.SqlClient.SqlParameter[]
+      description: SQL parameters to bind, or <code>null</code> for none.
+    - id: conn
+      type: System.Data.SqlClient.SqlConnection
+      description: >-
+        Optional shared connection. When provided, the command runs on this connection
+
+        using <code class="paramref">tran</code> (if any), without opening a new connection.
+    - id: tran
+      type: System.Data.SqlClient.SqlTransaction
+      description: Optional transaction to enlist the command in.
+    content.vb: Protected Sub ExecuteNonQuery(query As String, parameters As SqlParameter(), conn As SqlConnection = Nothing, tran As SqlTransaction = Nothing)
+  overload: Service.Impl.BaseRepository.ExecuteNonQuery*
+  nameWithType.vb: BaseRepository.ExecuteNonQuery(String, SqlParameter(), SqlConnection, SqlTransaction)
+  fullName.vb: Service.Impl.BaseRepository.ExecuteNonQuery(String, System.Data.SqlClient.SqlParameter(), System.Data.SqlClient.SqlConnection, System.Data.SqlClient.SqlTransaction)
+  name.vb: ExecuteNonQuery(String, SqlParameter(), SqlConnection, SqlTransaction)
+- uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  commentId: M:Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  id: ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  parent: Service.Impl.BaseRepository
+  langs:
+  - csharp
+  - vb
+  name: ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  nameWithType: BaseRepository.ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  fullName: Service.Impl.BaseRepository.ExecuteReader<T>(string, System.Data.SqlClient.SqlParameter[], System.Func<System.Data.SqlClient.SqlDataReader, T>)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: >-
+    Executes a SELECT query and projects the result via a mapping delegate.
+
+    Always opens a new connection; use <code>BaseBusinessSqlRepository</code> overload for UoW reads.
+  example: []
+  syntax:
+    content: protected T ExecuteReader<T>(string query, SqlParameter[] parameters, Func<SqlDataReader, T> map)
+    parameters:
+    - id: query
+      type: System.String
+      description: Parameterized SQL SELECT statement.
+    - id: parameters
+      type: System.Data.SqlClient.SqlParameter[]
+      description: SQL parameters to bind, or <code>null</code> for none.
+    - id: map
+      type: System.Func{System.Data.SqlClient.SqlDataReader,{T}}
+      description: Delegate that receives the open <xref href="System.Data.SqlClient.SqlDataReader" data-throw-if-not-resolved="false"></xref> and returns <code class="typeparamref">T</code>.
+    typeParameters:
+    - id: T
+      description: The projection type returned by <code class="paramref">map</code>.
+    return:
+      type: '{T}'
+      description: The value produced by <code class="paramref">map</code>.
+    content.vb: Protected Function ExecuteReader(Of T)(query As String, parameters As SqlParameter(), map As Func(Of SqlDataReader, T)) As T
+  overload: Service.Impl.BaseRepository.ExecuteReader*
+  nameWithType.vb: BaseRepository.ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  fullName.vb: Service.Impl.BaseRepository.ExecuteReader(Of T)(String, System.Data.SqlClient.SqlParameter(), System.Func(Of System.Data.SqlClient.SqlDataReader, T))
+  name.vb: ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+- uid: Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  commentId: M:Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  id: ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  parent: Service.Impl.BaseRepository
+  langs:
+  - csharp
+  - vb
+  name: ExecuteScalar<T>(string, SqlParameter[])
+  nameWithType: BaseRepository.ExecuteScalar<T>(string, SqlParameter[])
+  fullName: Service.Impl.BaseRepository.ExecuteScalar<T>(string, System.Data.SqlClient.SqlParameter[])
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Executes a scalar query and returns the first column of the first row.
+  example: []
+  syntax:
+    content: protected T ExecuteScalar<T>(string query, SqlParameter[] parameters)
+    parameters:
+    - id: query
+      type: System.String
+      description: Parameterized SQL statement.
+    - id: parameters
+      type: System.Data.SqlClient.SqlParameter[]
+      description: SQL parameters to bind, or <code>null</code> for none.
+    typeParameters:
+    - id: T
+      description: The expected return type. <code>DBNull</code> is converted to <code>default(T)</code>.
+    return:
+      type: '{T}'
+      description: The scalar value cast to <code class="typeparamref">T</code>, or <code>default(T)</code> if the result is NULL.
+    content.vb: Protected Function ExecuteScalar(Of T)(query As String, parameters As SqlParameter()) As T
+  overload: Service.Impl.BaseRepository.ExecuteScalar*
+  nameWithType.vb: BaseRepository.ExecuteScalar(Of T)(String, SqlParameter())
+  fullName.vb: Service.Impl.BaseRepository.ExecuteScalar(Of T)(String, System.Data.SqlClient.SqlParameter())
+  name.vb: ExecuteScalar(Of T)(String, SqlParameter())
+references:
+- uid: System.Data.SqlClient.SqlConnection
+  commentId: T:System.Data.SqlClient.SqlConnection
+  parent: System.Data.SqlClient
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection
+  name: SqlConnection
+  nameWithType: SqlConnection
+  fullName: System.Data.SqlClient.SqlConnection
+- uid: Service.Impl
+  commentId: N:Service.Impl
+  isExternal: true
+  href: Service.html
+  name: Service.Impl
+  nameWithType: Service.Impl
+  fullName: Service.Impl
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Data.SqlClient
+  commentId: N:System.Data.SqlClient
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Data.SqlClient
+  nameWithType: System.Data.SqlClient
+  fullName: System.Data.SqlClient
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  - name: .
+  - uid: System.Data.SqlClient
+    name: SqlClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  - name: .
+  - uid: System.Data.SqlClient
+    name: SqlClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Helpers.ConnectionManager
+  commentId: T:Service.Helpers.ConnectionManager
+  isExternal: true
+  href: Service.Helpers.ConnectionManager.html
+  name: ConnectionManager
+  nameWithType: ConnectionManager
+  fullName: Service.Helpers.ConnectionManager
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Service.Helpers.ConnectionManager.GetConnectionString(System.String)
+  commentId: M:Service.Helpers.ConnectionManager.GetConnectionString(System.String)
+  isExternal: true
+  href: Service.Helpers.ConnectionManager.html#Service_Helpers_ConnectionManager_GetConnectionString_System_String_
+  name: GetConnectionString(string)
+  nameWithType: ConnectionManager.GetConnectionString(string)
+  fullName: Service.Helpers.ConnectionManager.GetConnectionString(string)
+  nameWithType.vb: ConnectionManager.GetConnectionString(String)
+  fullName.vb: Service.Helpers.ConnectionManager.GetConnectionString(String)
+  name.vb: GetConnectionString(String)
+  spec.csharp:
+  - uid: Service.Helpers.ConnectionManager.GetConnectionString(System.String)
+    name: GetConnectionString
+    isExternal: true
+    href: Service.Helpers.ConnectionManager.html#Service_Helpers_ConnectionManager_GetConnectionString_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Service.Helpers.ConnectionManager.GetConnectionString(System.String)
+    name: GetConnectionString
+    isExternal: true
+    href: Service.Helpers.ConnectionManager.html#Service_Helpers_ConnectionManager_GetConnectionString_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Service.Helpers.ConnectionManager.BaseConnectionName
+  commentId: F:Service.Helpers.ConnectionManager.BaseConnectionName
+  isExternal: true
+  href: Service.Helpers.ConnectionManager.html#Service_Helpers_ConnectionManager_BaseConnectionName
+  name: BaseConnectionName
+  nameWithType: ConnectionManager.BaseConnectionName
+  fullName: Service.Helpers.ConnectionManager.BaseConnectionName
+- uid: Service.Impl.BaseRepository.#ctor*
+  commentId: Overload:Service.Impl.BaseRepository.#ctor
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository__ctor_System_String_
+  name: BaseRepository
+  nameWithType: BaseRepository.BaseRepository
+  fullName: Service.Impl.BaseRepository.BaseRepository
+  nameWithType.vb: BaseRepository.New
+  fullName.vb: Service.Impl.BaseRepository.New
+  name.vb: New
+- uid: Service.Impl.BaseRepository.ExecuteNonQuery*
+  commentId: Overload:Service.Impl.BaseRepository.ExecuteNonQuery
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  name: ExecuteNonQuery
+  nameWithType: BaseRepository.ExecuteNonQuery
+  fullName: Service.Impl.BaseRepository.ExecuteNonQuery
+- uid: System.Data.SqlClient.SqlParameter[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  name: SqlParameter[]
+  nameWithType: SqlParameter[]
+  fullName: System.Data.SqlClient.SqlParameter[]
+  nameWithType.vb: SqlParameter()
+  fullName.vb: System.Data.SqlClient.SqlParameter()
+  name.vb: SqlParameter()
+  spec.csharp:
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+- uid: System.Data.SqlClient.SqlTransaction
+  commentId: T:System.Data.SqlClient.SqlTransaction
+  parent: System.Data.SqlClient
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction
+  name: SqlTransaction
+  nameWithType: SqlTransaction
+  fullName: System.Data.SqlClient.SqlTransaction
+- uid: System.Data.SqlClient.SqlDataReader
+  commentId: T:System.Data.SqlClient.SqlDataReader
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  name: SqlDataReader
+  nameWithType: SqlDataReader
+  fullName: System.Data.SqlClient.SqlDataReader
+- uid: Service.Impl.BaseRepository.ExecuteReader*
+  commentId: Overload:Service.Impl.BaseRepository.ExecuteReader
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  name: ExecuteReader
+  nameWithType: BaseRepository.ExecuteReader
+  fullName: Service.Impl.BaseRepository.ExecuteReader
+- uid: System.Func{System.Data.SqlClient.SqlDataReader,{T}}
+  commentId: T:System.Func{System.Data.SqlClient.SqlDataReader,``0}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<SqlDataReader, T>
+  nameWithType: Func<SqlDataReader, T>
+  fullName: System.Func<System.Data.SqlClient.SqlDataReader, T>
+  nameWithType.vb: Func(Of SqlDataReader, T)
+  fullName.vb: System.Func(Of System.Data.SqlClient.SqlDataReader, T)
+  name.vb: Func(Of SqlDataReader, T)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Service.Impl.BaseRepository.ExecuteScalar*
+  commentId: Overload:Service.Impl.BaseRepository.ExecuteScalar
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  name: ExecuteScalar
+  nameWithType: BaseRepository.ExecuteScalar
+  fullName: Service.Impl.BaseRepository.ExecuteScalar

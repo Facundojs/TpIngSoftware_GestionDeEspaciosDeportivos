@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.ClienteStatus
+  commentId: T:BLL.DTOs.ClienteStatus
+  id: ClienteStatus
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.ClienteStatus.Activo
+  - BLL.DTOs.ClienteStatus.Inactivo
+  langs:
+  - csharp
+  - vb
+  name: ClienteStatus
+  nameWithType: ClienteStatus
+  fullName: BLL.DTOs.ClienteStatus
+  type: Enum
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteStatus.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Indicates whether a client account is active or has been deactivated.
+  remarks: >-
+    Inactive clients are blocked from facility entry by <code>ClienteService.ValidarIngreso</code>
+
+    and from creating new reservations. The status is persisted as an integer column.
+  example: []
+  syntax:
+    content: public enum ClienteStatus
+    content.vb: Public Enum ClienteStatus
+- uid: BLL.DTOs.ClienteStatus.Activo
+  commentId: F:BLL.DTOs.ClienteStatus.Activo
+  id: Activo
+  parent: BLL.DTOs.ClienteStatus
+  langs:
+  - csharp
+  - vb
+  name: Activo
+  nameWithType: ClienteStatus.Activo
+  fullName: BLL.DTOs.ClienteStatus.Activo
+  type: Field
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteStatus.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: The client account is active and fully operational.
+  example: []
+  syntax:
+    content: Activo = 0
+    return:
+      type: BLL.DTOs.ClienteStatus
+- uid: BLL.DTOs.ClienteStatus.Inactivo
+  commentId: F:BLL.DTOs.ClienteStatus.Inactivo
+  id: Inactivo
+  parent: BLL.DTOs.ClienteStatus
+  langs:
+  - csharp
+  - vb
+  name: Inactivo
+  nameWithType: ClienteStatus.Inactivo
+  fullName: BLL.DTOs.ClienteStatus.Inactivo
+  type: Field
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteStatus.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: The client account has been deactivated. See <code>ClienteDTO.Razon</code> for the reason.
+  example: []
+  syntax:
+    content: Inactivo = 1
+    return:
+      type: BLL.DTOs.ClienteStatus
+references:
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: BLL.DTOs.ClienteStatus
+  commentId: T:BLL.DTOs.ClienteStatus
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.ClienteStatus.html
+  name: ClienteStatus
+  nameWithType: ClienteStatus
+  fullName: BLL.DTOs.ClienteStatus

@@ -1,0 +1,751 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IPagoRepository
+  commentId: T:DAL.Contracts.IPagoRepository
+  id: IPagoRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IPagoRepository.GetByCliente(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  - DAL.Contracts.IPagoRepository.GetByCodigo(System.Int32)
+  - DAL.Contracts.IPagoRepository.GetByReserva(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IPagoRepository
+  nameWithType: IPagoRepository
+  fullName: DAL.Contracts.IPagoRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IPagoRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Repository contract for <xref href="Domain.Entities.Pago" data-throw-if-not-resolved="false"></xref> entities, extending standard CRUD with
+
+    payment-specific query operations.
+  example: []
+  syntax:
+    content: 'public interface IPagoRepository : IGenericRepository<Pago>'
+    content.vb: Public Interface IPagoRepository Inherits IGenericRepository(Of Pago)
+  derivedClasses:
+  - DAL.Impl.PagoSqlRepository
+  inheritedMembers:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Add(Domain.Entities.Pago)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Update(Domain.Entities.Pago)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Remove(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetById(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetAll
+- uid: DAL.Contracts.IPagoRepository.GetByCliente(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  commentId: M:DAL.Contracts.IPagoRepository.GetByCliente(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  id: GetByCliente(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  parent: DAL.Contracts.IPagoRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByCliente(Guid, DateTime?, DateTime?)
+  nameWithType: IPagoRepository.GetByCliente(Guid, DateTime?, DateTime?)
+  fullName: DAL.Contracts.IPagoRepository.GetByCliente(System.Guid, System.DateTime?, System.DateTime?)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IPagoRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Retrieves payments for a client, optionally filtered by a date range.
+  example: []
+  syntax:
+    content: List<Pago> GetByCliente(Guid clienteId, DateTime? desde, DateTime? hasta)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+      description: The client whose payments to fetch.
+    - id: desde
+      type: System.Nullable{System.DateTime}
+      description: Optional inclusive lower bound on payment date.
+    - id: hasta
+      type: System.Nullable{System.DateTime}
+      description: Optional inclusive upper bound on payment date.
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Pago}
+      description: List of matching payments; empty list if none.
+    content.vb: Function GetByCliente(clienteId As Guid, desde As Date?, hasta As Date?) As List(Of Pago)
+  overload: DAL.Contracts.IPagoRepository.GetByCliente*
+  nameWithType.vb: IPagoRepository.GetByCliente(Guid, Date?, Date?)
+  fullName.vb: DAL.Contracts.IPagoRepository.GetByCliente(System.Guid, Date?, Date?)
+  name.vb: GetByCliente(Guid, Date?, Date?)
+- uid: DAL.Contracts.IPagoRepository.GetByCodigo(System.Int32)
+  commentId: M:DAL.Contracts.IPagoRepository.GetByCodigo(System.Int32)
+  id: GetByCodigo(System.Int32)
+  parent: DAL.Contracts.IPagoRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByCodigo(int)
+  nameWithType: IPagoRepository.GetByCodigo(int)
+  fullName: DAL.Contracts.IPagoRepository.GetByCodigo(int)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IPagoRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Retrieves a payment by its sequential numeric code.
+  example: []
+  syntax:
+    content: Pago GetByCodigo(int codigo)
+    parameters:
+    - id: codigo
+      type: System.Int32
+      description: The numeric payment code.
+    return:
+      type: Domain.Entities.Pago
+      description: The matching <xref href="Domain.Entities.Pago" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if not found.
+    content.vb: Function GetByCodigo(codigo As Integer) As Pago
+  overload: DAL.Contracts.IPagoRepository.GetByCodigo*
+  nameWithType.vb: IPagoRepository.GetByCodigo(Integer)
+  fullName.vb: DAL.Contracts.IPagoRepository.GetByCodigo(Integer)
+  name.vb: GetByCodigo(Integer)
+- uid: DAL.Contracts.IPagoRepository.GetByReserva(System.Guid)
+  commentId: M:DAL.Contracts.IPagoRepository.GetByReserva(System.Guid)
+  id: GetByReserva(System.Guid)
+  parent: DAL.Contracts.IPagoRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByReserva(Guid)
+  nameWithType: IPagoRepository.GetByReserva(Guid)
+  fullName: DAL.Contracts.IPagoRepository.GetByReserva(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IPagoRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Retrieves all payments associated with a specific reservation.
+  example: []
+  syntax:
+    content: List<Pago> GetByReserva(Guid reservaId)
+    parameters:
+    - id: reservaId
+      type: System.Guid
+      description: The reservation whose payments to fetch.
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Pago}
+      description: List of payments for the reservation; empty list if none.
+    content.vb: Function GetByReserva(reservaId As Guid) As List(Of Pago)
+  overload: DAL.Contracts.IPagoRepository.GetByReserva*
+references:
+- uid: Domain.Entities.Pago
+  commentId: T:Domain.Entities.Pago
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Pago.html
+  name: Pago
+  nameWithType: Pago
+  fullName: Domain.Entities.Pago
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Add(Domain.Entities.Pago)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Add(Domain.Entities.Pago)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  name: Add(Pago)
+  nameWithType: IGenericRepository<Pago>.Add(Pago)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Pago>.Add(Domain.Entities.Pago)
+  nameWithType.vb: IGenericRepository(Of Pago).Add(Pago)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Pago).Add(Domain.Entities.Pago)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Add(Domain.Entities.Pago)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Add(Domain.Entities.Pago)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Update(Domain.Entities.Pago)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Update(Domain.Entities.Pago)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  name: Update(Pago)
+  nameWithType: IGenericRepository<Pago>.Update(Pago)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Pago>.Update(Domain.Entities.Pago)
+  nameWithType.vb: IGenericRepository(Of Pago).Update(Pago)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Pago).Update(Domain.Entities.Pago)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Update(Domain.Entities.Pago)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Update(Domain.Entities.Pago)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<Pago>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Pago>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Pago).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Pago).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<Pago>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Pago>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Pago).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Pago).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Pago>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Pago>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Pago).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Pago).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Entities.Pago}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  name: IGenericRepository<Pago>
+  nameWithType: IGenericRepository<Pago>
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Pago>
+  nameWithType.vb: IGenericRepository(Of Pago)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Pago)
+  name.vb: IGenericRepository(Of Pago)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: <
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: DAL.Contracts.IPagoRepository.GetByCliente*
+  commentId: Overload:DAL.Contracts.IPagoRepository.GetByCliente
+  isExternal: true
+  href: DAL.Contracts.IPagoRepository.html#DAL_Contracts_IPagoRepository_GetByCliente_System_Guid_System_Nullable_System_DateTime__System_Nullable_System_DateTime__
+  name: GetByCliente
+  nameWithType: IPagoRepository.GetByCliente
+  fullName: DAL.Contracts.IPagoRepository.GetByCliente
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Collections.Generic.List{Domain.Entities.Pago}
+  commentId: T:System.Collections.Generic.List{Domain.Entities.Pago}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Pago>
+  nameWithType: List<Pago>
+  fullName: System.Collections.Generic.List<Domain.Entities.Pago>
+  nameWithType.vb: List(Of Pago)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Entities.Pago)
+  name.vb: List(Of Pago)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Pago
+    name: Pago
+    isExternal: true
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: DAL.Contracts.IPagoRepository.GetByCodigo*
+  commentId: Overload:DAL.Contracts.IPagoRepository.GetByCodigo
+  isExternal: true
+  href: DAL.Contracts.IPagoRepository.html#DAL_Contracts_IPagoRepository_GetByCodigo_System_Int32_
+  name: GetByCodigo
+  nameWithType: IPagoRepository.GetByCodigo
+  fullName: DAL.Contracts.IPagoRepository.GetByCodigo
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: DAL.Contracts.IPagoRepository.GetByReserva*
+  commentId: Overload:DAL.Contracts.IPagoRepository.GetByReserva
+  isExternal: true
+  href: DAL.Contracts.IPagoRepository.html#DAL_Contracts_IPagoRepository_GetByReserva_System_Guid_
+  name: GetByReserva
+  nameWithType: IPagoRepository.GetByReserva
+  fullName: DAL.Contracts.IPagoRepository.GetByReserva

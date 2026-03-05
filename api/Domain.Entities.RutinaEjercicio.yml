@@ -1,0 +1,528 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Entities.RutinaEjercicio
+  commentId: T:Domain.Entities.RutinaEjercicio
+  id: RutinaEjercicio
+  parent: Domain.Entities
+  children:
+  - Domain.Entities.RutinaEjercicio.#ctor
+  - Domain.Entities.RutinaEjercicio.DiaSemana
+  - Domain.Entities.RutinaEjercicio.Ejercicio
+  - Domain.Entities.RutinaEjercicio.EjercicioId
+  - Domain.Entities.RutinaEjercicio.Orden
+  - Domain.Entities.RutinaEjercicio.Repeticiones
+  - Domain.Entities.RutinaEjercicio.RutinaId
+  langs:
+  - csharp
+  - vb
+  name: RutinaEjercicio
+  nameWithType: RutinaEjercicio
+  fullName: Domain.Entities.RutinaEjercicio
+  type: Class
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public class RutinaEjercicio
+    content.vb: Public Class RutinaEjercicio
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Domain.Entities.RutinaEjercicio.#ctor
+  commentId: M:Domain.Entities.RutinaEjercicio.#ctor
+  id: '#ctor'
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: RutinaEjercicio()
+  nameWithType: RutinaEjercicio.RutinaEjercicio()
+  fullName: Domain.Entities.RutinaEjercicio.RutinaEjercicio()
+  type: Constructor
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public RutinaEjercicio()
+    content.vb: Public Sub New()
+  overload: Domain.Entities.RutinaEjercicio.#ctor*
+  nameWithType.vb: RutinaEjercicio.New()
+  fullName.vb: Domain.Entities.RutinaEjercicio.New()
+  name.vb: New()
+- uid: Domain.Entities.RutinaEjercicio.RutinaId
+  commentId: P:Domain.Entities.RutinaEjercicio.RutinaId
+  id: RutinaId
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: RutinaId
+  nameWithType: RutinaEjercicio.RutinaId
+  fullName: Domain.Entities.RutinaEjercicio.RutinaId
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid RutinaId { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property RutinaId As Guid
+  overload: Domain.Entities.RutinaEjercicio.RutinaId*
+- uid: Domain.Entities.RutinaEjercicio.EjercicioId
+  commentId: P:Domain.Entities.RutinaEjercicio.EjercicioId
+  id: EjercicioId
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: EjercicioId
+  nameWithType: RutinaEjercicio.EjercicioId
+  fullName: Domain.Entities.RutinaEjercicio.EjercicioId
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid EjercicioId { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property EjercicioId As Guid
+  overload: Domain.Entities.RutinaEjercicio.EjercicioId*
+- uid: Domain.Entities.RutinaEjercicio.Repeticiones
+  commentId: P:Domain.Entities.RutinaEjercicio.Repeticiones
+  id: Repeticiones
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: Repeticiones
+  nameWithType: RutinaEjercicio.Repeticiones
+  fullName: Domain.Entities.RutinaEjercicio.Repeticiones
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public int Repeticiones { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Repeticiones As Integer
+  overload: Domain.Entities.RutinaEjercicio.Repeticiones*
+- uid: Domain.Entities.RutinaEjercicio.DiaSemana
+  commentId: P:Domain.Entities.RutinaEjercicio.DiaSemana
+  id: DiaSemana
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: DiaSemana
+  nameWithType: RutinaEjercicio.DiaSemana
+  fullName: Domain.Entities.RutinaEjercicio.DiaSemana
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public int DiaSemana { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DiaSemana As Integer
+  overload: Domain.Entities.RutinaEjercicio.DiaSemana*
+- uid: Domain.Entities.RutinaEjercicio.Orden
+  commentId: P:Domain.Entities.RutinaEjercicio.Orden
+  id: Orden
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: Orden
+  nameWithType: RutinaEjercicio.Orden
+  fullName: Domain.Entities.RutinaEjercicio.Orden
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public int Orden { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Orden As Integer
+  overload: Domain.Entities.RutinaEjercicio.Orden*
+- uid: Domain.Entities.RutinaEjercicio.Ejercicio
+  commentId: P:Domain.Entities.RutinaEjercicio.Ejercicio
+  id: Ejercicio
+  parent: Domain.Entities.RutinaEjercicio
+  langs:
+  - csharp
+  - vb
+  name: Ejercicio
+  nameWithType: RutinaEjercicio.Ejercicio
+  fullName: Domain.Entities.RutinaEjercicio.Ejercicio
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Ejercicio Ejercicio { get; set; }
+    parameters: []
+    return:
+      type: Domain.Entities.Ejercicio
+    content.vb: Public Property Ejercicio As Ejercicio
+  overload: Domain.Entities.RutinaEjercicio.Ejercicio*
+references:
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Domain.Entities.RutinaEjercicio.#ctor*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.#ctor
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio__ctor
+  name: RutinaEjercicio
+  nameWithType: RutinaEjercicio.RutinaEjercicio
+  fullName: Domain.Entities.RutinaEjercicio.RutinaEjercicio
+  nameWithType.vb: RutinaEjercicio.New
+  fullName.vb: Domain.Entities.RutinaEjercicio.New
+  name.vb: New
+- uid: Domain.Entities.RutinaEjercicio.RutinaId*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.RutinaId
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio_RutinaId
+  name: RutinaId
+  nameWithType: RutinaEjercicio.RutinaId
+  fullName: Domain.Entities.RutinaEjercicio.RutinaId
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Entities.RutinaEjercicio.EjercicioId*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.EjercicioId
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio_EjercicioId
+  name: EjercicioId
+  nameWithType: RutinaEjercicio.EjercicioId
+  fullName: Domain.Entities.RutinaEjercicio.EjercicioId
+- uid: Domain.Entities.RutinaEjercicio.Repeticiones*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.Repeticiones
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio_Repeticiones
+  name: Repeticiones
+  nameWithType: RutinaEjercicio.Repeticiones
+  fullName: Domain.Entities.RutinaEjercicio.Repeticiones
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Domain.Entities.RutinaEjercicio.DiaSemana*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.DiaSemana
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio_DiaSemana
+  name: DiaSemana
+  nameWithType: RutinaEjercicio.DiaSemana
+  fullName: Domain.Entities.RutinaEjercicio.DiaSemana
+- uid: Domain.Entities.RutinaEjercicio.Orden*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.Orden
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio_Orden
+  name: Orden
+  nameWithType: RutinaEjercicio.Orden
+  fullName: Domain.Entities.RutinaEjercicio.Orden
+- uid: Domain.Entities.RutinaEjercicio.Ejercicio*
+  commentId: Overload:Domain.Entities.RutinaEjercicio.Ejercicio
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html#Domain_Entities_RutinaEjercicio_Ejercicio
+  name: Ejercicio
+  nameWithType: RutinaEjercicio.Ejercicio
+  fullName: Domain.Entities.RutinaEjercicio.Ejercicio
+- uid: Domain.Entities.Ejercicio
+  commentId: T:Domain.Entities.Ejercicio
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Ejercicio.html
+  name: Ejercicio
+  nameWithType: Ejercicio
+  fullName: Domain.Entities.Ejercicio

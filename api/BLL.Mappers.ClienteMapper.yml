@@ -1,0 +1,632 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Mappers.ClienteMapper
+  commentId: T:BLL.Mappers.ClienteMapper
+  id: ClienteMapper
+  parent: BLL.Mappers
+  children:
+  - BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+  - BLL.Mappers.ClienteMapper.ToEntity(BLL.DTOs.ClienteDTO)
+  langs:
+  - csharp
+  - vb
+  name: ClienteMapper
+  nameWithType: ClienteMapper
+  fullName: BLL.Mappers.ClienteMapper
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/ClienteMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Bidirectional mapper between <xref href="Domain.Entities.Cliente" data-throw-if-not-resolved="false"></xref> domain entities and <xref href="BLL.DTOs.ClienteDTO" data-throw-if-not-resolved="false"></xref> projections.
+  remarks: >-
+    <xref href="BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente%2cDomain.Entities.Membresia%2cDomain.Entities.Balance%2cSystem.Nullable%7bSystem.DateTime%7d)" data-throw-if-not-resolved="false"></xref> accepts an optional <code>Balance</code> and <code>proximaFechaPago</code> so the caller
+
+    can hydrate the DTO in a single pass without additional round-trips. When <code class="paramref">balance</code>
+
+    is <code>null</code>, <xref href="BLL.DTOs.ClienteDTO.Balance" data-throw-if-not-resolved="false"></xref> defaults to zero and
+
+    <xref href="BLL.DTOs.ClienteDTO.EstadoBalance" data-throw-if-not-resolved="false"></xref> is set to <xref href="BLL.DTOs.EstadoBalance.AlDia" data-throw-if-not-resolved="false"></xref>.
+
+    Unrecognized <code>Estado</code> string values are coerced to <xref href="BLL.DTOs.ClienteStatus.Activo" data-throw-if-not-resolved="false"></xref>
+
+    and logged as warnings.
+  example: []
+  syntax:
+    content: public static class ClienteMapper
+    content.vb: Public Module ClienteMapper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+  commentId: M:BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+  id: ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+  parent: BLL.Mappers.ClienteMapper
+  langs:
+  - csharp
+  - vb
+  name: ToDTO(Cliente, Membresia, Balance, DateTime?)
+  nameWithType: ClienteMapper.ToDTO(Cliente, Membresia, Balance, DateTime?)
+  fullName: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente, Domain.Entities.Membresia, Domain.Entities.Balance, System.DateTime?)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/ClienteMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a <xref href="Domain.Entities.Cliente" data-throw-if-not-resolved="false"></xref> entity to a <xref href="BLL.DTOs.ClienteDTO" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static ClienteDTO ToDTO(Cliente entity, Membresia membresia, Balance balance, DateTime? proximaFechaPago = null)
+    parameters:
+    - id: entity
+      type: Domain.Entities.Cliente
+      description: Source entity. Returns <code>null</code> when <code>null</code>.
+    - id: membresia
+      type: Domain.Entities.Membresia
+      description: Membership entity to embed as <xref href="BLL.DTOs.ClienteDTO.MembresiaDetalle" data-throw-if-not-resolved="false"></xref>, or <code>null</code>.
+    - id: balance
+      type: Domain.Entities.Balance
+      description: Current balance record used to populate <xref href="BLL.DTOs.ClienteDTO.Balance" data-throw-if-not-resolved="false"></xref> and <xref href="BLL.DTOs.ClienteDTO.EstadoBalance" data-throw-if-not-resolved="false"></xref>.
+    - id: proximaFechaPago
+      type: System.Nullable{System.DateTime}
+      description: Next billing date from the active <code>ClienteMembresia</code> row, or <code>null</code>.
+    return:
+      type: BLL.DTOs.ClienteDTO
+    content.vb: Public Shared Function ToDTO(entity As Cliente, membresia As Membresia, balance As Balance, proximaFechaPago As Date? = Nothing) As ClienteDTO
+  overload: BLL.Mappers.ClienteMapper.ToDTO*
+  nameWithType.vb: ClienteMapper.ToDTO(Cliente, Membresia, Balance, Date?)
+  fullName.vb: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente, Domain.Entities.Membresia, Domain.Entities.Balance, Date?)
+  name.vb: ToDTO(Cliente, Membresia, Balance, Date?)
+- uid: BLL.Mappers.ClienteMapper.ToEntity(BLL.DTOs.ClienteDTO)
+  commentId: M:BLL.Mappers.ClienteMapper.ToEntity(BLL.DTOs.ClienteDTO)
+  id: ToEntity(BLL.DTOs.ClienteDTO)
+  parent: BLL.Mappers.ClienteMapper
+  langs:
+  - csharp
+  - vb
+  name: ToEntity(ClienteDTO)
+  nameWithType: ClienteMapper.ToEntity(ClienteDTO)
+  fullName: BLL.Mappers.ClienteMapper.ToEntity(BLL.DTOs.ClienteDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/ClienteMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a <xref href="BLL.DTOs.ClienteDTO" data-throw-if-not-resolved="false"></xref> back to a <xref href="Domain.Entities.Cliente" data-throw-if-not-resolved="false"></xref> entity.
+  remarks: Computed and hydrated properties (<xref href="BLL.DTOs.ClienteDTO.Balance" data-throw-if-not-resolved="false"></xref>, <xref href="BLL.DTOs.ClienteDTO.MembresiaDetalle" data-throw-if-not-resolved="false"></xref>, etc.) are not mapped.
+  example: []
+  syntax:
+    content: public static Cliente ToEntity(ClienteDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.ClienteDTO
+      description: Source DTO. Returns <code>null</code> when <code>null</code>.
+    return:
+      type: Domain.Entities.Cliente
+    content.vb: Public Shared Function ToEntity(dto As ClienteDTO) As Cliente
+  overload: BLL.Mappers.ClienteMapper.ToEntity*
+references:
+- uid: Domain.Entities.Cliente
+  commentId: T:Domain.Entities.Cliente
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Cliente.html
+  name: Cliente
+  nameWithType: Cliente
+  fullName: Domain.Entities.Cliente
+- uid: BLL.DTOs.ClienteDTO
+  commentId: T:BLL.DTOs.ClienteDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.ClienteDTO.html
+  name: ClienteDTO
+  nameWithType: ClienteDTO
+  fullName: BLL.DTOs.ClienteDTO
+- uid: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+  commentId: M:BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+  isExternal: true
+  href: BLL.Mappers.ClienteMapper.html#BLL_Mappers_ClienteMapper_ToDTO_Domain_Entities_Cliente_Domain_Entities_Membresia_Domain_Entities_Balance_System_Nullable_System_DateTime__
+  name: ToDTO(Cliente, Membresia, Balance, DateTime?)
+  nameWithType: ClienteMapper.ToDTO(Cliente, Membresia, Balance, DateTime?)
+  fullName: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente, Domain.Entities.Membresia, Domain.Entities.Balance, System.DateTime?)
+  nameWithType.vb: ClienteMapper.ToDTO(Cliente, Membresia, Balance, Date?)
+  fullName.vb: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente, Domain.Entities.Membresia, Domain.Entities.Balance, Date?)
+  name.vb: ToDTO(Cliente, Membresia, Balance, Date?)
+  spec.csharp:
+  - uid: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+    name: ToDTO
+    isExternal: true
+    href: BLL.Mappers.ClienteMapper.html#BLL_Mappers_ClienteMapper_ToDTO_Domain_Entities_Cliente_Domain_Entities_Membresia_Domain_Entities_Balance_System_Nullable_System_DateTime__
+  - name: (
+  - uid: Domain.Entities.Cliente
+    name: Cliente
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Domain.Entities.Membresia
+    name: Membresia
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Domain.Entities.Balance
+    name: Balance
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+  spec.vb:
+  - uid: BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})
+    name: ToDTO
+    isExternal: true
+    href: BLL.Mappers.ClienteMapper.html#BLL_Mappers_ClienteMapper_ToDTO_Domain_Entities_Cliente_Domain_Entities_Membresia_Domain_Entities_Balance_System_Nullable_System_DateTime__
+  - name: (
+  - uid: Domain.Entities.Cliente
+    name: Cliente
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Domain.Entities.Membresia
+    name: Membresia
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Domain.Entities.Balance
+    name: Balance
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+- uid: BLL.DTOs.ClienteDTO.Balance
+  commentId: P:BLL.DTOs.ClienteDTO.Balance
+  isExternal: true
+  href: BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_Balance
+  name: Balance
+  nameWithType: ClienteDTO.Balance
+  fullName: BLL.DTOs.ClienteDTO.Balance
+- uid: BLL.DTOs.ClienteDTO.EstadoBalance
+  commentId: P:BLL.DTOs.ClienteDTO.EstadoBalance
+  isExternal: true
+  href: BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_EstadoBalance
+  name: EstadoBalance
+  nameWithType: ClienteDTO.EstadoBalance
+  fullName: BLL.DTOs.ClienteDTO.EstadoBalance
+- uid: BLL.DTOs.EstadoBalance.AlDia
+  commentId: F:BLL.DTOs.EstadoBalance.AlDia
+  isExternal: true
+  href: BLL.DTOs.EstadoBalance.html#BLL_DTOs_EstadoBalance_AlDia
+  name: AlDia
+  nameWithType: EstadoBalance.AlDia
+  fullName: BLL.DTOs.EstadoBalance.AlDia
+- uid: BLL.DTOs.ClienteStatus.Activo
+  commentId: F:BLL.DTOs.ClienteStatus.Activo
+  isExternal: true
+  href: BLL.DTOs.ClienteStatus.html#BLL_DTOs_ClienteStatus_Activo
+  name: Activo
+  nameWithType: ClienteStatus.Activo
+  fullName: BLL.DTOs.ClienteStatus.Activo
+- uid: BLL.Mappers
+  commentId: N:BLL.Mappers
+  isExternal: true
+  href: BLL.html
+  name: BLL.Mappers
+  nameWithType: BLL.Mappers
+  fullName: BLL.Mappers
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.ClienteDTO.MembresiaDetalle
+  commentId: P:BLL.DTOs.ClienteDTO.MembresiaDetalle
+  isExternal: true
+  href: BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_MembresiaDetalle
+  name: MembresiaDetalle
+  nameWithType: ClienteDTO.MembresiaDetalle
+  fullName: BLL.DTOs.ClienteDTO.MembresiaDetalle
+- uid: BLL.Mappers.ClienteMapper.ToDTO*
+  commentId: Overload:BLL.Mappers.ClienteMapper.ToDTO
+  isExternal: true
+  href: BLL.Mappers.ClienteMapper.html#BLL_Mappers_ClienteMapper_ToDTO_Domain_Entities_Cliente_Domain_Entities_Membresia_Domain_Entities_Balance_System_Nullable_System_DateTime__
+  name: ToDTO
+  nameWithType: ClienteMapper.ToDTO
+  fullName: BLL.Mappers.ClienteMapper.ToDTO
+- uid: Domain.Entities.Membresia
+  commentId: T:Domain.Entities.Membresia
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Membresia.html
+  name: Membresia
+  nameWithType: Membresia
+  fullName: Domain.Entities.Membresia
+- uid: Domain.Entities.Balance
+  commentId: T:Domain.Entities.Balance
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Balance.html
+  name: Balance
+  nameWithType: Balance
+  fullName: Domain.Entities.Balance
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: BLL.Mappers.ClienteMapper.ToEntity*
+  commentId: Overload:BLL.Mappers.ClienteMapper.ToEntity
+  isExternal: true
+  href: BLL.Mappers.ClienteMapper.html#BLL_Mappers_ClienteMapper_ToEntity_BLL_DTOs_ClienteDTO_
+  name: ToEntity
+  nameWithType: ClienteMapper.ToEntity
+  fullName: BLL.Mappers.ClienteMapper.ToEntity

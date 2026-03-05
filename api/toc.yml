@@ -1,0 +1,564 @@
+### YamlMime:TableOfContent
+items:
+- uid: BLL
+  name: BLL
+  type: Namespace
+  items:
+  - uid: BLL.BalanceService
+    name: BalanceService
+    type: Class
+  - uid: BLL.SchedulerService
+    name: SchedulerService
+    type: Class
+- uid: BLL.DTOs
+  name: BLL.DTOs
+  type: Namespace
+  items:
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    type: Class
+  - uid: BLL.DTOs.ClienteDTO
+    name: ClienteDTO
+    type: Class
+  - uid: BLL.DTOs.ClienteStatus
+    name: ClienteStatus
+    type: Enum
+  - uid: BLL.DTOs.ComprobanteDTO
+    name: ComprobanteDTO
+    type: Class
+  - uid: BLL.DTOs.EjercicioDTO
+    name: EjercicioDTO
+    type: Class
+  - uid: BLL.DTOs.EspacioDTO
+    name: EspacioDTO
+    type: Class
+  - uid: BLL.DTOs.EstadoBalance
+    name: EstadoBalance
+    type: Enum
+  - uid: BLL.DTOs.GenerarReservaDTO
+    name: GenerarReservaDTO
+    type: Class
+  - uid: BLL.DTOs.IngresoDTO
+    name: IngresoDTO
+    type: Class
+  - uid: BLL.DTOs.MembresiaDTO
+    name: MembresiaDTO
+    type: Class
+  - uid: BLL.DTOs.PagoDTO
+    name: PagoDTO
+    type: Class
+  - uid: BLL.DTOs.ReservaDTO
+    name: ReservaDTO
+    type: Class
+  - uid: BLL.DTOs.ResultadoIngresoDTO
+    name: ResultadoIngresoDTO
+    type: Class
+  - uid: BLL.DTOs.RutinaDTO
+    name: RutinaDTO
+    type: Class
+- uid: BLL.Facades
+  name: BLL.Facades
+  type: Namespace
+  items:
+  - uid: BLL.Facades.ComprobanteFacade
+    name: ComprobanteFacade
+    type: Class
+- uid: BLL.Helpers
+  name: BLL.Helpers
+  type: Namespace
+  items:
+  - uid: BLL.Helpers.ComprobanteGenerator
+    name: ComprobanteGenerator
+    type: Class
+- uid: BLL.Mappers
+  name: BLL.Mappers
+  type: Namespace
+  items:
+  - uid: BLL.Mappers.AgendaMapper
+    name: AgendaMapper
+    type: Class
+  - uid: BLL.Mappers.ClienteMapper
+    name: ClienteMapper
+    type: Class
+  - uid: BLL.Mappers.EjercicioMapper
+    name: EjercicioMapper
+    type: Class
+  - uid: BLL.Mappers.EspacioMapper
+    name: EspacioMapper
+    type: Class
+  - uid: BLL.Mappers.MembresiaMapper
+    name: MembresiaMapper
+    type: Class
+  - uid: BLL.Mappers.PagoMapper
+    name: PagoMapper
+    type: Class
+  - uid: BLL.Mappers.ReservaMapper
+    name: ReservaMapper
+    type: Class
+  - uid: BLL.Mappers.RutinaMapper
+    name: RutinaMapper
+    type: Class
+- uid: BLL.Services
+  name: BLL.Services
+  type: Namespace
+  items:
+  - uid: BLL.Services.AgendaService
+    name: AgendaService
+    type: Class
+  - uid: BLL.Services.ClienteService
+    name: ClienteService
+    type: Class
+  - uid: BLL.Services.EjercicioService
+    name: EjercicioService
+    type: Class
+  - uid: BLL.Services.EspacioService
+    name: EspacioService
+    type: Class
+  - uid: BLL.Services.IngresoService
+    name: IngresoService
+    type: Class
+  - uid: BLL.Services.MembresiaService
+    name: MembresiaService
+    type: Class
+  - uid: BLL.Services.PagoService
+    name: PagoService
+    type: Class
+  - uid: BLL.Services.ReservaService
+    name: ReservaService
+    type: Class
+  - uid: BLL.Services.RutinaService
+    name: RutinaService
+    type: Class
+- uid: DAL.Contracts
+  name: DAL.Contracts
+  type: Namespace
+  items:
+  - uid: DAL.Contracts.IAgendaRepository
+    name: IAgendaRepository
+    type: Interface
+  - uid: DAL.Contracts.IBalanceRepository
+    name: IBalanceRepository
+    type: Interface
+  - uid: DAL.Contracts.IClienteMembresiaRepository
+    name: IClienteMembresiaRepository
+    type: Interface
+  - uid: DAL.Contracts.IClienteRepository
+    name: IClienteRepository
+    type: Interface
+  - uid: DAL.Contracts.IComprobanteRepository
+    name: IComprobanteRepository
+    type: Interface
+  - uid: DAL.Contracts.IEjercicioRepository
+    name: IEjercicioRepository
+    type: Interface
+  - uid: DAL.Contracts.IEspacioRepository
+    name: IEspacioRepository
+    type: Interface
+  - uid: DAL.Contracts.IIngresoRepository
+    name: IIngresoRepository
+    type: Interface
+  - uid: DAL.Contracts.IMembresiaRepository
+    name: IMembresiaRepository
+    type: Interface
+  - uid: DAL.Contracts.IMovimientoRepository
+    name: IMovimientoRepository
+    type: Interface
+  - uid: DAL.Contracts.IPagoRepository
+    name: IPagoRepository
+    type: Interface
+  - uid: DAL.Contracts.IReservaRepository
+    name: IReservaRepository
+    type: Interface
+  - uid: DAL.Contracts.IRutinaEjercicioRepository
+    name: IRutinaEjercicioRepository
+    type: Interface
+  - uid: DAL.Contracts.IRutinaRepository
+    name: IRutinaRepository
+    type: Interface
+  - uid: DAL.Contracts.IUnitOfWork
+    name: IUnitOfWork
+    type: Interface
+- uid: DAL.Factory
+  name: DAL.Factory
+  type: Namespace
+  items:
+  - uid: DAL.Factory.DalFactory
+    name: DalFactory
+    type: Class
+- uid: DAL.Impl
+  name: DAL.Impl
+  type: Namespace
+  items:
+  - uid: DAL.Impl.AgendaSqlRepository
+    name: AgendaSqlRepository
+    type: Class
+  - uid: DAL.Impl.BalanceSqlRepository
+    name: BalanceSqlRepository
+    type: Class
+  - uid: DAL.Impl.BaseBusinessSqlRepository
+    name: BaseBusinessSqlRepository
+    type: Class
+  - uid: DAL.Impl.ClienteSqlRepository
+    name: ClienteSqlRepository
+    type: Class
+  - uid: DAL.Impl.ComprobanteSqlRepository
+    name: ComprobanteSqlRepository
+    type: Class
+  - uid: DAL.Impl.EjercicioSqlRepository
+    name: EjercicioSqlRepository
+    type: Class
+  - uid: DAL.Impl.EspacioSqlRepository
+    name: EspacioSqlRepository
+    type: Class
+  - uid: DAL.Impl.MembresiaSqlRepository
+    name: MembresiaSqlRepository
+    type: Class
+  - uid: DAL.Impl.MovimientoSqlRepository
+    name: MovimientoSqlRepository
+    type: Class
+  - uid: DAL.Impl.PagoSqlRepository
+    name: PagoSqlRepository
+    type: Class
+  - uid: DAL.Impl.ReservaSqlRepository
+    name: ReservaSqlRepository
+    type: Class
+  - uid: DAL.Impl.RutinaEjercicioSqlRepository
+    name: RutinaEjercicioSqlRepository
+    type: Class
+  - uid: DAL.Impl.RutinaSqlRepository
+    name: RutinaSqlRepository
+    type: Class
+- uid: DAL.Impl.File
+  name: DAL.Impl.File
+  type: Namespace
+  items:
+  - uid: DAL.Impl.File.ComprobanteFileRepository
+    name: ComprobanteFileRepository
+    type: Class
+- uid: DAL.Impl.SqlServer
+  name: DAL.Impl.SqlServer
+  type: Namespace
+  items:
+  - uid: DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+    name: ClienteMembresiaSqlRepository
+    type: Class
+  - uid: DAL.Impl.SqlServer.IngresoSqlRepository
+    name: IngresoSqlRepository
+    type: Class
+  - uid: DAL.Impl.SqlServer.UnitOfWork
+    name: UnitOfWork
+    type: Class
+- uid: Domain
+  name: Domain
+  type: Namespace
+  items:
+  - uid: Domain.Log
+    name: Log
+    type: Class
+  - uid: Domain.Usuario
+    name: Usuario
+    type: Class
+- uid: Domain.Composite
+  name: Domain.Composite
+  type: Namespace
+  items:
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    type: Class
+  - uid: Domain.Composite.Familia
+    name: Familia
+    type: Class
+  - uid: Domain.Composite.Patente
+    name: Patente
+    type: Class
+  - uid: Domain.Composite.PermisoKeys
+    name: PermisoKeys
+    type: Class
+- uid: Domain.Entities
+  name: Domain.Entities
+  type: Namespace
+  items:
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    type: Class
+  - uid: Domain.Entities.Balance
+    name: Balance
+    type: Class
+  - uid: Domain.Entities.Cliente
+    name: Cliente
+    type: Class
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    type: Class
+  - uid: Domain.Entities.Comprobante
+    name: Comprobante
+    type: Class
+  - uid: Domain.Entities.Ejercicio
+    name: Ejercicio
+    type: Class
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    type: Class
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    type: Class
+  - uid: Domain.Entities.Membresia
+    name: Membresia
+    type: Class
+  - uid: Domain.Entities.Movimiento
+    name: Movimiento
+    type: Class
+  - uid: Domain.Entities.Pago
+    name: Pago
+    type: Class
+  - uid: Domain.Entities.Reserva
+    name: Reserva
+    type: Class
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    type: Class
+  - uid: Domain.Entities.RutinaEjercicio
+    name: RutinaEjercicio
+    type: Class
+- uid: Domain.Enums
+  name: Domain.Enums
+  type: Namespace
+  items:
+  - uid: Domain.Enums.EstadoEspacio
+    name: EstadoEspacio
+    type: Enum
+  - uid: Domain.Enums.EstadoPago
+    name: EstadoPago
+    type: Enum
+  - uid: Domain.Enums.EstadoReserva
+    name: EstadoReserva
+    type: Enum
+  - uid: Domain.Enums.TipoMovimiento
+    name: TipoMovimiento
+    type: Enum
+  - uid: Domain.Enums.Translations
+    name: Translations
+    type: Enum
+- uid: Service.Contracts
+  name: Service.Contracts
+  type: Namespace
+  items:
+  - uid: Service.Contracts.IBackup
+    name: IBackup
+    type: Interface
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository<T>
+    type: Interface
+  - uid: Service.Contracts.ILanguage
+    name: ILanguage
+    type: Interface
+  - uid: Service.Contracts.IUsuarioRepository
+    name: IUsuarioRepository
+    type: Interface
+- uid: Service.DTO
+  name: Service.DTO
+  type: Namespace
+  items:
+  - uid: Service.DTO.BackupFile
+    name: BackupFile
+    type: Class
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    type: Class
+- uid: Service.Facade.Extension
+  name: Service.Facade.Extension
+  type: Namespace
+  items:
+  - uid: Service.Facade.Extension.TranslationsExtension
+    name: TranslationsExtension
+    type: Class
+- uid: Service.Factory
+  name: Service.Factory
+  type: Namespace
+  items:
+  - uid: Service.Factory.FactoryDao
+    name: FactoryDao
+    type: Class
+- uid: Service.Helpers
+  name: Service.Helpers
+  type: Namespace
+  items:
+  - uid: Service.Helpers.ConnectionManager
+    name: ConnectionManager
+    type: Class
+  - uid: Service.Helpers.CryptographyHelper
+    name: CryptographyHelper
+    type: Class
+  - uid: Service.Helpers.PermisoHelper
+    name: PermisoHelper
+    type: Class
+  - uid: Service.Helpers.SessionContext
+    name: SessionContext
+    type: Class
+- uid: Service.Impl
+  name: Service.Impl
+  type: Namespace
+  items:
+  - uid: Service.Impl.BaseRepository
+    name: BaseRepository
+    type: Class
+  - uid: Service.Impl.ConsoleRepository
+    name: ConsoleRepository
+    type: Class
+  - uid: Service.Impl.FamiliaRepository
+    name: FamiliaRepository
+    type: Class
+  - uid: Service.Impl.LogRepository
+    name: LogRepository
+    type: Class
+  - uid: Service.Impl.UsuarioRepository
+    name: UsuarioRepository
+    type: Class
+- uid: Service.Impl.SqlServer
+  name: Service.Impl.SqlServer
+  type: Namespace
+  items:
+  - uid: Service.Impl.SqlServer.PatenteRepository
+    name: PatenteRepository
+    type: Class
+- uid: Service.Impl.Text
+  name: Service.Impl.Text
+  type: Namespace
+  items:
+  - uid: Service.Impl.Text.LanguageManager
+    name: LanguageManager
+    type: Class
+- uid: Service.Logic
+  name: Service.Logic
+  type: Namespace
+  items:
+  - uid: Service.Logic.BackupService
+    name: BackupService
+    type: Class
+  - uid: Service.Logic.BitacoraService
+    name: BitacoraService
+    type: Class
+  - uid: Service.Logic.LanguageService
+    name: LanguageService
+    type: Class
+  - uid: Service.Logic.PermisosService
+    name: PermisosService
+    type: Class
+  - uid: Service.Logic.UsuarioService
+    name: UsuarioService
+    type: Class
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos
+  name: TpIngSoftware_GestionDeEspaciosDeportivos
+  type: Namespace
+  items:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Form1
+    name: Form1
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmAgenda
+    name: FrmAgenda
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups
+    name: FrmBackups
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora
+    name: FrmBitacora
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes
+    name: FrmClientes
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmEjercicios
+    name: FrmEjercicios
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios
+    name: FrmEspacios
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias
+    name: FrmGestionFamilias
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionPermisos
+    name: FrmGestionPermisos
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas
+    name: FrmGestionRutinas
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos
+    name: FrmIngresos
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin
+    name: FrmLogin
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias
+    name: FrmMembresias
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos
+    name: FrmMovimientos
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos
+    name: FrmPagos
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmPrompt
+    name: FrmPrompt
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas
+    name: FrmReservas
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmRutina
+    name: FrmRutina
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmSeleccionarCliente
+    name: FrmSeleccionarCliente
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios
+    name: FrmUsuarios
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable
+    name: IRefreshable
+    type: Interface
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable
+    name: ITranslatable
+    type: Interface
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  type: Namespace
+  items:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager
+    name: AgendaManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager
+    name: BalanceManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+    name: ClienteManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+    name: EjercicioManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager
+    name: EspacioManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+    name: IngresoManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+    name: MembresiaManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager
+    name: PagoManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager
+    name: ReservaManager
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager
+    name: RutinaManager
+    type: Class
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  type: Namespace
+  items:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper
+    name: FlagHelper
+    type: Class
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper
+    name: LanguageSelectorHelper
+    type: Class
+memberLayout: SamePage

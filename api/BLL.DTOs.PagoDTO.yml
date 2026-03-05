@@ -1,0 +1,901 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.PagoDTO
+  commentId: T:BLL.DTOs.PagoDTO
+  id: PagoDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.PagoDTO.#ctor
+  - BLL.DTOs.PagoDTO.ClienteID
+  - BLL.DTOs.PagoDTO.Codigo
+  - BLL.DTOs.PagoDTO.Detalle
+  - BLL.DTOs.PagoDTO.EsMembresia
+  - BLL.DTOs.PagoDTO.Estado
+  - BLL.DTOs.PagoDTO.Fecha
+  - BLL.DTOs.PagoDTO.Id
+  - BLL.DTOs.PagoDTO.MembresiaID
+  - BLL.DTOs.PagoDTO.Metodo
+  - BLL.DTOs.PagoDTO.Monto
+  - BLL.DTOs.PagoDTO.ReservaID
+  langs:
+  - csharp
+  - vb
+  name: PagoDTO
+  nameWithType: PagoDTO
+  fullName: BLL.DTOs.PagoDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Projection of a <code>Pago</code> entity used as both input and output for payment operations.
+  remarks: >-
+    When used as input to <code>PagoService.RegistrarPago</code>, set <xref href="BLL.DTOs.PagoDTO.ClienteID" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="BLL.DTOs.PagoDTO.Monto" data-throw-if-not-resolved="false"></xref>, <xref href="BLL.DTOs.PagoDTO.Metodo" data-throw-if-not-resolved="false"></xref>, and optionally <xref href="BLL.DTOs.PagoDTO.ReservaID" data-throw-if-not-resolved="false"></xref> or
+
+    <xref href="BLL.DTOs.PagoDTO.MembresiaID" data-throw-if-not-resolved="false"></xref> to indicate the payment type.
+
+    <xref href="BLL.DTOs.PagoDTO.Estado" data-throw-if-not-resolved="false"></xref> is overwritten by the service; callers should not set it.
+
+    <xref href="BLL.DTOs.PagoDTO.Id" data-throw-if-not-resolved="false"></xref> is initialized to a new <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> on construction.
+  example: []
+  syntax:
+    content: public class PagoDTO
+    content.vb: Public Class PagoDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.PagoDTO.#ctor
+  commentId: M:BLL.DTOs.PagoDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: PagoDTO()
+  nameWithType: PagoDTO.PagoDTO()
+  fullName: BLL.DTOs.PagoDTO.PagoDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public PagoDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.PagoDTO.#ctor*
+  nameWithType.vb: PagoDTO.New()
+  fullName.vb: BLL.DTOs.PagoDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.PagoDTO.Id
+  commentId: P:BLL.DTOs.PagoDTO.Id
+  id: Id
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: PagoDTO.Id
+  fullName: BLL.DTOs.PagoDTO.Id
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Primary key, auto-assigned on construction.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: BLL.DTOs.PagoDTO.Id*
+- uid: BLL.DTOs.PagoDTO.Codigo
+  commentId: P:BLL.DTOs.PagoDTO.Codigo
+  id: Codigo
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Codigo
+  nameWithType: PagoDTO.Codigo
+  fullName: BLL.DTOs.PagoDTO.Codigo
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Auto-incremented sequential code assigned by the database.
+  example: []
+  syntax:
+    content: public int Codigo { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Codigo As Integer
+  overload: BLL.DTOs.PagoDTO.Codigo*
+- uid: BLL.DTOs.PagoDTO.ClienteID
+  commentId: P:BLL.DTOs.PagoDTO.ClienteID
+  id: ClienteID
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: ClienteID
+  nameWithType: PagoDTO.ClienteID
+  fullName: BLL.DTOs.PagoDTO.ClienteID
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the client who made the payment.
+  example: []
+  syntax:
+    content: public Guid ClienteID { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property ClienteID As Guid
+  overload: BLL.DTOs.PagoDTO.ClienteID*
+- uid: BLL.DTOs.PagoDTO.Monto
+  commentId: P:BLL.DTOs.PagoDTO.Monto
+  id: Monto
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Monto
+  nameWithType: PagoDTO.Monto
+  fullName: BLL.DTOs.PagoDTO.Monto
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Payment amount in currency units. Must be positive.
+  example: []
+  syntax:
+    content: public decimal Monto { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property Monto As Decimal
+  overload: BLL.DTOs.PagoDTO.Monto*
+- uid: BLL.DTOs.PagoDTO.Metodo
+  commentId: P:BLL.DTOs.PagoDTO.Metodo
+  id: Metodo
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Metodo
+  nameWithType: PagoDTO.Metodo
+  fullName: BLL.DTOs.PagoDTO.Metodo
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Payment method label (e.g., <code>"Efectivo"</code>, <code>"Tarjeta"</code>).
+  example: []
+  syntax:
+    content: public string Metodo { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Metodo As String
+  overload: BLL.DTOs.PagoDTO.Metodo*
+- uid: BLL.DTOs.PagoDTO.Detalle
+  commentId: P:BLL.DTOs.PagoDTO.Detalle
+  id: Detalle
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Detalle
+  nameWithType: PagoDTO.Detalle
+  fullName: BLL.DTOs.PagoDTO.Detalle
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Optional free-text detail or reference number for the payment.
+  example: []
+  syntax:
+    content: public string Detalle { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Detalle As String
+  overload: BLL.DTOs.PagoDTO.Detalle*
+- uid: BLL.DTOs.PagoDTO.Fecha
+  commentId: P:BLL.DTOs.PagoDTO.Fecha
+  id: Fecha
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Fecha
+  nameWithType: PagoDTO.Fecha
+  fullName: BLL.DTOs.PagoDTO.Fecha
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Timestamp of the payment. Defaults to <code>DateTime.Now</code> when not set.
+  example: []
+  syntax:
+    content: public DateTime Fecha { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Fecha As Date
+  overload: BLL.DTOs.PagoDTO.Fecha*
+- uid: BLL.DTOs.PagoDTO.Estado
+  commentId: P:BLL.DTOs.PagoDTO.Estado
+  id: Estado
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: Estado
+  nameWithType: PagoDTO.Estado
+  fullName: BLL.DTOs.PagoDTO.Estado
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Payment lifecycle status. Set by the service layer, not by the caller.
+  example: []
+  syntax:
+    content: public EstadoPago Estado { get; set; }
+    parameters: []
+    return:
+      type: Domain.Enums.EstadoPago
+    content.vb: Public Property Estado As EstadoPago
+  overload: BLL.DTOs.PagoDTO.Estado*
+- uid: BLL.DTOs.PagoDTO.MembresiaID
+  commentId: P:BLL.DTOs.PagoDTO.MembresiaID
+  id: MembresiaID
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: MembresiaID
+  nameWithType: PagoDTO.MembresiaID
+  fullName: BLL.DTOs.PagoDTO.MembresiaID
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the membership being paid, or <code>null</code> for non-membership payments.
+  example: []
+  syntax:
+    content: public Guid? MembresiaID { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property MembresiaID As Guid?
+  overload: BLL.DTOs.PagoDTO.MembresiaID*
+- uid: BLL.DTOs.PagoDTO.ReservaID
+  commentId: P:BLL.DTOs.PagoDTO.ReservaID
+  id: ReservaID
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: ReservaID
+  nameWithType: PagoDTO.ReservaID
+  fullName: BLL.DTOs.PagoDTO.ReservaID
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the reservation being settled, or <code>null</code> for non-reservation payments.
+  example: []
+  syntax:
+    content: public Guid? ReservaID { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property ReservaID As Guid?
+  overload: BLL.DTOs.PagoDTO.ReservaID*
+- uid: BLL.DTOs.PagoDTO.EsMembresia
+  commentId: P:BLL.DTOs.PagoDTO.EsMembresia
+  id: EsMembresia
+  parent: BLL.DTOs.PagoDTO
+  langs:
+  - csharp
+  - vb
+  name: EsMembresia
+  nameWithType: PagoDTO.EsMembresia
+  fullName: BLL.DTOs.PagoDTO.EsMembresia
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/PagoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: <code>true</code> when <xref href="BLL.DTOs.PagoDTO.MembresiaID" data-throw-if-not-resolved="false"></xref> has a value; determines movement type inside <code>PagoService</code>.
+  example: []
+  syntax:
+    content: public bool EsMembresia { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property EsMembresia As Boolean
+  overload: BLL.DTOs.PagoDTO.EsMembresia*
+references:
+- uid: BLL.DTOs.PagoDTO.ClienteID
+  commentId: P:BLL.DTOs.PagoDTO.ClienteID
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_ClienteID
+  name: ClienteID
+  nameWithType: PagoDTO.ClienteID
+  fullName: BLL.DTOs.PagoDTO.ClienteID
+- uid: BLL.DTOs.PagoDTO.Monto
+  commentId: P:BLL.DTOs.PagoDTO.Monto
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Monto
+  name: Monto
+  nameWithType: PagoDTO.Monto
+  fullName: BLL.DTOs.PagoDTO.Monto
+- uid: BLL.DTOs.PagoDTO.Metodo
+  commentId: P:BLL.DTOs.PagoDTO.Metodo
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Metodo
+  name: Metodo
+  nameWithType: PagoDTO.Metodo
+  fullName: BLL.DTOs.PagoDTO.Metodo
+- uid: BLL.DTOs.PagoDTO.ReservaID
+  commentId: P:BLL.DTOs.PagoDTO.ReservaID
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_ReservaID
+  name: ReservaID
+  nameWithType: PagoDTO.ReservaID
+  fullName: BLL.DTOs.PagoDTO.ReservaID
+- uid: BLL.DTOs.PagoDTO.MembresiaID
+  commentId: P:BLL.DTOs.PagoDTO.MembresiaID
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_MembresiaID
+  name: MembresiaID
+  nameWithType: PagoDTO.MembresiaID
+  fullName: BLL.DTOs.PagoDTO.MembresiaID
+- uid: BLL.DTOs.PagoDTO.Estado
+  commentId: P:BLL.DTOs.PagoDTO.Estado
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Estado
+  name: Estado
+  nameWithType: PagoDTO.Estado
+  fullName: BLL.DTOs.PagoDTO.Estado
+- uid: BLL.DTOs.PagoDTO.Id
+  commentId: P:BLL.DTOs.PagoDTO.Id
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Id
+  name: Id
+  nameWithType: PagoDTO.Id
+  fullName: BLL.DTOs.PagoDTO.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.PagoDTO.#ctor*
+  commentId: Overload:BLL.DTOs.PagoDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO__ctor
+  name: PagoDTO
+  nameWithType: PagoDTO.PagoDTO
+  fullName: BLL.DTOs.PagoDTO.PagoDTO
+  nameWithType.vb: PagoDTO.New
+  fullName.vb: BLL.DTOs.PagoDTO.New
+  name.vb: New
+- uid: BLL.DTOs.PagoDTO.Id*
+  commentId: Overload:BLL.DTOs.PagoDTO.Id
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Id
+  name: Id
+  nameWithType: PagoDTO.Id
+  fullName: BLL.DTOs.PagoDTO.Id
+- uid: BLL.DTOs.PagoDTO.Codigo*
+  commentId: Overload:BLL.DTOs.PagoDTO.Codigo
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Codigo
+  name: Codigo
+  nameWithType: PagoDTO.Codigo
+  fullName: BLL.DTOs.PagoDTO.Codigo
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BLL.DTOs.PagoDTO.ClienteID*
+  commentId: Overload:BLL.DTOs.PagoDTO.ClienteID
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_ClienteID
+  name: ClienteID
+  nameWithType: PagoDTO.ClienteID
+  fullName: BLL.DTOs.PagoDTO.ClienteID
+- uid: BLL.DTOs.PagoDTO.Monto*
+  commentId: Overload:BLL.DTOs.PagoDTO.Monto
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Monto
+  name: Monto
+  nameWithType: PagoDTO.Monto
+  fullName: BLL.DTOs.PagoDTO.Monto
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: BLL.DTOs.PagoDTO.Metodo*
+  commentId: Overload:BLL.DTOs.PagoDTO.Metodo
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Metodo
+  name: Metodo
+  nameWithType: PagoDTO.Metodo
+  fullName: BLL.DTOs.PagoDTO.Metodo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BLL.DTOs.PagoDTO.Detalle*
+  commentId: Overload:BLL.DTOs.PagoDTO.Detalle
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Detalle
+  name: Detalle
+  nameWithType: PagoDTO.Detalle
+  fullName: BLL.DTOs.PagoDTO.Detalle
+- uid: BLL.DTOs.PagoDTO.Fecha*
+  commentId: Overload:BLL.DTOs.PagoDTO.Fecha
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Fecha
+  name: Fecha
+  nameWithType: PagoDTO.Fecha
+  fullName: BLL.DTOs.PagoDTO.Fecha
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: BLL.DTOs.PagoDTO.Estado*
+  commentId: Overload:BLL.DTOs.PagoDTO.Estado
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_Estado
+  name: Estado
+  nameWithType: PagoDTO.Estado
+  fullName: BLL.DTOs.PagoDTO.Estado
+- uid: Domain.Enums.EstadoPago
+  commentId: T:Domain.Enums.EstadoPago
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoPago.html
+  name: EstadoPago
+  nameWithType: EstadoPago
+  fullName: Domain.Enums.EstadoPago
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: BLL.DTOs.PagoDTO.MembresiaID*
+  commentId: Overload:BLL.DTOs.PagoDTO.MembresiaID
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_MembresiaID
+  name: MembresiaID
+  nameWithType: PagoDTO.MembresiaID
+  fullName: BLL.DTOs.PagoDTO.MembresiaID
+- uid: System.Nullable{System.Guid}
+  commentId: T:System.Nullable{System.Guid}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid?
+  nameWithType: Guid?
+  fullName: System.Guid?
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: BLL.DTOs.PagoDTO.ReservaID*
+  commentId: Overload:BLL.DTOs.PagoDTO.ReservaID
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_ReservaID
+  name: ReservaID
+  nameWithType: PagoDTO.ReservaID
+  fullName: BLL.DTOs.PagoDTO.ReservaID
+- uid: BLL.DTOs.PagoDTO.EsMembresia*
+  commentId: Overload:BLL.DTOs.PagoDTO.EsMembresia
+  isExternal: true
+  href: BLL.DTOs.PagoDTO.html#BLL_DTOs_PagoDTO_EsMembresia
+  name: EsMembresia
+  nameWithType: PagoDTO.EsMembresia
+  fullName: BLL.DTOs.PagoDTO.EsMembresia
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

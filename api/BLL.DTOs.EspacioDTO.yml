@@ -1,0 +1,563 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.EspacioDTO
+  commentId: T:BLL.DTOs.EspacioDTO
+  id: EspacioDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.EspacioDTO.#ctor
+  - BLL.DTOs.EspacioDTO.Descripcion
+  - BLL.DTOs.EspacioDTO.Estado
+  - BLL.DTOs.EspacioDTO.Id
+  - BLL.DTOs.EspacioDTO.Nombre
+  - BLL.DTOs.EspacioDTO.PrecioHora
+  langs:
+  - csharp
+  - vb
+  name: EspacioDTO
+  nameWithType: EspacioDTO
+  fullName: BLL.DTOs.EspacioDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Projection of a <code>Espacio</code> (sporting space/facility) entity exposed through BLL service boundaries.
+  example: []
+  syntax:
+    content: public class EspacioDTO
+    content.vb: Public Class EspacioDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.EspacioDTO.#ctor
+  commentId: M:BLL.DTOs.EspacioDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.EspacioDTO
+  langs:
+  - csharp
+  - vb
+  name: EspacioDTO()
+  nameWithType: EspacioDTO.EspacioDTO()
+  fullName: BLL.DTOs.EspacioDTO.EspacioDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public EspacioDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.EspacioDTO.#ctor*
+  nameWithType.vb: EspacioDTO.New()
+  fullName.vb: BLL.DTOs.EspacioDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.EspacioDTO.Id
+  commentId: P:BLL.DTOs.EspacioDTO.Id
+  id: Id
+  parent: BLL.DTOs.EspacioDTO
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: EspacioDTO.Id
+  fullName: BLL.DTOs.EspacioDTO.Id
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Primary key of the facility space.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: BLL.DTOs.EspacioDTO.Id*
+- uid: BLL.DTOs.EspacioDTO.Nombre
+  commentId: P:BLL.DTOs.EspacioDTO.Nombre
+  id: Nombre
+  parent: BLL.DTOs.EspacioDTO
+  langs:
+  - csharp
+  - vb
+  name: Nombre
+  nameWithType: EspacioDTO.Nombre
+  fullName: BLL.DTOs.EspacioDTO.Nombre
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Display name of the space (e.g., <code>"Cancha 1"</code>).
+  example: []
+  syntax:
+    content: public string Nombre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Nombre As String
+  overload: BLL.DTOs.EspacioDTO.Nombre*
+- uid: BLL.DTOs.EspacioDTO.Descripcion
+  commentId: P:BLL.DTOs.EspacioDTO.Descripcion
+  id: Descripcion
+  parent: BLL.DTOs.EspacioDTO
+  langs:
+  - csharp
+  - vb
+  name: Descripcion
+  nameWithType: EspacioDTO.Descripcion
+  fullName: BLL.DTOs.EspacioDTO.Descripcion
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Optional description or notes about the space.
+  example: []
+  syntax:
+    content: public string Descripcion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Descripcion As String
+  overload: BLL.DTOs.EspacioDTO.Descripcion*
+- uid: BLL.DTOs.EspacioDTO.PrecioHora
+  commentId: P:BLL.DTOs.EspacioDTO.PrecioHora
+  id: PrecioHora
+  parent: BLL.DTOs.EspacioDTO
+  langs:
+  - csharp
+  - vb
+  name: PrecioHora
+  nameWithType: EspacioDTO.PrecioHora
+  fullName: BLL.DTOs.EspacioDTO.PrecioHora
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Billing rate per hour in currency units. Used to compute reservation totals.
+  example: []
+  syntax:
+    content: public decimal PrecioHora { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property PrecioHora As Decimal
+  overload: BLL.DTOs.EspacioDTO.PrecioHora*
+- uid: BLL.DTOs.EspacioDTO.Estado
+  commentId: P:BLL.DTOs.EspacioDTO.Estado
+  id: Estado
+  parent: BLL.DTOs.EspacioDTO
+  langs:
+  - csharp
+  - vb
+  name: Estado
+  nameWithType: EspacioDTO.Estado
+  fullName: BLL.DTOs.EspacioDTO.Estado
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EspacioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Operational status of the space. Only <code>Disponible</code> spaces accept new reservations.
+  example: []
+  syntax:
+    content: public EstadoEspacio Estado { get; set; }
+    parameters: []
+    return:
+      type: Domain.Enums.EstadoEspacio
+    content.vb: Public Property Estado As EstadoEspacio
+  overload: BLL.DTOs.EspacioDTO.Estado*
+references:
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.EspacioDTO.#ctor*
+  commentId: Overload:BLL.DTOs.EspacioDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO__ctor
+  name: EspacioDTO
+  nameWithType: EspacioDTO.EspacioDTO
+  fullName: BLL.DTOs.EspacioDTO.EspacioDTO
+  nameWithType.vb: EspacioDTO.New
+  fullName.vb: BLL.DTOs.EspacioDTO.New
+  name.vb: New
+- uid: BLL.DTOs.EspacioDTO.Id*
+  commentId: Overload:BLL.DTOs.EspacioDTO.Id
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_Id
+  name: Id
+  nameWithType: EspacioDTO.Id
+  fullName: BLL.DTOs.EspacioDTO.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.DTOs.EspacioDTO.Nombre*
+  commentId: Overload:BLL.DTOs.EspacioDTO.Nombre
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_Nombre
+  name: Nombre
+  nameWithType: EspacioDTO.Nombre
+  fullName: BLL.DTOs.EspacioDTO.Nombre
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BLL.DTOs.EspacioDTO.Descripcion*
+  commentId: Overload:BLL.DTOs.EspacioDTO.Descripcion
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_Descripcion
+  name: Descripcion
+  nameWithType: EspacioDTO.Descripcion
+  fullName: BLL.DTOs.EspacioDTO.Descripcion
+- uid: BLL.DTOs.EspacioDTO.PrecioHora*
+  commentId: Overload:BLL.DTOs.EspacioDTO.PrecioHora
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_PrecioHora
+  name: PrecioHora
+  nameWithType: EspacioDTO.PrecioHora
+  fullName: BLL.DTOs.EspacioDTO.PrecioHora
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: BLL.DTOs.EspacioDTO.Estado*
+  commentId: Overload:BLL.DTOs.EspacioDTO.Estado
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_Estado
+  name: Estado
+  nameWithType: EspacioDTO.Estado
+  fullName: BLL.DTOs.EspacioDTO.Estado
+- uid: Domain.Enums.EstadoEspacio
+  commentId: T:Domain.Enums.EstadoEspacio
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoEspacio.html
+  name: EstadoEspacio
+  nameWithType: EstadoEspacio
+  fullName: Domain.Enums.EstadoEspacio
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html

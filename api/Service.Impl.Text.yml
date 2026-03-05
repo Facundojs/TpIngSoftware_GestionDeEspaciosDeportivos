@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Impl.Text
+  commentId: N:Service.Impl.Text
+  id: Service.Impl.Text
+  children:
+  - Service.Impl.Text.LanguageManager
+  langs:
+  - csharp
+  - vb
+  name: Service.Impl.Text
+  nameWithType: Service.Impl.Text
+  fullName: Service.Impl.Text
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Impl.Text.LanguageManager
+  commentId: T:Service.Impl.Text.LanguageManager
+  isExternal: true
+  href: Service.Impl.Text.LanguageManager.html
+  name: LanguageManager
+  nameWithType: LanguageManager
+  fullName: Service.Impl.Text.LanguageManager

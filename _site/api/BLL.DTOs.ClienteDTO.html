@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ClienteDTO | mysite </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ClienteDTO | mysite ">
+      
+      <meta name="description" content="Projection of a Cliente entity used across all BLL service boundaries.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="mysite">
+            mysite
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="BLL.DTOs.ClienteDTO">
+
+
+
+  <h1 id="BLL_DTOs_ClienteDTO" data-uid="BLL.DTOs.ClienteDTO" class="text-break">
+Class ClienteDTO  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="BLL.html">BLL</a>.<a class="xref" href="BLL.DTOs.html">DTOs</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>BLL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Projection of a <code>Cliente</code> entity used across all BLL service boundaries.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ClienteDTO</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ClienteDTO</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="BLL_DTOs_ClienteDTO_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Combines core identity fields with hydrated membership details and a pre-computed balance
+so that consumers (UI managers, API controllers) never need to issue additional queries.
+<a class="xref" href="BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_Status">Status</a> defaults to <a class="xref" href="BLL.DTOs.ClienteStatus.html#BLL_DTOs_ClienteStatus_Activo">Activo</a> on construction.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="BLL_DTOs_ClienteDTO__ctor_" data-uid="BLL.DTOs.ClienteDTO.#ctor*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO__ctor" data-uid="BLL.DTOs.ClienteDTO.#ctor">
+  ClienteDTO()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClienteDTO()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="BLL_DTOs_ClienteDTO_Apellido_" data-uid="BLL.DTOs.ClienteDTO.Apellido*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Apellido" data-uid="BLL.DTOs.ClienteDTO.Apellido">
+  Apellido
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Client's last name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Apellido { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_Balance_" data-uid="BLL.DTOs.ClienteDTO.Balance*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Balance" data-uid="BLL.DTOs.ClienteDTO.Balance">
+  Balance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current account balance in currency units (positive = credit, negative = debt).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Balance { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_CreatedAt_" data-uid="BLL.DTOs.ClienteDTO.CreatedAt*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_CreatedAt" data-uid="BLL.DTOs.ClienteDTO.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timestamp of record creation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreatedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_DNI_" data-uid="BLL.DTOs.ClienteDTO.DNI*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_DNI" data-uid="BLL.DTOs.ClienteDTO.DNI">
+  DNI
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Argentine national identity document number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DNI { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_Email_" data-uid="BLL.DTOs.ClienteDTO.Email*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Email" data-uid="BLL.DTOs.ClienteDTO.Email">
+  Email
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Contact email address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Email { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_EstadoBalance_" data-uid="BLL.DTOs.ClienteDTO.EstadoBalance*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_EstadoBalance" data-uid="BLL.DTOs.ClienteDTO.EstadoBalance">
+  EstadoBalance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Categorized balance state derived from <a class="xref" href="BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_Balance">Balance</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EstadoBalance EstadoBalance { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BLL.DTOs.EstadoBalance.html">EstadoBalance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_FechaNacimiento_" data-uid="BLL.DTOs.ClienteDTO.FechaNacimiento*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_FechaNacimiento" data-uid="BLL.DTOs.ClienteDTO.FechaNacimiento">
+  FechaNacimiento
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Date of birth.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime FechaNacimiento { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_Id_" data-uid="BLL.DTOs.ClienteDTO.Id*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Id" data-uid="BLL.DTOs.ClienteDTO.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Primary key of the client record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_MembresiaDetalle_" data-uid="BLL.DTOs.ClienteDTO.MembresiaDetalle*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_MembresiaDetalle" data-uid="BLL.DTOs.ClienteDTO.MembresiaDetalle">
+  MembresiaDetalle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hydrated membership details. Populated by <code>ClienteService.ObtenerCliente</code> when membership exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MembresiaDTO MembresiaDetalle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BLL.DTOs.MembresiaDTO.html">MembresiaDTO</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_MembresiaID_" data-uid="BLL.DTOs.ClienteDTO.MembresiaID*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_MembresiaID" data-uid="BLL.DTOs.ClienteDTO.MembresiaID">
+  MembresiaID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>FK to the client's currently assigned membership, or <code>null</code> if none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid? MembresiaID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_Nombre_" data-uid="BLL.DTOs.ClienteDTO.Nombre*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Nombre" data-uid="BLL.DTOs.ClienteDTO.Nombre">
+  Nombre
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Client's first name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Nombre { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_NombreCompleto_" data-uid="BLL.DTOs.ClienteDTO.NombreCompleto*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_NombreCompleto" data-uid="BLL.DTOs.ClienteDTO.NombreCompleto">
+  NombreCompleto
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenation of <a class="xref" href="BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_Nombre">Nombre</a> and <a class="xref" href="BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_Apellido">Apellido</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NombreCompleto { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_ProximaFechaPago_" data-uid="BLL.DTOs.ClienteDTO.ProximaFechaPago*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_ProximaFechaPago" data-uid="BLL.DTOs.ClienteDTO.ProximaFechaPago">
+  ProximaFechaPago
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Next scheduled membership billing date, or <code>null</code> when no active membership row exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? ProximaFechaPago { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_Razon_" data-uid="BLL.DTOs.ClienteDTO.Razon*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Razon" data-uid="BLL.DTOs.ClienteDTO.Razon">
+  Razon
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Textual reason for the current <a class="xref" href="BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_Status">Status</a>.
+Populated when status is <a class="xref" href="BLL.DTOs.ClienteStatus.html#BLL_DTOs_ClienteStatus_Inactivo">Inactivo</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Razon { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="BLL_DTOs_ClienteDTO_Status_" data-uid="BLL.DTOs.ClienteDTO.Status*"></a>
+
+  <h3 id="BLL_DTOs_ClienteDTO_Status" data-uid="BLL.DTOs.ClienteDTO.Status">
+  Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Active/inactive status. Defaults to <a class="xref" href="BLL.DTOs.ClienteStatus.html#BLL_DTOs_ClienteStatus_Activo">Activo</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClienteStatus Status { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BLL.DTOs.ClienteStatus.html">ClienteStatus</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ClienteDTO.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Logic
+  commentId: N:Service.Logic
+  id: Service.Logic
+  children:
+  - Service.Logic.BackupService
+  - Service.Logic.BitacoraService
+  - Service.Logic.LanguageService
+  - Service.Logic.PermisosService
+  - Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: Service.Logic
+  nameWithType: Service.Logic
+  fullName: Service.Logic
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Logic.BackupService
+  commentId: T:Service.Logic.BackupService
+  isExternal: true
+  href: Service.Logic.BackupService.html
+  name: BackupService
+  nameWithType: BackupService
+  fullName: Service.Logic.BackupService
+- uid: Service.Logic.PermisosService
+  commentId: T:Service.Logic.PermisosService
+  isExternal: true
+  href: Service.Logic.PermisosService.html
+  name: PermisosService
+  nameWithType: PermisosService
+  fullName: Service.Logic.PermisosService
+- uid: Service.Logic.LanguageService
+  commentId: T:Service.Logic.LanguageService
+  parent: Service.Logic
+  isExternal: true
+  href: Service.Logic.LanguageService.html
+  name: LanguageService
+  nameWithType: LanguageService
+  fullName: Service.Logic.LanguageService
+- uid: Service.Logic.BitacoraService
+  commentId: T:Service.Logic.BitacoraService
+  isExternal: true
+  href: Service.Logic.BitacoraService.html
+  name: BitacoraService
+  nameWithType: BitacoraService
+  fullName: Service.Logic.BitacoraService
+- uid: Service.Logic.UsuarioService
+  commentId: T:Service.Logic.UsuarioService
+  isExternal: true
+  href: Service.Logic.UsuarioService.html
+  name: UsuarioService
+  nameWithType: UsuarioService
+  fullName: Service.Logic.UsuarioService
+- uid: Service.Logic
+  commentId: N:Service.Logic
+  isExternal: true
+  href: Service.html
+  name: Service.Logic
+  nameWithType: Service.Logic
+  fullName: Service.Logic
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html

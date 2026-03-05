@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Enums.EstadoPago
+  commentId: T:Domain.Enums.EstadoPago
+  id: EstadoPago
+  parent: Domain.Enums
+  children:
+  - Domain.Enums.EstadoPago.Abonado
+  - Domain.Enums.EstadoPago.Reembolsado
+  langs:
+  - csharp
+  - vb
+  name: EstadoPago
+  nameWithType: EstadoPago
+  fullName: Domain.Enums.EstadoPago
+  type: Enum
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: public enum EstadoPago
+    content.vb: Public Enum EstadoPago
+- uid: Domain.Enums.EstadoPago.Abonado
+  commentId: F:Domain.Enums.EstadoPago.Abonado
+  id: Abonado
+  parent: Domain.Enums.EstadoPago
+  langs:
+  - csharp
+  - vb
+  name: Abonado
+  nameWithType: EstadoPago.Abonado
+  fullName: Domain.Enums.EstadoPago.Abonado
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Abonado = 0
+    return:
+      type: Domain.Enums.EstadoPago
+- uid: Domain.Enums.EstadoPago.Reembolsado
+  commentId: F:Domain.Enums.EstadoPago.Reembolsado
+  id: Reembolsado
+  parent: Domain.Enums.EstadoPago
+  langs:
+  - csharp
+  - vb
+  name: Reembolsado
+  nameWithType: EstadoPago.Reembolsado
+  fullName: Domain.Enums.EstadoPago.Reembolsado
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Reembolsado = 1
+    return:
+      type: Domain.Enums.EstadoPago
+references:
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: Domain.Enums.EstadoPago
+  commentId: T:Domain.Enums.EstadoPago
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoPago.html
+  name: EstadoPago
+  nameWithType: EstadoPago
+  fullName: Domain.Enums.EstadoPago

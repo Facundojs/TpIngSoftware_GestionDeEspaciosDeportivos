@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Impl
+  commentId: N:Service.Impl
+  id: Service.Impl
+  children:
+  - Service.Impl.BaseRepository
+  - Service.Impl.ConsoleRepository
+  - Service.Impl.FamiliaRepository
+  - Service.Impl.LogRepository
+  - Service.Impl.UsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: Service.Impl
+  nameWithType: Service.Impl
+  fullName: Service.Impl
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Impl.BaseRepository
+  commentId: T:Service.Impl.BaseRepository
+  parent: Service.Impl
+  isExternal: true
+  href: Service.Impl.BaseRepository.html
+  name: BaseRepository
+  nameWithType: BaseRepository
+  fullName: Service.Impl.BaseRepository
+- uid: Service.Impl.FamiliaRepository
+  commentId: T:Service.Impl.FamiliaRepository
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html
+  name: FamiliaRepository
+  nameWithType: FamiliaRepository
+  fullName: Service.Impl.FamiliaRepository
+- uid: Service.Impl.LogRepository
+  commentId: T:Service.Impl.LogRepository
+  parent: Service.Impl
+  isExternal: true
+  href: Service.Impl.LogRepository.html
+  name: LogRepository
+  nameWithType: LogRepository
+  fullName: Service.Impl.LogRepository
+- uid: Service.Impl.ConsoleRepository
+  commentId: T:Service.Impl.ConsoleRepository
+  parent: Service.Impl
+  isExternal: true
+  href: Service.Impl.ConsoleRepository.html
+  name: ConsoleRepository
+  nameWithType: ConsoleRepository
+  fullName: Service.Impl.ConsoleRepository
+- uid: Service.Impl.UsuarioRepository
+  commentId: T:Service.Impl.UsuarioRepository
+  isExternal: true
+  href: Service.Impl.UsuarioRepository.html
+  name: UsuarioRepository
+  nameWithType: UsuarioRepository
+  fullName: Service.Impl.UsuarioRepository
+- uid: Service.Impl
+  commentId: N:Service.Impl
+  isExternal: true
+  href: Service.html
+  name: Service.Impl
+  nameWithType: Service.Impl
+  fullName: Service.Impl
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html

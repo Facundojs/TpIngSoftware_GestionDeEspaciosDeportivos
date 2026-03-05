@@ -1,0 +1,127 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IMovimientoRepository
+  commentId: T:DAL.Contracts.IMovimientoRepository
+  id: IMovimientoRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IMovimientoRepository.Insertar(Domain.Entities.Movimiento)
+  langs:
+  - csharp
+  - vb
+  name: IMovimientoRepository
+  nameWithType: IMovimientoRepository
+  fullName: DAL.Contracts.IMovimientoRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IMovimientoRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository contract for ledger <xref href="Domain.Entities.Movimiento" data-throw-if-not-resolved="false"></xref> (movement) records.
+  remarks: >-
+    Movements are append-only; there are no update or delete operations.
+
+    The client balance is derived from the aggregate of all movements via the <code>vw_Balance</code> SQL view.
+  example: []
+  syntax:
+    content: public interface IMovimientoRepository
+    content.vb: Public Interface IMovimientoRepository
+  derivedClasses:
+  - DAL.Impl.MovimientoSqlRepository
+- uid: DAL.Contracts.IMovimientoRepository.Insertar(Domain.Entities.Movimiento)
+  commentId: M:DAL.Contracts.IMovimientoRepository.Insertar(Domain.Entities.Movimiento)
+  id: Insertar(Domain.Entities.Movimiento)
+  parent: DAL.Contracts.IMovimientoRepository
+  langs:
+  - csharp
+  - vb
+  name: Insertar(Movimiento)
+  nameWithType: IMovimientoRepository.Insertar(Movimiento)
+  fullName: DAL.Contracts.IMovimientoRepository.Insertar(Domain.Entities.Movimiento)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IMovimientoRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Appends a new ledger movement record.
+  example: []
+  syntax:
+    content: void Insertar(Movimiento obj)
+    parameters:
+    - id: obj
+      type: Domain.Entities.Movimiento
+      description: The movement to insert.
+    content.vb: Sub Insertar(obj As Movimiento)
+  overload: DAL.Contracts.IMovimientoRepository.Insertar*
+references:
+- uid: Domain.Entities.Movimiento
+  commentId: T:Domain.Entities.Movimiento
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Movimiento.html
+  name: Movimiento
+  nameWithType: Movimiento
+  fullName: Domain.Entities.Movimiento
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: DAL.Contracts.IMovimientoRepository.Insertar*
+  commentId: Overload:DAL.Contracts.IMovimientoRepository.Insertar
+  isExternal: true
+  href: DAL.Contracts.IMovimientoRepository.html#DAL_Contracts_IMovimientoRepository_Insertar_Domain_Entities_Movimiento_
+  name: Insertar
+  nameWithType: IMovimientoRepository.Insertar
+  fullName: DAL.Contracts.IMovimientoRepository.Insertar

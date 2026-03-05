@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ClienteService | mysite </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ClienteService | mysite ">
+      
+      <meta name="description" content="Business logic service for client lifecycle management.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="mysite">
+            mysite
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="BLL.Services.ClienteService">
+
+
+
+  <h1 id="BLL_Services_ClienteService" data-uid="BLL.Services.ClienteService" class="text-break">
+Class ClienteService  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="BLL.html">BLL</a>.<a class="xref" href="BLL.Services.html">Services</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>BLL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Business logic service for client lifecycle management.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ClienteService</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ClienteService</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="BLL_Services_ClienteService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Coordinates client registration, membership changes, status transitions, and facility check-in.
+Multi-step write operations are executed inside <a class="xref" href="DAL.Contracts.IUnitOfWork.html">IUnitOfWork</a> transactions.
+All operations are audited via <a class="xref" href="Service.Logic.BitacoraService.html">BitacoraService</a>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="BLL_Services_ClienteService__ctor_" data-uid="BLL.Services.ClienteService.#ctor*"></a>
+
+  <h3 id="BLL_Services_ClienteService__ctor" data-uid="BLL.Services.ClienteService.#ctor">
+  ClienteService()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes all dependencies from <a class="xref" href="DAL.Factory.DalFactory.html">DalFactory</a> singletons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClienteService()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="BLL_Services_ClienteService_ActualizarMembresia_" data-uid="BLL.Services.ClienteService.ActualizarMembresia*"></a>
+
+  <h3 id="BLL_Services_ClienteService_ActualizarMembresia_System_Guid_System_Guid_" data-uid="BLL.Services.ClienteService.ActualizarMembresia(System.Guid,System.Guid)">
+  ActualizarMembresia(Guid, Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switches a client's active membership to a new plan within a transaction.
+Closes the current <code>ClienteMembresia</code> record, creates a new one, and inserts
+a <code>DeudaMembresia</code> movement for the new plan's price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ActualizarMembresia(Guid clienteId, Guid nuevaMembresiaId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clienteId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The client to update.</p>
+</dd>
+    <dt><code>nuevaMembresiaId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The new membership plan to assign.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown when the client has an outstanding negative balance.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the client has a negative balance, or the membership is inactive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="BLL_Services_ClienteService_DeshabilitarCliente_" data-uid="BLL.Services.ClienteService.DeshabilitarCliente*"></a>
+
+  <h3 id="BLL_Services_ClienteService_DeshabilitarCliente_System_Guid_System_String_" data-uid="BLL.Services.ClienteService.DeshabilitarCliente(System.Guid,System.String)">
+  DeshabilitarCliente(Guid, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the client status to <code>Inactivo</code> and records the reason.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeshabilitarCliente(Guid clienteId, string razon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clienteId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The client to disable.</p>
+</dd>
+    <dt><code>razon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Mandatory reason for disabling; must not be null or whitespace.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">razon</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">razon</code> is empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="BLL_Services_ClienteService_HabilitarCliente_" data-uid="BLL.Services.ClienteService.HabilitarCliente*"></a>
+
+  <h3 id="BLL_Services_ClienteService_HabilitarCliente_System_Guid_" data-uid="BLL.Services.ClienteService.HabilitarCliente(System.Guid)">
+  HabilitarCliente(Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the client status to <code>Activo</code> and clears the previously recorded reason.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HabilitarCliente(Guid clienteId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clienteId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The client to re-enable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BLL_Services_ClienteService_ListarClientes_" data-uid="BLL.Services.ClienteService.ListarClientes*"></a>
+
+  <h3 id="BLL_Services_ClienteService_ListarClientes" data-uid="BLL.Services.ClienteService.ListarClientes">
+  ListarClientes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all clients with their current balance, membership detail, and next payment date hydrated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ClienteDTO&gt; ListarClientes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="BLL.DTOs.ClienteDTO.html">ClienteDTO</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BLL_Services_ClienteService_ObtenerCliente_" data-uid="BLL.Services.ClienteService.ObtenerCliente*"></a>
+
+  <h3 id="BLL_Services_ClienteService_ObtenerCliente_System_Guid_" data-uid="BLL.Services.ClienteService.ObtenerCliente(System.Guid)">
+  ObtenerCliente(Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a single client by primary key with balance and membership detail hydrated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClienteDTO ObtenerCliente(Guid id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The client's unique identifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BLL.DTOs.ClienteDTO.html">ClienteDTO</a></dt>
+    <dd><p>The hydrated <a class="xref" href="BLL.DTOs.ClienteDTO.html">ClienteDTO</a>, or <code>null</code> if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BLL_Services_ClienteService_ObtenerClientePorDNI_" data-uid="BLL.Services.ClienteService.ObtenerClientePorDNI*"></a>
+
+  <h3 id="BLL_Services_ClienteService_ObtenerClientePorDNI_System_Int32_" data-uid="BLL.Services.ClienteService.ObtenerClientePorDNI(System.Int32)">
+  ObtenerClientePorDNI(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a single client by DNI with balance and membership detail hydrated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClienteDTO ObtenerClientePorDNI(int dni)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dni</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The client's national identity number.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BLL.DTOs.ClienteDTO.html">ClienteDTO</a></dt>
+    <dd><p>The hydrated <a class="xref" href="BLL.DTOs.ClienteDTO.html">ClienteDTO</a>, or <code>null</code> if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="BLL_Services_ClienteService_RegistrarCliente_" data-uid="BLL.Services.ClienteService.RegistrarCliente*"></a>
+
+  <h3 id="BLL_Services_ClienteService_RegistrarCliente_BLL_DTOs_ClienteDTO_" data-uid="BLL.Services.ClienteService.RegistrarCliente(BLL.DTOs.ClienteDTO)">
+  RegistrarCliente(ClienteDTO)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers a new client. If a membership is specified, creates the client-membership
+record and inserts an initial <code>DeudaMembresia</code> movement in the same transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegistrarCliente(ClienteDTO dto)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="BLL.DTOs.ClienteDTO.html">ClienteDTO</a></dt>
+    <dd><p>Client data including optional <a class="xref" href="BLL.DTOs.ClienteDTO.html#BLL_DTOs_ClienteDTO_MembresiaID">MembresiaID</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown for invalid field values (DNI, name, email format, future birth date).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown when the DNI is already registered or the membership is inactive.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown for invalid field values.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the DNI already exists or the membership is inactive.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="BLL_Services_ClienteService_ValidarIngreso_" data-uid="BLL.Services.ClienteService.ValidarIngreso*"></a>
+
+  <h3 id="BLL_Services_ClienteService_ValidarIngreso_System_Int32_" data-uid="BLL.Services.ClienteService.ValidarIngreso(System.Int32)">
+  ValidarIngreso(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Validates whether a client may enter the facility and, if so, records the check-in.
+Access is denied when the client is inactive or has a negative balance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ResultadoIngresoDTO ValidarIngreso(int dni)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dni</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The client's DNI to look up.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="BLL.DTOs.ResultadoIngresoDTO.html">ResultadoIngresoDTO</a></dt>
+    <dd><p>A <a class="xref" href="BLL.DTOs.ResultadoIngresoDTO.html">ResultadoIngresoDTO</a> with <code>Permitido = true</code> on success, or
+<code>Permitido = false</code> with a reason string when access is denied.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/ClienteService.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

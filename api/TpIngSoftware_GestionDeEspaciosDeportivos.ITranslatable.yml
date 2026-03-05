@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable
+  id: ITranslatable
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage
+  langs:
+  - csharp
+  - vb
+  name: ITranslatable
+  nameWithType: ITranslatable
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable
+  type: Interface
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos
+  syntax:
+    content: public interface ITranslatable
+    content.vb: Public Interface ITranslatable
+  derivedClasses:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage
+  id: UpdateLanguage
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable
+  langs:
+  - csharp
+  - vb
+  name: UpdateLanguage()
+  nameWithType: ITranslatable.UpdateLanguage()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage()
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos
+  syntax:
+    content: void UpdateLanguage()
+    content.vb: Sub UpdateLanguage()
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage*
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  name: TpIngSoftware_GestionDeEspaciosDeportivos
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.html#TpIngSoftware_GestionDeEspaciosDeportivos_ITranslatable_UpdateLanguage
+  name: UpdateLanguage
+  nameWithType: ITranslatable.UpdateLanguage
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage

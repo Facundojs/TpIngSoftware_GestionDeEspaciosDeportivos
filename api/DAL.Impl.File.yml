@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Impl.File
+  commentId: N:DAL.Impl.File
+  id: DAL.Impl.File
+  children:
+  - DAL.Impl.File.ComprobanteFileRepository
+  langs:
+  - csharp
+  - vb
+  name: DAL.Impl.File
+  nameWithType: DAL.Impl.File
+  fullName: DAL.Impl.File
+  type: Namespace
+  assemblies:
+  - DAL
+references:
+- uid: DAL.Impl.File.ComprobanteFileRepository
+  commentId: T:DAL.Impl.File.ComprobanteFileRepository
+  isExternal: true
+  href: DAL.Impl.File.ComprobanteFileRepository.html
+  name: ComprobanteFileRepository
+  nameWithType: ComprobanteFileRepository
+  fullName: DAL.Impl.File.ComprobanteFileRepository

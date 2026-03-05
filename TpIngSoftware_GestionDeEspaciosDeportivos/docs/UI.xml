@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TpIngSoftware_GestionDeEspaciosDeportivos</name>
+    </assembly>
+    <members>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.EspacioService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.CrearEspacio(BLL.DTOs.EspacioDTO)">
+            <inheritdoc cref="M:BLL.Services.EspacioService.CrearEspacio(BLL.DTOs.EspacioDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.ActualizarEspacio(BLL.DTOs.EspacioDTO)">
+            <inheritdoc cref="M:BLL.Services.EspacioService.ActualizarEspacio(BLL.DTOs.EspacioDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.EliminarEspacio(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.EspacioService.EliminarEspacio(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.ListarEspacios">
+            <inheritdoc cref="M:BLL.Services.EspacioService.ListarEspacios"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.ListarTodos">
+            <inheritdoc cref="M:BLL.Services.EspacioService.ListarTodos"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.AgendaService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager.ObtenerAgendaPorEspacio(System.Guid)">
+            <summary>Returns all availability windows configured for the given space.</summary>
+            <param name="espacioId">The space identifier.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager.ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})">
+            <inheritdoc cref="M:BLL.Services.AgendaService.ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.BalanceService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager.ConsultarBalance(System.Guid)">
+            <inheritdoc cref="M:BLL.BalanceService.ConsultarBalance(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager.ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <inheritdoc cref="M:BLL.BalanceService.ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.IngresoService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos">
+            <inheritdoc cref="M:BLL.Services.IngresoService.ListarIngresos"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.IngresoService.ListarIngresosPorCliente(System.Guid)"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.EjercicioService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios">
+            <inheritdoc cref="M:BLL.Services.EjercicioService.ListarEjercicios"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio(BLL.DTOs.EjercicioDTO)">
+            <inheritdoc cref="M:BLL.Services.EjercicioService.CrearEjercicio(BLL.DTOs.EjercicioDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio(BLL.DTOs.EjercicioDTO)">
+            <inheritdoc cref="M:BLL.Services.EjercicioService.ModificarEjercicio(BLL.DTOs.EjercicioDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.EjercicioService.EliminarEjercicio(System.Guid)"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.ClienteService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+            <remarks>
+            All methods delegate directly to the underlying service. Error handling and
+            transaction management remain in the service layer.
+            </remarks>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente(BLL.DTOs.ClienteDTO)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.RegistrarCliente(BLL.DTOs.ClienteDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia(System.Guid,System.Guid)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.ActualizarMembresia(System.Guid,System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente(System.Guid,System.String)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.DeshabilitarCliente(System.Guid,System.String)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.HabilitarCliente(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso(System.Int32)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.ValidarIngreso(System.Int32)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes">
+            <inheritdoc cref="M:BLL.Services.ClienteService.ListarClientes"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.ObtenerCliente(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI(System.Int32)">
+            <inheritdoc cref="M:BLL.Services.ClienteService.ObtenerClientePorDNI(System.Int32)"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.MembresiaService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia(BLL.DTOs.MembresiaDTO)">
+            <inheritdoc cref="M:BLL.Services.MembresiaService.CrearMembresia(BLL.DTOs.MembresiaDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia(BLL.DTOs.MembresiaDTO)">
+            <inheritdoc cref="M:BLL.Services.MembresiaService.ActualizarMembresia(BLL.DTOs.MembresiaDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.MembresiaService.DeshabilitarMembresia(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias(System.Boolean)">
+            <inheritdoc cref="M:BLL.Services.MembresiaService.ListarMembresias(System.Boolean)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.MembresiaService.ObtenerMembresia(System.Guid)"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.PagoService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.RegistrarPago(BLL.DTOs.PagoDTO)">
+            <inheritdoc cref="M:BLL.Services.PagoService.RegistrarPago(BLL.DTOs.PagoDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.ReembolsarPago(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.PagoService.ReembolsarPago(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.AdjuntarComprobante(System.Guid,BLL.DTOs.ComprobanteDTO)">
+            <inheritdoc cref="M:BLL.Services.PagoService.AdjuntarComprobante(System.Guid,BLL.DTOs.ComprobanteDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.ObtenerComprobante(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.PagoService.ObtenerComprobante(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.ListarPagos(System.Nullable{System.Guid},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <inheritdoc cref="M:BLL.Services.PagoService.ListarPagos(System.Nullable{System.Guid},System.Nullable{System.DateTime},System.Nullable{System.DateTime})"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.ObtenerPagosPorReserva(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.PagoService.ObtenerPagosPorReserva(System.Guid)"/>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.ReservaService"/> and <see cref="T:BLL.Facades.ComprobanteFacade"/>
+            that decouples WinForms forms from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.ObtenerHorariosDisponibles(System.Guid,System.DateTime)">
+            <inheritdoc cref="M:BLL.Services.ReservaService.ObtenerHorariosDisponibles(System.Guid,System.DateTime)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.VerificarDisponibilidad(System.Guid,System.DateTime,System.Int32)">
+            <inheritdoc cref="M:BLL.Services.ReservaService.VerificarDisponibilidad(System.Guid,System.DateTime,System.Int32)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.GenerarReserva(BLL.DTOs.GenerarReservaDTO)">
+            <inheritdoc cref="M:BLL.Services.ReservaService.GenerarReserva(BLL.DTOs.GenerarReservaDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.CancelarReserva(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.ReservaService.CancelarReserva(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.ObtenerPorCodigo(System.String)">
+            <inheritdoc cref="M:BLL.Services.ReservaService.ObtenerPorCodigo(System.String)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.ListarReservas(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.DateTime})">
+            <inheritdoc cref="M:BLL.Services.ReservaService.ListarReservas(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.DateTime})"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.ObtenerComprobantePorReserva(System.Guid)">
+            <summary>Retrieves the receipt attached to the given reservation, or <c>null</c> if none exists.</summary>
+            <param name="reservaId">The reservation identifier.</param>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager">
+            <summary>
+            UI-layer facade over <see cref="T:BLL.Services.RutinaService"/> that decouples WinForms forms
+            from direct BLL service instantiation.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.ObtenerRutinaActiva(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.RutinaService.ObtenerRutinaActiva(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.ObtenerRutina(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.RutinaService.ObtenerRutina(System.Guid)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.ListarRutinas(System.Boolean)">
+            <inheritdoc cref="M:BLL.Services.RutinaService.ListarRutinas(System.Boolean)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.CrearRutina(BLL.DTOs.RutinaDTO)">
+            <inheritdoc cref="M:BLL.Services.RutinaService.CrearRutina(BLL.DTOs.RutinaDTO)"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.ModificarRutina(System.Guid,System.Collections.Generic.List{BLL.DTOs.EjercicioDTO})">
+            <inheritdoc cref="M:BLL.Services.RutinaService.ModificarRutina(System.Guid,System.Collections.Generic.List{BLL.DTOs.EjercicioDTO})"/>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.BorrarRutina(System.Guid)">
+            <inheritdoc cref="M:BLL.Services.RutinaService.BorrarRutina(System.Guid)"/>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable">
+            <summary>
+            Implemented by UI forms and user controls that can reload their displayed data on demand.
+            </summary>
+            <remarks>
+            Called by parent forms after write operations (create, update, delete) complete
+            so that child panels reflect the latest state without a full form re-open.
+            </remarks>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData">
+            <summary>Reloads data from the BLL layer and rebinds all UI controls.</summary>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable">
+            <summary>
+            Implemented by UI forms and user controls that support runtime language switching.
+            </summary>
+            <remarks>
+            Called by the application shell when the user changes the active language.
+            Implementations should re-apply all localizable string resources to their controls
+            without recreating or re-initializing the form.
+            </remarks>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.UpdateLanguage">
+            <summary>Re-applies the current language strings to all translatable UI controls.</summary>
+        </member>
+        <member name="M:TpIngSoftware_GestionDeEspaciosDeportivos.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:TpIngSoftware_GestionDeEspaciosDeportivos.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TpIngSoftware_GestionDeEspaciosDeportivos.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TpIngSoftware_GestionDeEspaciosDeportivos.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,674 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.MembresiaDTO
+  commentId: T:BLL.DTOs.MembresiaDTO
+  id: MembresiaDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.MembresiaDTO.#ctor
+  - BLL.DTOs.MembresiaDTO.Activa
+  - BLL.DTOs.MembresiaDTO.Codigo
+  - BLL.DTOs.MembresiaDTO.Detalle
+  - BLL.DTOs.MembresiaDTO.Id
+  - BLL.DTOs.MembresiaDTO.Nombre
+  - BLL.DTOs.MembresiaDTO.Precio
+  - BLL.DTOs.MembresiaDTO.PrecioFormateado
+  - BLL.DTOs.MembresiaDTO.Regularidad
+  langs:
+  - csharp
+  - vb
+  name: MembresiaDTO
+  nameWithType: MembresiaDTO
+  fullName: BLL.DTOs.MembresiaDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Projection of a <code>Membresia</code> entity exposed through BLL service boundaries.
+  remarks: >-
+    <xref href="BLL.DTOs.MembresiaDTO.Regularidad" data-throw-if-not-resolved="false"></xref> expresses the billing cycle in days (e.g., 30 for monthly).
+
+    <xref href="BLL.DTOs.MembresiaDTO.PrecioFormateado" data-throw-if-not-resolved="false"></xref> is a display-only computed property; it is not persisted.
+  example: []
+  syntax:
+    content: public class MembresiaDTO
+    content.vb: Public Class MembresiaDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.MembresiaDTO.#ctor
+  commentId: M:BLL.DTOs.MembresiaDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: MembresiaDTO()
+  nameWithType: MembresiaDTO.MembresiaDTO()
+  fullName: BLL.DTOs.MembresiaDTO.MembresiaDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public MembresiaDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.MembresiaDTO.#ctor*
+  nameWithType.vb: MembresiaDTO.New()
+  fullName.vb: BLL.DTOs.MembresiaDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.MembresiaDTO.Id
+  commentId: P:BLL.DTOs.MembresiaDTO.Id
+  id: Id
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: MembresiaDTO.Id
+  fullName: BLL.DTOs.MembresiaDTO.Id
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Primary key of the membership plan.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: BLL.DTOs.MembresiaDTO.Id*
+- uid: BLL.DTOs.MembresiaDTO.Codigo
+  commentId: P:BLL.DTOs.MembresiaDTO.Codigo
+  id: Codigo
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Codigo
+  nameWithType: MembresiaDTO.Codigo
+  fullName: BLL.DTOs.MembresiaDTO.Codigo
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Auto-incremented sequential code assigned by the database.
+  example: []
+  syntax:
+    content: public int Codigo { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Codigo As Integer
+  overload: BLL.DTOs.MembresiaDTO.Codigo*
+- uid: BLL.DTOs.MembresiaDTO.Nombre
+  commentId: P:BLL.DTOs.MembresiaDTO.Nombre
+  id: Nombre
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Nombre
+  nameWithType: MembresiaDTO.Nombre
+  fullName: BLL.DTOs.MembresiaDTO.Nombre
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Display name of the membership plan.
+  example: []
+  syntax:
+    content: public string Nombre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Nombre As String
+  overload: BLL.DTOs.MembresiaDTO.Nombre*
+- uid: BLL.DTOs.MembresiaDTO.Precio
+  commentId: P:BLL.DTOs.MembresiaDTO.Precio
+  id: Precio
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Precio
+  nameWithType: MembresiaDTO.Precio
+  fullName: BLL.DTOs.MembresiaDTO.Precio
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Billing amount per cycle in currency units.
+  example: []
+  syntax:
+    content: public decimal Precio { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property Precio As Decimal
+  overload: BLL.DTOs.MembresiaDTO.Precio*
+- uid: BLL.DTOs.MembresiaDTO.Regularidad
+  commentId: P:BLL.DTOs.MembresiaDTO.Regularidad
+  id: Regularidad
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Regularidad
+  nameWithType: MembresiaDTO.Regularidad
+  fullName: BLL.DTOs.MembresiaDTO.Regularidad
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Billing cycle length in days (e.g., 30 = monthly, 7 = weekly).
+  example: []
+  syntax:
+    content: public int Regularidad { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Regularidad As Integer
+  overload: BLL.DTOs.MembresiaDTO.Regularidad*
+- uid: BLL.DTOs.MembresiaDTO.Activa
+  commentId: P:BLL.DTOs.MembresiaDTO.Activa
+  id: Activa
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Activa
+  nameWithType: MembresiaDTO.Activa
+  fullName: BLL.DTOs.MembresiaDTO.Activa
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: <code>true</code> if the plan is available for assignment to clients.
+  example: []
+  syntax:
+    content: public bool Activa { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Activa As Boolean
+  overload: BLL.DTOs.MembresiaDTO.Activa*
+- uid: BLL.DTOs.MembresiaDTO.Detalle
+  commentId: P:BLL.DTOs.MembresiaDTO.Detalle
+  id: Detalle
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: Detalle
+  nameWithType: MembresiaDTO.Detalle
+  fullName: BLL.DTOs.MembresiaDTO.Detalle
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Optional description or notes about the membership plan.
+  example: []
+  syntax:
+    content: public string Detalle { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Detalle As String
+  overload: BLL.DTOs.MembresiaDTO.Detalle*
+- uid: BLL.DTOs.MembresiaDTO.PrecioFormateado
+  commentId: P:BLL.DTOs.MembresiaDTO.PrecioFormateado
+  id: PrecioFormateado
+  parent: BLL.DTOs.MembresiaDTO
+  langs:
+  - csharp
+  - vb
+  name: PrecioFormateado
+  nameWithType: MembresiaDTO.PrecioFormateado
+  fullName: BLL.DTOs.MembresiaDTO.PrecioFormateado
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/MembresiaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Currency-formatted representation of <xref href="BLL.DTOs.MembresiaDTO.Precio" data-throw-if-not-resolved="false"></xref> (e.g., <code>"$1,500.00"</code>).
+  example: []
+  syntax:
+    content: public string PrecioFormateado { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PrecioFormateado As String
+  overload: BLL.DTOs.MembresiaDTO.PrecioFormateado*
+references:
+- uid: BLL.DTOs.MembresiaDTO.Regularidad
+  commentId: P:BLL.DTOs.MembresiaDTO.Regularidad
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Regularidad
+  name: Regularidad
+  nameWithType: MembresiaDTO.Regularidad
+  fullName: BLL.DTOs.MembresiaDTO.Regularidad
+- uid: BLL.DTOs.MembresiaDTO.PrecioFormateado
+  commentId: P:BLL.DTOs.MembresiaDTO.PrecioFormateado
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_PrecioFormateado
+  name: PrecioFormateado
+  nameWithType: MembresiaDTO.PrecioFormateado
+  fullName: BLL.DTOs.MembresiaDTO.PrecioFormateado
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.MembresiaDTO.#ctor*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO__ctor
+  name: MembresiaDTO
+  nameWithType: MembresiaDTO.MembresiaDTO
+  fullName: BLL.DTOs.MembresiaDTO.MembresiaDTO
+  nameWithType.vb: MembresiaDTO.New
+  fullName.vb: BLL.DTOs.MembresiaDTO.New
+  name.vb: New
+- uid: BLL.DTOs.MembresiaDTO.Id*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Id
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Id
+  name: Id
+  nameWithType: MembresiaDTO.Id
+  fullName: BLL.DTOs.MembresiaDTO.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.DTOs.MembresiaDTO.Codigo*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Codigo
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Codigo
+  name: Codigo
+  nameWithType: MembresiaDTO.Codigo
+  fullName: BLL.DTOs.MembresiaDTO.Codigo
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BLL.DTOs.MembresiaDTO.Nombre*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Nombre
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Nombre
+  name: Nombre
+  nameWithType: MembresiaDTO.Nombre
+  fullName: BLL.DTOs.MembresiaDTO.Nombre
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BLL.DTOs.MembresiaDTO.Precio*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Precio
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Precio
+  name: Precio
+  nameWithType: MembresiaDTO.Precio
+  fullName: BLL.DTOs.MembresiaDTO.Precio
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: BLL.DTOs.MembresiaDTO.Regularidad*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Regularidad
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Regularidad
+  name: Regularidad
+  nameWithType: MembresiaDTO.Regularidad
+  fullName: BLL.DTOs.MembresiaDTO.Regularidad
+- uid: BLL.DTOs.MembresiaDTO.Activa*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Activa
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Activa
+  name: Activa
+  nameWithType: MembresiaDTO.Activa
+  fullName: BLL.DTOs.MembresiaDTO.Activa
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: BLL.DTOs.MembresiaDTO.Detalle*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.Detalle
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Detalle
+  name: Detalle
+  nameWithType: MembresiaDTO.Detalle
+  fullName: BLL.DTOs.MembresiaDTO.Detalle
+- uid: BLL.DTOs.MembresiaDTO.Precio
+  commentId: P:BLL.DTOs.MembresiaDTO.Precio
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Precio
+  name: Precio
+  nameWithType: MembresiaDTO.Precio
+  fullName: BLL.DTOs.MembresiaDTO.Precio
+- uid: BLL.DTOs.MembresiaDTO.PrecioFormateado*
+  commentId: Overload:BLL.DTOs.MembresiaDTO.PrecioFormateado
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_PrecioFormateado
+  name: PrecioFormateado
+  nameWithType: MembresiaDTO.PrecioFormateado
+  fullName: BLL.DTOs.MembresiaDTO.PrecioFormateado

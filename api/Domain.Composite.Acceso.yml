@@ -1,0 +1,693 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Composite.Acceso
+  commentId: T:Domain.Composite.Acceso
+  id: Acceso
+  parent: Domain.Composite
+  children:
+  - Domain.Composite.Acceso.#ctor
+  - Domain.Composite.Acceso.Accesos
+  - Domain.Composite.Acceso.Agregar(Domain.Composite.Acceso)
+  - Domain.Composite.Acceso.Eliminar(Domain.Composite.Acceso)
+  - Domain.Composite.Acceso.Id
+  - Domain.Composite.Acceso.Nombre
+  - Domain.Composite.Acceso.ToString
+  langs:
+  - csharp
+  - vb
+  name: Acceso
+  nameWithType: Acceso
+  fullName: Domain.Composite.Acceso
+  type: Class
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: Abstract base component of the Composite design pattern used to model the permission tree.
+  remarks: >-
+    A permission tree is composed of <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> interior nodes and <xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref>
+
+    leaf nodes. All tree traversal and permission checks operate against the <xref href="Domain.Composite.Acceso" data-throw-if-not-resolved="false"></xref> abstraction,
+
+    allowing uniform treatment of individual permissions and permission groups.
+  example: []
+  syntax:
+    content: public abstract class Acceso
+    content.vb: Public MustInherit Class Acceso
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Domain.Composite.Familia
+  - Domain.Composite.Patente
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Domain.Composite.Acceso.Agregar(Domain.Composite.Acceso)
+  commentId: M:Domain.Composite.Acceso.Agregar(Domain.Composite.Acceso)
+  id: Agregar(Domain.Composite.Acceso)
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: Agregar(Acceso)
+  nameWithType: Acceso.Agregar(Acceso)
+  fullName: Domain.Composite.Acceso.Agregar(Domain.Composite.Acceso)
+  type: Method
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: Adds <code class="paramref">componente</code> as a direct child of this node.
+  example: []
+  syntax:
+    content: public abstract void Agregar(Acceso componente)
+    parameters:
+    - id: componente
+      type: Domain.Composite.Acceso
+      description: The component to add.
+    content.vb: Public MustOverride Sub Agregar(componente As Acceso)
+  overload: Domain.Composite.Acceso.Agregar*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown by leaf nodes (<xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref>) that do not support children.
+- uid: Domain.Composite.Acceso.Eliminar(Domain.Composite.Acceso)
+  commentId: M:Domain.Composite.Acceso.Eliminar(Domain.Composite.Acceso)
+  id: Eliminar(Domain.Composite.Acceso)
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: Eliminar(Acceso)
+  nameWithType: Acceso.Eliminar(Acceso)
+  fullName: Domain.Composite.Acceso.Eliminar(Domain.Composite.Acceso)
+  type: Method
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: Removes <code class="paramref">componente</code> from the direct children of this node.
+  example: []
+  syntax:
+    content: public abstract void Eliminar(Acceso componente)
+    parameters:
+    - id: componente
+      type: Domain.Composite.Acceso
+      description: The component to remove, matched by <xref href="Domain.Composite.Acceso.Id" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public MustOverride Sub Eliminar(componente As Acceso)
+  overload: Domain.Composite.Acceso.Eliminar*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown by leaf nodes (<xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref>) that do not support children.
+- uid: Domain.Composite.Acceso.ToString
+  commentId: M:Domain.Composite.Acceso.ToString
+  id: ToString
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Acceso.ToString()
+  fullName: Domain.Composite.Acceso.ToString()
+  type: Method
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Domain.Composite.Acceso.ToString*
+- uid: Domain.Composite.Acceso.#ctor
+  commentId: M:Domain.Composite.Acceso.#ctor
+  id: '#ctor'
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: Acceso()
+  nameWithType: Acceso.Acceso()
+  fullName: Domain.Composite.Acceso.Acceso()
+  type: Constructor
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: protected Acceso()
+    content.vb: Protected Sub New()
+  overload: Domain.Composite.Acceso.#ctor*
+  nameWithType.vb: Acceso.New()
+  fullName.vb: Domain.Composite.Acceso.New()
+  name.vb: New()
+- uid: Domain.Composite.Acceso.Id
+  commentId: P:Domain.Composite.Acceso.Id
+  id: Id
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Acceso.Id
+  fullName: Domain.Composite.Acceso.Id
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: Unique identifier of this access component.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Domain.Composite.Acceso.Id*
+- uid: Domain.Composite.Acceso.Nombre
+  commentId: P:Domain.Composite.Acceso.Nombre
+  id: Nombre
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: Nombre
+  nameWithType: Acceso.Nombre
+  fullName: Domain.Composite.Acceso.Nombre
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: Human-readable display name.
+  example: []
+  syntax:
+    content: public string Nombre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Nombre As String
+  overload: Domain.Composite.Acceso.Nombre*
+- uid: Domain.Composite.Acceso.Accesos
+  commentId: P:Domain.Composite.Acceso.Accesos
+  id: Accesos
+  parent: Domain.Composite.Acceso
+  langs:
+  - csharp
+  - vb
+  name: Accesos
+  nameWithType: Acceso.Accesos
+  fullName: Domain.Composite.Acceso.Accesos
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: >-
+    Returns the direct children of this node.
+
+    Leaf nodes (<xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref>) always return an empty list.
+  example: []
+  syntax:
+    content: public abstract List<Acceso> Accesos { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Domain.Composite.Acceso}
+    content.vb: Public MustOverride ReadOnly Property Accesos As List(Of Acceso)
+  overload: Domain.Composite.Acceso.Accesos*
+references:
+- uid: Domain.Composite.Familia
+  commentId: T:Domain.Composite.Familia
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Familia.html
+  name: Familia
+  nameWithType: Familia
+  fullName: Domain.Composite.Familia
+- uid: Domain.Composite.Patente
+  commentId: T:Domain.Composite.Patente
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Patente.html
+  name: Patente
+  nameWithType: Patente
+  fullName: Domain.Composite.Patente
+- uid: Domain.Composite.Acceso
+  commentId: T:Domain.Composite.Acceso
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Acceso.html
+  name: Acceso
+  nameWithType: Acceso
+  fullName: Domain.Composite.Acceso
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Domain.Composite.Acceso.Agregar*
+  commentId: Overload:Domain.Composite.Acceso.Agregar
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_Agregar_Domain_Composite_Acceso_
+  name: Agregar
+  nameWithType: Acceso.Agregar
+  fullName: Domain.Composite.Acceso.Agregar
+- uid: Domain.Composite.Acceso.Id
+  commentId: P:Domain.Composite.Acceso.Id
+  parent: Domain.Composite.Acceso
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_Id
+  name: Id
+  nameWithType: Acceso.Id
+  fullName: Domain.Composite.Acceso.Id
+- uid: Domain.Composite.Acceso.Eliminar*
+  commentId: Overload:Domain.Composite.Acceso.Eliminar
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_Eliminar_Domain_Composite_Acceso_
+  name: Eliminar
+  nameWithType: Acceso.Eliminar
+  fullName: Domain.Composite.Acceso.Eliminar
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Domain.Composite.Acceso.ToString*
+  commentId: Overload:Domain.Composite.Acceso.ToString
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_ToString
+  name: ToString
+  nameWithType: Acceso.ToString
+  fullName: Domain.Composite.Acceso.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Domain.Composite.Acceso.#ctor*
+  commentId: Overload:Domain.Composite.Acceso.#ctor
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso__ctor
+  name: Acceso
+  nameWithType: Acceso.Acceso
+  fullName: Domain.Composite.Acceso.Acceso
+  nameWithType.vb: Acceso.New
+  fullName.vb: Domain.Composite.Acceso.New
+  name.vb: New
+- uid: Domain.Composite.Acceso.Id*
+  commentId: Overload:Domain.Composite.Acceso.Id
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_Id
+  name: Id
+  nameWithType: Acceso.Id
+  fullName: Domain.Composite.Acceso.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Composite.Acceso.Nombre*
+  commentId: Overload:Domain.Composite.Acceso.Nombre
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_Nombre
+  name: Nombre
+  nameWithType: Acceso.Nombre
+  fullName: Domain.Composite.Acceso.Nombre
+- uid: Domain.Composite.Acceso.Accesos*
+  commentId: Overload:Domain.Composite.Acceso.Accesos
+  isExternal: true
+  href: Domain.Composite.Acceso.html#Domain_Composite_Acceso_Accesos
+  name: Accesos
+  nameWithType: Acceso.Accesos
+  fullName: Domain.Composite.Acceso.Accesos
+- uid: System.Collections.Generic.List{Domain.Composite.Acceso}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Acceso}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Acceso>
+  nameWithType: List<Acceso>
+  fullName: System.Collections.Generic.List<Domain.Composite.Acceso>
+  nameWithType.vb: List(Of Acceso)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Acceso)
+  name.vb: List(Of Acceso)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+    href: Domain.Composite.Acceso.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+    href: Domain.Composite.Acceso.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

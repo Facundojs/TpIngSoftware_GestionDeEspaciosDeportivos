@@ -1,0 +1,526 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Mappers.EjercicioMapper
+  commentId: T:BLL.Mappers.EjercicioMapper
+  id: EjercicioMapper
+  parent: BLL.Mappers
+  children:
+  - BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  - BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  langs:
+  - csharp
+  - vb
+  name: EjercicioMapper
+  nameWithType: EjercicioMapper
+  fullName: BLL.Mappers.EjercicioMapper
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/EjercicioMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Bidirectional mapper between exercise domain entities and <xref href="BLL.DTOs.EjercicioDTO" data-throw-if-not-resolved="false"></xref> projections.
+  remarks: >-
+    The domain model separates the exercise definition (<xref href="Domain.Entities.Ejercicio" data-throw-if-not-resolved="false"></xref>) from its
+
+    scheduling within a routine (<xref href="Domain.Entities.RutinaEjercicio" data-throw-if-not-resolved="false"></xref>). <xref href="BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)" data-throw-if-not-resolved="false"></xref> reads from
+
+    <xref href="Domain.Entities.RutinaEjercicio" data-throw-if-not-resolved="false"></xref> (which contains repetitions, day, and order) and resolves the
+
+    exercise name via the <code>Ejercicio</code> navigation property. <xref href="BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)" data-throw-if-not-resolved="false"></xref> maps only to
+
+    the base <xref href="Domain.Entities.Ejercicio" data-throw-if-not-resolved="false"></xref> definition (name/id); scheduling fields are persisted separately.
+  example: []
+  syntax:
+    content: public static class EjercicioMapper
+    content.vb: Public Module EjercicioMapper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  commentId: M:BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  id: ToEntity(BLL.DTOs.EjercicioDTO)
+  parent: BLL.Mappers.EjercicioMapper
+  langs:
+  - csharp
+  - vb
+  name: ToEntity(EjercicioDTO)
+  nameWithType: EjercicioMapper.ToEntity(EjercicioDTO)
+  fullName: BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/EjercicioMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects an <xref href="BLL.DTOs.EjercicioDTO" data-throw-if-not-resolved="false"></xref> to an <xref href="Domain.Entities.Ejercicio" data-throw-if-not-resolved="false"></xref> definition entity.
+  example: []
+  syntax:
+    content: public static Ejercicio ToEntity(EjercicioDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.EjercicioDTO
+      description: Source DTO.
+    return:
+      type: Domain.Entities.Ejercicio
+    content.vb: Public Shared Function ToEntity(dto As EjercicioDTO) As Ejercicio
+  overload: BLL.Mappers.EjercicioMapper.ToEntity*
+- uid: BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  commentId: M:BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  id: ToDTO(Domain.Entities.RutinaEjercicio)
+  parent: BLL.Mappers.EjercicioMapper
+  langs:
+  - csharp
+  - vb
+  name: ToDTO(RutinaEjercicio)
+  nameWithType: EjercicioMapper.ToDTO(RutinaEjercicio)
+  fullName: BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/EjercicioMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a <xref href="Domain.Entities.RutinaEjercicio" data-throw-if-not-resolved="false"></xref> scheduling record to an <xref href="BLL.DTOs.EjercicioDTO" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    When <code>entity.Ejercicio</code> is <code>null</code> (navigation property not loaded),
+
+    <xref href="BLL.DTOs.EjercicioDTO.Nombre" data-throw-if-not-resolved="false"></xref> defaults to <code>"Desconocido"</code>.
+  example: []
+  syntax:
+    content: public static EjercicioDTO ToDTO(RutinaEjercicio entity)
+    parameters:
+    - id: entity
+      type: Domain.Entities.RutinaEjercicio
+      description: Source scheduling record with <code>Ejercicio</code> navigation property loaded.
+    return:
+      type: BLL.DTOs.EjercicioDTO
+    content.vb: Public Shared Function ToDTO(entity As RutinaEjercicio) As EjercicioDTO
+  overload: BLL.Mappers.EjercicioMapper.ToDTO*
+references:
+- uid: BLL.DTOs.EjercicioDTO
+  commentId: T:BLL.DTOs.EjercicioDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html
+  name: EjercicioDTO
+  nameWithType: EjercicioDTO
+  fullName: BLL.DTOs.EjercicioDTO
+- uid: Domain.Entities.Ejercicio
+  commentId: T:Domain.Entities.Ejercicio
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Ejercicio.html
+  name: Ejercicio
+  nameWithType: Ejercicio
+  fullName: Domain.Entities.Ejercicio
+- uid: Domain.Entities.RutinaEjercicio
+  commentId: T:Domain.Entities.RutinaEjercicio
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.RutinaEjercicio.html
+  name: RutinaEjercicio
+  nameWithType: RutinaEjercicio
+  fullName: Domain.Entities.RutinaEjercicio
+- uid: BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  commentId: M:BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  isExternal: true
+  href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToDTO_Domain_Entities_RutinaEjercicio_
+  name: ToDTO(RutinaEjercicio)
+  nameWithType: EjercicioMapper.ToDTO(RutinaEjercicio)
+  fullName: BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+  spec.csharp:
+  - uid: BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+    name: ToDTO
+    isExternal: true
+    href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToDTO_Domain_Entities_RutinaEjercicio_
+  - name: (
+  - uid: Domain.Entities.RutinaEjercicio
+    name: RutinaEjercicio
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)
+    name: ToDTO
+    isExternal: true
+    href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToDTO_Domain_Entities_RutinaEjercicio_
+  - name: (
+  - uid: Domain.Entities.RutinaEjercicio
+    name: RutinaEjercicio
+    isExternal: true
+  - name: )
+- uid: BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  commentId: M:BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  isExternal: true
+  href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToEntity_BLL_DTOs_EjercicioDTO_
+  name: ToEntity(EjercicioDTO)
+  nameWithType: EjercicioMapper.ToEntity(EjercicioDTO)
+  fullName: BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+  spec.csharp:
+  - uid: BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+    name: ToEntity
+    isExternal: true
+    href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToEntity_BLL_DTOs_EjercicioDTO_
+  - name: (
+  - uid: BLL.DTOs.EjercicioDTO
+    name: EjercicioDTO
+    isExternal: true
+    href: BLL.DTOs.EjercicioDTO.html
+  - name: )
+  spec.vb:
+  - uid: BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)
+    name: ToEntity
+    isExternal: true
+    href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToEntity_BLL_DTOs_EjercicioDTO_
+  - name: (
+  - uid: BLL.DTOs.EjercicioDTO
+    name: EjercicioDTO
+    isExternal: true
+    href: BLL.DTOs.EjercicioDTO.html
+  - name: )
+- uid: BLL.Mappers
+  commentId: N:BLL.Mappers
+  isExternal: true
+  href: BLL.html
+  name: BLL.Mappers
+  nameWithType: BLL.Mappers
+  fullName: BLL.Mappers
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.Mappers.EjercicioMapper.ToEntity*
+  commentId: Overload:BLL.Mappers.EjercicioMapper.ToEntity
+  isExternal: true
+  href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToEntity_BLL_DTOs_EjercicioDTO_
+  name: ToEntity
+  nameWithType: EjercicioMapper.ToEntity
+  fullName: BLL.Mappers.EjercicioMapper.ToEntity
+- uid: BLL.DTOs.EjercicioDTO.Nombre
+  commentId: P:BLL.DTOs.EjercicioDTO.Nombre
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Nombre
+  name: Nombre
+  nameWithType: EjercicioDTO.Nombre
+  fullName: BLL.DTOs.EjercicioDTO.Nombre
+- uid: BLL.Mappers.EjercicioMapper.ToDTO*
+  commentId: Overload:BLL.Mappers.EjercicioMapper.ToDTO
+  isExternal: true
+  href: BLL.Mappers.EjercicioMapper.html#BLL_Mappers_EjercicioMapper_ToDTO_Domain_Entities_RutinaEjercicio_
+  name: ToDTO
+  nameWithType: EjercicioMapper.ToDTO
+  fullName: BLL.Mappers.EjercicioMapper.ToDTO

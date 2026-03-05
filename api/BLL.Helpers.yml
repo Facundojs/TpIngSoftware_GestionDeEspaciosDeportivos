@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Helpers
+  commentId: N:BLL.Helpers
+  id: BLL.Helpers
+  children:
+  - BLL.Helpers.ComprobanteGenerator
+  langs:
+  - csharp
+  - vb
+  name: BLL.Helpers
+  nameWithType: BLL.Helpers
+  fullName: BLL.Helpers
+  type: Namespace
+  assemblies:
+  - BLL
+references:
+- uid: BLL.Helpers.ComprobanteGenerator
+  commentId: T:BLL.Helpers.ComprobanteGenerator
+  isExternal: true
+  href: BLL.Helpers.ComprobanteGenerator.html
+  name: ComprobanteGenerator
+  nameWithType: ComprobanteGenerator
+  fullName: BLL.Helpers.ComprobanteGenerator

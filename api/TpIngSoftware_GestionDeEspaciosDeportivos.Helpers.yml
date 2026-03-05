@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  id: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper
+  langs:
+  - csharp
+  - vb
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers
+  type: Namespace
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper.html
+  name: FlagHelper
+  nameWithType: FlagHelper
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper.html
+  name: LanguageSelectorHelper
+  nameWithType: LanguageSelectorHelper
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper

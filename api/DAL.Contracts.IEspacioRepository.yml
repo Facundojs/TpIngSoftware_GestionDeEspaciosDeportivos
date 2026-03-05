@@ -1,0 +1,587 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IEspacioRepository
+  commentId: T:DAL.Contracts.IEspacioRepository
+  id: IEspacioRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IEspacioRepository.ListarDisponibles
+  langs:
+  - csharp
+  - vb
+  name: IEspacioRepository
+  nameWithType: IEspacioRepository
+  fullName: DAL.Contracts.IEspacioRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IEspacioRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Repository contract for <xref href="Domain.Entities.Espacio" data-throw-if-not-resolved="false"></xref> (sports space) entities, extending standard CRUD
+
+    with availability-filtered listing.
+  example: []
+  syntax:
+    content: 'public interface IEspacioRepository : IGenericRepository<Espacio>'
+    content.vb: Public Interface IEspacioRepository Inherits IGenericRepository(Of Espacio)
+  derivedClasses:
+  - DAL.Impl.EspacioSqlRepository
+  inheritedMembers:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Add(Domain.Entities.Espacio)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Update(Domain.Entities.Espacio)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Remove(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetById(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetAll
+- uid: DAL.Contracts.IEspacioRepository.ListarDisponibles
+  commentId: M:DAL.Contracts.IEspacioRepository.ListarDisponibles
+  id: ListarDisponibles
+  parent: DAL.Contracts.IEspacioRepository
+  langs:
+  - csharp
+  - vb
+  name: ListarDisponibles()
+  nameWithType: IEspacioRepository.ListarDisponibles()
+  fullName: DAL.Contracts.IEspacioRepository.ListarDisponibles()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IEspacioRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Retrieves only spaces whose status is <code>Activo</code>.
+
+    Used when presenting spaces available for reservation.
+  example: []
+  syntax:
+    content: List<Espacio> ListarDisponibles()
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Espacio}
+      description: List of active spaces; empty list if none.
+    content.vb: Function ListarDisponibles() As List(Of Espacio)
+  overload: DAL.Contracts.IEspacioRepository.ListarDisponibles*
+references:
+- uid: Domain.Entities.Espacio
+  commentId: T:Domain.Entities.Espacio
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Espacio.html
+  name: Espacio
+  nameWithType: Espacio
+  fullName: Domain.Entities.Espacio
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Add(Domain.Entities.Espacio)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Add(Domain.Entities.Espacio)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  name: Add(Espacio)
+  nameWithType: IGenericRepository<Espacio>.Add(Espacio)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Espacio>.Add(Domain.Entities.Espacio)
+  nameWithType.vb: IGenericRepository(Of Espacio).Add(Espacio)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Espacio).Add(Domain.Entities.Espacio)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Add(Domain.Entities.Espacio)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Add(Domain.Entities.Espacio)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Update(Domain.Entities.Espacio)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Update(Domain.Entities.Espacio)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  name: Update(Espacio)
+  nameWithType: IGenericRepository<Espacio>.Update(Espacio)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Espacio>.Update(Domain.Entities.Espacio)
+  nameWithType.vb: IGenericRepository(Of Espacio).Update(Espacio)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Espacio).Update(Domain.Entities.Espacio)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Update(Domain.Entities.Espacio)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Update(Domain.Entities.Espacio)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<Espacio>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Espacio>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Espacio).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Espacio).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<Espacio>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Espacio>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Espacio).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Espacio).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Espacio>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Espacio>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Espacio).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Espacio).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Entities.Espacio}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  name: IGenericRepository<Espacio>
+  nameWithType: IGenericRepository<Espacio>
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Espacio>
+  nameWithType.vb: IGenericRepository(Of Espacio)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Espacio)
+  name.vb: IGenericRepository(Of Espacio)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: <
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: DAL.Contracts.IEspacioRepository.ListarDisponibles*
+  commentId: Overload:DAL.Contracts.IEspacioRepository.ListarDisponibles
+  isExternal: true
+  href: DAL.Contracts.IEspacioRepository.html#DAL_Contracts_IEspacioRepository_ListarDisponibles
+  name: ListarDisponibles
+  nameWithType: IEspacioRepository.ListarDisponibles
+  fullName: DAL.Contracts.IEspacioRepository.ListarDisponibles
+- uid: System.Collections.Generic.List{Domain.Entities.Espacio}
+  commentId: T:System.Collections.Generic.List{Domain.Entities.Espacio}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Espacio>
+  nameWithType: List<Espacio>
+  fullName: System.Collections.Generic.List<Domain.Entities.Espacio>
+  nameWithType.vb: List(Of Espacio)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Entities.Espacio)
+  name.vb: List(Of Espacio)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Espacio
+    name: Espacio
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

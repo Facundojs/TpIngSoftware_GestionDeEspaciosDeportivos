@@ -1,0 +1,1014 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Factory.DalFactory
+  commentId: T:DAL.Factory.DalFactory
+  id: DalFactory
+  parent: DAL.Factory
+  children:
+  - DAL.Factory.DalFactory.AgendaRepository
+  - DAL.Factory.DalFactory.BalanceRepository
+  - DAL.Factory.DalFactory.ClienteMembresiaRepository
+  - DAL.Factory.DalFactory.ClienteRepository
+  - DAL.Factory.DalFactory.ComprobanteFileRepository
+  - DAL.Factory.DalFactory.ComprobanteRepository
+  - DAL.Factory.DalFactory.CreateUnitOfWork
+  - DAL.Factory.DalFactory.EjercicioRepository
+  - DAL.Factory.DalFactory.EspacioRepository
+  - DAL.Factory.DalFactory.IngresoRepository
+  - DAL.Factory.DalFactory.MembresiaRepository
+  - DAL.Factory.DalFactory.MovimientoRepository
+  - DAL.Factory.DalFactory.PagoRepository
+  - DAL.Factory.DalFactory.ReservaRepository
+  - DAL.Factory.DalFactory.RutinaEjercicioRepository
+  - DAL.Factory.DalFactory.RutinaRepository
+  langs:
+  - csharp
+  - vb
+  name: DalFactory
+  nameWithType: DalFactory
+  fullName: DAL.Factory.DalFactory
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Static service locator / factory for all repository singletons.
+  remarks: >-
+    <p>
+
+    Each property follows a lazy-initialization pattern (<code>_field ?? (_field = new ImplClass())</code>),
+
+    so repository instances are created on first access and reused thereafter within the process lifetime.
+
+    </p>
+
+    <p>
+
+    For single-repository (read-only) operations, use the singleton properties directly.
+
+    For multi-repository write operations that require atomicity, use
+
+    <xref href="DAL.Factory.DalFactory.CreateUnitOfWork" data-throw-if-not-resolved="false"></xref> to obtain a fresh <xref href="DAL.Contracts.IUnitOfWork" data-throw-if-not-resolved="false"></xref> instance that
+
+    shares one connection and transaction across all enrolled repositories.
+
+    </p>
+  example: []
+  syntax:
+    content: public static class DalFactory
+    content.vb: Public Module DalFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: DAL.Factory.DalFactory.CreateUnitOfWork
+  commentId: M:DAL.Factory.DalFactory.CreateUnitOfWork
+  id: CreateUnitOfWork
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateUnitOfWork()
+  nameWithType: DalFactory.CreateUnitOfWork()
+  fullName: DAL.Factory.DalFactory.CreateUnitOfWork()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Creates and returns a new <xref href="DAL.Contracts.IUnitOfWork" data-throw-if-not-resolved="false"></xref> instance for transactional, multi-repository operations.
+  example: []
+  syntax:
+    content: public static IUnitOfWork CreateUnitOfWork()
+    return:
+      type: DAL.Contracts.IUnitOfWork
+    content.vb: Public Shared Function CreateUnitOfWork() As IUnitOfWork
+  overload: DAL.Factory.DalFactory.CreateUnitOfWork*
+- uid: DAL.Factory.DalFactory.ClienteRepository
+  commentId: P:DAL.Factory.DalFactory.ClienteRepository
+  id: ClienteRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: ClienteRepository
+  nameWithType: DalFactory.ClienteRepository
+  fullName: DAL.Factory.DalFactory.ClienteRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton client repository.
+  example: []
+  syntax:
+    content: public static IClienteRepository ClienteRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IClienteRepository
+    content.vb: Public Shared ReadOnly Property ClienteRepository As IClienteRepository
+  overload: DAL.Factory.DalFactory.ClienteRepository*
+- uid: DAL.Factory.DalFactory.BalanceRepository
+  commentId: P:DAL.Factory.DalFactory.BalanceRepository
+  id: BalanceRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: BalanceRepository
+  nameWithType: DalFactory.BalanceRepository
+  fullName: DAL.Factory.DalFactory.BalanceRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton balance repository (backed by <code>vw_Balance</code> SQL view).
+  example: []
+  syntax:
+    content: public static IBalanceRepository BalanceRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IBalanceRepository
+    content.vb: Public Shared ReadOnly Property BalanceRepository As IBalanceRepository
+  overload: DAL.Factory.DalFactory.BalanceRepository*
+- uid: DAL.Factory.DalFactory.MovimientoRepository
+  commentId: P:DAL.Factory.DalFactory.MovimientoRepository
+  id: MovimientoRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: MovimientoRepository
+  nameWithType: DalFactory.MovimientoRepository
+  fullName: DAL.Factory.DalFactory.MovimientoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton ledger movement repository.
+  example: []
+  syntax:
+    content: public static IMovimientoRepository MovimientoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IMovimientoRepository
+    content.vb: Public Shared ReadOnly Property MovimientoRepository As IMovimientoRepository
+  overload: DAL.Factory.DalFactory.MovimientoRepository*
+- uid: DAL.Factory.DalFactory.MembresiaRepository
+  commentId: P:DAL.Factory.DalFactory.MembresiaRepository
+  id: MembresiaRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: MembresiaRepository
+  nameWithType: DalFactory.MembresiaRepository
+  fullName: DAL.Factory.DalFactory.MembresiaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton membership plan repository.
+  example: []
+  syntax:
+    content: public static IMembresiaRepository MembresiaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IMembresiaRepository
+    content.vb: Public Shared ReadOnly Property MembresiaRepository As IMembresiaRepository
+  overload: DAL.Factory.DalFactory.MembresiaRepository*
+- uid: DAL.Factory.DalFactory.EspacioRepository
+  commentId: P:DAL.Factory.DalFactory.EspacioRepository
+  id: EspacioRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: EspacioRepository
+  nameWithType: DalFactory.EspacioRepository
+  fullName: DAL.Factory.DalFactory.EspacioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton sports space repository.
+  example: []
+  syntax:
+    content: public static IEspacioRepository EspacioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IEspacioRepository
+    content.vb: Public Shared ReadOnly Property EspacioRepository As IEspacioRepository
+  overload: DAL.Factory.DalFactory.EspacioRepository*
+- uid: DAL.Factory.DalFactory.AgendaRepository
+  commentId: P:DAL.Factory.DalFactory.AgendaRepository
+  id: AgendaRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: AgendaRepository
+  nameWithType: DalFactory.AgendaRepository
+  fullName: DAL.Factory.DalFactory.AgendaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton agenda (operating schedule) repository.
+  example: []
+  syntax:
+    content: public static IAgendaRepository AgendaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IAgendaRepository
+    content.vb: Public Shared ReadOnly Property AgendaRepository As IAgendaRepository
+  overload: DAL.Factory.DalFactory.AgendaRepository*
+- uid: DAL.Factory.DalFactory.RutinaRepository
+  commentId: P:DAL.Factory.DalFactory.RutinaRepository
+  id: RutinaRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: RutinaRepository
+  nameWithType: DalFactory.RutinaRepository
+  fullName: DAL.Factory.DalFactory.RutinaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton workout routine repository.
+  example: []
+  syntax:
+    content: public static IRutinaRepository RutinaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IRutinaRepository
+    content.vb: Public Shared ReadOnly Property RutinaRepository As IRutinaRepository
+  overload: DAL.Factory.DalFactory.RutinaRepository*
+- uid: DAL.Factory.DalFactory.EjercicioRepository
+  commentId: P:DAL.Factory.DalFactory.EjercicioRepository
+  id: EjercicioRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: EjercicioRepository
+  nameWithType: DalFactory.EjercicioRepository
+  fullName: DAL.Factory.DalFactory.EjercicioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton exercise catalog repository.
+  example: []
+  syntax:
+    content: public static IEjercicioRepository EjercicioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IEjercicioRepository
+    content.vb: Public Shared ReadOnly Property EjercicioRepository As IEjercicioRepository
+  overload: DAL.Factory.DalFactory.EjercicioRepository*
+- uid: DAL.Factory.DalFactory.RutinaEjercicioRepository
+  commentId: P:DAL.Factory.DalFactory.RutinaEjercicioRepository
+  id: RutinaEjercicioRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: RutinaEjercicioRepository
+  nameWithType: DalFactory.RutinaEjercicioRepository
+  fullName: DAL.Factory.DalFactory.RutinaEjercicioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton routine-exercise mapping repository.
+  example: []
+  syntax:
+    content: public static IRutinaEjercicioRepository RutinaEjercicioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IRutinaEjercicioRepository
+    content.vb: Public Shared ReadOnly Property RutinaEjercicioRepository As IRutinaEjercicioRepository
+  overload: DAL.Factory.DalFactory.RutinaEjercicioRepository*
+- uid: DAL.Factory.DalFactory.PagoRepository
+  commentId: P:DAL.Factory.DalFactory.PagoRepository
+  id: PagoRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: PagoRepository
+  nameWithType: DalFactory.PagoRepository
+  fullName: DAL.Factory.DalFactory.PagoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton payment repository.
+  example: []
+  syntax:
+    content: public static IPagoRepository PagoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IPagoRepository
+    content.vb: Public Shared ReadOnly Property PagoRepository As IPagoRepository
+  overload: DAL.Factory.DalFactory.PagoRepository*
+- uid: DAL.Factory.DalFactory.ComprobanteRepository
+  commentId: P:DAL.Factory.DalFactory.ComprobanteRepository
+  id: ComprobanteRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: ComprobanteRepository
+  nameWithType: DalFactory.ComprobanteRepository
+  fullName: DAL.Factory.DalFactory.ComprobanteRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton receipt repository (SQL Server storage).
+  example: []
+  syntax:
+    content: public static IComprobanteRepository ComprobanteRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IComprobanteRepository
+    content.vb: Public Shared ReadOnly Property ComprobanteRepository As IComprobanteRepository
+  overload: DAL.Factory.DalFactory.ComprobanteRepository*
+- uid: DAL.Factory.DalFactory.ComprobanteFileRepository
+  commentId: P:DAL.Factory.DalFactory.ComprobanteFileRepository
+  id: ComprobanteFileRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: ComprobanteFileRepository
+  nameWithType: DalFactory.ComprobanteFileRepository
+  fullName: DAL.Factory.DalFactory.ComprobanteFileRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton receipt repository (file system storage).
+  example: []
+  syntax:
+    content: public static IComprobanteRepository ComprobanteFileRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IComprobanteRepository
+    content.vb: Public Shared ReadOnly Property ComprobanteFileRepository As IComprobanteRepository
+  overload: DAL.Factory.DalFactory.ComprobanteFileRepository*
+- uid: DAL.Factory.DalFactory.ReservaRepository
+  commentId: P:DAL.Factory.DalFactory.ReservaRepository
+  id: ReservaRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: ReservaRepository
+  nameWithType: DalFactory.ReservaRepository
+  fullName: DAL.Factory.DalFactory.ReservaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton reservation repository.
+  example: []
+  syntax:
+    content: public static IReservaRepository ReservaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IReservaRepository
+    content.vb: Public Shared ReadOnly Property ReservaRepository As IReservaRepository
+  overload: DAL.Factory.DalFactory.ReservaRepository*
+- uid: DAL.Factory.DalFactory.IngresoRepository
+  commentId: P:DAL.Factory.DalFactory.IngresoRepository
+  id: IngresoRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: IngresoRepository
+  nameWithType: DalFactory.IngresoRepository
+  fullName: DAL.Factory.DalFactory.IngresoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton facility check-in (ingreso) repository.
+  example: []
+  syntax:
+    content: public static IIngresoRepository IngresoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IIngresoRepository
+    content.vb: Public Shared ReadOnly Property IngresoRepository As IIngresoRepository
+  overload: DAL.Factory.DalFactory.IngresoRepository*
+- uid: DAL.Factory.DalFactory.ClienteMembresiaRepository
+  commentId: P:DAL.Factory.DalFactory.ClienteMembresiaRepository
+  id: ClienteMembresiaRepository
+  parent: DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: ClienteMembresiaRepository
+  nameWithType: DalFactory.ClienteMembresiaRepository
+  fullName: DAL.Factory.DalFactory.ClienteMembresiaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Factory
+  summary: Singleton client-membership assignment repository.
+  example: []
+  syntax:
+    content: public static IClienteMembresiaRepository ClienteMembresiaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IClienteMembresiaRepository
+    content.vb: Public Shared ReadOnly Property ClienteMembresiaRepository As IClienteMembresiaRepository
+  overload: DAL.Factory.DalFactory.ClienteMembresiaRepository*
+references:
+- uid: DAL.Factory.DalFactory.CreateUnitOfWork
+  commentId: M:DAL.Factory.DalFactory.CreateUnitOfWork
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  name: CreateUnitOfWork()
+  nameWithType: DalFactory.CreateUnitOfWork()
+  fullName: DAL.Factory.DalFactory.CreateUnitOfWork()
+  spec.csharp:
+  - uid: DAL.Factory.DalFactory.CreateUnitOfWork
+    name: CreateUnitOfWork
+    isExternal: true
+    href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Factory.DalFactory.CreateUnitOfWork
+    name: CreateUnitOfWork
+    isExternal: true
+    href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  - name: (
+  - name: )
+- uid: DAL.Contracts.IUnitOfWork
+  commentId: T:DAL.Contracts.IUnitOfWork
+  parent: DAL.Contracts
+  isExternal: true
+  href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: DAL.Contracts.IUnitOfWork
+- uid: DAL.Factory
+  commentId: N:DAL.Factory
+  isExternal: true
+  href: DAL.html
+  name: DAL.Factory
+  nameWithType: DAL.Factory
+  fullName: DAL.Factory
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Factory
+    name: Factory
+    isExternal: true
+    href: DAL.Factory.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Factory
+    name: Factory
+    isExternal: true
+    href: DAL.Factory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Factory.DalFactory.CreateUnitOfWork*
+  commentId: Overload:DAL.Factory.DalFactory.CreateUnitOfWork
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  name: CreateUnitOfWork
+  nameWithType: DalFactory.CreateUnitOfWork
+  fullName: DAL.Factory.DalFactory.CreateUnitOfWork
+- uid: DAL.Factory.DalFactory.ClienteRepository*
+  commentId: Overload:DAL.Factory.DalFactory.ClienteRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_ClienteRepository
+  name: ClienteRepository
+  nameWithType: DalFactory.ClienteRepository
+  fullName: DAL.Factory.DalFactory.ClienteRepository
+- uid: DAL.Contracts.IClienteRepository
+  commentId: T:DAL.Contracts.IClienteRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IClienteRepository.html
+  name: IClienteRepository
+  nameWithType: IClienteRepository
+  fullName: DAL.Contracts.IClienteRepository
+- uid: DAL.Factory.DalFactory.BalanceRepository*
+  commentId: Overload:DAL.Factory.DalFactory.BalanceRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_BalanceRepository
+  name: BalanceRepository
+  nameWithType: DalFactory.BalanceRepository
+  fullName: DAL.Factory.DalFactory.BalanceRepository
+- uid: DAL.Contracts.IBalanceRepository
+  commentId: T:DAL.Contracts.IBalanceRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IBalanceRepository.html
+  name: IBalanceRepository
+  nameWithType: IBalanceRepository
+  fullName: DAL.Contracts.IBalanceRepository
+- uid: DAL.Factory.DalFactory.MovimientoRepository*
+  commentId: Overload:DAL.Factory.DalFactory.MovimientoRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_MovimientoRepository
+  name: MovimientoRepository
+  nameWithType: DalFactory.MovimientoRepository
+  fullName: DAL.Factory.DalFactory.MovimientoRepository
+- uid: DAL.Contracts.IMovimientoRepository
+  commentId: T:DAL.Contracts.IMovimientoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IMovimientoRepository.html
+  name: IMovimientoRepository
+  nameWithType: IMovimientoRepository
+  fullName: DAL.Contracts.IMovimientoRepository
+- uid: DAL.Factory.DalFactory.MembresiaRepository*
+  commentId: Overload:DAL.Factory.DalFactory.MembresiaRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_MembresiaRepository
+  name: MembresiaRepository
+  nameWithType: DalFactory.MembresiaRepository
+  fullName: DAL.Factory.DalFactory.MembresiaRepository
+- uid: DAL.Contracts.IMembresiaRepository
+  commentId: T:DAL.Contracts.IMembresiaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IMembresiaRepository.html
+  name: IMembresiaRepository
+  nameWithType: IMembresiaRepository
+  fullName: DAL.Contracts.IMembresiaRepository
+- uid: DAL.Factory.DalFactory.EspacioRepository*
+  commentId: Overload:DAL.Factory.DalFactory.EspacioRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_EspacioRepository
+  name: EspacioRepository
+  nameWithType: DalFactory.EspacioRepository
+  fullName: DAL.Factory.DalFactory.EspacioRepository
+- uid: DAL.Contracts.IEspacioRepository
+  commentId: T:DAL.Contracts.IEspacioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IEspacioRepository.html
+  name: IEspacioRepository
+  nameWithType: IEspacioRepository
+  fullName: DAL.Contracts.IEspacioRepository
+- uid: DAL.Factory.DalFactory.AgendaRepository*
+  commentId: Overload:DAL.Factory.DalFactory.AgendaRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_AgendaRepository
+  name: AgendaRepository
+  nameWithType: DalFactory.AgendaRepository
+  fullName: DAL.Factory.DalFactory.AgendaRepository
+- uid: DAL.Contracts.IAgendaRepository
+  commentId: T:DAL.Contracts.IAgendaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html
+  name: IAgendaRepository
+  nameWithType: IAgendaRepository
+  fullName: DAL.Contracts.IAgendaRepository
+- uid: DAL.Factory.DalFactory.RutinaRepository*
+  commentId: Overload:DAL.Factory.DalFactory.RutinaRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_RutinaRepository
+  name: RutinaRepository
+  nameWithType: DalFactory.RutinaRepository
+  fullName: DAL.Factory.DalFactory.RutinaRepository
+- uid: DAL.Contracts.IRutinaRepository
+  commentId: T:DAL.Contracts.IRutinaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IRutinaRepository.html
+  name: IRutinaRepository
+  nameWithType: IRutinaRepository
+  fullName: DAL.Contracts.IRutinaRepository
+- uid: DAL.Factory.DalFactory.EjercicioRepository*
+  commentId: Overload:DAL.Factory.DalFactory.EjercicioRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_EjercicioRepository
+  name: EjercicioRepository
+  nameWithType: DalFactory.EjercicioRepository
+  fullName: DAL.Factory.DalFactory.EjercicioRepository
+- uid: DAL.Contracts.IEjercicioRepository
+  commentId: T:DAL.Contracts.IEjercicioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IEjercicioRepository.html
+  name: IEjercicioRepository
+  nameWithType: IEjercicioRepository
+  fullName: DAL.Contracts.IEjercicioRepository
+- uid: DAL.Factory.DalFactory.RutinaEjercicioRepository*
+  commentId: Overload:DAL.Factory.DalFactory.RutinaEjercicioRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_RutinaEjercicioRepository
+  name: RutinaEjercicioRepository
+  nameWithType: DalFactory.RutinaEjercicioRepository
+  fullName: DAL.Factory.DalFactory.RutinaEjercicioRepository
+- uid: DAL.Contracts.IRutinaEjercicioRepository
+  commentId: T:DAL.Contracts.IRutinaEjercicioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IRutinaEjercicioRepository.html
+  name: IRutinaEjercicioRepository
+  nameWithType: IRutinaEjercicioRepository
+  fullName: DAL.Contracts.IRutinaEjercicioRepository
+- uid: DAL.Factory.DalFactory.PagoRepository*
+  commentId: Overload:DAL.Factory.DalFactory.PagoRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_PagoRepository
+  name: PagoRepository
+  nameWithType: DalFactory.PagoRepository
+  fullName: DAL.Factory.DalFactory.PagoRepository
+- uid: DAL.Contracts.IPagoRepository
+  commentId: T:DAL.Contracts.IPagoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IPagoRepository.html
+  name: IPagoRepository
+  nameWithType: IPagoRepository
+  fullName: DAL.Contracts.IPagoRepository
+- uid: DAL.Factory.DalFactory.ComprobanteRepository*
+  commentId: Overload:DAL.Factory.DalFactory.ComprobanteRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_ComprobanteRepository
+  name: ComprobanteRepository
+  nameWithType: DalFactory.ComprobanteRepository
+  fullName: DAL.Factory.DalFactory.ComprobanteRepository
+- uid: DAL.Contracts.IComprobanteRepository
+  commentId: T:DAL.Contracts.IComprobanteRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html
+  name: IComprobanteRepository
+  nameWithType: IComprobanteRepository
+  fullName: DAL.Contracts.IComprobanteRepository
+- uid: DAL.Factory.DalFactory.ComprobanteFileRepository*
+  commentId: Overload:DAL.Factory.DalFactory.ComprobanteFileRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_ComprobanteFileRepository
+  name: ComprobanteFileRepository
+  nameWithType: DalFactory.ComprobanteFileRepository
+  fullName: DAL.Factory.DalFactory.ComprobanteFileRepository
+- uid: DAL.Factory.DalFactory.ReservaRepository*
+  commentId: Overload:DAL.Factory.DalFactory.ReservaRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_ReservaRepository
+  name: ReservaRepository
+  nameWithType: DalFactory.ReservaRepository
+  fullName: DAL.Factory.DalFactory.ReservaRepository
+- uid: DAL.Contracts.IReservaRepository
+  commentId: T:DAL.Contracts.IReservaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IReservaRepository.html
+  name: IReservaRepository
+  nameWithType: IReservaRepository
+  fullName: DAL.Contracts.IReservaRepository
+- uid: DAL.Factory.DalFactory.IngresoRepository*
+  commentId: Overload:DAL.Factory.DalFactory.IngresoRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_IngresoRepository
+  name: IngresoRepository
+  nameWithType: DalFactory.IngresoRepository
+  fullName: DAL.Factory.DalFactory.IngresoRepository
+- uid: DAL.Contracts.IIngresoRepository
+  commentId: T:DAL.Contracts.IIngresoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IIngresoRepository.html
+  name: IIngresoRepository
+  nameWithType: IIngresoRepository
+  fullName: DAL.Contracts.IIngresoRepository
+- uid: DAL.Factory.DalFactory.ClienteMembresiaRepository*
+  commentId: Overload:DAL.Factory.DalFactory.ClienteMembresiaRepository
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_ClienteMembresiaRepository
+  name: ClienteMembresiaRepository
+  nameWithType: DalFactory.ClienteMembresiaRepository
+  fullName: DAL.Factory.DalFactory.ClienteMembresiaRepository
+- uid: DAL.Contracts.IClienteMembresiaRepository
+  commentId: T:DAL.Contracts.IClienteMembresiaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IClienteMembresiaRepository.html
+  name: IClienteMembresiaRepository
+  nameWithType: IClienteMembresiaRepository
+  fullName: DAL.Contracts.IClienteMembresiaRepository

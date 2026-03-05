@@ -1,0 +1,633 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  id: MembresiaManager
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.#ctor
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia(BLL.DTOs.MembresiaDTO)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia(BLL.DTOs.MembresiaDTO)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia(System.Guid)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias(System.Boolean)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: MembresiaManager
+  nameWithType: MembresiaManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  type: Class
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public class MembresiaManager
+    content.vb: Public Class MembresiaManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.#ctor
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.#ctor
+  id: '#ctor'
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  langs:
+  - csharp
+  - vb
+  name: MembresiaManager()
+  nameWithType: MembresiaManager.MembresiaManager()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.MembresiaManager()
+  type: Constructor
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public MembresiaManager()
+    content.vb: Public Sub New()
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.#ctor*
+  nameWithType.vb: MembresiaManager.New()
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.New()
+  name.vb: New()
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia(BLL.DTOs.MembresiaDTO)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia(BLL.DTOs.MembresiaDTO)
+  id: CrearMembresia(BLL.DTOs.MembresiaDTO)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  langs:
+  - csharp
+  - vb
+  name: CrearMembresia(MembresiaDTO)
+  nameWithType: MembresiaManager.CrearMembresia(MembresiaDTO)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia(BLL.DTOs.MembresiaDTO)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void CrearMembresia(MembresiaDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.MembresiaDTO
+    content.vb: Public Sub CrearMembresia(dto As MembresiaDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia(BLL.DTOs.MembresiaDTO)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia(BLL.DTOs.MembresiaDTO)
+  id: ActualizarMembresia(BLL.DTOs.MembresiaDTO)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  langs:
+  - csharp
+  - vb
+  name: ActualizarMembresia(MembresiaDTO)
+  nameWithType: MembresiaManager.ActualizarMembresia(MembresiaDTO)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia(BLL.DTOs.MembresiaDTO)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void ActualizarMembresia(MembresiaDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.MembresiaDTO
+    content.vb: Public Sub ActualizarMembresia(dto As MembresiaDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia(System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia(System.Guid)
+  id: DeshabilitarMembresia(System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  langs:
+  - csharp
+  - vb
+  name: DeshabilitarMembresia(Guid)
+  nameWithType: MembresiaManager.DeshabilitarMembresia(Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia(System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void DeshabilitarMembresia(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    content.vb: Public Sub DeshabilitarMembresia(id As Guid)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias(System.Boolean)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias(System.Boolean)
+  id: ListarMembresias(System.Boolean)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  langs:
+  - csharp
+  - vb
+  name: ListarMembresias(bool)
+  nameWithType: MembresiaManager.ListarMembresias(bool)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias(bool)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public List<MembresiaDTO> ListarMembresias(bool soloActivas)
+    parameters:
+    - id: soloActivas
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.MembresiaDTO}
+    content.vb: Public Function ListarMembresias(soloActivas As Boolean) As List(Of MembresiaDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias*
+  nameWithType.vb: MembresiaManager.ListarMembresias(Boolean)
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias(Boolean)
+  name.vb: ListarMembresias(Boolean)
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia(System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia(System.Guid)
+  id: ObtenerMembresia(System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager
+  langs:
+  - csharp
+  - vb
+  name: ObtenerMembresia(Guid)
+  nameWithType: MembresiaManager.ObtenerMembresia(Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia(System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public MembresiaDTO ObtenerMembresia(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    return:
+      type: BLL.DTOs.MembresiaDTO
+    content.vb: Public Function ObtenerMembresia(id As Guid) As MembresiaDTO
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia*
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  spec.csharp:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+  spec.vb:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.#ctor*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.#ctor
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_MembresiaManager__ctor
+  name: MembresiaManager
+  nameWithType: MembresiaManager.MembresiaManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.MembresiaManager
+  nameWithType.vb: MembresiaManager.New
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.New
+  name.vb: New
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_MembresiaManager_CrearMembresia_BLL_DTOs_MembresiaDTO_
+  name: CrearMembresia
+  nameWithType: MembresiaManager.CrearMembresia
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.CrearMembresia
+- uid: BLL.DTOs.MembresiaDTO
+  commentId: T:BLL.DTOs.MembresiaDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html
+  name: MembresiaDTO
+  nameWithType: MembresiaDTO
+  fullName: BLL.DTOs.MembresiaDTO
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_MembresiaManager_ActualizarMembresia_BLL_DTOs_MembresiaDTO_
+  name: ActualizarMembresia
+  nameWithType: MembresiaManager.ActualizarMembresia
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ActualizarMembresia
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_MembresiaManager_DeshabilitarMembresia_System_Guid_
+  name: DeshabilitarMembresia
+  nameWithType: MembresiaManager.DeshabilitarMembresia
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.DeshabilitarMembresia
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_MembresiaManager_ListarMembresias_System_Boolean_
+  name: ListarMembresias
+  nameWithType: MembresiaManager.ListarMembresias
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ListarMembresias
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.List{BLL.DTOs.MembresiaDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.MembresiaDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<MembresiaDTO>
+  nameWithType: List<MembresiaDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.MembresiaDTO>
+  nameWithType.vb: List(Of MembresiaDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.MembresiaDTO)
+  name.vb: List(Of MembresiaDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.MembresiaDTO
+    name: MembresiaDTO
+    isExternal: true
+    href: BLL.DTOs.MembresiaDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.MembresiaDTO
+    name: MembresiaDTO
+    isExternal: true
+    href: BLL.DTOs.MembresiaDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_MembresiaManager_ObtenerMembresia_System_Guid_
+  name: ObtenerMembresia
+  nameWithType: MembresiaManager.ObtenerMembresia
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.ObtenerMembresia

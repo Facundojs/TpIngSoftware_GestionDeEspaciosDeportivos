@@ -1,0 +1,189 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Enums.TipoMovimiento
+  commentId: T:Domain.Enums.TipoMovimiento
+  id: TipoMovimiento
+  parent: Domain.Enums
+  children:
+  - Domain.Enums.TipoMovimiento.CancelacionReserva
+  - Domain.Enums.TipoMovimiento.DeudaMembresia
+  - Domain.Enums.TipoMovimiento.DeudaReserva
+  - Domain.Enums.TipoMovimiento.PagoGenerico
+  - Domain.Enums.TipoMovimiento.PagoMembresia
+  - Domain.Enums.TipoMovimiento.PagoReserva
+  - Domain.Enums.TipoMovimiento.Reembolso
+  langs:
+  - csharp
+  - vb
+  name: TipoMovimiento
+  nameWithType: TipoMovimiento
+  fullName: Domain.Enums.TipoMovimiento
+  type: Enum
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: public enum TipoMovimiento
+    content.vb: Public Enum TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.DeudaMembresia
+  commentId: F:Domain.Enums.TipoMovimiento.DeudaMembresia
+  id: DeudaMembresia
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: DeudaMembresia
+  nameWithType: TipoMovimiento.DeudaMembresia
+  fullName: Domain.Enums.TipoMovimiento.DeudaMembresia
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DeudaMembresia = 0
+    return:
+      type: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.DeudaReserva
+  commentId: F:Domain.Enums.TipoMovimiento.DeudaReserva
+  id: DeudaReserva
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: DeudaReserva
+  nameWithType: TipoMovimiento.DeudaReserva
+  fullName: Domain.Enums.TipoMovimiento.DeudaReserva
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DeudaReserva = 1
+    return:
+      type: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.PagoReserva
+  commentId: F:Domain.Enums.TipoMovimiento.PagoReserva
+  id: PagoReserva
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: PagoReserva
+  nameWithType: TipoMovimiento.PagoReserva
+  fullName: Domain.Enums.TipoMovimiento.PagoReserva
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: PagoReserva = 2
+    return:
+      type: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.CancelacionReserva
+  commentId: F:Domain.Enums.TipoMovimiento.CancelacionReserva
+  id: CancelacionReserva
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: CancelacionReserva
+  nameWithType: TipoMovimiento.CancelacionReserva
+  fullName: Domain.Enums.TipoMovimiento.CancelacionReserva
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: CancelacionReserva = 3
+    return:
+      type: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.Reembolso
+  commentId: F:Domain.Enums.TipoMovimiento.Reembolso
+  id: Reembolso
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: Reembolso
+  nameWithType: TipoMovimiento.Reembolso
+  fullName: Domain.Enums.TipoMovimiento.Reembolso
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Reembolso = 4
+    return:
+      type: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.PagoGenerico
+  commentId: F:Domain.Enums.TipoMovimiento.PagoGenerico
+  id: PagoGenerico
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: PagoGenerico
+  nameWithType: TipoMovimiento.PagoGenerico
+  fullName: Domain.Enums.TipoMovimiento.PagoGenerico
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: PagoGenerico = 5
+    return:
+      type: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums.TipoMovimiento.PagoMembresia
+  commentId: F:Domain.Enums.TipoMovimiento.PagoMembresia
+  id: PagoMembresia
+  parent: Domain.Enums.TipoMovimiento
+  langs:
+  - csharp
+  - vb
+  name: PagoMembresia
+  nameWithType: TipoMovimiento.PagoMembresia
+  fullName: Domain.Enums.TipoMovimiento.PagoMembresia
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: PagoMembresia = 6
+    return:
+      type: Domain.Enums.TipoMovimiento
+references:
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: Domain.Enums.TipoMovimiento
+  commentId: T:Domain.Enums.TipoMovimiento
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.TipoMovimiento.html
+  name: TipoMovimiento
+  nameWithType: TipoMovimiento
+  fullName: Domain.Enums.TipoMovimiento

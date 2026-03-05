@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DAL</name>
+    </assembly>
+    <members>
+        <member name="T:DAL.Contracts.IAgendaRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Agenda"/> records that define the weekly operating
+            schedule of a sports space.
+            </summary>
+            <remarks>
+            Agenda records are managed as a complete set per space: configuration always deletes
+            all existing records via <see cref="M:DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)"/> and re-inserts the new set
+            within the same transaction.
+            </remarks>
+        </member>
+        <member name="M:DAL.Contracts.IAgendaRepository.CrearAgenda(Domain.Entities.Agenda)">
+            <summary>Inserts a single agenda time block.</summary>
+            <param name="obj">The agenda block to create.</param>
+        </member>
+        <member name="M:DAL.Contracts.IAgendaRepository.GetByEspacio(System.Guid)">
+            <summary>Retrieves all agenda blocks configured for a given space.</summary>
+            <param name="espacioId">The space whose schedule to fetch.</param>
+            <returns>List of agenda blocks; empty list if no schedule is configured.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)">
+            <summary>
+            Deletes all agenda blocks for the specified space in preparation for a full re-configuration.
+            </summary>
+            <param name="espacioId">The space whose agenda will be cleared.</param>
+        </member>
+        <member name="T:DAL.Contracts.IClienteRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Cliente"/> entities, extending standard CRUD with
+            client-specific lookup and membership operations.
+            </summary>
+        </member>
+        <member name="M:DAL.Contracts.IClienteRepository.GetByDNI(System.Int32)">
+            <summary>Retrieves a client by their national identity number (DNI).</summary>
+            <param name="dni">The DNI to search for.</param>
+            <returns>The matching <see cref="T:Domain.Entities.Cliente"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IClienteRepository.ExistsByDNI(System.Int32)">
+            <summary>Determines whether a client with the given <paramref name="dni"/> already exists.</summary>
+            <param name="dni">The DNI to check.</param>
+            <returns><c>true</c> if a client with that DNI exists; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IClienteRepository.AsignarMembresia(System.Guid,System.Guid)">
+            <summary>
+            Updates the active membership reference on the client record.
+            </summary>
+            <param name="clienteId">The client to update.</param>
+            <param name="membresiaId">The new membership identifier.</param>
+        </member>
+        <member name="M:DAL.Contracts.IClienteRepository.HasActiveClientsByMembresia(System.Guid)">
+            <summary>
+            Determines whether any active client is currently subscribed to the specified membership.
+            Used to prevent disabling a membership that is still in use.
+            </summary>
+            <param name="membresiaId">The membership to check.</param>
+            <returns><c>true</c> if at least one active client holds this membership.</returns>
+        </member>
+        <member name="T:DAL.Contracts.IEspacioRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Espacio"/> (sports space) entities, extending standard CRUD
+            with availability-filtered listing.
+            </summary>
+        </member>
+        <member name="M:DAL.Contracts.IEspacioRepository.ListarDisponibles">
+            <summary>
+            Retrieves only spaces whose status is <c>Activo</c>.
+            Used when presenting spaces available for reservation.
+            </summary>
+            <returns>List of active spaces; empty list if none.</returns>
+        </member>
+        <member name="T:DAL.Contracts.IMembresiaRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Membresia"/> (membership plan) entities, extending
+            standard CRUD with plan-specific lookups.
+            </summary>
+        </member>
+        <member name="M:DAL.Contracts.IMembresiaRepository.GetByCodigo(System.Int32)">
+            <summary>Retrieves a membership plan by its sequential numeric code.</summary>
+            <param name="codigo">The numeric membership code.</param>
+            <returns>The matching <see cref="T:Domain.Entities.Membresia"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IMembresiaRepository.ListarActivas">
+            <summary>Retrieves all membership plans that have <c>Activa = true</c>.</summary>
+            <returns>List of active plans; empty list if none.</returns>
+        </member>
+        <member name="T:DAL.Contracts.IMovimientoRepository">
+            <summary>
+            Repository contract for ledger <see cref="T:Domain.Entities.Movimiento"/> (movement) records.
+            </summary>
+            <remarks>
+            Movements are append-only; there are no update or delete operations.
+            The client balance is derived from the aggregate of all movements via the <c>vw_Balance</c> SQL view.
+            </remarks>
+        </member>
+        <member name="M:DAL.Contracts.IMovimientoRepository.Insertar(Domain.Entities.Movimiento)">
+            <summary>Appends a new ledger movement record.</summary>
+            <param name="obj">The movement to insert.</param>
+        </member>
+        <member name="T:DAL.Contracts.IPagoRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Pago"/> entities, extending standard CRUD with
+            payment-specific query operations.
+            </summary>
+        </member>
+        <member name="M:DAL.Contracts.IPagoRepository.GetByCliente(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Retrieves payments for a client, optionally filtered by a date range.
+            </summary>
+            <param name="clienteId">The client whose payments to fetch.</param>
+            <param name="desde">Optional inclusive lower bound on payment date.</param>
+            <param name="hasta">Optional inclusive upper bound on payment date.</param>
+            <returns>List of matching payments; empty list if none.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IPagoRepository.GetByCodigo(System.Int32)">
+            <summary>Retrieves a payment by its sequential numeric code.</summary>
+            <param name="codigo">The numeric payment code.</param>
+            <returns>The matching <see cref="T:Domain.Entities.Pago"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IPagoRepository.GetByReserva(System.Guid)">
+            <summary>Retrieves all payments associated with a specific reservation.</summary>
+            <param name="reservaId">The reservation whose payments to fetch.</param>
+            <returns>List of payments for the reservation; empty list if none.</returns>
+        </member>
+        <member name="T:DAL.Contracts.IReservaRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Reserva"/> entities, extending standard CRUD with
+            reservation-specific query and availability check operations.
+            </summary>
+        </member>
+        <member name="M:DAL.Contracts.IReservaRepository.GetByEspacio(System.Guid,System.DateTime,System.DateTime)">
+            <summary>
+            Retrieves all reservations for a given space within a date-time range.
+            </summary>
+            <param name="espacioId">The space to filter by.</param>
+            <param name="desde">Inclusive lower bound of the date range.</param>
+            <param name="hasta">Inclusive upper bound of the date range.</param>
+            <returns>List of matching reservations; empty list if none.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IReservaRepository.GetByCliente(System.Guid)">
+            <summary>Retrieves all reservations belonging to a specific client.</summary>
+            <param name="clienteId">The client whose reservations to fetch.</param>
+            <returns>List of the client's reservations; empty list if none.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IReservaRepository.GetByCodigo(System.String)">
+            <summary>Retrieves a reservation by its unique human-readable code.</summary>
+            <param name="codigoReserva">The reservation code (e.g., <c>"RES-123456-ABCD"</c>).</param>
+            <returns>The matching <see cref="T:Domain.Entities.Reserva"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IReservaRepository.EspacioDisponible(System.Guid,System.DateTime,System.Int32)">
+            <summary>
+            Checks whether a space is available for a reservation starting at <paramref name="fechaHora"/>
+            for <paramref name="duracion"/> minutes.
+            </summary>
+            <param name="espacioId">The space to check.</param>
+            <param name="fechaHora">Proposed start date and time.</param>
+            <param name="duracion">Duration in minutes.</param>
+            <returns><c>true</c> if no conflicting active reservation exists; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:DAL.Contracts.IRutinaRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Entities.Rutina"/> entities, extending standard CRUD with
+            routine lifecycle operations.
+            </summary>
+        </member>
+        <member name="M:DAL.Contracts.IRutinaRepository.GetActivaByCliente(System.Guid)">
+            <summary>
+            Retrieves the currently active (open-ended) routine for a client.
+            A routine is active when its <c>Hasta</c> field is <c>null</c>.
+            </summary>
+            <param name="clienteId">The client to look up.</param>
+            <returns>The active <see cref="T:Domain.Entities.Rutina"/>, or <c>null</c> if the client has no active routine.</returns>
+        </member>
+        <member name="M:DAL.Contracts.IRutinaRepository.FinalizarRutina(System.Guid)">
+            <summary>
+            Closes a routine by setting its <c>Hasta</c> field to the current date-time.
+            Called when creating a new routine for a client who already has one active.
+            </summary>
+            <param name="rutinaId">The routine to finalize.</param>
+        </member>
+        <member name="T:DAL.Contracts.IUnitOfWork">
+            <summary>
+            Defines a transactional scope that shares a single database connection across multiple repositories.
+            </summary>
+            <remarks>
+            <para>
+            Obtain a new instance from <see cref="M:DAL.Factory.DalFactory.CreateUnitOfWork"/>.
+            The intended usage pattern is:
+            <code>
+            using (var uow = DalFactory.CreateUnitOfWork())
+            {
+                uow.BeginTransaction();
+                // use uow.*Repository to perform coordinated writes
+                uow.Commit();
+            }
+            </code>
+            </para>
+            <para>
+            If <see cref="M:DAL.Contracts.IUnitOfWork.Commit"/> is never called, <see cref="M:System.IDisposable.Dispose"/> will automatically
+            roll back any open transaction when the <c>using</c> block exits.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:DAL.Contracts.IUnitOfWork.BeginTransaction">
+            <summary>Opens the shared database connection and begins a transaction.</summary>
+        </member>
+        <member name="M:DAL.Contracts.IUnitOfWork.Commit">
+            <summary>Commits all pending changes and closes the connection.</summary>
+        </member>
+        <member name="M:DAL.Contracts.IUnitOfWork.Rollback">
+            <summary>Discards all pending changes and closes the connection.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.AgendaRepository">
+            <summary>Repository for agenda (operating schedule) operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.ClienteRepository">
+            <summary>Repository for client operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.PagoRepository">
+            <summary>Repository for payment operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.ReservaRepository">
+            <summary>Repository for reservation operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.RutinaRepository">
+            <summary>Repository for workout routine operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.MovimientoRepository">
+            <summary>Repository for ledger movement (debit/credit) insertions.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository">
+            <summary>Repository for client-membership assignment operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository">
+            <summary>Repository for routine-exercise mapping operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.MembresiaRepository">
+            <summary>Repository for membership plan operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.EjercicioRepository">
+            <summary>Repository for exercise catalog operations.</summary>
+        </member>
+        <member name="P:DAL.Contracts.IUnitOfWork.EspacioRepository">
+            <summary>Repository for sports space operations.</summary>
+        </member>
+        <member name="T:DAL.Factory.DalFactory">
+            <summary>
+            Static service locator / factory for all repository singletons.
+            </summary>
+            <remarks>
+            <para>
+            Each property follows a lazy-initialization pattern (<c>_field ?? (_field = new ImplClass())</c>),
+            so repository instances are created on first access and reused thereafter within the process lifetime.
+            </para>
+            <para>
+            For single-repository (read-only) operations, use the singleton properties directly.
+            For multi-repository write operations that require atomicity, use
+            <see cref="M:DAL.Factory.DalFactory.CreateUnitOfWork"/> to obtain a fresh <see cref="T:DAL.Contracts.IUnitOfWork"/> instance that
+            shares one connection and transaction across all enrolled repositories.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:DAL.Factory.DalFactory.CreateUnitOfWork">
+            <summary>Creates and returns a new <see cref="T:DAL.Contracts.IUnitOfWork"/> instance for transactional, multi-repository operations.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.ClienteRepository">
+            <summary>Singleton client repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.BalanceRepository">
+            <summary>Singleton balance repository (backed by <c>vw_Balance</c> SQL view).</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.MovimientoRepository">
+            <summary>Singleton ledger movement repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.MembresiaRepository">
+            <summary>Singleton membership plan repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.EspacioRepository">
+            <summary>Singleton sports space repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.AgendaRepository">
+            <summary>Singleton agenda (operating schedule) repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.RutinaRepository">
+            <summary>Singleton workout routine repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.EjercicioRepository">
+            <summary>Singleton exercise catalog repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.RutinaEjercicioRepository">
+            <summary>Singleton routine-exercise mapping repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.PagoRepository">
+            <summary>Singleton payment repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.ComprobanteRepository">
+            <summary>Singleton receipt repository (SQL Server storage).</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.ComprobanteFileRepository">
+            <summary>Singleton receipt repository (file system storage).</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.ReservaRepository">
+            <summary>Singleton reservation repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.IngresoRepository">
+            <summary>Singleton facility check-in (ingreso) repository.</summary>
+        </member>
+        <member name="P:DAL.Factory.DalFactory.ClienteMembresiaRepository">
+            <summary>Singleton client-membership assignment repository.</summary>
+        </member>
+        <member name="T:DAL.Impl.BaseBusinessSqlRepository">
+            <summary>
+            Base class for all business-domain SQL repositories.
+            Extends <see cref="T:Service.Impl.BaseRepository"/> with support for shared <see cref="T:System.Data.SqlClient.SqlConnection"/>
+            and <see cref="T:System.Data.SqlClient.SqlTransaction"/> injection by <see cref="T:DAL.Impl.SqlServer.UnitOfWork"/>.
+            </summary>
+            <remarks>
+            When <see cref="P:DAL.Impl.BaseBusinessSqlRepository.CurrentConnection"/> is set (i.e., the repository is enrolled in a UoW
+            transaction), the shadowed helper methods use the shared connection/transaction instead of
+            opening a new one. When not enrolled, they fall back to the base class behaviour.
+            </remarks>
+        </member>
+        <member name="P:DAL.Impl.BaseBusinessSqlRepository.CurrentConnection">
+            <summary>
+            Shared connection injected by <see cref="M:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction"/>.
+            <c>null</c> when the repository is used outside of a transaction.
+            </summary>
+        </member>
+        <member name="P:DAL.Impl.BaseBusinessSqlRepository.CurrentTransaction">
+            <summary>
+            Active transaction injected by <see cref="M:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction"/>.
+            <c>null</c> when the repository is used outside of a transaction.
+            </summary>
+        </member>
+        <member name="M:DAL.Impl.BaseBusinessSqlRepository.#ctor">
+            <summary>
+            Initializes the repository using the <see cref="F:Service.Helpers.ConnectionManager.BusinessConnectionName"/> connection string.
+            </summary>
+        </member>
+        <member name="M:DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Executes a non-query, routing through the active UoW connection/transaction when available.
+            </summary>
+        </member>
+        <member name="M:DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})">
+            <summary>
+            Executes a reader query on the active UoW connection when enrolled; otherwise opens a new connection.
+            </summary>
+        </member>
+        <member name="M:DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Executes a scalar query on the active UoW connection when enrolled; otherwise opens a new connection.
+            </summary>
+        </member>
+        <member name="T:DAL.Impl.SqlServer.UnitOfWork">
+            <summary>
+            Implements the Unit of Work pattern for SQL Server.
+            Manages a single <see cref="T:System.Data.SqlClient.SqlConnection"/> and <see cref="T:System.Data.SqlClient.SqlTransaction"/> shared across
+            all enrolled repositories for the duration of one logical operation.
+            </summary>
+            <remarks>
+            <para>
+            Obtain an instance via <see cref="M:DAL.Factory.DalFactory.CreateUnitOfWork"/>.
+            Usage pattern:
+            <code>
+            using (var uow = DalFactory.CreateUnitOfWork())
+            {
+                uow.BeginTransaction();
+                // ...operations on uow.*Repository...
+                uow.Commit();
+            }
+            </code>
+            </para>
+            <para>
+            After <see cref="M:DAL.Impl.SqlServer.UnitOfWork.Commit"/> or <see cref="M:DAL.Impl.SqlServer.UnitOfWork.Rollback"/>, the instance is <em>spent</em>
+            and cannot be reused; <see cref="M:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction"/> will throw <see cref="T:System.ObjectDisposedException"/>.
+            <see cref="M:DAL.Impl.SqlServer.UnitOfWork.Dispose"/> will roll back any uncommitted transaction if the <c>using</c> block
+            exits without an explicit commit.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:DAL.Impl.SqlServer.UnitOfWork.#ctor">
+            <summary>Constructs all repository instances without opening a connection.</summary>
+        </member>
+        <member name="M:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction">
+            <summary>
+            Opens the shared connection and begins a database transaction, injecting both into all repositories.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">Thrown if the instance has already been disposed or spent.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if a transaction is already active on this instance.</exception>
+        </member>
+        <member name="M:DAL.Impl.SqlServer.UnitOfWork.Commit">
+            <summary>Commits the active transaction and closes the shared connection.</summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if no transaction is active.</exception>
+        </member>
+        <member name="M:DAL.Impl.SqlServer.UnitOfWork.Rollback">
+            <summary>
+            Rolls back the active transaction and closes the shared connection.
+            Safe to call even when no transaction is active (no-op in that case).
+            </summary>
+        </member>
+        <member name="M:DAL.Impl.SqlServer.UnitOfWork.Dispose">
+            <summary>
+            Rolls back any uncommitted transaction and releases all resources.
+            Called automatically at the end of a <c>using</c> block.
+            </summary>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.AgendaRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.ClienteRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.PagoRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.ReservaRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.RutinaRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository">
+            <inheritdoc/>
+        </member>
+        <member name="P:DAL.Impl.SqlServer.UnitOfWork.EspacioRepository">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

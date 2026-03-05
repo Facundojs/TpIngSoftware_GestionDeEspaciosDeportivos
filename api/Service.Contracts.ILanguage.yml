@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Contracts.ILanguage
+  commentId: T:Service.Contracts.ILanguage
+  id: ILanguage
+  parent: Service.Contracts
+  children:
+  - Service.Contracts.ILanguage.GetLanguages
+  - Service.Contracts.ILanguage.LoadUserLanguage
+  - Service.Contracts.ILanguage.SaveUserLanguage(System.String)
+  - Service.Contracts.ILanguage.Translate(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILanguage
+  nameWithType: ILanguage
+  fullName: Service.Contracts.ILanguage
+  type: Interface
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  syntax:
+    content: public interface ILanguage
+    content.vb: Public Interface ILanguage
+  derivedClasses:
+  - Service.Impl.Text.LanguageManager
+- uid: Service.Contracts.ILanguage.Translate(System.String)
+  commentId: M:Service.Contracts.ILanguage.Translate(System.String)
+  id: Translate(System.String)
+  parent: Service.Contracts.ILanguage
+  langs:
+  - csharp
+  - vb
+  name: Translate(string)
+  nameWithType: ILanguage.Translate(string)
+  fullName: Service.Contracts.ILanguage.Translate(string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  syntax:
+    content: string Translate(string key)
+    parameters:
+    - id: key
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Function Translate(key As String) As String
+  overload: Service.Contracts.ILanguage.Translate*
+  nameWithType.vb: ILanguage.Translate(String)
+  fullName.vb: Service.Contracts.ILanguage.Translate(String)
+  name.vb: Translate(String)
+- uid: Service.Contracts.ILanguage.GetLanguages
+  commentId: M:Service.Contracts.ILanguage.GetLanguages
+  id: GetLanguages
+  parent: Service.Contracts.ILanguage
+  langs:
+  - csharp
+  - vb
+  name: GetLanguages()
+  nameWithType: ILanguage.GetLanguages()
+  fullName: Service.Contracts.ILanguage.GetLanguages()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  syntax:
+    content: Dictionary<string, string> GetLanguages()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Function GetLanguages() As Dictionary(Of String, String)
+  overload: Service.Contracts.ILanguage.GetLanguages*
+- uid: Service.Contracts.ILanguage.SaveUserLanguage(System.String)
+  commentId: M:Service.Contracts.ILanguage.SaveUserLanguage(System.String)
+  id: SaveUserLanguage(System.String)
+  parent: Service.Contracts.ILanguage
+  langs:
+  - csharp
+  - vb
+  name: SaveUserLanguage(string)
+  nameWithType: ILanguage.SaveUserLanguage(string)
+  fullName: Service.Contracts.ILanguage.SaveUserLanguage(string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  syntax:
+    content: void SaveUserLanguage(string languageCode)
+    parameters:
+    - id: languageCode
+      type: System.String
+    content.vb: Sub SaveUserLanguage(languageCode As String)
+  overload: Service.Contracts.ILanguage.SaveUserLanguage*
+  nameWithType.vb: ILanguage.SaveUserLanguage(String)
+  fullName.vb: Service.Contracts.ILanguage.SaveUserLanguage(String)
+  name.vb: SaveUserLanguage(String)
+- uid: Service.Contracts.ILanguage.LoadUserLanguage
+  commentId: M:Service.Contracts.ILanguage.LoadUserLanguage
+  id: LoadUserLanguage
+  parent: Service.Contracts.ILanguage
+  langs:
+  - csharp
+  - vb
+  name: LoadUserLanguage()
+  nameWithType: ILanguage.LoadUserLanguage()
+  fullName: Service.Contracts.ILanguage.LoadUserLanguage()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  syntax:
+    content: string LoadUserLanguage()
+    return:
+      type: System.String
+    content.vb: Function LoadUserLanguage() As String
+  overload: Service.Contracts.ILanguage.LoadUserLanguage*
+references:
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Contracts.ILanguage.Translate*
+  commentId: Overload:Service.Contracts.ILanguage.Translate
+  isExternal: true
+  href: Service.Contracts.ILanguage.html#Service_Contracts_ILanguage_Translate_System_String_
+  name: Translate
+  nameWithType: ILanguage.Translate
+  fullName: Service.Contracts.ILanguage.Translate
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Contracts.ILanguage.GetLanguages*
+  commentId: Overload:Service.Contracts.ILanguage.GetLanguages
+  isExternal: true
+  href: Service.Contracts.ILanguage.html#Service_Contracts_ILanguage_GetLanguages
+  name: GetLanguages
+  nameWithType: ILanguage.GetLanguages
+  fullName: Service.Contracts.ILanguage.GetLanguages
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, string>
+  nameWithType: Dictionary<string, string>
+  fullName: System.Collections.Generic.Dictionary<string, string>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Service.Contracts.ILanguage.SaveUserLanguage*
+  commentId: Overload:Service.Contracts.ILanguage.SaveUserLanguage
+  isExternal: true
+  href: Service.Contracts.ILanguage.html#Service_Contracts_ILanguage_SaveUserLanguage_System_String_
+  name: SaveUserLanguage
+  nameWithType: ILanguage.SaveUserLanguage
+  fullName: Service.Contracts.ILanguage.SaveUserLanguage
+- uid: Service.Contracts.ILanguage.LoadUserLanguage*
+  commentId: Overload:Service.Contracts.ILanguage.LoadUserLanguage
+  isExternal: true
+  href: Service.Contracts.ILanguage.html#Service_Contracts_ILanguage_LoadUserLanguage
+  name: LoadUserLanguage
+  nameWithType: ILanguage.LoadUserLanguage
+  fullName: Service.Contracts.ILanguage.LoadUserLanguage

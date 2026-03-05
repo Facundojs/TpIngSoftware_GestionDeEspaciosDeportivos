@@ -1,0 +1,40 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL
+  commentId: N:BLL
+  id: BLL
+  children:
+  - BLL.BalanceService
+  - BLL.SchedulerService
+  langs:
+  - csharp
+  - vb
+  name: BLL
+  nameWithType: BLL
+  fullName: BLL
+  type: Namespace
+  assemblies:
+  - BLL
+references:
+- uid: BLL.BalanceService
+  commentId: T:BLL.BalanceService
+  isExternal: true
+  href: BLL.BalanceService.html
+  name: BalanceService
+  nameWithType: BalanceService
+  fullName: BLL.BalanceService
+- uid: BLL.SchedulerService
+  commentId: T:BLL.SchedulerService
+  parent: BLL
+  isExternal: true
+  href: BLL.SchedulerService.html
+  name: SchedulerService
+  nameWithType: SchedulerService
+  fullName: BLL.SchedulerService
+- uid: BLL
+  commentId: N:BLL
+  isExternal: true
+  href: BLL.html
+  name: BLL
+  nameWithType: BLL
+  fullName: BLL

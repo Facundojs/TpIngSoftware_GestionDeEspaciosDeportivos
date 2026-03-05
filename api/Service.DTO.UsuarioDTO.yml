@@ -1,0 +1,785 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.DTO.UsuarioDTO
+  commentId: T:Service.DTO.UsuarioDTO
+  id: UsuarioDTO
+  parent: Service.DTO
+  children:
+  - Service.DTO.UsuarioDTO.#ctor
+  - Service.DTO.UsuarioDTO.Estado
+  - Service.DTO.UsuarioDTO.Id
+  - Service.DTO.UsuarioDTO.Permisos
+  - Service.DTO.UsuarioDTO.RolNegocio
+  - Service.DTO.UsuarioDTO.Username
+  langs:
+  - csharp
+  - vb
+  name: UsuarioDTO
+  nameWithType: UsuarioDTO
+  fullName: Service.DTO.UsuarioDTO
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  summary: Data Transfer Object representing an authenticated or listed application user.
+  remarks: >-
+    Carries the user's permission tree (<xref href="Service.DTO.UsuarioDTO.Permisos" data-throw-if-not-resolved="false"></xref>) from the service layer to the UI.
+
+    UI components use <xref href="Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO%2cSystem.String)" data-throw-if-not-resolved="false"></xref> on this DTO to
+
+    drive button visibility and access control without hitting the database again.
+  example: []
+  syntax:
+    content: public class UsuarioDTO
+    content.vb: Public Class UsuarioDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  extensionMethods:
+  - Service.DTO.UsuarioDTO.Service.Helpers.PermisoHelper.TienePermiso(System.String)
+- uid: Service.DTO.UsuarioDTO.#ctor
+  commentId: M:Service.DTO.UsuarioDTO.#ctor
+  id: '#ctor'
+  parent: Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: UsuarioDTO()
+  nameWithType: UsuarioDTO.UsuarioDTO()
+  fullName: Service.DTO.UsuarioDTO.UsuarioDTO()
+  type: Constructor
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  syntax:
+    content: public UsuarioDTO()
+    content.vb: Public Sub New()
+  overload: Service.DTO.UsuarioDTO.#ctor*
+  nameWithType.vb: UsuarioDTO.New()
+  fullName.vb: Service.DTO.UsuarioDTO.New()
+  name.vb: New()
+- uid: Service.DTO.UsuarioDTO.Id
+  commentId: P:Service.DTO.UsuarioDTO.Id
+  id: Id
+  parent: Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: UsuarioDTO.Id
+  fullName: Service.DTO.UsuarioDTO.Id
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  summary: Unique identifier of the user.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Service.DTO.UsuarioDTO.Id*
+- uid: Service.DTO.UsuarioDTO.Username
+  commentId: P:Service.DTO.UsuarioDTO.Username
+  id: Username
+  parent: Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: UsuarioDTO.Username
+  fullName: Service.DTO.UsuarioDTO.Username
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  summary: Login name.
+  example: []
+  syntax:
+    content: public string Username { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Username As String
+  overload: Service.DTO.UsuarioDTO.Username*
+- uid: Service.DTO.UsuarioDTO.Estado
+  commentId: P:Service.DTO.UsuarioDTO.Estado
+  id: Estado
+  parent: Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: Estado
+  nameWithType: UsuarioDTO.Estado
+  fullName: Service.DTO.UsuarioDTO.Estado
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  summary: Account status string (e.g., <code>"Activo"</code>, <code>"Inactivo"</code>).
+  example: []
+  syntax:
+    content: public string Estado { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Estado As String
+  overload: Service.DTO.UsuarioDTO.Estado*
+- uid: Service.DTO.UsuarioDTO.Permisos
+  commentId: P:Service.DTO.UsuarioDTO.Permisos
+  id: Permisos
+  parent: Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: Permisos
+  nameWithType: UsuarioDTO.Permisos
+  fullName: Service.DTO.UsuarioDTO.Permisos
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  summary: Permission tree roots assigned to this user (mix of <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> and <xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref> nodes).
+  example: []
+  syntax:
+    content: public List<Acceso> Permisos { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Domain.Composite.Acceso}
+    content.vb: Public Property Permisos As List(Of Acceso)
+  overload: Service.DTO.UsuarioDTO.Permisos*
+- uid: Service.DTO.UsuarioDTO.RolNegocio
+  commentId: P:Service.DTO.UsuarioDTO.RolNegocio
+  id: RolNegocio
+  parent: Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: RolNegocio
+  nameWithType: UsuarioDTO.RolNegocio
+  fullName: Service.DTO.UsuarioDTO.RolNegocio
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.DTO
+  summary: Business role label derived from the user's family assignments (e.g., <code>"Administrador"</code>, <code>"Operador"</code>).
+  example: []
+  syntax:
+    content: public string RolNegocio { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RolNegocio As String
+  overload: Service.DTO.UsuarioDTO.RolNegocio*
+references:
+- uid: Service.DTO.UsuarioDTO.Permisos
+  commentId: P:Service.DTO.UsuarioDTO.Permisos
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_Permisos
+  name: Permisos
+  nameWithType: UsuarioDTO.Permisos
+  fullName: Service.DTO.UsuarioDTO.Permisos
+- uid: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+  commentId: M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+  isExternal: true
+  href: Service.Helpers.PermisoHelper.html#Service_Helpers_PermisoHelper_TienePermiso_Service_DTO_UsuarioDTO_System_String_
+  name: TienePermiso(UsuarioDTO, string)
+  nameWithType: PermisoHelper.TienePermiso(UsuarioDTO, string)
+  fullName: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO, string)
+  nameWithType.vb: PermisoHelper.TienePermiso(UsuarioDTO, String)
+  fullName.vb: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO, String)
+  name.vb: TienePermiso(UsuarioDTO, String)
+  spec.csharp:
+  - uid: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+    name: TienePermiso
+    isExternal: true
+    href: Service.Helpers.PermisoHelper.html#Service_Helpers_PermisoHelper_TienePermiso_Service_DTO_UsuarioDTO_System_String_
+  - name: (
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+    name: TienePermiso
+    isExternal: true
+    href: Service.Helpers.PermisoHelper.html#Service_Helpers_PermisoHelper_TienePermiso_Service_DTO_UsuarioDTO_System_String_
+  - name: (
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Service.DTO
+  commentId: N:Service.DTO
+  isExternal: true
+  href: Service.html
+  name: Service.DTO
+  nameWithType: Service.DTO
+  fullName: Service.DTO
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Service.DTO.UsuarioDTO.Service.Helpers.PermisoHelper.TienePermiso(System.String)
+  commentId: M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+  parent: Service.Helpers.PermisoHelper
+  definition: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+  href: Service.Helpers.PermisoHelper.html#Service_Helpers_PermisoHelper_TienePermiso_Service_DTO_UsuarioDTO_System_String_
+  name: TienePermiso(UsuarioDTO, string)
+  nameWithType: PermisoHelper.TienePermiso(UsuarioDTO, string)
+  fullName: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO, string)
+  nameWithType.vb: PermisoHelper.TienePermiso(UsuarioDTO, String)
+  fullName.vb: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO, String)
+  name.vb: TienePermiso(UsuarioDTO, String)
+  spec.csharp:
+  - uid: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+    name: TienePermiso
+    isExternal: true
+    href: Service.Helpers.PermisoHelper.html#Service_Helpers_PermisoHelper_TienePermiso_Service_DTO_UsuarioDTO_System_String_
+  - name: (
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)
+    name: TienePermiso
+    isExternal: true
+    href: Service.Helpers.PermisoHelper.html#Service_Helpers_PermisoHelper_TienePermiso_Service_DTO_UsuarioDTO_System_String_
+  - name: (
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Helpers.PermisoHelper
+  commentId: T:Service.Helpers.PermisoHelper
+  parent: Service.Helpers
+  isExternal: true
+  href: Service.Helpers.PermisoHelper.html
+  name: PermisoHelper
+  nameWithType: PermisoHelper
+  fullName: Service.Helpers.PermisoHelper
+- uid: Service.Helpers
+  commentId: N:Service.Helpers
+  isExternal: true
+  href: Service.html
+  name: Service.Helpers
+  nameWithType: Service.Helpers
+  fullName: Service.Helpers
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Helpers
+    name: Helpers
+    isExternal: true
+    href: Service.Helpers.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Helpers
+    name: Helpers
+    isExternal: true
+    href: Service.Helpers.html
+- uid: Service.DTO.UsuarioDTO.#ctor*
+  commentId: Overload:Service.DTO.UsuarioDTO.#ctor
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO__ctor
+  name: UsuarioDTO
+  nameWithType: UsuarioDTO.UsuarioDTO
+  fullName: Service.DTO.UsuarioDTO.UsuarioDTO
+  nameWithType.vb: UsuarioDTO.New
+  fullName.vb: Service.DTO.UsuarioDTO.New
+  name.vb: New
+- uid: Service.DTO.UsuarioDTO.Id*
+  commentId: Overload:Service.DTO.UsuarioDTO.Id
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_Id
+  name: Id
+  nameWithType: UsuarioDTO.Id
+  fullName: Service.DTO.UsuarioDTO.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Service.DTO.UsuarioDTO.Username*
+  commentId: Overload:Service.DTO.UsuarioDTO.Username
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_Username
+  name: Username
+  nameWithType: UsuarioDTO.Username
+  fullName: Service.DTO.UsuarioDTO.Username
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Service.DTO.UsuarioDTO.Estado*
+  commentId: Overload:Service.DTO.UsuarioDTO.Estado
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_Estado
+  name: Estado
+  nameWithType: UsuarioDTO.Estado
+  fullName: Service.DTO.UsuarioDTO.Estado
+- uid: Domain.Composite.Familia
+  commentId: T:Domain.Composite.Familia
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Familia.html
+  name: Familia
+  nameWithType: Familia
+  fullName: Domain.Composite.Familia
+- uid: Domain.Composite.Patente
+  commentId: T:Domain.Composite.Patente
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Patente.html
+  name: Patente
+  nameWithType: Patente
+  fullName: Domain.Composite.Patente
+- uid: Service.DTO.UsuarioDTO.Permisos*
+  commentId: Overload:Service.DTO.UsuarioDTO.Permisos
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_Permisos
+  name: Permisos
+  nameWithType: UsuarioDTO.Permisos
+  fullName: Service.DTO.UsuarioDTO.Permisos
+- uid: System.Collections.Generic.List{Domain.Composite.Acceso}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Acceso}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Acceso>
+  nameWithType: List<Acceso>
+  fullName: System.Collections.Generic.List<Domain.Composite.Acceso>
+  nameWithType.vb: List(Of Acceso)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Acceso)
+  name.vb: List(Of Acceso)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+    href: Domain.Composite.Acceso.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+    href: Domain.Composite.Acceso.html
+  - name: )
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Service.DTO.UsuarioDTO.RolNegocio*
+  commentId: Overload:Service.DTO.UsuarioDTO.RolNegocio
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_RolNegocio
+  name: RolNegocio
+  nameWithType: UsuarioDTO.RolNegocio
+  fullName: Service.DTO.UsuarioDTO.RolNegocio

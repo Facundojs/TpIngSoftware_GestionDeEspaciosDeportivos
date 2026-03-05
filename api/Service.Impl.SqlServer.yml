@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Impl.SqlServer
+  commentId: N:Service.Impl.SqlServer
+  id: Service.Impl.SqlServer
+  children:
+  - Service.Impl.SqlServer.PatenteRepository
+  langs:
+  - csharp
+  - vb
+  name: Service.Impl.SqlServer
+  nameWithType: Service.Impl.SqlServer
+  fullName: Service.Impl.SqlServer
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Impl.SqlServer.PatenteRepository
+  commentId: T:Service.Impl.SqlServer.PatenteRepository
+  isExternal: true
+  href: Service.Impl.SqlServer.PatenteRepository.html
+  name: PatenteRepository
+  nameWithType: PatenteRepository
+  fullName: Service.Impl.SqlServer.PatenteRepository

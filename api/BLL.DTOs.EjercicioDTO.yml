@@ -1,0 +1,587 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.EjercicioDTO
+  commentId: T:BLL.DTOs.EjercicioDTO
+  id: EjercicioDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.EjercicioDTO.#ctor
+  - BLL.DTOs.EjercicioDTO.DiaSemana
+  - BLL.DTOs.EjercicioDTO.Id
+  - BLL.DTOs.EjercicioDTO.Nombre
+  - BLL.DTOs.EjercicioDTO.Orden
+  - BLL.DTOs.EjercicioDTO.Repeticiones
+  - BLL.DTOs.EjercicioDTO.RutinaID
+  langs:
+  - csharp
+  - vb
+  name: EjercicioDTO
+  nameWithType: EjercicioDTO
+  fullName: BLL.DTOs.EjercicioDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Represents a single exercise entry within a <xref href="BLL.DTOs.RutinaDTO" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Exercises are scoped to a specific day of the week and ordered within that day via <xref href="BLL.DTOs.EjercicioDTO.Orden" data-throw-if-not-resolved="false"></xref>.
+
+    <xref href="BLL.DTOs.EjercicioDTO.Id" data-throw-if-not-resolved="false"></xref> is auto-assigned on construction.
+  example: []
+  syntax:
+    content: public class EjercicioDTO
+    content.vb: Public Class EjercicioDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.EjercicioDTO.#ctor
+  commentId: M:BLL.DTOs.EjercicioDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: EjercicioDTO()
+  nameWithType: EjercicioDTO.EjercicioDTO()
+  fullName: BLL.DTOs.EjercicioDTO.EjercicioDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public EjercicioDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.EjercicioDTO.#ctor*
+  nameWithType.vb: EjercicioDTO.New()
+  fullName.vb: BLL.DTOs.EjercicioDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.EjercicioDTO.Id
+  commentId: P:BLL.DTOs.EjercicioDTO.Id
+  id: Id
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: EjercicioDTO.Id
+  fullName: BLL.DTOs.EjercicioDTO.Id
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Primary key, auto-assigned on construction.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: BLL.DTOs.EjercicioDTO.Id*
+- uid: BLL.DTOs.EjercicioDTO.RutinaID
+  commentId: P:BLL.DTOs.EjercicioDTO.RutinaID
+  id: RutinaID
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: RutinaID
+  nameWithType: EjercicioDTO.RutinaID
+  fullName: BLL.DTOs.EjercicioDTO.RutinaID
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the parent routine.
+  example: []
+  syntax:
+    content: public Guid RutinaID { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property RutinaID As Guid
+  overload: BLL.DTOs.EjercicioDTO.RutinaID*
+- uid: BLL.DTOs.EjercicioDTO.Nombre
+  commentId: P:BLL.DTOs.EjercicioDTO.Nombre
+  id: Nombre
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: Nombre
+  nameWithType: EjercicioDTO.Nombre
+  fullName: BLL.DTOs.EjercicioDTO.Nombre
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Exercise name or description.
+  example: []
+  syntax:
+    content: public string Nombre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Nombre As String
+  overload: BLL.DTOs.EjercicioDTO.Nombre*
+- uid: BLL.DTOs.EjercicioDTO.Repeticiones
+  commentId: P:BLL.DTOs.EjercicioDTO.Repeticiones
+  id: Repeticiones
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: Repeticiones
+  nameWithType: EjercicioDTO.Repeticiones
+  fullName: BLL.DTOs.EjercicioDTO.Repeticiones
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Number of repetitions to perform.
+  example: []
+  syntax:
+    content: public int Repeticiones { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Repeticiones As Integer
+  overload: BLL.DTOs.EjercicioDTO.Repeticiones*
+- uid: BLL.DTOs.EjercicioDTO.DiaSemana
+  commentId: P:BLL.DTOs.EjercicioDTO.DiaSemana
+  id: DiaSemana
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: DiaSemana
+  nameWithType: EjercicioDTO.DiaSemana
+  fullName: BLL.DTOs.EjercicioDTO.DiaSemana
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Day of the week this exercise is scheduled for (0 = Sunday, 6 = Saturday).
+  example: []
+  syntax:
+    content: public int DiaSemana { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DiaSemana As Integer
+  overload: BLL.DTOs.EjercicioDTO.DiaSemana*
+- uid: BLL.DTOs.EjercicioDTO.Orden
+  commentId: P:BLL.DTOs.EjercicioDTO.Orden
+  id: Orden
+  parent: BLL.DTOs.EjercicioDTO
+  langs:
+  - csharp
+  - vb
+  name: Orden
+  nameWithType: EjercicioDTO.Orden
+  fullName: BLL.DTOs.EjercicioDTO.Orden
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EjercicioDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Display order within the day's exercise list (ascending).
+  example: []
+  syntax:
+    content: public int Orden { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Orden As Integer
+  overload: BLL.DTOs.EjercicioDTO.Orden*
+references:
+- uid: BLL.DTOs.RutinaDTO
+  commentId: T:BLL.DTOs.RutinaDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.RutinaDTO.html
+  name: RutinaDTO
+  nameWithType: RutinaDTO
+  fullName: BLL.DTOs.RutinaDTO
+- uid: BLL.DTOs.EjercicioDTO.Orden
+  commentId: P:BLL.DTOs.EjercicioDTO.Orden
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Orden
+  name: Orden
+  nameWithType: EjercicioDTO.Orden
+  fullName: BLL.DTOs.EjercicioDTO.Orden
+- uid: BLL.DTOs.EjercicioDTO.Id
+  commentId: P:BLL.DTOs.EjercicioDTO.Id
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Id
+  name: Id
+  nameWithType: EjercicioDTO.Id
+  fullName: BLL.DTOs.EjercicioDTO.Id
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.EjercicioDTO.#ctor*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO__ctor
+  name: EjercicioDTO
+  nameWithType: EjercicioDTO.EjercicioDTO
+  fullName: BLL.DTOs.EjercicioDTO.EjercicioDTO
+  nameWithType.vb: EjercicioDTO.New
+  fullName.vb: BLL.DTOs.EjercicioDTO.New
+  name.vb: New
+- uid: BLL.DTOs.EjercicioDTO.Id*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.Id
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Id
+  name: Id
+  nameWithType: EjercicioDTO.Id
+  fullName: BLL.DTOs.EjercicioDTO.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.DTOs.EjercicioDTO.RutinaID*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.RutinaID
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_RutinaID
+  name: RutinaID
+  nameWithType: EjercicioDTO.RutinaID
+  fullName: BLL.DTOs.EjercicioDTO.RutinaID
+- uid: BLL.DTOs.EjercicioDTO.Nombre*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.Nombre
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Nombre
+  name: Nombre
+  nameWithType: EjercicioDTO.Nombre
+  fullName: BLL.DTOs.EjercicioDTO.Nombre
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BLL.DTOs.EjercicioDTO.Repeticiones*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.Repeticiones
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Repeticiones
+  name: Repeticiones
+  nameWithType: EjercicioDTO.Repeticiones
+  fullName: BLL.DTOs.EjercicioDTO.Repeticiones
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BLL.DTOs.EjercicioDTO.DiaSemana*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.DiaSemana
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_DiaSemana
+  name: DiaSemana
+  nameWithType: EjercicioDTO.DiaSemana
+  fullName: BLL.DTOs.EjercicioDTO.DiaSemana
+- uid: BLL.DTOs.EjercicioDTO.Orden*
+  commentId: Overload:BLL.DTOs.EjercicioDTO.Orden
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html#BLL_DTOs_EjercicioDTO_Orden
+  name: Orden
+  nameWithType: EjercicioDTO.Orden
+  fullName: BLL.DTOs.EjercicioDTO.Orden

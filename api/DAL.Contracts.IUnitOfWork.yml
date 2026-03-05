@@ -1,0 +1,710 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IUnitOfWork
+  commentId: T:DAL.Contracts.IUnitOfWork
+  id: IUnitOfWork
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IUnitOfWork.AgendaRepository
+  - DAL.Contracts.IUnitOfWork.BeginTransaction
+  - DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  - DAL.Contracts.IUnitOfWork.ClienteRepository
+  - DAL.Contracts.IUnitOfWork.Commit
+  - DAL.Contracts.IUnitOfWork.EjercicioRepository
+  - DAL.Contracts.IUnitOfWork.EspacioRepository
+  - DAL.Contracts.IUnitOfWork.MembresiaRepository
+  - DAL.Contracts.IUnitOfWork.MovimientoRepository
+  - DAL.Contracts.IUnitOfWork.PagoRepository
+  - DAL.Contracts.IUnitOfWork.ReservaRepository
+  - DAL.Contracts.IUnitOfWork.Rollback
+  - DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  - DAL.Contracts.IUnitOfWork.RutinaRepository
+  langs:
+  - csharp
+  - vb
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: DAL.Contracts.IUnitOfWork
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Defines a transactional scope that shares a single database connection across multiple repositories.
+  remarks: >-
+    <p>
+
+    Obtain a new instance from <xref href="DAL.Factory.DalFactory.CreateUnitOfWork" data-throw-if-not-resolved="false"></xref>.
+
+    The intended usage pattern is:
+
+
+    <pre><code class="lang-csharp">using (var uow = DalFactory.CreateUnitOfWork())
+
+    {
+        uow.BeginTransaction();
+        // use uow.*Repository to perform coordinated writes
+        uow.Commit();
+    }</code></pre>
+
+    </p>
+
+    <p>
+
+    If <xref href="DAL.Contracts.IUnitOfWork.Commit" data-throw-if-not-resolved="false"></xref> is never called, <xref href="System.IDisposable.Dispose" data-throw-if-not-resolved="false"></xref> will automatically
+
+    roll back any open transaction when the <code>using</code> block exits.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IUnitOfWork : IDisposable'
+    content.vb: Public Interface IUnitOfWork Inherits IDisposable
+  derivedClasses:
+  - DAL.Impl.SqlServer.UnitOfWork
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: DAL.Contracts.IUnitOfWork.BeginTransaction
+  commentId: M:DAL.Contracts.IUnitOfWork.BeginTransaction
+  id: BeginTransaction
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: BeginTransaction()
+  nameWithType: IUnitOfWork.BeginTransaction()
+  fullName: DAL.Contracts.IUnitOfWork.BeginTransaction()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Opens the shared database connection and begins a transaction.
+  example: []
+  syntax:
+    content: void BeginTransaction()
+    content.vb: Sub BeginTransaction()
+  overload: DAL.Contracts.IUnitOfWork.BeginTransaction*
+- uid: DAL.Contracts.IUnitOfWork.Commit
+  commentId: M:DAL.Contracts.IUnitOfWork.Commit
+  id: Commit
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: Commit()
+  nameWithType: IUnitOfWork.Commit()
+  fullName: DAL.Contracts.IUnitOfWork.Commit()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Commits all pending changes and closes the connection.
+  example: []
+  syntax:
+    content: void Commit()
+    content.vb: Sub Commit()
+  overload: DAL.Contracts.IUnitOfWork.Commit*
+- uid: DAL.Contracts.IUnitOfWork.Rollback
+  commentId: M:DAL.Contracts.IUnitOfWork.Rollback
+  id: Rollback
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: Rollback()
+  nameWithType: IUnitOfWork.Rollback()
+  fullName: DAL.Contracts.IUnitOfWork.Rollback()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Discards all pending changes and closes the connection.
+  example: []
+  syntax:
+    content: void Rollback()
+    content.vb: Sub Rollback()
+  overload: DAL.Contracts.IUnitOfWork.Rollback*
+- uid: DAL.Contracts.IUnitOfWork.AgendaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.AgendaRepository
+  id: AgendaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: AgendaRepository
+  nameWithType: IUnitOfWork.AgendaRepository
+  fullName: DAL.Contracts.IUnitOfWork.AgendaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for agenda (operating schedule) operations.
+  example: []
+  syntax:
+    content: IAgendaRepository AgendaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IAgendaRepository
+    content.vb: ReadOnly Property AgendaRepository As IAgendaRepository
+  overload: DAL.Contracts.IUnitOfWork.AgendaRepository*
+- uid: DAL.Contracts.IUnitOfWork.ClienteRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.ClienteRepository
+  id: ClienteRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: ClienteRepository
+  nameWithType: IUnitOfWork.ClienteRepository
+  fullName: DAL.Contracts.IUnitOfWork.ClienteRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for client operations.
+  example: []
+  syntax:
+    content: IClienteRepository ClienteRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IClienteRepository
+    content.vb: ReadOnly Property ClienteRepository As IClienteRepository
+  overload: DAL.Contracts.IUnitOfWork.ClienteRepository*
+- uid: DAL.Contracts.IUnitOfWork.PagoRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.PagoRepository
+  id: PagoRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: PagoRepository
+  nameWithType: IUnitOfWork.PagoRepository
+  fullName: DAL.Contracts.IUnitOfWork.PagoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for payment operations.
+  example: []
+  syntax:
+    content: IPagoRepository PagoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IPagoRepository
+    content.vb: ReadOnly Property PagoRepository As IPagoRepository
+  overload: DAL.Contracts.IUnitOfWork.PagoRepository*
+- uid: DAL.Contracts.IUnitOfWork.ReservaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.ReservaRepository
+  id: ReservaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: ReservaRepository
+  nameWithType: IUnitOfWork.ReservaRepository
+  fullName: DAL.Contracts.IUnitOfWork.ReservaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for reservation operations.
+  example: []
+  syntax:
+    content: IReservaRepository ReservaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IReservaRepository
+    content.vb: ReadOnly Property ReservaRepository As IReservaRepository
+  overload: DAL.Contracts.IUnitOfWork.ReservaRepository*
+- uid: DAL.Contracts.IUnitOfWork.RutinaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.RutinaRepository
+  id: RutinaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: RutinaRepository
+  nameWithType: IUnitOfWork.RutinaRepository
+  fullName: DAL.Contracts.IUnitOfWork.RutinaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for workout routine operations.
+  example: []
+  syntax:
+    content: IRutinaRepository RutinaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IRutinaRepository
+    content.vb: ReadOnly Property RutinaRepository As IRutinaRepository
+  overload: DAL.Contracts.IUnitOfWork.RutinaRepository*
+- uid: DAL.Contracts.IUnitOfWork.MovimientoRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.MovimientoRepository
+  id: MovimientoRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: MovimientoRepository
+  nameWithType: IUnitOfWork.MovimientoRepository
+  fullName: DAL.Contracts.IUnitOfWork.MovimientoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for ledger movement (debit/credit) insertions.
+  example: []
+  syntax:
+    content: IMovimientoRepository MovimientoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IMovimientoRepository
+    content.vb: ReadOnly Property MovimientoRepository As IMovimientoRepository
+  overload: DAL.Contracts.IUnitOfWork.MovimientoRepository*
+- uid: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  id: ClienteMembresiaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: ClienteMembresiaRepository
+  nameWithType: IUnitOfWork.ClienteMembresiaRepository
+  fullName: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for client-membership assignment operations.
+  example: []
+  syntax:
+    content: IClienteMembresiaRepository ClienteMembresiaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IClienteMembresiaRepository
+    content.vb: ReadOnly Property ClienteMembresiaRepository As IClienteMembresiaRepository
+  overload: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository*
+- uid: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  id: RutinaEjercicioRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: RutinaEjercicioRepository
+  nameWithType: IUnitOfWork.RutinaEjercicioRepository
+  fullName: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for routine-exercise mapping operations.
+  example: []
+  syntax:
+    content: IRutinaEjercicioRepository RutinaEjercicioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IRutinaEjercicioRepository
+    content.vb: ReadOnly Property RutinaEjercicioRepository As IRutinaEjercicioRepository
+  overload: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository*
+- uid: DAL.Contracts.IUnitOfWork.MembresiaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.MembresiaRepository
+  id: MembresiaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: MembresiaRepository
+  nameWithType: IUnitOfWork.MembresiaRepository
+  fullName: DAL.Contracts.IUnitOfWork.MembresiaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for membership plan operations.
+  example: []
+  syntax:
+    content: IMembresiaRepository MembresiaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IMembresiaRepository
+    content.vb: ReadOnly Property MembresiaRepository As IMembresiaRepository
+  overload: DAL.Contracts.IUnitOfWork.MembresiaRepository*
+- uid: DAL.Contracts.IUnitOfWork.EjercicioRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.EjercicioRepository
+  id: EjercicioRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: EjercicioRepository
+  nameWithType: IUnitOfWork.EjercicioRepository
+  fullName: DAL.Contracts.IUnitOfWork.EjercicioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for exercise catalog operations.
+  example: []
+  syntax:
+    content: IEjercicioRepository EjercicioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IEjercicioRepository
+    content.vb: ReadOnly Property EjercicioRepository As IEjercicioRepository
+  overload: DAL.Contracts.IUnitOfWork.EjercicioRepository*
+- uid: DAL.Contracts.IUnitOfWork.EspacioRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.EspacioRepository
+  id: EspacioRepository
+  parent: DAL.Contracts.IUnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: EspacioRepository
+  nameWithType: IUnitOfWork.EspacioRepository
+  fullName: DAL.Contracts.IUnitOfWork.EspacioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Repository for sports space operations.
+  example: []
+  syntax:
+    content: IEspacioRepository EspacioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IEspacioRepository
+    content.vb: ReadOnly Property EspacioRepository As IEspacioRepository
+  overload: DAL.Contracts.IUnitOfWork.EspacioRepository*
+references:
+- uid: DAL.Factory.DalFactory.CreateUnitOfWork
+  commentId: M:DAL.Factory.DalFactory.CreateUnitOfWork
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  name: CreateUnitOfWork()
+  nameWithType: DalFactory.CreateUnitOfWork()
+  fullName: DAL.Factory.DalFactory.CreateUnitOfWork()
+  spec.csharp:
+  - uid: DAL.Factory.DalFactory.CreateUnitOfWork
+    name: CreateUnitOfWork
+    isExternal: true
+    href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Factory.DalFactory.CreateUnitOfWork
+    name: CreateUnitOfWork
+    isExternal: true
+    href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  - name: (
+  - name: )
+- uid: DAL.Contracts.IUnitOfWork.Commit
+  commentId: M:DAL.Contracts.IUnitOfWork.Commit
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  name: Commit()
+  nameWithType: IUnitOfWork.Commit()
+  fullName: DAL.Contracts.IUnitOfWork.Commit()
+  spec.csharp:
+  - uid: DAL.Contracts.IUnitOfWork.Commit
+    name: Commit
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IUnitOfWork.Commit
+    name: Commit
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  - name: (
+  - name: )
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: DAL.Contracts.IUnitOfWork
+  commentId: T:DAL.Contracts.IUnitOfWork
+  parent: DAL.Contracts
+  isExternal: true
+  href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: DAL.Contracts.IUnitOfWork
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Contracts.IUnitOfWork.BeginTransaction*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.BeginTransaction
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_BeginTransaction
+  name: BeginTransaction
+  nameWithType: IUnitOfWork.BeginTransaction
+  fullName: DAL.Contracts.IUnitOfWork.BeginTransaction
+- uid: DAL.Contracts.IUnitOfWork.Commit*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.Commit
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  name: Commit
+  nameWithType: IUnitOfWork.Commit
+  fullName: DAL.Contracts.IUnitOfWork.Commit
+- uid: DAL.Contracts.IUnitOfWork.Rollback*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.Rollback
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Rollback
+  name: Rollback
+  nameWithType: IUnitOfWork.Rollback
+  fullName: DAL.Contracts.IUnitOfWork.Rollback
+- uid: DAL.Contracts.IUnitOfWork.AgendaRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.AgendaRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_AgendaRepository
+  name: AgendaRepository
+  nameWithType: IUnitOfWork.AgendaRepository
+  fullName: DAL.Contracts.IUnitOfWork.AgendaRepository
+- uid: DAL.Contracts.IAgendaRepository
+  commentId: T:DAL.Contracts.IAgendaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html
+  name: IAgendaRepository
+  nameWithType: IAgendaRepository
+  fullName: DAL.Contracts.IAgendaRepository
+- uid: DAL.Contracts.IUnitOfWork.ClienteRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.ClienteRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_ClienteRepository
+  name: ClienteRepository
+  nameWithType: IUnitOfWork.ClienteRepository
+  fullName: DAL.Contracts.IUnitOfWork.ClienteRepository
+- uid: DAL.Contracts.IClienteRepository
+  commentId: T:DAL.Contracts.IClienteRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IClienteRepository.html
+  name: IClienteRepository
+  nameWithType: IClienteRepository
+  fullName: DAL.Contracts.IClienteRepository
+- uid: DAL.Contracts.IUnitOfWork.PagoRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.PagoRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_PagoRepository
+  name: PagoRepository
+  nameWithType: IUnitOfWork.PagoRepository
+  fullName: DAL.Contracts.IUnitOfWork.PagoRepository
+- uid: DAL.Contracts.IPagoRepository
+  commentId: T:DAL.Contracts.IPagoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IPagoRepository.html
+  name: IPagoRepository
+  nameWithType: IPagoRepository
+  fullName: DAL.Contracts.IPagoRepository
+- uid: DAL.Contracts.IUnitOfWork.ReservaRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.ReservaRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_ReservaRepository
+  name: ReservaRepository
+  nameWithType: IUnitOfWork.ReservaRepository
+  fullName: DAL.Contracts.IUnitOfWork.ReservaRepository
+- uid: DAL.Contracts.IReservaRepository
+  commentId: T:DAL.Contracts.IReservaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IReservaRepository.html
+  name: IReservaRepository
+  nameWithType: IReservaRepository
+  fullName: DAL.Contracts.IReservaRepository
+- uid: DAL.Contracts.IUnitOfWork.RutinaRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.RutinaRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_RutinaRepository
+  name: RutinaRepository
+  nameWithType: IUnitOfWork.RutinaRepository
+  fullName: DAL.Contracts.IUnitOfWork.RutinaRepository
+- uid: DAL.Contracts.IRutinaRepository
+  commentId: T:DAL.Contracts.IRutinaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IRutinaRepository.html
+  name: IRutinaRepository
+  nameWithType: IRutinaRepository
+  fullName: DAL.Contracts.IRutinaRepository
+- uid: DAL.Contracts.IUnitOfWork.MovimientoRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.MovimientoRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_MovimientoRepository
+  name: MovimientoRepository
+  nameWithType: IUnitOfWork.MovimientoRepository
+  fullName: DAL.Contracts.IUnitOfWork.MovimientoRepository
+- uid: DAL.Contracts.IMovimientoRepository
+  commentId: T:DAL.Contracts.IMovimientoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IMovimientoRepository.html
+  name: IMovimientoRepository
+  nameWithType: IMovimientoRepository
+  fullName: DAL.Contracts.IMovimientoRepository
+- uid: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_ClienteMembresiaRepository
+  name: ClienteMembresiaRepository
+  nameWithType: IUnitOfWork.ClienteMembresiaRepository
+  fullName: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+- uid: DAL.Contracts.IClienteMembresiaRepository
+  commentId: T:DAL.Contracts.IClienteMembresiaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IClienteMembresiaRepository.html
+  name: IClienteMembresiaRepository
+  nameWithType: IClienteMembresiaRepository
+  fullName: DAL.Contracts.IClienteMembresiaRepository
+- uid: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_RutinaEjercicioRepository
+  name: RutinaEjercicioRepository
+  nameWithType: IUnitOfWork.RutinaEjercicioRepository
+  fullName: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+- uid: DAL.Contracts.IRutinaEjercicioRepository
+  commentId: T:DAL.Contracts.IRutinaEjercicioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IRutinaEjercicioRepository.html
+  name: IRutinaEjercicioRepository
+  nameWithType: IRutinaEjercicioRepository
+  fullName: DAL.Contracts.IRutinaEjercicioRepository
+- uid: DAL.Contracts.IUnitOfWork.MembresiaRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.MembresiaRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_MembresiaRepository
+  name: MembresiaRepository
+  nameWithType: IUnitOfWork.MembresiaRepository
+  fullName: DAL.Contracts.IUnitOfWork.MembresiaRepository
+- uid: DAL.Contracts.IMembresiaRepository
+  commentId: T:DAL.Contracts.IMembresiaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IMembresiaRepository.html
+  name: IMembresiaRepository
+  nameWithType: IMembresiaRepository
+  fullName: DAL.Contracts.IMembresiaRepository
+- uid: DAL.Contracts.IUnitOfWork.EjercicioRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.EjercicioRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_EjercicioRepository
+  name: EjercicioRepository
+  nameWithType: IUnitOfWork.EjercicioRepository
+  fullName: DAL.Contracts.IUnitOfWork.EjercicioRepository
+- uid: DAL.Contracts.IEjercicioRepository
+  commentId: T:DAL.Contracts.IEjercicioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IEjercicioRepository.html
+  name: IEjercicioRepository
+  nameWithType: IEjercicioRepository
+  fullName: DAL.Contracts.IEjercicioRepository
+- uid: DAL.Contracts.IUnitOfWork.EspacioRepository*
+  commentId: Overload:DAL.Contracts.IUnitOfWork.EspacioRepository
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_EspacioRepository
+  name: EspacioRepository
+  nameWithType: IUnitOfWork.EspacioRepository
+  fullName: DAL.Contracts.IUnitOfWork.EspacioRepository
+- uid: DAL.Contracts.IEspacioRepository
+  commentId: T:DAL.Contracts.IEspacioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IEspacioRepository.html
+  name: IEspacioRepository
+  nameWithType: IEspacioRepository
+  fullName: DAL.Contracts.IEspacioRepository

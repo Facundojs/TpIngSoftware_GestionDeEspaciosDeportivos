@@ -1,0 +1,496 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IClienteMembresiaRepository
+  commentId: T:DAL.Contracts.IClienteMembresiaRepository
+  id: IClienteMembresiaRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IClienteMembresiaRepository
+  nameWithType: IClienteMembresiaRepository
+  fullName: DAL.Contracts.IClienteMembresiaRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IClienteMembresiaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: 'public interface IClienteMembresiaRepository : IGenericRepository<ClienteMembresia>'
+    content.vb: Public Interface IClienteMembresiaRepository Inherits IGenericRepository(Of ClienteMembresia)
+  derivedClasses:
+  - DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+  inheritedMembers:
+  - Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Add(Domain.Entities.ClienteMembresia)
+  - Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Update(Domain.Entities.ClienteMembresia)
+  - Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Remove(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetById(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetAll
+- uid: DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId(System.Guid)
+  commentId: M:DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId(System.Guid)
+  id: GetActiveByClienteId(System.Guid)
+  parent: DAL.Contracts.IClienteMembresiaRepository
+  langs:
+  - csharp
+  - vb
+  name: GetActiveByClienteId(Guid)
+  nameWithType: IClienteMembresiaRepository.GetActiveByClienteId(Guid)
+  fullName: DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IClienteMembresiaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: ClienteMembresia GetActiveByClienteId(Guid clienteId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    return:
+      type: Domain.Entities.ClienteMembresia
+    content.vb: Function GetActiveByClienteId(clienteId As Guid) As ClienteMembresia
+  overload: DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId*
+references:
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Add(Domain.Entities.ClienteMembresia)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Add(Domain.Entities.ClienteMembresia)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  name: Add(ClienteMembresia)
+  nameWithType: IGenericRepository<ClienteMembresia>.Add(ClienteMembresia)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.ClienteMembresia>.Add(Domain.Entities.ClienteMembresia)
+  nameWithType.vb: IGenericRepository(Of ClienteMembresia).Add(ClienteMembresia)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.ClienteMembresia).Add(Domain.Entities.ClienteMembresia)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Add(Domain.Entities.ClienteMembresia)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Add(Domain.Entities.ClienteMembresia)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Update(Domain.Entities.ClienteMembresia)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Update(Domain.Entities.ClienteMembresia)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  name: Update(ClienteMembresia)
+  nameWithType: IGenericRepository<ClienteMembresia>.Update(ClienteMembresia)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.ClienteMembresia>.Update(Domain.Entities.ClienteMembresia)
+  nameWithType.vb: IGenericRepository(Of ClienteMembresia).Update(ClienteMembresia)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.ClienteMembresia).Update(Domain.Entities.ClienteMembresia)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Update(Domain.Entities.ClienteMembresia)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Update(Domain.Entities.ClienteMembresia)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<ClienteMembresia>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.ClienteMembresia>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of ClienteMembresia).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.ClienteMembresia).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<ClienteMembresia>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.ClienteMembresia>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of ClienteMembresia).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.ClienteMembresia).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<ClienteMembresia>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.ClienteMembresia>.GetAll()
+  nameWithType.vb: IGenericRepository(Of ClienteMembresia).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.ClienteMembresia).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Entities.ClienteMembresia}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  name: IGenericRepository<ClienteMembresia>
+  nameWithType: IGenericRepository<ClienteMembresia>
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.ClienteMembresia>
+  nameWithType.vb: IGenericRepository(Of ClienteMembresia)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.ClienteMembresia)
+  name.vb: IGenericRepository(Of ClienteMembresia)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: <
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.ClienteMembresia
+    name: ClienteMembresia
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId*
+  commentId: Overload:DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId
+  isExternal: true
+  href: DAL.Contracts.IClienteMembresiaRepository.html#DAL_Contracts_IClienteMembresiaRepository_GetActiveByClienteId_System_Guid_
+  name: GetActiveByClienteId
+  nameWithType: IClienteMembresiaRepository.GetActiveByClienteId
+  fullName: DAL.Contracts.IClienteMembresiaRepository.GetActiveByClienteId
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Entities.ClienteMembresia
+  commentId: T:Domain.Entities.ClienteMembresia
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.ClienteMembresia.html
+  name: ClienteMembresia
+  nameWithType: ClienteMembresia
+  fullName: Domain.Entities.ClienteMembresia
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html

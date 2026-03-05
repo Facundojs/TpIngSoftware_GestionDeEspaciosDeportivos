@@ -1,0 +1,706 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Entities.Cliente
+  commentId: T:Domain.Entities.Cliente
+  id: Cliente
+  parent: Domain.Entities
+  children:
+  - Domain.Entities.Cliente.#ctor
+  - Domain.Entities.Cliente.Apellido
+  - Domain.Entities.Cliente.CreatedAt
+  - Domain.Entities.Cliente.DNI
+  - Domain.Entities.Cliente.Email
+  - Domain.Entities.Cliente.Estado
+  - Domain.Entities.Cliente.FechaNacimiento
+  - Domain.Entities.Cliente.Id
+  - Domain.Entities.Cliente.MembresiaID
+  - Domain.Entities.Cliente.Nombre
+  - Domain.Entities.Cliente.Razon
+  langs:
+  - csharp
+  - vb
+  name: Cliente
+  nameWithType: Cliente
+  fullName: Domain.Entities.Cliente
+  type: Class
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public class Cliente
+    content.vb: Public Class Cliente
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Domain.Entities.Cliente.#ctor
+  commentId: M:Domain.Entities.Cliente.#ctor
+  id: '#ctor'
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Cliente()
+  nameWithType: Cliente.Cliente()
+  fullName: Domain.Entities.Cliente.Cliente()
+  type: Constructor
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Cliente()
+    content.vb: Public Sub New()
+  overload: Domain.Entities.Cliente.#ctor*
+  nameWithType.vb: Cliente.New()
+  fullName.vb: Domain.Entities.Cliente.New()
+  name.vb: New()
+- uid: Domain.Entities.Cliente.Id
+  commentId: P:Domain.Entities.Cliente.Id
+  id: Id
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Cliente.Id
+  fullName: Domain.Entities.Cliente.Id
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Domain.Entities.Cliente.Id*
+- uid: Domain.Entities.Cliente.Nombre
+  commentId: P:Domain.Entities.Cliente.Nombre
+  id: Nombre
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Nombre
+  nameWithType: Cliente.Nombre
+  fullName: Domain.Entities.Cliente.Nombre
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string Nombre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Nombre As String
+  overload: Domain.Entities.Cliente.Nombre*
+- uid: Domain.Entities.Cliente.Apellido
+  commentId: P:Domain.Entities.Cliente.Apellido
+  id: Apellido
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Apellido
+  nameWithType: Cliente.Apellido
+  fullName: Domain.Entities.Cliente.Apellido
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string Apellido { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Apellido As String
+  overload: Domain.Entities.Cliente.Apellido*
+- uid: Domain.Entities.Cliente.DNI
+  commentId: P:Domain.Entities.Cliente.DNI
+  id: DNI
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: DNI
+  nameWithType: Cliente.DNI
+  fullName: Domain.Entities.Cliente.DNI
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public int DNI { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DNI As Integer
+  overload: Domain.Entities.Cliente.DNI*
+- uid: Domain.Entities.Cliente.FechaNacimiento
+  commentId: P:Domain.Entities.Cliente.FechaNacimiento
+  id: FechaNacimiento
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: FechaNacimiento
+  nameWithType: Cliente.FechaNacimiento
+  fullName: Domain.Entities.Cliente.FechaNacimiento
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public DateTime FechaNacimiento { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property FechaNacimiento As Date
+  overload: Domain.Entities.Cliente.FechaNacimiento*
+- uid: Domain.Entities.Cliente.Email
+  commentId: P:Domain.Entities.Cliente.Email
+  id: Email
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: Cliente.Email
+  fullName: Domain.Entities.Cliente.Email
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string Email { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Email As String
+  overload: Domain.Entities.Cliente.Email*
+- uid: Domain.Entities.Cliente.CreatedAt
+  commentId: P:Domain.Entities.Cliente.CreatedAt
+  id: CreatedAt
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Cliente.CreatedAt
+  fullName: Domain.Entities.Cliente.CreatedAt
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public DateTime CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreatedAt As Date
+  overload: Domain.Entities.Cliente.CreatedAt*
+- uid: Domain.Entities.Cliente.MembresiaID
+  commentId: P:Domain.Entities.Cliente.MembresiaID
+  id: MembresiaID
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: MembresiaID
+  nameWithType: Cliente.MembresiaID
+  fullName: Domain.Entities.Cliente.MembresiaID
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid? MembresiaID { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property MembresiaID As Guid?
+  overload: Domain.Entities.Cliente.MembresiaID*
+- uid: Domain.Entities.Cliente.Estado
+  commentId: P:Domain.Entities.Cliente.Estado
+  id: Estado
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Estado
+  nameWithType: Cliente.Estado
+  fullName: Domain.Entities.Cliente.Estado
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string Estado { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Estado As String
+  overload: Domain.Entities.Cliente.Estado*
+- uid: Domain.Entities.Cliente.Razon
+  commentId: P:Domain.Entities.Cliente.Razon
+  id: Razon
+  parent: Domain.Entities.Cliente
+  langs:
+  - csharp
+  - vb
+  name: Razon
+  nameWithType: Cliente.Razon
+  fullName: Domain.Entities.Cliente.Razon
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string Razon { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Razon As String
+  overload: Domain.Entities.Cliente.Razon*
+references:
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Domain.Entities.Cliente.#ctor*
+  commentId: Overload:Domain.Entities.Cliente.#ctor
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente__ctor
+  name: Cliente
+  nameWithType: Cliente.Cliente
+  fullName: Domain.Entities.Cliente.Cliente
+  nameWithType.vb: Cliente.New
+  fullName.vb: Domain.Entities.Cliente.New
+  name.vb: New
+- uid: Domain.Entities.Cliente.Id*
+  commentId: Overload:Domain.Entities.Cliente.Id
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_Id
+  name: Id
+  nameWithType: Cliente.Id
+  fullName: Domain.Entities.Cliente.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Entities.Cliente.Nombre*
+  commentId: Overload:Domain.Entities.Cliente.Nombre
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_Nombre
+  name: Nombre
+  nameWithType: Cliente.Nombre
+  fullName: Domain.Entities.Cliente.Nombre
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Domain.Entities.Cliente.Apellido*
+  commentId: Overload:Domain.Entities.Cliente.Apellido
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_Apellido
+  name: Apellido
+  nameWithType: Cliente.Apellido
+  fullName: Domain.Entities.Cliente.Apellido
+- uid: Domain.Entities.Cliente.DNI*
+  commentId: Overload:Domain.Entities.Cliente.DNI
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_DNI
+  name: DNI
+  nameWithType: Cliente.DNI
+  fullName: Domain.Entities.Cliente.DNI
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Domain.Entities.Cliente.FechaNacimiento*
+  commentId: Overload:Domain.Entities.Cliente.FechaNacimiento
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_FechaNacimiento
+  name: FechaNacimiento
+  nameWithType: Cliente.FechaNacimiento
+  fullName: Domain.Entities.Cliente.FechaNacimiento
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Domain.Entities.Cliente.Email*
+  commentId: Overload:Domain.Entities.Cliente.Email
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_Email
+  name: Email
+  nameWithType: Cliente.Email
+  fullName: Domain.Entities.Cliente.Email
+- uid: Domain.Entities.Cliente.CreatedAt*
+  commentId: Overload:Domain.Entities.Cliente.CreatedAt
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_CreatedAt
+  name: CreatedAt
+  nameWithType: Cliente.CreatedAt
+  fullName: Domain.Entities.Cliente.CreatedAt
+- uid: Domain.Entities.Cliente.MembresiaID*
+  commentId: Overload:Domain.Entities.Cliente.MembresiaID
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_MembresiaID
+  name: MembresiaID
+  nameWithType: Cliente.MembresiaID
+  fullName: Domain.Entities.Cliente.MembresiaID
+- uid: System.Nullable{System.Guid}
+  commentId: T:System.Nullable{System.Guid}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid?
+  nameWithType: Guid?
+  fullName: System.Guid?
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Domain.Entities.Cliente.Estado*
+  commentId: Overload:Domain.Entities.Cliente.Estado
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_Estado
+  name: Estado
+  nameWithType: Cliente.Estado
+  fullName: Domain.Entities.Cliente.Estado
+- uid: Domain.Entities.Cliente.Razon*
+  commentId: Overload:Domain.Entities.Cliente.Razon
+  isExternal: true
+  href: Domain.Entities.Cliente.html#Domain_Entities_Cliente_Razon
+  name: Razon
+  nameWithType: Cliente.Razon
+  fullName: Domain.Entities.Cliente.Razon

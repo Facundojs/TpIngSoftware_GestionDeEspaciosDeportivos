@@ -1,0 +1,354 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IAgendaRepository
+  commentId: T:DAL.Contracts.IAgendaRepository
+  id: IAgendaRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IAgendaRepository.CrearAgenda(Domain.Entities.Agenda)
+  - DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  - DAL.Contracts.IAgendaRepository.GetByEspacio(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IAgendaRepository
+  nameWithType: IAgendaRepository
+  fullName: DAL.Contracts.IAgendaRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IAgendaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Repository contract for <xref href="Domain.Entities.Agenda" data-throw-if-not-resolved="false"></xref> records that define the weekly operating
+
+    schedule of a sports space.
+  remarks: >-
+    Agenda records are managed as a complete set per space: configuration always deletes
+
+    all existing records via <xref href="DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)" data-throw-if-not-resolved="false"></xref> and re-inserts the new set
+
+    within the same transaction.
+  example: []
+  syntax:
+    content: public interface IAgendaRepository
+    content.vb: Public Interface IAgendaRepository
+  derivedClasses:
+  - DAL.Impl.AgendaSqlRepository
+- uid: DAL.Contracts.IAgendaRepository.CrearAgenda(Domain.Entities.Agenda)
+  commentId: M:DAL.Contracts.IAgendaRepository.CrearAgenda(Domain.Entities.Agenda)
+  id: CrearAgenda(Domain.Entities.Agenda)
+  parent: DAL.Contracts.IAgendaRepository
+  langs:
+  - csharp
+  - vb
+  name: CrearAgenda(Agenda)
+  nameWithType: IAgendaRepository.CrearAgenda(Agenda)
+  fullName: DAL.Contracts.IAgendaRepository.CrearAgenda(Domain.Entities.Agenda)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IAgendaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Inserts a single agenda time block.
+  example: []
+  syntax:
+    content: void CrearAgenda(Agenda obj)
+    parameters:
+    - id: obj
+      type: Domain.Entities.Agenda
+      description: The agenda block to create.
+    content.vb: Sub CrearAgenda(obj As Agenda)
+  overload: DAL.Contracts.IAgendaRepository.CrearAgenda*
+- uid: DAL.Contracts.IAgendaRepository.GetByEspacio(System.Guid)
+  commentId: M:DAL.Contracts.IAgendaRepository.GetByEspacio(System.Guid)
+  id: GetByEspacio(System.Guid)
+  parent: DAL.Contracts.IAgendaRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByEspacio(Guid)
+  nameWithType: IAgendaRepository.GetByEspacio(Guid)
+  fullName: DAL.Contracts.IAgendaRepository.GetByEspacio(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IAgendaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Retrieves all agenda blocks configured for a given space.
+  example: []
+  syntax:
+    content: List<Agenda> GetByEspacio(Guid espacioId)
+    parameters:
+    - id: espacioId
+      type: System.Guid
+      description: The space whose schedule to fetch.
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Agenda}
+      description: List of agenda blocks; empty list if no schedule is configured.
+    content.vb: Function GetByEspacio(espacioId As Guid) As List(Of Agenda)
+  overload: DAL.Contracts.IAgendaRepository.GetByEspacio*
+- uid: DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  commentId: M:DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  id: EliminarPorEspacio(System.Guid)
+  parent: DAL.Contracts.IAgendaRepository
+  langs:
+  - csharp
+  - vb
+  name: EliminarPorEspacio(Guid)
+  nameWithType: IAgendaRepository.EliminarPorEspacio(Guid)
+  fullName: DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IAgendaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: Deletes all agenda blocks for the specified space in preparation for a full re-configuration.
+  example: []
+  syntax:
+    content: void EliminarPorEspacio(Guid espacioId)
+    parameters:
+    - id: espacioId
+      type: System.Guid
+      description: The space whose agenda will be cleared.
+    content.vb: Sub EliminarPorEspacio(espacioId As Guid)
+  overload: DAL.Contracts.IAgendaRepository.EliminarPorEspacio*
+references:
+- uid: Domain.Entities.Agenda
+  commentId: T:Domain.Entities.Agenda
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Agenda.html
+  name: Agenda
+  nameWithType: Agenda
+  fullName: Domain.Entities.Agenda
+- uid: DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  commentId: M:DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  parent: DAL.Contracts.IAgendaRepository
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html#DAL_Contracts_IAgendaRepository_EliminarPorEspacio_System_Guid_
+  name: EliminarPorEspacio(Guid)
+  nameWithType: IAgendaRepository.EliminarPorEspacio(Guid)
+  fullName: DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+  spec.csharp:
+  - uid: DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+    name: EliminarPorEspacio
+    isExternal: true
+    href: DAL.Contracts.IAgendaRepository.html#DAL_Contracts_IAgendaRepository_EliminarPorEspacio_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IAgendaRepository.EliminarPorEspacio(System.Guid)
+    name: EliminarPorEspacio
+    isExternal: true
+    href: DAL.Contracts.IAgendaRepository.html#DAL_Contracts_IAgendaRepository_EliminarPorEspacio_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: DAL.Contracts.IAgendaRepository
+  commentId: T:DAL.Contracts.IAgendaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html
+  name: IAgendaRepository
+  nameWithType: IAgendaRepository
+  fullName: DAL.Contracts.IAgendaRepository
+- uid: DAL.Contracts.IAgendaRepository.CrearAgenda*
+  commentId: Overload:DAL.Contracts.IAgendaRepository.CrearAgenda
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html#DAL_Contracts_IAgendaRepository_CrearAgenda_Domain_Entities_Agenda_
+  name: CrearAgenda
+  nameWithType: IAgendaRepository.CrearAgenda
+  fullName: DAL.Contracts.IAgendaRepository.CrearAgenda
+- uid: DAL.Contracts.IAgendaRepository.GetByEspacio*
+  commentId: Overload:DAL.Contracts.IAgendaRepository.GetByEspacio
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html#DAL_Contracts_IAgendaRepository_GetByEspacio_System_Guid_
+  name: GetByEspacio
+  nameWithType: IAgendaRepository.GetByEspacio
+  fullName: DAL.Contracts.IAgendaRepository.GetByEspacio
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Collections.Generic.List{Domain.Entities.Agenda}
+  commentId: T:System.Collections.Generic.List{Domain.Entities.Agenda}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Agenda>
+  nameWithType: List<Agenda>
+  fullName: System.Collections.Generic.List<Domain.Entities.Agenda>
+  nameWithType.vb: List(Of Agenda)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Entities.Agenda)
+  name.vb: List(Of Agenda)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: DAL.Contracts.IAgendaRepository.EliminarPorEspacio*
+  commentId: Overload:DAL.Contracts.IAgendaRepository.EliminarPorEspacio
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html#DAL_Contracts_IAgendaRepository_EliminarPorEspacio_System_Guid_
+  name: EliminarPorEspacio
+  nameWithType: IAgendaRepository.EliminarPorEspacio
+  fullName: DAL.Contracts.IAgendaRepository.EliminarPorEspacio

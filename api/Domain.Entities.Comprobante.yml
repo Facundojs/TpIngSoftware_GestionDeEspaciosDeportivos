@@ -1,0 +1,631 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Entities.Comprobante
+  commentId: T:Domain.Entities.Comprobante
+  id: Comprobante
+  parent: Domain.Entities
+  children:
+  - Domain.Entities.Comprobante.#ctor
+  - Domain.Entities.Comprobante.Contenido
+  - Domain.Entities.Comprobante.FechaSubida
+  - Domain.Entities.Comprobante.Id
+  - Domain.Entities.Comprobante.NombreArchivo
+  - Domain.Entities.Comprobante.PagoID
+  - Domain.Entities.Comprobante.ReservaID
+  - Domain.Entities.Comprobante.RutaArchivo
+  langs:
+  - csharp
+  - vb
+  name: Comprobante
+  nameWithType: Comprobante
+  fullName: Domain.Entities.Comprobante
+  type: Class
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public class Comprobante
+    content.vb: Public Class Comprobante
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Domain.Entities.Comprobante.#ctor
+  commentId: M:Domain.Entities.Comprobante.#ctor
+  id: '#ctor'
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: Comprobante()
+  nameWithType: Comprobante.Comprobante()
+  fullName: Domain.Entities.Comprobante.Comprobante()
+  type: Constructor
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Comprobante()
+    content.vb: Public Sub New()
+  overload: Domain.Entities.Comprobante.#ctor*
+  nameWithType.vb: Comprobante.New()
+  fullName.vb: Domain.Entities.Comprobante.New()
+  name.vb: New()
+- uid: Domain.Entities.Comprobante.Id
+  commentId: P:Domain.Entities.Comprobante.Id
+  id: Id
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Comprobante.Id
+  fullName: Domain.Entities.Comprobante.Id
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Domain.Entities.Comprobante.Id*
+- uid: Domain.Entities.Comprobante.PagoID
+  commentId: P:Domain.Entities.Comprobante.PagoID
+  id: PagoID
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: PagoID
+  nameWithType: Comprobante.PagoID
+  fullName: Domain.Entities.Comprobante.PagoID
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid? PagoID { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property PagoID As Guid?
+  overload: Domain.Entities.Comprobante.PagoID*
+- uid: Domain.Entities.Comprobante.ReservaID
+  commentId: P:Domain.Entities.Comprobante.ReservaID
+  id: ReservaID
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: ReservaID
+  nameWithType: Comprobante.ReservaID
+  fullName: Domain.Entities.Comprobante.ReservaID
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public Guid? ReservaID { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property ReservaID As Guid?
+  overload: Domain.Entities.Comprobante.ReservaID*
+- uid: Domain.Entities.Comprobante.NombreArchivo
+  commentId: P:Domain.Entities.Comprobante.NombreArchivo
+  id: NombreArchivo
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: NombreArchivo
+  nameWithType: Comprobante.NombreArchivo
+  fullName: Domain.Entities.Comprobante.NombreArchivo
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string NombreArchivo { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NombreArchivo As String
+  overload: Domain.Entities.Comprobante.NombreArchivo*
+- uid: Domain.Entities.Comprobante.RutaArchivo
+  commentId: P:Domain.Entities.Comprobante.RutaArchivo
+  id: RutaArchivo
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: RutaArchivo
+  nameWithType: Comprobante.RutaArchivo
+  fullName: Domain.Entities.Comprobante.RutaArchivo
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public string RutaArchivo { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RutaArchivo As String
+  overload: Domain.Entities.Comprobante.RutaArchivo*
+- uid: Domain.Entities.Comprobante.FechaSubida
+  commentId: P:Domain.Entities.Comprobante.FechaSubida
+  id: FechaSubida
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: FechaSubida
+  nameWithType: Comprobante.FechaSubida
+  fullName: Domain.Entities.Comprobante.FechaSubida
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public DateTime FechaSubida { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property FechaSubida As Date
+  overload: Domain.Entities.Comprobante.FechaSubida*
+- uid: Domain.Entities.Comprobante.Contenido
+  commentId: P:Domain.Entities.Comprobante.Contenido
+  id: Contenido
+  parent: Domain.Entities.Comprobante
+  langs:
+  - csharp
+  - vb
+  name: Contenido
+  nameWithType: Comprobante.Contenido
+  fullName: Domain.Entities.Comprobante.Contenido
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain.Entities
+  syntax:
+    content: public byte[] Contenido { get; set; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public Property Contenido As Byte()
+  overload: Domain.Entities.Comprobante.Contenido*
+references:
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Domain.Entities.Comprobante.#ctor*
+  commentId: Overload:Domain.Entities.Comprobante.#ctor
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante__ctor
+  name: Comprobante
+  nameWithType: Comprobante.Comprobante
+  fullName: Domain.Entities.Comprobante.Comprobante
+  nameWithType.vb: Comprobante.New
+  fullName.vb: Domain.Entities.Comprobante.New
+  name.vb: New
+- uid: Domain.Entities.Comprobante.Id*
+  commentId: Overload:Domain.Entities.Comprobante.Id
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_Id
+  name: Id
+  nameWithType: Comprobante.Id
+  fullName: Domain.Entities.Comprobante.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Entities.Comprobante.PagoID*
+  commentId: Overload:Domain.Entities.Comprobante.PagoID
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_PagoID
+  name: PagoID
+  nameWithType: Comprobante.PagoID
+  fullName: Domain.Entities.Comprobante.PagoID
+- uid: System.Nullable{System.Guid}
+  commentId: T:System.Nullable{System.Guid}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid?
+  nameWithType: Guid?
+  fullName: System.Guid?
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Domain.Entities.Comprobante.ReservaID*
+  commentId: Overload:Domain.Entities.Comprobante.ReservaID
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_ReservaID
+  name: ReservaID
+  nameWithType: Comprobante.ReservaID
+  fullName: Domain.Entities.Comprobante.ReservaID
+- uid: Domain.Entities.Comprobante.NombreArchivo*
+  commentId: Overload:Domain.Entities.Comprobante.NombreArchivo
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_NombreArchivo
+  name: NombreArchivo
+  nameWithType: Comprobante.NombreArchivo
+  fullName: Domain.Entities.Comprobante.NombreArchivo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Domain.Entities.Comprobante.RutaArchivo*
+  commentId: Overload:Domain.Entities.Comprobante.RutaArchivo
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_RutaArchivo
+  name: RutaArchivo
+  nameWithType: Comprobante.RutaArchivo
+  fullName: Domain.Entities.Comprobante.RutaArchivo
+- uid: Domain.Entities.Comprobante.FechaSubida*
+  commentId: Overload:Domain.Entities.Comprobante.FechaSubida
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_FechaSubida
+  name: FechaSubida
+  nameWithType: Comprobante.FechaSubida
+  fullName: Domain.Entities.Comprobante.FechaSubida
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Domain.Entities.Comprobante.Contenido*
+  commentId: Overload:Domain.Entities.Comprobante.Contenido
+  isExternal: true
+  href: Domain.Entities.Comprobante.html#Domain_Entities_Comprobante_Contenido
+  name: Contenido
+  nameWithType: Comprobante.Contenido
+  fullName: Domain.Entities.Comprobante.Contenido
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )

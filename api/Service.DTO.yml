@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.DTO
+  commentId: N:Service.DTO
+  id: Service.DTO
+  children:
+  - Service.DTO.BackupFile
+  - Service.DTO.UsuarioDTO
+  langs:
+  - csharp
+  - vb
+  name: Service.DTO
+  nameWithType: Service.DTO
+  fullName: Service.DTO
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.DTO.BackupFile
+  commentId: T:Service.DTO.BackupFile
+  isExternal: true
+  href: Service.DTO.BackupFile.html
+  name: BackupFile
+  nameWithType: BackupFile
+  fullName: Service.DTO.BackupFile
+- uid: Service.DTO.UsuarioDTO
+  commentId: T:Service.DTO.UsuarioDTO
+  parent: Service.DTO
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html
+  name: UsuarioDTO
+  nameWithType: UsuarioDTO
+  fullName: Service.DTO.UsuarioDTO
+- uid: Service.DTO
+  commentId: N:Service.DTO
+  isExternal: true
+  href: Service.html
+  name: Service.DTO
+  nameWithType: Service.DTO
+  fullName: Service.DTO
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html

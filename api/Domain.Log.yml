@@ -1,0 +1,511 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Log
+  commentId: T:Domain.Log
+  id: Log
+  parent: Domain
+  children:
+  - Domain.Log.#ctor
+  - Domain.Log.BitacoraID
+  - Domain.Log.ExceptionDetails
+  - Domain.Log.LogLevel
+  - Domain.Log.Message
+  - Domain.Log.Timestamp
+  - Domain.Log.UsuarioNombre
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: Log
+  fullName: Domain.Log
+  type: Class
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public class Log
+    content.vb: Public Class Log
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Domain.Log.#ctor
+  commentId: M:Domain.Log.#ctor
+  id: '#ctor'
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: Log()
+  nameWithType: Log.Log()
+  fullName: Domain.Log.Log()
+  type: Constructor
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public Log()
+    content.vb: Public Sub New()
+  overload: Domain.Log.#ctor*
+  nameWithType.vb: Log.New()
+  fullName.vb: Domain.Log.New()
+  name.vb: New()
+- uid: Domain.Log.BitacoraID
+  commentId: P:Domain.Log.BitacoraID
+  id: BitacoraID
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: BitacoraID
+  nameWithType: Log.BitacoraID
+  fullName: Domain.Log.BitacoraID
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public Guid BitacoraID { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property BitacoraID As Guid
+  overload: Domain.Log.BitacoraID*
+- uid: Domain.Log.Timestamp
+  commentId: P:Domain.Log.Timestamp
+  id: Timestamp
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: Log.Timestamp
+  fullName: Domain.Log.Timestamp
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public DateTime Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Timestamp As Date
+  overload: Domain.Log.Timestamp*
+- uid: Domain.Log.LogLevel
+  commentId: P:Domain.Log.LogLevel
+  id: LogLevel
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: Log.LogLevel
+  fullName: Domain.Log.LogLevel
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public string LogLevel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogLevel As String
+  overload: Domain.Log.LogLevel*
+- uid: Domain.Log.Message
+  commentId: P:Domain.Log.Message
+  id: Message
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Log.Message
+  fullName: Domain.Log.Message
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: Domain.Log.Message*
+- uid: Domain.Log.ExceptionDetails
+  commentId: P:Domain.Log.ExceptionDetails
+  id: ExceptionDetails
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: ExceptionDetails
+  nameWithType: Log.ExceptionDetails
+  fullName: Domain.Log.ExceptionDetails
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public string ExceptionDetails { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExceptionDetails As String
+  overload: Domain.Log.ExceptionDetails*
+- uid: Domain.Log.UsuarioNombre
+  commentId: P:Domain.Log.UsuarioNombre
+  id: UsuarioNombre
+  parent: Domain.Log
+  langs:
+  - csharp
+  - vb
+  name: UsuarioNombre
+  nameWithType: Log.UsuarioNombre
+  fullName: Domain.Log.UsuarioNombre
+  type: Property
+  assemblies:
+  - Domain
+  namespace: Domain
+  syntax:
+    content: public string UsuarioNombre { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UsuarioNombre As String
+  overload: Domain.Log.UsuarioNombre*
+references:
+- uid: Domain
+  commentId: N:Domain
+  isExternal: true
+  href: Domain.html
+  name: Domain
+  nameWithType: Domain
+  fullName: Domain
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Domain.Log.#ctor*
+  commentId: Overload:Domain.Log.#ctor
+  isExternal: true
+  href: Domain.Log.html#Domain_Log__ctor
+  name: Log
+  nameWithType: Log.Log
+  fullName: Domain.Log.Log
+  nameWithType.vb: Log.New
+  fullName.vb: Domain.Log.New
+  name.vb: New
+- uid: Domain.Log.BitacoraID*
+  commentId: Overload:Domain.Log.BitacoraID
+  isExternal: true
+  href: Domain.Log.html#Domain_Log_BitacoraID
+  name: BitacoraID
+  nameWithType: Log.BitacoraID
+  fullName: Domain.Log.BitacoraID
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Log.Timestamp*
+  commentId: Overload:Domain.Log.Timestamp
+  isExternal: true
+  href: Domain.Log.html#Domain_Log_Timestamp
+  name: Timestamp
+  nameWithType: Log.Timestamp
+  fullName: Domain.Log.Timestamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Domain.Log.LogLevel*
+  commentId: Overload:Domain.Log.LogLevel
+  isExternal: true
+  href: Domain.Log.html#Domain_Log_LogLevel
+  name: LogLevel
+  nameWithType: Log.LogLevel
+  fullName: Domain.Log.LogLevel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Domain.Log.Message*
+  commentId: Overload:Domain.Log.Message
+  isExternal: true
+  href: Domain.Log.html#Domain_Log_Message
+  name: Message
+  nameWithType: Log.Message
+  fullName: Domain.Log.Message
+- uid: Domain.Log.ExceptionDetails*
+  commentId: Overload:Domain.Log.ExceptionDetails
+  isExternal: true
+  href: Domain.Log.html#Domain_Log_ExceptionDetails
+  name: ExceptionDetails
+  nameWithType: Log.ExceptionDetails
+  fullName: Domain.Log.ExceptionDetails
+- uid: Domain.Log.UsuarioNombre*
+  commentId: Overload:Domain.Log.UsuarioNombre
+  isExternal: true
+  href: Domain.Log.html#Domain_Log_UsuarioNombre
+  name: UsuarioNombre
+  nameWithType: Log.UsuarioNombre
+  fullName: Domain.Log.UsuarioNombre

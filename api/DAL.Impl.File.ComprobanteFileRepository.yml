@@ -1,0 +1,681 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Impl.File.ComprobanteFileRepository
+  commentId: T:DAL.Impl.File.ComprobanteFileRepository
+  id: ComprobanteFileRepository
+  parent: DAL.Impl.File
+  children:
+  - DAL.Impl.File.ComprobanteFileRepository.#ctor
+  - DAL.Impl.File.ComprobanteFileRepository.Agregar(Domain.Entities.Comprobante)
+  - DAL.Impl.File.ComprobanteFileRepository.GetById(System.Guid)
+  - DAL.Impl.File.ComprobanteFileRepository.GetByPago(System.Guid)
+  - DAL.Impl.File.ComprobanteFileRepository.GetByReserva(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: ComprobanteFileRepository
+  nameWithType: ComprobanteFileRepository
+  fullName: DAL.Impl.File.ComprobanteFileRepository
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/File/ComprobanteFileRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.File
+  syntax:
+    content: 'public class ComprobanteFileRepository : IComprobanteRepository'
+    content.vb: Public Class ComprobanteFileRepository Implements IComprobanteRepository
+  inheritance:
+  - System.Object
+  implements:
+  - DAL.Contracts.IComprobanteRepository
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: DAL.Impl.File.ComprobanteFileRepository.#ctor
+  commentId: M:DAL.Impl.File.ComprobanteFileRepository.#ctor
+  id: '#ctor'
+  parent: DAL.Impl.File.ComprobanteFileRepository
+  langs:
+  - csharp
+  - vb
+  name: ComprobanteFileRepository()
+  nameWithType: ComprobanteFileRepository.ComprobanteFileRepository()
+  fullName: DAL.Impl.File.ComprobanteFileRepository.ComprobanteFileRepository()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/File/ComprobanteFileRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.File
+  syntax:
+    content: public ComprobanteFileRepository()
+    content.vb: Public Sub New()
+  overload: DAL.Impl.File.ComprobanteFileRepository.#ctor*
+  nameWithType.vb: ComprobanteFileRepository.New()
+  fullName.vb: DAL.Impl.File.ComprobanteFileRepository.New()
+  name.vb: New()
+- uid: DAL.Impl.File.ComprobanteFileRepository.Agregar(Domain.Entities.Comprobante)
+  commentId: M:DAL.Impl.File.ComprobanteFileRepository.Agregar(Domain.Entities.Comprobante)
+  id: Agregar(Domain.Entities.Comprobante)
+  parent: DAL.Impl.File.ComprobanteFileRepository
+  langs:
+  - csharp
+  - vb
+  name: Agregar(Comprobante)
+  nameWithType: ComprobanteFileRepository.Agregar(Comprobante)
+  fullName: DAL.Impl.File.ComprobanteFileRepository.Agregar(Domain.Entities.Comprobante)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/File/ComprobanteFileRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.File
+  example: []
+  syntax:
+    content: public void Agregar(Comprobante obj)
+    parameters:
+    - id: obj
+      type: Domain.Entities.Comprobante
+    content.vb: Public Sub Agregar(obj As Comprobante)
+  overload: DAL.Impl.File.ComprobanteFileRepository.Agregar*
+  implements:
+  - DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+- uid: DAL.Impl.File.ComprobanteFileRepository.GetById(System.Guid)
+  commentId: M:DAL.Impl.File.ComprobanteFileRepository.GetById(System.Guid)
+  id: GetById(System.Guid)
+  parent: DAL.Impl.File.ComprobanteFileRepository
+  langs:
+  - csharp
+  - vb
+  name: GetById(Guid)
+  nameWithType: ComprobanteFileRepository.GetById(Guid)
+  fullName: DAL.Impl.File.ComprobanteFileRepository.GetById(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/File/ComprobanteFileRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.File
+  example: []
+  syntax:
+    content: public Comprobante GetById(Guid comprobanteId)
+    parameters:
+    - id: comprobanteId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Comprobante
+    content.vb: Public Function GetById(comprobanteId As Guid) As Comprobante
+  overload: DAL.Impl.File.ComprobanteFileRepository.GetById*
+  implements:
+  - DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+- uid: DAL.Impl.File.ComprobanteFileRepository.GetByPago(System.Guid)
+  commentId: M:DAL.Impl.File.ComprobanteFileRepository.GetByPago(System.Guid)
+  id: GetByPago(System.Guid)
+  parent: DAL.Impl.File.ComprobanteFileRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByPago(Guid)
+  nameWithType: ComprobanteFileRepository.GetByPago(Guid)
+  fullName: DAL.Impl.File.ComprobanteFileRepository.GetByPago(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/File/ComprobanteFileRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.File
+  example: []
+  syntax:
+    content: public Comprobante GetByPago(Guid pagoId)
+    parameters:
+    - id: pagoId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Comprobante
+    content.vb: Public Function GetByPago(pagoId As Guid) As Comprobante
+  overload: DAL.Impl.File.ComprobanteFileRepository.GetByPago*
+  implements:
+  - DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+- uid: DAL.Impl.File.ComprobanteFileRepository.GetByReserva(System.Guid)
+  commentId: M:DAL.Impl.File.ComprobanteFileRepository.GetByReserva(System.Guid)
+  id: GetByReserva(System.Guid)
+  parent: DAL.Impl.File.ComprobanteFileRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByReserva(Guid)
+  nameWithType: ComprobanteFileRepository.GetByReserva(Guid)
+  fullName: DAL.Impl.File.ComprobanteFileRepository.GetByReserva(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/File/ComprobanteFileRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.File
+  example: []
+  syntax:
+    content: public Comprobante GetByReserva(Guid reservaId)
+    parameters:
+    - id: reservaId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Comprobante
+    content.vb: Public Function GetByReserva(reservaId As Guid) As Comprobante
+  overload: DAL.Impl.File.ComprobanteFileRepository.GetByReserva*
+  implements:
+  - DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+references:
+- uid: DAL.Impl.File
+  commentId: N:DAL.Impl.File
+  isExternal: true
+  href: DAL.html
+  name: DAL.Impl.File
+  nameWithType: DAL.Impl.File
+  fullName: DAL.Impl.File
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  - name: .
+  - uid: DAL.Impl.File
+    name: File
+    isExternal: true
+    href: DAL.Impl.File.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  - name: .
+  - uid: DAL.Impl.File
+    name: File
+    isExternal: true
+    href: DAL.Impl.File.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DAL.Contracts.IComprobanteRepository
+  commentId: T:DAL.Contracts.IComprobanteRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html
+  name: IComprobanteRepository
+  nameWithType: IComprobanteRepository
+  fullName: DAL.Contracts.IComprobanteRepository
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: DAL.Impl.File.ComprobanteFileRepository.#ctor*
+  commentId: Overload:DAL.Impl.File.ComprobanteFileRepository.#ctor
+  isExternal: true
+  href: DAL.Impl.File.ComprobanteFileRepository.html#DAL_Impl_File_ComprobanteFileRepository__ctor
+  name: ComprobanteFileRepository
+  nameWithType: ComprobanteFileRepository.ComprobanteFileRepository
+  fullName: DAL.Impl.File.ComprobanteFileRepository.ComprobanteFileRepository
+  nameWithType.vb: ComprobanteFileRepository.New
+  fullName.vb: DAL.Impl.File.ComprobanteFileRepository.New
+  name.vb: New
+- uid: DAL.Impl.File.ComprobanteFileRepository.Agregar*
+  commentId: Overload:DAL.Impl.File.ComprobanteFileRepository.Agregar
+  isExternal: true
+  href: DAL.Impl.File.ComprobanteFileRepository.html#DAL_Impl_File_ComprobanteFileRepository_Agregar_Domain_Entities_Comprobante_
+  name: Agregar
+  nameWithType: ComprobanteFileRepository.Agregar
+  fullName: DAL.Impl.File.ComprobanteFileRepository.Agregar
+- uid: DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  commentId: M:DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  parent: DAL.Contracts.IComprobanteRepository
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_Agregar_Domain_Entities_Comprobante_
+  name: Agregar(Comprobante)
+  nameWithType: IComprobanteRepository.Agregar(Comprobante)
+  fullName: DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  spec.csharp:
+  - uid: DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+    name: Agregar
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_Agregar_Domain_Entities_Comprobante_
+  - name: (
+  - uid: Domain.Entities.Comprobante
+    name: Comprobante
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+    name: Agregar
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_Agregar_Domain_Entities_Comprobante_
+  - name: (
+  - uid: Domain.Entities.Comprobante
+    name: Comprobante
+    isExternal: true
+  - name: )
+- uid: Domain.Entities.Comprobante
+  commentId: T:Domain.Entities.Comprobante
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Comprobante.html
+  name: Comprobante
+  nameWithType: Comprobante
+  fullName: Domain.Entities.Comprobante
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: DAL.Impl.File.ComprobanteFileRepository.GetById*
+  commentId: Overload:DAL.Impl.File.ComprobanteFileRepository.GetById
+  isExternal: true
+  href: DAL.Impl.File.ComprobanteFileRepository.html#DAL_Impl_File_ComprobanteFileRepository_GetById_System_Guid_
+  name: GetById
+  nameWithType: ComprobanteFileRepository.GetById
+  fullName: DAL.Impl.File.ComprobanteFileRepository.GetById
+- uid: DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  commentId: M:DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  parent: DAL.Contracts.IComprobanteRepository
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IComprobanteRepository.GetById(Guid)
+  fullName: DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  spec.csharp:
+  - uid: DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: DAL.Impl.File.ComprobanteFileRepository.GetByPago*
+  commentId: Overload:DAL.Impl.File.ComprobanteFileRepository.GetByPago
+  isExternal: true
+  href: DAL.Impl.File.ComprobanteFileRepository.html#DAL_Impl_File_ComprobanteFileRepository_GetByPago_System_Guid_
+  name: GetByPago
+  nameWithType: ComprobanteFileRepository.GetByPago
+  fullName: DAL.Impl.File.ComprobanteFileRepository.GetByPago
+- uid: DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  commentId: M:DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  parent: DAL.Contracts.IComprobanteRepository
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByPago_System_Guid_
+  name: GetByPago(Guid)
+  nameWithType: IComprobanteRepository.GetByPago(Guid)
+  fullName: DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  spec.csharp:
+  - uid: DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+    name: GetByPago
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByPago_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+    name: GetByPago
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByPago_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: DAL.Impl.File.ComprobanteFileRepository.GetByReserva*
+  commentId: Overload:DAL.Impl.File.ComprobanteFileRepository.GetByReserva
+  isExternal: true
+  href: DAL.Impl.File.ComprobanteFileRepository.html#DAL_Impl_File_ComprobanteFileRepository_GetByReserva_System_Guid_
+  name: GetByReserva
+  nameWithType: ComprobanteFileRepository.GetByReserva
+  fullName: DAL.Impl.File.ComprobanteFileRepository.GetByReserva
+- uid: DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  commentId: M:DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  parent: DAL.Contracts.IComprobanteRepository
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByReserva_System_Guid_
+  name: GetByReserva(Guid)
+  nameWithType: IComprobanteRepository.GetByReserva(Guid)
+  fullName: DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  spec.csharp:
+  - uid: DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+    name: GetByReserva
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByReserva_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+    name: GetByReserva
+    isExternal: true
+    href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByReserva_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UnitOfWork | mysite </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UnitOfWork | mysite ">
+      
+      <meta name="description" content="Implements the Unit of Work pattern for SQL Server. Manages a single  and  shared across all enrolled repositories for the duration of one logical operation.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="mysite">
+            mysite
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="DAL.Impl.SqlServer.UnitOfWork">
+
+
+
+  <h1 id="DAL_Impl_SqlServer_UnitOfWork" data-uid="DAL.Impl.SqlServer.UnitOfWork" class="text-break">
+Class UnitOfWork  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="DAL.html">DAL</a>.<a class="xref" href="DAL.Impl.html">Impl</a>.<a class="xref" href="DAL.Impl.SqlServer.html">SqlServer</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>DAL.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Implements the Unit of Work pattern for SQL Server.
+Manages a single <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection">SqlConnection</a> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction">SqlTransaction</a> shared across
+all enrolled repositories for the duration of one logical operation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UnitOfWork</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="DAL.Contracts.IUnitOfWork.html">IUnitOfWork</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="DAL_Impl_SqlServer_UnitOfWork_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Obtain an instance via <a class="xref" href="DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork">CreateUnitOfWork()</a>.
+Usage pattern:
+<pre><code class="lang-csharp">using (var uow = DalFactory.CreateUnitOfWork())
+{
+    uow.BeginTransaction();
+    // ...operations on uow.*Repository...
+    uow.Commit();
+}</code></pre>
+
+<p>
+After <a class="xref" href="DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Commit">Commit()</a> or <a class="xref" href="DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Rollback">Rollback()</a>, the instance is <em>spent</em>
+and cannot be reused; <a class="xref" href="DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_BeginTransaction">BeginTransaction()</a> will throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a>.
+<a class="xref" href="DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Dispose">Dispose()</a> will roll back any uncommitted transaction if the <code>using</code> block
+exits without an explicit commit.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork__ctor_" data-uid="DAL.Impl.SqlServer.UnitOfWork.#ctor*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork__ctor" data-uid="DAL.Impl.SqlServer.UnitOfWork.#ctor">
+  UnitOfWork()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs all repository instances without opening a connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnitOfWork()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_AgendaRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.AgendaRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_AgendaRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.AgendaRepository">
+  AgendaRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for agenda (operating schedule) operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAgendaRepository AgendaRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IAgendaRepository.html">IAgendaRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_ClienteMembresiaRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_ClienteMembresiaRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository">
+  ClienteMembresiaRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for client-membership assignment operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IClienteMembresiaRepository ClienteMembresiaRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IClienteMembresiaRepository.html">IClienteMembresiaRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_ClienteRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.ClienteRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_ClienteRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.ClienteRepository">
+  ClienteRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for client operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IClienteRepository ClienteRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IClienteRepository.html">IClienteRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_EjercicioRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_EjercicioRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository">
+  EjercicioRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for exercise catalog operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEjercicioRepository EjercicioRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IEjercicioRepository.html">IEjercicioRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_EspacioRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.EspacioRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_EspacioRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.EspacioRepository">
+  EspacioRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for sports space operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEspacioRepository EspacioRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IEspacioRepository.html">IEspacioRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_MembresiaRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_MembresiaRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository">
+  MembresiaRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for membership plan operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMembresiaRepository MembresiaRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IMembresiaRepository.html">IMembresiaRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_MovimientoRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_MovimientoRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository">
+  MovimientoRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for ledger movement (debit/credit) insertions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMovimientoRepository MovimientoRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IMovimientoRepository.html">IMovimientoRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_PagoRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.PagoRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_PagoRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.PagoRepository">
+  PagoRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for payment operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPagoRepository PagoRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IPagoRepository.html">IPagoRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_ReservaRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.ReservaRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_ReservaRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.ReservaRepository">
+  ReservaRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for reservation operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReservaRepository ReservaRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IReservaRepository.html">IReservaRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_RutinaEjercicioRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_RutinaEjercicioRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository">
+  RutinaEjercicioRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for routine-exercise mapping operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRutinaEjercicioRepository RutinaEjercicioRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IRutinaEjercicioRepository.html">IRutinaEjercicioRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_RutinaRepository_" data-uid="DAL.Impl.SqlServer.UnitOfWork.RutinaRepository*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_RutinaRepository" data-uid="DAL.Impl.SqlServer.UnitOfWork.RutinaRepository">
+  RutinaRepository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Repository for workout routine operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRutinaRepository RutinaRepository { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="DAL.Contracts.IRutinaRepository.html">IRutinaRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_BeginTransaction_" data-uid="DAL.Impl.SqlServer.UnitOfWork.BeginTransaction*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_BeginTransaction" data-uid="DAL.Impl.SqlServer.UnitOfWork.BeginTransaction">
+  BeginTransaction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the shared connection and begins a database transaction, injecting both into all repositories.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginTransaction()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>Thrown if the instance has already been disposed or spent.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if a transaction is already active on this instance.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_Commit_" data-uid="DAL.Impl.SqlServer.UnitOfWork.Commit*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_Commit" data-uid="DAL.Impl.SqlServer.UnitOfWork.Commit">
+  Commit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Commits the active transaction and closes the shared connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Commit()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if no transaction is active.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_Dispose_" data-uid="DAL.Impl.SqlServer.UnitOfWork.Dispose*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_Dispose" data-uid="DAL.Impl.SqlServer.UnitOfWork.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls back any uncommitted transaction and releases all resources.
+Called automatically at the end of a <code>using</code> block.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="DAL_Impl_SqlServer_UnitOfWork_Rollback_" data-uid="DAL.Impl.SqlServer.UnitOfWork.Rollback*"></a>
+
+  <h3 id="DAL_Impl_SqlServer_UnitOfWork_Rollback" data-uid="DAL.Impl.SqlServer.UnitOfWork.Rollback">
+  Rollback()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rolls back the active transaction and closes the shared connection.
+Safe to call even when no transaction is active (no-op in that case).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rollback()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
