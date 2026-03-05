@@ -1,125 +1,749 @@
 <!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
-      <title>Class FactoryDao | mysite </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class FactoryDao | mysite ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      <meta name="docfx:rel" content="../">
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
-
-      <script type="module" src="./../public/docfx.min.js"></script>
-
-      <script>
-        const theme = localStorage.getItem('theme') || 'auto'
-        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-      </script>
-
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class FactoryDao | Manual de Programador </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class FactoryDao | Manual de Programador ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="mysite">
-            mysite
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Gesti&#243;n de Espacios Deportivos">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
               </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../index.html" title="Introducci&#243;n">Introducci&#243;n</a>
+                      </li>
+                      <li>
+                          <a href="../api/BLL.html" title="Referencia T&#233;cnica (API)">Referencia T&#233;cnica (API)</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="BLL.html" title="BLL" class="">BLL</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="BLL.BalanceService.html" title="BalanceService" class="">BalanceService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.SchedulerService.html" title="SchedulerService" class="">SchedulerService</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="BLL.DTOs.html" title="BLL.DTOs" class="">BLL.DTOs</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="BLL.DTOs.AgendaDTO.html" title="AgendaDTO" class="">AgendaDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.ClienteDTO.html" title="ClienteDTO" class="">ClienteDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.ClienteStatus.html" title="ClienteStatus" class="">ClienteStatus</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.ComprobanteDTO.html" title="ComprobanteDTO" class="">ComprobanteDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.EjercicioDTO.html" title="EjercicioDTO" class="">EjercicioDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.EspacioDTO.html" title="EspacioDTO" class="">EspacioDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.EstadoBalance.html" title="EstadoBalance" class="">EstadoBalance</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.GenerarReservaDTO.html" title="GenerarReservaDTO" class="">GenerarReservaDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.IngresoDTO.html" title="IngresoDTO" class="">IngresoDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.MembresiaDTO.html" title="MembresiaDTO" class="">MembresiaDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.PagoDTO.html" title="PagoDTO" class="">PagoDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.ReservaDTO.html" title="ReservaDTO" class="">ReservaDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.ResultadoIngresoDTO.html" title="ResultadoIngresoDTO" class="">ResultadoIngresoDTO</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.DTOs.RutinaDTO.html" title="RutinaDTO" class="">RutinaDTO</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="BLL.Facades.html" title="BLL.Facades" class="">BLL.Facades</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="BLL.Facades.ComprobanteFacade.html" title="ComprobanteFacade" class="">ComprobanteFacade</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="BLL.Helpers.html" title="BLL.Helpers" class="">BLL.Helpers</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="BLL.Helpers.ComprobanteGenerator.html" title="ComprobanteGenerator" class="">ComprobanteGenerator</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="BLL.Mappers.html" title="BLL.Mappers" class="">BLL.Mappers</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="BLL.Mappers.AgendaMapper.html" title="AgendaMapper" class="">AgendaMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.ClienteMapper.html" title="ClienteMapper" class="">ClienteMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.EjercicioMapper.html" title="EjercicioMapper" class="">EjercicioMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.EspacioMapper.html" title="EspacioMapper" class="">EspacioMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.MembresiaMapper.html" title="MembresiaMapper" class="">MembresiaMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.PagoMapper.html" title="PagoMapper" class="">PagoMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.ReservaMapper.html" title="ReservaMapper" class="">ReservaMapper</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Mappers.RutinaMapper.html" title="RutinaMapper" class="">RutinaMapper</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="BLL.Services.html" title="BLL.Services" class="">BLL.Services</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="BLL.Services.AgendaService.html" title="AgendaService" class="">AgendaService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.ClienteService.html" title="ClienteService" class="">ClienteService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.EjercicioService.html" title="EjercicioService" class="">EjercicioService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.EspacioService.html" title="EspacioService" class="">EspacioService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.IngresoService.html" title="IngresoService" class="">IngresoService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.MembresiaService.html" title="MembresiaService" class="">MembresiaService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.PagoService.html" title="PagoService" class="">PagoService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.ReservaService.html" title="ReservaService" class="">ReservaService</a>
+                          </li>
+                          <li class="">
+                            <a href="BLL.Services.RutinaService.html" title="RutinaService" class="">RutinaService</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="DAL.Contracts.html" title="DAL.Contracts" class="">DAL.Contracts</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="DAL.Contracts.IAgendaRepository.html" title="IAgendaRepository" class="">IAgendaRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IBalanceRepository.html" title="IBalanceRepository" class="">IBalanceRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IClienteMembresiaRepository.html" title="IClienteMembresiaRepository" class="">IClienteMembresiaRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IClienteRepository.html" title="IClienteRepository" class="">IClienteRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IComprobanteRepository.html" title="IComprobanteRepository" class="">IComprobanteRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IEjercicioRepository.html" title="IEjercicioRepository" class="">IEjercicioRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IEspacioRepository.html" title="IEspacioRepository" class="">IEspacioRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IIngresoRepository.html" title="IIngresoRepository" class="">IIngresoRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IMembresiaRepository.html" title="IMembresiaRepository" class="">IMembresiaRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IMovimientoRepository.html" title="IMovimientoRepository" class="">IMovimientoRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IPagoRepository.html" title="IPagoRepository" class="">IPagoRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IReservaRepository.html" title="IReservaRepository" class="">IReservaRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IRutinaEjercicioRepository.html" title="IRutinaEjercicioRepository" class="">IRutinaEjercicioRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IRutinaRepository.html" title="IRutinaRepository" class="">IRutinaRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Contracts.IUnitOfWork.html" title="IUnitOfWork" class="">IUnitOfWork</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="DAL.Factory.html" title="DAL.Factory" class="">DAL.Factory</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="DAL.Factory.DalFactory.html" title="DalFactory" class="">DalFactory</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="DAL.Impl.html" title="DAL.Impl" class="">DAL.Impl</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="DAL.Impl.AgendaSqlRepository.html" title="AgendaSqlRepository" class="">AgendaSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.BalanceSqlRepository.html" title="BalanceSqlRepository" class="">BalanceSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.BaseBusinessSqlRepository.html" title="BaseBusinessSqlRepository" class="">BaseBusinessSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.ClienteSqlRepository.html" title="ClienteSqlRepository" class="">ClienteSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.ComprobanteSqlRepository.html" title="ComprobanteSqlRepository" class="">ComprobanteSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.EjercicioSqlRepository.html" title="EjercicioSqlRepository" class="">EjercicioSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.EspacioSqlRepository.html" title="EspacioSqlRepository" class="">EspacioSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.MembresiaSqlRepository.html" title="MembresiaSqlRepository" class="">MembresiaSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.MovimientoSqlRepository.html" title="MovimientoSqlRepository" class="">MovimientoSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.PagoSqlRepository.html" title="PagoSqlRepository" class="">PagoSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.ReservaSqlRepository.html" title="ReservaSqlRepository" class="">ReservaSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.RutinaEjercicioSqlRepository.html" title="RutinaEjercicioSqlRepository" class="">RutinaEjercicioSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.RutinaSqlRepository.html" title="RutinaSqlRepository" class="">RutinaSqlRepository</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="DAL.Impl.File.html" title="DAL.Impl.File" class="">DAL.Impl.File</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="DAL.Impl.File.ComprobanteFileRepository.html" title="ComprobanteFileRepository" class="">ComprobanteFileRepository</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="DAL.Impl.SqlServer.html" title="DAL.Impl.SqlServer" class="">DAL.Impl.SqlServer</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="DAL.Impl.SqlServer.ClienteMembresiaSqlRepository.html" title="ClienteMembresiaSqlRepository" class="">ClienteMembresiaSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.SqlServer.IngresoSqlRepository.html" title="IngresoSqlRepository" class="">IngresoSqlRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="DAL.Impl.SqlServer.UnitOfWork.html" title="UnitOfWork" class="">UnitOfWork</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Domain.html" title="Domain" class="">Domain</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Domain.Log.html" title="Log" class="">Log</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Usuario.html" title="Usuario" class="">Usuario</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Domain.Composite.html" title="Domain.Composite" class="">Domain.Composite</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Domain.Composite.Acceso.html" title="Acceso" class="">Acceso</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Composite.Familia.html" title="Familia" class="">Familia</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Composite.Patente.html" title="Patente" class="">Patente</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Composite.PermisoKeys.html" title="PermisoKeys" class="">PermisoKeys</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Domain.Entities.html" title="Domain.Entities" class="">Domain.Entities</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Domain.Entities.Agenda.html" title="Agenda" class="">Agenda</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Balance.html" title="Balance" class="">Balance</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Cliente.html" title="Cliente" class="">Cliente</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.ClienteMembresia.html" title="ClienteMembresia" class="">ClienteMembresia</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Comprobante.html" title="Comprobante" class="">Comprobante</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Ejercicio.html" title="Ejercicio" class="">Ejercicio</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Espacio.html" title="Espacio" class="">Espacio</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Ingreso.html" title="Ingreso" class="">Ingreso</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Membresia.html" title="Membresia" class="">Membresia</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Movimiento.html" title="Movimiento" class="">Movimiento</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Pago.html" title="Pago" class="">Pago</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Reserva.html" title="Reserva" class="">Reserva</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.Rutina.html" title="Rutina" class="">Rutina</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Entities.RutinaEjercicio.html" title="RutinaEjercicio" class="">RutinaEjercicio</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Domain.Enums.html" title="Domain.Enums" class="">Domain.Enums</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Domain.Enums.EstadoEspacio.html" title="EstadoEspacio" class="">EstadoEspacio</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Enums.EstadoPago.html" title="EstadoPago" class="">EstadoPago</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Enums.EstadoReserva.html" title="EstadoReserva" class="">EstadoReserva</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Enums.TipoMovimiento.html" title="TipoMovimiento" class="">TipoMovimiento</a>
+                          </li>
+                          <li class="">
+                            <a href="Domain.Enums.Translations.html" title="Translations" class="">Translations</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Contracts.html" title="Service.Contracts" class="">Service.Contracts</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Contracts.IBackup.html" title="IBackup" class="">IBackup</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Contracts.IGenericRepository-1.html" title="IGenericRepository&lt;T&gt;" class="">IGenericRepository&lt;T&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Contracts.ILanguage.html" title="ILanguage" class="">ILanguage</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Contracts.IUsuarioRepository.html" title="IUsuarioRepository" class="">IUsuarioRepository</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.DTO.html" title="Service.DTO" class="">Service.DTO</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.DTO.BackupFile.html" title="BackupFile" class="">BackupFile</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.DTO.UsuarioDTO.html" title="UsuarioDTO" class="">UsuarioDTO</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Facade.Extension.html" title="Service.Facade.Extension" class="">Service.Facade.Extension</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Facade.Extension.TranslationsExtension.html" title="TranslationsExtension" class="">TranslationsExtension</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Factory.html" title="Service.Factory" class="">Service.Factory</a>
+
+                        <ul class="nav level2">
+                          <li class="active">
+                            <a href="Service.Factory.FactoryDao.html" title="FactoryDao" class="active">FactoryDao</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Helpers.html" title="Service.Helpers" class="">Service.Helpers</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Helpers.ConnectionManager.html" title="ConnectionManager" class="">ConnectionManager</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Helpers.CryptographyHelper.html" title="CryptographyHelper" class="">CryptographyHelper</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Helpers.PermisoHelper.html" title="PermisoHelper" class="">PermisoHelper</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Helpers.SessionContext.html" title="SessionContext" class="">SessionContext</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Impl.html" title="Service.Impl" class="">Service.Impl</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Impl.BaseRepository.html" title="BaseRepository" class="">BaseRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Impl.ConsoleRepository.html" title="ConsoleRepository" class="">ConsoleRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Impl.FamiliaRepository.html" title="FamiliaRepository" class="">FamiliaRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Impl.LogRepository.html" title="LogRepository" class="">LogRepository</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Impl.UsuarioRepository.html" title="UsuarioRepository" class="">UsuarioRepository</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Impl.SqlServer.html" title="Service.Impl.SqlServer" class="">Service.Impl.SqlServer</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Impl.SqlServer.PatenteRepository.html" title="PatenteRepository" class="">PatenteRepository</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Impl.Text.html" title="Service.Impl.Text" class="">Service.Impl.Text</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Impl.Text.LanguageManager.html" title="LanguageManager" class="">LanguageManager</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Service.Logic.html" title="Service.Logic" class="">Service.Logic</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Service.Logic.BackupService.html" title="BackupService" class="">BackupService</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Logic.BitacoraService.html" title="BitacoraService" class="">BitacoraService</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Logic.LanguageService.html" title="LanguageService" class="">LanguageService</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Logic.PermisosService.html" title="PermisosService" class="">PermisosService</a>
+                          </li>
+                          <li class="">
+                            <a href="Service.Logic.UsuarioService.html" title="UsuarioService" class="">UsuarioService</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="TpIngSoftware_GestionDeEspaciosDeportivos.html" title="TpIngSoftware_GestionDeEspaciosDeportivos" class="">TpIngSoftware_GestionDeEspaciosDeportivos</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Form1.html" title="Form1" class="">Form1</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmAgenda.html" title="FrmAgenda" class="">FrmAgenda</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups.html" title="FrmBackups" class="">FrmBackups</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora.html" title="FrmBitacora" class="">FrmBitacora</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes.html" title="FrmClientes" class="">FrmClientes</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmEjercicios.html" title="FrmEjercicios" class="">FrmEjercicios</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios.html" title="FrmEspacios" class="">FrmEspacios</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias.html" title="FrmGestionFamilias" class="">FrmGestionFamilias</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionPermisos.html" title="FrmGestionPermisos" class="">FrmGestionPermisos</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas.html" title="FrmGestionRutinas" class="">FrmGestionRutinas</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos.html" title="FrmIngresos" class="">FrmIngresos</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin.html" title="FrmLogin" class="">FrmLogin</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias.html" title="FrmMembresias" class="">FrmMembresias</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos.html" title="FrmMovimientos" class="">FrmMovimientos</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos.html" title="FrmPagos" class="">FrmPagos</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmPrompt.html" title="FrmPrompt" class="">FrmPrompt</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas.html" title="FrmReservas" class="">FrmReservas</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmRutina.html" title="FrmRutina" class="">FrmRutina</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmSeleccionarCliente.html" title="FrmSeleccionarCliente" class="">FrmSeleccionarCliente</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios.html" title="FrmUsuarios" class="">FrmUsuarios</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.html" title="IRefreshable" class="">IRefreshable</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.html" title="ITranslatable" class="">ITranslatable</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.html" title="TpIngSoftware_GestionDeEspaciosDeportivos.Business" class="">TpIngSoftware_GestionDeEspaciosDeportivos.Business</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager.html" title="AgendaManager" class="">AgendaManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager.html" title="BalanceManager" class="">BalanceManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html" title="ClienteManager" class="">ClienteManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html" title="EjercicioManager" class="">EjercicioManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.html" title="EspacioManager" class="">EspacioManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.html" title="IngresoManager" class="">IngresoManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html" title="MembresiaManager" class="">MembresiaManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.html" title="PagoManager" class="">PagoManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.html" title="ReservaManager" class="">ReservaManager</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.html" title="RutinaManager" class="">RutinaManager</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.html" title="TpIngSoftware_GestionDeEspaciosDeportivos.Helpers" class="">TpIngSoftware_GestionDeEspaciosDeportivos.Helpers</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper.html" title="FlagHelper" class="">FlagHelper</a>
+                          </li>
+                          <li class="">
+                            <a href="TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper.html" title="LanguageSelectorHelper" class="">LanguageSelectorHelper</a>
+                          </li>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </nav>
-    </header>
-
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
-        </div>
-
-        <article data-uid="Service.Factory.FactoryDao">
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Service.Factory.FactoryDao">
 
 
 
-  <h1 id="Service_Factory_FactoryDao" data-uid="Service.Factory.FactoryDao" class="text-break">
-Class FactoryDao  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Service.html">Service</a>.<a class="xref" href="Service.Factory.html">Factory</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Service.dll</dd></dl>
+  <h1 id="Service_Factory_FactoryDao" data-uid="Service.Factory.FactoryDao" class="text-break">Class FactoryDao</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">FactoryDao</span></div>
   </div>
-
-  <div class="markdown summary"></div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class FactoryDao</code></pre>
-  </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">FactoryDao</span></div>
-    </dd>
-  </dl>
-
-
-
-  <dl class="typelist inheritedMembers">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
@@ -141,163 +765,150 @@ Class FactoryDao
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Service.html">Service</a>.<a class="xref" href="Service.Factory.html">Factory</a></h6>
+  <h6><strong>Assembly</strong>: Service.dll</h6>
+  <h5 id="Service_Factory_FactoryDao_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class FactoryDao</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
 
 
   <a id="Service_Factory_FactoryDao_BackupRepository_" data-uid="Service.Factory.FactoryDao.BackupRepository*"></a>
-
-  <h3 id="Service_Factory_FactoryDao_BackupRepository" data-uid="Service.Factory.FactoryDao.BackupRepository">
-  BackupRepository
-  
-  </h3>
-
+  <h4 id="Service_Factory_FactoryDao_BackupRepository" data-uid="Service.Factory.FactoryDao.BackupRepository">BackupRepository</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IBackup BackupRepository { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Service.Contracts.IBackup.html">IBackup</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Service.Contracts.IBackup.html">IBackup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Service_Factory_FactoryDao_LanguageRepository_" data-uid="Service.Factory.FactoryDao.LanguageRepository*"></a>
-
-  <h3 id="Service_Factory_FactoryDao_LanguageRepository" data-uid="Service.Factory.FactoryDao.LanguageRepository">
-  LanguageRepository
-  
-  </h3>
-
+  <h4 id="Service_Factory_FactoryDao_LanguageRepository" data-uid="Service.Factory.FactoryDao.LanguageRepository">LanguageRepository</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static ILanguage LanguageRepository { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Service.Contracts.ILanguage.html">ILanguage</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Service.Contracts.ILanguage.html">ILanguage</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Service_Factory_FactoryDao_LogRepository_" data-uid="Service.Factory.FactoryDao.LogRepository*"></a>
-
-  <h3 id="Service_Factory_FactoryDao_LogRepository" data-uid="Service.Factory.FactoryDao.LogRepository">
-  LogRepository
-  
-  </h3>
-
+  <h4 id="Service_Factory_FactoryDao_LogRepository" data-uid="Service.Factory.FactoryDao.LogRepository">LogRepository</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static LogRepository LogRepository { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Service.Impl.LogRepository.html">LogRepository</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Service.Impl.LogRepository.html">LogRepository</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="Service_Factory_FactoryDao_UsuarioRepository_" data-uid="Service.Factory.FactoryDao.UsuarioRepository*"></a>
-
-  <h3 id="Service_Factory_FactoryDao_UsuarioRepository" data-uid="Service.Factory.FactoryDao.UsuarioRepository">
-  UsuarioRepository
-  
-  </h3>
-
+  <h4 id="Service_Factory_FactoryDao_UsuarioRepository" data-uid="Service.Factory.FactoryDao.UsuarioRepository">UsuarioRepository</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IUsuarioRepository UsuarioRepository { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Service.Contracts.IUsuarioRepository.html">IUsuarioRepository</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Service.Contracts.IUsuarioRepository.html">IUsuarioRepository</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-    <div class="container-xxl search-results" id="search-results"></div>
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>
