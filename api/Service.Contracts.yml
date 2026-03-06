@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  id: Service.Contracts
+  children:
+  - Service.Contracts.IBackup
+  - Service.Contracts.IGenericRepository`1
+  - Service.Contracts.ILanguage
+  - Service.Contracts.IUsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Contracts.IBackup
+  commentId: T:Service.Contracts.IBackup
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.IBackup.html
+  name: IBackup
+  nameWithType: IBackup
+  fullName: Service.Contracts.IBackup
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts.ILanguage
+  commentId: T:Service.Contracts.ILanguage
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.ILanguage.html
+  name: ILanguage
+  nameWithType: ILanguage
+  fullName: Service.Contracts.ILanguage
+- uid: Service.Contracts.IUsuarioRepository
+  commentId: T:Service.Contracts.IUsuarioRepository
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html
+  name: IUsuarioRepository
+  nameWithType: IUsuarioRepository
+  fullName: Service.Contracts.IUsuarioRepository
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html

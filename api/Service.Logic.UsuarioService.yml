@@ -1,0 +1,903 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Logic.UsuarioService
+  commentId: T:Service.Logic.UsuarioService
+  id: UsuarioService
+  parent: Service.Logic
+  children:
+  - Service.Logic.UsuarioService.#ctor
+  - Service.Logic.UsuarioService.Delete(System.Guid)
+  - Service.Logic.UsuarioService.GetUsuarios
+  - Service.Logic.UsuarioService.Login(System.String,System.String)
+  - Service.Logic.UsuarioService.Register(Service.DTO.UsuarioDTO,System.String)
+  - Service.Logic.UsuarioService.ResetPassword(System.Guid,System.String)
+  - Service.Logic.UsuarioService.Update(Service.DTO.UsuarioDTO)
+  langs:
+  - csharp
+  - vb
+  name: UsuarioService
+  nameWithType: UsuarioService
+  fullName: Service.Logic.UsuarioService
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Manages user authentication, registration, profile updates, and password management.
+  remarks: >-
+    <p>
+
+    Passwords are stored as SHA-256 hashes via <xref href="Service.Helpers.CryptographyHelper.HashPassword(System.String)" data-throw-if-not-resolved="false"></xref>.
+
+    Every write operation recomputes <code>DigitoVerificador</code> (a SHA-256 hash of all scalar
+
+    fields) to enable tamper-detection on the user record.
+
+    </p>
+
+    <p>
+
+    Permission assignments are delegated to <xref href="Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid%2cSystem.Collections.Generic.List%7bDomain.Composite.Acceso%7d)" data-throw-if-not-resolved="false"></xref>,
+
+    which performs a delete-and-reinsert of the user's access tree.
+
+    </p>
+  example: []
+  syntax:
+    content: public class UsuarioService
+    content.vb: Public Class UsuarioService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Logic.UsuarioService.#ctor
+  commentId: M:Service.Logic.UsuarioService.#ctor
+  id: '#ctor'
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: UsuarioService()
+  nameWithType: UsuarioService.UsuarioService()
+  fullName: Service.Logic.UsuarioService.UsuarioService()
+  type: Constructor
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Initializes the service with the <xref href="Service.Contracts.IUsuarioRepository" data-throw-if-not-resolved="false"></xref> singleton from <xref href="Service.Factory.FactoryDao" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UsuarioService()
+    content.vb: Public Sub New()
+  overload: Service.Logic.UsuarioService.#ctor*
+  nameWithType.vb: UsuarioService.New()
+  fullName.vb: Service.Logic.UsuarioService.New()
+  name.vb: New()
+- uid: Service.Logic.UsuarioService.Login(System.String,System.String)
+  commentId: M:Service.Logic.UsuarioService.Login(System.String,System.String)
+  id: Login(System.String,System.String)
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: Login(string, string)
+  nameWithType: UsuarioService.Login(string, string)
+  fullName: Service.Logic.UsuarioService.Login(string, string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Authenticates a user by username and plaintext password.
+  example: []
+  syntax:
+    content: public UsuarioDTO Login(string username, string password)
+    parameters:
+    - id: username
+      type: System.String
+      description: Username to look up.
+    - id: password
+      type: System.String
+      description: Plaintext password; hashed internally before comparison.
+    return:
+      type: Service.DTO.UsuarioDTO
+      description: >-
+        A <xref href="Service.DTO.UsuarioDTO" data-throw-if-not-resolved="false"></xref> with the authenticated user's identity, permissions, and
+
+        resolved <code>RolNegocio</code> (<code>"Administrador"</code>, <code>"Operador"</code>, or a
+
+        comma-separated list of permission names).
+    content.vb: Public Function Login(username As String, password As String) As UsuarioDTO
+  overload: Service.Logic.UsuarioService.Login*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown with localized messages when the user is not found, the password is incorrect, or the account is blocked.
+  nameWithType.vb: UsuarioService.Login(String, String)
+  fullName.vb: Service.Logic.UsuarioService.Login(String, String)
+  name.vb: Login(String, String)
+- uid: Service.Logic.UsuarioService.Register(Service.DTO.UsuarioDTO,System.String)
+  commentId: M:Service.Logic.UsuarioService.Register(Service.DTO.UsuarioDTO,System.String)
+  id: Register(Service.DTO.UsuarioDTO,System.String)
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: Register(UsuarioDTO, string)
+  nameWithType: UsuarioService.Register(UsuarioDTO, string)
+  fullName: Service.Logic.UsuarioService.Register(Service.DTO.UsuarioDTO, string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Creates a new user account with the given permissions.
+  example: []
+  syntax:
+    content: public void Register(UsuarioDTO dto, string password)
+    parameters:
+    - id: dto
+      type: Service.DTO.UsuarioDTO
+      description: User data including optional initial permission set.
+    - id: password
+      type: System.String
+      description: Plaintext password; stored as a SHA-256 hash.
+    content.vb: Public Sub Register(dto As UsuarioDTO, password As String)
+  overload: Service.Logic.UsuarioService.Register*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown when a user with the same username already exists.
+  nameWithType.vb: UsuarioService.Register(UsuarioDTO, String)
+  fullName.vb: Service.Logic.UsuarioService.Register(Service.DTO.UsuarioDTO, String)
+  name.vb: Register(UsuarioDTO, String)
+- uid: Service.Logic.UsuarioService.Update(Service.DTO.UsuarioDTO)
+  commentId: M:Service.Logic.UsuarioService.Update(Service.DTO.UsuarioDTO)
+  id: Update(Service.DTO.UsuarioDTO)
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: Update(UsuarioDTO)
+  nameWithType: UsuarioService.Update(UsuarioDTO)
+  fullName: Service.Logic.UsuarioService.Update(Service.DTO.UsuarioDTO)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Updates a user's username, status, and permission set.
+  example: []
+  syntax:
+    content: public void Update(UsuarioDTO dto)
+    parameters:
+    - id: dto
+      type: Service.DTO.UsuarioDTO
+      description: Updated user data. <xref href="Service.DTO.UsuarioDTO.Id" data-throw-if-not-resolved="false"></xref> must identify an existing user.
+    content.vb: Public Sub Update(dto As UsuarioDTO)
+  overload: Service.Logic.UsuarioService.Update*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown when the user does not exist.
+- uid: Service.Logic.UsuarioService.ResetPassword(System.Guid,System.String)
+  commentId: M:Service.Logic.UsuarioService.ResetPassword(System.Guid,System.String)
+  id: ResetPassword(System.Guid,System.String)
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: ResetPassword(Guid, string)
+  nameWithType: UsuarioService.ResetPassword(Guid, string)
+  fullName: Service.Logic.UsuarioService.ResetPassword(System.Guid, string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Replaces a user's password with a new hashed value and updates the integrity check digit.
+  example: []
+  syntax:
+    content: public void ResetPassword(Guid id, string newPassword)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: Primary key of the user whose password to reset.
+    - id: newPassword
+      type: System.String
+      description: New plaintext password; stored as a SHA-256 hash.
+    content.vb: Public Sub ResetPassword(id As Guid, newPassword As String)
+  overload: Service.Logic.UsuarioService.ResetPassword*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown when the user does not exist.
+  nameWithType.vb: UsuarioService.ResetPassword(Guid, String)
+  fullName.vb: Service.Logic.UsuarioService.ResetPassword(System.Guid, String)
+  name.vb: ResetPassword(Guid, String)
+- uid: Service.Logic.UsuarioService.Delete(System.Guid)
+  commentId: M:Service.Logic.UsuarioService.Delete(System.Guid)
+  id: Delete(System.Guid)
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: Delete(Guid)
+  nameWithType: UsuarioService.Delete(Guid)
+  fullName: Service.Logic.UsuarioService.Delete(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Permanently deletes the user with the given identifier.
+  example: []
+  syntax:
+    content: public void Delete(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: Primary key of the user to delete.
+    content.vb: Public Sub Delete(id As Guid)
+  overload: Service.Logic.UsuarioService.Delete*
+- uid: Service.Logic.UsuarioService.GetUsuarios
+  commentId: M:Service.Logic.UsuarioService.GetUsuarios
+  id: GetUsuarios
+  parent: Service.Logic.UsuarioService
+  langs:
+  - csharp
+  - vb
+  name: GetUsuarios()
+  nameWithType: UsuarioService.GetUsuarios()
+  fullName: Service.Logic.UsuarioService.GetUsuarios()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Returns all users as DTOs via <xref href="Service.Contracts.IUsuarioRepository.GetUsuariosDTO" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public List<UsuarioDTO> GetUsuarios()
+    return:
+      type: System.Collections.Generic.List{Service.DTO.UsuarioDTO}
+    content.vb: Public Function GetUsuarios() As List(Of UsuarioDTO)
+  overload: Service.Logic.UsuarioService.GetUsuarios*
+references:
+- uid: Service.Helpers.CryptographyHelper.HashPassword(System.String)
+  commentId: M:Service.Helpers.CryptographyHelper.HashPassword(System.String)
+  isExternal: true
+  href: Service.Helpers.CryptographyHelper.html#Service_Helpers_CryptographyHelper_HashPassword_System_String_
+  name: HashPassword(string)
+  nameWithType: CryptographyHelper.HashPassword(string)
+  fullName: Service.Helpers.CryptographyHelper.HashPassword(string)
+  nameWithType.vb: CryptographyHelper.HashPassword(String)
+  fullName.vb: Service.Helpers.CryptographyHelper.HashPassword(String)
+  name.vb: HashPassword(String)
+  spec.csharp:
+  - uid: Service.Helpers.CryptographyHelper.HashPassword(System.String)
+    name: HashPassword
+    isExternal: true
+    href: Service.Helpers.CryptographyHelper.html#Service_Helpers_CryptographyHelper_HashPassword_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Service.Helpers.CryptographyHelper.HashPassword(System.String)
+    name: HashPassword
+    isExternal: true
+    href: Service.Helpers.CryptographyHelper.html#Service_Helpers_CryptographyHelper_HashPassword_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+  commentId: M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+  parent: Service.Contracts.IUsuarioRepository
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_UpdateAccesos_System_Guid_System_Collections_Generic_List_Domain_Composite_Acceso__
+  name: UpdateAccesos(Guid, List<Acceso>)
+  nameWithType: IUsuarioRepository.UpdateAccesos(Guid, List<Acceso>)
+  fullName: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid, System.Collections.Generic.List<Domain.Composite.Acceso>)
+  nameWithType.vb: IUsuarioRepository.UpdateAccesos(Guid, List(Of Acceso))
+  fullName.vb: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid, System.Collections.Generic.List(Of Domain.Composite.Acceso))
+  name.vb: UpdateAccesos(Guid, List(Of Acceso))
+  spec.csharp:
+  - uid: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+    name: UpdateAccesos
+    isExternal: true
+    href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_UpdateAccesos_System_Guid_System_Collections_Generic_List_Domain_Composite_Acceso__
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+    name: UpdateAccesos
+    isExternal: true
+    href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_UpdateAccesos_System_Guid_System_Collections_Generic_List_Domain_Composite_Acceso__
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Service.Logic
+  commentId: N:Service.Logic
+  isExternal: true
+  href: Service.html
+  name: Service.Logic
+  nameWithType: Service.Logic
+  fullName: Service.Logic
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Service.Contracts.IUsuarioRepository
+  commentId: T:Service.Contracts.IUsuarioRepository
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html
+  name: IUsuarioRepository
+  nameWithType: IUsuarioRepository
+  fullName: Service.Contracts.IUsuarioRepository
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Factory.FactoryDao
+  commentId: T:Service.Factory.FactoryDao
+  isExternal: true
+  href: Service.Factory.FactoryDao.html
+  name: FactoryDao
+  nameWithType: FactoryDao
+  fullName: Service.Factory.FactoryDao
+- uid: Service.Logic.UsuarioService.#ctor*
+  commentId: Overload:Service.Logic.UsuarioService.#ctor
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService__ctor
+  name: UsuarioService
+  nameWithType: UsuarioService.UsuarioService
+  fullName: Service.Logic.UsuarioService.UsuarioService
+  nameWithType.vb: UsuarioService.New
+  fullName.vb: Service.Logic.UsuarioService.New
+  name.vb: New
+- uid: Service.DTO.UsuarioDTO
+  commentId: T:Service.DTO.UsuarioDTO
+  parent: Service.DTO
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html
+  name: UsuarioDTO
+  nameWithType: UsuarioDTO
+  fullName: Service.DTO.UsuarioDTO
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Service.Logic.UsuarioService.Login*
+  commentId: Overload:Service.Logic.UsuarioService.Login
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService_Login_System_String_System_String_
+  name: Login
+  nameWithType: UsuarioService.Login
+  fullName: Service.Logic.UsuarioService.Login
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Service.DTO
+  commentId: N:Service.DTO
+  isExternal: true
+  href: Service.html
+  name: Service.DTO
+  nameWithType: Service.DTO
+  fullName: Service.DTO
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+- uid: Service.Logic.UsuarioService.Register*
+  commentId: Overload:Service.Logic.UsuarioService.Register
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService_Register_Service_DTO_UsuarioDTO_System_String_
+  name: Register
+  nameWithType: UsuarioService.Register
+  fullName: Service.Logic.UsuarioService.Register
+- uid: Service.DTO.UsuarioDTO.Id
+  commentId: P:Service.DTO.UsuarioDTO.Id
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html#Service_DTO_UsuarioDTO_Id
+  name: Id
+  nameWithType: UsuarioDTO.Id
+  fullName: Service.DTO.UsuarioDTO.Id
+- uid: Service.Logic.UsuarioService.Update*
+  commentId: Overload:Service.Logic.UsuarioService.Update
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService_Update_Service_DTO_UsuarioDTO_
+  name: Update
+  nameWithType: UsuarioService.Update
+  fullName: Service.Logic.UsuarioService.Update
+- uid: Service.Logic.UsuarioService.ResetPassword*
+  commentId: Overload:Service.Logic.UsuarioService.ResetPassword
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService_ResetPassword_System_Guid_System_String_
+  name: ResetPassword
+  nameWithType: UsuarioService.ResetPassword
+  fullName: Service.Logic.UsuarioService.ResetPassword
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Service.Logic.UsuarioService.Delete*
+  commentId: Overload:Service.Logic.UsuarioService.Delete
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService_Delete_System_Guid_
+  name: Delete
+  nameWithType: UsuarioService.Delete
+  fullName: Service.Logic.UsuarioService.Delete
+- uid: Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+  commentId: M:Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+  parent: Service.Contracts.IUsuarioRepository
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_GetUsuariosDTO
+  name: GetUsuariosDTO()
+  nameWithType: IUsuarioRepository.GetUsuariosDTO()
+  fullName: Service.Contracts.IUsuarioRepository.GetUsuariosDTO()
+  spec.csharp:
+  - uid: Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+    name: GetUsuariosDTO
+    isExternal: true
+    href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_GetUsuariosDTO
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+    name: GetUsuariosDTO
+    isExternal: true
+    href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_GetUsuariosDTO
+  - name: (
+  - name: )
+- uid: Service.Logic.UsuarioService.GetUsuarios*
+  commentId: Overload:Service.Logic.UsuarioService.GetUsuarios
+  isExternal: true
+  href: Service.Logic.UsuarioService.html#Service_Logic_UsuarioService_GetUsuarios
+  name: GetUsuarios
+  nameWithType: UsuarioService.GetUsuarios
+  fullName: Service.Logic.UsuarioService.GetUsuarios
+- uid: System.Collections.Generic.List{Service.DTO.UsuarioDTO}
+  commentId: T:System.Collections.Generic.List{Service.DTO.UsuarioDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<UsuarioDTO>
+  nameWithType: List<UsuarioDTO>
+  fullName: System.Collections.Generic.List<Service.DTO.UsuarioDTO>
+  nameWithType.vb: List(Of UsuarioDTO)
+  fullName.vb: System.Collections.Generic.List(Of Service.DTO.UsuarioDTO)
+  name.vb: List(Of UsuarioDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

@@ -1,0 +1,40 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Impl.SqlServer
+  commentId: N:DAL.Impl.SqlServer
+  id: DAL.Impl.SqlServer
+  children:
+  - DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+  - DAL.Impl.SqlServer.IngresoSqlRepository
+  - DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: DAL.Impl.SqlServer
+  nameWithType: DAL.Impl.SqlServer
+  fullName: DAL.Impl.SqlServer
+  type: Namespace
+  assemblies:
+  - DAL
+references:
+- uid: DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+  commentId: T:DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.ClienteMembresiaSqlRepository.html
+  name: ClienteMembresiaSqlRepository
+  nameWithType: ClienteMembresiaSqlRepository
+  fullName: DAL.Impl.SqlServer.ClienteMembresiaSqlRepository
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository
+  commentId: T:DAL.Impl.SqlServer.IngresoSqlRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html
+  name: IngresoSqlRepository
+  nameWithType: IngresoSqlRepository
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork
+  commentId: T:DAL.Impl.SqlServer.UnitOfWork
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html
+  name: UnitOfWork
+  nameWithType: UnitOfWork
+  fullName: DAL.Impl.SqlServer.UnitOfWork

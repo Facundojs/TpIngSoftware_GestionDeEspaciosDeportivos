@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Facades
+  commentId: N:BLL.Facades
+  id: BLL.Facades
+  children:
+  - BLL.Facades.ComprobanteFacade
+  langs:
+  - csharp
+  - vb
+  name: BLL.Facades
+  nameWithType: BLL.Facades
+  fullName: BLL.Facades
+  type: Namespace
+  assemblies:
+  - BLL
+references:
+- uid: BLL.Facades.ComprobanteFacade
+  commentId: T:BLL.Facades.ComprobanteFacade
+  isExternal: true
+  href: BLL.Facades.ComprobanteFacade.html
+  name: ComprobanteFacade
+  nameWithType: ComprobanteFacade
+  fullName: BLL.Facades.ComprobanteFacade

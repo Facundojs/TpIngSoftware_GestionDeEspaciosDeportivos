@@ -1,0 +1,585 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  id: EjercicioManager
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.#ctor
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio(BLL.DTOs.EjercicioDTO)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio(System.Guid)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio(BLL.DTOs.EjercicioDTO)
+  langs:
+  - csharp
+  - vb
+  name: EjercicioManager
+  nameWithType: EjercicioManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  type: Class
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public class EjercicioManager
+    content.vb: Public Class EjercicioManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.#ctor
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.#ctor
+  id: '#ctor'
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  langs:
+  - csharp
+  - vb
+  name: EjercicioManager()
+  nameWithType: EjercicioManager.EjercicioManager()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EjercicioManager()
+  type: Constructor
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public EjercicioManager()
+    content.vb: Public Sub New()
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.#ctor*
+  nameWithType.vb: EjercicioManager.New()
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.New()
+  name.vb: New()
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios
+  id: ListarEjercicios
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  langs:
+  - csharp
+  - vb
+  name: ListarEjercicios()
+  nameWithType: EjercicioManager.ListarEjercicios()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios()
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public List<EjercicioDTO> ListarEjercicios()
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.EjercicioDTO}
+    content.vb: Public Function ListarEjercicios() As List(Of EjercicioDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio(BLL.DTOs.EjercicioDTO)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio(BLL.DTOs.EjercicioDTO)
+  id: CrearEjercicio(BLL.DTOs.EjercicioDTO)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  langs:
+  - csharp
+  - vb
+  name: CrearEjercicio(EjercicioDTO)
+  nameWithType: EjercicioManager.CrearEjercicio(EjercicioDTO)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio(BLL.DTOs.EjercicioDTO)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void CrearEjercicio(EjercicioDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.EjercicioDTO
+    content.vb: Public Sub CrearEjercicio(dto As EjercicioDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio(BLL.DTOs.EjercicioDTO)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio(BLL.DTOs.EjercicioDTO)
+  id: ModificarEjercicio(BLL.DTOs.EjercicioDTO)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  langs:
+  - csharp
+  - vb
+  name: ModificarEjercicio(EjercicioDTO)
+  nameWithType: EjercicioManager.ModificarEjercicio(EjercicioDTO)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio(BLL.DTOs.EjercicioDTO)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void ModificarEjercicio(EjercicioDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.EjercicioDTO
+    content.vb: Public Sub ModificarEjercicio(dto As EjercicioDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio(System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio(System.Guid)
+  id: EliminarEjercicio(System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager
+  langs:
+  - csharp
+  - vb
+  name: EliminarEjercicio(Guid)
+  nameWithType: EjercicioManager.EliminarEjercicio(Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio(System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void EliminarEjercicio(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    content.vb: Public Sub EliminarEjercicio(id As Guid)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio*
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  spec.csharp:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+  spec.vb:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.#ctor*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.#ctor
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_EjercicioManager__ctor
+  name: EjercicioManager
+  nameWithType: EjercicioManager.EjercicioManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EjercicioManager
+  nameWithType.vb: EjercicioManager.New
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.New
+  name.vb: New
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_EjercicioManager_ListarEjercicios
+  name: ListarEjercicios
+  nameWithType: EjercicioManager.ListarEjercicios
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ListarEjercicios
+- uid: System.Collections.Generic.List{BLL.DTOs.EjercicioDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.EjercicioDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<EjercicioDTO>
+  nameWithType: List<EjercicioDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.EjercicioDTO>
+  nameWithType.vb: List(Of EjercicioDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.EjercicioDTO)
+  name.vb: List(Of EjercicioDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.EjercicioDTO
+    name: EjercicioDTO
+    isExternal: true
+    href: BLL.DTOs.EjercicioDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.EjercicioDTO
+    name: EjercicioDTO
+    isExternal: true
+    href: BLL.DTOs.EjercicioDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_EjercicioManager_CrearEjercicio_BLL_DTOs_EjercicioDTO_
+  name: CrearEjercicio
+  nameWithType: EjercicioManager.CrearEjercicio
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.CrearEjercicio
+- uid: BLL.DTOs.EjercicioDTO
+  commentId: T:BLL.DTOs.EjercicioDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.EjercicioDTO.html
+  name: EjercicioDTO
+  nameWithType: EjercicioDTO
+  fullName: BLL.DTOs.EjercicioDTO
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_EjercicioManager_ModificarEjercicio_BLL_DTOs_EjercicioDTO_
+  name: ModificarEjercicio
+  nameWithType: EjercicioManager.ModificarEjercicio
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.ModificarEjercicio
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_EjercicioManager_EliminarEjercicio_System_Guid_
+  name: EliminarEjercicio
+  nameWithType: EjercicioManager.EliminarEjercicio
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.EliminarEjercicio
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid

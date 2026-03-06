@@ -1,0 +1,40 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain
+  commentId: N:Domain
+  id: Domain
+  children:
+  - Domain.Log
+  - Domain.Usuario
+  langs:
+  - csharp
+  - vb
+  name: Domain
+  nameWithType: Domain
+  fullName: Domain
+  type: Namespace
+  assemblies:
+  - Domain
+references:
+- uid: Domain.Log
+  commentId: T:Domain.Log
+  isExternal: true
+  href: Domain.Log.html
+  name: Log
+  nameWithType: Log
+  fullName: Domain.Log
+- uid: Domain.Usuario
+  commentId: T:Domain.Usuario
+  parent: Domain
+  isExternal: true
+  href: Domain.Usuario.html
+  name: Usuario
+  nameWithType: Usuario
+  fullName: Domain.Usuario
+- uid: Domain
+  commentId: N:Domain
+  isExternal: true
+  href: Domain.html
+  name: Domain
+  nameWithType: Domain
+  fullName: Domain

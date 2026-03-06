@@ -1,0 +1,494 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+  id: IngresoManager
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.#ctor
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IngresoManager
+  nameWithType: IngresoManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+  type: Class
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public class IngresoManager
+    content.vb: Public Class IngresoManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.#ctor
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.#ctor
+  id: '#ctor'
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+  langs:
+  - csharp
+  - vb
+  name: IngresoManager()
+  nameWithType: IngresoManager.IngresoManager()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.IngresoManager()
+  type: Constructor
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public IngresoManager()
+    content.vb: Public Sub New()
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.#ctor*
+  nameWithType.vb: IngresoManager.New()
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.New()
+  name.vb: New()
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos
+  id: ListarIngresos
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+  langs:
+  - csharp
+  - vb
+  name: ListarIngresos()
+  nameWithType: IngresoManager.ListarIngresos()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos()
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public List<IngresoDTO> ListarIngresos()
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+    content.vb: Public Function ListarIngresos() As List(Of IngresoDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente(System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente(System.Guid)
+  id: ListarIngresosPorCliente(System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager
+  langs:
+  - csharp
+  - vb
+  name: ListarIngresosPorCliente(Guid)
+  nameWithType: IngresoManager.ListarIngresosPorCliente(Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente(System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public List<IngresoDTO> ListarIngresosPorCliente(Guid clienteId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+    content.vb: Public Function ListarIngresosPorCliente(clienteId As Guid) As List(Of IngresoDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente*
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  spec.csharp:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+  spec.vb:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.#ctor*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.#ctor
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_IngresoManager__ctor
+  name: IngresoManager
+  nameWithType: IngresoManager.IngresoManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.IngresoManager
+  nameWithType.vb: IngresoManager.New
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.New
+  name.vb: New
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_IngresoManager_ListarIngresos
+  name: ListarIngresos
+  nameWithType: IngresoManager.ListarIngresos
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresos
+- uid: System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IngresoDTO>
+  nameWithType: List<IngresoDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.IngresoDTO>
+  nameWithType.vb: List(Of IngresoDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.IngresoDTO)
+  name.vb: List(Of IngresoDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.IngresoDTO
+    name: IngresoDTO
+    isExternal: true
+    href: BLL.DTOs.IngresoDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.IngresoDTO
+    name: IngresoDTO
+    isExternal: true
+    href: BLL.DTOs.IngresoDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_IngresoManager_ListarIngresosPorCliente_System_Guid_
+  name: ListarIngresosPorCliente
+  nameWithType: IngresoManager.ListarIngresosPorCliente
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.ListarIngresosPorCliente
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid

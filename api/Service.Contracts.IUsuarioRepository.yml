@@ -1,0 +1,840 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Contracts.IUsuarioRepository
+  commentId: T:Service.Contracts.IUsuarioRepository
+  id: IUsuarioRepository
+  parent: Service.Contracts
+  children:
+  - Service.Contracts.IUsuarioRepository.GetByUsername(System.String)
+  - Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId(System.Guid)
+  - Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+  - Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+  langs:
+  - csharp
+  - vb
+  name: IUsuarioRepository
+  nameWithType: IUsuarioRepository
+  fullName: Service.Contracts.IUsuarioRepository
+  type: Interface
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: >-
+    Repository contract for <xref href="Domain.Usuario" data-throw-if-not-resolved="false"></xref> entities, extending standard CRUD with
+
+    user-specific permission and lookup operations.
+  example: []
+  syntax:
+    content: 'public interface IUsuarioRepository : IGenericRepository<Usuario>'
+    content.vb: Public Interface IUsuarioRepository Inherits IGenericRepository(Of Usuario)
+  derivedClasses:
+  - Service.Impl.UsuarioRepository
+  inheritedMembers:
+  - Service.Contracts.IGenericRepository{Domain.Usuario}.Add(Domain.Usuario)
+  - Service.Contracts.IGenericRepository{Domain.Usuario}.Update(Domain.Usuario)
+  - Service.Contracts.IGenericRepository{Domain.Usuario}.Remove(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Usuario}.GetById(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Usuario}.GetAll
+- uid: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+  commentId: M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+  id: UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})
+  parent: Service.Contracts.IUsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: UpdateAccesos(Guid, List<Acceso>)
+  nameWithType: IUsuarioRepository.UpdateAccesos(Guid, List<Acceso>)
+  fullName: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid, System.Collections.Generic.List<Domain.Composite.Acceso>)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: >-
+    Replaces the full set of <xref href="Domain.Composite.Acceso" data-throw-if-not-resolved="false"></xref> nodes assigned to a user.
+
+    The existing permission associations are deleted and re-inserted atomically.
+  example: []
+  syntax:
+    content: void UpdateAccesos(Guid idUsuario, List<Acceso> accesos)
+    parameters:
+    - id: idUsuario
+      type: System.Guid
+      description: The user whose permissions will be replaced.
+    - id: accesos
+      type: System.Collections.Generic.List{Domain.Composite.Acceso}
+      description: New list of <xref href="Domain.Composite.Acceso" data-throw-if-not-resolved="false"></xref> roots to assign.
+    content.vb: Sub UpdateAccesos(idUsuario As Guid, accesos As List(Of Acceso))
+  overload: Service.Contracts.IUsuarioRepository.UpdateAccesos*
+  nameWithType.vb: IUsuarioRepository.UpdateAccesos(Guid, List(Of Acceso))
+  fullName.vb: Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid, System.Collections.Generic.List(Of Domain.Composite.Acceso))
+  name.vb: UpdateAccesos(Guid, List(Of Acceso))
+- uid: Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId(System.Guid)
+  commentId: M:Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId(System.Guid)
+  id: GetFamiliasByUsuarioId(System.Guid)
+  parent: Service.Contracts.IUsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: GetFamiliasByUsuarioId(Guid)
+  nameWithType: IUsuarioRepository.GetFamiliasByUsuarioId(Guid)
+  fullName: Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: >-
+    Retrieves the top-level <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> nodes assigned to a user.
+
+    Each family is fully hydrated (recursive children loaded).
+  example: []
+  syntax:
+    content: List<Familia> GetFamiliasByUsuarioId(Guid usuarioId)
+    parameters:
+    - id: usuarioId
+      type: System.Guid
+      description: The user to look up.
+    return:
+      type: System.Collections.Generic.List{Domain.Composite.Familia}
+      description: List of assigned families; empty list if none.
+    content.vb: Function GetFamiliasByUsuarioId(usuarioId As Guid) As List(Of Familia)
+  overload: Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId*
+- uid: Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+  commentId: M:Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+  id: GetUsuariosDTO
+  parent: Service.Contracts.IUsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: GetUsuariosDTO()
+  nameWithType: IUsuarioRepository.GetUsuariosDTO()
+  fullName: Service.Contracts.IUsuarioRepository.GetUsuariosDTO()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Returns all users projected as <xref href="Service.DTO.UsuarioDTO" data-throw-if-not-resolved="false"></xref>, including their permission trees.
+  example: []
+  syntax:
+    content: List<UsuarioDTO> GetUsuariosDTO()
+    return:
+      type: System.Collections.Generic.List{Service.DTO.UsuarioDTO}
+      description: List of user DTOs; empty list if no users exist.
+    content.vb: Function GetUsuariosDTO() As List(Of UsuarioDTO)
+  overload: Service.Contracts.IUsuarioRepository.GetUsuariosDTO*
+- uid: Service.Contracts.IUsuarioRepository.GetByUsername(System.String)
+  commentId: M:Service.Contracts.IUsuarioRepository.GetByUsername(System.String)
+  id: GetByUsername(System.String)
+  parent: Service.Contracts.IUsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByUsername(string)
+  nameWithType: IUsuarioRepository.GetByUsername(string)
+  fullName: Service.Contracts.IUsuarioRepository.GetByUsername(string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Finds a user by login name (case-insensitive comparison depends on database collation).
+  example: []
+  syntax:
+    content: Usuario GetByUsername(string username)
+    parameters:
+    - id: username
+      type: System.String
+      description: The login name to search for.
+    return:
+      type: Domain.Usuario
+      description: The matching <xref href="Domain.Usuario" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if not found.
+    content.vb: Function GetByUsername(username As String) As Usuario
+  overload: Service.Contracts.IUsuarioRepository.GetByUsername*
+  nameWithType.vb: IUsuarioRepository.GetByUsername(String)
+  fullName.vb: Service.Contracts.IUsuarioRepository.GetByUsername(String)
+  name.vb: GetByUsername(String)
+references:
+- uid: Domain.Usuario
+  commentId: T:Domain.Usuario
+  parent: Domain
+  isExternal: true
+  href: Domain.Usuario.html
+  name: Usuario
+  nameWithType: Usuario
+  fullName: Domain.Usuario
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Add(Domain.Usuario)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Usuario}.Add(Domain.Usuario)
+  parent: Service.Contracts.IGenericRepository{Domain.Usuario}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(Usuario)
+  nameWithType: IGenericRepository<Usuario>.Add(Usuario)
+  fullName: Service.Contracts.IGenericRepository<Domain.Usuario>.Add(Domain.Usuario)
+  nameWithType.vb: IGenericRepository(Of Usuario).Add(Usuario)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Usuario).Add(Domain.Usuario)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Add(Domain.Usuario)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - uid: Domain.Usuario
+    name: Usuario
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Add(Domain.Usuario)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - uid: Domain.Usuario
+    name: Usuario
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Update(Domain.Usuario)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Usuario}.Update(Domain.Usuario)
+  parent: Service.Contracts.IGenericRepository{Domain.Usuario}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(Usuario)
+  nameWithType: IGenericRepository<Usuario>.Update(Usuario)
+  fullName: Service.Contracts.IGenericRepository<Domain.Usuario>.Update(Domain.Usuario)
+  nameWithType.vb: IGenericRepository(Of Usuario).Update(Usuario)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Usuario).Update(Domain.Usuario)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Update(Domain.Usuario)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: Domain.Usuario
+    name: Usuario
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Update(Domain.Usuario)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: Domain.Usuario
+    name: Usuario
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Usuario}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Usuario}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<Usuario>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Usuario>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Usuario).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Usuario).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Usuario}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Usuario}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Usuario}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<Usuario>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Usuario>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Usuario).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Usuario).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Usuario}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Usuario}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Usuario}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Usuario>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Usuario>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Usuario).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Usuario).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Usuario}.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: Domain
+  commentId: N:Domain
+  isExternal: true
+  href: Domain.html
+  name: Domain
+  nameWithType: Domain
+  fullName: Domain
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Usuario}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Usuario}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<Usuario>
+  nameWithType: IGenericRepository<Usuario>
+  fullName: Service.Contracts.IGenericRepository<Domain.Usuario>
+  nameWithType.vb: IGenericRepository(Of Usuario)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Usuario)
+  name.vb: IGenericRepository(Of Usuario)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - uid: Domain.Usuario
+    name: Usuario
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Usuario
+    name: Usuario
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Domain.Composite.Acceso
+  commentId: T:Domain.Composite.Acceso
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Acceso.html
+  name: Acceso
+  nameWithType: Acceso
+  fullName: Domain.Composite.Acceso
+- uid: Service.Contracts.IUsuarioRepository.UpdateAccesos*
+  commentId: Overload:Service.Contracts.IUsuarioRepository.UpdateAccesos
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_UpdateAccesos_System_Guid_System_Collections_Generic_List_Domain_Composite_Acceso__
+  name: UpdateAccesos
+  nameWithType: IUsuarioRepository.UpdateAccesos
+  fullName: Service.Contracts.IUsuarioRepository.UpdateAccesos
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Collections.Generic.List{Domain.Composite.Acceso}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Acceso}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Acceso>
+  nameWithType: List<Acceso>
+  fullName: System.Collections.Generic.List<Domain.Composite.Acceso>
+  nameWithType.vb: List(Of Acceso)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Acceso)
+  name.vb: List(Of Acceso)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+    href: Domain.Composite.Acceso.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Acceso
+    name: Acceso
+    isExternal: true
+    href: Domain.Composite.Acceso.html
+  - name: )
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Domain.Composite.Familia
+  commentId: T:Domain.Composite.Familia
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Familia.html
+  name: Familia
+  nameWithType: Familia
+  fullName: Domain.Composite.Familia
+- uid: Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId*
+  commentId: Overload:Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_GetFamiliasByUsuarioId_System_Guid_
+  name: GetFamiliasByUsuarioId
+  nameWithType: IUsuarioRepository.GetFamiliasByUsuarioId
+  fullName: Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId
+- uid: System.Collections.Generic.List{Domain.Composite.Familia}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Familia}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Familia>
+  nameWithType: List<Familia>
+  fullName: System.Collections.Generic.List<Domain.Composite.Familia>
+  nameWithType.vb: List(Of Familia)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Familia)
+  name.vb: List(Of Familia)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+- uid: Service.DTO.UsuarioDTO
+  commentId: T:Service.DTO.UsuarioDTO
+  parent: Service.DTO
+  isExternal: true
+  href: Service.DTO.UsuarioDTO.html
+  name: UsuarioDTO
+  nameWithType: UsuarioDTO
+  fullName: Service.DTO.UsuarioDTO
+- uid: Service.Contracts.IUsuarioRepository.GetUsuariosDTO*
+  commentId: Overload:Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_GetUsuariosDTO
+  name: GetUsuariosDTO
+  nameWithType: IUsuarioRepository.GetUsuariosDTO
+  fullName: Service.Contracts.IUsuarioRepository.GetUsuariosDTO
+- uid: System.Collections.Generic.List{Service.DTO.UsuarioDTO}
+  commentId: T:System.Collections.Generic.List{Service.DTO.UsuarioDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<UsuarioDTO>
+  nameWithType: List<UsuarioDTO>
+  fullName: System.Collections.Generic.List<Service.DTO.UsuarioDTO>
+  nameWithType.vb: List(Of UsuarioDTO)
+  fullName.vb: System.Collections.Generic.List(Of Service.DTO.UsuarioDTO)
+  name.vb: List(Of UsuarioDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Service.DTO.UsuarioDTO
+    name: UsuarioDTO
+    isExternal: true
+    href: Service.DTO.UsuarioDTO.html
+  - name: )
+- uid: Service.DTO
+  commentId: N:Service.DTO
+  isExternal: true
+  href: Service.html
+  name: Service.DTO
+  nameWithType: Service.DTO
+  fullName: Service.DTO
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.DTO
+    name: DTO
+    isExternal: true
+    href: Service.DTO.html
+- uid: Service.Contracts.IUsuarioRepository.GetByUsername*
+  commentId: Overload:Service.Contracts.IUsuarioRepository.GetByUsername
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html#Service_Contracts_IUsuarioRepository_GetByUsername_System_String_
+  name: GetByUsername
+  nameWithType: IUsuarioRepository.GetByUsername
+  fullName: Service.Contracts.IUsuarioRepository.GetByUsername
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Enums.EstadoReserva
+  commentId: T:Domain.Enums.EstadoReserva
+  id: EstadoReserva
+  parent: Domain.Enums
+  children:
+  - Domain.Enums.EstadoReserva.Cancelada
+  - Domain.Enums.EstadoReserva.Confirmada
+  - Domain.Enums.EstadoReserva.Finalizada
+  - Domain.Enums.EstadoReserva.Pagada
+  - Domain.Enums.EstadoReserva.Pendiente
+  langs:
+  - csharp
+  - vb
+  name: EstadoReserva
+  nameWithType: EstadoReserva
+  fullName: Domain.Enums.EstadoReserva
+  type: Enum
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: public enum EstadoReserva
+    content.vb: Public Enum EstadoReserva
+- uid: Domain.Enums.EstadoReserva.Pendiente
+  commentId: F:Domain.Enums.EstadoReserva.Pendiente
+  id: Pendiente
+  parent: Domain.Enums.EstadoReserva
+  langs:
+  - csharp
+  - vb
+  name: Pendiente
+  nameWithType: EstadoReserva.Pendiente
+  fullName: Domain.Enums.EstadoReserva.Pendiente
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Pendiente = 0
+    return:
+      type: Domain.Enums.EstadoReserva
+- uid: Domain.Enums.EstadoReserva.Confirmada
+  commentId: F:Domain.Enums.EstadoReserva.Confirmada
+  id: Confirmada
+  parent: Domain.Enums.EstadoReserva
+  langs:
+  - csharp
+  - vb
+  name: Confirmada
+  nameWithType: EstadoReserva.Confirmada
+  fullName: Domain.Enums.EstadoReserva.Confirmada
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Confirmada = 1
+    return:
+      type: Domain.Enums.EstadoReserva
+- uid: Domain.Enums.EstadoReserva.Cancelada
+  commentId: F:Domain.Enums.EstadoReserva.Cancelada
+  id: Cancelada
+  parent: Domain.Enums.EstadoReserva
+  langs:
+  - csharp
+  - vb
+  name: Cancelada
+  nameWithType: EstadoReserva.Cancelada
+  fullName: Domain.Enums.EstadoReserva.Cancelada
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Cancelada = 2
+    return:
+      type: Domain.Enums.EstadoReserva
+- uid: Domain.Enums.EstadoReserva.Finalizada
+  commentId: F:Domain.Enums.EstadoReserva.Finalizada
+  id: Finalizada
+  parent: Domain.Enums.EstadoReserva
+  langs:
+  - csharp
+  - vb
+  name: Finalizada
+  nameWithType: EstadoReserva.Finalizada
+  fullName: Domain.Enums.EstadoReserva.Finalizada
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Finalizada = 3
+    return:
+      type: Domain.Enums.EstadoReserva
+- uid: Domain.Enums.EstadoReserva.Pagada
+  commentId: F:Domain.Enums.EstadoReserva.Pagada
+  id: Pagada
+  parent: Domain.Enums.EstadoReserva
+  langs:
+  - csharp
+  - vb
+  name: Pagada
+  nameWithType: EstadoReserva.Pagada
+  fullName: Domain.Enums.EstadoReserva.Pagada
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Pagada = 4
+    return:
+      type: Domain.Enums.EstadoReserva
+references:
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: Domain.Enums.EstadoReserva
+  commentId: T:Domain.Enums.EstadoReserva
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoReserva.html
+  name: EstadoReserva
+  nameWithType: EstadoReserva
+  fullName: Domain.Enums.EstadoReserva

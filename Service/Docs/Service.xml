@@ -1,0 +1,526 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Service</name>
+    </assembly>
+    <members>
+        <member name="T:Service.Contracts.IBackup">
+            <summary>
+            Contract for database backup and restore operations.
+            </summary>
+        </member>
+        <member name="M:Service.Contracts.IBackup.BackUpDataBase(System.String,System.String)">
+            <summary>
+            Creates a backup of the specified database at the given path.
+            </summary>
+            <param name="database">Name of the database to back up.</param>
+            <param name="path">Directory path where the backup file will be written.</param>
+        </member>
+        <member name="M:Service.Contracts.IBackup.RestoreDataBase(System.String,System.String)">
+            <summary>
+            Restores a database from a backup file.
+            </summary>
+            <param name="database">Name of the target database to restore into.</param>
+            <param name="path">Full path of the backup file to restore from.</param>
+        </member>
+        <member name="M:Service.Contracts.IBackup.ListBackups">
+            <summary>
+            Lists all available backup files in the configured backup directory.
+            </summary>
+            <returns>A list of <see cref="T:Service.DTO.BackupFile"/> descriptors; empty if no backups exist.</returns>
+        </member>
+        <member name="M:Service.Contracts.IBackup.DeleteBackup(System.String)">
+            <summary>
+            Deletes a backup file by its file name.
+            </summary>
+            <param name="filename">Name of the backup file to delete (not a full path).</param>
+        </member>
+        <member name="T:Service.Contracts.IGenericRepository`1">
+            <summary>
+            Generic repository contract defining standard CRUD operations for any entity type.
+            </summary>
+            <typeparam name="T">The domain entity type managed by this repository.</typeparam>
+        </member>
+        <member name="M:Service.Contracts.IGenericRepository`1.Add(`0)">
+            <summary>Persists a new entity.</summary>
+            <param name="obj">The entity to insert.</param>
+        </member>
+        <member name="M:Service.Contracts.IGenericRepository`1.Update(`0)">
+            <summary>Applies changes to an existing entity.</summary>
+            <param name="obj">The entity with updated values.</param>
+        </member>
+        <member name="M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)">
+            <summary>Deletes an entity by its primary key.</summary>
+            <param name="id">The unique identifier of the entity to delete.</param>
+        </member>
+        <member name="M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)">
+            <summary>Retrieves a single entity by its primary key.</summary>
+            <param name="id">The unique identifier to look up.</param>
+            <returns>The matching entity, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Service.Contracts.IGenericRepository`1.GetAll">
+            <summary>Retrieves all entities of this type.</summary>
+            <returns>A list of all stored entities; empty list if none exist.</returns>
+        </member>
+        <member name="T:Service.Contracts.ILogger">
+            <summary>
+            Abstraction for structured application logging.
+            </summary>
+        </member>
+        <member name="M:Service.Contracts.ILogger.Info(System.String)">
+            <summary>
+            Records an informational message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Service.Contracts.ILogger.Error(System.String,System.Exception)">
+            <summary>
+            Records an error message with an optional associated exception.
+            </summary>
+            <param name="message">Descriptive error message.</param>
+            <param name="ex">The exception that caused the error, or <c>null</c> if not applicable.</param>
+        </member>
+        <member name="T:Service.Contracts.IUsuarioRepository">
+            <summary>
+            Repository contract for <see cref="T:Domain.Usuario"/> entities, extending standard CRUD with
+            user-specific permission and lookup operations.
+            </summary>
+        </member>
+        <member name="M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})">
+            <summary>
+            Replaces the full set of <see cref="T:Domain.Composite.Acceso"/> nodes assigned to a user.
+            The existing permission associations are deleted and re-inserted atomically.
+            </summary>
+            <param name="idUsuario">The user whose permissions will be replaced.</param>
+            <param name="accesos">New list of <see cref="T:Domain.Composite.Acceso"/> roots to assign.</param>
+        </member>
+        <member name="M:Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId(System.Guid)">
+            <summary>
+            Retrieves the top-level <see cref="T:Domain.Composite.Familia"/> nodes assigned to a user.
+            Each family is fully hydrated (recursive children loaded).
+            </summary>
+            <param name="usuarioId">The user to look up.</param>
+            <returns>List of assigned families; empty list if none.</returns>
+        </member>
+        <member name="M:Service.Contracts.IUsuarioRepository.GetUsuariosDTO">
+            <summary>
+            Returns all users projected as <see cref="T:Service.DTO.UsuarioDTO"/>, including their permission trees.
+            </summary>
+            <returns>List of user DTOs; empty list if no users exist.</returns>
+        </member>
+        <member name="M:Service.Contracts.IUsuarioRepository.GetByUsername(System.String)">
+            <summary>
+            Finds a user by login name (case-insensitive comparison depends on database collation).
+            </summary>
+            <param name="username">The login name to search for.</param>
+            <returns>The matching <see cref="T:Domain.Usuario"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="T:Service.Facade.Extension.TranslationsExtension">
+            <summary>
+            Extension methods that provide i18n translation for <see cref="T:Domain.Enums.Translations"/> enum values.
+            </summary>
+            <remarks>
+            Delegates to <c>Service.Logic.LanguageLogic.Translate</c>, which resolves the enum name
+            against the active language file loaded by <c>LanguageRepository</c>.
+            </remarks>
+        </member>
+        <member name="M:Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)">
+            <summary>
+            Resolves <paramref name="key"/> to its localized string in the currently active language.
+            </summary>
+            <param name="key">The translation key enum value.</param>
+            <returns>The localized string, or the key name itself if no translation is found.</returns>
+        </member>
+        <member name="M:Service.Facade.Extension.TranslationsExtension.ToString(Domain.Enums.Translations)">
+            <summary>
+            Equivalent to <see cref="M:Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)"/>; overrides <see cref="M:System.Object.ToString"/> on the enum
+            so that string interpolation automatically returns the localized value.
+            </summary>
+            <param name="key">The translation key enum value.</param>
+            <returns>The localized string.</returns>
+        </member>
+        <member name="T:Service.Logic.PermisosService">
+            <summary>
+            Manages the permission tree: creation and modification of <see cref="T:Domain.Composite.Familia"/> groups,
+            and provisioning of <see cref="T:Domain.Composite.Patente"/> leaf nodes from <see cref="T:Domain.Composite.PermisoKeys"/>.
+            </summary>
+        </member>
+        <member name="M:Service.Logic.PermisosService.#ctor">
+            <summary>Initializes a new instance with default SQL repositories.</summary>
+        </member>
+        <member name="M:Service.Logic.PermisosService.GetAllFamilias">
+            <summary>
+            Returns all <see cref="T:Domain.Composite.Familia"/> records, each fully hydrated via <c>GetById</c>
+            (recursive children loaded).
+            </summary>
+            <returns>List of fully-loaded families.</returns>
+        </member>
+        <member name="M:Service.Logic.PermisosService.GetAllPatentes">
+            <summary>Returns all <see cref="T:Domain.Composite.Patente"/> records (flat list, no hydration needed).</summary>
+        </member>
+        <member name="M:Service.Logic.PermisosService.GuardarFamilia(Domain.Composite.Familia)">
+            <summary>
+            Persists changes to a <see cref="T:Domain.Composite.Familia"/> after validating that the update
+            would not introduce a cycle in the permission tree.
+            </summary>
+            <param name="familia">The family to save. Must have been loaded via <c>GetById</c> (full recursive load).</param>
+            <exception cref="T:System.InvalidOperationException">Thrown when a circular reference is detected.</exception>
+        </member>
+        <member name="M:Service.Logic.PermisosService.CrearFamilia(Domain.Composite.Familia)">
+            <summary>Persists a new <see cref="T:Domain.Composite.Familia"/>.</summary>
+            <param name="familia">The family to create.</param>
+        </member>
+        <member name="M:Service.Logic.PermisosService.EliminarFamilia(System.Guid)">
+            <summary>Deletes a <see cref="T:Domain.Composite.Familia"/> by its identifier.</summary>
+            <param name="id">The unique identifier of the family to delete.</param>
+        </member>
+        <member name="M:Service.Logic.PermisosService.EnsurePermissions">
+            <summary>
+            Ensures all constants declared in <see cref="T:Domain.Composite.PermisoKeys"/> exist as <see cref="T:Domain.Composite.Patente"/>
+            records in the database, and that the <c>"Administrador"</c> family holds all of them.
+            </summary>
+            <remarks>
+            Intended to run on application startup. Uses reflection to enumerate
+            <see cref="T:Domain.Composite.PermisoKeys"/> string constants and inserts any that are missing.
+            The <c>Administrador</c> family is created if it does not exist.
+            </remarks>
+        </member>
+        <member name="T:Service.Logic.BitacoraService">
+            <summary>
+            Application-wide audit log service. All BLL operations that have user-visible side effects
+            call this service to record INFO, WARNING, or ERROR entries.
+            </summary>
+            <remarks>
+            If the underlying <c>LogRepository</c> fails to initialize (e.g., database unavailable),
+            the service falls back to <see cref="M:System.Console.WriteLine"/> so that logging failures never
+            propagate to callers.
+            </remarks>
+        </member>
+        <member name="M:Service.Logic.BitacoraService.#ctor">
+            <summary>
+            Initializes the service, resolving the log repository from the service factory.
+            Silently degrades to console fallback if the repository cannot be constructed.
+            </summary>
+        </member>
+        <member name="M:Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)">
+            <summary>
+            Writes a log entry. Swallows any internal errors to avoid disrupting callers.
+            </summary>
+            <param name="message">The message to record.</param>
+            <param name="level">Severity level: <c>"INFO"</c>, <c>"WARNING"</c>, or <c>"ERROR"</c>. Defaults to <c>"INFO"</c>.</param>
+            <param name="ex">Optional exception to attach when <paramref name="level"/> is <c>"ERROR"</c>.</param>
+        </member>
+        <member name="M:Service.Logic.BitacoraService.GetLogs(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Retrieves paginated log entries, optionally filtered by date range, level, and message text.
+            </summary>
+            <param name="page">1-based page number.</param>
+            <param name="pageSize">Number of entries per page.</param>
+            <param name="from">Optional lower bound on the log entry timestamp.</param>
+            <param name="to">Optional upper bound on the log entry timestamp.</param>
+            <param name="logLevel">Optional level filter (e.g., <c>"ERROR"</c>).</param>
+            <param name="message">Optional substring filter applied to the message text.</param>
+            <returns>A list of matching <see cref="M:Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)"/> entries; empty list if the repository is unavailable.</returns>
+        </member>
+        <member name="T:Service.Logic.UsuarioService">
+            <summary>
+            Manages user authentication, registration, profile updates, and password management.
+            </summary>
+            <remarks>
+            <para>
+            Passwords are stored as SHA-256 hashes via <see cref="M:Service.Helpers.CryptographyHelper.HashPassword(System.String)"/>.
+            Every write operation recomputes <c>DigitoVerificador</c> (a SHA-256 hash of all scalar
+            fields) to enable tamper-detection on the user record.
+            </para>
+            <para>
+            Permission assignments are delegated to <see cref="M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})"/>,
+            which performs a delete-and-reinsert of the user's access tree.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.#ctor">
+            <summary>Initializes the service with the <see cref="T:Service.Contracts.IUsuarioRepository"/> singleton from <see cref="T:Service.Factory.FactoryDao"/>.</summary>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.Login(System.String,System.String)">
+            <summary>
+            Authenticates a user by username and plaintext password.
+            </summary>
+            <param name="username">Username to look up.</param>
+            <param name="password">Plaintext password; hashed internally before comparison.</param>
+            <returns>
+            A <see cref="T:Service.DTO.UsuarioDTO"/> with the authenticated user's identity, permissions, and
+            resolved <c>RolNegocio</c> (<c>"Administrador"</c>, <c>"Operador"</c>, or a
+            comma-separated list of permission names).
+            </returns>
+            <exception cref="T:System.Exception">Thrown with localized messages when the user is not found, the password is incorrect, or the account is blocked.</exception>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.Register(Service.DTO.UsuarioDTO,System.String)">
+            <summary>
+            Creates a new user account with the given permissions.
+            </summary>
+            <param name="dto">User data including optional initial permission set.</param>
+            <param name="password">Plaintext password; stored as a SHA-256 hash.</param>
+            <exception cref="T:System.Exception">Thrown when a user with the same username already exists.</exception>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.Update(Service.DTO.UsuarioDTO)">
+            <summary>
+            Updates a user's username, status, and permission set.
+            </summary>
+            <param name="dto">Updated user data. <see cref="P:Service.DTO.UsuarioDTO.Id"/> must identify an existing user.</param>
+            <exception cref="T:System.Exception">Thrown when the user does not exist.</exception>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.ResetPassword(System.Guid,System.String)">
+            <summary>
+            Replaces a user's password with a new hashed value and updates the integrity check digit.
+            </summary>
+            <param name="id">Primary key of the user whose password to reset.</param>
+            <param name="newPassword">New plaintext password; stored as a SHA-256 hash.</param>
+            <exception cref="T:System.Exception">Thrown when the user does not exist.</exception>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.Delete(System.Guid)">
+            <summary>Permanently deletes the user with the given identifier.</summary>
+            <param name="id">Primary key of the user to delete.</param>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.GetUsuarios">
+            <summary>Returns all users as DTOs via <see cref="M:Service.Contracts.IUsuarioRepository.GetUsuariosDTO"/>.</summary>
+        </member>
+        <member name="M:Service.Logic.UsuarioService.UpdateDV(Domain.Usuario)">
+            <summary>
+            Recomputes and stores the integrity check digit for a user entity.
+            </summary>
+            <param name="user">The user entity to update in place.</param>
+            <remarks>
+            The check digit is a SHA-256 hash of the concatenated <c>Id</c>, <c>NombreUsuario</c>,
+            <c>Password</c>, and <c>Estado</c> values, providing tamper detection for the user record.
+            </remarks>
+        </member>
+        <member name="T:Service.DTO.UsuarioDTO">
+            <summary>
+            Data Transfer Object representing an authenticated or listed application user.
+            </summary>
+            <remarks>
+            Carries the user's permission tree (<see cref="P:Service.DTO.UsuarioDTO.Permisos"/>) from the service layer to the UI.
+            UI components use <see cref="M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)"/> on this DTO to
+            drive button visibility and access control without hitting the database again.
+            </remarks>
+        </member>
+        <member name="P:Service.DTO.UsuarioDTO.Id">
+            <summary>Unique identifier of the user.</summary>
+        </member>
+        <member name="P:Service.DTO.UsuarioDTO.Username">
+            <summary>Login name.</summary>
+        </member>
+        <member name="P:Service.DTO.UsuarioDTO.Estado">
+            <summary>Account status string (e.g., <c>"Activo"</c>, <c>"Inactivo"</c>).</summary>
+        </member>
+        <member name="P:Service.DTO.UsuarioDTO.Permisos">
+            <summary>
+            Permission tree roots assigned to this user (mix of <see cref="T:Domain.Composite.Familia"/> and <see cref="T:Domain.Composite.Patente"/> nodes).
+            </summary>
+        </member>
+        <member name="P:Service.DTO.UsuarioDTO.RolNegocio">
+            <summary>
+            Business role label derived from the user's family assignments (e.g., <c>"Administrador"</c>, <c>"Operador"</c>).
+            </summary>
+        </member>
+        <member name="T:Service.Helpers.ConnectionManager">
+            <summary>
+            Provides strongly-typed access to named connection strings defined in <c>App.config</c>.
+            </summary>
+            <remarks>
+            Two connection strings are expected:
+            <list type="bullet">
+              <item><see cref="F:Service.Helpers.ConnectionManager.BaseConnectionName"/> — used for system/infrastructure repositories (users, logs, permissions).</item>
+              <item><see cref="F:Service.Helpers.ConnectionManager.BusinessConnectionName"/> — used for all business-domain repositories and transactional UoW operations.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Service.Helpers.ConnectionManager.BaseConnectionName">
+            <summary>Connection string name for the infrastructure database (users, logs, permissions).</summary>
+        </member>
+        <member name="F:Service.Helpers.ConnectionManager.BusinessConnectionName">
+            <summary>Connection string name for the business database (clients, reservations, payments, etc.).</summary>
+        </member>
+        <member name="M:Service.Helpers.ConnectionManager.GetConnectionString(System.String)">
+            <summary>
+            Retrieves a connection string by name from <c>App.config</c> / <c>Web.config</c>.
+            </summary>
+            <param name="name">The connection string key. Defaults to <see cref="F:Service.Helpers.ConnectionManager.BaseConnectionName"/>.</param>
+            <returns>The raw connection string value.</returns>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException">
+            Thrown when the named connection string is absent or empty in the configuration file.
+            </exception>
+        </member>
+        <member name="M:Service.Helpers.ConnectionManager.GetBaseConnectionString">
+            <summary>Returns the connection string for <see cref="F:Service.Helpers.ConnectionManager.BaseConnectionName"/>.</summary>
+        </member>
+        <member name="M:Service.Helpers.ConnectionManager.GetBusinessConnectionString">
+            <summary>Returns the connection string for <see cref="F:Service.Helpers.ConnectionManager.BusinessConnectionName"/>.</summary>
+        </member>
+        <member name="T:Service.Helpers.CryptographyHelper">
+            <summary>
+            Provides cryptographic utilities used for password storage and integrity verification.
+            </summary>
+        </member>
+        <member name="M:Service.Helpers.CryptographyHelper.HashPassword(System.String)">
+            <summary>
+            Computes a SHA-256 hash of the given password and returns it as a lowercase hex string.
+            </summary>
+            <param name="password">The plain-text password to hash.</param>
+            <returns>
+            A 64-character lowercase hex string (SHA-256 digest), or <see cref="F:System.String.Empty"/>
+            if <paramref name="password"/> is <c>null</c> or empty.
+            </returns>
+        </member>
+        <member name="T:Service.Helpers.PermisoHelper">
+            <summary>
+            Extension methods for permission checks on <see cref="T:Service.DTO.UsuarioDTO"/>.
+            </summary>
+        </member>
+        <member name="M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)">
+            <summary>
+            Determines whether <paramref name="user"/> holds the specified permission by
+            recursively traversing their <see cref="T:Domain.Composite.Acceso"/> composite tree.
+            </summary>
+            <param name="user">The user whose permission tree will be searched.</param>
+            <param name="permiso">
+            The permission key to look for, matching a <see cref="P:Domain.Composite.Patente.TipoAcceso"/> value
+            (see <see cref="T:Domain.Composite.PermisoKeys"/> for available constants).
+            </param>
+            <returns>
+            <c>true</c> if any <see cref="T:Domain.Composite.Patente"/> leaf in the tree has
+            <see cref="P:Domain.Composite.Patente.TipoAcceso"/> equal to <paramref name="permiso"/>; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Service.Impl.BaseRepository">
+            <summary>
+            Abstract base class for all SQL Server repositories, providing low-level ADO.NET helpers.
+            </summary>
+            <remarks>
+            Each helper opens its own <see cref="T:System.Data.SqlClient.SqlConnection"/> unless a shared <paramref name="conn"/>
+            is injected (used by <c>DAL.Impl.BaseBusinessSqlRepository</c> when enrolled in a
+            <see cref="!:DAL.Impl.SqlServer.UnitOfWork"/> transaction).
+            </remarks>
+        </member>
+        <member name="F:Service.Impl.BaseRepository._connectionString">
+            <summary>Raw ADO.NET connection string resolved from <see cref="T:Service.Helpers.ConnectionManager"/>.</summary>
+        </member>
+        <member name="M:Service.Impl.BaseRepository.#ctor(System.String)">
+            <summary>
+            Initializes the repository with the connection string identified by <paramref name="connectionStringName"/>.
+            </summary>
+            <param name="connectionStringName">
+            Key used to look up the connection string via <see cref="M:Service.Helpers.ConnectionManager.GetConnectionString(System.String)"/>.
+            Defaults to <see cref="F:Service.Helpers.ConnectionManager.BaseConnectionName"/>.
+            </param>
+        </member>
+        <member name="M:Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            Executes a non-query SQL statement (INSERT, UPDATE, DELETE).
+            </summary>
+            <param name="query">Parameterized SQL statement.</param>
+            <param name="parameters">SQL parameters to bind, or <c>null</c> for none.</param>
+            <param name="conn">
+            Optional shared connection. When provided, the command runs on this connection
+            using <paramref name="tran"/> (if any), without opening a new connection.
+            </param>
+            <param name="tran">Optional transaction to enlist the command in.</param>
+        </member>
+        <member name="M:Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})">
+            <summary>
+            Executes a SELECT query and projects the result via a mapping delegate.
+            Always opens a new connection; use <c>BaseBusinessSqlRepository</c> overload for UoW reads.
+            </summary>
+            <typeparam name="T">The projection type returned by <paramref name="map"/>.</typeparam>
+            <param name="query">Parameterized SQL SELECT statement.</param>
+            <param name="parameters">SQL parameters to bind, or <c>null</c> for none.</param>
+            <param name="map">Delegate that receives the open <see cref="T:System.Data.SqlClient.SqlDataReader"/> and returns <typeparamref name="T"/>.</param>
+            <returns>The value produced by <paramref name="map"/>.</returns>
+        </member>
+        <member name="M:Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Executes a scalar query and returns the first column of the first row.
+            </summary>
+            <typeparam name="T">The expected return type. <c>DBNull</c> is converted to <c>default(T)</c>.</typeparam>
+            <param name="query">Parameterized SQL statement.</param>
+            <param name="parameters">SQL parameters to bind, or <c>null</c> for none.</param>
+            <returns>The scalar value cast to <typeparamref name="T"/>, or <c>default(T)</c> if the result is NULL.</returns>
+        </member>
+        <member name="T:Service.Impl.LogRepository">
+            <summary>
+            Clase PersistentLogger para manejar el registro de información y errores en una base de datos.
+            Esta clase permite registrar logs de nivel informativo y de errores en la base de datos,
+            y proporciona un método de respaldo en caso de que la base de datos no esté disponible.
+            </summary>
+        </member>
+        <member name="M:Service.Impl.LogRepository.InsertLog(System.String,System.String,System.String)">
+            <summary>
+            Inserta un registro en la base de datos en la tabla de bitácora.
+            </summary>
+            <param name="logLevel">Nivel del log ("Info" o "Error").</param>
+            <param name="message">Mensaje del registro.</param>
+            <param name="exceptionDetails">Detalles de la excepción (opcional).</param>
+        </member>
+        <member name="M:Service.Impl.LogRepository.GetLogs(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            Obtiene una lista de logs de la base de datos de forma paginada y filtrada.
+            </summary>
+        </member>
+        <member name="T:Service.Impl.ConsoleRepository">
+            <summary>
+            Clase ConsoleLogger: Implementación de un logger que no realiza ninguna acción.
+            Se utiliza como logger por defecto para evitar errores si no se proporciona un logger real.
+            Esta clase es útil cuando no se desea realizar registros de logs en ciertos entornos o configuraciones.
+            </summary>
+        </member>
+        <member name="P:Service.Impl.ConsoleRepository.Instance">
+            <summary>
+            Instancia única de la clase <see cref="T:Service.Impl.ConsoleRepository"/>. Utilizada como el logger por defecto.
+            </summary>
+        </member>
+        <member name="M:Service.Impl.ConsoleRepository.Info(System.String)">
+            <summary>
+            Método para registrar información. No realiza ninguna acción.
+            </summary>
+            <param name="message">Mensaje informativo a registrar.</param>
+        </member>
+        <member name="M:Service.Impl.ConsoleRepository.Error(System.String,System.Exception)">
+            <summary>
+            Método para registrar errores. No realiza ninguna acción.
+            </summary>
+            <param name="message">Mensaje de error.</param>
+            <param name="ex">Excepción asociada al error (opcional).</param>
+        </member>
+        <member name="T:Service.Impl.Text.LanguageRepository">
+            <summary>
+            Repositorio de idiomas que proporciona métodos para traducir claves a su correspondiente valor en el idioma actual.
+            </summary>
+        </member>
+        <member name="M:Service.Impl.Text.LanguageRepository.Translate(System.String)">
+            <summary>
+            Traduce una clave a su correspondiente valor en el idioma actual.
+            </summary>
+            <param name="key">La clave que se desea traducir.</param>
+            <returns>La traducción correspondiente a la clave en el idioma actual.</returns>
+            <exception cref="T:System.Exception">Lanza una excepción si no se encuentra el archivo de idioma o la clave no existe.</exception>
+        </member>
+        <member name="M:Service.Impl.Text.LanguageRepository.GetLanguages">
+            <summary>
+            Obtiene un diccionario de códigos de idioma y sus nombres nativos desde los archivos de idioma disponibles.
+            </summary>
+            <returns>Un diccionario donde la clave es el código del idioma y el valor es el nombre nativo del idioma.</returns>
+        </member>
+        <member name="M:Service.Impl.Text.LanguageRepository.SaveUserLanguage(System.String)">
+            <summary>
+            Guarda el código del idioma del usuario en un archivo de configuración.
+            </summary>
+            <param name="languageCode">El código del idioma que se desea guardar.</param>
+        </member>
+        <member name="M:Service.Impl.Text.LanguageRepository.LoadUserLanguage">
+            <summary>
+            Carga el idioma de preferencia del usuario desde un archivo de configuración.
+            </summary>
+            <returns>El código del idioma guardado, o "es-ES" si no existe o está vacío.</returns>
+        </member>
+    </members>
+</doc>

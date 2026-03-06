@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  id: ClienteManager
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.#ctor
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia(System.Guid,System.Guid)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente(System.Guid,System.String)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente(System.Guid)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente(System.Guid)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI(System.Int32)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente(BLL.DTOs.ClienteDTO)
+  - TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ClienteManager
+  nameWithType: ClienteManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  type: Class
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public class ClienteManager
+    content.vb: Public Class ClienteManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.#ctor
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.#ctor
+  id: '#ctor'
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: ClienteManager()
+  nameWithType: ClienteManager.ClienteManager()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ClienteManager()
+  type: Constructor
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public ClienteManager()
+    content.vb: Public Sub New()
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.#ctor*
+  nameWithType.vb: ClienteManager.New()
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.New()
+  name.vb: New()
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente(BLL.DTOs.ClienteDTO)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente(BLL.DTOs.ClienteDTO)
+  id: RegistrarCliente(BLL.DTOs.ClienteDTO)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: RegistrarCliente(ClienteDTO)
+  nameWithType: ClienteManager.RegistrarCliente(ClienteDTO)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente(BLL.DTOs.ClienteDTO)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void RegistrarCliente(ClienteDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.ClienteDTO
+    content.vb: Public Sub RegistrarCliente(dto As ClienteDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia(System.Guid,System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia(System.Guid,System.Guid)
+  id: ActualizarMembresia(System.Guid,System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: ActualizarMembresia(Guid, Guid)
+  nameWithType: ClienteManager.ActualizarMembresia(Guid, Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia(System.Guid, System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void ActualizarMembresia(Guid clienteId, Guid nuevaMembresiaId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    - id: nuevaMembresiaId
+      type: System.Guid
+    content.vb: Public Sub ActualizarMembresia(clienteId As Guid, nuevaMembresiaId As Guid)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente(System.Guid,System.String)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente(System.Guid,System.String)
+  id: DeshabilitarCliente(System.Guid,System.String)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: DeshabilitarCliente(Guid, string)
+  nameWithType: ClienteManager.DeshabilitarCliente(Guid, string)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente(System.Guid, string)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void DeshabilitarCliente(Guid clienteId, string razon)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    - id: razon
+      type: System.String
+    content.vb: Public Sub DeshabilitarCliente(clienteId As Guid, razon As String)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente*
+  nameWithType.vb: ClienteManager.DeshabilitarCliente(Guid, String)
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente(System.Guid, String)
+  name.vb: DeshabilitarCliente(Guid, String)
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente(System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente(System.Guid)
+  id: HabilitarCliente(System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: HabilitarCliente(Guid)
+  nameWithType: ClienteManager.HabilitarCliente(Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente(System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public void HabilitarCliente(Guid clienteId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    content.vb: Public Sub HabilitarCliente(clienteId As Guid)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso(System.Int32)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso(System.Int32)
+  id: ValidarIngreso(System.Int32)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: ValidarIngreso(int)
+  nameWithType: ClienteManager.ValidarIngreso(int)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso(int)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public ResultadoIngresoDTO ValidarIngreso(int dni)
+    parameters:
+    - id: dni
+      type: System.Int32
+    return:
+      type: BLL.DTOs.ResultadoIngresoDTO
+    content.vb: Public Function ValidarIngreso(dni As Integer) As ResultadoIngresoDTO
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso*
+  nameWithType.vb: ClienteManager.ValidarIngreso(Integer)
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso(Integer)
+  name.vb: ValidarIngreso(Integer)
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes
+  id: ListarClientes
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: ListarClientes()
+  nameWithType: ClienteManager.ListarClientes()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes()
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public List<ClienteDTO> ListarClientes()
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.ClienteDTO}
+    content.vb: Public Function ListarClientes() As List(Of ClienteDTO)
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente(System.Guid)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente(System.Guid)
+  id: ObtenerCliente(System.Guid)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: ObtenerCliente(Guid)
+  nameWithType: ClienteManager.ObtenerCliente(Guid)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente(System.Guid)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public ClienteDTO ObtenerCliente(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    return:
+      type: BLL.DTOs.ClienteDTO
+    content.vb: Public Function ObtenerCliente(id As Guid) As ClienteDTO
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente*
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI(System.Int32)
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI(System.Int32)
+  id: ObtenerClientePorDNI(System.Int32)
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager
+  langs:
+  - csharp
+  - vb
+  name: ObtenerClientePorDNI(int)
+  nameWithType: ClienteManager.ObtenerClientePorDNI(int)
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI(int)
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  syntax:
+    content: public ClienteDTO ObtenerClientePorDNI(int dni)
+    parameters:
+    - id: dni
+      type: System.Int32
+    return:
+      type: BLL.DTOs.ClienteDTO
+    content.vb: Public Function ObtenerClientePorDNI(dni As Integer) As ClienteDTO
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI*
+  nameWithType.vb: ClienteManager.ObtenerClientePorDNI(Integer)
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI(Integer)
+  name.vb: ObtenerClientePorDNI(Integer)
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  name: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+  spec.csharp:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+  spec.vb:
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos
+    name: TpIngSoftware_GestionDeEspaciosDeportivos
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  - name: .
+  - uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business
+    name: Business
+    isExternal: true
+    href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.#ctor*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.#ctor
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager__ctor
+  name: ClienteManager
+  nameWithType: ClienteManager.ClienteManager
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ClienteManager
+  nameWithType.vb: ClienteManager.New
+  fullName.vb: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.New
+  name.vb: New
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_RegistrarCliente_BLL_DTOs_ClienteDTO_
+  name: RegistrarCliente
+  nameWithType: ClienteManager.RegistrarCliente
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.RegistrarCliente
+- uid: BLL.DTOs.ClienteDTO
+  commentId: T:BLL.DTOs.ClienteDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.ClienteDTO.html
+  name: ClienteDTO
+  nameWithType: ClienteDTO
+  fullName: BLL.DTOs.ClienteDTO
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_ActualizarMembresia_System_Guid_System_Guid_
+  name: ActualizarMembresia
+  nameWithType: ClienteManager.ActualizarMembresia
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ActualizarMembresia
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_DeshabilitarCliente_System_Guid_System_String_
+  name: DeshabilitarCliente
+  nameWithType: ClienteManager.DeshabilitarCliente
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.DeshabilitarCliente
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_HabilitarCliente_System_Guid_
+  name: HabilitarCliente
+  nameWithType: ClienteManager.HabilitarCliente
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.HabilitarCliente
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_ValidarIngreso_System_Int32_
+  name: ValidarIngreso
+  nameWithType: ClienteManager.ValidarIngreso
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ValidarIngreso
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BLL.DTOs.ResultadoIngresoDTO
+  commentId: T:BLL.DTOs.ResultadoIngresoDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html
+  name: ResultadoIngresoDTO
+  nameWithType: ResultadoIngresoDTO
+  fullName: BLL.DTOs.ResultadoIngresoDTO
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_ListarClientes
+  name: ListarClientes
+  nameWithType: ClienteManager.ListarClientes
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ListarClientes
+- uid: System.Collections.Generic.List{BLL.DTOs.ClienteDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.ClienteDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ClienteDTO>
+  nameWithType: List<ClienteDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.ClienteDTO>
+  nameWithType.vb: List(Of ClienteDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.ClienteDTO)
+  name.vb: List(Of ClienteDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.ClienteDTO
+    name: ClienteDTO
+    isExternal: true
+    href: BLL.DTOs.ClienteDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.ClienteDTO
+    name: ClienteDTO
+    isExternal: true
+    href: BLL.DTOs.ClienteDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_ObtenerCliente_System_Guid_
+  name: ObtenerCliente
+  nameWithType: ClienteManager.ObtenerCliente
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerCliente
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html#TpIngSoftware_GestionDeEspaciosDeportivos_Business_ClienteManager_ObtenerClientePorDNI_System_Int32_
+  name: ObtenerClientePorDNI
+  nameWithType: ClienteManager.ObtenerClientePorDNI
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.ObtenerClientePorDNI

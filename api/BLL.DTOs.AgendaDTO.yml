@@ -1,0 +1,531 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.AgendaDTO
+  commentId: T:BLL.DTOs.AgendaDTO
+  id: AgendaDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.AgendaDTO.#ctor
+  - BLL.DTOs.AgendaDTO.DiaSemana
+  - BLL.DTOs.AgendaDTO.EspacioID
+  - BLL.DTOs.AgendaDTO.HoraDesde
+  - BLL.DTOs.AgendaDTO.HoraHasta
+  langs:
+  - csharp
+  - vb
+  name: AgendaDTO
+  nameWithType: AgendaDTO
+  fullName: BLL.DTOs.AgendaDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/AgendaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Represents a single availability window for a facility space on a given day of the week.
+  remarks: >-
+    Used as the input/output model for <code>AgendaService.ConfigurarAgenda</code>.
+
+    A space may have multiple <xref href="BLL.DTOs.AgendaDTO" data-throw-if-not-resolved="false"></xref> entries per day to model split availability windows.
+
+    <xref href="BLL.DTOs.AgendaDTO.DiaSemana" data-throw-if-not-resolved="false"></xref> follows the <code>DayOfWeek</code> convention: 0 = Sunday … 6 = Saturday.
+
+    Note: windows that cross midnight (i.e., <xref href="BLL.DTOs.AgendaDTO.HoraHasta" data-throw-if-not-resolved="false"></xref> &lt; <xref href="BLL.DTOs.AgendaDTO.HoraDesde" data-throw-if-not-resolved="false"></xref>) are
+
+    not currently supported and will be rejected by the service.
+  example: []
+  syntax:
+    content: public class AgendaDTO
+    content.vb: Public Class AgendaDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.AgendaDTO.#ctor
+  commentId: M:BLL.DTOs.AgendaDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.AgendaDTO
+  langs:
+  - csharp
+  - vb
+  name: AgendaDTO()
+  nameWithType: AgendaDTO.AgendaDTO()
+  fullName: BLL.DTOs.AgendaDTO.AgendaDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/AgendaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public AgendaDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.AgendaDTO.#ctor*
+  nameWithType.vb: AgendaDTO.New()
+  fullName.vb: BLL.DTOs.AgendaDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.AgendaDTO.EspacioID
+  commentId: P:BLL.DTOs.AgendaDTO.EspacioID
+  id: EspacioID
+  parent: BLL.DTOs.AgendaDTO
+  langs:
+  - csharp
+  - vb
+  name: EspacioID
+  nameWithType: AgendaDTO.EspacioID
+  fullName: BLL.DTOs.AgendaDTO.EspacioID
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/AgendaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the space whose availability this window defines.
+  example: []
+  syntax:
+    content: public Guid EspacioID { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property EspacioID As Guid
+  overload: BLL.DTOs.AgendaDTO.EspacioID*
+- uid: BLL.DTOs.AgendaDTO.DiaSemana
+  commentId: P:BLL.DTOs.AgendaDTO.DiaSemana
+  id: DiaSemana
+  parent: BLL.DTOs.AgendaDTO
+  langs:
+  - csharp
+  - vb
+  name: DiaSemana
+  nameWithType: AgendaDTO.DiaSemana
+  fullName: BLL.DTOs.AgendaDTO.DiaSemana
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/AgendaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Day of the week this window applies to (0 = Sunday, 6 = Saturday).
+  example: []
+  syntax:
+    content: public int DiaSemana { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DiaSemana As Integer
+  overload: BLL.DTOs.AgendaDTO.DiaSemana*
+- uid: BLL.DTOs.AgendaDTO.HoraDesde
+  commentId: P:BLL.DTOs.AgendaDTO.HoraDesde
+  id: HoraDesde
+  parent: BLL.DTOs.AgendaDTO
+  langs:
+  - csharp
+  - vb
+  name: HoraDesde
+  nameWithType: AgendaDTO.HoraDesde
+  fullName: BLL.DTOs.AgendaDTO.HoraDesde
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/AgendaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Start of the availability window (inclusive).
+  example: []
+  syntax:
+    content: public TimeSpan HoraDesde { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property HoraDesde As TimeSpan
+  overload: BLL.DTOs.AgendaDTO.HoraDesde*
+- uid: BLL.DTOs.AgendaDTO.HoraHasta
+  commentId: P:BLL.DTOs.AgendaDTO.HoraHasta
+  id: HoraHasta
+  parent: BLL.DTOs.AgendaDTO
+  langs:
+  - csharp
+  - vb
+  name: HoraHasta
+  nameWithType: AgendaDTO.HoraHasta
+  fullName: BLL.DTOs.AgendaDTO.HoraHasta
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/AgendaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: End of the availability window (exclusive). Must be greater than <xref href="BLL.DTOs.AgendaDTO.HoraDesde" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public TimeSpan HoraHasta { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property HoraHasta As TimeSpan
+  overload: BLL.DTOs.AgendaDTO.HoraHasta*
+references:
+- uid: BLL.DTOs.AgendaDTO
+  commentId: T:BLL.DTOs.AgendaDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html
+  name: AgendaDTO
+  nameWithType: AgendaDTO
+  fullName: BLL.DTOs.AgendaDTO
+- uid: BLL.DTOs.AgendaDTO.DiaSemana
+  commentId: P:BLL.DTOs.AgendaDTO.DiaSemana
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_DiaSemana
+  name: DiaSemana
+  nameWithType: AgendaDTO.DiaSemana
+  fullName: BLL.DTOs.AgendaDTO.DiaSemana
+- uid: BLL.DTOs.AgendaDTO.HoraHasta
+  commentId: P:BLL.DTOs.AgendaDTO.HoraHasta
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_HoraHasta
+  name: HoraHasta
+  nameWithType: AgendaDTO.HoraHasta
+  fullName: BLL.DTOs.AgendaDTO.HoraHasta
+- uid: BLL.DTOs.AgendaDTO.HoraDesde
+  commentId: P:BLL.DTOs.AgendaDTO.HoraDesde
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_HoraDesde
+  name: HoraDesde
+  nameWithType: AgendaDTO.HoraDesde
+  fullName: BLL.DTOs.AgendaDTO.HoraDesde
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.AgendaDTO.#ctor*
+  commentId: Overload:BLL.DTOs.AgendaDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO__ctor
+  name: AgendaDTO
+  nameWithType: AgendaDTO.AgendaDTO
+  fullName: BLL.DTOs.AgendaDTO.AgendaDTO
+  nameWithType.vb: AgendaDTO.New
+  fullName.vb: BLL.DTOs.AgendaDTO.New
+  name.vb: New
+- uid: BLL.DTOs.AgendaDTO.EspacioID*
+  commentId: Overload:BLL.DTOs.AgendaDTO.EspacioID
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_EspacioID
+  name: EspacioID
+  nameWithType: AgendaDTO.EspacioID
+  fullName: BLL.DTOs.AgendaDTO.EspacioID
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.DTOs.AgendaDTO.DiaSemana*
+  commentId: Overload:BLL.DTOs.AgendaDTO.DiaSemana
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_DiaSemana
+  name: DiaSemana
+  nameWithType: AgendaDTO.DiaSemana
+  fullName: BLL.DTOs.AgendaDTO.DiaSemana
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BLL.DTOs.AgendaDTO.HoraDesde*
+  commentId: Overload:BLL.DTOs.AgendaDTO.HoraDesde
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_HoraDesde
+  name: HoraDesde
+  nameWithType: AgendaDTO.HoraDesde
+  fullName: BLL.DTOs.AgendaDTO.HoraDesde
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: BLL.DTOs.AgendaDTO.HoraHasta*
+  commentId: Overload:BLL.DTOs.AgendaDTO.HoraHasta
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html#BLL_DTOs_AgendaDTO_HoraHasta
+  name: HoraHasta
+  nameWithType: AgendaDTO.HoraHasta
+  fullName: BLL.DTOs.AgendaDTO.HoraHasta

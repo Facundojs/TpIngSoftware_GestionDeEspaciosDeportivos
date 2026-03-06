@@ -1,0 +1,471 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Facades.ComprobanteFacade
+  commentId: T:BLL.Facades.ComprobanteFacade
+  id: ComprobanteFacade
+  parent: BLL.Facades
+  children:
+  - BLL.Facades.ComprobanteFacade.#ctor
+  - BLL.Facades.ComprobanteFacade.Adjuntar(BLL.DTOs.ComprobanteDTO)
+  - BLL.Facades.ComprobanteFacade.Obtener(System.Guid)
+  - BLL.Facades.ComprobanteFacade.ObtenerPorReserva(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: ComprobanteFacade
+  nameWithType: ComprobanteFacade
+  fullName: BLL.Facades.ComprobanteFacade
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Facades/ComprobanteFacade.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Facades
+  syntax:
+    content: public class ComprobanteFacade
+    content.vb: Public Class ComprobanteFacade
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Facades.ComprobanteFacade.#ctor
+  commentId: M:BLL.Facades.ComprobanteFacade.#ctor
+  id: '#ctor'
+  parent: BLL.Facades.ComprobanteFacade
+  langs:
+  - csharp
+  - vb
+  name: ComprobanteFacade()
+  nameWithType: ComprobanteFacade.ComprobanteFacade()
+  fullName: BLL.Facades.ComprobanteFacade.ComprobanteFacade()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Facades/ComprobanteFacade.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Facades
+  syntax:
+    content: public ComprobanteFacade()
+    content.vb: Public Sub New()
+  overload: BLL.Facades.ComprobanteFacade.#ctor*
+  nameWithType.vb: ComprobanteFacade.New()
+  fullName.vb: BLL.Facades.ComprobanteFacade.New()
+  name.vb: New()
+- uid: BLL.Facades.ComprobanteFacade.Adjuntar(BLL.DTOs.ComprobanteDTO)
+  commentId: M:BLL.Facades.ComprobanteFacade.Adjuntar(BLL.DTOs.ComprobanteDTO)
+  id: Adjuntar(BLL.DTOs.ComprobanteDTO)
+  parent: BLL.Facades.ComprobanteFacade
+  langs:
+  - csharp
+  - vb
+  name: Adjuntar(ComprobanteDTO)
+  nameWithType: ComprobanteFacade.Adjuntar(ComprobanteDTO)
+  fullName: BLL.Facades.ComprobanteFacade.Adjuntar(BLL.DTOs.ComprobanteDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Facades/ComprobanteFacade.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Facades
+  syntax:
+    content: public void Adjuntar(ComprobanteDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.ComprobanteDTO
+    content.vb: Public Sub Adjuntar(dto As ComprobanteDTO)
+  overload: BLL.Facades.ComprobanteFacade.Adjuntar*
+- uid: BLL.Facades.ComprobanteFacade.Obtener(System.Guid)
+  commentId: M:BLL.Facades.ComprobanteFacade.Obtener(System.Guid)
+  id: Obtener(System.Guid)
+  parent: BLL.Facades.ComprobanteFacade
+  langs:
+  - csharp
+  - vb
+  name: Obtener(Guid)
+  nameWithType: ComprobanteFacade.Obtener(Guid)
+  fullName: BLL.Facades.ComprobanteFacade.Obtener(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Facades/ComprobanteFacade.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Facades
+  syntax:
+    content: public ComprobanteDTO Obtener(Guid pagoId)
+    parameters:
+    - id: pagoId
+      type: System.Guid
+    return:
+      type: BLL.DTOs.ComprobanteDTO
+    content.vb: Public Function Obtener(pagoId As Guid) As ComprobanteDTO
+  overload: BLL.Facades.ComprobanteFacade.Obtener*
+- uid: BLL.Facades.ComprobanteFacade.ObtenerPorReserva(System.Guid)
+  commentId: M:BLL.Facades.ComprobanteFacade.ObtenerPorReserva(System.Guid)
+  id: ObtenerPorReserva(System.Guid)
+  parent: BLL.Facades.ComprobanteFacade
+  langs:
+  - csharp
+  - vb
+  name: ObtenerPorReserva(Guid)
+  nameWithType: ComprobanteFacade.ObtenerPorReserva(Guid)
+  fullName: BLL.Facades.ComprobanteFacade.ObtenerPorReserva(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Facades/ComprobanteFacade.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Facades
+  syntax:
+    content: public ComprobanteDTO ObtenerPorReserva(Guid reservaId)
+    parameters:
+    - id: reservaId
+      type: System.Guid
+    return:
+      type: BLL.DTOs.ComprobanteDTO
+    content.vb: Public Function ObtenerPorReserva(reservaId As Guid) As ComprobanteDTO
+  overload: BLL.Facades.ComprobanteFacade.ObtenerPorReserva*
+references:
+- uid: BLL.Facades
+  commentId: N:BLL.Facades
+  isExternal: true
+  href: BLL.html
+  name: BLL.Facades
+  nameWithType: BLL.Facades
+  fullName: BLL.Facades
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Facades
+    name: Facades
+    isExternal: true
+    href: BLL.Facades.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Facades
+    name: Facades
+    isExternal: true
+    href: BLL.Facades.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.Facades.ComprobanteFacade.#ctor*
+  commentId: Overload:BLL.Facades.ComprobanteFacade.#ctor
+  isExternal: true
+  href: BLL.Facades.ComprobanteFacade.html#BLL_Facades_ComprobanteFacade__ctor
+  name: ComprobanteFacade
+  nameWithType: ComprobanteFacade.ComprobanteFacade
+  fullName: BLL.Facades.ComprobanteFacade.ComprobanteFacade
+  nameWithType.vb: ComprobanteFacade.New
+  fullName.vb: BLL.Facades.ComprobanteFacade.New
+  name.vb: New
+- uid: BLL.Facades.ComprobanteFacade.Adjuntar*
+  commentId: Overload:BLL.Facades.ComprobanteFacade.Adjuntar
+  isExternal: true
+  href: BLL.Facades.ComprobanteFacade.html#BLL_Facades_ComprobanteFacade_Adjuntar_BLL_DTOs_ComprobanteDTO_
+  name: Adjuntar
+  nameWithType: ComprobanteFacade.Adjuntar
+  fullName: BLL.Facades.ComprobanteFacade.Adjuntar
+- uid: BLL.DTOs.ComprobanteDTO
+  commentId: T:BLL.DTOs.ComprobanteDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.ComprobanteDTO.html
+  name: ComprobanteDTO
+  nameWithType: ComprobanteDTO
+  fullName: BLL.DTOs.ComprobanteDTO
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: BLL.Facades.ComprobanteFacade.Obtener*
+  commentId: Overload:BLL.Facades.ComprobanteFacade.Obtener
+  isExternal: true
+  href: BLL.Facades.ComprobanteFacade.html#BLL_Facades_ComprobanteFacade_Obtener_System_Guid_
+  name: Obtener
+  nameWithType: ComprobanteFacade.Obtener
+  fullName: BLL.Facades.ComprobanteFacade.Obtener
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.Facades.ComprobanteFacade.ObtenerPorReserva*
+  commentId: Overload:BLL.Facades.ComprobanteFacade.ObtenerPorReserva
+  isExternal: true
+  href: BLL.Facades.ComprobanteFacade.html#BLL_Facades_ComprobanteFacade_ObtenerPorReserva_System_Guid_
+  name: ObtenerPorReserva
+  nameWithType: ComprobanteFacade.ObtenerPorReserva
+  fullName: BLL.Facades.ComprobanteFacade.ObtenerPorReserva

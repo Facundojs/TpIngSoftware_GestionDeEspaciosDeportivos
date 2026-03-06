@@ -1,0 +1,461 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Mappers.MembresiaMapper
+  commentId: T:BLL.Mappers.MembresiaMapper
+  id: MembresiaMapper
+  parent: BLL.Mappers
+  children:
+  - BLL.Mappers.MembresiaMapper.ToDTO(Domain.Entities.Membresia)
+  - BLL.Mappers.MembresiaMapper.ToEntity(BLL.DTOs.MembresiaDTO)
+  langs:
+  - csharp
+  - vb
+  name: MembresiaMapper
+  nameWithType: MembresiaMapper
+  fullName: BLL.Mappers.MembresiaMapper
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/MembresiaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Bidirectional mapper between <xref href="Domain.Entities.Membresia" data-throw-if-not-resolved="false"></xref> domain entities and <xref href="BLL.DTOs.MembresiaDTO" data-throw-if-not-resolved="false"></xref> projections.
+  remarks: >-
+    When mapping to entity, <xref href="Domain.Entities.Membresia.Id" data-throw-if-not-resolved="false"></xref> is only set when the DTO's <xref href="BLL.DTOs.MembresiaDTO.Id" data-throw-if-not-resolved="false"></xref>
+
+    is non-empty. This allows the database to assign the primary key on insert while preserving
+
+    the existing key on update.
+  example: []
+  syntax:
+    content: public static class MembresiaMapper
+    content.vb: Public Module MembresiaMapper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Mappers.MembresiaMapper.ToDTO(Domain.Entities.Membresia)
+  commentId: M:BLL.Mappers.MembresiaMapper.ToDTO(Domain.Entities.Membresia)
+  id: ToDTO(Domain.Entities.Membresia)
+  parent: BLL.Mappers.MembresiaMapper
+  langs:
+  - csharp
+  - vb
+  name: ToDTO(Membresia)
+  nameWithType: MembresiaMapper.ToDTO(Membresia)
+  fullName: BLL.Mappers.MembresiaMapper.ToDTO(Domain.Entities.Membresia)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/MembresiaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a <xref href="Domain.Entities.Membresia" data-throw-if-not-resolved="false"></xref> entity to a <xref href="BLL.DTOs.MembresiaDTO" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static MembresiaDTO ToDTO(Membresia entity)
+    parameters:
+    - id: entity
+      type: Domain.Entities.Membresia
+      description: Source entity. Returns <code>null</code> when <code>null</code>.
+    return:
+      type: BLL.DTOs.MembresiaDTO
+    content.vb: Public Shared Function ToDTO(entity As Membresia) As MembresiaDTO
+  overload: BLL.Mappers.MembresiaMapper.ToDTO*
+- uid: BLL.Mappers.MembresiaMapper.ToEntity(BLL.DTOs.MembresiaDTO)
+  commentId: M:BLL.Mappers.MembresiaMapper.ToEntity(BLL.DTOs.MembresiaDTO)
+  id: ToEntity(BLL.DTOs.MembresiaDTO)
+  parent: BLL.Mappers.MembresiaMapper
+  langs:
+  - csharp
+  - vb
+  name: ToEntity(MembresiaDTO)
+  nameWithType: MembresiaMapper.ToEntity(MembresiaDTO)
+  fullName: BLL.Mappers.MembresiaMapper.ToEntity(BLL.DTOs.MembresiaDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/MembresiaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a <xref href="BLL.DTOs.MembresiaDTO" data-throw-if-not-resolved="false"></xref> back to a <xref href="Domain.Entities.Membresia" data-throw-if-not-resolved="false"></xref> entity.
+  remarks: <xref href="Domain.Entities.Membresia.Id" data-throw-if-not-resolved="false"></xref> is only assigned when <xref href="BLL.DTOs.MembresiaDTO.Id" data-throw-if-not-resolved="false"></xref> is non-empty.
+  example: []
+  syntax:
+    content: public static Membresia ToEntity(MembresiaDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.MembresiaDTO
+      description: Source DTO. Returns <code>null</code> when <code>null</code>.
+    return:
+      type: Domain.Entities.Membresia
+    content.vb: Public Shared Function ToEntity(dto As MembresiaDTO) As Membresia
+  overload: BLL.Mappers.MembresiaMapper.ToEntity*
+references:
+- uid: Domain.Entities.Membresia
+  commentId: T:Domain.Entities.Membresia
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Membresia.html
+  name: Membresia
+  nameWithType: Membresia
+  fullName: Domain.Entities.Membresia
+- uid: BLL.DTOs.MembresiaDTO
+  commentId: T:BLL.DTOs.MembresiaDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html
+  name: MembresiaDTO
+  nameWithType: MembresiaDTO
+  fullName: BLL.DTOs.MembresiaDTO
+- uid: Domain.Entities.Membresia.Id
+  commentId: P:Domain.Entities.Membresia.Id
+  isExternal: true
+  name: Id
+  nameWithType: Membresia.Id
+  fullName: Domain.Entities.Membresia.Id
+- uid: BLL.DTOs.MembresiaDTO.Id
+  commentId: P:BLL.DTOs.MembresiaDTO.Id
+  isExternal: true
+  href: BLL.DTOs.MembresiaDTO.html#BLL_DTOs_MembresiaDTO_Id
+  name: Id
+  nameWithType: MembresiaDTO.Id
+  fullName: BLL.DTOs.MembresiaDTO.Id
+- uid: BLL.Mappers
+  commentId: N:BLL.Mappers
+  isExternal: true
+  href: BLL.html
+  name: BLL.Mappers
+  nameWithType: BLL.Mappers
+  fullName: BLL.Mappers
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.Mappers.MembresiaMapper.ToDTO*
+  commentId: Overload:BLL.Mappers.MembresiaMapper.ToDTO
+  isExternal: true
+  href: BLL.Mappers.MembresiaMapper.html#BLL_Mappers_MembresiaMapper_ToDTO_Domain_Entities_Membresia_
+  name: ToDTO
+  nameWithType: MembresiaMapper.ToDTO
+  fullName: BLL.Mappers.MembresiaMapper.ToDTO
+- uid: BLL.Mappers.MembresiaMapper.ToEntity*
+  commentId: Overload:BLL.Mappers.MembresiaMapper.ToEntity
+  isExternal: true
+  href: BLL.Mappers.MembresiaMapper.html#BLL_Mappers_MembresiaMapper_ToEntity_BLL_DTOs_MembresiaDTO_
+  name: ToEntity
+  nameWithType: MembresiaMapper.ToEntity
+  fullName: BLL.Mappers.MembresiaMapper.ToEntity

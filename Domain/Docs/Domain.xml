@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Domain.Composite.Acceso">
+            <summary>
+            Abstract base component of the Composite design pattern used to model the permission tree.
+            </summary>
+            <remarks>
+            A permission tree is composed of <see cref="T:Domain.Composite.Familia"/> interior nodes and <see cref="T:Domain.Composite.Patente"/>
+            leaf nodes. All tree traversal and permission checks operate against the <see cref="T:Domain.Composite.Acceso"/> abstraction,
+            allowing uniform treatment of individual permissions and permission groups.
+            </remarks>
+        </member>
+        <member name="P:Domain.Composite.Acceso.Id">
+            <summary>Unique identifier of this access component.</summary>
+        </member>
+        <member name="P:Domain.Composite.Acceso.Nombre">
+            <summary>Human-readable display name.</summary>
+        </member>
+        <member name="P:Domain.Composite.Acceso.Accesos">
+            <summary>
+            Returns the direct children of this node.
+            Leaf nodes (<see cref="T:Domain.Composite.Patente"/>) always return an empty list.
+            </summary>
+        </member>
+        <member name="M:Domain.Composite.Acceso.Agregar(Domain.Composite.Acceso)">
+            <summary>
+            Adds <paramref name="componente"/> as a direct child of this node.
+            </summary>
+            <param name="componente">The component to add.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown by leaf nodes (<see cref="T:Domain.Composite.Patente"/>) that do not support children.
+            </exception>
+        </member>
+        <member name="M:Domain.Composite.Acceso.Eliminar(Domain.Composite.Acceso)">
+            <summary>
+            Removes <paramref name="componente"/> from the direct children of this node.
+            </summary>
+            <param name="componente">The component to remove, matched by <see cref="P:Domain.Composite.Acceso.Id"/>.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown by leaf nodes (<see cref="T:Domain.Composite.Patente"/>) that do not support children.
+            </exception>
+        </member>
+        <member name="M:Domain.Composite.Acceso.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Domain.Composite.Familia">
+            <summary>
+            Composite (interior) node in the permission tree that groups zero or more <see cref="T:Domain.Composite.Acceso"/>
+            children, which may themselves be <see cref="T:Domain.Composite.Familia"/> instances or <see cref="T:Domain.Composite.Patente"/> leaves.
+            </summary>
+            <remarks>
+            Duplicate children (same <see cref="P:Domain.Composite.Acceso.Id"/>) are silently ignored on <see cref="M:Domain.Composite.Familia.Agregar(Domain.Composite.Acceso)"/>.
+            </remarks>
+        </member>
+        <member name="P:Domain.Composite.Familia.Accesos">
+            <summary>The direct children of this family node.</summary>
+        </member>
+        <member name="M:Domain.Composite.Familia.Agregar(Domain.Composite.Acceso)">
+            <summary>
+            Adds <paramref name="componente"/> to this family's child list.
+            If a child with the same <see cref="P:Domain.Composite.Acceso.Id"/> already exists, the call is a no-op.
+            </summary>
+            <param name="componente">The component to add.</param>
+        </member>
+        <member name="M:Domain.Composite.Familia.Eliminar(Domain.Composite.Acceso)">
+            <summary>
+            Removes the child whose <see cref="P:Domain.Composite.Acceso.Id"/> matches <paramref name="componente"/>.
+            If no such child exists the call is a no-op.
+            </summary>
+            <param name="componente">The component to remove.</param>
+        </member>
+        <member name="M:Domain.Composite.Familia.ClearAccesos">
+            <summary>Removes all children from this family.</summary>
+        </member>
+        <member name="T:Domain.Composite.Patente">
+            <summary>
+            Leaf node in the permission tree representing a single, atomic permission.
+            </summary>
+            <remarks>
+            <see cref="T:Domain.Composite.Patente"/> instances cannot have children; calling <see cref="M:Domain.Composite.Patente.Agregar(Domain.Composite.Acceso)"/> or
+            <see cref="M:Domain.Composite.Patente.Eliminar(Domain.Composite.Acceso)"/> throws <see cref="T:System.InvalidOperationException"/>.
+            Permission checks compare <see cref="P:Domain.Composite.Patente.TipoAcceso"/> against <see cref="T:Domain.Composite.PermisoKeys"/> constants
+            via <see cref="!:Service.Helpers.PermisoHelper.TienePermiso"/>.
+            </remarks>
+        </member>
+        <member name="P:Domain.Composite.Patente.TipoAcceso">
+            <summary>
+            Permission key matched against <see cref="T:Domain.Composite.PermisoKeys"/> constants during authorization checks.
+            </summary>
+        </member>
+        <member name="P:Domain.Composite.Patente.DataKey">
+            <summary>
+            Auxiliary data key used for UI display or additional filtering. Typically equals <see cref="P:Domain.Composite.Patente.TipoAcceso"/>.
+            </summary>
+        </member>
+        <member name="P:Domain.Composite.Patente.Accesos">
+            <summary>Always returns an empty list; leaf nodes have no children.</summary>
+        </member>
+        <member name="M:Domain.Composite.Patente.Agregar(Domain.Composite.Acceso)">
+            <inheritdoc/>
+            <exception cref="T:System.InvalidOperationException">Always thrown — leaf nodes do not support children.</exception>
+        </member>
+        <member name="M:Domain.Composite.Patente.Eliminar(Domain.Composite.Acceso)">
+            <inheritdoc/>
+            <exception cref="T:System.InvalidOperationException">Always thrown — leaf nodes do not support children.</exception>
+        </member>
+        <member name="T:Domain.Composite.PermisoKeys">
+            <summary>
+            Defines the canonical string keys for every permission in the system.
+            </summary>
+            <remarks>
+            Each constant maps to the <see cref="P:Domain.Composite.Patente.TipoAcceso"/> value stored in the database and
+            is the single source of truth for authorization checks performed by
+            <see cref="!:Service.Helpers.PermisoHelper.TienePermiso"/>.
+            <see cref="!:Service.Logic.PermisosService.EnsurePermissions"/> uses reflection over this class
+            to auto-provision any missing <see cref="T:Domain.Composite.Patente"/> records on startup.
+            </remarks>
+        </member>
+        <member name="T:Domain.Usuario">
+            <summary>
+            Domain entity representing an application user.
+            </summary>
+            <remarks>
+            <see cref="P:Domain.Usuario.Password"/> is stored as a SHA-256 hex digest
+            (see <see cref="!:Service.Helpers.CryptographyHelper.HashPassword"/>).
+            <see cref="P:Domain.Usuario.DigitoVerificador"/> is a SHA-256 integrity verifier computed over
+            <c>Id + NombreUsuario + Password + Estado</c> to detect out-of-band record tampering.
+            </remarks>
+        </member>
+        <member name="P:Domain.Usuario.Id">
+            <summary>Unique identifier, auto-generated on construction.</summary>
+        </member>
+        <member name="P:Domain.Usuario.NombreUsuario">
+            <summary>Unique login name.</summary>
+        </member>
+        <member name="P:Domain.Usuario.Password">
+            <summary>SHA-256 hex digest of the user's password.</summary>
+        </member>
+        <member name="P:Domain.Usuario.Estado">
+            <summary><c>true</c> if the account is active; <c>false</c> if disabled.</summary>
+        </member>
+        <member name="P:Domain.Usuario.DigitoVerificador">
+            <summary>
+            Integrity verifier computed over core user fields.
+            Recalculated on every update via <c>UsuarioService.UpdateDV()</c>.
+            </summary>
+        </member>
+        <member name="P:Domain.Usuario.Permisos">
+            <summary>
+            Permission tree roots assigned to this user (mix of <see cref="T:Domain.Composite.Familia"/> and <see cref="T:Domain.Composite.Patente"/> nodes).
+            </summary>
+        </member>
+        <member name="M:Domain.Usuario.#ctor">
+            <summary>Initializes a new instance with a freshly generated <see cref="P:Domain.Usuario.Id"/>.</summary>
+        </member>
+    </members>
+</doc>

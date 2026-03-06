@@ -1,0 +1,5319 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Enums.Translations
+  commentId: T:Domain.Enums.Translations
+  id: Translations
+  parent: Domain.Enums
+  children:
+  - Domain.Enums.Translations.BACKUP_TITLE
+  - Domain.Enums.Translations.BITACORA_TITLE
+  - Domain.Enums.Translations.BTN_ACTUALIZAR
+  - Domain.Enums.Translations.BTN_ADD
+  - Domain.Enums.Translations.BTN_ADJUNTAR_COMPROBANTE
+  - Domain.Enums.Translations.BTN_AGREGAR
+  - Domain.Enums.Translations.BTN_AGREGAR_EJERCICIO
+  - Domain.Enums.Translations.BTN_BACKUP
+  - Domain.Enums.Translations.BTN_BORRAR_RUTINA
+  - Domain.Enums.Translations.BTN_CANCEL
+  - Domain.Enums.Translations.BTN_CANCELAR_RESERVA
+  - Domain.Enums.Translations.BTN_CHECK_IN
+  - Domain.Enums.Translations.BTN_CLEAR
+  - Domain.Enums.Translations.BTN_CONFIGURAR_AGENDA
+  - Domain.Enums.Translations.BTN_CREAR
+  - Domain.Enums.Translations.BTN_CREATE
+  - Domain.Enums.Translations.BTN_DELETE
+  - Domain.Enums.Translations.BTN_DELETE_BACKUP
+  - Domain.Enums.Translations.BTN_DESHABILITAR
+  - Domain.Enums.Translations.BTN_ELIMINAR
+  - Domain.Enums.Translations.BTN_ELIMINAR_EJERCICIO
+  - Domain.Enums.Translations.BTN_FILTER
+  - Domain.Enums.Translations.BTN_GENERAR_RESERVA
+  - Domain.Enums.Translations.BTN_GESTIONAR_EJERCICIOS
+  - Domain.Enums.Translations.BTN_GUARDAR_RUTINA
+  - Domain.Enums.Translations.BTN_HABILITAR
+  - Domain.Enums.Translations.BTN_LIMPIAR
+  - Domain.Enums.Translations.BTN_LOGIN
+  - Domain.Enums.Translations.BTN_MODIFICAR
+  - Domain.Enums.Translations.BTN_NUEVA_RUTINA
+  - Domain.Enums.Translations.BTN_OK
+  - Domain.Enums.Translations.BTN_PERMISSIONS
+  - Domain.Enums.Translations.BTN_REEMBOLSAR
+  - Domain.Enums.Translations.BTN_REGISTRAR_PAGO
+  - Domain.Enums.Translations.BTN_RESTORE
+  - Domain.Enums.Translations.BTN_SAVE
+  - Domain.Enums.Translations.BTN_SELECCIONAR
+  - Domain.Enums.Translations.BTN_UPDATE
+  - Domain.Enums.Translations.BTN_VERIFICAR_DISPONIBILIDAD
+  - Domain.Enums.Translations.BTN_VER_COMPROBANTE
+  - Domain.Enums.Translations.BTN_VER_HORARIOS
+  - Domain.Enums.Translations.BTN_VER_INGRESOS
+  - Domain.Enums.Translations.BTN_VER_MOVIMIENTOS
+  - Domain.Enums.Translations.BTN_VER_RUTINA
+  - Domain.Enums.Translations.CHK_ACTIVE
+  - Domain.Enums.Translations.CHK_VER_HISTORIAL
+  - Domain.Enums.Translations.CLIENTE_TITLE
+  - Domain.Enums.Translations.DAY_0
+  - Domain.Enums.Translations.DAY_1
+  - Domain.Enums.Translations.DAY_2
+  - Domain.Enums.Translations.DAY_3
+  - Domain.Enums.Translations.DAY_4
+  - Domain.Enums.Translations.DAY_5
+  - Domain.Enums.Translations.DAY_6
+  - Domain.Enums.Translations.DIALOG_SELECT_VOUCHER
+  - Domain.Enums.Translations.ERR_ADELANTO_MAYOR_TOTAL
+  - Domain.Enums.Translations.ERR_ADELANTO_MINIMO
+  - Domain.Enums.Translations.ERR_ADELANTO_NEGATIVO
+  - Domain.Enums.Translations.ERR_AGENDA_OVERLAP
+  - Domain.Enums.Translations.ERR_APELLIDO_REQUERIDO
+  - Domain.Enums.Translations.ERR_BACKUP_NO_EXISTE
+  - Domain.Enums.Translations.ERR_CANCELAR_RESERVA_FINALIZADA
+  - Domain.Enums.Translations.ERR_CANNOT_DELETE_ADMIN
+  - Domain.Enums.Translations.ERR_CANNOT_EDIT_ADMIN
+  - Domain.Enums.Translations.ERR_CLIENTE_CON_DEUDA_MSG
+  - Domain.Enums.Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE
+  - Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO
+  - Domain.Enums.Translations.ERR_COMPROBANTE_SIN_CONTENIDO
+  - Domain.Enums.Translations.ERR_COMPROBANTE_TAMANO
+  - Domain.Enums.Translations.ERR_COMPROBANTE_VACIO
+  - Domain.Enums.Translations.ERR_DNI_DUPLICADO_MSG
+  - Domain.Enums.Translations.ERR_DURACION_CERO
+  - Domain.Enums.Translations.ERR_DURACION_MULTIPLO_30
+  - Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N
+  - Domain.Enums.Translations.ERR_EJERCICIO_EXISTE
+  - Domain.Enums.Translations.ERR_EJERCICIO_NO_EXISTE
+  - Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO
+  - Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N
+  - Domain.Enums.Translations.ERR_EMAIL_INVALIDO
+  - Domain.Enums.Translations.ERR_ESPACIO_CON_RESERVAS
+  - Domain.Enums.Translations.ERR_ESPACIO_NO_DISPONIBLE_RACE
+  - Domain.Enums.Translations.ERR_ESPACIO_NO_ENCONTRADO
+  - Domain.Enums.Translations.ERR_FAMILIA_CICLO
+  - Domain.Enums.Translations.ERR_FECHA_NAC_FUTURA
+  - Domain.Enums.Translations.ERR_FECHA_PASADA
+  - Domain.Enums.Translations.ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  - Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR
+  - Domain.Enums.Translations.ERR_HORA_MULTIPLO_30
+  - Domain.Enums.Translations.ERR_INCORRECT_PASSWORD
+  - Domain.Enums.Translations.ERR_INGRESE_DNI_VALIDO
+  - Domain.Enums.Translations.ERR_INVALID_NUMBER
+  - Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES
+  - Domain.Enums.Translations.ERR_MEMBRESIA_EXISTE
+  - Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA
+  - Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE
+  - Domain.Enums.Translations.ERR_METODO_REQUERIDO
+  - Domain.Enums.Translations.ERR_MONTO_INVALIDO
+  - Domain.Enums.Translations.ERR_MONTO_SUPERA_SALDO
+  - Domain.Enums.Translations.ERR_NOMBRE_ARCHIVO_REQUERIDO
+  - Domain.Enums.Translations.ERR_NOMBRE_EJERCICIO
+  - Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO
+  - Domain.Enums.Translations.ERR_NO_AGENDA
+  - Domain.Enums.Translations.ERR_NO_COMPROBANTE
+  - Domain.Enums.Translations.ERR_PAGOID_REQUERIDO
+  - Domain.Enums.Translations.ERR_PAGO_NO_EXISTE
+  - Domain.Enums.Translations.ERR_PATENTE_ADD_CHILD
+  - Domain.Enums.Translations.ERR_PATENTE_REMOVE_CHILD
+  - Domain.Enums.Translations.ERR_PRECIO_MAYOR_CERO
+  - Domain.Enums.Translations.ERR_PRECIO_NEGATIVO
+  - Domain.Enums.Translations.ERR_RAZON_REQUERIDA
+  - Domain.Enums.Translations.ERR_REGULARIDAD_MAYOR_CERO
+  - Domain.Enums.Translations.ERR_REQUIRED_FIELD
+  - Domain.Enums.Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  - Domain.Enums.Translations.ERR_RESERVA_NO_EXISTE
+  - Domain.Enums.Translations.ERR_RESERVA_YA_CANCELADA
+  - Domain.Enums.Translations.ERR_RUTINA_SIN_EJERCICIOS
+  - Domain.Enums.Translations.ERR_SELECCIONE_CLIENTE
+  - Domain.Enums.Translations.ERR_SELECCIONE_RESERVA
+  - Domain.Enums.Translations.ERR_SOLO_ABONADO
+  - Domain.Enums.Translations.ERR_SOLO_ABONADO_ESTADO
+  - Domain.Enums.Translations.ERR_USER_ALREADY_EXISTS
+  - Domain.Enums.Translations.ERR_USER_BLOCKED
+  - Domain.Enums.Translations.ERR_USER_NOT_EXIST
+  - Domain.Enums.Translations.ERR_USER_NOT_FOUND
+  - Domain.Enums.Translations.ERR_VALIDATION_INVALID
+  - Domain.Enums.Translations.ERR_VALIDATION_REQUIRED
+  - Domain.Enums.Translations.FORM_TITLE
+  - Domain.Enums.Translations.FRM_AGENDA_TITLE
+  - Domain.Enums.Translations.FRM_EJERCICIOS_TITLE
+  - Domain.Enums.Translations.FRM_ESPACIO_TITLE
+  - Domain.Enums.Translations.FRM_GESTION_RUTINAS_TITLE
+  - Domain.Enums.Translations.FRM_INGRESOS_TITLE
+  - Domain.Enums.Translations.FRM_MEMBRESIA_TITLE
+  - Domain.Enums.Translations.FRM_MOVIMIENTOS_TITLE
+  - Domain.Enums.Translations.FRM_SELECCIONAR_CLIENTE_TITLE
+  - Domain.Enums.Translations.KEY_NAME
+  - Domain.Enums.Translations.LBL_ADELANTO
+  - Domain.Enums.Translations.LBL_APELLIDO
+  - Domain.Enums.Translations.LBL_BALANCE
+  - Domain.Enums.Translations.LBL_CLIENTE
+  - Domain.Enums.Translations.LBL_CLIENTE_NOMBRE
+  - Domain.Enums.Translations.LBL_CODIGO
+  - Domain.Enums.Translations.LBL_CODIGO_RESERVA
+  - Domain.Enums.Translations.LBL_DATE_FROM
+  - Domain.Enums.Translations.LBL_DATE_TO
+  - Domain.Enums.Translations.LBL_DESCONOCIDO
+  - Domain.Enums.Translations.LBL_DESCRIPCION
+  - Domain.Enums.Translations.LBL_DETALLE
+  - Domain.Enums.Translations.LBL_DNI
+  - Domain.Enums.Translations.LBL_DNI_CLIENTE
+  - Domain.Enums.Translations.LBL_DURACION
+  - Domain.Enums.Translations.LBL_EJERCICIO_DIA
+  - Domain.Enums.Translations.LBL_EJERCICIO_NOMBRE
+  - Domain.Enums.Translations.LBL_EJERCICIO_ORDEN
+  - Domain.Enums.Translations.LBL_EJERCICIO_REP
+  - Domain.Enums.Translations.LBL_EMAIL
+  - Domain.Enums.Translations.LBL_ESPACIO
+  - Domain.Enums.Translations.LBL_ESTADO
+  - Domain.Enums.Translations.LBL_FECHA
+  - Domain.Enums.Translations.LBL_FECHA_NAC
+  - Domain.Enums.Translations.LBL_FILENAME
+  - Domain.Enums.Translations.LBL_HORA
+  - Domain.Enums.Translations.LBL_HORA_DESDE
+  - Domain.Enums.Translations.LBL_HORA_HASTA
+  - Domain.Enums.Translations.LBL_LOG_LEVEL
+  - Domain.Enums.Translations.LBL_MEMBRESIA
+  - Domain.Enums.Translations.LBL_MESSAGE
+  - Domain.Enums.Translations.LBL_METODO
+  - Domain.Enums.Translations.LBL_MONTO
+  - Domain.Enums.Translations.LBL_NOMBRE
+  - Domain.Enums.Translations.LBL_NOMBRE_EJERCICIO
+  - Domain.Enums.Translations.LBL_PAGE
+  - Domain.Enums.Translations.LBL_PASS
+  - Domain.Enums.Translations.LBL_PASSWORD
+  - Domain.Enums.Translations.LBL_PATENTES
+  - Domain.Enums.Translations.LBL_PRECIO
+  - Domain.Enums.Translations.LBL_PRECIO_HORA
+  - Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO
+  - Domain.Enums.Translations.LBL_RAZON
+  - Domain.Enums.Translations.LBL_RAZON_DESHABILITAR
+  - Domain.Enums.Translations.LBL_REGULARIDAD
+  - Domain.Enums.Translations.LBL_RUTINA_DESDE
+  - Domain.Enums.Translations.LBL_RUTINA_HASTA
+  - Domain.Enums.Translations.LBL_RUTINA_VACIA
+  - Domain.Enums.Translations.LBL_SUBFAMILIAS
+  - Domain.Enums.Translations.LBL_TIPO_MOVIMIENTO
+  - Domain.Enums.Translations.LBL_TODOS
+  - Domain.Enums.Translations.LBL_USER
+  - Domain.Enums.Translations.LBL_USERNAME
+  - Domain.Enums.Translations.LBL_VISTA_PREVIA
+  - Domain.Enums.Translations.LOGIN_TITLE
+  - Domain.Enums.Translations.MAIN_NEGOCIO
+  - Domain.Enums.Translations.MAIN_TITLE
+  - Domain.Enums.Translations.MENU_ADMIN
+  - Domain.Enums.Translations.MENU_BACKUPS
+  - Domain.Enums.Translations.MENU_BITACORA
+  - Domain.Enums.Translations.MENU_ESPACIOS
+  - Domain.Enums.Translations.MENU_INGRESOS
+  - Domain.Enums.Translations.MENU_MEMBRESIA
+  - Domain.Enums.Translations.MENU_PAGOS
+  - Domain.Enums.Translations.MENU_PERMISOS
+  - Domain.Enums.Translations.MENU_RESERVAS
+  - Domain.Enums.Translations.MENU_RUTINAS
+  - Domain.Enums.Translations.MENU_USERS
+  - Domain.Enums.Translations.MSG_AGENDA_UPDATED
+  - Domain.Enums.Translations.MSG_BACKUP_SUCCESS
+  - Domain.Enums.Translations.MSG_CLIENTE_CREADO
+  - Domain.Enums.Translations.MSG_COMPLETE_FIELDS
+  - Domain.Enums.Translations.MSG_COMPROBANTE_ADJUNTADO
+  - Domain.Enums.Translations.MSG_CONFIRM
+  - Domain.Enums.Translations.MSG_CONFIRM_BORRAR_RUTINA
+  - Domain.Enums.Translations.MSG_CONFIRM_CANCELAR
+  - Domain.Enums.Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  - Domain.Enums.Translations.MSG_CONFIRM_DELETE_BACKUP
+  - Domain.Enums.Translations.MSG_CONFIRM_DELETE_ESPACIO
+  - Domain.Enums.Translations.MSG_CONFIRM_DELETE_USER
+  - Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR
+  - Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE
+  - Domain.Enums.Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO
+  - Domain.Enums.Translations.MSG_CONFIRM_RESTORE
+  - Domain.Enums.Translations.MSG_DEFAULT_DISABLE_REASON
+  - Domain.Enums.Translations.MSG_EJERCICIO_ACTUALIZADO
+  - Domain.Enums.Translations.MSG_EJERCICIO_CREADO
+  - Domain.Enums.Translations.MSG_EJERCICIO_ELIMINADO
+  - Domain.Enums.Translations.MSG_ENTER_BACKUP_NAME
+  - Domain.Enums.Translations.MSG_ENTER_CREDENTIALS
+  - Domain.Enums.Translations.MSG_ERR_BACKUP
+  - Domain.Enums.Translations.MSG_ERR_DELETE_BACKUP
+  - Domain.Enums.Translations.MSG_ERR_GENERIC
+  - Domain.Enums.Translations.MSG_ERR_LOAD_BACKUP
+  - Domain.Enums.Translations.MSG_ERR_LOAD_USERS
+  - Domain.Enums.Translations.MSG_ERR_LOGIN
+  - Domain.Enums.Translations.MSG_ERR_RESTORE
+  - Domain.Enums.Translations.MSG_ERR_SAVE
+  - Domain.Enums.Translations.MSG_ERR_SEARCH_CLIENT
+  - Domain.Enums.Translations.MSG_ESPACIO_CREATED
+  - Domain.Enums.Translations.MSG_ESPACIO_DELETED
+  - Domain.Enums.Translations.MSG_ESPACIO_DISPONIBLE
+  - Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE
+  - Domain.Enums.Translations.MSG_ESPACIO_UPDATED
+  - Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL
+  - Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_HOY
+  - Domain.Enums.Translations.MSG_INGRESO_DENEGADO
+  - Domain.Enums.Translations.MSG_INGRESO_PERMITIDO
+  - Domain.Enums.Translations.MSG_MEMBRESIA_CREATED
+  - Domain.Enums.Translations.MSG_MEMBRESIA_DISABLED
+  - Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED
+  - Domain.Enums.Translations.MSG_NINGUNO_ESTE_DIA
+  - Domain.Enums.Translations.MSG_NO_PERMISSION
+  - Domain.Enums.Translations.MSG_NO_PERM_LIST
+  - Domain.Enums.Translations.MSG_NO_PERM_LOGS
+  - Domain.Enums.Translations.MSG_NO_PERM_USERS
+  - Domain.Enums.Translations.MSG_PAGO_REEMBOLSADO
+  - Domain.Enums.Translations.MSG_PAGO_REGISTRADO
+  - Domain.Enums.Translations.MSG_PERMISSIONS_UPDATED
+  - Domain.Enums.Translations.MSG_RESERVA_GENERADA
+  - Domain.Enums.Translations.MSG_RESTORE_SUCCESS
+  - Domain.Enums.Translations.MSG_RUTINA_ELIMINADA
+  - Domain.Enums.Translations.MSG_RUTINA_GUARDADA
+  - Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO
+  - Domain.Enums.Translations.MSG_SUCCESS
+  - Domain.Enums.Translations.MSG_USER_CREATED
+  - Domain.Enums.Translations.MSG_USER_UPDATED
+  - Domain.Enums.Translations.MSG_WELCOME
+  - Domain.Enums.Translations.PAGO_TITLE
+  - Domain.Enums.Translations.PERMISSIONS_TITLE
+  - Domain.Enums.Translations.RESERVA_TITLE
+  - Domain.Enums.Translations.RUTINA_TITLE
+  - Domain.Enums.Translations.TITLE_CONFIRM
+  - Domain.Enums.Translations.TITLE_CONFIRM_DELETE
+  - Domain.Enums.Translations.TITLE_CONFIRM_RESTORE
+  - Domain.Enums.Translations.TITLE_DESHABILITAR
+  - Domain.Enums.Translations.TITLE_ERROR
+  - Domain.Enums.Translations.TITLE_INFO
+  - Domain.Enums.Translations.TITLE_SUCCESS
+  - Domain.Enums.Translations.TITLE_WARNING
+  - Domain.Enums.Translations.USERS_TITLE
+  langs:
+  - csharp
+  - vb
+  name: Translations
+  nameWithType: Translations
+  fullName: Domain.Enums.Translations
+  type: Enum
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: public enum Translations
+    content.vb: Public Enum Translations
+- uid: Domain.Enums.Translations.BACKUP_TITLE
+  commentId: F:Domain.Enums.Translations.BACKUP_TITLE
+  id: BACKUP_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BACKUP_TITLE
+  nameWithType: Translations.BACKUP_TITLE
+  fullName: Domain.Enums.Translations.BACKUP_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BACKUP_TITLE = 0
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BITACORA_TITLE
+  commentId: F:Domain.Enums.Translations.BITACORA_TITLE
+  id: BITACORA_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BITACORA_TITLE
+  nameWithType: Translations.BITACORA_TITLE
+  fullName: Domain.Enums.Translations.BITACORA_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BITACORA_TITLE = 1
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_ACTUALIZAR
+  commentId: F:Domain.Enums.Translations.BTN_ACTUALIZAR
+  id: BTN_ACTUALIZAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_ACTUALIZAR
+  nameWithType: Translations.BTN_ACTUALIZAR
+  fullName: Domain.Enums.Translations.BTN_ACTUALIZAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_ACTUALIZAR = 2
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_ADD
+  commentId: F:Domain.Enums.Translations.BTN_ADD
+  id: BTN_ADD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_ADD
+  nameWithType: Translations.BTN_ADD
+  fullName: Domain.Enums.Translations.BTN_ADD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_ADD = 3
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_ADJUNTAR_COMPROBANTE
+  commentId: F:Domain.Enums.Translations.BTN_ADJUNTAR_COMPROBANTE
+  id: BTN_ADJUNTAR_COMPROBANTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_ADJUNTAR_COMPROBANTE
+  nameWithType: Translations.BTN_ADJUNTAR_COMPROBANTE
+  fullName: Domain.Enums.Translations.BTN_ADJUNTAR_COMPROBANTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_ADJUNTAR_COMPROBANTE = 4
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_AGREGAR
+  commentId: F:Domain.Enums.Translations.BTN_AGREGAR
+  id: BTN_AGREGAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_AGREGAR
+  nameWithType: Translations.BTN_AGREGAR
+  fullName: Domain.Enums.Translations.BTN_AGREGAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_AGREGAR = 5
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_AGREGAR_EJERCICIO
+  commentId: F:Domain.Enums.Translations.BTN_AGREGAR_EJERCICIO
+  id: BTN_AGREGAR_EJERCICIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_AGREGAR_EJERCICIO
+  nameWithType: Translations.BTN_AGREGAR_EJERCICIO
+  fullName: Domain.Enums.Translations.BTN_AGREGAR_EJERCICIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_AGREGAR_EJERCICIO = 6
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_BACKUP
+  commentId: F:Domain.Enums.Translations.BTN_BACKUP
+  id: BTN_BACKUP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_BACKUP
+  nameWithType: Translations.BTN_BACKUP
+  fullName: Domain.Enums.Translations.BTN_BACKUP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_BACKUP = 7
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_OK
+  commentId: F:Domain.Enums.Translations.BTN_OK
+  id: BTN_OK
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_OK
+  nameWithType: Translations.BTN_OK
+  fullName: Domain.Enums.Translations.BTN_OK
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_OK = 8
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_BORRAR_RUTINA
+  commentId: F:Domain.Enums.Translations.BTN_BORRAR_RUTINA
+  id: BTN_BORRAR_RUTINA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_BORRAR_RUTINA
+  nameWithType: Translations.BTN_BORRAR_RUTINA
+  fullName: Domain.Enums.Translations.BTN_BORRAR_RUTINA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_BORRAR_RUTINA = 9
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CANCEL
+  commentId: F:Domain.Enums.Translations.BTN_CANCEL
+  id: BTN_CANCEL
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CANCEL
+  nameWithType: Translations.BTN_CANCEL
+  fullName: Domain.Enums.Translations.BTN_CANCEL
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CANCEL = 10
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CANCELAR_RESERVA
+  commentId: F:Domain.Enums.Translations.BTN_CANCELAR_RESERVA
+  id: BTN_CANCELAR_RESERVA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CANCELAR_RESERVA
+  nameWithType: Translations.BTN_CANCELAR_RESERVA
+  fullName: Domain.Enums.Translations.BTN_CANCELAR_RESERVA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CANCELAR_RESERVA = 11
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CHECK_IN
+  commentId: F:Domain.Enums.Translations.BTN_CHECK_IN
+  id: BTN_CHECK_IN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CHECK_IN
+  nameWithType: Translations.BTN_CHECK_IN
+  fullName: Domain.Enums.Translations.BTN_CHECK_IN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CHECK_IN = 12
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CLEAR
+  commentId: F:Domain.Enums.Translations.BTN_CLEAR
+  id: BTN_CLEAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CLEAR
+  nameWithType: Translations.BTN_CLEAR
+  fullName: Domain.Enums.Translations.BTN_CLEAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CLEAR = 13
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CREAR
+  commentId: F:Domain.Enums.Translations.BTN_CREAR
+  id: BTN_CREAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CREAR
+  nameWithType: Translations.BTN_CREAR
+  fullName: Domain.Enums.Translations.BTN_CREAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CREAR = 14
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CREATE
+  commentId: F:Domain.Enums.Translations.BTN_CREATE
+  id: BTN_CREATE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CREATE
+  nameWithType: Translations.BTN_CREATE
+  fullName: Domain.Enums.Translations.BTN_CREATE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CREATE = 15
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_DELETE
+  commentId: F:Domain.Enums.Translations.BTN_DELETE
+  id: BTN_DELETE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_DELETE
+  nameWithType: Translations.BTN_DELETE
+  fullName: Domain.Enums.Translations.BTN_DELETE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_DELETE = 16
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_DELETE_BACKUP
+  commentId: F:Domain.Enums.Translations.BTN_DELETE_BACKUP
+  id: BTN_DELETE_BACKUP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_DELETE_BACKUP
+  nameWithType: Translations.BTN_DELETE_BACKUP
+  fullName: Domain.Enums.Translations.BTN_DELETE_BACKUP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_DELETE_BACKUP = 17
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_DESHABILITAR
+  commentId: F:Domain.Enums.Translations.BTN_DESHABILITAR
+  id: BTN_DESHABILITAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_DESHABILITAR
+  nameWithType: Translations.BTN_DESHABILITAR
+  fullName: Domain.Enums.Translations.BTN_DESHABILITAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_DESHABILITAR = 18
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_ELIMINAR
+  commentId: F:Domain.Enums.Translations.BTN_ELIMINAR
+  id: BTN_ELIMINAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_ELIMINAR
+  nameWithType: Translations.BTN_ELIMINAR
+  fullName: Domain.Enums.Translations.BTN_ELIMINAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_ELIMINAR = 19
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_ELIMINAR_EJERCICIO
+  commentId: F:Domain.Enums.Translations.BTN_ELIMINAR_EJERCICIO
+  id: BTN_ELIMINAR_EJERCICIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_ELIMINAR_EJERCICIO
+  nameWithType: Translations.BTN_ELIMINAR_EJERCICIO
+  fullName: Domain.Enums.Translations.BTN_ELIMINAR_EJERCICIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_ELIMINAR_EJERCICIO = 20
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_FILTER
+  commentId: F:Domain.Enums.Translations.BTN_FILTER
+  id: BTN_FILTER
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_FILTER
+  nameWithType: Translations.BTN_FILTER
+  fullName: Domain.Enums.Translations.BTN_FILTER
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_FILTER = 21
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_GENERAR_RESERVA
+  commentId: F:Domain.Enums.Translations.BTN_GENERAR_RESERVA
+  id: BTN_GENERAR_RESERVA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_GENERAR_RESERVA
+  nameWithType: Translations.BTN_GENERAR_RESERVA
+  fullName: Domain.Enums.Translations.BTN_GENERAR_RESERVA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_GENERAR_RESERVA = 22
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_GESTIONAR_EJERCICIOS
+  commentId: F:Domain.Enums.Translations.BTN_GESTIONAR_EJERCICIOS
+  id: BTN_GESTIONAR_EJERCICIOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_GESTIONAR_EJERCICIOS
+  nameWithType: Translations.BTN_GESTIONAR_EJERCICIOS
+  fullName: Domain.Enums.Translations.BTN_GESTIONAR_EJERCICIOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_GESTIONAR_EJERCICIOS = 23
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_GUARDAR_RUTINA
+  commentId: F:Domain.Enums.Translations.BTN_GUARDAR_RUTINA
+  id: BTN_GUARDAR_RUTINA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_GUARDAR_RUTINA
+  nameWithType: Translations.BTN_GUARDAR_RUTINA
+  fullName: Domain.Enums.Translations.BTN_GUARDAR_RUTINA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_GUARDAR_RUTINA = 24
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_HABILITAR
+  commentId: F:Domain.Enums.Translations.BTN_HABILITAR
+  id: BTN_HABILITAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_HABILITAR
+  nameWithType: Translations.BTN_HABILITAR
+  fullName: Domain.Enums.Translations.BTN_HABILITAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_HABILITAR = 25
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_LIMPIAR
+  commentId: F:Domain.Enums.Translations.BTN_LIMPIAR
+  id: BTN_LIMPIAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_LIMPIAR
+  nameWithType: Translations.BTN_LIMPIAR
+  fullName: Domain.Enums.Translations.BTN_LIMPIAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_LIMPIAR = 26
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_LOGIN
+  commentId: F:Domain.Enums.Translations.BTN_LOGIN
+  id: BTN_LOGIN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_LOGIN
+  nameWithType: Translations.BTN_LOGIN
+  fullName: Domain.Enums.Translations.BTN_LOGIN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_LOGIN = 27
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_MODIFICAR
+  commentId: F:Domain.Enums.Translations.BTN_MODIFICAR
+  id: BTN_MODIFICAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_MODIFICAR
+  nameWithType: Translations.BTN_MODIFICAR
+  fullName: Domain.Enums.Translations.BTN_MODIFICAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_MODIFICAR = 28
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_NUEVA_RUTINA
+  commentId: F:Domain.Enums.Translations.BTN_NUEVA_RUTINA
+  id: BTN_NUEVA_RUTINA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_NUEVA_RUTINA
+  nameWithType: Translations.BTN_NUEVA_RUTINA
+  fullName: Domain.Enums.Translations.BTN_NUEVA_RUTINA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_NUEVA_RUTINA = 29
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_PERMISSIONS
+  commentId: F:Domain.Enums.Translations.BTN_PERMISSIONS
+  id: BTN_PERMISSIONS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_PERMISSIONS
+  nameWithType: Translations.BTN_PERMISSIONS
+  fullName: Domain.Enums.Translations.BTN_PERMISSIONS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_PERMISSIONS = 30
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_REEMBOLSAR
+  commentId: F:Domain.Enums.Translations.BTN_REEMBOLSAR
+  id: BTN_REEMBOLSAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_REEMBOLSAR
+  nameWithType: Translations.BTN_REEMBOLSAR
+  fullName: Domain.Enums.Translations.BTN_REEMBOLSAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_REEMBOLSAR = 31
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_REGISTRAR_PAGO
+  commentId: F:Domain.Enums.Translations.BTN_REGISTRAR_PAGO
+  id: BTN_REGISTRAR_PAGO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_REGISTRAR_PAGO
+  nameWithType: Translations.BTN_REGISTRAR_PAGO
+  fullName: Domain.Enums.Translations.BTN_REGISTRAR_PAGO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_REGISTRAR_PAGO = 32
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_RESTORE
+  commentId: F:Domain.Enums.Translations.BTN_RESTORE
+  id: BTN_RESTORE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_RESTORE
+  nameWithType: Translations.BTN_RESTORE
+  fullName: Domain.Enums.Translations.BTN_RESTORE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_RESTORE = 33
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_SAVE
+  commentId: F:Domain.Enums.Translations.BTN_SAVE
+  id: BTN_SAVE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_SAVE
+  nameWithType: Translations.BTN_SAVE
+  fullName: Domain.Enums.Translations.BTN_SAVE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_SAVE = 34
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_SELECCIONAR
+  commentId: F:Domain.Enums.Translations.BTN_SELECCIONAR
+  id: BTN_SELECCIONAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_SELECCIONAR
+  nameWithType: Translations.BTN_SELECCIONAR
+  fullName: Domain.Enums.Translations.BTN_SELECCIONAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_SELECCIONAR = 35
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_UPDATE
+  commentId: F:Domain.Enums.Translations.BTN_UPDATE
+  id: BTN_UPDATE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_UPDATE
+  nameWithType: Translations.BTN_UPDATE
+  fullName: Domain.Enums.Translations.BTN_UPDATE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_UPDATE = 36
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_VERIFICAR_DISPONIBILIDAD
+  commentId: F:Domain.Enums.Translations.BTN_VERIFICAR_DISPONIBILIDAD
+  id: BTN_VERIFICAR_DISPONIBILIDAD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_VERIFICAR_DISPONIBILIDAD
+  nameWithType: Translations.BTN_VERIFICAR_DISPONIBILIDAD
+  fullName: Domain.Enums.Translations.BTN_VERIFICAR_DISPONIBILIDAD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_VERIFICAR_DISPONIBILIDAD = 37
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_VER_COMPROBANTE
+  commentId: F:Domain.Enums.Translations.BTN_VER_COMPROBANTE
+  id: BTN_VER_COMPROBANTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_VER_COMPROBANTE
+  nameWithType: Translations.BTN_VER_COMPROBANTE
+  fullName: Domain.Enums.Translations.BTN_VER_COMPROBANTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_VER_COMPROBANTE = 38
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_VER_MOVIMIENTOS
+  commentId: F:Domain.Enums.Translations.BTN_VER_MOVIMIENTOS
+  id: BTN_VER_MOVIMIENTOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_VER_MOVIMIENTOS
+  nameWithType: Translations.BTN_VER_MOVIMIENTOS
+  fullName: Domain.Enums.Translations.BTN_VER_MOVIMIENTOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_VER_MOVIMIENTOS = 39
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_VER_INGRESOS
+  commentId: F:Domain.Enums.Translations.BTN_VER_INGRESOS
+  id: BTN_VER_INGRESOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_VER_INGRESOS
+  nameWithType: Translations.BTN_VER_INGRESOS
+  fullName: Domain.Enums.Translations.BTN_VER_INGRESOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_VER_INGRESOS = 40
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_VER_RUTINA
+  commentId: F:Domain.Enums.Translations.BTN_VER_RUTINA
+  id: BTN_VER_RUTINA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_VER_RUTINA
+  nameWithType: Translations.BTN_VER_RUTINA
+  fullName: Domain.Enums.Translations.BTN_VER_RUTINA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_VER_RUTINA = 41
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_VER_HORARIOS
+  commentId: F:Domain.Enums.Translations.BTN_VER_HORARIOS
+  id: BTN_VER_HORARIOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_VER_HORARIOS
+  nameWithType: Translations.BTN_VER_HORARIOS
+  fullName: Domain.Enums.Translations.BTN_VER_HORARIOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_VER_HORARIOS = 42
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_RESERVA_NO_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_RESERVA_NO_EXISTE
+  id: ERR_RESERVA_NO_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_RESERVA_NO_EXISTE
+  nameWithType: Translations.ERR_RESERVA_NO_EXISTE
+  fullName: Domain.Enums.Translations.ERR_RESERVA_NO_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_RESERVA_NO_EXISTE = 43
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_MONTO_SUPERA_SALDO
+  commentId: F:Domain.Enums.Translations.ERR_MONTO_SUPERA_SALDO
+  id: ERR_MONTO_SUPERA_SALDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_MONTO_SUPERA_SALDO
+  nameWithType: Translations.ERR_MONTO_SUPERA_SALDO
+  fullName: Domain.Enums.Translations.ERR_MONTO_SUPERA_SALDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_MONTO_SUPERA_SALDO = 44
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  commentId: F:Domain.Enums.Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  id: ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  nameWithType: Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  fullName: Domain.Enums.Translations.ERR_RESERVA_NO_ENCONTRADA_CODIGO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_RESERVA_NO_ENCONTRADA_CODIGO = 45
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_HORA_MULTIPLO_30
+  commentId: F:Domain.Enums.Translations.ERR_HORA_MULTIPLO_30
+  id: ERR_HORA_MULTIPLO_30
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_HORA_MULTIPLO_30
+  nameWithType: Translations.ERR_HORA_MULTIPLO_30
+  fullName: Domain.Enums.Translations.ERR_HORA_MULTIPLO_30
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_HORA_MULTIPLO_30 = 46
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_DURACION_MULTIPLO_30
+  commentId: F:Domain.Enums.Translations.ERR_DURACION_MULTIPLO_30
+  id: ERR_DURACION_MULTIPLO_30
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_DURACION_MULTIPLO_30
+  nameWithType: Translations.ERR_DURACION_MULTIPLO_30
+  fullName: Domain.Enums.Translations.ERR_DURACION_MULTIPLO_30
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_DURACION_MULTIPLO_30 = 47
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_FECHA_PASADA
+  commentId: F:Domain.Enums.Translations.ERR_FECHA_PASADA
+  id: ERR_FECHA_PASADA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_FECHA_PASADA
+  nameWithType: Translations.ERR_FECHA_PASADA
+  fullName: Domain.Enums.Translations.ERR_FECHA_PASADA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_FECHA_PASADA = 48
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_HOY
+  commentId: F:Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_HOY
+  id: MSG_HORARIOS_DISPONIBLES_HOY
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_HORARIOS_DISPONIBLES_HOY
+  nameWithType: Translations.MSG_HORARIOS_DISPONIBLES_HOY
+  fullName: Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_HOY
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_HORARIOS_DISPONIBLES_HOY = 49
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL
+  commentId: F:Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL
+  id: MSG_HORARIOS_DISPONIBLES_EL
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_HORARIOS_DISPONIBLES_EL
+  nameWithType: Translations.MSG_HORARIOS_DISPONIBLES_EL
+  fullName: Domain.Enums.Translations.MSG_HORARIOS_DISPONIBLES_EL
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_HORARIOS_DISPONIBLES_EL = 50
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_NINGUNO_ESTE_DIA
+  commentId: F:Domain.Enums.Translations.MSG_NINGUNO_ESTE_DIA
+  id: MSG_NINGUNO_ESTE_DIA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_NINGUNO_ESTE_DIA
+  nameWithType: Translations.MSG_NINGUNO_ESTE_DIA
+  fullName: Domain.Enums.Translations.MSG_NINGUNO_ESTE_DIA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_NINGUNO_ESTE_DIA = 51
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO
+  commentId: F:Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO
+  id: MSG_SELECCIONE_ESPACIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_SELECCIONE_ESPACIO
+  nameWithType: Translations.MSG_SELECCIONE_ESPACIO
+  fullName: Domain.Enums.Translations.MSG_SELECCIONE_ESPACIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_SELECCIONE_ESPACIO = 52
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.CHK_ACTIVE
+  commentId: F:Domain.Enums.Translations.CHK_ACTIVE
+  id: CHK_ACTIVE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: CHK_ACTIVE
+  nameWithType: Translations.CHK_ACTIVE
+  fullName: Domain.Enums.Translations.CHK_ACTIVE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: CHK_ACTIVE = 53
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.CHK_VER_HISTORIAL
+  commentId: F:Domain.Enums.Translations.CHK_VER_HISTORIAL
+  id: CHK_VER_HISTORIAL
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: CHK_VER_HISTORIAL
+  nameWithType: Translations.CHK_VER_HISTORIAL
+  fullName: Domain.Enums.Translations.CHK_VER_HISTORIAL
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: CHK_VER_HISTORIAL = 54
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.CLIENTE_TITLE
+  commentId: F:Domain.Enums.Translations.CLIENTE_TITLE
+  id: CLIENTE_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: CLIENTE_TITLE
+  nameWithType: Translations.CLIENTE_TITLE
+  fullName: Domain.Enums.Translations.CLIENTE_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: CLIENTE_TITLE = 55
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO
+  commentId: F:Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO
+  id: ERR_CLIENTE_NO_ENCONTRADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_CLIENTE_NO_ENCONTRADO
+  nameWithType: Translations.ERR_CLIENTE_NO_ENCONTRADO
+  fullName: Domain.Enums.Translations.ERR_CLIENTE_NO_ENCONTRADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_CLIENTE_NO_ENCONTRADO = 56
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO
+  commentId: F:Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO
+  id: ERR_EJERCICIO_REP_ZERO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_EJERCICIO_REP_ZERO
+  nameWithType: Translations.ERR_EJERCICIO_REP_ZERO
+  fullName: Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_EJERCICIO_REP_ZERO = 57
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_ESPACIO_CON_RESERVAS
+  commentId: F:Domain.Enums.Translations.ERR_ESPACIO_CON_RESERVAS
+  id: ERR_ESPACIO_CON_RESERVAS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_ESPACIO_CON_RESERVAS
+  nameWithType: Translations.ERR_ESPACIO_CON_RESERVAS
+  fullName: Domain.Enums.Translations.ERR_ESPACIO_CON_RESERVAS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_ESPACIO_CON_RESERVAS = 58
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES
+  commentId: F:Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES
+  id: ERR_MEMBRESIA_CON_CLIENTES
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_MEMBRESIA_CON_CLIENTES
+  nameWithType: Translations.ERR_MEMBRESIA_CON_CLIENTES
+  fullName: Domain.Enums.Translations.ERR_MEMBRESIA_CON_CLIENTES
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_MEMBRESIA_CON_CLIENTES = 59
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_INVALID_NUMBER
+  commentId: F:Domain.Enums.Translations.ERR_INVALID_NUMBER
+  id: ERR_INVALID_NUMBER
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_INVALID_NUMBER
+  nameWithType: Translations.ERR_INVALID_NUMBER
+  fullName: Domain.Enums.Translations.ERR_INVALID_NUMBER
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_INVALID_NUMBER = 60
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_MONTO_INVALIDO
+  commentId: F:Domain.Enums.Translations.ERR_MONTO_INVALIDO
+  id: ERR_MONTO_INVALIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_MONTO_INVALIDO
+  nameWithType: Translations.ERR_MONTO_INVALIDO
+  fullName: Domain.Enums.Translations.ERR_MONTO_INVALIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_MONTO_INVALIDO = 61
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_METODO_REQUERIDO
+  commentId: F:Domain.Enums.Translations.ERR_METODO_REQUERIDO
+  id: ERR_METODO_REQUERIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_METODO_REQUERIDO
+  nameWithType: Translations.ERR_METODO_REQUERIDO
+  fullName: Domain.Enums.Translations.ERR_METODO_REQUERIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_METODO_REQUERIDO = 62
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_NOMBRE_EJERCICIO
+  commentId: F:Domain.Enums.Translations.ERR_NOMBRE_EJERCICIO
+  id: ERR_NOMBRE_EJERCICIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_NOMBRE_EJERCICIO
+  nameWithType: Translations.ERR_NOMBRE_EJERCICIO
+  fullName: Domain.Enums.Translations.ERR_NOMBRE_EJERCICIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_NOMBRE_EJERCICIO = 63
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_NO_COMPROBANTE
+  commentId: F:Domain.Enums.Translations.ERR_NO_COMPROBANTE
+  id: ERR_NO_COMPROBANTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_NO_COMPROBANTE
+  nameWithType: Translations.ERR_NO_COMPROBANTE
+  fullName: Domain.Enums.Translations.ERR_NO_COMPROBANTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_NO_COMPROBANTE = 64
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_REQUIRED_FIELD
+  commentId: F:Domain.Enums.Translations.ERR_REQUIRED_FIELD
+  id: ERR_REQUIRED_FIELD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_REQUIRED_FIELD
+  nameWithType: Translations.ERR_REQUIRED_FIELD
+  fullName: Domain.Enums.Translations.ERR_REQUIRED_FIELD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_REQUIRED_FIELD = 65
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_RUTINA_SIN_EJERCICIOS
+  commentId: F:Domain.Enums.Translations.ERR_RUTINA_SIN_EJERCICIOS
+  id: ERR_RUTINA_SIN_EJERCICIOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_RUTINA_SIN_EJERCICIOS
+  nameWithType: Translations.ERR_RUTINA_SIN_EJERCICIOS
+  fullName: Domain.Enums.Translations.ERR_RUTINA_SIN_EJERCICIOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_RUTINA_SIN_EJERCICIOS = 66
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_SOLO_ABONADO
+  commentId: F:Domain.Enums.Translations.ERR_SOLO_ABONADO
+  id: ERR_SOLO_ABONADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_SOLO_ABONADO
+  nameWithType: Translations.ERR_SOLO_ABONADO
+  fullName: Domain.Enums.Translations.ERR_SOLO_ABONADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_SOLO_ABONADO = 67
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_VALIDATION_INVALID
+  commentId: F:Domain.Enums.Translations.ERR_VALIDATION_INVALID
+  id: ERR_VALIDATION_INVALID
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_VALIDATION_INVALID
+  nameWithType: Translations.ERR_VALIDATION_INVALID
+  fullName: Domain.Enums.Translations.ERR_VALIDATION_INVALID
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_VALIDATION_INVALID = 68
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_VALIDATION_REQUIRED
+  commentId: F:Domain.Enums.Translations.ERR_VALIDATION_REQUIRED
+  id: ERR_VALIDATION_REQUIRED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_VALIDATION_REQUIRED
+  nameWithType: Translations.ERR_VALIDATION_REQUIRED
+  fullName: Domain.Enums.Translations.ERR_VALIDATION_REQUIRED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_VALIDATION_REQUIRED = 69
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FORM_TITLE
+  commentId: F:Domain.Enums.Translations.FORM_TITLE
+  id: FORM_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FORM_TITLE
+  nameWithType: Translations.FORM_TITLE
+  fullName: Domain.Enums.Translations.FORM_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FORM_TITLE = 70
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.BTN_CONFIGURAR_AGENDA
+  commentId: F:Domain.Enums.Translations.BTN_CONFIGURAR_AGENDA
+  id: BTN_CONFIGURAR_AGENDA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: BTN_CONFIGURAR_AGENDA
+  nameWithType: Translations.BTN_CONFIGURAR_AGENDA
+  fullName: Domain.Enums.Translations.BTN_CONFIGURAR_AGENDA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: BTN_CONFIGURAR_AGENDA = 71
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_AGENDA_OVERLAP
+  commentId: F:Domain.Enums.Translations.ERR_AGENDA_OVERLAP
+  id: ERR_AGENDA_OVERLAP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_AGENDA_OVERLAP
+  nameWithType: Translations.ERR_AGENDA_OVERLAP
+  fullName: Domain.Enums.Translations.ERR_AGENDA_OVERLAP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_AGENDA_OVERLAP = 72
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_NO_AGENDA
+  commentId: F:Domain.Enums.Translations.ERR_NO_AGENDA
+  id: ERR_NO_AGENDA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_NO_AGENDA
+  nameWithType: Translations.ERR_NO_AGENDA
+  fullName: Domain.Enums.Translations.ERR_NO_AGENDA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_NO_AGENDA = 73
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_AGENDA_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_AGENDA_TITLE
+  id: FRM_AGENDA_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_AGENDA_TITLE
+  nameWithType: Translations.FRM_AGENDA_TITLE
+  fullName: Domain.Enums.Translations.FRM_AGENDA_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_AGENDA_TITLE = 74
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_HORA_DESDE
+  commentId: F:Domain.Enums.Translations.LBL_HORA_DESDE
+  id: LBL_HORA_DESDE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_HORA_DESDE
+  nameWithType: Translations.LBL_HORA_DESDE
+  fullName: Domain.Enums.Translations.LBL_HORA_DESDE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_HORA_DESDE = 75
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_HORA_HASTA
+  commentId: F:Domain.Enums.Translations.LBL_HORA_HASTA
+  id: LBL_HORA_HASTA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_HORA_HASTA
+  nameWithType: Translations.LBL_HORA_HASTA
+  fullName: Domain.Enums.Translations.LBL_HORA_HASTA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_HORA_HASTA = 76
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_AGENDA_UPDATED
+  commentId: F:Domain.Enums.Translations.MSG_AGENDA_UPDATED
+  id: MSG_AGENDA_UPDATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_AGENDA_UPDATED
+  nameWithType: Translations.MSG_AGENDA_UPDATED
+  fullName: Domain.Enums.Translations.MSG_AGENDA_UPDATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_AGENDA_UPDATED = 77
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_EJERCICIOS_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_EJERCICIOS_TITLE
+  id: FRM_EJERCICIOS_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_EJERCICIOS_TITLE
+  nameWithType: Translations.FRM_EJERCICIOS_TITLE
+  fullName: Domain.Enums.Translations.FRM_EJERCICIOS_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_EJERCICIOS_TITLE = 78
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_ESPACIO_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_ESPACIO_TITLE
+  id: FRM_ESPACIO_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_ESPACIO_TITLE
+  nameWithType: Translations.FRM_ESPACIO_TITLE
+  fullName: Domain.Enums.Translations.FRM_ESPACIO_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_ESPACIO_TITLE = 79
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_GESTION_RUTINAS_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_GESTION_RUTINAS_TITLE
+  id: FRM_GESTION_RUTINAS_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_GESTION_RUTINAS_TITLE
+  nameWithType: Translations.FRM_GESTION_RUTINAS_TITLE
+  fullName: Domain.Enums.Translations.FRM_GESTION_RUTINAS_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_GESTION_RUTINAS_TITLE = 80
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_MEMBRESIA_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_MEMBRESIA_TITLE
+  id: FRM_MEMBRESIA_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_MEMBRESIA_TITLE
+  nameWithType: Translations.FRM_MEMBRESIA_TITLE
+  fullName: Domain.Enums.Translations.FRM_MEMBRESIA_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_MEMBRESIA_TITLE = 81
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_MOVIMIENTOS_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_MOVIMIENTOS_TITLE
+  id: FRM_MOVIMIENTOS_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_MOVIMIENTOS_TITLE
+  nameWithType: Translations.FRM_MOVIMIENTOS_TITLE
+  fullName: Domain.Enums.Translations.FRM_MOVIMIENTOS_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_MOVIMIENTOS_TITLE = 82
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_SELECCIONAR_CLIENTE_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_SELECCIONAR_CLIENTE_TITLE
+  id: FRM_SELECCIONAR_CLIENTE_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_SELECCIONAR_CLIENTE_TITLE
+  nameWithType: Translations.FRM_SELECCIONAR_CLIENTE_TITLE
+  fullName: Domain.Enums.Translations.FRM_SELECCIONAR_CLIENTE_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_SELECCIONAR_CLIENTE_TITLE = 83
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.FRM_INGRESOS_TITLE
+  commentId: F:Domain.Enums.Translations.FRM_INGRESOS_TITLE
+  id: FRM_INGRESOS_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: FRM_INGRESOS_TITLE
+  nameWithType: Translations.FRM_INGRESOS_TITLE
+  fullName: Domain.Enums.Translations.FRM_INGRESOS_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: FRM_INGRESOS_TITLE = 84
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.KEY_NAME
+  commentId: F:Domain.Enums.Translations.KEY_NAME
+  id: KEY_NAME
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: KEY_NAME
+  nameWithType: Translations.KEY_NAME
+  fullName: Domain.Enums.Translations.KEY_NAME
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: KEY_NAME = 85
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_ADELANTO
+  commentId: F:Domain.Enums.Translations.LBL_ADELANTO
+  id: LBL_ADELANTO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_ADELANTO
+  nameWithType: Translations.LBL_ADELANTO
+  fullName: Domain.Enums.Translations.LBL_ADELANTO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_ADELANTO = 86
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_APELLIDO
+  commentId: F:Domain.Enums.Translations.LBL_APELLIDO
+  id: LBL_APELLIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_APELLIDO
+  nameWithType: Translations.LBL_APELLIDO
+  fullName: Domain.Enums.Translations.LBL_APELLIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_APELLIDO = 87
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_BALANCE
+  commentId: F:Domain.Enums.Translations.LBL_BALANCE
+  id: LBL_BALANCE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_BALANCE
+  nameWithType: Translations.LBL_BALANCE
+  fullName: Domain.Enums.Translations.LBL_BALANCE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_BALANCE = 88
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_CLIENTE
+  commentId: F:Domain.Enums.Translations.LBL_CLIENTE
+  id: LBL_CLIENTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_CLIENTE
+  nameWithType: Translations.LBL_CLIENTE
+  fullName: Domain.Enums.Translations.LBL_CLIENTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_CLIENTE = 89
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_CODIGO
+  commentId: F:Domain.Enums.Translations.LBL_CODIGO
+  id: LBL_CODIGO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_CODIGO
+  nameWithType: Translations.LBL_CODIGO
+  fullName: Domain.Enums.Translations.LBL_CODIGO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_CODIGO = 90
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_CODIGO_RESERVA
+  commentId: F:Domain.Enums.Translations.LBL_CODIGO_RESERVA
+  id: LBL_CODIGO_RESERVA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_CODIGO_RESERVA
+  nameWithType: Translations.LBL_CODIGO_RESERVA
+  fullName: Domain.Enums.Translations.LBL_CODIGO_RESERVA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_CODIGO_RESERVA = 91
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DATE_FROM
+  commentId: F:Domain.Enums.Translations.LBL_DATE_FROM
+  id: LBL_DATE_FROM
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DATE_FROM
+  nameWithType: Translations.LBL_DATE_FROM
+  fullName: Domain.Enums.Translations.LBL_DATE_FROM
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DATE_FROM = 92
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DATE_TO
+  commentId: F:Domain.Enums.Translations.LBL_DATE_TO
+  id: LBL_DATE_TO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DATE_TO
+  nameWithType: Translations.LBL_DATE_TO
+  fullName: Domain.Enums.Translations.LBL_DATE_TO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DATE_TO = 93
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DESCRIPCION
+  commentId: F:Domain.Enums.Translations.LBL_DESCRIPCION
+  id: LBL_DESCRIPCION
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DESCRIPCION
+  nameWithType: Translations.LBL_DESCRIPCION
+  fullName: Domain.Enums.Translations.LBL_DESCRIPCION
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DESCRIPCION = 94
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DETALLE
+  commentId: F:Domain.Enums.Translations.LBL_DETALLE
+  id: LBL_DETALLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DETALLE
+  nameWithType: Translations.LBL_DETALLE
+  fullName: Domain.Enums.Translations.LBL_DETALLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DETALLE = 95
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DNI
+  commentId: F:Domain.Enums.Translations.LBL_DNI
+  id: LBL_DNI
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DNI
+  nameWithType: Translations.LBL_DNI
+  fullName: Domain.Enums.Translations.LBL_DNI
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DNI = 96
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DNI_CLIENTE
+  commentId: F:Domain.Enums.Translations.LBL_DNI_CLIENTE
+  id: LBL_DNI_CLIENTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DNI_CLIENTE
+  nameWithType: Translations.LBL_DNI_CLIENTE
+  fullName: Domain.Enums.Translations.LBL_DNI_CLIENTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DNI_CLIENTE = 97
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DURACION
+  commentId: F:Domain.Enums.Translations.LBL_DURACION
+  id: LBL_DURACION
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DURACION
+  nameWithType: Translations.LBL_DURACION
+  fullName: Domain.Enums.Translations.LBL_DURACION
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DURACION = 98
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_CLIENTE_NOMBRE
+  commentId: F:Domain.Enums.Translations.LBL_CLIENTE_NOMBRE
+  id: LBL_CLIENTE_NOMBRE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_CLIENTE_NOMBRE
+  nameWithType: Translations.LBL_CLIENTE_NOMBRE
+  fullName: Domain.Enums.Translations.LBL_CLIENTE_NOMBRE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_CLIENTE_NOMBRE = 99
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_EJERCICIO_DIA
+  commentId: F:Domain.Enums.Translations.LBL_EJERCICIO_DIA
+  id: LBL_EJERCICIO_DIA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_EJERCICIO_DIA
+  nameWithType: Translations.LBL_EJERCICIO_DIA
+  fullName: Domain.Enums.Translations.LBL_EJERCICIO_DIA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_EJERCICIO_DIA = 100
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_EJERCICIO_NOMBRE
+  commentId: F:Domain.Enums.Translations.LBL_EJERCICIO_NOMBRE
+  id: LBL_EJERCICIO_NOMBRE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_EJERCICIO_NOMBRE
+  nameWithType: Translations.LBL_EJERCICIO_NOMBRE
+  fullName: Domain.Enums.Translations.LBL_EJERCICIO_NOMBRE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_EJERCICIO_NOMBRE = 101
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_EJERCICIO_ORDEN
+  commentId: F:Domain.Enums.Translations.LBL_EJERCICIO_ORDEN
+  id: LBL_EJERCICIO_ORDEN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_EJERCICIO_ORDEN
+  nameWithType: Translations.LBL_EJERCICIO_ORDEN
+  fullName: Domain.Enums.Translations.LBL_EJERCICIO_ORDEN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_EJERCICIO_ORDEN = 102
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_EJERCICIO_REP
+  commentId: F:Domain.Enums.Translations.LBL_EJERCICIO_REP
+  id: LBL_EJERCICIO_REP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_EJERCICIO_REP
+  nameWithType: Translations.LBL_EJERCICIO_REP
+  fullName: Domain.Enums.Translations.LBL_EJERCICIO_REP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_EJERCICIO_REP = 103
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_ESPACIO
+  commentId: F:Domain.Enums.Translations.LBL_ESPACIO
+  id: LBL_ESPACIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_ESPACIO
+  nameWithType: Translations.LBL_ESPACIO
+  fullName: Domain.Enums.Translations.LBL_ESPACIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_ESPACIO = 104
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_ESTADO
+  commentId: F:Domain.Enums.Translations.LBL_ESTADO
+  id: LBL_ESTADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_ESTADO
+  nameWithType: Translations.LBL_ESTADO
+  fullName: Domain.Enums.Translations.LBL_ESTADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_ESTADO = 105
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_FECHA
+  commentId: F:Domain.Enums.Translations.LBL_FECHA
+  id: LBL_FECHA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_FECHA
+  nameWithType: Translations.LBL_FECHA
+  fullName: Domain.Enums.Translations.LBL_FECHA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_FECHA = 106
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_FECHA_NAC
+  commentId: F:Domain.Enums.Translations.LBL_FECHA_NAC
+  id: LBL_FECHA_NAC
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_FECHA_NAC
+  nameWithType: Translations.LBL_FECHA_NAC
+  fullName: Domain.Enums.Translations.LBL_FECHA_NAC
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_FECHA_NAC = 107
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_EMAIL
+  commentId: F:Domain.Enums.Translations.LBL_EMAIL
+  id: LBL_EMAIL
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_EMAIL
+  nameWithType: Translations.LBL_EMAIL
+  fullName: Domain.Enums.Translations.LBL_EMAIL
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_EMAIL = 108
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_FILENAME
+  commentId: F:Domain.Enums.Translations.LBL_FILENAME
+  id: LBL_FILENAME
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_FILENAME
+  nameWithType: Translations.LBL_FILENAME
+  fullName: Domain.Enums.Translations.LBL_FILENAME
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_FILENAME = 109
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO
+  commentId: F:Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO
+  id: LBL_PROXIMA_FECHA_PAGO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PROXIMA_FECHA_PAGO
+  nameWithType: Translations.LBL_PROXIMA_FECHA_PAGO
+  fullName: Domain.Enums.Translations.LBL_PROXIMA_FECHA_PAGO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PROXIMA_FECHA_PAGO = 110
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_RAZON_DESHABILITAR
+  commentId: F:Domain.Enums.Translations.LBL_RAZON_DESHABILITAR
+  id: LBL_RAZON_DESHABILITAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_RAZON_DESHABILITAR
+  nameWithType: Translations.LBL_RAZON_DESHABILITAR
+  fullName: Domain.Enums.Translations.LBL_RAZON_DESHABILITAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_RAZON_DESHABILITAR = 111
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_DESHABILITAR
+  commentId: F:Domain.Enums.Translations.TITLE_DESHABILITAR
+  id: TITLE_DESHABILITAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_DESHABILITAR
+  nameWithType: Translations.TITLE_DESHABILITAR
+  fullName: Domain.Enums.Translations.TITLE_DESHABILITAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_DESHABILITAR = 112
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_HORA
+  commentId: F:Domain.Enums.Translations.LBL_HORA
+  id: LBL_HORA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_HORA
+  nameWithType: Translations.LBL_HORA
+  fullName: Domain.Enums.Translations.LBL_HORA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_HORA = 113
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_LOG_LEVEL
+  commentId: F:Domain.Enums.Translations.LBL_LOG_LEVEL
+  id: LBL_LOG_LEVEL
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_LOG_LEVEL
+  nameWithType: Translations.LBL_LOG_LEVEL
+  fullName: Domain.Enums.Translations.LBL_LOG_LEVEL
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_LOG_LEVEL = 114
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_MEMBRESIA
+  commentId: F:Domain.Enums.Translations.LBL_MEMBRESIA
+  id: LBL_MEMBRESIA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_MEMBRESIA
+  nameWithType: Translations.LBL_MEMBRESIA
+  fullName: Domain.Enums.Translations.LBL_MEMBRESIA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_MEMBRESIA = 115
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_MESSAGE
+  commentId: F:Domain.Enums.Translations.LBL_MESSAGE
+  id: LBL_MESSAGE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_MESSAGE
+  nameWithType: Translations.LBL_MESSAGE
+  fullName: Domain.Enums.Translations.LBL_MESSAGE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_MESSAGE = 116
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_METODO
+  commentId: F:Domain.Enums.Translations.LBL_METODO
+  id: LBL_METODO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_METODO
+  nameWithType: Translations.LBL_METODO
+  fullName: Domain.Enums.Translations.LBL_METODO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_METODO = 117
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_MONTO
+  commentId: F:Domain.Enums.Translations.LBL_MONTO
+  id: LBL_MONTO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_MONTO
+  nameWithType: Translations.LBL_MONTO
+  fullName: Domain.Enums.Translations.LBL_MONTO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_MONTO = 118
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_NOMBRE
+  commentId: F:Domain.Enums.Translations.LBL_NOMBRE
+  id: LBL_NOMBRE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_NOMBRE
+  nameWithType: Translations.LBL_NOMBRE
+  fullName: Domain.Enums.Translations.LBL_NOMBRE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_NOMBRE = 119
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_NOMBRE_EJERCICIO
+  commentId: F:Domain.Enums.Translations.LBL_NOMBRE_EJERCICIO
+  id: LBL_NOMBRE_EJERCICIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_NOMBRE_EJERCICIO
+  nameWithType: Translations.LBL_NOMBRE_EJERCICIO
+  fullName: Domain.Enums.Translations.LBL_NOMBRE_EJERCICIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_NOMBRE_EJERCICIO = 120
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PAGE
+  commentId: F:Domain.Enums.Translations.LBL_PAGE
+  id: LBL_PAGE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PAGE
+  nameWithType: Translations.LBL_PAGE
+  fullName: Domain.Enums.Translations.LBL_PAGE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PAGE = 121
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PASS
+  commentId: F:Domain.Enums.Translations.LBL_PASS
+  id: LBL_PASS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PASS
+  nameWithType: Translations.LBL_PASS
+  fullName: Domain.Enums.Translations.LBL_PASS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PASS = 122
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PASSWORD
+  commentId: F:Domain.Enums.Translations.LBL_PASSWORD
+  id: LBL_PASSWORD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PASSWORD
+  nameWithType: Translations.LBL_PASSWORD
+  fullName: Domain.Enums.Translations.LBL_PASSWORD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PASSWORD = 123
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PRECIO
+  commentId: F:Domain.Enums.Translations.LBL_PRECIO
+  id: LBL_PRECIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PRECIO
+  nameWithType: Translations.LBL_PRECIO
+  fullName: Domain.Enums.Translations.LBL_PRECIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PRECIO = 124
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PRECIO_HORA
+  commentId: F:Domain.Enums.Translations.LBL_PRECIO_HORA
+  id: LBL_PRECIO_HORA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PRECIO_HORA
+  nameWithType: Translations.LBL_PRECIO_HORA
+  fullName: Domain.Enums.Translations.LBL_PRECIO_HORA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PRECIO_HORA = 125
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_REGULARIDAD
+  commentId: F:Domain.Enums.Translations.LBL_REGULARIDAD
+  id: LBL_REGULARIDAD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_REGULARIDAD
+  nameWithType: Translations.LBL_REGULARIDAD
+  fullName: Domain.Enums.Translations.LBL_REGULARIDAD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_REGULARIDAD = 126
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_RUTINA_DESDE
+  commentId: F:Domain.Enums.Translations.LBL_RUTINA_DESDE
+  id: LBL_RUTINA_DESDE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_RUTINA_DESDE
+  nameWithType: Translations.LBL_RUTINA_DESDE
+  fullName: Domain.Enums.Translations.LBL_RUTINA_DESDE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_RUTINA_DESDE = 127
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_RUTINA_HASTA
+  commentId: F:Domain.Enums.Translations.LBL_RUTINA_HASTA
+  id: LBL_RUTINA_HASTA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_RUTINA_HASTA
+  nameWithType: Translations.LBL_RUTINA_HASTA
+  fullName: Domain.Enums.Translations.LBL_RUTINA_HASTA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_RUTINA_HASTA = 128
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_RUTINA_VACIA
+  commentId: F:Domain.Enums.Translations.LBL_RUTINA_VACIA
+  id: LBL_RUTINA_VACIA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_RUTINA_VACIA
+  nameWithType: Translations.LBL_RUTINA_VACIA
+  fullName: Domain.Enums.Translations.LBL_RUTINA_VACIA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_RUTINA_VACIA = 129
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_TIPO_MOVIMIENTO
+  commentId: F:Domain.Enums.Translations.LBL_TIPO_MOVIMIENTO
+  id: LBL_TIPO_MOVIMIENTO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_TIPO_MOVIMIENTO
+  nameWithType: Translations.LBL_TIPO_MOVIMIENTO
+  fullName: Domain.Enums.Translations.LBL_TIPO_MOVIMIENTO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_TIPO_MOVIMIENTO = 130
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_USER
+  commentId: F:Domain.Enums.Translations.LBL_USER
+  id: LBL_USER
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_USER
+  nameWithType: Translations.LBL_USER
+  fullName: Domain.Enums.Translations.LBL_USER
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_USER = 131
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_USERNAME
+  commentId: F:Domain.Enums.Translations.LBL_USERNAME
+  id: LBL_USERNAME
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_USERNAME
+  nameWithType: Translations.LBL_USERNAME
+  fullName: Domain.Enums.Translations.LBL_USERNAME
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_USERNAME = 132
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LOGIN_TITLE
+  commentId: F:Domain.Enums.Translations.LOGIN_TITLE
+  id: LOGIN_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LOGIN_TITLE
+  nameWithType: Translations.LOGIN_TITLE
+  fullName: Domain.Enums.Translations.LOGIN_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LOGIN_TITLE = 133
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MAIN_TITLE
+  commentId: F:Domain.Enums.Translations.MAIN_TITLE
+  id: MAIN_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MAIN_TITLE
+  nameWithType: Translations.MAIN_TITLE
+  fullName: Domain.Enums.Translations.MAIN_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MAIN_TITLE = 134
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_ADMIN
+  commentId: F:Domain.Enums.Translations.MENU_ADMIN
+  id: MENU_ADMIN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_ADMIN
+  nameWithType: Translations.MENU_ADMIN
+  fullName: Domain.Enums.Translations.MENU_ADMIN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_ADMIN = 135
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_BACKUPS
+  commentId: F:Domain.Enums.Translations.MENU_BACKUPS
+  id: MENU_BACKUPS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_BACKUPS
+  nameWithType: Translations.MENU_BACKUPS
+  fullName: Domain.Enums.Translations.MENU_BACKUPS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_BACKUPS = 136
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_PERMISOS
+  commentId: F:Domain.Enums.Translations.MENU_PERMISOS
+  id: MENU_PERMISOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_PERMISOS
+  nameWithType: Translations.MENU_PERMISOS
+  fullName: Domain.Enums.Translations.MENU_PERMISOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_PERMISOS = 137
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_BITACORA
+  commentId: F:Domain.Enums.Translations.MENU_BITACORA
+  id: MENU_BITACORA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_BITACORA
+  nameWithType: Translations.MENU_BITACORA
+  fullName: Domain.Enums.Translations.MENU_BITACORA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_BITACORA = 138
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_ESPACIOS
+  commentId: F:Domain.Enums.Translations.MENU_ESPACIOS
+  id: MENU_ESPACIOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_ESPACIOS
+  nameWithType: Translations.MENU_ESPACIOS
+  fullName: Domain.Enums.Translations.MENU_ESPACIOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_ESPACIOS = 139
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_INGRESOS
+  commentId: F:Domain.Enums.Translations.MENU_INGRESOS
+  id: MENU_INGRESOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_INGRESOS
+  nameWithType: Translations.MENU_INGRESOS
+  fullName: Domain.Enums.Translations.MENU_INGRESOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_INGRESOS = 140
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_MEMBRESIA
+  commentId: F:Domain.Enums.Translations.MENU_MEMBRESIA
+  id: MENU_MEMBRESIA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_MEMBRESIA
+  nameWithType: Translations.MENU_MEMBRESIA
+  fullName: Domain.Enums.Translations.MENU_MEMBRESIA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_MEMBRESIA = 141
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_PAGOS
+  commentId: F:Domain.Enums.Translations.MENU_PAGOS
+  id: MENU_PAGOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_PAGOS
+  nameWithType: Translations.MENU_PAGOS
+  fullName: Domain.Enums.Translations.MENU_PAGOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_PAGOS = 142
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_RESERVAS
+  commentId: F:Domain.Enums.Translations.MENU_RESERVAS
+  id: MENU_RESERVAS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_RESERVAS
+  nameWithType: Translations.MENU_RESERVAS
+  fullName: Domain.Enums.Translations.MENU_RESERVAS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_RESERVAS = 143
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_RUTINAS
+  commentId: F:Domain.Enums.Translations.MENU_RUTINAS
+  id: MENU_RUTINAS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_RUTINAS
+  nameWithType: Translations.MENU_RUTINAS
+  fullName: Domain.Enums.Translations.MENU_RUTINAS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_RUTINAS = 144
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MENU_USERS
+  commentId: F:Domain.Enums.Translations.MENU_USERS
+  id: MENU_USERS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MENU_USERS
+  nameWithType: Translations.MENU_USERS
+  fullName: Domain.Enums.Translations.MENU_USERS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MENU_USERS = 145
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_BACKUP_SUCCESS
+  commentId: F:Domain.Enums.Translations.MSG_BACKUP_SUCCESS
+  id: MSG_BACKUP_SUCCESS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_BACKUP_SUCCESS
+  nameWithType: Translations.MSG_BACKUP_SUCCESS
+  fullName: Domain.Enums.Translations.MSG_BACKUP_SUCCESS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_BACKUP_SUCCESS = 146
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CLIENTE_CREADO
+  commentId: F:Domain.Enums.Translations.MSG_CLIENTE_CREADO
+  id: MSG_CLIENTE_CREADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CLIENTE_CREADO
+  nameWithType: Translations.MSG_CLIENTE_CREADO
+  fullName: Domain.Enums.Translations.MSG_CLIENTE_CREADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CLIENTE_CREADO = 147
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_COMPLETE_FIELDS
+  commentId: F:Domain.Enums.Translations.MSG_COMPLETE_FIELDS
+  id: MSG_COMPLETE_FIELDS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_COMPLETE_FIELDS
+  nameWithType: Translations.MSG_COMPLETE_FIELDS
+  fullName: Domain.Enums.Translations.MSG_COMPLETE_FIELDS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_COMPLETE_FIELDS = 148
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_COMPROBANTE_ADJUNTADO
+  commentId: F:Domain.Enums.Translations.MSG_COMPROBANTE_ADJUNTADO
+  id: MSG_COMPROBANTE_ADJUNTADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_COMPROBANTE_ADJUNTADO
+  nameWithType: Translations.MSG_COMPROBANTE_ADJUNTADO
+  fullName: Domain.Enums.Translations.MSG_COMPROBANTE_ADJUNTADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_COMPROBANTE_ADJUNTADO = 149
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM
+  id: MSG_CONFIRM
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM
+  nameWithType: Translations.MSG_CONFIRM
+  fullName: Domain.Enums.Translations.MSG_CONFIRM
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM = 150
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_BORRAR_RUTINA
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_BORRAR_RUTINA
+  id: MSG_CONFIRM_BORRAR_RUTINA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_BORRAR_RUTINA
+  nameWithType: Translations.MSG_CONFIRM_BORRAR_RUTINA
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_BORRAR_RUTINA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_BORRAR_RUTINA = 151
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_CANCELAR
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_CANCELAR
+  id: MSG_CONFIRM_CANCELAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_CANCELAR
+  nameWithType: Translations.MSG_CONFIRM_CANCELAR
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_CANCELAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_CANCELAR = 152
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_DELETE_BACKUP
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_DELETE_BACKUP
+  id: MSG_CONFIRM_DELETE_BACKUP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_DELETE_BACKUP
+  nameWithType: Translations.MSG_CONFIRM_DELETE_BACKUP
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_DELETE_BACKUP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_DELETE_BACKUP = 153
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_DELETE_ESPACIO
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_DELETE_ESPACIO
+  id: MSG_CONFIRM_DELETE_ESPACIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_DELETE_ESPACIO
+  nameWithType: Translations.MSG_CONFIRM_DELETE_ESPACIO
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_DELETE_ESPACIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_DELETE_ESPACIO = 154
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_DELETE_USER
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_DELETE_USER
+  id: MSG_CONFIRM_DELETE_USER
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_DELETE_USER
+  nameWithType: Translations.MSG_CONFIRM_DELETE_USER
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_DELETE_USER
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_DELETE_USER = 155
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR
+  id: MSG_CONFIRM_DESHABILITAR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_DESHABILITAR
+  nameWithType: Translations.MSG_CONFIRM_DESHABILITAR
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_DESHABILITAR = 156
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE
+  id: MSG_CONFIRM_DESHABILITAR_CLIENTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_DESHABILITAR_CLIENTE
+  nameWithType: Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_DESHABILITAR_CLIENTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_DESHABILITAR_CLIENTE = 157
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO
+  id: MSG_CONFIRM_ELIMINAR_EJERCICIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_ELIMINAR_EJERCICIO
+  nameWithType: Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_ELIMINAR_EJERCICIO = 158
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_RESTORE
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_RESTORE
+  id: MSG_CONFIRM_RESTORE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_RESTORE
+  nameWithType: Translations.MSG_CONFIRM_RESTORE
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_RESTORE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_RESTORE = 159
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  commentId: F:Domain.Enums.Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  id: MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  nameWithType: Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  fullName: Domain.Enums.Translations.MSG_CONFIRM_CREAR_CLIENTE_NUEVO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_CONFIRM_CREAR_CLIENTE_NUEVO = 160
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_EJERCICIO_ACTUALIZADO
+  commentId: F:Domain.Enums.Translations.MSG_EJERCICIO_ACTUALIZADO
+  id: MSG_EJERCICIO_ACTUALIZADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_EJERCICIO_ACTUALIZADO
+  nameWithType: Translations.MSG_EJERCICIO_ACTUALIZADO
+  fullName: Domain.Enums.Translations.MSG_EJERCICIO_ACTUALIZADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_EJERCICIO_ACTUALIZADO = 161
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_EJERCICIO_CREADO
+  commentId: F:Domain.Enums.Translations.MSG_EJERCICIO_CREADO
+  id: MSG_EJERCICIO_CREADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_EJERCICIO_CREADO
+  nameWithType: Translations.MSG_EJERCICIO_CREADO
+  fullName: Domain.Enums.Translations.MSG_EJERCICIO_CREADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_EJERCICIO_CREADO = 162
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_EJERCICIO_ELIMINADO
+  commentId: F:Domain.Enums.Translations.MSG_EJERCICIO_ELIMINADO
+  id: MSG_EJERCICIO_ELIMINADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_EJERCICIO_ELIMINADO
+  nameWithType: Translations.MSG_EJERCICIO_ELIMINADO
+  fullName: Domain.Enums.Translations.MSG_EJERCICIO_ELIMINADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_EJERCICIO_ELIMINADO = 163
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ENTER_BACKUP_NAME
+  commentId: F:Domain.Enums.Translations.MSG_ENTER_BACKUP_NAME
+  id: MSG_ENTER_BACKUP_NAME
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ENTER_BACKUP_NAME
+  nameWithType: Translations.MSG_ENTER_BACKUP_NAME
+  fullName: Domain.Enums.Translations.MSG_ENTER_BACKUP_NAME
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ENTER_BACKUP_NAME = 164
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ENTER_CREDENTIALS
+  commentId: F:Domain.Enums.Translations.MSG_ENTER_CREDENTIALS
+  id: MSG_ENTER_CREDENTIALS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ENTER_CREDENTIALS
+  nameWithType: Translations.MSG_ENTER_CREDENTIALS
+  fullName: Domain.Enums.Translations.MSG_ENTER_CREDENTIALS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ENTER_CREDENTIALS = 165
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_BACKUP
+  commentId: F:Domain.Enums.Translations.MSG_ERR_BACKUP
+  id: MSG_ERR_BACKUP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_BACKUP
+  nameWithType: Translations.MSG_ERR_BACKUP
+  fullName: Domain.Enums.Translations.MSG_ERR_BACKUP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_BACKUP = 166
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_DELETE_BACKUP
+  commentId: F:Domain.Enums.Translations.MSG_ERR_DELETE_BACKUP
+  id: MSG_ERR_DELETE_BACKUP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_DELETE_BACKUP
+  nameWithType: Translations.MSG_ERR_DELETE_BACKUP
+  fullName: Domain.Enums.Translations.MSG_ERR_DELETE_BACKUP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_DELETE_BACKUP = 167
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_GENERIC
+  commentId: F:Domain.Enums.Translations.MSG_ERR_GENERIC
+  id: MSG_ERR_GENERIC
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_GENERIC
+  nameWithType: Translations.MSG_ERR_GENERIC
+  fullName: Domain.Enums.Translations.MSG_ERR_GENERIC
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_GENERIC = 168
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_LOAD_BACKUP
+  commentId: F:Domain.Enums.Translations.MSG_ERR_LOAD_BACKUP
+  id: MSG_ERR_LOAD_BACKUP
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_LOAD_BACKUP
+  nameWithType: Translations.MSG_ERR_LOAD_BACKUP
+  fullName: Domain.Enums.Translations.MSG_ERR_LOAD_BACKUP
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_LOAD_BACKUP = 169
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_LOAD_USERS
+  commentId: F:Domain.Enums.Translations.MSG_ERR_LOAD_USERS
+  id: MSG_ERR_LOAD_USERS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_LOAD_USERS
+  nameWithType: Translations.MSG_ERR_LOAD_USERS
+  fullName: Domain.Enums.Translations.MSG_ERR_LOAD_USERS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_LOAD_USERS = 170
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_LOGIN
+  commentId: F:Domain.Enums.Translations.MSG_ERR_LOGIN
+  id: MSG_ERR_LOGIN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_LOGIN
+  nameWithType: Translations.MSG_ERR_LOGIN
+  fullName: Domain.Enums.Translations.MSG_ERR_LOGIN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_LOGIN = 171
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_RESTORE
+  commentId: F:Domain.Enums.Translations.MSG_ERR_RESTORE
+  id: MSG_ERR_RESTORE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_RESTORE
+  nameWithType: Translations.MSG_ERR_RESTORE
+  fullName: Domain.Enums.Translations.MSG_ERR_RESTORE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_RESTORE = 172
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_SAVE
+  commentId: F:Domain.Enums.Translations.MSG_ERR_SAVE
+  id: MSG_ERR_SAVE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_SAVE
+  nameWithType: Translations.MSG_ERR_SAVE
+  fullName: Domain.Enums.Translations.MSG_ERR_SAVE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_SAVE = 173
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ESPACIO_CREATED
+  commentId: F:Domain.Enums.Translations.MSG_ESPACIO_CREATED
+  id: MSG_ESPACIO_CREATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ESPACIO_CREATED
+  nameWithType: Translations.MSG_ESPACIO_CREATED
+  fullName: Domain.Enums.Translations.MSG_ESPACIO_CREATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ESPACIO_CREATED = 174
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ESPACIO_DELETED
+  commentId: F:Domain.Enums.Translations.MSG_ESPACIO_DELETED
+  id: MSG_ESPACIO_DELETED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ESPACIO_DELETED
+  nameWithType: Translations.MSG_ESPACIO_DELETED
+  fullName: Domain.Enums.Translations.MSG_ESPACIO_DELETED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ESPACIO_DELETED = 175
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ESPACIO_DISPONIBLE
+  commentId: F:Domain.Enums.Translations.MSG_ESPACIO_DISPONIBLE
+  id: MSG_ESPACIO_DISPONIBLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ESPACIO_DISPONIBLE
+  nameWithType: Translations.MSG_ESPACIO_DISPONIBLE
+  fullName: Domain.Enums.Translations.MSG_ESPACIO_DISPONIBLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ESPACIO_DISPONIBLE = 176
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE
+  commentId: F:Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE
+  id: MSG_ESPACIO_NO_DISPONIBLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ESPACIO_NO_DISPONIBLE
+  nameWithType: Translations.MSG_ESPACIO_NO_DISPONIBLE
+  fullName: Domain.Enums.Translations.MSG_ESPACIO_NO_DISPONIBLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ESPACIO_NO_DISPONIBLE = 177
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ESPACIO_UPDATED
+  commentId: F:Domain.Enums.Translations.MSG_ESPACIO_UPDATED
+  id: MSG_ESPACIO_UPDATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ESPACIO_UPDATED
+  nameWithType: Translations.MSG_ESPACIO_UPDATED
+  fullName: Domain.Enums.Translations.MSG_ESPACIO_UPDATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ESPACIO_UPDATED = 178
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_INGRESO_DENEGADO
+  commentId: F:Domain.Enums.Translations.MSG_INGRESO_DENEGADO
+  id: MSG_INGRESO_DENEGADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_INGRESO_DENEGADO
+  nameWithType: Translations.MSG_INGRESO_DENEGADO
+  fullName: Domain.Enums.Translations.MSG_INGRESO_DENEGADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_INGRESO_DENEGADO = 179
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_INGRESO_PERMITIDO
+  commentId: F:Domain.Enums.Translations.MSG_INGRESO_PERMITIDO
+  id: MSG_INGRESO_PERMITIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_INGRESO_PERMITIDO
+  nameWithType: Translations.MSG_INGRESO_PERMITIDO
+  fullName: Domain.Enums.Translations.MSG_INGRESO_PERMITIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_INGRESO_PERMITIDO = 180
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_MEMBRESIA_CREATED
+  commentId: F:Domain.Enums.Translations.MSG_MEMBRESIA_CREATED
+  id: MSG_MEMBRESIA_CREATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_MEMBRESIA_CREATED
+  nameWithType: Translations.MSG_MEMBRESIA_CREATED
+  fullName: Domain.Enums.Translations.MSG_MEMBRESIA_CREATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_MEMBRESIA_CREATED = 181
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_MEMBRESIA_DISABLED
+  commentId: F:Domain.Enums.Translations.MSG_MEMBRESIA_DISABLED
+  id: MSG_MEMBRESIA_DISABLED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_MEMBRESIA_DISABLED
+  nameWithType: Translations.MSG_MEMBRESIA_DISABLED
+  fullName: Domain.Enums.Translations.MSG_MEMBRESIA_DISABLED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_MEMBRESIA_DISABLED = 182
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED
+  commentId: F:Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED
+  id: MSG_MEMBRESIA_UPDATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_MEMBRESIA_UPDATED
+  nameWithType: Translations.MSG_MEMBRESIA_UPDATED
+  fullName: Domain.Enums.Translations.MSG_MEMBRESIA_UPDATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_MEMBRESIA_UPDATED = 183
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_NO_PERMISSION
+  commentId: F:Domain.Enums.Translations.MSG_NO_PERMISSION
+  id: MSG_NO_PERMISSION
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_NO_PERMISSION
+  nameWithType: Translations.MSG_NO_PERMISSION
+  fullName: Domain.Enums.Translations.MSG_NO_PERMISSION
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_NO_PERMISSION = 184
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_NO_PERM_LIST
+  commentId: F:Domain.Enums.Translations.MSG_NO_PERM_LIST
+  id: MSG_NO_PERM_LIST
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_NO_PERM_LIST
+  nameWithType: Translations.MSG_NO_PERM_LIST
+  fullName: Domain.Enums.Translations.MSG_NO_PERM_LIST
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_NO_PERM_LIST = 185
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_NO_PERM_LOGS
+  commentId: F:Domain.Enums.Translations.MSG_NO_PERM_LOGS
+  id: MSG_NO_PERM_LOGS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_NO_PERM_LOGS
+  nameWithType: Translations.MSG_NO_PERM_LOGS
+  fullName: Domain.Enums.Translations.MSG_NO_PERM_LOGS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_NO_PERM_LOGS = 186
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_NO_PERM_USERS
+  commentId: F:Domain.Enums.Translations.MSG_NO_PERM_USERS
+  id: MSG_NO_PERM_USERS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_NO_PERM_USERS
+  nameWithType: Translations.MSG_NO_PERM_USERS
+  fullName: Domain.Enums.Translations.MSG_NO_PERM_USERS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_NO_PERM_USERS = 187
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_PAGO_REEMBOLSADO
+  commentId: F:Domain.Enums.Translations.MSG_PAGO_REEMBOLSADO
+  id: MSG_PAGO_REEMBOLSADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_PAGO_REEMBOLSADO
+  nameWithType: Translations.MSG_PAGO_REEMBOLSADO
+  fullName: Domain.Enums.Translations.MSG_PAGO_REEMBOLSADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_PAGO_REEMBOLSADO = 188
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_PAGO_REGISTRADO
+  commentId: F:Domain.Enums.Translations.MSG_PAGO_REGISTRADO
+  id: MSG_PAGO_REGISTRADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_PAGO_REGISTRADO
+  nameWithType: Translations.MSG_PAGO_REGISTRADO
+  fullName: Domain.Enums.Translations.MSG_PAGO_REGISTRADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_PAGO_REGISTRADO = 189
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_PERMISSIONS_UPDATED
+  commentId: F:Domain.Enums.Translations.MSG_PERMISSIONS_UPDATED
+  id: MSG_PERMISSIONS_UPDATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_PERMISSIONS_UPDATED
+  nameWithType: Translations.MSG_PERMISSIONS_UPDATED
+  fullName: Domain.Enums.Translations.MSG_PERMISSIONS_UPDATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_PERMISSIONS_UPDATED = 190
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_RESERVA_GENERADA
+  commentId: F:Domain.Enums.Translations.MSG_RESERVA_GENERADA
+  id: MSG_RESERVA_GENERADA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_RESERVA_GENERADA
+  nameWithType: Translations.MSG_RESERVA_GENERADA
+  fullName: Domain.Enums.Translations.MSG_RESERVA_GENERADA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_RESERVA_GENERADA = 191
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_RESTORE_SUCCESS
+  commentId: F:Domain.Enums.Translations.MSG_RESTORE_SUCCESS
+  id: MSG_RESTORE_SUCCESS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_RESTORE_SUCCESS
+  nameWithType: Translations.MSG_RESTORE_SUCCESS
+  fullName: Domain.Enums.Translations.MSG_RESTORE_SUCCESS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_RESTORE_SUCCESS = 192
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_RUTINA_ELIMINADA
+  commentId: F:Domain.Enums.Translations.MSG_RUTINA_ELIMINADA
+  id: MSG_RUTINA_ELIMINADA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_RUTINA_ELIMINADA
+  nameWithType: Translations.MSG_RUTINA_ELIMINADA
+  fullName: Domain.Enums.Translations.MSG_RUTINA_ELIMINADA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_RUTINA_ELIMINADA = 193
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_RUTINA_GUARDADA
+  commentId: F:Domain.Enums.Translations.MSG_RUTINA_GUARDADA
+  id: MSG_RUTINA_GUARDADA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_RUTINA_GUARDADA
+  nameWithType: Translations.MSG_RUTINA_GUARDADA
+  fullName: Domain.Enums.Translations.MSG_RUTINA_GUARDADA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_RUTINA_GUARDADA = 194
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_SUCCESS
+  commentId: F:Domain.Enums.Translations.MSG_SUCCESS
+  id: MSG_SUCCESS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_SUCCESS
+  nameWithType: Translations.MSG_SUCCESS
+  fullName: Domain.Enums.Translations.MSG_SUCCESS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_SUCCESS = 195
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_USER_CREATED
+  commentId: F:Domain.Enums.Translations.MSG_USER_CREATED
+  id: MSG_USER_CREATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_USER_CREATED
+  nameWithType: Translations.MSG_USER_CREATED
+  fullName: Domain.Enums.Translations.MSG_USER_CREATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_USER_CREATED = 196
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_USER_UPDATED
+  commentId: F:Domain.Enums.Translations.MSG_USER_UPDATED
+  id: MSG_USER_UPDATED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_USER_UPDATED
+  nameWithType: Translations.MSG_USER_UPDATED
+  fullName: Domain.Enums.Translations.MSG_USER_UPDATED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_USER_UPDATED = 197
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_WELCOME
+  commentId: F:Domain.Enums.Translations.MSG_WELCOME
+  id: MSG_WELCOME
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_WELCOME
+  nameWithType: Translations.MSG_WELCOME
+  fullName: Domain.Enums.Translations.MSG_WELCOME
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_WELCOME = 198
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.PAGO_TITLE
+  commentId: F:Domain.Enums.Translations.PAGO_TITLE
+  id: PAGO_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: PAGO_TITLE
+  nameWithType: Translations.PAGO_TITLE
+  fullName: Domain.Enums.Translations.PAGO_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: PAGO_TITLE = 199
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.PERMISSIONS_TITLE
+  commentId: F:Domain.Enums.Translations.PERMISSIONS_TITLE
+  id: PERMISSIONS_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: PERMISSIONS_TITLE
+  nameWithType: Translations.PERMISSIONS_TITLE
+  fullName: Domain.Enums.Translations.PERMISSIONS_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: PERMISSIONS_TITLE = 200
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.RESERVA_TITLE
+  commentId: F:Domain.Enums.Translations.RESERVA_TITLE
+  id: RESERVA_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: RESERVA_TITLE
+  nameWithType: Translations.RESERVA_TITLE
+  fullName: Domain.Enums.Translations.RESERVA_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: RESERVA_TITLE = 201
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.RUTINA_TITLE
+  commentId: F:Domain.Enums.Translations.RUTINA_TITLE
+  id: RUTINA_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: RUTINA_TITLE
+  nameWithType: Translations.RUTINA_TITLE
+  fullName: Domain.Enums.Translations.RUTINA_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: RUTINA_TITLE = 202
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_CONFIRM
+  commentId: F:Domain.Enums.Translations.TITLE_CONFIRM
+  id: TITLE_CONFIRM
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_CONFIRM
+  nameWithType: Translations.TITLE_CONFIRM
+  fullName: Domain.Enums.Translations.TITLE_CONFIRM
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_CONFIRM = 203
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_CONFIRM_DELETE
+  commentId: F:Domain.Enums.Translations.TITLE_CONFIRM_DELETE
+  id: TITLE_CONFIRM_DELETE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_CONFIRM_DELETE
+  nameWithType: Translations.TITLE_CONFIRM_DELETE
+  fullName: Domain.Enums.Translations.TITLE_CONFIRM_DELETE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_CONFIRM_DELETE = 204
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_CONFIRM_RESTORE
+  commentId: F:Domain.Enums.Translations.TITLE_CONFIRM_RESTORE
+  id: TITLE_CONFIRM_RESTORE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_CONFIRM_RESTORE
+  nameWithType: Translations.TITLE_CONFIRM_RESTORE
+  fullName: Domain.Enums.Translations.TITLE_CONFIRM_RESTORE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_CONFIRM_RESTORE = 205
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_ERROR
+  commentId: F:Domain.Enums.Translations.TITLE_ERROR
+  id: TITLE_ERROR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_ERROR
+  nameWithType: Translations.TITLE_ERROR
+  fullName: Domain.Enums.Translations.TITLE_ERROR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_ERROR = 206
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_SUCCESS
+  commentId: F:Domain.Enums.Translations.TITLE_SUCCESS
+  id: TITLE_SUCCESS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_SUCCESS
+  nameWithType: Translations.TITLE_SUCCESS
+  fullName: Domain.Enums.Translations.TITLE_SUCCESS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_SUCCESS = 207
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_WARNING
+  commentId: F:Domain.Enums.Translations.TITLE_WARNING
+  id: TITLE_WARNING
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_WARNING
+  nameWithType: Translations.TITLE_WARNING
+  fullName: Domain.Enums.Translations.TITLE_WARNING
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_WARNING = 208
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.USERS_TITLE
+  commentId: F:Domain.Enums.Translations.USERS_TITLE
+  id: USERS_TITLE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: USERS_TITLE
+  nameWithType: Translations.USERS_TITLE
+  fullName: Domain.Enums.Translations.USERS_TITLE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: USERS_TITLE = 209
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_INGRESE_DNI_VALIDO
+  commentId: F:Domain.Enums.Translations.ERR_INGRESE_DNI_VALIDO
+  id: ERR_INGRESE_DNI_VALIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_INGRESE_DNI_VALIDO
+  nameWithType: Translations.ERR_INGRESE_DNI_VALIDO
+  fullName: Domain.Enums.Translations.ERR_INGRESE_DNI_VALIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_INGRESE_DNI_VALIDO = 210
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_SELECCIONE_CLIENTE
+  commentId: F:Domain.Enums.Translations.ERR_SELECCIONE_CLIENTE
+  id: ERR_SELECCIONE_CLIENTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_SELECCIONE_CLIENTE
+  nameWithType: Translations.ERR_SELECCIONE_CLIENTE
+  fullName: Domain.Enums.Translations.ERR_SELECCIONE_CLIENTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_SELECCIONE_CLIENTE = 211
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_SELECCIONE_RESERVA
+  commentId: F:Domain.Enums.Translations.ERR_SELECCIONE_RESERVA
+  id: ERR_SELECCIONE_RESERVA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_SELECCIONE_RESERVA
+  nameWithType: Translations.ERR_SELECCIONE_RESERVA
+  fullName: Domain.Enums.Translations.ERR_SELECCIONE_RESERVA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_SELECCIONE_RESERVA = 212
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_COMPROBANTE_SIN_CONTENIDO
+  commentId: F:Domain.Enums.Translations.ERR_COMPROBANTE_SIN_CONTENIDO
+  id: ERR_COMPROBANTE_SIN_CONTENIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_COMPROBANTE_SIN_CONTENIDO
+  nameWithType: Translations.ERR_COMPROBANTE_SIN_CONTENIDO
+  fullName: Domain.Enums.Translations.ERR_COMPROBANTE_SIN_CONTENIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_COMPROBANTE_SIN_CONTENIDO = 213
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_CANNOT_EDIT_ADMIN
+  commentId: F:Domain.Enums.Translations.ERR_CANNOT_EDIT_ADMIN
+  id: ERR_CANNOT_EDIT_ADMIN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_CANNOT_EDIT_ADMIN
+  nameWithType: Translations.ERR_CANNOT_EDIT_ADMIN
+  fullName: Domain.Enums.Translations.ERR_CANNOT_EDIT_ADMIN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_CANNOT_EDIT_ADMIN = 214
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_CANNOT_DELETE_ADMIN
+  commentId: F:Domain.Enums.Translations.ERR_CANNOT_DELETE_ADMIN
+  id: ERR_CANNOT_DELETE_ADMIN
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_CANNOT_DELETE_ADMIN
+  nameWithType: Translations.ERR_CANNOT_DELETE_ADMIN
+  fullName: Domain.Enums.Translations.ERR_CANNOT_DELETE_ADMIN
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_CANNOT_DELETE_ADMIN = 215
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_USER_NOT_FOUND
+  commentId: F:Domain.Enums.Translations.ERR_USER_NOT_FOUND
+  id: ERR_USER_NOT_FOUND
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_USER_NOT_FOUND
+  nameWithType: Translations.ERR_USER_NOT_FOUND
+  fullName: Domain.Enums.Translations.ERR_USER_NOT_FOUND
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_USER_NOT_FOUND = 216
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_INCORRECT_PASSWORD
+  commentId: F:Domain.Enums.Translations.ERR_INCORRECT_PASSWORD
+  id: ERR_INCORRECT_PASSWORD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_INCORRECT_PASSWORD
+  nameWithType: Translations.ERR_INCORRECT_PASSWORD
+  fullName: Domain.Enums.Translations.ERR_INCORRECT_PASSWORD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_INCORRECT_PASSWORD = 217
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_USER_BLOCKED
+  commentId: F:Domain.Enums.Translations.ERR_USER_BLOCKED
+  id: ERR_USER_BLOCKED
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_USER_BLOCKED
+  nameWithType: Translations.ERR_USER_BLOCKED
+  fullName: Domain.Enums.Translations.ERR_USER_BLOCKED
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_USER_BLOCKED = 218
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_USER_ALREADY_EXISTS
+  commentId: F:Domain.Enums.Translations.ERR_USER_ALREADY_EXISTS
+  id: ERR_USER_ALREADY_EXISTS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_USER_ALREADY_EXISTS
+  nameWithType: Translations.ERR_USER_ALREADY_EXISTS
+  fullName: Domain.Enums.Translations.ERR_USER_ALREADY_EXISTS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_USER_ALREADY_EXISTS = 219
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_USER_NOT_EXIST
+  commentId: F:Domain.Enums.Translations.ERR_USER_NOT_EXIST
+  id: ERR_USER_NOT_EXIST
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_USER_NOT_EXIST
+  nameWithType: Translations.ERR_USER_NOT_EXIST
+  fullName: Domain.Enums.Translations.ERR_USER_NOT_EXIST
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_USER_NOT_EXIST = 220
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N
+  commentId: F:Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N
+  id: ERR_EJERCICIO_REP_ZERO_N
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_EJERCICIO_REP_ZERO_N
+  nameWithType: Translations.ERR_EJERCICIO_REP_ZERO_N
+  fullName: Domain.Enums.Translations.ERR_EJERCICIO_REP_ZERO_N
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_EJERCICIO_REP_ZERO_N = 221
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N
+  commentId: F:Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N
+  id: ERR_EJERCICIO_DIA_INVALIDO_N
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_EJERCICIO_DIA_INVALIDO_N
+  nameWithType: Translations.ERR_EJERCICIO_DIA_INVALIDO_N
+  fullName: Domain.Enums.Translations.ERR_EJERCICIO_DIA_INVALIDO_N
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_EJERCICIO_DIA_INVALIDO_N = 222
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_ADELANTO_NEGATIVO
+  commentId: F:Domain.Enums.Translations.ERR_ADELANTO_NEGATIVO
+  id: ERR_ADELANTO_NEGATIVO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_ADELANTO_NEGATIVO
+  nameWithType: Translations.ERR_ADELANTO_NEGATIVO
+  fullName: Domain.Enums.Translations.ERR_ADELANTO_NEGATIVO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_ADELANTO_NEGATIVO = 223
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_DURACION_CERO
+  commentId: F:Domain.Enums.Translations.ERR_DURACION_CERO
+  id: ERR_DURACION_CERO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_DURACION_CERO
+  nameWithType: Translations.ERR_DURACION_CERO
+  fullName: Domain.Enums.Translations.ERR_DURACION_CERO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_DURACION_CERO = 224
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_ESPACIO_NO_ENCONTRADO
+  commentId: F:Domain.Enums.Translations.ERR_ESPACIO_NO_ENCONTRADO
+  id: ERR_ESPACIO_NO_ENCONTRADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_ESPACIO_NO_ENCONTRADO
+  nameWithType: Translations.ERR_ESPACIO_NO_ENCONTRADO
+  fullName: Domain.Enums.Translations.ERR_ESPACIO_NO_ENCONTRADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_ESPACIO_NO_ENCONTRADO = 225
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_ADELANTO_MAYOR_TOTAL
+  commentId: F:Domain.Enums.Translations.ERR_ADELANTO_MAYOR_TOTAL
+  id: ERR_ADELANTO_MAYOR_TOTAL
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_ADELANTO_MAYOR_TOTAL
+  nameWithType: Translations.ERR_ADELANTO_MAYOR_TOTAL
+  fullName: Domain.Enums.Translations.ERR_ADELANTO_MAYOR_TOTAL
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_ADELANTO_MAYOR_TOTAL = 226
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_ADELANTO_MINIMO
+  commentId: F:Domain.Enums.Translations.ERR_ADELANTO_MINIMO
+  id: ERR_ADELANTO_MINIMO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_ADELANTO_MINIMO
+  nameWithType: Translations.ERR_ADELANTO_MINIMO
+  fullName: Domain.Enums.Translations.ERR_ADELANTO_MINIMO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_ADELANTO_MINIMO = 227
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_ESPACIO_NO_DISPONIBLE_RACE
+  commentId: F:Domain.Enums.Translations.ERR_ESPACIO_NO_DISPONIBLE_RACE
+  id: ERR_ESPACIO_NO_DISPONIBLE_RACE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_ESPACIO_NO_DISPONIBLE_RACE
+  nameWithType: Translations.ERR_ESPACIO_NO_DISPONIBLE_RACE
+  fullName: Domain.Enums.Translations.ERR_ESPACIO_NO_DISPONIBLE_RACE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_ESPACIO_NO_DISPONIBLE_RACE = 228
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_RESERVA_YA_CANCELADA
+  commentId: F:Domain.Enums.Translations.ERR_RESERVA_YA_CANCELADA
+  id: ERR_RESERVA_YA_CANCELADA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_RESERVA_YA_CANCELADA
+  nameWithType: Translations.ERR_RESERVA_YA_CANCELADA
+  fullName: Domain.Enums.Translations.ERR_RESERVA_YA_CANCELADA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_RESERVA_YA_CANCELADA = 229
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_CANCELAR_RESERVA_FINALIZADA
+  commentId: F:Domain.Enums.Translations.ERR_CANCELAR_RESERVA_FINALIZADA
+  id: ERR_CANCELAR_RESERVA_FINALIZADA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_CANCELAR_RESERVA_FINALIZADA
+  nameWithType: Translations.ERR_CANCELAR_RESERVA_FINALIZADA
+  fullName: Domain.Enums.Translations.ERR_CANCELAR_RESERVA_FINALIZADA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_CANCELAR_RESERVA_FINALIZADA = 230
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_PAGO_NO_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_PAGO_NO_EXISTE
+  id: ERR_PAGO_NO_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_PAGO_NO_EXISTE
+  nameWithType: Translations.ERR_PAGO_NO_EXISTE
+  fullName: Domain.Enums.Translations.ERR_PAGO_NO_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_PAGO_NO_EXISTE = 231
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_SOLO_ABONADO_ESTADO
+  commentId: F:Domain.Enums.Translations.ERR_SOLO_ABONADO_ESTADO
+  id: ERR_SOLO_ABONADO_ESTADO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_SOLO_ABONADO_ESTADO
+  nameWithType: Translations.ERR_SOLO_ABONADO_ESTADO
+  fullName: Domain.Enums.Translations.ERR_SOLO_ABONADO_ESTADO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_SOLO_ABONADO_ESTADO = 232
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_PRECIO_MAYOR_CERO
+  commentId: F:Domain.Enums.Translations.ERR_PRECIO_MAYOR_CERO
+  id: ERR_PRECIO_MAYOR_CERO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_PRECIO_MAYOR_CERO
+  nameWithType: Translations.ERR_PRECIO_MAYOR_CERO
+  fullName: Domain.Enums.Translations.ERR_PRECIO_MAYOR_CERO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_PRECIO_MAYOR_CERO = 233
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_REGULARIDAD_MAYOR_CERO
+  commentId: F:Domain.Enums.Translations.ERR_REGULARIDAD_MAYOR_CERO
+  id: ERR_REGULARIDAD_MAYOR_CERO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_REGULARIDAD_MAYOR_CERO
+  nameWithType: Translations.ERR_REGULARIDAD_MAYOR_CERO
+  fullName: Domain.Enums.Translations.ERR_REGULARIDAD_MAYOR_CERO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_REGULARIDAD_MAYOR_CERO = 234
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO
+  commentId: F:Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO
+  id: ERR_NOMBRE_REQUERIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_NOMBRE_REQUERIDO
+  nameWithType: Translations.ERR_NOMBRE_REQUERIDO
+  fullName: Domain.Enums.Translations.ERR_NOMBRE_REQUERIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_NOMBRE_REQUERIDO = 235
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_MEMBRESIA_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_MEMBRESIA_EXISTE
+  id: ERR_MEMBRESIA_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_MEMBRESIA_EXISTE
+  nameWithType: Translations.ERR_MEMBRESIA_EXISTE
+  fullName: Domain.Enums.Translations.ERR_MEMBRESIA_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_MEMBRESIA_EXISTE = 236
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE
+  id: ERR_MEMBRESIA_NO_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_MEMBRESIA_NO_EXISTE
+  nameWithType: Translations.ERR_MEMBRESIA_NO_EXISTE
+  fullName: Domain.Enums.Translations.ERR_MEMBRESIA_NO_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_MEMBRESIA_NO_EXISTE = 237
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_PRECIO_NEGATIVO
+  commentId: F:Domain.Enums.Translations.ERR_PRECIO_NEGATIVO
+  id: ERR_PRECIO_NEGATIVO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_PRECIO_NEGATIVO
+  nameWithType: Translations.ERR_PRECIO_NEGATIVO
+  fullName: Domain.Enums.Translations.ERR_PRECIO_NEGATIVO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_PRECIO_NEGATIVO = 238
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_EJERCICIO_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_EJERCICIO_EXISTE
+  id: ERR_EJERCICIO_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_EJERCICIO_EXISTE
+  nameWithType: Translations.ERR_EJERCICIO_EXISTE
+  fullName: Domain.Enums.Translations.ERR_EJERCICIO_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_EJERCICIO_EXISTE = 239
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_EJERCICIO_NO_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_EJERCICIO_NO_EXISTE
+  id: ERR_EJERCICIO_NO_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_EJERCICIO_NO_EXISTE
+  nameWithType: Translations.ERR_EJERCICIO_NO_EXISTE
+  fullName: Domain.Enums.Translations.ERR_EJERCICIO_NO_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_EJERCICIO_NO_EXISTE = 240
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_APELLIDO_REQUERIDO
+  commentId: F:Domain.Enums.Translations.ERR_APELLIDO_REQUERIDO
+  id: ERR_APELLIDO_REQUERIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_APELLIDO_REQUERIDO
+  nameWithType: Translations.ERR_APELLIDO_REQUERIDO
+  fullName: Domain.Enums.Translations.ERR_APELLIDO_REQUERIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_APELLIDO_REQUERIDO = 241
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_FECHA_NAC_FUTURA
+  commentId: F:Domain.Enums.Translations.ERR_FECHA_NAC_FUTURA
+  id: ERR_FECHA_NAC_FUTURA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_FECHA_NAC_FUTURA
+  nameWithType: Translations.ERR_FECHA_NAC_FUTURA
+  fullName: Domain.Enums.Translations.ERR_FECHA_NAC_FUTURA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_FECHA_NAC_FUTURA = 242
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_EMAIL_INVALIDO
+  commentId: F:Domain.Enums.Translations.ERR_EMAIL_INVALIDO
+  id: ERR_EMAIL_INVALIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_EMAIL_INVALIDO
+  nameWithType: Translations.ERR_EMAIL_INVALIDO
+  fullName: Domain.Enums.Translations.ERR_EMAIL_INVALIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_EMAIL_INVALIDO = 243
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_DNI_DUPLICADO_MSG
+  commentId: F:Domain.Enums.Translations.ERR_DNI_DUPLICADO_MSG
+  id: ERR_DNI_DUPLICADO_MSG
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_DNI_DUPLICADO_MSG
+  nameWithType: Translations.ERR_DNI_DUPLICADO_MSG
+  fullName: Domain.Enums.Translations.ERR_DNI_DUPLICADO_MSG
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_DNI_DUPLICADO_MSG = 244
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA
+  commentId: F:Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA
+  id: ERR_MEMBRESIA_NO_ACTIVA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_MEMBRESIA_NO_ACTIVA
+  nameWithType: Translations.ERR_MEMBRESIA_NO_ACTIVA
+  fullName: Domain.Enums.Translations.ERR_MEMBRESIA_NO_ACTIVA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_MEMBRESIA_NO_ACTIVA = 245
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_CLIENTE_CON_DEUDA_MSG
+  commentId: F:Domain.Enums.Translations.ERR_CLIENTE_CON_DEUDA_MSG
+  id: ERR_CLIENTE_CON_DEUDA_MSG
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_CLIENTE_CON_DEUDA_MSG
+  nameWithType: Translations.ERR_CLIENTE_CON_DEUDA_MSG
+  fullName: Domain.Enums.Translations.ERR_CLIENTE_CON_DEUDA_MSG
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_CLIENTE_CON_DEUDA_MSG = 246
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_RAZON_REQUERIDA
+  commentId: F:Domain.Enums.Translations.ERR_RAZON_REQUERIDA
+  id: ERR_RAZON_REQUERIDA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_RAZON_REQUERIDA
+  nameWithType: Translations.ERR_RAZON_REQUERIDA
+  fullName: Domain.Enums.Translations.ERR_RAZON_REQUERIDA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_RAZON_REQUERIDA = 247
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR
+  commentId: F:Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR
+  id: ERR_HORA_DESDE_MAYOR
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_HORA_DESDE_MAYOR
+  nameWithType: Translations.ERR_HORA_DESDE_MAYOR
+  fullName: Domain.Enums.Translations.ERR_HORA_DESDE_MAYOR
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_HORA_DESDE_MAYOR = 248
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_PAGOID_REQUERIDO
+  commentId: F:Domain.Enums.Translations.ERR_PAGOID_REQUERIDO
+  id: ERR_PAGOID_REQUERIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_PAGOID_REQUERIDO
+  nameWithType: Translations.ERR_PAGOID_REQUERIDO
+  fullName: Domain.Enums.Translations.ERR_PAGOID_REQUERIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_PAGOID_REQUERIDO = 249
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_COMPROBANTE_VACIO
+  commentId: F:Domain.Enums.Translations.ERR_COMPROBANTE_VACIO
+  id: ERR_COMPROBANTE_VACIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_COMPROBANTE_VACIO
+  nameWithType: Translations.ERR_COMPROBANTE_VACIO
+  fullName: Domain.Enums.Translations.ERR_COMPROBANTE_VACIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_COMPROBANTE_VACIO = 250
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_COMPROBANTE_TAMANO
+  commentId: F:Domain.Enums.Translations.ERR_COMPROBANTE_TAMANO
+  id: ERR_COMPROBANTE_TAMANO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_COMPROBANTE_TAMANO
+  nameWithType: Translations.ERR_COMPROBANTE_TAMANO
+  fullName: Domain.Enums.Translations.ERR_COMPROBANTE_TAMANO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_COMPROBANTE_TAMANO = 251
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_NOMBRE_ARCHIVO_REQUERIDO
+  commentId: F:Domain.Enums.Translations.ERR_NOMBRE_ARCHIVO_REQUERIDO
+  id: ERR_NOMBRE_ARCHIVO_REQUERIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_NOMBRE_ARCHIVO_REQUERIDO
+  nameWithType: Translations.ERR_NOMBRE_ARCHIVO_REQUERIDO
+  fullName: Domain.Enums.Translations.ERR_NOMBRE_ARCHIVO_REQUERIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_NOMBRE_ARCHIVO_REQUERIDO = 252
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  commentId: F:Domain.Enums.Translations.ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  id: ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  nameWithType: Translations.ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  fullName: Domain.Enums.Translations.ERR_FORMATO_ARCHIVO_NO_PERMITIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_FORMATO_ARCHIVO_NO_PERMITIDO = 253
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE
+  commentId: F:Domain.Enums.Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE
+  id: ERR_CLIENTE_DEUDA_BLOQUEANTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_CLIENTE_DEUDA_BLOQUEANTE
+  nameWithType: Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE
+  fullName: Domain.Enums.Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_CLIENTE_DEUDA_BLOQUEANTE = 254
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_PATENTE_ADD_CHILD
+  commentId: F:Domain.Enums.Translations.ERR_PATENTE_ADD_CHILD
+  id: ERR_PATENTE_ADD_CHILD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_PATENTE_ADD_CHILD
+  nameWithType: Translations.ERR_PATENTE_ADD_CHILD
+  fullName: Domain.Enums.Translations.ERR_PATENTE_ADD_CHILD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_PATENTE_ADD_CHILD = 255
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_PATENTE_REMOVE_CHILD
+  commentId: F:Domain.Enums.Translations.ERR_PATENTE_REMOVE_CHILD
+  id: ERR_PATENTE_REMOVE_CHILD
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_PATENTE_REMOVE_CHILD
+  nameWithType: Translations.ERR_PATENTE_REMOVE_CHILD
+  fullName: Domain.Enums.Translations.ERR_PATENTE_REMOVE_CHILD
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_PATENTE_REMOVE_CHILD = 256
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_BACKUP_NO_EXISTE
+  commentId: F:Domain.Enums.Translations.ERR_BACKUP_NO_EXISTE
+  id: ERR_BACKUP_NO_EXISTE
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_BACKUP_NO_EXISTE
+  nameWithType: Translations.ERR_BACKUP_NO_EXISTE
+  fullName: Domain.Enums.Translations.ERR_BACKUP_NO_EXISTE
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_BACKUP_NO_EXISTE = 257
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.ERR_FAMILIA_CICLO
+  commentId: F:Domain.Enums.Translations.ERR_FAMILIA_CICLO
+  id: ERR_FAMILIA_CICLO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: ERR_FAMILIA_CICLO
+  nameWithType: Translations.ERR_FAMILIA_CICLO
+  fullName: Domain.Enums.Translations.ERR_FAMILIA_CICLO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: ERR_FAMILIA_CICLO = 258
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_SUBFAMILIAS
+  commentId: F:Domain.Enums.Translations.LBL_SUBFAMILIAS
+  id: LBL_SUBFAMILIAS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_SUBFAMILIAS
+  nameWithType: Translations.LBL_SUBFAMILIAS
+  fullName: Domain.Enums.Translations.LBL_SUBFAMILIAS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_SUBFAMILIAS = 259
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_VISTA_PREVIA
+  commentId: F:Domain.Enums.Translations.LBL_VISTA_PREVIA
+  id: LBL_VISTA_PREVIA
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_VISTA_PREVIA
+  nameWithType: Translations.LBL_VISTA_PREVIA
+  fullName: Domain.Enums.Translations.LBL_VISTA_PREVIA
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_VISTA_PREVIA = 260
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MAIN_NEGOCIO
+  commentId: F:Domain.Enums.Translations.MAIN_NEGOCIO
+  id: MAIN_NEGOCIO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MAIN_NEGOCIO
+  nameWithType: Translations.MAIN_NEGOCIO
+  fullName: Domain.Enums.Translations.MAIN_NEGOCIO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MAIN_NEGOCIO = 261
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_0
+  commentId: F:Domain.Enums.Translations.DAY_0
+  id: DAY_0
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_0
+  nameWithType: Translations.DAY_0
+  fullName: Domain.Enums.Translations.DAY_0
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_0 = 262
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_1
+  commentId: F:Domain.Enums.Translations.DAY_1
+  id: DAY_1
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_1
+  nameWithType: Translations.DAY_1
+  fullName: Domain.Enums.Translations.DAY_1
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_1 = 263
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_2
+  commentId: F:Domain.Enums.Translations.DAY_2
+  id: DAY_2
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_2
+  nameWithType: Translations.DAY_2
+  fullName: Domain.Enums.Translations.DAY_2
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_2 = 264
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_3
+  commentId: F:Domain.Enums.Translations.DAY_3
+  id: DAY_3
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_3
+  nameWithType: Translations.DAY_3
+  fullName: Domain.Enums.Translations.DAY_3
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_3 = 265
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_4
+  commentId: F:Domain.Enums.Translations.DAY_4
+  id: DAY_4
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_4
+  nameWithType: Translations.DAY_4
+  fullName: Domain.Enums.Translations.DAY_4
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_4 = 266
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_5
+  commentId: F:Domain.Enums.Translations.DAY_5
+  id: DAY_5
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_5
+  nameWithType: Translations.DAY_5
+  fullName: Domain.Enums.Translations.DAY_5
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_5 = 267
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DAY_6
+  commentId: F:Domain.Enums.Translations.DAY_6
+  id: DAY_6
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DAY_6
+  nameWithType: Translations.DAY_6
+  fullName: Domain.Enums.Translations.DAY_6
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DAY_6 = 268
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.TITLE_INFO
+  commentId: F:Domain.Enums.Translations.TITLE_INFO
+  id: TITLE_INFO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: TITLE_INFO
+  nameWithType: Translations.TITLE_INFO
+  fullName: Domain.Enums.Translations.TITLE_INFO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: TITLE_INFO = 269
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_TODOS
+  commentId: F:Domain.Enums.Translations.LBL_TODOS
+  id: LBL_TODOS
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_TODOS
+  nameWithType: Translations.LBL_TODOS
+  fullName: Domain.Enums.Translations.LBL_TODOS
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_TODOS = 270
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_DESCONOCIDO
+  commentId: F:Domain.Enums.Translations.LBL_DESCONOCIDO
+  id: LBL_DESCONOCIDO
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_DESCONOCIDO
+  nameWithType: Translations.LBL_DESCONOCIDO
+  fullName: Domain.Enums.Translations.LBL_DESCONOCIDO
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_DESCONOCIDO = 271
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_DEFAULT_DISABLE_REASON
+  commentId: F:Domain.Enums.Translations.MSG_DEFAULT_DISABLE_REASON
+  id: MSG_DEFAULT_DISABLE_REASON
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_DEFAULT_DISABLE_REASON
+  nameWithType: Translations.MSG_DEFAULT_DISABLE_REASON
+  fullName: Domain.Enums.Translations.MSG_DEFAULT_DISABLE_REASON
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_DEFAULT_DISABLE_REASON = 272
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.DIALOG_SELECT_VOUCHER
+  commentId: F:Domain.Enums.Translations.DIALOG_SELECT_VOUCHER
+  id: DIALOG_SELECT_VOUCHER
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: DIALOG_SELECT_VOUCHER
+  nameWithType: Translations.DIALOG_SELECT_VOUCHER
+  fullName: Domain.Enums.Translations.DIALOG_SELECT_VOUCHER
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: DIALOG_SELECT_VOUCHER = 273
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.MSG_ERR_SEARCH_CLIENT
+  commentId: F:Domain.Enums.Translations.MSG_ERR_SEARCH_CLIENT
+  id: MSG_ERR_SEARCH_CLIENT
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: MSG_ERR_SEARCH_CLIENT
+  nameWithType: Translations.MSG_ERR_SEARCH_CLIENT
+  fullName: Domain.Enums.Translations.MSG_ERR_SEARCH_CLIENT
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: MSG_ERR_SEARCH_CLIENT = 274
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_RAZON
+  commentId: F:Domain.Enums.Translations.LBL_RAZON
+  id: LBL_RAZON
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_RAZON
+  nameWithType: Translations.LBL_RAZON
+  fullName: Domain.Enums.Translations.LBL_RAZON
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_RAZON = 275
+    return:
+      type: Domain.Enums.Translations
+- uid: Domain.Enums.Translations.LBL_PATENTES
+  commentId: F:Domain.Enums.Translations.LBL_PATENTES
+  id: LBL_PATENTES
+  parent: Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: LBL_PATENTES
+  nameWithType: Translations.LBL_PATENTES
+  fullName: Domain.Enums.Translations.LBL_PATENTES
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: LBL_PATENTES = 276
+    return:
+      type: Domain.Enums.Translations
+references:
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: Domain.Enums.Translations
+  commentId: T:Domain.Enums.Translations
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.Translations.html
+  name: Translations
+  nameWithType: Translations
+  fullName: Domain.Enums.Translations

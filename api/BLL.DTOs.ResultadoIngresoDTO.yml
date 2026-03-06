@@ -1,0 +1,530 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.ResultadoIngresoDTO
+  commentId: T:BLL.DTOs.ResultadoIngresoDTO
+  id: ResultadoIngresoDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.ResultadoIngresoDTO.#ctor
+  - BLL.DTOs.ResultadoIngresoDTO.Balance
+  - BLL.DTOs.ResultadoIngresoDTO.NombreCliente
+  - BLL.DTOs.ResultadoIngresoDTO.Permitido
+  - BLL.DTOs.ResultadoIngresoDTO.Razon
+  langs:
+  - csharp
+  - vb
+  name: ResultadoIngresoDTO
+  nameWithType: ResultadoIngresoDTO
+  fullName: BLL.DTOs.ResultadoIngresoDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ResultadoIngresoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: >-
+    Result returned by <code>ClienteService.ValidarIngreso</code> describing whether a client is
+
+    permitted to enter the facility and the reason when access is denied.
+  remarks: >-
+    When <xref href="BLL.DTOs.ResultadoIngresoDTO.Permitido" data-throw-if-not-resolved="false"></xref> is <code>false</code>, <xref href="BLL.DTOs.ResultadoIngresoDTO.Razon" data-throw-if-not-resolved="false"></xref> contains a localized
+
+    message suitable for display (e.g., client inactive, outstanding debt).
+
+    <xref href="BLL.DTOs.ResultadoIngresoDTO.Balance" data-throw-if-not-resolved="false"></xref> is always populated so the UI can show the client's account state
+
+    regardless of the access decision.
+  example: []
+  syntax:
+    content: public class ResultadoIngresoDTO
+    content.vb: Public Class ResultadoIngresoDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.ResultadoIngresoDTO.#ctor
+  commentId: M:BLL.DTOs.ResultadoIngresoDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.ResultadoIngresoDTO
+  langs:
+  - csharp
+  - vb
+  name: ResultadoIngresoDTO()
+  nameWithType: ResultadoIngresoDTO.ResultadoIngresoDTO()
+  fullName: BLL.DTOs.ResultadoIngresoDTO.ResultadoIngresoDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ResultadoIngresoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public ResultadoIngresoDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.ResultadoIngresoDTO.#ctor*
+  nameWithType.vb: ResultadoIngresoDTO.New()
+  fullName.vb: BLL.DTOs.ResultadoIngresoDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.ResultadoIngresoDTO.Permitido
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.Permitido
+  id: Permitido
+  parent: BLL.DTOs.ResultadoIngresoDTO
+  langs:
+  - csharp
+  - vb
+  name: Permitido
+  nameWithType: ResultadoIngresoDTO.Permitido
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Permitido
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ResultadoIngresoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: <code>true</code> if the client is allowed entry and a check-in record was created.
+  example: []
+  syntax:
+    content: public bool Permitido { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Permitido As Boolean
+  overload: BLL.DTOs.ResultadoIngresoDTO.Permitido*
+- uid: BLL.DTOs.ResultadoIngresoDTO.Razon
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.Razon
+  id: Razon
+  parent: BLL.DTOs.ResultadoIngresoDTO
+  langs:
+  - csharp
+  - vb
+  name: Razon
+  nameWithType: ResultadoIngresoDTO.Razon
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Razon
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ResultadoIngresoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Localized denial reason, or <code>null</code> when <xref href="BLL.DTOs.ResultadoIngresoDTO.Permitido" data-throw-if-not-resolved="false"></xref> is <code>true</code>.
+  example: []
+  syntax:
+    content: public string Razon { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Razon As String
+  overload: BLL.DTOs.ResultadoIngresoDTO.Razon*
+- uid: BLL.DTOs.ResultadoIngresoDTO.NombreCliente
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.NombreCliente
+  id: NombreCliente
+  parent: BLL.DTOs.ResultadoIngresoDTO
+  langs:
+  - csharp
+  - vb
+  name: NombreCliente
+  nameWithType: ResultadoIngresoDTO.NombreCliente
+  fullName: BLL.DTOs.ResultadoIngresoDTO.NombreCliente
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ResultadoIngresoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Full name of the client (<code>"Nombre Apellido"</code>).
+  example: []
+  syntax:
+    content: public string NombreCliente { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NombreCliente As String
+  overload: BLL.DTOs.ResultadoIngresoDTO.NombreCliente*
+- uid: BLL.DTOs.ResultadoIngresoDTO.Balance
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.Balance
+  id: Balance
+  parent: BLL.DTOs.ResultadoIngresoDTO
+  langs:
+  - csharp
+  - vb
+  name: Balance
+  nameWithType: ResultadoIngresoDTO.Balance
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Balance
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/ResultadoIngresoDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Current account balance in currency units at the time of the validation.
+  example: []
+  syntax:
+    content: public decimal Balance { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property Balance As Decimal
+  overload: BLL.DTOs.ResultadoIngresoDTO.Balance*
+references:
+- uid: BLL.DTOs.ResultadoIngresoDTO.Permitido
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.Permitido
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_Permitido
+  name: Permitido
+  nameWithType: ResultadoIngresoDTO.Permitido
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Permitido
+- uid: BLL.DTOs.ResultadoIngresoDTO.Razon
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.Razon
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_Razon
+  name: Razon
+  nameWithType: ResultadoIngresoDTO.Razon
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Razon
+- uid: BLL.DTOs.ResultadoIngresoDTO.Balance
+  commentId: P:BLL.DTOs.ResultadoIngresoDTO.Balance
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_Balance
+  name: Balance
+  nameWithType: ResultadoIngresoDTO.Balance
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Balance
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.ResultadoIngresoDTO.#ctor*
+  commentId: Overload:BLL.DTOs.ResultadoIngresoDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO__ctor
+  name: ResultadoIngresoDTO
+  nameWithType: ResultadoIngresoDTO.ResultadoIngresoDTO
+  fullName: BLL.DTOs.ResultadoIngresoDTO.ResultadoIngresoDTO
+  nameWithType.vb: ResultadoIngresoDTO.New
+  fullName.vb: BLL.DTOs.ResultadoIngresoDTO.New
+  name.vb: New
+- uid: BLL.DTOs.ResultadoIngresoDTO.Permitido*
+  commentId: Overload:BLL.DTOs.ResultadoIngresoDTO.Permitido
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_Permitido
+  name: Permitido
+  nameWithType: ResultadoIngresoDTO.Permitido
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Permitido
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: BLL.DTOs.ResultadoIngresoDTO.Razon*
+  commentId: Overload:BLL.DTOs.ResultadoIngresoDTO.Razon
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_Razon
+  name: Razon
+  nameWithType: ResultadoIngresoDTO.Razon
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Razon
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: BLL.DTOs.ResultadoIngresoDTO.NombreCliente*
+  commentId: Overload:BLL.DTOs.ResultadoIngresoDTO.NombreCliente
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_NombreCliente
+  name: NombreCliente
+  nameWithType: ResultadoIngresoDTO.NombreCliente
+  fullName: BLL.DTOs.ResultadoIngresoDTO.NombreCliente
+- uid: BLL.DTOs.ResultadoIngresoDTO.Balance*
+  commentId: Overload:BLL.DTOs.ResultadoIngresoDTO.Balance
+  isExternal: true
+  href: BLL.DTOs.ResultadoIngresoDTO.html#BLL_DTOs_ResultadoIngresoDTO_Balance
+  name: Balance
+  nameWithType: ResultadoIngresoDTO.Balance
+  fullName: BLL.DTOs.ResultadoIngresoDTO.Balance
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal

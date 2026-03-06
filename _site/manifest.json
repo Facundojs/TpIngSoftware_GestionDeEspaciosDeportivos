@@ -1,0 +1,2539 @@
+{
+  "source_base_path": "C:/Users/Facundo/Desktop/TpIngSoftware_GestionDeEspaciosDeportivos",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.BalanceService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.BalanceService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.BalanceService",
+      "Summary": "<p sourcefile=\"api/BLL.BalanceService.yml\" sourcestartlinenumber=\"1\">Manages client account balances: periodic membership billing, balance enquiry,\ndebt validation, and movement history.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.AgendaDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.AgendaDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.AgendaDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.AgendaDTO.yml\" sourcestartlinenumber=\"1\">Represents a single availability window for a facility space on a given day of the week.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.ClienteDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.ClienteDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.ClienteDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.ClienteDTO.yml\" sourcestartlinenumber=\"1\">Projection of a <code>Cliente</code> entity used across all BLL service boundaries.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.ClienteStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.ClienteStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.ClienteStatus",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.ClienteStatus.yml\" sourcestartlinenumber=\"1\">Indicates whether a client account is active or has been deactivated.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.ComprobanteDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.ComprobanteDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.ComprobanteDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.ComprobanteDTO.yml\" sourcestartlinenumber=\"1\">Transfer object representing a receipt (comprobante) file attached to a payment or reservation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.EjercicioDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.EjercicioDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.EjercicioDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.EjercicioDTO.yml\" sourcestartlinenumber=\"1\">Represents a single exercise entry within a <xref href=\"BLL.DTOs.RutinaDTO\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.EspacioDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.EspacioDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.EspacioDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.EspacioDTO.yml\" sourcestartlinenumber=\"1\">Projection of a <code>Espacio</code> (sporting space/facility) entity exposed through BLL service boundaries.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.EstadoBalance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.EstadoBalance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.EstadoBalance",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.EstadoBalance.yml\" sourcestartlinenumber=\"1\">Categorized account balance state derived from the numeric balance value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.GenerarReservaDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.GenerarReservaDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.GenerarReservaDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.GenerarReservaDTO.yml\" sourcestartlinenumber=\"1\">Command object carrying all inputs required to create a new reservation via <code>ReservaService.GenerarReserva</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.IngresoDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.IngresoDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.IngresoDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.IngresoDTO.yml\" sourcestartlinenumber=\"1\">Projection of a facility check-in (<code>Ingreso</code>) record with a hydrated client name.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.MembresiaDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.MembresiaDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.MembresiaDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.MembresiaDTO.yml\" sourcestartlinenumber=\"1\">Projection of a <code>Membresia</code> entity exposed through BLL service boundaries.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.PagoDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.PagoDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.PagoDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.PagoDTO.yml\" sourcestartlinenumber=\"1\">Projection of a <code>Pago</code> entity used as both input and output for payment operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.ReservaDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.ReservaDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.ReservaDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.ReservaDTO.yml\" sourcestartlinenumber=\"1\">Projection of a <code>Reserva</code> entity with denormalized client and space names.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.ResultadoIngresoDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.ResultadoIngresoDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.ResultadoIngresoDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.ResultadoIngresoDTO.yml\" sourcestartlinenumber=\"1\">Result returned by <code>ClienteService.ValidarIngreso</code> describing whether a client is\npermitted to enter the facility and the reason when access is denied.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.RutinaDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.RutinaDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs.RutinaDTO",
+      "Summary": "<p sourcefile=\"api/BLL.DTOs.RutinaDTO.yml\" sourcestartlinenumber=\"1\">Projection of a <code>Rutina</code> (training routine) entity with its associated exercises.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.DTOs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.DTOs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.DTOs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Facades.ComprobanteFacade.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Facades.ComprobanteFacade.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Facades.ComprobanteFacade",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Facades.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Facades.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Facades",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Helpers.ComprobanteGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Helpers.ComprobanteGenerator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Helpers.ComprobanteGenerator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Helpers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Helpers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.AgendaMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.AgendaMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.AgendaMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.AgendaMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between <xref href=\"Domain.Entities.Agenda\" data-throw-if-not-resolved=\"false\"></xref> domain entities and <xref href=\"BLL.DTOs.AgendaDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.ClienteMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.ClienteMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.ClienteMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.ClienteMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between <xref href=\"Domain.Entities.Cliente\" data-throw-if-not-resolved=\"false\"></xref> domain entities and <xref href=\"BLL.DTOs.ClienteDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.EjercicioMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.EjercicioMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.EjercicioMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.EjercicioMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between exercise domain entities and <xref href=\"BLL.DTOs.EjercicioDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.EspacioMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.EspacioMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.EspacioMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.EspacioMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between <xref href=\"Domain.Entities.Espacio\" data-throw-if-not-resolved=\"false\"></xref> domain entities and <xref href=\"BLL.DTOs.EspacioDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.MembresiaMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.MembresiaMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.MembresiaMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.MembresiaMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between <xref href=\"Domain.Entities.Membresia\" data-throw-if-not-resolved=\"false\"></xref> domain entities and <xref href=\"BLL.DTOs.MembresiaDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.PagoMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.PagoMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.PagoMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.PagoMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between payment and receipt domain entities and their DTO projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.ReservaMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.ReservaMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.ReservaMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.ReservaMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between <xref href=\"Domain.Entities.Reserva\" data-throw-if-not-resolved=\"false\"></xref> domain entities and <xref href=\"BLL.DTOs.ReservaDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.RutinaMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.RutinaMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers.RutinaMapper",
+      "Summary": "<p sourcefile=\"api/BLL.Mappers.RutinaMapper.yml\" sourcestartlinenumber=\"1\">Bidirectional mapper between <xref href=\"Domain.Entities.Rutina\" data-throw-if-not-resolved=\"false\"></xref> domain entities and <xref href=\"BLL.DTOs.RutinaDTO\" data-throw-if-not-resolved=\"false\"></xref> projections.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Mappers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Mappers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Mappers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.SchedulerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.SchedulerService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.SchedulerService",
+      "Summary": "<p sourcefile=\"api/BLL.SchedulerService.yml\" sourcestartlinenumber=\"1\">Singleton background scheduler that periodically triggers <xref href=\"BLL.BalanceService.CalcularSaldoMensual\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.AgendaService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.AgendaService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.AgendaService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.AgendaService.yml\" sourcestartlinenumber=\"1\">Business logic service for configuring and querying a sports space's weekly operating schedule (agenda).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.ClienteService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.ClienteService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.ClienteService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.ClienteService.yml\" sourcestartlinenumber=\"1\">Business logic service for client lifecycle management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.EjercicioService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.EjercicioService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.EjercicioService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.EjercicioService.yml\" sourcestartlinenumber=\"1\">Business logic service for managing the exercise catalog.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.EspacioService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.EspacioService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.EspacioService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.EspacioService.yml\" sourcestartlinenumber=\"1\">Business logic service for sports space (espacio) management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.IngresoService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.IngresoService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.IngresoService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.IngresoService.yml\" sourcestartlinenumber=\"1\">Read-only service for querying facility check-in (ingreso) history.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.MembresiaService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.MembresiaService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.MembresiaService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.MembresiaService.yml\" sourcestartlinenumber=\"1\">Business logic service for membership plan management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.PagoService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.PagoService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.PagoService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.PagoService.yml\" sourcestartlinenumber=\"1\">Business logic service for payment registration, refunds, and receipt management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.ReservaService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.ReservaService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.ReservaService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.ReservaService.yml\" sourcestartlinenumber=\"1\">Business logic service for reservation management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.RutinaService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.RutinaService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services.RutinaService",
+      "Summary": "<p sourcefile=\"api/BLL.Services.RutinaService.yml\" sourcestartlinenumber=\"1\">Business logic service for workout routine lifecycle management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BLL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BLL.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "BLL",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IAgendaRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IAgendaRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IAgendaRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IAgendaRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Agenda\" data-throw-if-not-resolved=\"false\"></xref> records that define the weekly operating\nschedule of a sports space.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IBalanceRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IBalanceRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IBalanceRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IClienteMembresiaRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IClienteMembresiaRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IClienteMembresiaRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IClienteRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IClienteRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IClienteRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IClienteRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Cliente\" data-throw-if-not-resolved=\"false\"></xref> entities, extending standard CRUD with\nclient-specific lookup and membership operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IComprobanteRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IComprobanteRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IComprobanteRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IEjercicioRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IEjercicioRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IEjercicioRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IEspacioRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IEspacioRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IEspacioRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IEspacioRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Espacio\" data-throw-if-not-resolved=\"false\"></xref> (sports space) entities, extending standard CRUD\nwith availability-filtered listing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IIngresoRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IIngresoRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IIngresoRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IMembresiaRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IMembresiaRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IMembresiaRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IMembresiaRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Membresia\" data-throw-if-not-resolved=\"false\"></xref> (membership plan) entities, extending\nstandard CRUD with plan-specific lookups.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IMovimientoRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IMovimientoRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IMovimientoRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IMovimientoRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for ledger <xref href=\"Domain.Entities.Movimiento\" data-throw-if-not-resolved=\"false\"></xref> (movement) records.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IPagoRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IPagoRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IPagoRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IPagoRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Pago\" data-throw-if-not-resolved=\"false\"></xref> entities, extending standard CRUD with\npayment-specific query operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IReservaRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IReservaRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IReservaRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IReservaRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Reserva\" data-throw-if-not-resolved=\"false\"></xref> entities, extending standard CRUD with\nreservation-specific query and availability check operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IRutinaEjercicioRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IRutinaEjercicioRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IRutinaEjercicioRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IRutinaRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IRutinaRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IRutinaRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IRutinaRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Entities.Rutina\" data-throw-if-not-resolved=\"false\"></xref> entities, extending standard CRUD with\nroutine lifecycle operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.IUnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.IUnitOfWork.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts.IUnitOfWork",
+      "Summary": "<p sourcefile=\"api/DAL.Contracts.IUnitOfWork.yml\" sourcestartlinenumber=\"1\">Defines a transactional scope that shares a single database connection across multiple repositories.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Contracts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Contracts.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Contracts",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Factory.DalFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Factory.DalFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Factory.DalFactory",
+      "Summary": "<p sourcefile=\"api/DAL.Factory.DalFactory.yml\" sourcestartlinenumber=\"1\">Static service locator / factory for all repository singletons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Factory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Factory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Factory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.AgendaSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.AgendaSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.AgendaSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.BalanceSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.BalanceSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.BalanceSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.BaseBusinessSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.BaseBusinessSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.BaseBusinessSqlRepository",
+      "Summary": "<p sourcefile=\"api/DAL.Impl.BaseBusinessSqlRepository.yml\" sourcestartlinenumber=\"1\">Base class for all business-domain SQL repositories.\nExtends <xref href=\"Service.Impl.BaseRepository\" data-throw-if-not-resolved=\"false\"></xref> with support for shared <xref href=\"System.Data.SqlClient.SqlConnection\" data-throw-if-not-resolved=\"false\"></xref>\nand <xref href=\"System.Data.SqlClient.SqlTransaction\" data-throw-if-not-resolved=\"false\"></xref> injection by <xref href=\"DAL.Impl.SqlServer.UnitOfWork\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.ClienteSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.ClienteSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.ClienteSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.ComprobanteSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.ComprobanteSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.ComprobanteSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.EjercicioSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.EjercicioSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.EjercicioSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.EspacioSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.EspacioSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.EspacioSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.File.ComprobanteFileRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.File.ComprobanteFileRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.File.ComprobanteFileRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.File.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.File",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.MembresiaSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.MembresiaSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.MembresiaSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.MovimientoSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.MovimientoSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.MovimientoSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.PagoSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.PagoSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.PagoSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.ReservaSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.ReservaSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.ReservaSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.RutinaEjercicioSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.RutinaEjercicioSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.RutinaEjercicioSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.RutinaSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.RutinaSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.RutinaSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.SqlServer.ClienteMembresiaSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.SqlServer.ClienteMembresiaSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.SqlServer.ClienteMembresiaSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.SqlServer.IngresoSqlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.SqlServer.IngresoSqlRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.SqlServer.IngresoSqlRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.SqlServer.UnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.SqlServer.UnitOfWork.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.SqlServer.UnitOfWork",
+      "Summary": "<p sourcefile=\"api/DAL.Impl.SqlServer.UnitOfWork.yml\" sourcestartlinenumber=\"1\">Implements the Unit of Work pattern for SQL Server.\nManages a single <xref href=\"System.Data.SqlClient.SqlConnection\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"System.Data.SqlClient.SqlTransaction\" data-throw-if-not-resolved=\"false\"></xref> shared across\nall enrolled repositories for the duration of one logical operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.SqlServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.SqlServer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl.SqlServer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DAL.Impl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DAL.Impl.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "DAL.Impl",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Composite.Acceso.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Composite.Acceso.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Composite.Acceso",
+      "Summary": "<p sourcefile=\"api/Domain.Composite.Acceso.yml\" sourcestartlinenumber=\"1\">Abstract base component of the Composite design pattern used to model the permission tree.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Composite.Familia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Composite.Familia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Composite.Familia",
+      "Summary": "<p sourcefile=\"api/Domain.Composite.Familia.yml\" sourcestartlinenumber=\"1\">Composite (interior) node in the permission tree that groups zero or more <xref href=\"Domain.Composite.Acceso\" data-throw-if-not-resolved=\"false\"></xref>\nchildren, which may themselves be <xref href=\"Domain.Composite.Familia\" data-throw-if-not-resolved=\"false\"></xref> instances or <xref href=\"Domain.Composite.Patente\" data-throw-if-not-resolved=\"false\"></xref> leaves.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Composite.Patente.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Composite.Patente.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Composite.Patente",
+      "Summary": "<p sourcefile=\"api/Domain.Composite.Patente.yml\" sourcestartlinenumber=\"1\">Leaf node in the permission tree representing a single, atomic permission.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Composite.PermisoKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Composite.PermisoKeys.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Composite.PermisoKeys",
+      "Summary": "<p sourcefile=\"api/Domain.Composite.PermisoKeys.yml\" sourcestartlinenumber=\"1\">Defines the canonical string keys for every permission in the system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Composite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Composite.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Composite",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Agenda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Agenda.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Agenda",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Balance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Balance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Balance",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Cliente.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Cliente.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Cliente",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.ClienteMembresia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.ClienteMembresia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.ClienteMembresia",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Comprobante.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Comprobante.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Comprobante",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Ejercicio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Ejercicio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Ejercicio",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Espacio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Espacio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Espacio",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Ingreso.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Ingreso.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Ingreso",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Membresia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Membresia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Membresia",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Movimiento.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Movimiento.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Movimiento",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Pago.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Pago.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Pago",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Reserva.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Reserva.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Reserva",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.Rutina.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.Rutina.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.Rutina",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.RutinaEjercicio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.RutinaEjercicio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities.RutinaEjercicio",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Entities.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Entities",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Enums.EstadoEspacio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Enums.EstadoEspacio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Enums.EstadoEspacio",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Enums.EstadoPago.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Enums.EstadoPago.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Enums.EstadoPago",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Enums.EstadoReserva.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Enums.EstadoReserva.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Enums.EstadoReserva",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Enums.TipoMovimiento.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Enums.TipoMovimiento.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Enums.TipoMovimiento",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Enums.Translations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Enums.Translations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Enums.Translations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Enums.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Enums",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Log.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Log.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Log",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.Usuario.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.Usuario.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain.Usuario",
+      "Summary": "<p sourcefile=\"api/Domain.Usuario.yml\" sourcestartlinenumber=\"1\">Domain entity representing an application user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Domain.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Domain.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Domain",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Contracts.IBackup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Contracts.IBackup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Contracts.IBackup",
+      "Summary": "<p sourcefile=\"api/Service.Contracts.IBackup.yml\" sourcestartlinenumber=\"1\">Contract for database backup and restore operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Contracts.IGenericRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Contracts.IGenericRepository-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Contracts.IGenericRepository<T>",
+      "Summary": "<p sourcefile=\"api/Service.Contracts.IGenericRepository-1.yml\" sourcestartlinenumber=\"1\">Generic repository contract defining standard CRUD operations for any entity type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Contracts.ILanguage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Contracts.ILanguage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Contracts.ILanguage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Contracts.IUsuarioRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Contracts.IUsuarioRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Contracts.IUsuarioRepository",
+      "Summary": "<p sourcefile=\"api/Service.Contracts.IUsuarioRepository.yml\" sourcestartlinenumber=\"1\">Repository contract for <xref href=\"Domain.Usuario\" data-throw-if-not-resolved=\"false\"></xref> entities, extending standard CRUD with\nuser-specific permission and lookup operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Contracts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Contracts.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Contracts",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.DTO.BackupFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.DTO.BackupFile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.DTO.BackupFile",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.DTO.UsuarioDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.DTO.UsuarioDTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.DTO.UsuarioDTO",
+      "Summary": "<p sourcefile=\"api/Service.DTO.UsuarioDTO.yml\" sourcestartlinenumber=\"1\">Data Transfer Object representing an authenticated or listed application user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.DTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.DTO.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.DTO",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Facade.Extension.TranslationsExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Facade.Extension.TranslationsExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Facade.Extension.TranslationsExtension",
+      "Summary": "<p sourcefile=\"api/Service.Facade.Extension.TranslationsExtension.yml\" sourcestartlinenumber=\"1\">Extension methods that provide i18n translation for <xref href=\"Domain.Enums.Translations\" data-throw-if-not-resolved=\"false\"></xref> enum values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Facade.Extension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Facade.Extension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Facade.Extension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Factory.FactoryDao.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Factory.FactoryDao.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Factory.FactoryDao",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Factory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Factory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Factory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Helpers.ConnectionManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Helpers.ConnectionManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Helpers.ConnectionManager",
+      "Summary": "<p sourcefile=\"api/Service.Helpers.ConnectionManager.yml\" sourcestartlinenumber=\"1\">Provides strongly-typed access to named connection strings defined in <code>App.config</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Helpers.CryptographyHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Helpers.CryptographyHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Helpers.CryptographyHelper",
+      "Summary": "<p sourcefile=\"api/Service.Helpers.CryptographyHelper.yml\" sourcestartlinenumber=\"1\">Provides cryptographic utilities used for password storage and integrity verification.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Helpers.PermisoHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Helpers.PermisoHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Helpers.PermisoHelper",
+      "Summary": "<p sourcefile=\"api/Service.Helpers.PermisoHelper.yml\" sourcestartlinenumber=\"1\">Extension methods for permission checks on <xref href=\"Service.DTO.UsuarioDTO\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Helpers.SessionContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Helpers.SessionContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Helpers.SessionContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Helpers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Helpers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.BaseRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.BaseRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.BaseRepository",
+      "Summary": "<p sourcefile=\"api/Service.Impl.BaseRepository.yml\" sourcestartlinenumber=\"1\">Abstract base class for all SQL Server repositories, providing low-level ADO.NET helpers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.ConsoleRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.ConsoleRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.ConsoleRepository",
+      "Summary": "<p sourcefile=\"api/Service.Impl.ConsoleRepository.yml\" sourcestartlinenumber=\"1\">Clase ConsoleLogger: Implementación de un logger que no realiza ninguna acción.\nSe utiliza como logger por defecto para evitar errores si no se proporciona un logger real.\nEsta clase es útil cuando no se desea realizar registros de logs en ciertos entornos o configuraciones.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.FamiliaRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.FamiliaRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.FamiliaRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.LogRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.LogRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.LogRepository",
+      "Summary": "<p sourcefile=\"api/Service.Impl.LogRepository.yml\" sourcestartlinenumber=\"1\">Clase PersistentLogger para manejar el registro de información y errores en una base de datos.\nEsta clase permite registrar logs de nivel informativo y de errores en la base de datos,\ny proporciona un método de respaldo en caso de que la base de datos no esté disponible.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.SqlServer.PatenteRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.SqlServer.PatenteRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.SqlServer.PatenteRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.SqlServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.SqlServer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.SqlServer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.Text.LanguageManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.Text.LanguageManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.Text.LanguageManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.Text.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.Text",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.UsuarioRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.UsuarioRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl.UsuarioRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Impl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Impl.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Impl",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Logic.BackupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Logic.BackupService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Logic.BackupService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Logic.BitacoraService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Logic.BitacoraService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Logic.BitacoraService",
+      "Summary": "<p sourcefile=\"api/Service.Logic.BitacoraService.yml\" sourcestartlinenumber=\"1\">Application-wide audit log service. All BLL operations that have user-visible side effects\ncall this service to record INFO, WARNING, or ERROR entries.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Logic.LanguageService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Logic.LanguageService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Logic.LanguageService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Logic.PermisosService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Logic.PermisosService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Logic.PermisosService",
+      "Summary": "<p sourcefile=\"api/Service.Logic.PermisosService.yml\" sourcestartlinenumber=\"1\">Manages the permission tree: creation and modification of <xref href=\"Domain.Composite.Familia\" data-throw-if-not-resolved=\"false\"></xref> groups,\nand provisioning of <xref href=\"Domain.Composite.Patente\" data-throw-if-not-resolved=\"false\"></xref> leaf nodes from <xref href=\"Domain.Composite.PermisoKeys\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Logic.UsuarioService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Logic.UsuarioService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Logic.UsuarioService",
+      "Summary": "<p sourcefile=\"api/Service.Logic.UsuarioService.yml\" sourcestartlinenumber=\"1\">Manages user authentication, registration, profile updates, and password management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Service.Logic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Service.Logic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Service.Logic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.AgendaManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.BalanceManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.ClienteManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.EjercicioManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.EspacioManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.IngresoManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.MembresiaManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.PagoManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.ReservaManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business.RutinaManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Business.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Business",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Form1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Form1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Form1",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmAgenda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmAgenda.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmAgenda",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmEjercicios.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmEjercicios.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmEjercicios",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionPermisos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionPermisos.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionPermisos",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmLogin",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmMovimientos",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmPrompt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmPrompt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmPrompt",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmRutina.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmRutina.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmRutina",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmSeleccionarCliente.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmSeleccionarCliente.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmSeleccionarCliente",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.FlagHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.LanguageSelectorHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.Helpers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.Helpers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos.ITranslatable",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TpIngSoftware_GestionDeEspaciosDeportivos.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TpIngSoftware_GestionDeEspaciosDeportivos",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

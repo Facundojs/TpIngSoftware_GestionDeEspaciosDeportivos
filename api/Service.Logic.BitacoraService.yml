@@ -1,0 +1,693 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Logic.BitacoraService
+  commentId: T:Service.Logic.BitacoraService
+  id: BitacoraService
+  parent: Service.Logic
+  children:
+  - Service.Logic.BitacoraService.#ctor
+  - Service.Logic.BitacoraService.GetLogs(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)
+  - Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: BitacoraService
+  nameWithType: BitacoraService
+  fullName: Service.Logic.BitacoraService
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: >-
+    Application-wide audit log service. All BLL operations that have user-visible side effects
+
+    call this service to record INFO, WARNING, or ERROR entries.
+  remarks: >-
+    If the underlying <code>LogRepository</code> fails to initialize (e.g., database unavailable),
+
+    the service falls back to <xref href="System.Console.WriteLine" data-throw-if-not-resolved="false"></xref> so that logging failures never
+
+    propagate to callers.
+  example: []
+  syntax:
+    content: public class BitacoraService
+    content.vb: Public Class BitacoraService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Logic.BitacoraService.#ctor
+  commentId: M:Service.Logic.BitacoraService.#ctor
+  id: '#ctor'
+  parent: Service.Logic.BitacoraService
+  langs:
+  - csharp
+  - vb
+  name: BitacoraService()
+  nameWithType: BitacoraService.BitacoraService()
+  fullName: Service.Logic.BitacoraService.BitacoraService()
+  type: Constructor
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: >-
+    Initializes the service, resolving the log repository from the service factory.
+
+    Silently degrades to console fallback if the repository cannot be constructed.
+  example: []
+  syntax:
+    content: public BitacoraService()
+    content.vb: Public Sub New()
+  overload: Service.Logic.BitacoraService.#ctor*
+  nameWithType.vb: BitacoraService.New()
+  fullName.vb: Service.Logic.BitacoraService.New()
+  name.vb: New()
+- uid: Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+  commentId: M:Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+  id: Log(System.String,System.String,System.Exception)
+  parent: Service.Logic.BitacoraService
+  langs:
+  - csharp
+  - vb
+  name: Log(string, string, Exception)
+  nameWithType: BitacoraService.Log(string, string, Exception)
+  fullName: Service.Logic.BitacoraService.Log(string, string, System.Exception)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Writes a log entry. Swallows any internal errors to avoid disrupting callers.
+  example: []
+  syntax:
+    content: public void Log(string message, string level = "INFO", Exception ex = null)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to record.
+    - id: level
+      type: System.String
+      description: 'Severity level: <code>"INFO"</code>, <code>"WARNING"</code>, or <code>"ERROR"</code>. Defaults to <code>"INFO"</code>.'
+    - id: ex
+      type: System.Exception
+      description: Optional exception to attach when <code class="paramref">level</code> is <code>"ERROR"</code>.
+    content.vb: Public Sub Log(message As String, level As String = "INFO", ex As Exception = Nothing)
+  overload: Service.Logic.BitacoraService.Log*
+  nameWithType.vb: BitacoraService.Log(String, String, Exception)
+  fullName.vb: Service.Logic.BitacoraService.Log(String, String, System.Exception)
+  name.vb: Log(String, String, Exception)
+- uid: Service.Logic.BitacoraService.GetLogs(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)
+  commentId: M:Service.Logic.BitacoraService.GetLogs(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)
+  id: GetLogs(System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)
+  parent: Service.Logic.BitacoraService
+  langs:
+  - csharp
+  - vb
+  name: GetLogs(int, int, DateTime?, DateTime?, string, string)
+  nameWithType: BitacoraService.GetLogs(int, int, DateTime?, DateTime?, string, string)
+  fullName: Service.Logic.BitacoraService.GetLogs(int, int, System.DateTime?, System.DateTime?, string, string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Retrieves paginated log entries, optionally filtered by date range, level, and message text.
+  example: []
+  syntax:
+    content: public List<Log> GetLogs(int page, int pageSize, DateTime? from = null, DateTime? to = null, string logLevel = null, string message = null)
+    parameters:
+    - id: page
+      type: System.Int32
+      description: 1-based page number.
+    - id: pageSize
+      type: System.Int32
+      description: Number of entries per page.
+    - id: from
+      type: System.Nullable{System.DateTime}
+      description: Optional lower bound on the log entry timestamp.
+    - id: to
+      type: System.Nullable{System.DateTime}
+      description: Optional upper bound on the log entry timestamp.
+    - id: logLevel
+      type: System.String
+      description: Optional level filter (e.g., <code>"ERROR"</code>).
+    - id: message
+      type: System.String
+      description: Optional substring filter applied to the message text.
+    return:
+      type: System.Collections.Generic.List{Domain.Log}
+      description: A list of matching <xref href="Service.Logic.BitacoraService.Log(System.String%2cSystem.String%2cSystem.Exception)" data-throw-if-not-resolved="false"></xref> entries; empty list if the repository is unavailable.
+    content.vb: Public Function GetLogs(page As Integer, pageSize As Integer, from As Date? = Nothing, [to] As Date? = Nothing, logLevel As String = Nothing, message As String = Nothing) As List(Of Log)
+  overload: Service.Logic.BitacoraService.GetLogs*
+  nameWithType.vb: BitacoraService.GetLogs(Integer, Integer, Date?, Date?, String, String)
+  fullName.vb: Service.Logic.BitacoraService.GetLogs(Integer, Integer, Date?, Date?, String, String)
+  name.vb: GetLogs(Integer, Integer, Date?, Date?, String, String)
+references:
+- uid: System.Console.WriteLine
+  commentId: M:System.Console.WriteLine
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.console.writeline#system-console-writeline
+  name: WriteLine()
+  nameWithType: Console.WriteLine()
+  fullName: System.Console.WriteLine()
+  spec.csharp:
+  - uid: System.Console.WriteLine
+    name: WriteLine
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.console.writeline#system-console-writeline
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Console.WriteLine
+    name: WriteLine
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.console.writeline#system-console-writeline
+  - name: (
+  - name: )
+- uid: Service.Logic
+  commentId: N:Service.Logic
+  isExternal: true
+  href: Service.html
+  name: Service.Logic
+  nameWithType: Service.Logic
+  fullName: Service.Logic
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Logic.BitacoraService.#ctor*
+  commentId: Overload:Service.Logic.BitacoraService.#ctor
+  isExternal: true
+  href: Service.Logic.BitacoraService.html#Service_Logic_BitacoraService__ctor
+  name: BitacoraService
+  nameWithType: BitacoraService.BitacoraService
+  fullName: Service.Logic.BitacoraService.BitacoraService
+  nameWithType.vb: BitacoraService.New
+  fullName.vb: Service.Logic.BitacoraService.New
+  name.vb: New
+- uid: Service.Logic.BitacoraService.Log*
+  commentId: Overload:Service.Logic.BitacoraService.Log
+  isExternal: true
+  href: Service.Logic.BitacoraService.html#Service_Logic_BitacoraService_Log_System_String_System_String_System_Exception_
+  name: Log
+  nameWithType: BitacoraService.Log
+  fullName: Service.Logic.BitacoraService.Log
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+  commentId: M:Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+  isExternal: true
+  href: Service.Logic.BitacoraService.html#Service_Logic_BitacoraService_Log_System_String_System_String_System_Exception_
+  name: Log(string, string, Exception)
+  nameWithType: BitacoraService.Log(string, string, Exception)
+  fullName: Service.Logic.BitacoraService.Log(string, string, System.Exception)
+  nameWithType.vb: BitacoraService.Log(String, String, Exception)
+  fullName.vb: Service.Logic.BitacoraService.Log(String, String, System.Exception)
+  name.vb: Log(String, String, Exception)
+  spec.csharp:
+  - uid: Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+    name: Log
+    isExternal: true
+    href: Service.Logic.BitacoraService.html#Service_Logic_BitacoraService_Log_System_String_System_String_System_Exception_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Service.Logic.BitacoraService.Log(System.String,System.String,System.Exception)
+    name: Log
+    isExternal: true
+    href: Service.Logic.BitacoraService.html#Service_Logic_BitacoraService_Log_System_String_System_String_System_Exception_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: Service.Logic.BitacoraService.GetLogs*
+  commentId: Overload:Service.Logic.BitacoraService.GetLogs
+  isExternal: true
+  href: Service.Logic.BitacoraService.html#Service_Logic_BitacoraService_GetLogs_System_Int32_System_Int32_System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_String_System_String_
+  name: GetLogs
+  nameWithType: BitacoraService.GetLogs
+  fullName: Service.Logic.BitacoraService.GetLogs
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Collections.Generic.List{Domain.Log}
+  commentId: T:System.Collections.Generic.List{Domain.Log}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Log>
+  nameWithType: List<Log>
+  fullName: System.Collections.Generic.List<Domain.Log>
+  nameWithType.vb: List(Of Log)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Log)
+  name.vb: List(Of Log)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Log
+    name: Log
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Log
+    name: Log
+    isExternal: true
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

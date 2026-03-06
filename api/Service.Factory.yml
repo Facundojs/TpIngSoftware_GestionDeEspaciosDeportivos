@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Factory
+  commentId: N:Service.Factory
+  id: Service.Factory
+  children:
+  - Service.Factory.FactoryDao
+  langs:
+  - csharp
+  - vb
+  name: Service.Factory
+  nameWithType: Service.Factory
+  fullName: Service.Factory
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Factory.FactoryDao
+  commentId: T:Service.Factory.FactoryDao
+  isExternal: true
+  href: Service.Factory.FactoryDao.html
+  name: FactoryDao
+  nameWithType: FactoryDao
+  fullName: Service.Factory.FactoryDao

@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  id: Domain.Composite
+  children:
+  - Domain.Composite.Acceso
+  - Domain.Composite.Familia
+  - Domain.Composite.Patente
+  - Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  type: Namespace
+  assemblies:
+  - Domain
+references:
+- uid: Domain.Composite.Acceso
+  commentId: T:Domain.Composite.Acceso
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Acceso.html
+  name: Acceso
+  nameWithType: Acceso
+  fullName: Domain.Composite.Acceso
+- uid: Domain.Composite.Familia
+  commentId: T:Domain.Composite.Familia
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Familia.html
+  name: Familia
+  nameWithType: Familia
+  fullName: Domain.Composite.Familia
+- uid: Domain.Composite.Patente
+  commentId: T:Domain.Composite.Patente
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Patente.html
+  name: Patente
+  nameWithType: Patente
+  fullName: Domain.Composite.Patente
+- uid: Domain.Composite.PermisoKeys
+  commentId: T:Domain.Composite.PermisoKeys
+  isExternal: true
+  href: Domain.Composite.PermisoKeys.html
+  name: PermisoKeys
+  nameWithType: PermisoKeys
+  fullName: Domain.Composite.PermisoKeys
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html

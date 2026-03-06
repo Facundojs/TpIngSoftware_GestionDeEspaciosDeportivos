@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Facade.Extension
+  commentId: N:Service.Facade.Extension
+  id: Service.Facade.Extension
+  children:
+  - Service.Facade.Extension.TranslationsExtension
+  langs:
+  - csharp
+  - vb
+  name: Service.Facade.Extension
+  nameWithType: Service.Facade.Extension
+  fullName: Service.Facade.Extension
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Facade.Extension.TranslationsExtension
+  commentId: T:Service.Facade.Extension.TranslationsExtension
+  isExternal: true
+  href: Service.Facade.Extension.TranslationsExtension.html
+  name: TranslationsExtension
+  nameWithType: TranslationsExtension
+  fullName: Service.Facade.Extension.TranslationsExtension

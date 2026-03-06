@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>Docs/DAL</DocumentationFile>
+    <DocumentationFile>Docs/DAL.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

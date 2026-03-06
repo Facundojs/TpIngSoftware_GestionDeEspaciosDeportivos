@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable
+  commentId: T:TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable
+  id: IRefreshable
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos
+  children:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData
+  langs:
+  - csharp
+  - vb
+  name: IRefreshable
+  nameWithType: IRefreshable
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable
+  type: Interface
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos
+  syntax:
+    content: public interface IRefreshable
+    content.vb: Public Interface IRefreshable
+  derivedClasses:
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmBackups
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmBitacora
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmClientes
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmEspacios
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionFamilias
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmGestionRutinas
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmIngresos
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmMembresias
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmPagos
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmReservas
+  - TpIngSoftware_GestionDeEspaciosDeportivos.FrmUsuarios
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData
+  commentId: M:TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData
+  id: RefreshData
+  parent: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable
+  langs:
+  - csharp
+  - vb
+  name: RefreshData()
+  nameWithType: IRefreshable.RefreshData()
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData()
+  type: Method
+  assemblies:
+  - TpIngSoftware_GestionDeEspaciosDeportivos
+  namespace: TpIngSoftware_GestionDeEspaciosDeportivos
+  syntax:
+    content: void RefreshData()
+    content.vb: Sub RefreshData()
+  overload: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData*
+references:
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos
+  commentId: N:TpIngSoftware_GestionDeEspaciosDeportivos
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.html
+  name: TpIngSoftware_GestionDeEspaciosDeportivos
+  nameWithType: TpIngSoftware_GestionDeEspaciosDeportivos
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos
+- uid: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData*
+  commentId: Overload:TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData
+  isExternal: true
+  href: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.html#TpIngSoftware_GestionDeEspaciosDeportivos_IRefreshable_RefreshData
+  name: RefreshData
+  nameWithType: IRefreshable.RefreshData
+  fullName: TpIngSoftware_GestionDeEspaciosDeportivos.IRefreshable.RefreshData

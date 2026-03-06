@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Helpers
+  commentId: N:Service.Helpers
+  id: Service.Helpers
+  children:
+  - Service.Helpers.ConnectionManager
+  - Service.Helpers.CryptographyHelper
+  - Service.Helpers.PermisoHelper
+  - Service.Helpers.SessionContext
+  langs:
+  - csharp
+  - vb
+  name: Service.Helpers
+  nameWithType: Service.Helpers
+  fullName: Service.Helpers
+  type: Namespace
+  assemblies:
+  - Service
+references:
+- uid: Service.Helpers.ConnectionManager
+  commentId: T:Service.Helpers.ConnectionManager
+  isExternal: true
+  href: Service.Helpers.ConnectionManager.html
+  name: ConnectionManager
+  nameWithType: ConnectionManager
+  fullName: Service.Helpers.ConnectionManager
+- uid: Service.Helpers.CryptographyHelper
+  commentId: T:Service.Helpers.CryptographyHelper
+  isExternal: true
+  href: Service.Helpers.CryptographyHelper.html
+  name: CryptographyHelper
+  nameWithType: CryptographyHelper
+  fullName: Service.Helpers.CryptographyHelper
+- uid: Service.Helpers.PermisoHelper
+  commentId: T:Service.Helpers.PermisoHelper
+  parent: Service.Helpers
+  isExternal: true
+  href: Service.Helpers.PermisoHelper.html
+  name: PermisoHelper
+  nameWithType: PermisoHelper
+  fullName: Service.Helpers.PermisoHelper
+- uid: Service.Helpers.SessionContext
+  commentId: T:Service.Helpers.SessionContext
+  isExternal: true
+  href: Service.Helpers.SessionContext.html
+  name: SessionContext
+  nameWithType: SessionContext
+  fullName: Service.Helpers.SessionContext
+- uid: Service.Helpers
+  commentId: N:Service.Helpers
+  isExternal: true
+  href: Service.html
+  name: Service.Helpers
+  nameWithType: Service.Helpers
+  fullName: Service.Helpers
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Helpers
+    name: Helpers
+    isExternal: true
+    href: Service.Helpers.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Helpers
+    name: Helpers
+    isExternal: true
+    href: Service.Helpers.html

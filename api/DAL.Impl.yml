@@ -1,0 +1,148 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Impl
+  commentId: N:DAL.Impl
+  id: DAL.Impl
+  children:
+  - DAL.Impl.AgendaSqlRepository
+  - DAL.Impl.BalanceSqlRepository
+  - DAL.Impl.BaseBusinessSqlRepository
+  - DAL.Impl.ClienteSqlRepository
+  - DAL.Impl.ComprobanteSqlRepository
+  - DAL.Impl.EjercicioSqlRepository
+  - DAL.Impl.EspacioSqlRepository
+  - DAL.Impl.MembresiaSqlRepository
+  - DAL.Impl.MovimientoSqlRepository
+  - DAL.Impl.PagoSqlRepository
+  - DAL.Impl.ReservaSqlRepository
+  - DAL.Impl.RutinaEjercicioSqlRepository
+  - DAL.Impl.RutinaSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: DAL.Impl
+  nameWithType: DAL.Impl
+  fullName: DAL.Impl
+  type: Namespace
+  assemblies:
+  - DAL
+references:
+- uid: DAL.Impl.AgendaSqlRepository
+  commentId: T:DAL.Impl.AgendaSqlRepository
+  isExternal: true
+  href: DAL.Impl.AgendaSqlRepository.html
+  name: AgendaSqlRepository
+  nameWithType: AgendaSqlRepository
+  fullName: DAL.Impl.AgendaSqlRepository
+- uid: DAL.Impl.BalanceSqlRepository
+  commentId: T:DAL.Impl.BalanceSqlRepository
+  isExternal: true
+  href: DAL.Impl.BalanceSqlRepository.html
+  name: BalanceSqlRepository
+  nameWithType: BalanceSqlRepository
+  fullName: DAL.Impl.BalanceSqlRepository
+- uid: DAL.Impl.BaseBusinessSqlRepository
+  commentId: T:DAL.Impl.BaseBusinessSqlRepository
+  parent: DAL.Impl
+  isExternal: true
+  href: DAL.Impl.BaseBusinessSqlRepository.html
+  name: BaseBusinessSqlRepository
+  nameWithType: BaseBusinessSqlRepository
+  fullName: DAL.Impl.BaseBusinessSqlRepository
+- uid: DAL.Impl.ClienteSqlRepository
+  commentId: T:DAL.Impl.ClienteSqlRepository
+  isExternal: true
+  href: DAL.Impl.ClienteSqlRepository.html
+  name: ClienteSqlRepository
+  nameWithType: ClienteSqlRepository
+  fullName: DAL.Impl.ClienteSqlRepository
+- uid: DAL.Impl.ComprobanteSqlRepository
+  commentId: T:DAL.Impl.ComprobanteSqlRepository
+  isExternal: true
+  href: DAL.Impl.ComprobanteSqlRepository.html
+  name: ComprobanteSqlRepository
+  nameWithType: ComprobanteSqlRepository
+  fullName: DAL.Impl.ComprobanteSqlRepository
+- uid: DAL.Impl.EjercicioSqlRepository
+  commentId: T:DAL.Impl.EjercicioSqlRepository
+  isExternal: true
+  href: DAL.Impl.EjercicioSqlRepository.html
+  name: EjercicioSqlRepository
+  nameWithType: EjercicioSqlRepository
+  fullName: DAL.Impl.EjercicioSqlRepository
+- uid: DAL.Impl.EspacioSqlRepository
+  commentId: T:DAL.Impl.EspacioSqlRepository
+  isExternal: true
+  href: DAL.Impl.EspacioSqlRepository.html
+  name: EspacioSqlRepository
+  nameWithType: EspacioSqlRepository
+  fullName: DAL.Impl.EspacioSqlRepository
+- uid: DAL.Impl.MembresiaSqlRepository
+  commentId: T:DAL.Impl.MembresiaSqlRepository
+  isExternal: true
+  href: DAL.Impl.MembresiaSqlRepository.html
+  name: MembresiaSqlRepository
+  nameWithType: MembresiaSqlRepository
+  fullName: DAL.Impl.MembresiaSqlRepository
+- uid: DAL.Impl.MovimientoSqlRepository
+  commentId: T:DAL.Impl.MovimientoSqlRepository
+  isExternal: true
+  href: DAL.Impl.MovimientoSqlRepository.html
+  name: MovimientoSqlRepository
+  nameWithType: MovimientoSqlRepository
+  fullName: DAL.Impl.MovimientoSqlRepository
+- uid: DAL.Impl.PagoSqlRepository
+  commentId: T:DAL.Impl.PagoSqlRepository
+  isExternal: true
+  href: DAL.Impl.PagoSqlRepository.html
+  name: PagoSqlRepository
+  nameWithType: PagoSqlRepository
+  fullName: DAL.Impl.PagoSqlRepository
+- uid: DAL.Impl.ReservaSqlRepository
+  commentId: T:DAL.Impl.ReservaSqlRepository
+  isExternal: true
+  href: DAL.Impl.ReservaSqlRepository.html
+  name: ReservaSqlRepository
+  nameWithType: ReservaSqlRepository
+  fullName: DAL.Impl.ReservaSqlRepository
+- uid: DAL.Impl.RutinaEjercicioSqlRepository
+  commentId: T:DAL.Impl.RutinaEjercicioSqlRepository
+  isExternal: true
+  href: DAL.Impl.RutinaEjercicioSqlRepository.html
+  name: RutinaEjercicioSqlRepository
+  nameWithType: RutinaEjercicioSqlRepository
+  fullName: DAL.Impl.RutinaEjercicioSqlRepository
+- uid: DAL.Impl.RutinaSqlRepository
+  commentId: T:DAL.Impl.RutinaSqlRepository
+  isExternal: true
+  href: DAL.Impl.RutinaSqlRepository.html
+  name: RutinaSqlRepository
+  nameWithType: RutinaSqlRepository
+  fullName: DAL.Impl.RutinaSqlRepository
+- uid: DAL.Impl
+  commentId: N:DAL.Impl
+  isExternal: true
+  href: DAL.html
+  name: DAL.Impl
+  nameWithType: DAL.Impl
+  fullName: DAL.Impl
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html

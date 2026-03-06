@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.EstadoBalance
+  commentId: T:BLL.DTOs.EstadoBalance
+  id: EstadoBalance
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.EstadoBalance.AFavor
+  - BLL.DTOs.EstadoBalance.AlDia
+  - BLL.DTOs.EstadoBalance.Deudor
+  langs:
+  - csharp
+  - vb
+  name: EstadoBalance
+  nameWithType: EstadoBalance
+  fullName: BLL.DTOs.EstadoBalance
+  type: Enum
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EstadoBalance.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Categorized account balance state derived from the numeric balance value.
+  remarks: >-
+    Used by <code>ClienteDTO.EstadoBalance</code> so the UI layer can apply distinct visual
+
+    treatments (color coding, icons) without comparing raw decimal values.
+  example: []
+  syntax:
+    content: public enum EstadoBalance
+    content.vb: Public Enum EstadoBalance
+- uid: BLL.DTOs.EstadoBalance.AlDia
+  commentId: F:BLL.DTOs.EstadoBalance.AlDia
+  id: AlDia
+  parent: BLL.DTOs.EstadoBalance
+  langs:
+  - csharp
+  - vb
+  name: AlDia
+  nameWithType: EstadoBalance.AlDia
+  fullName: BLL.DTOs.EstadoBalance.AlDia
+  type: Field
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EstadoBalance.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: 'Balance is zero: no outstanding debt and no credit.'
+  example: []
+  syntax:
+    content: AlDia = 0
+    return:
+      type: BLL.DTOs.EstadoBalance
+- uid: BLL.DTOs.EstadoBalance.Deudor
+  commentId: F:BLL.DTOs.EstadoBalance.Deudor
+  id: Deudor
+  parent: BLL.DTOs.EstadoBalance
+  langs:
+  - csharp
+  - vb
+  name: Deudor
+  nameWithType: EstadoBalance.Deudor
+  fullName: BLL.DTOs.EstadoBalance.Deudor
+  type: Field
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EstadoBalance.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: 'Balance is negative: the client has an outstanding debt.'
+  example: []
+  syntax:
+    content: Deudor = 1
+    return:
+      type: BLL.DTOs.EstadoBalance
+- uid: BLL.DTOs.EstadoBalance.AFavor
+  commentId: F:BLL.DTOs.EstadoBalance.AFavor
+  id: AFavor
+  parent: BLL.DTOs.EstadoBalance
+  langs:
+  - csharp
+  - vb
+  name: AFavor
+  nameWithType: EstadoBalance.AFavor
+  fullName: BLL.DTOs.EstadoBalance.AFavor
+  type: Field
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/EstadoBalance.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: 'Balance is positive: the client has a credit in their account.'
+  example: []
+  syntax:
+    content: AFavor = 2
+    return:
+      type: BLL.DTOs.EstadoBalance
+references:
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: BLL.DTOs.EstadoBalance
+  commentId: T:BLL.DTOs.EstadoBalance
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.EstadoBalance.html
+  name: EstadoBalance
+  nameWithType: EstadoBalance
+  fullName: BLL.DTOs.EstadoBalance

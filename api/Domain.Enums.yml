@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  id: Domain.Enums
+  children:
+  - Domain.Enums.EstadoEspacio
+  - Domain.Enums.EstadoPago
+  - Domain.Enums.EstadoReserva
+  - Domain.Enums.TipoMovimiento
+  - Domain.Enums.Translations
+  langs:
+  - csharp
+  - vb
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  type: Namespace
+  assemblies:
+  - Domain
+references:
+- uid: Domain.Enums.EstadoEspacio
+  commentId: T:Domain.Enums.EstadoEspacio
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoEspacio.html
+  name: EstadoEspacio
+  nameWithType: EstadoEspacio
+  fullName: Domain.Enums.EstadoEspacio
+- uid: Domain.Enums.EstadoPago
+  commentId: T:Domain.Enums.EstadoPago
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoPago.html
+  name: EstadoPago
+  nameWithType: EstadoPago
+  fullName: Domain.Enums.EstadoPago
+- uid: Domain.Enums.EstadoReserva
+  commentId: T:Domain.Enums.EstadoReserva
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoReserva.html
+  name: EstadoReserva
+  nameWithType: EstadoReserva
+  fullName: Domain.Enums.EstadoReserva
+- uid: Domain.Enums.Translations
+  commentId: T:Domain.Enums.Translations
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.Translations.html
+  name: Translations
+  nameWithType: Translations
+  fullName: Domain.Enums.Translations
+- uid: Domain.Enums.TipoMovimiento
+  commentId: T:Domain.Enums.TipoMovimiento
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.TipoMovimiento.html
+  name: TipoMovimiento
+  nameWithType: TipoMovimiento
+  fullName: Domain.Enums.TipoMovimiento
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html

@@ -1,0 +1,497 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Factory.FactoryDao
+  commentId: T:Service.Factory.FactoryDao
+  id: FactoryDao
+  parent: Service.Factory
+  children:
+  - Service.Factory.FactoryDao.BackupRepository
+  - Service.Factory.FactoryDao.LanguageRepository
+  - Service.Factory.FactoryDao.LogRepository
+  - Service.Factory.FactoryDao.UsuarioRepository
+  langs:
+  - csharp
+  - vb
+  name: FactoryDao
+  nameWithType: FactoryDao
+  fullName: Service.Factory.FactoryDao
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Factory
+  syntax:
+    content: public static class FactoryDao
+    content.vb: Public Module FactoryDao
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Factory.FactoryDao.UsuarioRepository
+  commentId: P:Service.Factory.FactoryDao.UsuarioRepository
+  id: UsuarioRepository
+  parent: Service.Factory.FactoryDao
+  langs:
+  - csharp
+  - vb
+  name: UsuarioRepository
+  nameWithType: FactoryDao.UsuarioRepository
+  fullName: Service.Factory.FactoryDao.UsuarioRepository
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.Factory
+  syntax:
+    content: public static IUsuarioRepository UsuarioRepository { get; }
+    parameters: []
+    return:
+      type: Service.Contracts.IUsuarioRepository
+    content.vb: Public Shared ReadOnly Property UsuarioRepository As IUsuarioRepository
+  overload: Service.Factory.FactoryDao.UsuarioRepository*
+- uid: Service.Factory.FactoryDao.LogRepository
+  commentId: P:Service.Factory.FactoryDao.LogRepository
+  id: LogRepository
+  parent: Service.Factory.FactoryDao
+  langs:
+  - csharp
+  - vb
+  name: LogRepository
+  nameWithType: FactoryDao.LogRepository
+  fullName: Service.Factory.FactoryDao.LogRepository
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.Factory
+  syntax:
+    content: public static LogRepository LogRepository { get; }
+    parameters: []
+    return:
+      type: Service.Impl.LogRepository
+    content.vb: Public Shared ReadOnly Property LogRepository As LogRepository
+  overload: Service.Factory.FactoryDao.LogRepository*
+- uid: Service.Factory.FactoryDao.BackupRepository
+  commentId: P:Service.Factory.FactoryDao.BackupRepository
+  id: BackupRepository
+  parent: Service.Factory.FactoryDao
+  langs:
+  - csharp
+  - vb
+  name: BackupRepository
+  nameWithType: FactoryDao.BackupRepository
+  fullName: Service.Factory.FactoryDao.BackupRepository
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.Factory
+  syntax:
+    content: public static IBackup BackupRepository { get; }
+    parameters: []
+    return:
+      type: Service.Contracts.IBackup
+    content.vb: Public Shared ReadOnly Property BackupRepository As IBackup
+  overload: Service.Factory.FactoryDao.BackupRepository*
+- uid: Service.Factory.FactoryDao.LanguageRepository
+  commentId: P:Service.Factory.FactoryDao.LanguageRepository
+  id: LanguageRepository
+  parent: Service.Factory.FactoryDao
+  langs:
+  - csharp
+  - vb
+  name: LanguageRepository
+  nameWithType: FactoryDao.LanguageRepository
+  fullName: Service.Factory.FactoryDao.LanguageRepository
+  type: Property
+  assemblies:
+  - Service
+  namespace: Service.Factory
+  syntax:
+    content: public static ILanguage LanguageRepository { get; }
+    parameters: []
+    return:
+      type: Service.Contracts.ILanguage
+    content.vb: Public Shared ReadOnly Property LanguageRepository As ILanguage
+  overload: Service.Factory.FactoryDao.LanguageRepository*
+references:
+- uid: Service.Factory
+  commentId: N:Service.Factory
+  isExternal: true
+  href: Service.html
+  name: Service.Factory
+  nameWithType: Service.Factory
+  fullName: Service.Factory
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Factory
+    name: Factory
+    isExternal: true
+    href: Service.Factory.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Factory
+    name: Factory
+    isExternal: true
+    href: Service.Factory.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Factory.FactoryDao.UsuarioRepository*
+  commentId: Overload:Service.Factory.FactoryDao.UsuarioRepository
+  isExternal: true
+  href: Service.Factory.FactoryDao.html#Service_Factory_FactoryDao_UsuarioRepository
+  name: UsuarioRepository
+  nameWithType: FactoryDao.UsuarioRepository
+  fullName: Service.Factory.FactoryDao.UsuarioRepository
+- uid: Service.Contracts.IUsuarioRepository
+  commentId: T:Service.Contracts.IUsuarioRepository
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.IUsuarioRepository.html
+  name: IUsuarioRepository
+  nameWithType: IUsuarioRepository
+  fullName: Service.Contracts.IUsuarioRepository
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Factory.FactoryDao.LogRepository*
+  commentId: Overload:Service.Factory.FactoryDao.LogRepository
+  isExternal: true
+  href: Service.Factory.FactoryDao.html#Service_Factory_FactoryDao_LogRepository
+  name: LogRepository
+  nameWithType: FactoryDao.LogRepository
+  fullName: Service.Factory.FactoryDao.LogRepository
+- uid: Service.Impl.LogRepository
+  commentId: T:Service.Impl.LogRepository
+  parent: Service.Impl
+  isExternal: true
+  href: Service.Impl.LogRepository.html
+  name: LogRepository
+  nameWithType: LogRepository
+  fullName: Service.Impl.LogRepository
+- uid: Service.Impl
+  commentId: N:Service.Impl
+  isExternal: true
+  href: Service.html
+  name: Service.Impl
+  nameWithType: Service.Impl
+  fullName: Service.Impl
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+- uid: Service.Factory.FactoryDao.BackupRepository*
+  commentId: Overload:Service.Factory.FactoryDao.BackupRepository
+  isExternal: true
+  href: Service.Factory.FactoryDao.html#Service_Factory_FactoryDao_BackupRepository
+  name: BackupRepository
+  nameWithType: FactoryDao.BackupRepository
+  fullName: Service.Factory.FactoryDao.BackupRepository
+- uid: Service.Contracts.IBackup
+  commentId: T:Service.Contracts.IBackup
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.IBackup.html
+  name: IBackup
+  nameWithType: IBackup
+  fullName: Service.Contracts.IBackup
+- uid: Service.Factory.FactoryDao.LanguageRepository*
+  commentId: Overload:Service.Factory.FactoryDao.LanguageRepository
+  isExternal: true
+  href: Service.Factory.FactoryDao.html#Service_Factory_FactoryDao_LanguageRepository
+  name: LanguageRepository
+  nameWithType: FactoryDao.LanguageRepository
+  fullName: Service.Factory.FactoryDao.LanguageRepository
+- uid: Service.Contracts.ILanguage
+  commentId: T:Service.Contracts.ILanguage
+  parent: Service.Contracts
+  isExternal: true
+  href: Service.Contracts.ILanguage.html
+  name: ILanguage
+  nameWithType: ILanguage
+  fullName: Service.Contracts.ILanguage

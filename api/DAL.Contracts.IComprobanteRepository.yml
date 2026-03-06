@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IComprobanteRepository
+  commentId: T:DAL.Contracts.IComprobanteRepository
+  id: IComprobanteRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  - DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  - DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  - DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IComprobanteRepository
+  nameWithType: IComprobanteRepository
+  fullName: DAL.Contracts.IComprobanteRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IComprobanteRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: public interface IComprobanteRepository
+    content.vb: Public Interface IComprobanteRepository
+  derivedClasses:
+  - DAL.Impl.ComprobanteSqlRepository
+  - DAL.Impl.File.ComprobanteFileRepository
+- uid: DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  commentId: M:DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  id: Agregar(Domain.Entities.Comprobante)
+  parent: DAL.Contracts.IComprobanteRepository
+  langs:
+  - csharp
+  - vb
+  name: Agregar(Comprobante)
+  nameWithType: IComprobanteRepository.Agregar(Comprobante)
+  fullName: DAL.Contracts.IComprobanteRepository.Agregar(Domain.Entities.Comprobante)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IComprobanteRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: void Agregar(Comprobante obj)
+    parameters:
+    - id: obj
+      type: Domain.Entities.Comprobante
+    content.vb: Sub Agregar(obj As Comprobante)
+  overload: DAL.Contracts.IComprobanteRepository.Agregar*
+- uid: DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  commentId: M:DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  id: GetById(System.Guid)
+  parent: DAL.Contracts.IComprobanteRepository
+  langs:
+  - csharp
+  - vb
+  name: GetById(Guid)
+  nameWithType: IComprobanteRepository.GetById(Guid)
+  fullName: DAL.Contracts.IComprobanteRepository.GetById(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IComprobanteRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: Comprobante GetById(Guid comprobanteId)
+    parameters:
+    - id: comprobanteId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Comprobante
+    content.vb: Function GetById(comprobanteId As Guid) As Comprobante
+  overload: DAL.Contracts.IComprobanteRepository.GetById*
+- uid: DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  commentId: M:DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  id: GetByPago(System.Guid)
+  parent: DAL.Contracts.IComprobanteRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByPago(Guid)
+  nameWithType: IComprobanteRepository.GetByPago(Guid)
+  fullName: DAL.Contracts.IComprobanteRepository.GetByPago(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IComprobanteRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: Comprobante GetByPago(Guid pagoId)
+    parameters:
+    - id: pagoId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Comprobante
+    content.vb: Function GetByPago(pagoId As Guid) As Comprobante
+  overload: DAL.Contracts.IComprobanteRepository.GetByPago*
+- uid: DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  commentId: M:DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  id: GetByReserva(System.Guid)
+  parent: DAL.Contracts.IComprobanteRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByReserva(Guid)
+  nameWithType: IComprobanteRepository.GetByReserva(Guid)
+  fullName: DAL.Contracts.IComprobanteRepository.GetByReserva(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IComprobanteRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: Comprobante GetByReserva(Guid reservaId)
+    parameters:
+    - id: reservaId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Comprobante
+    content.vb: Function GetByReserva(reservaId As Guid) As Comprobante
+  overload: DAL.Contracts.IComprobanteRepository.GetByReserva*
+references:
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: DAL.Contracts.IComprobanteRepository.Agregar*
+  commentId: Overload:DAL.Contracts.IComprobanteRepository.Agregar
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_Agregar_Domain_Entities_Comprobante_
+  name: Agregar
+  nameWithType: IComprobanteRepository.Agregar
+  fullName: DAL.Contracts.IComprobanteRepository.Agregar
+- uid: Domain.Entities.Comprobante
+  commentId: T:Domain.Entities.Comprobante
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Comprobante.html
+  name: Comprobante
+  nameWithType: Comprobante
+  fullName: Domain.Entities.Comprobante
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: DAL.Contracts.IComprobanteRepository.GetById*
+  commentId: Overload:DAL.Contracts.IComprobanteRepository.GetById
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetById_System_Guid_
+  name: GetById
+  nameWithType: IComprobanteRepository.GetById
+  fullName: DAL.Contracts.IComprobanteRepository.GetById
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Contracts.IComprobanteRepository.GetByPago*
+  commentId: Overload:DAL.Contracts.IComprobanteRepository.GetByPago
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByPago_System_Guid_
+  name: GetByPago
+  nameWithType: IComprobanteRepository.GetByPago
+  fullName: DAL.Contracts.IComprobanteRepository.GetByPago
+- uid: DAL.Contracts.IComprobanteRepository.GetByReserva*
+  commentId: Overload:DAL.Contracts.IComprobanteRepository.GetByReserva
+  isExternal: true
+  href: DAL.Contracts.IComprobanteRepository.html#DAL_Contracts_IComprobanteRepository_GetByReserva_System_Guid_
+  name: GetByReserva
+  nameWithType: IComprobanteRepository.GetByReserva
+  fullName: DAL.Contracts.IComprobanteRepository.GetByReserva

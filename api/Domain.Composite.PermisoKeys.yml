@@ -1,0 +1,1113 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Composite.PermisoKeys
+  commentId: T:Domain.Composite.PermisoKeys
+  id: PermisoKeys
+  parent: Domain.Composite
+  children:
+  - Domain.Composite.PermisoKeys.BackupBorrar
+  - Domain.Composite.PermisoKeys.BackupListar
+  - Domain.Composite.PermisoKeys.BackupRealizar
+  - Domain.Composite.PermisoKeys.BackupRestore
+  - Domain.Composite.PermisoKeys.BitacoraVer
+  - Domain.Composite.PermisoKeys.ClienteCheckIn
+  - Domain.Composite.PermisoKeys.ClienteCrear
+  - Domain.Composite.PermisoKeys.ClienteDeshabilitar
+  - Domain.Composite.PermisoKeys.ClienteListar
+  - Domain.Composite.PermisoKeys.ClienteModificar
+  - Domain.Composite.PermisoKeys.EjercicioCrear
+  - Domain.Composite.PermisoKeys.EjercicioEliminar
+  - Domain.Composite.PermisoKeys.EjercicioListar
+  - Domain.Composite.PermisoKeys.EjercicioModificar
+  - Domain.Composite.PermisoKeys.EspacioCrear
+  - Domain.Composite.PermisoKeys.EspacioEliminar
+  - Domain.Composite.PermisoKeys.EspacioListar
+  - Domain.Composite.PermisoKeys.EspacioModificar
+  - Domain.Composite.PermisoKeys.IngresoListar
+  - Domain.Composite.PermisoKeys.MembresiaCrear
+  - Domain.Composite.PermisoKeys.MembresiaDeshabilitar
+  - Domain.Composite.PermisoKeys.MembresiaListar
+  - Domain.Composite.PermisoKeys.MembresiaModificar
+  - Domain.Composite.PermisoKeys.PagoAdjuntarComprobante
+  - Domain.Composite.PermisoKeys.PagoListar
+  - Domain.Composite.PermisoKeys.PagoReembolsar
+  - Domain.Composite.PermisoKeys.PagoRegistrar
+  - Domain.Composite.PermisoKeys.PermisoAsignar
+  - Domain.Composite.PermisoKeys.ReservaCancelar
+  - Domain.Composite.PermisoKeys.ReservaCrear
+  - Domain.Composite.PermisoKeys.ReservaListar
+  - Domain.Composite.PermisoKeys.RutinaCrear
+  - Domain.Composite.PermisoKeys.RutinaEliminar
+  - Domain.Composite.PermisoKeys.RutinaModificar
+  - Domain.Composite.PermisoKeys.RutinaVer
+  - Domain.Composite.PermisoKeys.UsuarioCrear
+  - Domain.Composite.PermisoKeys.UsuarioEliminar
+  - Domain.Composite.PermisoKeys.UsuarioListar
+  - Domain.Composite.PermisoKeys.UsuarioModificar
+  langs:
+  - csharp
+  - vb
+  name: PermisoKeys
+  nameWithType: PermisoKeys
+  fullName: Domain.Composite.PermisoKeys
+  type: Class
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  summary: Defines the canonical string keys for every permission in the system.
+  remarks: >-
+    Each constant maps to the <xref href="Domain.Composite.Patente.TipoAcceso" data-throw-if-not-resolved="false"></xref> value stored in the database and
+
+    is the single source of truth for authorization checks performed by
+
+    Service.Helpers.PermisoHelper.TienePermiso.
+
+    Service.Logic.PermisosService.EnsurePermissions uses reflection over this class
+
+    to auto-provision any missing <xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref> records on startup.
+  example: []
+  syntax:
+    content: public static class PermisoKeys
+    content.vb: Public Module PermisoKeys
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Domain.Composite.PermisoKeys.BackupRealizar
+  commentId: F:Domain.Composite.PermisoKeys.BackupRealizar
+  id: BackupRealizar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: BackupRealizar
+  nameWithType: PermisoKeys.BackupRealizar
+  fullName: Domain.Composite.PermisoKeys.BackupRealizar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string BackupRealizar = "PERMISSION_BACKUP_EXECUTE"
+    return:
+      type: System.String
+    content.vb: Public Const BackupRealizar As String = "PERMISSION_BACKUP_EXECUTE"
+- uid: Domain.Composite.PermisoKeys.BackupRestore
+  commentId: F:Domain.Composite.PermisoKeys.BackupRestore
+  id: BackupRestore
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: BackupRestore
+  nameWithType: PermisoKeys.BackupRestore
+  fullName: Domain.Composite.PermisoKeys.BackupRestore
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string BackupRestore = "PERMISSION_BACKUP_RESTORE"
+    return:
+      type: System.String
+    content.vb: Public Const BackupRestore As String = "PERMISSION_BACKUP_RESTORE"
+- uid: Domain.Composite.PermisoKeys.BackupListar
+  commentId: F:Domain.Composite.PermisoKeys.BackupListar
+  id: BackupListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: BackupListar
+  nameWithType: PermisoKeys.BackupListar
+  fullName: Domain.Composite.PermisoKeys.BackupListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string BackupListar = "PERMISSION_BACKUP_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const BackupListar As String = "PERMISSION_BACKUP_LIST"
+- uid: Domain.Composite.PermisoKeys.BackupBorrar
+  commentId: F:Domain.Composite.PermisoKeys.BackupBorrar
+  id: BackupBorrar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: BackupBorrar
+  nameWithType: PermisoKeys.BackupBorrar
+  fullName: Domain.Composite.PermisoKeys.BackupBorrar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string BackupBorrar = "PERMISSION_BACKUP_DELETE"
+    return:
+      type: System.String
+    content.vb: Public Const BackupBorrar As String = "PERMISSION_BACKUP_DELETE"
+- uid: Domain.Composite.PermisoKeys.UsuarioListar
+  commentId: F:Domain.Composite.PermisoKeys.UsuarioListar
+  id: UsuarioListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: UsuarioListar
+  nameWithType: PermisoKeys.UsuarioListar
+  fullName: Domain.Composite.PermisoKeys.UsuarioListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string UsuarioListar = "PERMISSION_USER_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const UsuarioListar As String = "PERMISSION_USER_LIST"
+- uid: Domain.Composite.PermisoKeys.UsuarioCrear
+  commentId: F:Domain.Composite.PermisoKeys.UsuarioCrear
+  id: UsuarioCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: UsuarioCrear
+  nameWithType: PermisoKeys.UsuarioCrear
+  fullName: Domain.Composite.PermisoKeys.UsuarioCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string UsuarioCrear = "PERMISSION_USER_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const UsuarioCrear As String = "PERMISSION_USER_CREATE"
+- uid: Domain.Composite.PermisoKeys.UsuarioModificar
+  commentId: F:Domain.Composite.PermisoKeys.UsuarioModificar
+  id: UsuarioModificar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: UsuarioModificar
+  nameWithType: PermisoKeys.UsuarioModificar
+  fullName: Domain.Composite.PermisoKeys.UsuarioModificar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string UsuarioModificar = "PERMISSION_USER_UPDATE"
+    return:
+      type: System.String
+    content.vb: Public Const UsuarioModificar As String = "PERMISSION_USER_UPDATE"
+- uid: Domain.Composite.PermisoKeys.UsuarioEliminar
+  commentId: F:Domain.Composite.PermisoKeys.UsuarioEliminar
+  id: UsuarioEliminar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: UsuarioEliminar
+  nameWithType: PermisoKeys.UsuarioEliminar
+  fullName: Domain.Composite.PermisoKeys.UsuarioEliminar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string UsuarioEliminar = "PERMISSION_USER_DELETE"
+    return:
+      type: System.String
+    content.vb: Public Const UsuarioEliminar As String = "PERMISSION_USER_DELETE"
+- uid: Domain.Composite.PermisoKeys.PermisoAsignar
+  commentId: F:Domain.Composite.PermisoKeys.PermisoAsignar
+  id: PermisoAsignar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: PermisoAsignar
+  nameWithType: PermisoKeys.PermisoAsignar
+  fullName: Domain.Composite.PermisoKeys.PermisoAsignar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string PermisoAsignar = "PERMISSION_PERMISSION_ASSIGN"
+    return:
+      type: System.String
+    content.vb: Public Const PermisoAsignar As String = "PERMISSION_PERMISSION_ASSIGN"
+- uid: Domain.Composite.PermisoKeys.BitacoraVer
+  commentId: F:Domain.Composite.PermisoKeys.BitacoraVer
+  id: BitacoraVer
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: BitacoraVer
+  nameWithType: PermisoKeys.BitacoraVer
+  fullName: Domain.Composite.PermisoKeys.BitacoraVer
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string BitacoraVer = "PERMISSION_LOG_VIEW"
+    return:
+      type: System.String
+    content.vb: Public Const BitacoraVer As String = "PERMISSION_LOG_VIEW"
+- uid: Domain.Composite.PermisoKeys.MembresiaListar
+  commentId: F:Domain.Composite.PermisoKeys.MembresiaListar
+  id: MembresiaListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: MembresiaListar
+  nameWithType: PermisoKeys.MembresiaListar
+  fullName: Domain.Composite.PermisoKeys.MembresiaListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string MembresiaListar = "PERMISSION_MEMBRESIA_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const MembresiaListar As String = "PERMISSION_MEMBRESIA_LIST"
+- uid: Domain.Composite.PermisoKeys.MembresiaCrear
+  commentId: F:Domain.Composite.PermisoKeys.MembresiaCrear
+  id: MembresiaCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: MembresiaCrear
+  nameWithType: PermisoKeys.MembresiaCrear
+  fullName: Domain.Composite.PermisoKeys.MembresiaCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string MembresiaCrear = "PERMISSION_MEMBRESIA_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const MembresiaCrear As String = "PERMISSION_MEMBRESIA_CREATE"
+- uid: Domain.Composite.PermisoKeys.MembresiaModificar
+  commentId: F:Domain.Composite.PermisoKeys.MembresiaModificar
+  id: MembresiaModificar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: MembresiaModificar
+  nameWithType: PermisoKeys.MembresiaModificar
+  fullName: Domain.Composite.PermisoKeys.MembresiaModificar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string MembresiaModificar = "PERMISSION_MEMBRESIA_UPDATE"
+    return:
+      type: System.String
+    content.vb: Public Const MembresiaModificar As String = "PERMISSION_MEMBRESIA_UPDATE"
+- uid: Domain.Composite.PermisoKeys.MembresiaDeshabilitar
+  commentId: F:Domain.Composite.PermisoKeys.MembresiaDeshabilitar
+  id: MembresiaDeshabilitar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: MembresiaDeshabilitar
+  nameWithType: PermisoKeys.MembresiaDeshabilitar
+  fullName: Domain.Composite.PermisoKeys.MembresiaDeshabilitar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string MembresiaDeshabilitar = "PERMISSION_MEMBRESIA_DISABLE"
+    return:
+      type: System.String
+    content.vb: Public Const MembresiaDeshabilitar As String = "PERMISSION_MEMBRESIA_DISABLE"
+- uid: Domain.Composite.PermisoKeys.ClienteListar
+  commentId: F:Domain.Composite.PermisoKeys.ClienteListar
+  id: ClienteListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ClienteListar
+  nameWithType: PermisoKeys.ClienteListar
+  fullName: Domain.Composite.PermisoKeys.ClienteListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ClienteListar = "PERMISSION_CLIENTE_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const ClienteListar As String = "PERMISSION_CLIENTE_LIST"
+- uid: Domain.Composite.PermisoKeys.ClienteCrear
+  commentId: F:Domain.Composite.PermisoKeys.ClienteCrear
+  id: ClienteCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ClienteCrear
+  nameWithType: PermisoKeys.ClienteCrear
+  fullName: Domain.Composite.PermisoKeys.ClienteCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ClienteCrear = "PERMISSION_CLIENTE_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const ClienteCrear As String = "PERMISSION_CLIENTE_CREATE"
+- uid: Domain.Composite.PermisoKeys.ClienteModificar
+  commentId: F:Domain.Composite.PermisoKeys.ClienteModificar
+  id: ClienteModificar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ClienteModificar
+  nameWithType: PermisoKeys.ClienteModificar
+  fullName: Domain.Composite.PermisoKeys.ClienteModificar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ClienteModificar = "PERMISSION_CLIENTE_UPDATE"
+    return:
+      type: System.String
+    content.vb: Public Const ClienteModificar As String = "PERMISSION_CLIENTE_UPDATE"
+- uid: Domain.Composite.PermisoKeys.ClienteDeshabilitar
+  commentId: F:Domain.Composite.PermisoKeys.ClienteDeshabilitar
+  id: ClienteDeshabilitar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ClienteDeshabilitar
+  nameWithType: PermisoKeys.ClienteDeshabilitar
+  fullName: Domain.Composite.PermisoKeys.ClienteDeshabilitar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ClienteDeshabilitar = "PERMISSION_CLIENTE_DISABLE"
+    return:
+      type: System.String
+    content.vb: Public Const ClienteDeshabilitar As String = "PERMISSION_CLIENTE_DISABLE"
+- uid: Domain.Composite.PermisoKeys.ClienteCheckIn
+  commentId: F:Domain.Composite.PermisoKeys.ClienteCheckIn
+  id: ClienteCheckIn
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ClienteCheckIn
+  nameWithType: PermisoKeys.ClienteCheckIn
+  fullName: Domain.Composite.PermisoKeys.ClienteCheckIn
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ClienteCheckIn = "PERMISSION_CLIENTE_CHECKIN"
+    return:
+      type: System.String
+    content.vb: Public Const ClienteCheckIn As String = "PERMISSION_CLIENTE_CHECKIN"
+- uid: Domain.Composite.PermisoKeys.EspacioListar
+  commentId: F:Domain.Composite.PermisoKeys.EspacioListar
+  id: EspacioListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EspacioListar
+  nameWithType: PermisoKeys.EspacioListar
+  fullName: Domain.Composite.PermisoKeys.EspacioListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EspacioListar = "PERMISSION_ESPACIO_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const EspacioListar As String = "PERMISSION_ESPACIO_LIST"
+- uid: Domain.Composite.PermisoKeys.EspacioCrear
+  commentId: F:Domain.Composite.PermisoKeys.EspacioCrear
+  id: EspacioCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EspacioCrear
+  nameWithType: PermisoKeys.EspacioCrear
+  fullName: Domain.Composite.PermisoKeys.EspacioCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EspacioCrear = "PERMISSION_ESPACIO_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const EspacioCrear As String = "PERMISSION_ESPACIO_CREATE"
+- uid: Domain.Composite.PermisoKeys.EspacioModificar
+  commentId: F:Domain.Composite.PermisoKeys.EspacioModificar
+  id: EspacioModificar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EspacioModificar
+  nameWithType: PermisoKeys.EspacioModificar
+  fullName: Domain.Composite.PermisoKeys.EspacioModificar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EspacioModificar = "PERMISSION_ESPACIO_UPDATE"
+    return:
+      type: System.String
+    content.vb: Public Const EspacioModificar As String = "PERMISSION_ESPACIO_UPDATE"
+- uid: Domain.Composite.PermisoKeys.EspacioEliminar
+  commentId: F:Domain.Composite.PermisoKeys.EspacioEliminar
+  id: EspacioEliminar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EspacioEliminar
+  nameWithType: PermisoKeys.EspacioEliminar
+  fullName: Domain.Composite.PermisoKeys.EspacioEliminar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EspacioEliminar = "PERMISSION_ESPACIO_DELETE"
+    return:
+      type: System.String
+    content.vb: Public Const EspacioEliminar As String = "PERMISSION_ESPACIO_DELETE"
+- uid: Domain.Composite.PermisoKeys.RutinaVer
+  commentId: F:Domain.Composite.PermisoKeys.RutinaVer
+  id: RutinaVer
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: RutinaVer
+  nameWithType: PermisoKeys.RutinaVer
+  fullName: Domain.Composite.PermisoKeys.RutinaVer
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string RutinaVer = "PERMISSION_RUTINA_VIEW"
+    return:
+      type: System.String
+    content.vb: Public Const RutinaVer As String = "PERMISSION_RUTINA_VIEW"
+- uid: Domain.Composite.PermisoKeys.RutinaCrear
+  commentId: F:Domain.Composite.PermisoKeys.RutinaCrear
+  id: RutinaCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: RutinaCrear
+  nameWithType: PermisoKeys.RutinaCrear
+  fullName: Domain.Composite.PermisoKeys.RutinaCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string RutinaCrear = "PERMISSION_RUTINA_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const RutinaCrear As String = "PERMISSION_RUTINA_CREATE"
+- uid: Domain.Composite.PermisoKeys.RutinaModificar
+  commentId: F:Domain.Composite.PermisoKeys.RutinaModificar
+  id: RutinaModificar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: RutinaModificar
+  nameWithType: PermisoKeys.RutinaModificar
+  fullName: Domain.Composite.PermisoKeys.RutinaModificar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string RutinaModificar = "PERMISSION_RUTINA_UPDATE"
+    return:
+      type: System.String
+    content.vb: Public Const RutinaModificar As String = "PERMISSION_RUTINA_UPDATE"
+- uid: Domain.Composite.PermisoKeys.RutinaEliminar
+  commentId: F:Domain.Composite.PermisoKeys.RutinaEliminar
+  id: RutinaEliminar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: RutinaEliminar
+  nameWithType: PermisoKeys.RutinaEliminar
+  fullName: Domain.Composite.PermisoKeys.RutinaEliminar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string RutinaEliminar = "PERMISSION_RUTINA_DELETE"
+    return:
+      type: System.String
+    content.vb: Public Const RutinaEliminar As String = "PERMISSION_RUTINA_DELETE"
+- uid: Domain.Composite.PermisoKeys.EjercicioListar
+  commentId: F:Domain.Composite.PermisoKeys.EjercicioListar
+  id: EjercicioListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EjercicioListar
+  nameWithType: PermisoKeys.EjercicioListar
+  fullName: Domain.Composite.PermisoKeys.EjercicioListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EjercicioListar = "PERMISSION_EJERCICIO_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const EjercicioListar As String = "PERMISSION_EJERCICIO_LIST"
+- uid: Domain.Composite.PermisoKeys.EjercicioCrear
+  commentId: F:Domain.Composite.PermisoKeys.EjercicioCrear
+  id: EjercicioCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EjercicioCrear
+  nameWithType: PermisoKeys.EjercicioCrear
+  fullName: Domain.Composite.PermisoKeys.EjercicioCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EjercicioCrear = "PERMISSION_EJERCICIO_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const EjercicioCrear As String = "PERMISSION_EJERCICIO_CREATE"
+- uid: Domain.Composite.PermisoKeys.EjercicioModificar
+  commentId: F:Domain.Composite.PermisoKeys.EjercicioModificar
+  id: EjercicioModificar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EjercicioModificar
+  nameWithType: PermisoKeys.EjercicioModificar
+  fullName: Domain.Composite.PermisoKeys.EjercicioModificar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EjercicioModificar = "PERMISSION_EJERCICIO_UPDATE"
+    return:
+      type: System.String
+    content.vb: Public Const EjercicioModificar As String = "PERMISSION_EJERCICIO_UPDATE"
+- uid: Domain.Composite.PermisoKeys.EjercicioEliminar
+  commentId: F:Domain.Composite.PermisoKeys.EjercicioEliminar
+  id: EjercicioEliminar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: EjercicioEliminar
+  nameWithType: PermisoKeys.EjercicioEliminar
+  fullName: Domain.Composite.PermisoKeys.EjercicioEliminar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string EjercicioEliminar = "PERMISSION_EJERCICIO_DELETE"
+    return:
+      type: System.String
+    content.vb: Public Const EjercicioEliminar As String = "PERMISSION_EJERCICIO_DELETE"
+- uid: Domain.Composite.PermisoKeys.PagoListar
+  commentId: F:Domain.Composite.PermisoKeys.PagoListar
+  id: PagoListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: PagoListar
+  nameWithType: PermisoKeys.PagoListar
+  fullName: Domain.Composite.PermisoKeys.PagoListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string PagoListar = "PERMISSION_PAGO_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const PagoListar As String = "PERMISSION_PAGO_LIST"
+- uid: Domain.Composite.PermisoKeys.PagoRegistrar
+  commentId: F:Domain.Composite.PermisoKeys.PagoRegistrar
+  id: PagoRegistrar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: PagoRegistrar
+  nameWithType: PermisoKeys.PagoRegistrar
+  fullName: Domain.Composite.PermisoKeys.PagoRegistrar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string PagoRegistrar = "PERMISSION_PAGO_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const PagoRegistrar As String = "PERMISSION_PAGO_CREATE"
+- uid: Domain.Composite.PermisoKeys.PagoReembolsar
+  commentId: F:Domain.Composite.PermisoKeys.PagoReembolsar
+  id: PagoReembolsar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: PagoReembolsar
+  nameWithType: PermisoKeys.PagoReembolsar
+  fullName: Domain.Composite.PermisoKeys.PagoReembolsar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string PagoReembolsar = "PERMISSION_PAGO_REFUND"
+    return:
+      type: System.String
+    content.vb: Public Const PagoReembolsar As String = "PERMISSION_PAGO_REFUND"
+- uid: Domain.Composite.PermisoKeys.PagoAdjuntarComprobante
+  commentId: F:Domain.Composite.PermisoKeys.PagoAdjuntarComprobante
+  id: PagoAdjuntarComprobante
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: PagoAdjuntarComprobante
+  nameWithType: PermisoKeys.PagoAdjuntarComprobante
+  fullName: Domain.Composite.PermisoKeys.PagoAdjuntarComprobante
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string PagoAdjuntarComprobante = "PERMISSION_PAGO_ATTACH"
+    return:
+      type: System.String
+    content.vb: Public Const PagoAdjuntarComprobante As String = "PERMISSION_PAGO_ATTACH"
+- uid: Domain.Composite.PermisoKeys.ReservaListar
+  commentId: F:Domain.Composite.PermisoKeys.ReservaListar
+  id: ReservaListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ReservaListar
+  nameWithType: PermisoKeys.ReservaListar
+  fullName: Domain.Composite.PermisoKeys.ReservaListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ReservaListar = "PERMISSION_RESERVA_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const ReservaListar As String = "PERMISSION_RESERVA_LIST"
+- uid: Domain.Composite.PermisoKeys.ReservaCrear
+  commentId: F:Domain.Composite.PermisoKeys.ReservaCrear
+  id: ReservaCrear
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ReservaCrear
+  nameWithType: PermisoKeys.ReservaCrear
+  fullName: Domain.Composite.PermisoKeys.ReservaCrear
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ReservaCrear = "PERMISSION_RESERVA_CREATE"
+    return:
+      type: System.String
+    content.vb: Public Const ReservaCrear As String = "PERMISSION_RESERVA_CREATE"
+- uid: Domain.Composite.PermisoKeys.ReservaCancelar
+  commentId: F:Domain.Composite.PermisoKeys.ReservaCancelar
+  id: ReservaCancelar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: ReservaCancelar
+  nameWithType: PermisoKeys.ReservaCancelar
+  fullName: Domain.Composite.PermisoKeys.ReservaCancelar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string ReservaCancelar = "PERMISSION_RESERVA_CANCEL"
+    return:
+      type: System.String
+    content.vb: Public Const ReservaCancelar As String = "PERMISSION_RESERVA_CANCEL"
+- uid: Domain.Composite.PermisoKeys.IngresoListar
+  commentId: F:Domain.Composite.PermisoKeys.IngresoListar
+  id: IngresoListar
+  parent: Domain.Composite.PermisoKeys
+  langs:
+  - csharp
+  - vb
+  name: IngresoListar
+  nameWithType: PermisoKeys.IngresoListar
+  fullName: Domain.Composite.PermisoKeys.IngresoListar
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Composite
+  syntax:
+    content: public const string IngresoListar = "PERMISSION_INGRESO_LIST"
+    return:
+      type: System.String
+    content.vb: Public Const IngresoListar As String = "PERMISSION_INGRESO_LIST"
+references:
+- uid: Domain.Composite.Patente.TipoAcceso
+  commentId: P:Domain.Composite.Patente.TipoAcceso
+  isExternal: true
+  href: Domain.Composite.Patente.html#Domain_Composite_Patente_TipoAcceso
+  name: TipoAcceso
+  nameWithType: Patente.TipoAcceso
+  fullName: Domain.Composite.Patente.TipoAcceso
+- uid: Domain.Composite.Patente
+  commentId: T:Domain.Composite.Patente
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Patente.html
+  name: Patente
+  nameWithType: Patente
+  fullName: Domain.Composite.Patente
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

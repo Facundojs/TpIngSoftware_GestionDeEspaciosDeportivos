@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: Domain.Enums.EstadoEspacio
+  commentId: T:Domain.Enums.EstadoEspacio
+  id: EstadoEspacio
+  parent: Domain.Enums
+  children:
+  - Domain.Enums.EstadoEspacio.Activo
+  - Domain.Enums.EstadoEspacio.Inactivo
+  langs:
+  - csharp
+  - vb
+  name: EstadoEspacio
+  nameWithType: EstadoEspacio
+  fullName: Domain.Enums.EstadoEspacio
+  type: Enum
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: public enum EstadoEspacio
+    content.vb: Public Enum EstadoEspacio
+- uid: Domain.Enums.EstadoEspacio.Activo
+  commentId: F:Domain.Enums.EstadoEspacio.Activo
+  id: Activo
+  parent: Domain.Enums.EstadoEspacio
+  langs:
+  - csharp
+  - vb
+  name: Activo
+  nameWithType: EstadoEspacio.Activo
+  fullName: Domain.Enums.EstadoEspacio.Activo
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Activo = 0
+    return:
+      type: Domain.Enums.EstadoEspacio
+- uid: Domain.Enums.EstadoEspacio.Inactivo
+  commentId: F:Domain.Enums.EstadoEspacio.Inactivo
+  id: Inactivo
+  parent: Domain.Enums.EstadoEspacio
+  langs:
+  - csharp
+  - vb
+  name: Inactivo
+  nameWithType: EstadoEspacio.Inactivo
+  fullName: Domain.Enums.EstadoEspacio.Inactivo
+  type: Field
+  assemblies:
+  - Domain
+  namespace: Domain.Enums
+  syntax:
+    content: Inactivo = 1
+    return:
+      type: Domain.Enums.EstadoEspacio
+references:
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: Domain.Enums.EstadoEspacio
+  commentId: T:Domain.Enums.EstadoEspacio
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.EstadoEspacio.html
+  name: EstadoEspacio
+  nameWithType: EstadoEspacio
+  fullName: Domain.Enums.EstadoEspacio

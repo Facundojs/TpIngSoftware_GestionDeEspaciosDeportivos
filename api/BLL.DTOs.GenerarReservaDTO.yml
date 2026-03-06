@@ -1,0 +1,559 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.DTOs.GenerarReservaDTO
+  commentId: T:BLL.DTOs.GenerarReservaDTO
+  id: GenerarReservaDTO
+  parent: BLL.DTOs
+  children:
+  - BLL.DTOs.GenerarReservaDTO.#ctor
+  - BLL.DTOs.GenerarReservaDTO.Adelanto
+  - BLL.DTOs.GenerarReservaDTO.ClienteId
+  - BLL.DTOs.GenerarReservaDTO.Duracion
+  - BLL.DTOs.GenerarReservaDTO.EspacioId
+  - BLL.DTOs.GenerarReservaDTO.FechaHora
+  langs:
+  - csharp
+  - vb
+  name: GenerarReservaDTO
+  nameWithType: GenerarReservaDTO
+  fullName: BLL.DTOs.GenerarReservaDTO
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Command object carrying all inputs required to create a new reservation via <code>ReservaService.GenerarReserva</code>.
+  remarks: >-
+    <xref href="BLL.DTOs.GenerarReservaDTO.Duracion" data-throw-if-not-resolved="false"></xref> must be a positive integer representing minutes.
+
+    <xref href="BLL.DTOs.GenerarReservaDTO.Adelanto" data-throw-if-not-resolved="false"></xref> is the partial payment collected at booking time; it may be zero but must not be negative.
+
+    Availability is validated against the space's agenda and existing reservations inside the service.
+  example: []
+  syntax:
+    content: public class GenerarReservaDTO
+    content.vb: Public Class GenerarReservaDTO
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.DTOs.GenerarReservaDTO.#ctor
+  commentId: M:BLL.DTOs.GenerarReservaDTO.#ctor
+  id: '#ctor'
+  parent: BLL.DTOs.GenerarReservaDTO
+  langs:
+  - csharp
+  - vb
+  name: GenerarReservaDTO()
+  nameWithType: GenerarReservaDTO.GenerarReservaDTO()
+  fullName: BLL.DTOs.GenerarReservaDTO.GenerarReservaDTO()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  syntax:
+    content: public GenerarReservaDTO()
+    content.vb: Public Sub New()
+  overload: BLL.DTOs.GenerarReservaDTO.#ctor*
+  nameWithType.vb: GenerarReservaDTO.New()
+  fullName.vb: BLL.DTOs.GenerarReservaDTO.New()
+  name.vb: New()
+- uid: BLL.DTOs.GenerarReservaDTO.ClienteId
+  commentId: P:BLL.DTOs.GenerarReservaDTO.ClienteId
+  id: ClienteId
+  parent: BLL.DTOs.GenerarReservaDTO
+  langs:
+  - csharp
+  - vb
+  name: ClienteId
+  nameWithType: GenerarReservaDTO.ClienteId
+  fullName: BLL.DTOs.GenerarReservaDTO.ClienteId
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the client making the reservation.
+  example: []
+  syntax:
+    content: public Guid ClienteId { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property ClienteId As Guid
+  overload: BLL.DTOs.GenerarReservaDTO.ClienteId*
+- uid: BLL.DTOs.GenerarReservaDTO.EspacioId
+  commentId: P:BLL.DTOs.GenerarReservaDTO.EspacioId
+  id: EspacioId
+  parent: BLL.DTOs.GenerarReservaDTO
+  langs:
+  - csharp
+  - vb
+  name: EspacioId
+  nameWithType: GenerarReservaDTO.EspacioId
+  fullName: BLL.DTOs.GenerarReservaDTO.EspacioId
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: FK to the space being reserved.
+  example: []
+  syntax:
+    content: public Guid EspacioId { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property EspacioId As Guid
+  overload: BLL.DTOs.GenerarReservaDTO.EspacioId*
+- uid: BLL.DTOs.GenerarReservaDTO.FechaHora
+  commentId: P:BLL.DTOs.GenerarReservaDTO.FechaHora
+  id: FechaHora
+  parent: BLL.DTOs.GenerarReservaDTO
+  langs:
+  - csharp
+  - vb
+  name: FechaHora
+  nameWithType: GenerarReservaDTO.FechaHora
+  fullName: BLL.DTOs.GenerarReservaDTO.FechaHora
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Exact start date and time of the requested reservation.
+  example: []
+  syntax:
+    content: public DateTime FechaHora { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property FechaHora As Date
+  overload: BLL.DTOs.GenerarReservaDTO.FechaHora*
+- uid: BLL.DTOs.GenerarReservaDTO.Duracion
+  commentId: P:BLL.DTOs.GenerarReservaDTO.Duracion
+  id: Duracion
+  parent: BLL.DTOs.GenerarReservaDTO
+  langs:
+  - csharp
+  - vb
+  name: Duracion
+  nameWithType: GenerarReservaDTO.Duracion
+  fullName: BLL.DTOs.GenerarReservaDTO.Duracion
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Requested duration in minutes.
+  example: []
+  syntax:
+    content: public int Duracion { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Duracion As Integer
+  overload: BLL.DTOs.GenerarReservaDTO.Duracion*
+- uid: BLL.DTOs.GenerarReservaDTO.Adelanto
+  commentId: P:BLL.DTOs.GenerarReservaDTO.Adelanto
+  id: Adelanto
+  parent: BLL.DTOs.GenerarReservaDTO
+  langs:
+  - csharp
+  - vb
+  name: Adelanto
+  nameWithType: GenerarReservaDTO.Adelanto
+  fullName: BLL.DTOs.GenerarReservaDTO.Adelanto
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/DTOs/GenerarReservaDTO.cs
+  assemblies:
+  - BLL
+  namespace: BLL.DTOs
+  summary: Advance payment amount to register at the time of booking.
+  example: []
+  syntax:
+    content: public decimal Adelanto { get; set; }
+    parameters: []
+    return:
+      type: System.Decimal
+    content.vb: Public Property Adelanto As Decimal
+  overload: BLL.DTOs.GenerarReservaDTO.Adelanto*
+references:
+- uid: BLL.DTOs.GenerarReservaDTO.Duracion
+  commentId: P:BLL.DTOs.GenerarReservaDTO.Duracion
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_Duracion
+  name: Duracion
+  nameWithType: GenerarReservaDTO.Duracion
+  fullName: BLL.DTOs.GenerarReservaDTO.Duracion
+- uid: BLL.DTOs.GenerarReservaDTO.Adelanto
+  commentId: P:BLL.DTOs.GenerarReservaDTO.Adelanto
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_Adelanto
+  name: Adelanto
+  nameWithType: GenerarReservaDTO.Adelanto
+  fullName: BLL.DTOs.GenerarReservaDTO.Adelanto
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.DTOs.GenerarReservaDTO.#ctor*
+  commentId: Overload:BLL.DTOs.GenerarReservaDTO.#ctor
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO__ctor
+  name: GenerarReservaDTO
+  nameWithType: GenerarReservaDTO.GenerarReservaDTO
+  fullName: BLL.DTOs.GenerarReservaDTO.GenerarReservaDTO
+  nameWithType.vb: GenerarReservaDTO.New
+  fullName.vb: BLL.DTOs.GenerarReservaDTO.New
+  name.vb: New
+- uid: BLL.DTOs.GenerarReservaDTO.ClienteId*
+  commentId: Overload:BLL.DTOs.GenerarReservaDTO.ClienteId
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_ClienteId
+  name: ClienteId
+  nameWithType: GenerarReservaDTO.ClienteId
+  fullName: BLL.DTOs.GenerarReservaDTO.ClienteId
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.DTOs.GenerarReservaDTO.EspacioId*
+  commentId: Overload:BLL.DTOs.GenerarReservaDTO.EspacioId
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_EspacioId
+  name: EspacioId
+  nameWithType: GenerarReservaDTO.EspacioId
+  fullName: BLL.DTOs.GenerarReservaDTO.EspacioId
+- uid: BLL.DTOs.GenerarReservaDTO.FechaHora*
+  commentId: Overload:BLL.DTOs.GenerarReservaDTO.FechaHora
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_FechaHora
+  name: FechaHora
+  nameWithType: GenerarReservaDTO.FechaHora
+  fullName: BLL.DTOs.GenerarReservaDTO.FechaHora
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: BLL.DTOs.GenerarReservaDTO.Duracion*
+  commentId: Overload:BLL.DTOs.GenerarReservaDTO.Duracion
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_Duracion
+  name: Duracion
+  nameWithType: GenerarReservaDTO.Duracion
+  fullName: BLL.DTOs.GenerarReservaDTO.Duracion
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: BLL.DTOs.GenerarReservaDTO.Adelanto*
+  commentId: Overload:BLL.DTOs.GenerarReservaDTO.Adelanto
+  isExternal: true
+  href: BLL.DTOs.GenerarReservaDTO.html#BLL_DTOs_GenerarReservaDTO_Adelanto
+  name: Adelanto
+  nameWithType: GenerarReservaDTO.Adelanto
+  fullName: BLL.DTOs.GenerarReservaDTO.Adelanto
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal

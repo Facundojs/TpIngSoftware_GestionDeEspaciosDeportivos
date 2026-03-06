@@ -1,0 +1,710 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Services.EspacioService
+  commentId: T:BLL.Services.EspacioService
+  id: EspacioService
+  parent: BLL.Services
+  children:
+  - BLL.Services.EspacioService.#ctor
+  - BLL.Services.EspacioService.ActualizarEspacio(BLL.DTOs.EspacioDTO)
+  - BLL.Services.EspacioService.CrearEspacio(BLL.DTOs.EspacioDTO)
+  - BLL.Services.EspacioService.EliminarEspacio(System.Guid)
+  - BLL.Services.EspacioService.ListarEspacios
+  - BLL.Services.EspacioService.ListarTodos
+  langs:
+  - csharp
+  - vb
+  name: EspacioService
+  nameWithType: EspacioService
+  fullName: BLL.Services.EspacioService
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Business logic service for sports space (espacio) management.
+  remarks: >-
+    Deletion is soft when the space has future non-cancelled/non-finalized reservations:
+
+    the space is set to <code>Inactivo</code> instead of being physically removed.
+  example: []
+  syntax:
+    content: public class EspacioService
+    content.vb: Public Class EspacioService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Services.EspacioService.#ctor
+  commentId: M:BLL.Services.EspacioService.#ctor
+  id: '#ctor'
+  parent: BLL.Services.EspacioService
+  langs:
+  - csharp
+  - vb
+  name: EspacioService()
+  nameWithType: EspacioService.EspacioService()
+  fullName: BLL.Services.EspacioService.EspacioService()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Initializes dependencies from <xref href="DAL.Factory.DalFactory" data-throw-if-not-resolved="false"></xref> singletons.
+  example: []
+  syntax:
+    content: public EspacioService()
+    content.vb: Public Sub New()
+  overload: BLL.Services.EspacioService.#ctor*
+  nameWithType.vb: EspacioService.New()
+  fullName.vb: BLL.Services.EspacioService.New()
+  name.vb: New()
+- uid: BLL.Services.EspacioService.CrearEspacio(BLL.DTOs.EspacioDTO)
+  commentId: M:BLL.Services.EspacioService.CrearEspacio(BLL.DTOs.EspacioDTO)
+  id: CrearEspacio(BLL.DTOs.EspacioDTO)
+  parent: BLL.Services.EspacioService
+  langs:
+  - csharp
+  - vb
+  name: CrearEspacio(EspacioDTO)
+  nameWithType: EspacioService.CrearEspacio(EspacioDTO)
+  fullName: BLL.Services.EspacioService.CrearEspacio(BLL.DTOs.EspacioDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Creates a new sports space.
+  example: []
+  syntax:
+    content: public void CrearEspacio(EspacioDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.EspacioDTO
+      description: Space data. Name must be non-empty and price non-negative.
+    content.vb: Public Sub CrearEspacio(dto As EspacioDTO)
+  overload: BLL.Services.EspacioService.CrearEspacio*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">dto</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown for negative price or empty name.
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">dto</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if price is negative or name is empty.
+- uid: BLL.Services.EspacioService.ActualizarEspacio(BLL.DTOs.EspacioDTO)
+  commentId: M:BLL.Services.EspacioService.ActualizarEspacio(BLL.DTOs.EspacioDTO)
+  id: ActualizarEspacio(BLL.DTOs.EspacioDTO)
+  parent: BLL.Services.EspacioService
+  langs:
+  - csharp
+  - vb
+  name: ActualizarEspacio(EspacioDTO)
+  nameWithType: EspacioService.ActualizarEspacio(EspacioDTO)
+  fullName: BLL.Services.EspacioService.ActualizarEspacio(BLL.DTOs.EspacioDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Updates an existing sports space.
+  example: []
+  syntax:
+    content: public void ActualizarEspacio(EspacioDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.EspacioDTO
+      description: Updated space data. <xref href="BLL.DTOs.EspacioDTO.Id" data-throw-if-not-resolved="false"></xref> must identify an existing record.
+    content.vb: Public Sub ActualizarEspacio(dto As EspacioDTO)
+  overload: BLL.Services.EspacioService.ActualizarEspacio*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown for negative price or empty name.
+- uid: BLL.Services.EspacioService.EliminarEspacio(System.Guid)
+  commentId: M:BLL.Services.EspacioService.EliminarEspacio(System.Guid)
+  id: EliminarEspacio(System.Guid)
+  parent: BLL.Services.EspacioService
+  langs:
+  - csharp
+  - vb
+  name: EliminarEspacio(Guid)
+  nameWithType: EspacioService.EliminarEspacio(Guid)
+  fullName: BLL.Services.EspacioService.EliminarEspacio(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: >-
+    Deletes or soft-deletes a space.
+
+    If the space has future active reservations it is marked <code>Inactivo</code>; otherwise it is physically removed.
+  example: []
+  syntax:
+    content: public void EliminarEspacio(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The space to remove.
+    content.vb: Public Sub EliminarEspacio(id As Guid)
+  overload: BLL.Services.EspacioService.EliminarEspacio*
+- uid: BLL.Services.EspacioService.ListarEspacios
+  commentId: M:BLL.Services.EspacioService.ListarEspacios
+  id: ListarEspacios
+  parent: BLL.Services.EspacioService
+  langs:
+  - csharp
+  - vb
+  name: ListarEspacios()
+  nameWithType: EspacioService.ListarEspacios()
+  fullName: BLL.Services.EspacioService.ListarEspacios()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Returns only active spaces (suitable for reservation booking).
+  example: []
+  syntax:
+    content: public List<EspacioDTO> ListarEspacios()
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.EspacioDTO}
+    content.vb: Public Function ListarEspacios() As List(Of EspacioDTO)
+  overload: BLL.Services.EspacioService.ListarEspacios*
+- uid: BLL.Services.EspacioService.ListarTodos
+  commentId: M:BLL.Services.EspacioService.ListarTodos
+  id: ListarTodos
+  parent: BLL.Services.EspacioService
+  langs:
+  - csharp
+  - vb
+  name: ListarTodos()
+  nameWithType: EspacioService.ListarTodos()
+  fullName: BLL.Services.EspacioService.ListarTodos()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/EspacioService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Returns all spaces regardless of status (for administrative views).
+  example: []
+  syntax:
+    content: public List<EspacioDTO> ListarTodos()
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.EspacioDTO}
+    content.vb: Public Function ListarTodos() As List(Of EspacioDTO)
+  overload: BLL.Services.EspacioService.ListarTodos*
+references:
+- uid: BLL.Services
+  commentId: N:BLL.Services
+  isExternal: true
+  href: BLL.html
+  name: BLL.Services
+  nameWithType: BLL.Services
+  fullName: BLL.Services
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Services
+    name: Services
+    isExternal: true
+    href: BLL.Services.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Services
+    name: Services
+    isExternal: true
+    href: BLL.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Factory.DalFactory
+  commentId: T:DAL.Factory.DalFactory
+  isExternal: true
+  href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  name: DalFactory
+  nameWithType: DalFactory
+  fullName: DAL.Factory.DalFactory
+- uid: BLL.Services.EspacioService.#ctor*
+  commentId: Overload:BLL.Services.EspacioService.#ctor
+  isExternal: true
+  href: BLL.Services.EspacioService.html#BLL_Services_EspacioService__ctor
+  name: EspacioService
+  nameWithType: EspacioService.EspacioService
+  fullName: BLL.Services.EspacioService.EspacioService
+  nameWithType.vb: EspacioService.New
+  fullName.vb: BLL.Services.EspacioService.New
+  name.vb: New
+- uid: BLL.DTOs.EspacioDTO.PrecioHora
+  commentId: P:BLL.DTOs.EspacioDTO.PrecioHora
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_PrecioHora
+  name: PrecioHora
+  nameWithType: EspacioDTO.PrecioHora
+  fullName: BLL.DTOs.EspacioDTO.PrecioHora
+- uid: BLL.DTOs.EspacioDTO.Nombre
+  commentId: P:BLL.DTOs.EspacioDTO.Nombre
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_Nombre
+  name: Nombre
+  nameWithType: EspacioDTO.Nombre
+  fullName: BLL.DTOs.EspacioDTO.Nombre
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: BLL.Services.EspacioService.CrearEspacio*
+  commentId: Overload:BLL.Services.EspacioService.CrearEspacio
+  isExternal: true
+  href: BLL.Services.EspacioService.html#BLL_Services_EspacioService_CrearEspacio_BLL_DTOs_EspacioDTO_
+  name: CrearEspacio
+  nameWithType: EspacioService.CrearEspacio
+  fullName: BLL.Services.EspacioService.CrearEspacio
+- uid: BLL.DTOs.EspacioDTO
+  commentId: T:BLL.DTOs.EspacioDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html
+  name: EspacioDTO
+  nameWithType: EspacioDTO
+  fullName: BLL.DTOs.EspacioDTO
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: BLL.DTOs.EspacioDTO.Id
+  commentId: P:BLL.DTOs.EspacioDTO.Id
+  isExternal: true
+  href: BLL.DTOs.EspacioDTO.html#BLL_DTOs_EspacioDTO_Id
+  name: Id
+  nameWithType: EspacioDTO.Id
+  fullName: BLL.DTOs.EspacioDTO.Id
+- uid: BLL.Services.EspacioService.ActualizarEspacio*
+  commentId: Overload:BLL.Services.EspacioService.ActualizarEspacio
+  isExternal: true
+  href: BLL.Services.EspacioService.html#BLL_Services_EspacioService_ActualizarEspacio_BLL_DTOs_EspacioDTO_
+  name: ActualizarEspacio
+  nameWithType: EspacioService.ActualizarEspacio
+  fullName: BLL.Services.EspacioService.ActualizarEspacio
+- uid: BLL.Services.EspacioService.EliminarEspacio*
+  commentId: Overload:BLL.Services.EspacioService.EliminarEspacio
+  isExternal: true
+  href: BLL.Services.EspacioService.html#BLL_Services_EspacioService_EliminarEspacio_System_Guid_
+  name: EliminarEspacio
+  nameWithType: EspacioService.EliminarEspacio
+  fullName: BLL.Services.EspacioService.EliminarEspacio
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.Services.EspacioService.ListarEspacios*
+  commentId: Overload:BLL.Services.EspacioService.ListarEspacios
+  isExternal: true
+  href: BLL.Services.EspacioService.html#BLL_Services_EspacioService_ListarEspacios
+  name: ListarEspacios
+  nameWithType: EspacioService.ListarEspacios
+  fullName: BLL.Services.EspacioService.ListarEspacios
+- uid: System.Collections.Generic.List{BLL.DTOs.EspacioDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.EspacioDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<EspacioDTO>
+  nameWithType: List<EspacioDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.EspacioDTO>
+  nameWithType.vb: List(Of EspacioDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.EspacioDTO)
+  name.vb: List(Of EspacioDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.EspacioDTO
+    name: EspacioDTO
+    isExternal: true
+    href: BLL.DTOs.EspacioDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.EspacioDTO
+    name: EspacioDTO
+    isExternal: true
+    href: BLL.DTOs.EspacioDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: BLL.Services.EspacioService.ListarTodos*
+  commentId: Overload:BLL.Services.EspacioService.ListarTodos
+  isExternal: true
+  href: BLL.Services.EspacioService.html#BLL_Services_EspacioService_ListarTodos
+  name: ListarTodos
+  nameWithType: EspacioService.ListarTodos
+  fullName: BLL.Services.EspacioService.ListarTodos

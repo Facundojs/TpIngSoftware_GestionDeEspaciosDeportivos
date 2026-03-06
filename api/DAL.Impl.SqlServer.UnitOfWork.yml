@@ -1,0 +1,1391 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Impl.SqlServer.UnitOfWork
+  commentId: T:DAL.Impl.SqlServer.UnitOfWork
+  id: UnitOfWork
+  parent: DAL.Impl.SqlServer
+  children:
+  - DAL.Impl.SqlServer.UnitOfWork.#ctor
+  - DAL.Impl.SqlServer.UnitOfWork.AgendaRepository
+  - DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+  - DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository
+  - DAL.Impl.SqlServer.UnitOfWork.ClienteRepository
+  - DAL.Impl.SqlServer.UnitOfWork.Commit
+  - DAL.Impl.SqlServer.UnitOfWork.Dispose
+  - DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository
+  - DAL.Impl.SqlServer.UnitOfWork.EspacioRepository
+  - DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository
+  - DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository
+  - DAL.Impl.SqlServer.UnitOfWork.PagoRepository
+  - DAL.Impl.SqlServer.UnitOfWork.ReservaRepository
+  - DAL.Impl.SqlServer.UnitOfWork.Rollback
+  - DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository
+  - DAL.Impl.SqlServer.UnitOfWork.RutinaRepository
+  langs:
+  - csharp
+  - vb
+  name: UnitOfWork
+  nameWithType: UnitOfWork
+  fullName: DAL.Impl.SqlServer.UnitOfWork
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: >-
+    Implements the Unit of Work pattern for SQL Server.
+
+    Manages a single <xref href="System.Data.SqlClient.SqlConnection" data-throw-if-not-resolved="false"></xref> and <xref href="System.Data.SqlClient.SqlTransaction" data-throw-if-not-resolved="false"></xref> shared across
+
+    all enrolled repositories for the duration of one logical operation.
+  remarks: >-
+    <p>
+
+    Obtain an instance via <xref href="DAL.Factory.DalFactory.CreateUnitOfWork" data-throw-if-not-resolved="false"></xref>.
+
+    Usage pattern:
+
+
+    <pre><code class="lang-csharp">using (var uow = DalFactory.CreateUnitOfWork())
+
+    {
+        uow.BeginTransaction();
+        // ...operations on uow.*Repository...
+        uow.Commit();
+    }</code></pre>
+
+    </p>
+
+    <p>
+
+    After <xref href="DAL.Impl.SqlServer.UnitOfWork.Commit" data-throw-if-not-resolved="false"></xref> or <xref href="DAL.Impl.SqlServer.UnitOfWork.Rollback" data-throw-if-not-resolved="false"></xref>, the instance is <em>spent</em>
+
+    and cannot be reused; <xref href="DAL.Impl.SqlServer.UnitOfWork.BeginTransaction" data-throw-if-not-resolved="false"></xref> will throw <xref href="System.ObjectDisposedException" data-throw-if-not-resolved="false"></xref>.
+
+    <xref href="DAL.Impl.SqlServer.UnitOfWork.Dispose" data-throw-if-not-resolved="false"></xref> will roll back any uncommitted transaction if the <code>using</code> block
+
+    exits without an explicit commit.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public class UnitOfWork : IUnitOfWork, IDisposable'
+    content.vb: Public Class UnitOfWork Implements IUnitOfWork, IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - DAL.Contracts.IUnitOfWork
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: DAL.Impl.SqlServer.UnitOfWork.#ctor
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.#ctor
+  id: '#ctor'
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: UnitOfWork()
+  nameWithType: UnitOfWork.UnitOfWork()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.UnitOfWork()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Constructs all repository instances without opening a connection.
+  example: []
+  syntax:
+    content: public UnitOfWork()
+    content.vb: Public Sub New()
+  overload: DAL.Impl.SqlServer.UnitOfWork.#ctor*
+  nameWithType.vb: UnitOfWork.New()
+  fullName.vb: DAL.Impl.SqlServer.UnitOfWork.New()
+  name.vb: New()
+- uid: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+  id: BeginTransaction
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: BeginTransaction()
+  nameWithType: UnitOfWork.BeginTransaction()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Opens the shared connection and begins a database transaction, injecting both into all repositories.
+  example: []
+  syntax:
+    content: public void BeginTransaction()
+    content.vb: Public Sub BeginTransaction()
+  overload: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction*
+  exceptions:
+  - type: System.ObjectDisposedException
+    commentId: T:System.ObjectDisposedException
+    description: Thrown if the instance has already been disposed or spent.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if a transaction is already active on this instance.
+  implements:
+  - DAL.Contracts.IUnitOfWork.BeginTransaction
+- uid: DAL.Impl.SqlServer.UnitOfWork.Commit
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.Commit
+  id: Commit
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: Commit()
+  nameWithType: UnitOfWork.Commit()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Commit()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Commits the active transaction and closes the shared connection.
+  example: []
+  syntax:
+    content: public void Commit()
+    content.vb: Public Sub Commit()
+  overload: DAL.Impl.SqlServer.UnitOfWork.Commit*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if no transaction is active.
+  implements:
+  - DAL.Contracts.IUnitOfWork.Commit
+- uid: DAL.Impl.SqlServer.UnitOfWork.Rollback
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.Rollback
+  id: Rollback
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: Rollback()
+  nameWithType: UnitOfWork.Rollback()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Rollback()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: >-
+    Rolls back the active transaction and closes the shared connection.
+
+    Safe to call even when no transaction is active (no-op in that case).
+  example: []
+  syntax:
+    content: public void Rollback()
+    content.vb: Public Sub Rollback()
+  overload: DAL.Impl.SqlServer.UnitOfWork.Rollback*
+  implements:
+  - DAL.Contracts.IUnitOfWork.Rollback
+- uid: DAL.Impl.SqlServer.UnitOfWork.Dispose
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.Dispose
+  id: Dispose
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: UnitOfWork.Dispose()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Dispose()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: >-
+    Rolls back any uncommitted transaction and releases all resources.
+
+    Called automatically at the end of a <code>using</code> block.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: DAL.Impl.SqlServer.UnitOfWork.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: DAL.Impl.SqlServer.UnitOfWork.AgendaRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.AgendaRepository
+  id: AgendaRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: AgendaRepository
+  nameWithType: UnitOfWork.AgendaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.AgendaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for agenda (operating schedule) operations.
+  example: []
+  syntax:
+    content: public IAgendaRepository AgendaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IAgendaRepository
+    content.vb: Public ReadOnly Property AgendaRepository As IAgendaRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.AgendaRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.AgendaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.ClienteRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.ClienteRepository
+  id: ClienteRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: ClienteRepository
+  nameWithType: UnitOfWork.ClienteRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.ClienteRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for client operations.
+  example: []
+  syntax:
+    content: public IClienteRepository ClienteRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IClienteRepository
+    content.vb: Public ReadOnly Property ClienteRepository As IClienteRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.ClienteRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.ClienteRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.PagoRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.PagoRepository
+  id: PagoRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: PagoRepository
+  nameWithType: UnitOfWork.PagoRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.PagoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for payment operations.
+  example: []
+  syntax:
+    content: public IPagoRepository PagoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IPagoRepository
+    content.vb: Public ReadOnly Property PagoRepository As IPagoRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.PagoRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.PagoRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.ReservaRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.ReservaRepository
+  id: ReservaRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: ReservaRepository
+  nameWithType: UnitOfWork.ReservaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.ReservaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for reservation operations.
+  example: []
+  syntax:
+    content: public IReservaRepository ReservaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IReservaRepository
+    content.vb: Public ReadOnly Property ReservaRepository As IReservaRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.ReservaRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.ReservaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.RutinaRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.RutinaRepository
+  id: RutinaRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: RutinaRepository
+  nameWithType: UnitOfWork.RutinaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.RutinaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for workout routine operations.
+  example: []
+  syntax:
+    content: public IRutinaRepository RutinaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IRutinaRepository
+    content.vb: Public ReadOnly Property RutinaRepository As IRutinaRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.RutinaRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.RutinaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository
+  id: MovimientoRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: MovimientoRepository
+  nameWithType: UnitOfWork.MovimientoRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for ledger movement (debit/credit) insertions.
+  example: []
+  syntax:
+    content: public IMovimientoRepository MovimientoRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IMovimientoRepository
+    content.vb: Public ReadOnly Property MovimientoRepository As IMovimientoRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.MovimientoRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository
+  id: ClienteMembresiaRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: ClienteMembresiaRepository
+  nameWithType: UnitOfWork.ClienteMembresiaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for client-membership assignment operations.
+  example: []
+  syntax:
+    content: public IClienteMembresiaRepository ClienteMembresiaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IClienteMembresiaRepository
+    content.vb: Public ReadOnly Property ClienteMembresiaRepository As IClienteMembresiaRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository
+  id: RutinaEjercicioRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: RutinaEjercicioRepository
+  nameWithType: UnitOfWork.RutinaEjercicioRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for routine-exercise mapping operations.
+  example: []
+  syntax:
+    content: public IRutinaEjercicioRepository RutinaEjercicioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IRutinaEjercicioRepository
+    content.vb: Public ReadOnly Property RutinaEjercicioRepository As IRutinaEjercicioRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository
+  id: MembresiaRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: MembresiaRepository
+  nameWithType: UnitOfWork.MembresiaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for membership plan operations.
+  example: []
+  syntax:
+    content: public IMembresiaRepository MembresiaRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IMembresiaRepository
+    content.vb: Public ReadOnly Property MembresiaRepository As IMembresiaRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.MembresiaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository
+  id: EjercicioRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: EjercicioRepository
+  nameWithType: UnitOfWork.EjercicioRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for exercise catalog operations.
+  example: []
+  syntax:
+    content: public IEjercicioRepository EjercicioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IEjercicioRepository
+    content.vb: Public ReadOnly Property EjercicioRepository As IEjercicioRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.EjercicioRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.EspacioRepository
+  commentId: P:DAL.Impl.SqlServer.UnitOfWork.EspacioRepository
+  id: EspacioRepository
+  parent: DAL.Impl.SqlServer.UnitOfWork
+  langs:
+  - csharp
+  - vb
+  name: EspacioRepository
+  nameWithType: UnitOfWork.EspacioRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.EspacioRepository
+  type: Property
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/UnitOfWork.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Repository for sports space operations.
+  example: []
+  syntax:
+    content: public IEspacioRepository EspacioRepository { get; }
+    parameters: []
+    return:
+      type: DAL.Contracts.IEspacioRepository
+    content.vb: Public ReadOnly Property EspacioRepository As IEspacioRepository
+  overload: DAL.Impl.SqlServer.UnitOfWork.EspacioRepository*
+  implements:
+  - DAL.Contracts.IUnitOfWork.EspacioRepository
+references:
+- uid: System.Data.SqlClient.SqlConnection
+  commentId: T:System.Data.SqlClient.SqlConnection
+  parent: System.Data.SqlClient
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection
+  name: SqlConnection
+  nameWithType: SqlConnection
+  fullName: System.Data.SqlClient.SqlConnection
+- uid: System.Data.SqlClient.SqlTransaction
+  commentId: T:System.Data.SqlClient.SqlTransaction
+  parent: System.Data.SqlClient
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction
+  name: SqlTransaction
+  nameWithType: SqlTransaction
+  fullName: System.Data.SqlClient.SqlTransaction
+- uid: DAL.Factory.DalFactory.CreateUnitOfWork
+  commentId: M:DAL.Factory.DalFactory.CreateUnitOfWork
+  isExternal: true
+  href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  name: CreateUnitOfWork()
+  nameWithType: DalFactory.CreateUnitOfWork()
+  fullName: DAL.Factory.DalFactory.CreateUnitOfWork()
+  spec.csharp:
+  - uid: DAL.Factory.DalFactory.CreateUnitOfWork
+    name: CreateUnitOfWork
+    isExternal: true
+    href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Factory.DalFactory.CreateUnitOfWork
+    name: CreateUnitOfWork
+    isExternal: true
+    href: DAL.Factory.DalFactory.html#DAL_Factory_DalFactory_CreateUnitOfWork
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.Commit
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.Commit
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Commit
+  name: Commit()
+  nameWithType: UnitOfWork.Commit()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Commit()
+  spec.csharp:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.Commit
+    name: Commit
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Commit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.Commit
+    name: Commit
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Commit
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.Rollback
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.Rollback
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Rollback
+  name: Rollback()
+  nameWithType: UnitOfWork.Rollback()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Rollback()
+  spec.csharp:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.Rollback
+    name: Rollback
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Rollback
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.Rollback
+    name: Rollback
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Rollback
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_BeginTransaction
+  name: BeginTransaction()
+  nameWithType: UnitOfWork.BeginTransaction()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction()
+  spec.csharp:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+    name: BeginTransaction
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_BeginTransaction
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+    name: BeginTransaction
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_BeginTransaction
+  - name: (
+  - name: )
+- uid: System.ObjectDisposedException
+  commentId: T:System.ObjectDisposedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.objectdisposedexception
+  name: ObjectDisposedException
+  nameWithType: ObjectDisposedException
+  fullName: System.ObjectDisposedException
+- uid: DAL.Impl.SqlServer.UnitOfWork.Dispose
+  commentId: M:DAL.Impl.SqlServer.UnitOfWork.Dispose
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Dispose
+  name: Dispose()
+  nameWithType: UnitOfWork.Dispose()
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Dispose()
+  spec.csharp:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.Dispose
+    name: Dispose
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.SqlServer.UnitOfWork.Dispose
+    name: Dispose
+    isExternal: true
+    href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Dispose
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer
+  commentId: N:DAL.Impl.SqlServer
+  isExternal: true
+  href: DAL.html
+  name: DAL.Impl.SqlServer
+  nameWithType: DAL.Impl.SqlServer
+  fullName: DAL.Impl.SqlServer
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  - name: .
+  - uid: DAL.Impl.SqlServer
+    name: SqlServer
+    isExternal: true
+    href: DAL.Impl.SqlServer.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  - name: .
+  - uid: DAL.Impl.SqlServer
+    name: SqlServer
+    isExternal: true
+    href: DAL.Impl.SqlServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DAL.Contracts.IUnitOfWork
+  commentId: T:DAL.Contracts.IUnitOfWork
+  parent: DAL.Contracts
+  isExternal: true
+  href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IUnitOfWork.cs
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: DAL.Contracts.IUnitOfWork
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Data.SqlClient
+  commentId: N:System.Data.SqlClient
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Data.SqlClient
+  nameWithType: System.Data.SqlClient
+  fullName: System.Data.SqlClient
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  - name: .
+  - uid: System.Data.SqlClient
+    name: SqlClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  - name: .
+  - uid: System.Data.SqlClient
+    name: SqlClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: DAL.Impl.SqlServer.UnitOfWork.#ctor*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.#ctor
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork__ctor
+  name: UnitOfWork
+  nameWithType: UnitOfWork.UnitOfWork
+  fullName: DAL.Impl.SqlServer.UnitOfWork.UnitOfWork
+  nameWithType.vb: UnitOfWork.New
+  fullName.vb: DAL.Impl.SqlServer.UnitOfWork.New
+  name.vb: New
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_BeginTransaction
+  name: BeginTransaction
+  nameWithType: UnitOfWork.BeginTransaction
+  fullName: DAL.Impl.SqlServer.UnitOfWork.BeginTransaction
+- uid: DAL.Contracts.IUnitOfWork.BeginTransaction
+  commentId: M:DAL.Contracts.IUnitOfWork.BeginTransaction
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_BeginTransaction
+  name: BeginTransaction()
+  nameWithType: IUnitOfWork.BeginTransaction()
+  fullName: DAL.Contracts.IUnitOfWork.BeginTransaction()
+  spec.csharp:
+  - uid: DAL.Contracts.IUnitOfWork.BeginTransaction
+    name: BeginTransaction
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_BeginTransaction
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IUnitOfWork.BeginTransaction
+    name: BeginTransaction
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_BeginTransaction
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.Commit*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.Commit
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Commit
+  name: Commit
+  nameWithType: UnitOfWork.Commit
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Commit
+- uid: DAL.Contracts.IUnitOfWork.Commit
+  commentId: M:DAL.Contracts.IUnitOfWork.Commit
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  name: Commit()
+  nameWithType: IUnitOfWork.Commit()
+  fullName: DAL.Contracts.IUnitOfWork.Commit()
+  spec.csharp:
+  - uid: DAL.Contracts.IUnitOfWork.Commit
+    name: Commit
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IUnitOfWork.Commit
+    name: Commit
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Commit
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.Rollback*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.Rollback
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Rollback
+  name: Rollback
+  nameWithType: UnitOfWork.Rollback
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Rollback
+- uid: DAL.Contracts.IUnitOfWork.Rollback
+  commentId: M:DAL.Contracts.IUnitOfWork.Rollback
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Rollback
+  name: Rollback()
+  nameWithType: IUnitOfWork.Rollback()
+  fullName: DAL.Contracts.IUnitOfWork.Rollback()
+  spec.csharp:
+  - uid: DAL.Contracts.IUnitOfWork.Rollback
+    name: Rollback
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Rollback
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DAL.Contracts.IUnitOfWork.Rollback
+    name: Rollback
+    isExternal: true
+    href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_Rollback
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.Dispose*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.Dispose
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_Dispose
+  name: Dispose
+  nameWithType: UnitOfWork.Dispose
+  fullName: DAL.Impl.SqlServer.UnitOfWork.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: DAL.Impl.SqlServer.UnitOfWork.AgendaRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.AgendaRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_AgendaRepository
+  name: AgendaRepository
+  nameWithType: UnitOfWork.AgendaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.AgendaRepository
+- uid: DAL.Contracts.IUnitOfWork.AgendaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.AgendaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_AgendaRepository
+  name: AgendaRepository
+  nameWithType: IUnitOfWork.AgendaRepository
+  fullName: DAL.Contracts.IUnitOfWork.AgendaRepository
+- uid: DAL.Contracts.IAgendaRepository
+  commentId: T:DAL.Contracts.IAgendaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IAgendaRepository.html
+  name: IAgendaRepository
+  nameWithType: IAgendaRepository
+  fullName: DAL.Contracts.IAgendaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.ClienteRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.ClienteRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_ClienteRepository
+  name: ClienteRepository
+  nameWithType: UnitOfWork.ClienteRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.ClienteRepository
+- uid: DAL.Contracts.IUnitOfWork.ClienteRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.ClienteRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_ClienteRepository
+  name: ClienteRepository
+  nameWithType: IUnitOfWork.ClienteRepository
+  fullName: DAL.Contracts.IUnitOfWork.ClienteRepository
+- uid: DAL.Contracts.IClienteRepository
+  commentId: T:DAL.Contracts.IClienteRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IClienteRepository.html
+  name: IClienteRepository
+  nameWithType: IClienteRepository
+  fullName: DAL.Contracts.IClienteRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.PagoRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.PagoRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_PagoRepository
+  name: PagoRepository
+  nameWithType: UnitOfWork.PagoRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.PagoRepository
+- uid: DAL.Contracts.IUnitOfWork.PagoRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.PagoRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_PagoRepository
+  name: PagoRepository
+  nameWithType: IUnitOfWork.PagoRepository
+  fullName: DAL.Contracts.IUnitOfWork.PagoRepository
+- uid: DAL.Contracts.IPagoRepository
+  commentId: T:DAL.Contracts.IPagoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IPagoRepository.html
+  name: IPagoRepository
+  nameWithType: IPagoRepository
+  fullName: DAL.Contracts.IPagoRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.ReservaRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.ReservaRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_ReservaRepository
+  name: ReservaRepository
+  nameWithType: UnitOfWork.ReservaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.ReservaRepository
+- uid: DAL.Contracts.IUnitOfWork.ReservaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.ReservaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_ReservaRepository
+  name: ReservaRepository
+  nameWithType: IUnitOfWork.ReservaRepository
+  fullName: DAL.Contracts.IUnitOfWork.ReservaRepository
+- uid: DAL.Contracts.IReservaRepository
+  commentId: T:DAL.Contracts.IReservaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IReservaRepository.html
+  name: IReservaRepository
+  nameWithType: IReservaRepository
+  fullName: DAL.Contracts.IReservaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.RutinaRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.RutinaRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_RutinaRepository
+  name: RutinaRepository
+  nameWithType: UnitOfWork.RutinaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.RutinaRepository
+- uid: DAL.Contracts.IUnitOfWork.RutinaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.RutinaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_RutinaRepository
+  name: RutinaRepository
+  nameWithType: IUnitOfWork.RutinaRepository
+  fullName: DAL.Contracts.IUnitOfWork.RutinaRepository
+- uid: DAL.Contracts.IRutinaRepository
+  commentId: T:DAL.Contracts.IRutinaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IRutinaRepository.html
+  name: IRutinaRepository
+  nameWithType: IRutinaRepository
+  fullName: DAL.Contracts.IRutinaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_MovimientoRepository
+  name: MovimientoRepository
+  nameWithType: UnitOfWork.MovimientoRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.MovimientoRepository
+- uid: DAL.Contracts.IUnitOfWork.MovimientoRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.MovimientoRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_MovimientoRepository
+  name: MovimientoRepository
+  nameWithType: IUnitOfWork.MovimientoRepository
+  fullName: DAL.Contracts.IUnitOfWork.MovimientoRepository
+- uid: DAL.Contracts.IMovimientoRepository
+  commentId: T:DAL.Contracts.IMovimientoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IMovimientoRepository.html
+  name: IMovimientoRepository
+  nameWithType: IMovimientoRepository
+  fullName: DAL.Contracts.IMovimientoRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_ClienteMembresiaRepository
+  name: ClienteMembresiaRepository
+  nameWithType: UnitOfWork.ClienteMembresiaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.ClienteMembresiaRepository
+- uid: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_ClienteMembresiaRepository
+  name: ClienteMembresiaRepository
+  nameWithType: IUnitOfWork.ClienteMembresiaRepository
+  fullName: DAL.Contracts.IUnitOfWork.ClienteMembresiaRepository
+- uid: DAL.Contracts.IClienteMembresiaRepository
+  commentId: T:DAL.Contracts.IClienteMembresiaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IClienteMembresiaRepository.html
+  name: IClienteMembresiaRepository
+  nameWithType: IClienteMembresiaRepository
+  fullName: DAL.Contracts.IClienteMembresiaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_RutinaEjercicioRepository
+  name: RutinaEjercicioRepository
+  nameWithType: UnitOfWork.RutinaEjercicioRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.RutinaEjercicioRepository
+- uid: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_RutinaEjercicioRepository
+  name: RutinaEjercicioRepository
+  nameWithType: IUnitOfWork.RutinaEjercicioRepository
+  fullName: DAL.Contracts.IUnitOfWork.RutinaEjercicioRepository
+- uid: DAL.Contracts.IRutinaEjercicioRepository
+  commentId: T:DAL.Contracts.IRutinaEjercicioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IRutinaEjercicioRepository.html
+  name: IRutinaEjercicioRepository
+  nameWithType: IRutinaEjercicioRepository
+  fullName: DAL.Contracts.IRutinaEjercicioRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_MembresiaRepository
+  name: MembresiaRepository
+  nameWithType: UnitOfWork.MembresiaRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.MembresiaRepository
+- uid: DAL.Contracts.IUnitOfWork.MembresiaRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.MembresiaRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_MembresiaRepository
+  name: MembresiaRepository
+  nameWithType: IUnitOfWork.MembresiaRepository
+  fullName: DAL.Contracts.IUnitOfWork.MembresiaRepository
+- uid: DAL.Contracts.IMembresiaRepository
+  commentId: T:DAL.Contracts.IMembresiaRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IMembresiaRepository.html
+  name: IMembresiaRepository
+  nameWithType: IMembresiaRepository
+  fullName: DAL.Contracts.IMembresiaRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_EjercicioRepository
+  name: EjercicioRepository
+  nameWithType: UnitOfWork.EjercicioRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.EjercicioRepository
+- uid: DAL.Contracts.IUnitOfWork.EjercicioRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.EjercicioRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_EjercicioRepository
+  name: EjercicioRepository
+  nameWithType: IUnitOfWork.EjercicioRepository
+  fullName: DAL.Contracts.IUnitOfWork.EjercicioRepository
+- uid: DAL.Contracts.IEjercicioRepository
+  commentId: T:DAL.Contracts.IEjercicioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IEjercicioRepository.html
+  name: IEjercicioRepository
+  nameWithType: IEjercicioRepository
+  fullName: DAL.Contracts.IEjercicioRepository
+- uid: DAL.Impl.SqlServer.UnitOfWork.EspacioRepository*
+  commentId: Overload:DAL.Impl.SqlServer.UnitOfWork.EspacioRepository
+  isExternal: true
+  href: DAL.Impl.SqlServer.UnitOfWork.html#DAL_Impl_SqlServer_UnitOfWork_EspacioRepository
+  name: EspacioRepository
+  nameWithType: UnitOfWork.EspacioRepository
+  fullName: DAL.Impl.SqlServer.UnitOfWork.EspacioRepository
+- uid: DAL.Contracts.IUnitOfWork.EspacioRepository
+  commentId: P:DAL.Contracts.IUnitOfWork.EspacioRepository
+  parent: DAL.Contracts.IUnitOfWork
+  isExternal: true
+  href: DAL.Contracts.IUnitOfWork.html#DAL_Contracts_IUnitOfWork_EspacioRepository
+  name: EspacioRepository
+  nameWithType: IUnitOfWork.EspacioRepository
+  fullName: DAL.Contracts.IUnitOfWork.EspacioRepository
+- uid: DAL.Contracts.IEspacioRepository
+  commentId: T:DAL.Contracts.IEspacioRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IEspacioRepository.html
+  name: IEspacioRepository
+  nameWithType: IEspacioRepository
+  fullName: DAL.Contracts.IEspacioRepository

@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Factory
+  commentId: N:DAL.Factory
+  id: DAL.Factory
+  children:
+  - DAL.Factory.DalFactory
+  langs:
+  - csharp
+  - vb
+  name: DAL.Factory
+  nameWithType: DAL.Factory
+  fullName: DAL.Factory
+  type: Namespace
+  assemblies:
+  - DAL
+references:
+- uid: DAL.Factory.DalFactory
+  commentId: T:DAL.Factory.DalFactory
+  isExternal: true
+  href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  name: DalFactory
+  nameWithType: DalFactory
+  fullName: DAL.Factory.DalFactory

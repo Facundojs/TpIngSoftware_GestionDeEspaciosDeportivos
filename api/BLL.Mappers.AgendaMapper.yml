@@ -1,0 +1,787 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Mappers.AgendaMapper
+  commentId: T:BLL.Mappers.AgendaMapper
+  id: AgendaMapper
+  parent: BLL.Mappers
+  children:
+  - BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO})
+  - BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+  - BLL.Mappers.AgendaMapper.ToDTO(Domain.Entities.Agenda)
+  - BLL.Mappers.AgendaMapper.ToEntity(BLL.DTOs.AgendaDTO)
+  langs:
+  - csharp
+  - vb
+  name: AgendaMapper
+  nameWithType: AgendaMapper
+  fullName: BLL.Mappers.AgendaMapper
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/AgendaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Bidirectional mapper between <xref href="Domain.Entities.Agenda" data-throw-if-not-resolved="false"></xref> domain entities and <xref href="BLL.DTOs.AgendaDTO" data-throw-if-not-resolved="false"></xref> projections.
+  remarks: >-
+    Provides both single-item and collection overloads via <xref href="BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable%7bDomain.Entities.Agenda%7d)" data-throw-if-not-resolved="false"></xref> to support
+
+    the delete-and-reinsert bulk pattern used by <code>AgendaService.ConfigurarAgenda</code>.
+  example: []
+  syntax:
+    content: public static class AgendaMapper
+    content.vb: Public Module AgendaMapper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Mappers.AgendaMapper.ToDTO(Domain.Entities.Agenda)
+  commentId: M:BLL.Mappers.AgendaMapper.ToDTO(Domain.Entities.Agenda)
+  id: ToDTO(Domain.Entities.Agenda)
+  parent: BLL.Mappers.AgendaMapper
+  langs:
+  - csharp
+  - vb
+  name: ToDTO(Agenda)
+  nameWithType: AgendaMapper.ToDTO(Agenda)
+  fullName: BLL.Mappers.AgendaMapper.ToDTO(Domain.Entities.Agenda)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/AgendaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects an <xref href="Domain.Entities.Agenda" data-throw-if-not-resolved="false"></xref> entity to an <xref href="BLL.DTOs.AgendaDTO" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static AgendaDTO ToDTO(Agenda entity)
+    parameters:
+    - id: entity
+      type: Domain.Entities.Agenda
+      description: Source entity. Returns <code>null</code> when <code>null</code>.
+    return:
+      type: BLL.DTOs.AgendaDTO
+    content.vb: Public Shared Function ToDTO(entity As Agenda) As AgendaDTO
+  overload: BLL.Mappers.AgendaMapper.ToDTO*
+- uid: BLL.Mappers.AgendaMapper.ToEntity(BLL.DTOs.AgendaDTO)
+  commentId: M:BLL.Mappers.AgendaMapper.ToEntity(BLL.DTOs.AgendaDTO)
+  id: ToEntity(BLL.DTOs.AgendaDTO)
+  parent: BLL.Mappers.AgendaMapper
+  langs:
+  - csharp
+  - vb
+  name: ToEntity(AgendaDTO)
+  nameWithType: AgendaMapper.ToEntity(AgendaDTO)
+  fullName: BLL.Mappers.AgendaMapper.ToEntity(BLL.DTOs.AgendaDTO)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/AgendaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects an <xref href="BLL.DTOs.AgendaDTO" data-throw-if-not-resolved="false"></xref> back to an <xref href="Domain.Entities.Agenda" data-throw-if-not-resolved="false"></xref> entity.
+  example: []
+  syntax:
+    content: public static Agenda ToEntity(AgendaDTO dto)
+    parameters:
+    - id: dto
+      type: BLL.DTOs.AgendaDTO
+      description: Source DTO. Returns <code>null</code> when <code>null</code>.
+    return:
+      type: Domain.Entities.Agenda
+    content.vb: Public Shared Function ToEntity(dto As AgendaDTO) As Agenda
+  overload: BLL.Mappers.AgendaMapper.ToEntity*
+- uid: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+  commentId: M:BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+  id: Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+  parent: BLL.Mappers.AgendaMapper
+  langs:
+  - csharp
+  - vb
+  name: Map(IEnumerable<Agenda>)
+  nameWithType: AgendaMapper.Map(IEnumerable<Agenda>)
+  fullName: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable<Domain.Entities.Agenda>)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/AgendaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a collection of <xref href="Domain.Entities.Agenda" data-throw-if-not-resolved="false"></xref> entities to DTOs. Returns an empty list when <code class="paramref">entities</code> is <code>null</code>.
+  example: []
+  syntax:
+    content: public static List<AgendaDTO> Map(IEnumerable<Agenda> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.IEnumerable{Domain.Entities.Agenda}
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+    content.vb: Public Shared Function Map(entities As IEnumerable(Of Agenda)) As List(Of AgendaDTO)
+  overload: BLL.Mappers.AgendaMapper.Map*
+  nameWithType.vb: AgendaMapper.Map(IEnumerable(Of Agenda))
+  fullName.vb: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable(Of Domain.Entities.Agenda))
+  name.vb: Map(IEnumerable(Of Agenda))
+- uid: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO})
+  commentId: M:BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO})
+  id: Map(System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO})
+  parent: BLL.Mappers.AgendaMapper
+  langs:
+  - csharp
+  - vb
+  name: Map(IEnumerable<AgendaDTO>)
+  nameWithType: AgendaMapper.Map(IEnumerable<AgendaDTO>)
+  fullName: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable<BLL.DTOs.AgendaDTO>)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Mappers/AgendaMapper.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Mappers
+  summary: Projects a collection of <xref href="BLL.DTOs.AgendaDTO" data-throw-if-not-resolved="false"></xref> objects to entities. Returns an empty list when <code class="paramref">dtos</code> is <code>null</code>.
+  example: []
+  syntax:
+    content: public static List<Agenda> Map(IEnumerable<AgendaDTO> dtos)
+    parameters:
+    - id: dtos
+      type: System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO}
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Agenda}
+    content.vb: Public Shared Function Map(dtos As IEnumerable(Of AgendaDTO)) As List(Of Agenda)
+  overload: BLL.Mappers.AgendaMapper.Map*
+  nameWithType.vb: AgendaMapper.Map(IEnumerable(Of AgendaDTO))
+  fullName.vb: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable(Of BLL.DTOs.AgendaDTO))
+  name.vb: Map(IEnumerable(Of AgendaDTO))
+references:
+- uid: Domain.Entities.Agenda
+  commentId: T:Domain.Entities.Agenda
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Agenda.html
+  name: Agenda
+  nameWithType: Agenda
+  fullName: Domain.Entities.Agenda
+- uid: BLL.DTOs.AgendaDTO
+  commentId: T:BLL.DTOs.AgendaDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html
+  name: AgendaDTO
+  nameWithType: AgendaDTO
+  fullName: BLL.DTOs.AgendaDTO
+- uid: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+  commentId: M:BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+  isExternal: true
+  href: BLL.Mappers.AgendaMapper.html#BLL_Mappers_AgendaMapper_Map_System_Collections_Generic_IEnumerable_Domain_Entities_Agenda__
+  name: Map(IEnumerable<Agenda>)
+  nameWithType: AgendaMapper.Map(IEnumerable<Agenda>)
+  fullName: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable<Domain.Entities.Agenda>)
+  nameWithType.vb: AgendaMapper.Map(IEnumerable(Of Agenda))
+  fullName.vb: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable(Of Domain.Entities.Agenda))
+  name.vb: Map(IEnumerable(Of Agenda))
+  spec.csharp:
+  - uid: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+    name: Map
+    isExternal: true
+    href: BLL.Mappers.AgendaMapper.html#BLL_Mappers_AgendaMapper_Map_System_Collections_Generic_IEnumerable_Domain_Entities_Agenda__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})
+    name: Map
+    isExternal: true
+    href: BLL.Mappers.AgendaMapper.html#BLL_Mappers_AgendaMapper_Map_System_Collections_Generic_IEnumerable_Domain_Entities_Agenda__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: )
+  - name: )
+- uid: BLL.Mappers
+  commentId: N:BLL.Mappers
+  isExternal: true
+  href: BLL.html
+  name: BLL.Mappers
+  nameWithType: BLL.Mappers
+  fullName: BLL.Mappers
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Mappers
+    name: Mappers
+    isExternal: true
+    href: BLL.Mappers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.Mappers.AgendaMapper.ToDTO*
+  commentId: Overload:BLL.Mappers.AgendaMapper.ToDTO
+  isExternal: true
+  href: BLL.Mappers.AgendaMapper.html#BLL_Mappers_AgendaMapper_ToDTO_Domain_Entities_Agenda_
+  name: ToDTO
+  nameWithType: AgendaMapper.ToDTO
+  fullName: BLL.Mappers.AgendaMapper.ToDTO
+- uid: BLL.Mappers.AgendaMapper.ToEntity*
+  commentId: Overload:BLL.Mappers.AgendaMapper.ToEntity
+  isExternal: true
+  href: BLL.Mappers.AgendaMapper.html#BLL_Mappers_AgendaMapper_ToEntity_BLL_DTOs_AgendaDTO_
+  name: ToEntity
+  nameWithType: AgendaMapper.ToEntity
+  fullName: BLL.Mappers.AgendaMapper.ToEntity
+- uid: BLL.Mappers.AgendaMapper.Map*
+  commentId: Overload:BLL.Mappers.AgendaMapper.Map
+  isExternal: true
+  href: BLL.Mappers.AgendaMapper.html#BLL_Mappers_AgendaMapper_Map_System_Collections_Generic_IEnumerable_Domain_Entities_Agenda__
+  name: Map
+  nameWithType: AgendaMapper.Map
+  fullName: BLL.Mappers.AgendaMapper.Map
+- uid: System.Collections.Generic.IEnumerable{Domain.Entities.Agenda}
+  commentId: T:System.Collections.Generic.IEnumerable{Domain.Entities.Agenda}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Agenda>
+  nameWithType: IEnumerable<Agenda>
+  fullName: System.Collections.Generic.IEnumerable<Domain.Entities.Agenda>
+  nameWithType.vb: IEnumerable(Of Agenda)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Domain.Entities.Agenda)
+  name.vb: IEnumerable(Of Agenda)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<AgendaDTO>
+  nameWithType: List<AgendaDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.AgendaDTO>
+  nameWithType.vb: List(Of AgendaDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.AgendaDTO)
+  name.vb: List(Of AgendaDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    isExternal: true
+    href: BLL.DTOs.AgendaDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    isExternal: true
+    href: BLL.DTOs.AgendaDTO.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO}
+  commentId: T:System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<AgendaDTO>
+  nameWithType: IEnumerable<AgendaDTO>
+  fullName: System.Collections.Generic.IEnumerable<BLL.DTOs.AgendaDTO>
+  nameWithType.vb: IEnumerable(Of AgendaDTO)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of BLL.DTOs.AgendaDTO)
+  name.vb: IEnumerable(Of AgendaDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    isExternal: true
+    href: BLL.DTOs.AgendaDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    isExternal: true
+    href: BLL.DTOs.AgendaDTO.html
+  - name: )
+- uid: System.Collections.Generic.List{Domain.Entities.Agenda}
+  commentId: T:System.Collections.Generic.List{Domain.Entities.Agenda}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Agenda>
+  nameWithType: List<Agenda>
+  fullName: System.Collections.Generic.List<Domain.Entities.Agenda>
+  nameWithType.vb: List(Of Agenda)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Entities.Agenda)
+  name.vb: List(Of Agenda)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Agenda
+    name: Agenda
+    isExternal: true
+  - name: )

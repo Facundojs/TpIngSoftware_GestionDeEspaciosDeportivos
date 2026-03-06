@@ -1,0 +1,545 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IRutinaRepository
+  commentId: T:DAL.Contracts.IRutinaRepository
+  id: IRutinaRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IRutinaRepository.FinalizarRutina(System.Guid)
+  - DAL.Contracts.IRutinaRepository.GetActivaByCliente(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IRutinaRepository
+  nameWithType: IRutinaRepository
+  fullName: DAL.Contracts.IRutinaRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IRutinaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Repository contract for <xref href="Domain.Entities.Rutina" data-throw-if-not-resolved="false"></xref> entities, extending standard CRUD with
+
+    routine lifecycle operations.
+  example: []
+  syntax:
+    content: 'public interface IRutinaRepository : IGenericRepository<Rutina>'
+    content.vb: Public Interface IRutinaRepository Inherits IGenericRepository(Of Rutina)
+  derivedClasses:
+  - DAL.Impl.RutinaSqlRepository
+  inheritedMembers:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Add(Domain.Entities.Rutina)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Update(Domain.Entities.Rutina)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Remove(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetById(System.Guid)
+  - Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetAll
+- uid: DAL.Contracts.IRutinaRepository.GetActivaByCliente(System.Guid)
+  commentId: M:DAL.Contracts.IRutinaRepository.GetActivaByCliente(System.Guid)
+  id: GetActivaByCliente(System.Guid)
+  parent: DAL.Contracts.IRutinaRepository
+  langs:
+  - csharp
+  - vb
+  name: GetActivaByCliente(Guid)
+  nameWithType: IRutinaRepository.GetActivaByCliente(Guid)
+  fullName: DAL.Contracts.IRutinaRepository.GetActivaByCliente(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IRutinaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Retrieves the currently active (open-ended) routine for a client.
+
+    A routine is active when its <code>Hasta</code> field is <code>null</code>.
+  example: []
+  syntax:
+    content: Rutina GetActivaByCliente(Guid clienteId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+      description: The client to look up.
+    return:
+      type: Domain.Entities.Rutina
+      description: The active <xref href="Domain.Entities.Rutina" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if the client has no active routine.
+    content.vb: Function GetActivaByCliente(clienteId As Guid) As Rutina
+  overload: DAL.Contracts.IRutinaRepository.GetActivaByCliente*
+- uid: DAL.Contracts.IRutinaRepository.FinalizarRutina(System.Guid)
+  commentId: M:DAL.Contracts.IRutinaRepository.FinalizarRutina(System.Guid)
+  id: FinalizarRutina(System.Guid)
+  parent: DAL.Contracts.IRutinaRepository
+  langs:
+  - csharp
+  - vb
+  name: FinalizarRutina(Guid)
+  nameWithType: IRutinaRepository.FinalizarRutina(Guid)
+  fullName: DAL.Contracts.IRutinaRepository.FinalizarRutina(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IRutinaRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  summary: >-
+    Closes a routine by setting its <code>Hasta</code> field to the current date-time.
+
+    Called when creating a new routine for a client who already has one active.
+  example: []
+  syntax:
+    content: void FinalizarRutina(Guid rutinaId)
+    parameters:
+    - id: rutinaId
+      type: System.Guid
+      description: The routine to finalize.
+    content.vb: Sub FinalizarRutina(rutinaId As Guid)
+  overload: DAL.Contracts.IRutinaRepository.FinalizarRutina*
+references:
+- uid: Domain.Entities.Rutina
+  commentId: T:Domain.Entities.Rutina
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Rutina.html
+  name: Rutina
+  nameWithType: Rutina
+  fullName: Domain.Entities.Rutina
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Add(Domain.Entities.Rutina)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Add(Domain.Entities.Rutina)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  name: Add(Rutina)
+  nameWithType: IGenericRepository<Rutina>.Add(Rutina)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Rutina>.Add(Domain.Entities.Rutina)
+  nameWithType.vb: IGenericRepository(Of Rutina).Add(Rutina)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Rutina).Add(Domain.Entities.Rutina)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Add(Domain.Entities.Rutina)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Add(Domain.Entities.Rutina)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Update(Domain.Entities.Rutina)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Update(Domain.Entities.Rutina)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  name: Update(Rutina)
+  nameWithType: IGenericRepository<Rutina>.Update(Rutina)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Rutina>.Update(Domain.Entities.Rutina)
+  nameWithType.vb: IGenericRepository(Of Rutina).Update(Rutina)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Rutina).Update(Domain.Entities.Rutina)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Update(Domain.Entities.Rutina)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Update(Domain.Entities.Rutina)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<Rutina>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Rutina>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Rutina).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Rutina).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<Rutina>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Rutina>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Rutina).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Rutina).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Rutina>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Rutina>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Rutina).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Rutina).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Entities.Rutina}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  name: IGenericRepository<Rutina>
+  nameWithType: IGenericRepository<Rutina>
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Rutina>
+  nameWithType.vb: IGenericRepository(Of Rutina)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Rutina)
+  name.vb: IGenericRepository(Of Rutina)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: <
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Rutina
+    name: Rutina
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: DAL.Contracts.IRutinaRepository.GetActivaByCliente*
+  commentId: Overload:DAL.Contracts.IRutinaRepository.GetActivaByCliente
+  isExternal: true
+  href: DAL.Contracts.IRutinaRepository.html#DAL_Contracts_IRutinaRepository_GetActivaByCliente_System_Guid_
+  name: GetActivaByCliente
+  nameWithType: IRutinaRepository.GetActivaByCliente
+  fullName: DAL.Contracts.IRutinaRepository.GetActivaByCliente
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Contracts.IRutinaRepository.FinalizarRutina*
+  commentId: Overload:DAL.Contracts.IRutinaRepository.FinalizarRutina
+  isExternal: true
+  href: DAL.Contracts.IRutinaRepository.html#DAL_Contracts_IRutinaRepository_FinalizarRutina_System_Guid_
+  name: FinalizarRutina
+  nameWithType: IRutinaRepository.FinalizarRutina
+  fullName: DAL.Contracts.IRutinaRepository.FinalizarRutina

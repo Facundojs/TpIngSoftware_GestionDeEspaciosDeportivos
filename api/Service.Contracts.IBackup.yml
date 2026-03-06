@@ -1,0 +1,317 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Contracts.IBackup
+  commentId: T:Service.Contracts.IBackup
+  id: IBackup
+  parent: Service.Contracts
+  children:
+  - Service.Contracts.IBackup.BackUpDataBase(System.String,System.String)
+  - Service.Contracts.IBackup.DeleteBackup(System.String)
+  - Service.Contracts.IBackup.ListBackups
+  - Service.Contracts.IBackup.RestoreDataBase(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IBackup
+  nameWithType: IBackup
+  fullName: Service.Contracts.IBackup
+  type: Interface
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Contract for database backup and restore operations.
+  example: []
+  syntax:
+    content: public interface IBackup
+    content.vb: Public Interface IBackup
+- uid: Service.Contracts.IBackup.BackUpDataBase(System.String,System.String)
+  commentId: M:Service.Contracts.IBackup.BackUpDataBase(System.String,System.String)
+  id: BackUpDataBase(System.String,System.String)
+  parent: Service.Contracts.IBackup
+  langs:
+  - csharp
+  - vb
+  name: BackUpDataBase(string, string)
+  nameWithType: IBackup.BackUpDataBase(string, string)
+  fullName: Service.Contracts.IBackup.BackUpDataBase(string, string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Creates a backup of the specified database at the given path.
+  example: []
+  syntax:
+    content: void BackUpDataBase(string database, string path)
+    parameters:
+    - id: database
+      type: System.String
+      description: Name of the database to back up.
+    - id: path
+      type: System.String
+      description: Directory path where the backup file will be written.
+    content.vb: Sub BackUpDataBase(database As String, path As String)
+  overload: Service.Contracts.IBackup.BackUpDataBase*
+  nameWithType.vb: IBackup.BackUpDataBase(String, String)
+  fullName.vb: Service.Contracts.IBackup.BackUpDataBase(String, String)
+  name.vb: BackUpDataBase(String, String)
+- uid: Service.Contracts.IBackup.RestoreDataBase(System.String,System.String)
+  commentId: M:Service.Contracts.IBackup.RestoreDataBase(System.String,System.String)
+  id: RestoreDataBase(System.String,System.String)
+  parent: Service.Contracts.IBackup
+  langs:
+  - csharp
+  - vb
+  name: RestoreDataBase(string, string)
+  nameWithType: IBackup.RestoreDataBase(string, string)
+  fullName: Service.Contracts.IBackup.RestoreDataBase(string, string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Restores a database from a backup file.
+  example: []
+  syntax:
+    content: void RestoreDataBase(string database, string path)
+    parameters:
+    - id: database
+      type: System.String
+      description: Name of the target database to restore into.
+    - id: path
+      type: System.String
+      description: Full path of the backup file to restore from.
+    content.vb: Sub RestoreDataBase(database As String, path As String)
+  overload: Service.Contracts.IBackup.RestoreDataBase*
+  nameWithType.vb: IBackup.RestoreDataBase(String, String)
+  fullName.vb: Service.Contracts.IBackup.RestoreDataBase(String, String)
+  name.vb: RestoreDataBase(String, String)
+- uid: Service.Contracts.IBackup.ListBackups
+  commentId: M:Service.Contracts.IBackup.ListBackups
+  id: ListBackups
+  parent: Service.Contracts.IBackup
+  langs:
+  - csharp
+  - vb
+  name: ListBackups()
+  nameWithType: IBackup.ListBackups()
+  fullName: Service.Contracts.IBackup.ListBackups()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Lists all available backup files in the configured backup directory.
+  example: []
+  syntax:
+    content: List<BackupFile> ListBackups()
+    return:
+      type: System.Collections.Generic.List{Service.DTO.BackupFile}
+      description: A list of <xref href="Service.DTO.BackupFile" data-throw-if-not-resolved="false"></xref> descriptors; empty if no backups exist.
+    content.vb: Function ListBackups() As List(Of BackupFile)
+  overload: Service.Contracts.IBackup.ListBackups*
+- uid: Service.Contracts.IBackup.DeleteBackup(System.String)
+  commentId: M:Service.Contracts.IBackup.DeleteBackup(System.String)
+  id: DeleteBackup(System.String)
+  parent: Service.Contracts.IBackup
+  langs:
+  - csharp
+  - vb
+  name: DeleteBackup(string)
+  nameWithType: IBackup.DeleteBackup(string)
+  fullName: Service.Contracts.IBackup.DeleteBackup(string)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Contracts
+  summary: Deletes a backup file by its file name.
+  example: []
+  syntax:
+    content: void DeleteBackup(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: Name of the backup file to delete (not a full path).
+    content.vb: Sub DeleteBackup(filename As String)
+  overload: Service.Contracts.IBackup.DeleteBackup*
+  nameWithType.vb: IBackup.DeleteBackup(String)
+  fullName.vb: Service.Contracts.IBackup.DeleteBackup(String)
+  name.vb: DeleteBackup(String)
+references:
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Contracts.IBackup.BackUpDataBase*
+  commentId: Overload:Service.Contracts.IBackup.BackUpDataBase
+  isExternal: true
+  href: Service.Contracts.IBackup.html#Service_Contracts_IBackup_BackUpDataBase_System_String_System_String_
+  name: BackUpDataBase
+  nameWithType: IBackup.BackUpDataBase
+  fullName: Service.Contracts.IBackup.BackUpDataBase
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Contracts.IBackup.RestoreDataBase*
+  commentId: Overload:Service.Contracts.IBackup.RestoreDataBase
+  isExternal: true
+  href: Service.Contracts.IBackup.html#Service_Contracts_IBackup_RestoreDataBase_System_String_System_String_
+  name: RestoreDataBase
+  nameWithType: IBackup.RestoreDataBase
+  fullName: Service.Contracts.IBackup.RestoreDataBase
+- uid: Service.DTO.BackupFile
+  commentId: T:Service.DTO.BackupFile
+  isExternal: true
+  href: Service.DTO.BackupFile.html
+  name: BackupFile
+  nameWithType: BackupFile
+  fullName: Service.DTO.BackupFile
+- uid: Service.Contracts.IBackup.ListBackups*
+  commentId: Overload:Service.Contracts.IBackup.ListBackups
+  isExternal: true
+  href: Service.Contracts.IBackup.html#Service_Contracts_IBackup_ListBackups
+  name: ListBackups
+  nameWithType: IBackup.ListBackups
+  fullName: Service.Contracts.IBackup.ListBackups
+- uid: System.Collections.Generic.List{Service.DTO.BackupFile}
+  commentId: T:System.Collections.Generic.List{Service.DTO.BackupFile}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<BackupFile>
+  nameWithType: List<BackupFile>
+  fullName: System.Collections.Generic.List<Service.DTO.BackupFile>
+  nameWithType.vb: List(Of BackupFile)
+  fullName.vb: System.Collections.Generic.List(Of Service.DTO.BackupFile)
+  name.vb: List(Of BackupFile)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Service.DTO.BackupFile
+    name: BackupFile
+    isExternal: true
+    href: Service.DTO.BackupFile.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Service.DTO.BackupFile
+    name: BackupFile
+    isExternal: true
+    href: Service.DTO.BackupFile.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Service.Contracts.IBackup.DeleteBackup*
+  commentId: Overload:Service.Contracts.IBackup.DeleteBackup
+  isExternal: true
+  href: Service.Contracts.IBackup.html#Service_Contracts_IBackup_DeleteBackup_System_String_
+  name: DeleteBackup
+  nameWithType: IBackup.DeleteBackup
+  fullName: Service.Contracts.IBackup.DeleteBackup

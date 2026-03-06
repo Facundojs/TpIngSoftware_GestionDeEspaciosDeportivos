@@ -1,0 +1,1496 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository
+  commentId: T:DAL.Impl.SqlServer.IngresoSqlRepository
+  id: IngresoSqlRepository
+  parent: DAL.Impl.SqlServer
+  children:
+  - DAL.Impl.SqlServer.IngresoSqlRepository.#ctor
+  - DAL.Impl.SqlServer.IngresoSqlRepository.Add(Domain.Entities.Ingreso)
+  - DAL.Impl.SqlServer.IngresoSqlRepository.GetAll
+  - DAL.Impl.SqlServer.IngresoSqlRepository.GetById(System.Guid)
+  - DAL.Impl.SqlServer.IngresoSqlRepository.Remove(System.Guid)
+  - DAL.Impl.SqlServer.IngresoSqlRepository.Update(Domain.Entities.Ingreso)
+  langs:
+  - csharp
+  - vb
+  name: IngresoSqlRepository
+  nameWithType: IngresoSqlRepository
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  syntax:
+    content: 'public class IngresoSqlRepository : BaseBusinessSqlRepository, IIngresoRepository, IGenericRepository<Ingreso>'
+    content.vb: Public Class IngresoSqlRepository Inherits BaseBusinessSqlRepository Implements IIngresoRepository, IGenericRepository(Of Ingreso)
+  inheritance:
+  - System.Object
+  - Service.Impl.BaseRepository
+  - DAL.Impl.BaseBusinessSqlRepository
+  implements:
+  - DAL.Contracts.IIngresoRepository
+  - Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  inheritedMembers:
+  - DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[])
+  - DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,{T}})
+  - DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  - Service.Impl.BaseRepository._connectionString
+  - Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.Add(Domain.Entities.Ingreso)
+  commentId: M:DAL.Impl.SqlServer.IngresoSqlRepository.Add(Domain.Entities.Ingreso)
+  id: Add(Domain.Entities.Ingreso)
+  parent: DAL.Impl.SqlServer.IngresoSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: Add(Ingreso)
+  nameWithType: IngresoSqlRepository.Add(Ingreso)
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.Add(Domain.Entities.Ingreso)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Persists a new entity.
+  example: []
+  syntax:
+    content: public void Add(Ingreso entity)
+    parameters:
+    - id: entity
+      type: Domain.Entities.Ingreso
+    content.vb: Public Sub Add(entity As Ingreso)
+  overload: DAL.Impl.SqlServer.IngresoSqlRepository.Add*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Add(Domain.Entities.Ingreso)
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.Remove(System.Guid)
+  commentId: M:DAL.Impl.SqlServer.IngresoSqlRepository.Remove(System.Guid)
+  id: Remove(System.Guid)
+  parent: DAL.Impl.SqlServer.IngresoSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: Remove(Guid)
+  nameWithType: IngresoSqlRepository.Remove(Guid)
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.Remove(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Deletes an entity by its primary key.
+  example: []
+  syntax:
+    content: public void Remove(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier of the entity to delete.
+    content.vb: Public Sub Remove(id As Guid)
+  overload: DAL.Impl.SqlServer.IngresoSqlRepository.Remove*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Remove(System.Guid)
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.GetAll
+  commentId: M:DAL.Impl.SqlServer.IngresoSqlRepository.GetAll
+  id: GetAll
+  parent: DAL.Impl.SqlServer.IngresoSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAll()
+  nameWithType: IngresoSqlRepository.GetAll()
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.GetAll()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Retrieves all entities of this type.
+  example: []
+  syntax:
+    content: public List<Ingreso> GetAll()
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Ingreso}
+      description: A list of all stored entities; empty list if none exist.
+    content.vb: Public Function GetAll() As List(Of Ingreso)
+  overload: DAL.Impl.SqlServer.IngresoSqlRepository.GetAll*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetAll
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.GetById(System.Guid)
+  commentId: M:DAL.Impl.SqlServer.IngresoSqlRepository.GetById(System.Guid)
+  id: GetById(System.Guid)
+  parent: DAL.Impl.SqlServer.IngresoSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: GetById(Guid)
+  nameWithType: IngresoSqlRepository.GetById(Guid)
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.GetById(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Retrieves a single entity by its primary key.
+  example: []
+  syntax:
+    content: public Ingreso GetById(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier to look up.
+    return:
+      type: Domain.Entities.Ingreso
+      description: The matching entity, or <code>null</code> if not found.
+    content.vb: Public Function GetById(id As Guid) As Ingreso
+  overload: DAL.Impl.SqlServer.IngresoSqlRepository.GetById*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetById(System.Guid)
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.Update(Domain.Entities.Ingreso)
+  commentId: M:DAL.Impl.SqlServer.IngresoSqlRepository.Update(Domain.Entities.Ingreso)
+  id: Update(Domain.Entities.Ingreso)
+  parent: DAL.Impl.SqlServer.IngresoSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: Update(Ingreso)
+  nameWithType: IngresoSqlRepository.Update(Ingreso)
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.Update(Domain.Entities.Ingreso)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  summary: Applies changes to an existing entity.
+  example: []
+  syntax:
+    content: public void Update(Ingreso entity)
+    parameters:
+    - id: entity
+      type: Domain.Entities.Ingreso
+    content.vb: Public Sub Update(entity As Ingreso)
+  overload: DAL.Impl.SqlServer.IngresoSqlRepository.Update*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Update(Domain.Entities.Ingreso)
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.#ctor
+  commentId: M:DAL.Impl.SqlServer.IngresoSqlRepository.#ctor
+  id: '#ctor'
+  parent: DAL.Impl.SqlServer.IngresoSqlRepository
+  langs:
+  - csharp
+  - vb
+  name: IngresoSqlRepository()
+  nameWithType: IngresoSqlRepository.IngresoSqlRepository()
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.IngresoSqlRepository()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Impl/SqlServer/IngresoSqlRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Impl.SqlServer
+  syntax:
+    content: public IngresoSqlRepository()
+    content.vb: Public Sub New()
+  overload: DAL.Impl.SqlServer.IngresoSqlRepository.#ctor*
+  nameWithType.vb: IngresoSqlRepository.New()
+  fullName.vb: DAL.Impl.SqlServer.IngresoSqlRepository.New()
+  name.vb: New()
+references:
+- uid: DAL.Impl.SqlServer
+  commentId: N:DAL.Impl.SqlServer
+  isExternal: true
+  href: DAL.html
+  name: DAL.Impl.SqlServer
+  nameWithType: DAL.Impl.SqlServer
+  fullName: DAL.Impl.SqlServer
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  - name: .
+  - uid: DAL.Impl.SqlServer
+    name: SqlServer
+    isExternal: true
+    href: DAL.Impl.SqlServer.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  - name: .
+  - uid: DAL.Impl.SqlServer
+    name: SqlServer
+    isExternal: true
+    href: DAL.Impl.SqlServer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Service.Impl.BaseRepository
+  commentId: T:Service.Impl.BaseRepository
+  parent: Service.Impl
+  isExternal: true
+  href: Service.Impl.BaseRepository.html
+  name: BaseRepository
+  nameWithType: BaseRepository
+  fullName: Service.Impl.BaseRepository
+- uid: DAL.Impl.BaseBusinessSqlRepository
+  commentId: T:DAL.Impl.BaseBusinessSqlRepository
+  parent: DAL.Impl
+  isExternal: true
+  href: DAL.Impl.BaseBusinessSqlRepository.html
+  name: BaseBusinessSqlRepository
+  nameWithType: BaseBusinessSqlRepository
+  fullName: DAL.Impl.BaseBusinessSqlRepository
+- uid: DAL.Contracts.IIngresoRepository
+  commentId: T:DAL.Contracts.IIngresoRepository
+  parent: DAL.Contracts
+  isExternal: true
+  href: DAL.Contracts.IIngresoRepository.html
+  name: IIngresoRepository
+  nameWithType: IIngresoRepository
+  fullName: DAL.Contracts.IIngresoRepository
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  name: IGenericRepository<Ingreso>
+  nameWithType: IGenericRepository<Ingreso>
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Ingreso>
+  nameWithType.vb: IGenericRepository(Of Ingreso)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Ingreso)
+  name.vb: IGenericRepository(Of Ingreso)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: <
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: )
+- uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[])
+  commentId: M:DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[])
+  parent: DAL.Impl.BaseBusinessSqlRepository
+  isExternal: true
+  href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___
+  name: ExecuteNonQuery(string, SqlParameter[])
+  nameWithType: BaseBusinessSqlRepository.ExecuteNonQuery(string, SqlParameter[])
+  fullName: DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(string, System.Data.SqlClient.SqlParameter[])
+  nameWithType.vb: BaseBusinessSqlRepository.ExecuteNonQuery(String, SqlParameter())
+  fullName.vb: DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(String, System.Data.SqlClient.SqlParameter())
+  name.vb: ExecuteNonQuery(String, SqlParameter())
+  spec.csharp:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[])
+    name: ExecuteNonQuery
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[])
+    name: ExecuteNonQuery
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: )
+- uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,{T}})
+  commentId: M:DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  parent: DAL.Impl.BaseBusinessSqlRepository
+  definition: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  name: ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  nameWithType: BaseBusinessSqlRepository.ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  fullName: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader<T>(string, System.Data.SqlClient.SqlParameter[], System.Func<System.Data.SqlClient.SqlDataReader, T>)
+  nameWithType.vb: BaseBusinessSqlRepository.ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  fullName.vb: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader(Of T)(String, System.Data.SqlClient.SqlParameter(), System.Func(Of System.Data.SqlClient.SqlDataReader, T))
+  name.vb: ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  spec.csharp:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  commentId: M:DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  parent: DAL.Impl.BaseBusinessSqlRepository
+  isExternal: true
+  href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  name: ExecuteScalar<T>(string, SqlParameter[])
+  nameWithType: BaseBusinessSqlRepository.ExecuteScalar<T>(string, SqlParameter[])
+  fullName: DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar<T>(string, System.Data.SqlClient.SqlParameter[])
+  nameWithType.vb: BaseBusinessSqlRepository.ExecuteScalar(Of T)(String, SqlParameter())
+  fullName.vb: DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar(Of T)(String, System.Data.SqlClient.SqlParameter())
+  name.vb: ExecuteScalar(Of T)(String, SqlParameter())
+  spec.csharp:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+    name: ExecuteScalar
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+    name: ExecuteScalar
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: )
+- uid: Service.Impl.BaseRepository._connectionString
+  commentId: F:Service.Impl.BaseRepository._connectionString
+  parent: Service.Impl.BaseRepository
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository__connectionString
+  name: _connectionString
+  nameWithType: BaseRepository._connectionString
+  fullName: Service.Impl.BaseRepository._connectionString
+- uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  commentId: M:Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  parent: Service.Impl.BaseRepository
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  name: ExecuteNonQuery(string, SqlParameter[], SqlConnection, SqlTransaction)
+  nameWithType: BaseRepository.ExecuteNonQuery(string, SqlParameter[], SqlConnection, SqlTransaction)
+  fullName: Service.Impl.BaseRepository.ExecuteNonQuery(string, System.Data.SqlClient.SqlParameter[], System.Data.SqlClient.SqlConnection, System.Data.SqlClient.SqlTransaction)
+  nameWithType.vb: BaseRepository.ExecuteNonQuery(String, SqlParameter(), SqlConnection, SqlTransaction)
+  fullName.vb: Service.Impl.BaseRepository.ExecuteNonQuery(String, System.Data.SqlClient.SqlParameter(), System.Data.SqlClient.SqlConnection, System.Data.SqlClient.SqlTransaction)
+  name.vb: ExecuteNonQuery(String, SqlParameter(), SqlConnection, SqlTransaction)
+  spec.csharp:
+  - uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+    name: ExecuteNonQuery
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlConnection
+    name: SqlConnection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlTransaction
+    name: SqlTransaction
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction
+  - name: )
+  spec.vb:
+  - uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+    name: ExecuteNonQuery
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlConnection
+    name: SqlConnection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlTransaction
+    name: SqlTransaction
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Impl
+  commentId: N:Service.Impl
+  isExternal: true
+  href: Service.html
+  name: Service.Impl
+  nameWithType: Service.Impl
+  fullName: Service.Impl
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+- uid: DAL.Impl
+  commentId: N:DAL.Impl
+  isExternal: true
+  href: DAL.html
+  name: DAL.Impl
+  nameWithType: DAL.Impl
+  fullName: DAL.Impl
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Impl
+    name: Impl
+    isExternal: true
+    href: DAL.Impl.html
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  commentId: M:DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  isExternal: true
+  href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  name: ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  nameWithType: BaseBusinessSqlRepository.ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  fullName: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader<T>(string, System.Data.SqlClient.SqlParameter[], System.Func<System.Data.SqlClient.SqlDataReader, T>)
+  nameWithType.vb: BaseBusinessSqlRepository.ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  fullName.vb: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader(Of T)(String, System.Data.SqlClient.SqlParameter(), System.Func(Of System.Data.SqlClient.SqlDataReader, T))
+  name.vb: ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  spec.csharp:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: DAL.Impl.BaseBusinessSqlRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: DAL.Impl.BaseBusinessSqlRepository.html#DAL_Impl_BaseBusinessSqlRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.Add*
+  commentId: Overload:DAL.Impl.SqlServer.IngresoSqlRepository.Add
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html#DAL_Impl_SqlServer_IngresoSqlRepository_Add_Domain_Entities_Ingreso_
+  name: Add
+  nameWithType: IngresoSqlRepository.Add
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.Add
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Add(Domain.Entities.Ingreso)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Add(Domain.Entities.Ingreso)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  name: Add(Ingreso)
+  nameWithType: IGenericRepository<Ingreso>.Add(Ingreso)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Ingreso>.Add(Domain.Entities.Ingreso)
+  nameWithType.vb: IGenericRepository(Of Ingreso).Add(Ingreso)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Ingreso).Add(Domain.Entities.Ingreso)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Add(Domain.Entities.Ingreso)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Add(Domain.Entities.Ingreso)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: )
+- uid: Domain.Entities.Ingreso
+  commentId: T:Domain.Entities.Ingreso
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Ingreso.html
+  name: Ingreso
+  nameWithType: Ingreso
+  fullName: Domain.Entities.Ingreso
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.Remove*
+  commentId: Overload:DAL.Impl.SqlServer.IngresoSqlRepository.Remove
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html#DAL_Impl_SqlServer_IngresoSqlRepository_Remove_System_Guid_
+  name: Remove
+  nameWithType: IngresoSqlRepository.Remove
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.Remove
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<Ingreso>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Ingreso>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Ingreso).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Ingreso).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.GetAll*
+  commentId: Overload:DAL.Impl.SqlServer.IngresoSqlRepository.GetAll
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html#DAL_Impl_SqlServer_IngresoSqlRepository_GetAll
+  name: GetAll
+  nameWithType: IngresoSqlRepository.GetAll
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.GetAll
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Ingreso>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Ingreso>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Ingreso).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Ingreso).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetAll
+    name: GetAll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List{Domain.Entities.Ingreso}
+  commentId: T:System.Collections.Generic.List{Domain.Entities.Ingreso}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Ingreso>
+  nameWithType: List<Ingreso>
+  fullName: System.Collections.Generic.List<Domain.Entities.Ingreso>
+  nameWithType.vb: List(Of Ingreso)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Entities.Ingreso)
+  name.vb: List(Of Ingreso)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.GetById*
+  commentId: Overload:DAL.Impl.SqlServer.IngresoSqlRepository.GetById
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html#DAL_Impl_SqlServer_IngresoSqlRepository_GetById_System_Guid_
+  name: GetById
+  nameWithType: IngresoSqlRepository.GetById
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.GetById
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<Ingreso>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Ingreso>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Ingreso).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Ingreso).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.Update*
+  commentId: Overload:DAL.Impl.SqlServer.IngresoSqlRepository.Update
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html#DAL_Impl_SqlServer_IngresoSqlRepository_Update_Domain_Entities_Ingreso_
+  name: Update
+  nameWithType: IngresoSqlRepository.Update
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.Update
+- uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Update(Domain.Entities.Ingreso)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Update(Domain.Entities.Ingreso)
+  parent: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  name: Update(Ingreso)
+  nameWithType: IGenericRepository<Ingreso>.Update(Ingreso)
+  fullName: Service.Contracts.IGenericRepository<Domain.Entities.Ingreso>.Update(Domain.Entities.Ingreso)
+  nameWithType.vb: IGenericRepository(Of Ingreso).Update(Ingreso)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Entities.Ingreso).Update(Domain.Entities.Ingreso)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Update(Domain.Entities.Ingreso)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Entities.Ingreso}.Update(Domain.Entities.Ingreso)
+    name: Update
+    isExternal: true
+  - name: (
+  - uid: Domain.Entities.Ingreso
+    name: Ingreso
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: DAL.Impl.SqlServer.IngresoSqlRepository.#ctor*
+  commentId: Overload:DAL.Impl.SqlServer.IngresoSqlRepository.#ctor
+  isExternal: true
+  href: DAL.Impl.SqlServer.IngresoSqlRepository.html#DAL_Impl_SqlServer_IngresoSqlRepository__ctor
+  name: IngresoSqlRepository
+  nameWithType: IngresoSqlRepository.IngresoSqlRepository
+  fullName: DAL.Impl.SqlServer.IngresoSqlRepository.IngresoSqlRepository
+  nameWithType.vb: IngresoSqlRepository.New
+  fullName.vb: DAL.Impl.SqlServer.IngresoSqlRepository.New
+  name.vb: New

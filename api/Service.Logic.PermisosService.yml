@@ -1,0 +1,734 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Logic.PermisosService
+  commentId: T:Service.Logic.PermisosService
+  id: PermisosService
+  parent: Service.Logic
+  children:
+  - Service.Logic.PermisosService.#ctor
+  - Service.Logic.PermisosService.CrearFamilia(Domain.Composite.Familia)
+  - Service.Logic.PermisosService.EliminarFamilia(System.Guid)
+  - Service.Logic.PermisosService.EnsurePermissions
+  - Service.Logic.PermisosService.GetAllFamilias
+  - Service.Logic.PermisosService.GetAllPatentes
+  - Service.Logic.PermisosService.GuardarFamilia(Domain.Composite.Familia)
+  langs:
+  - csharp
+  - vb
+  name: PermisosService
+  nameWithType: PermisosService
+  fullName: Service.Logic.PermisosService
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: >-
+    Manages the permission tree: creation and modification of <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> groups,
+
+    and provisioning of <xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref> leaf nodes from <xref href="Domain.Composite.PermisoKeys" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public class PermisosService
+    content.vb: Public Class PermisosService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Logic.PermisosService.#ctor
+  commentId: M:Service.Logic.PermisosService.#ctor
+  id: '#ctor'
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: PermisosService()
+  nameWithType: PermisosService.PermisosService()
+  fullName: Service.Logic.PermisosService.PermisosService()
+  type: Constructor
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Initializes a new instance with default SQL repositories.
+  example: []
+  syntax:
+    content: public PermisosService()
+    content.vb: Public Sub New()
+  overload: Service.Logic.PermisosService.#ctor*
+  nameWithType.vb: PermisosService.New()
+  fullName.vb: Service.Logic.PermisosService.New()
+  name.vb: New()
+- uid: Service.Logic.PermisosService.GetAllFamilias
+  commentId: M:Service.Logic.PermisosService.GetAllFamilias
+  id: GetAllFamilias
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: GetAllFamilias()
+  nameWithType: PermisosService.GetAllFamilias()
+  fullName: Service.Logic.PermisosService.GetAllFamilias()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: >-
+    Returns all <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> records, each fully hydrated via <code>GetById</code>
+
+    (recursive children loaded).
+  example: []
+  syntax:
+    content: public List<Familia> GetAllFamilias()
+    return:
+      type: System.Collections.Generic.List{Domain.Composite.Familia}
+      description: List of fully-loaded families.
+    content.vb: Public Function GetAllFamilias() As List(Of Familia)
+  overload: Service.Logic.PermisosService.GetAllFamilias*
+- uid: Service.Logic.PermisosService.GetAllPatentes
+  commentId: M:Service.Logic.PermisosService.GetAllPatentes
+  id: GetAllPatentes
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: GetAllPatentes()
+  nameWithType: PermisosService.GetAllPatentes()
+  fullName: Service.Logic.PermisosService.GetAllPatentes()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Returns all <xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref> records (flat list, no hydration needed).
+  example: []
+  syntax:
+    content: public List<Patente> GetAllPatentes()
+    return:
+      type: System.Collections.Generic.List{Domain.Composite.Patente}
+    content.vb: Public Function GetAllPatentes() As List(Of Patente)
+  overload: Service.Logic.PermisosService.GetAllPatentes*
+- uid: Service.Logic.PermisosService.GuardarFamilia(Domain.Composite.Familia)
+  commentId: M:Service.Logic.PermisosService.GuardarFamilia(Domain.Composite.Familia)
+  id: GuardarFamilia(Domain.Composite.Familia)
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: GuardarFamilia(Familia)
+  nameWithType: PermisosService.GuardarFamilia(Familia)
+  fullName: Service.Logic.PermisosService.GuardarFamilia(Domain.Composite.Familia)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: >-
+    Persists changes to a <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> after validating that the update
+
+    would not introduce a cycle in the permission tree.
+  example: []
+  syntax:
+    content: public void GuardarFamilia(Familia familia)
+    parameters:
+    - id: familia
+      type: Domain.Composite.Familia
+      description: The family to save. Must have been loaded via <code>GetById</code> (full recursive load).
+    content.vb: Public Sub GuardarFamilia(familia As Familia)
+  overload: Service.Logic.PermisosService.GuardarFamilia*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown when a circular reference is detected.
+- uid: Service.Logic.PermisosService.CrearFamilia(Domain.Composite.Familia)
+  commentId: M:Service.Logic.PermisosService.CrearFamilia(Domain.Composite.Familia)
+  id: CrearFamilia(Domain.Composite.Familia)
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: CrearFamilia(Familia)
+  nameWithType: PermisosService.CrearFamilia(Familia)
+  fullName: Service.Logic.PermisosService.CrearFamilia(Domain.Composite.Familia)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Persists a new <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void CrearFamilia(Familia familia)
+    parameters:
+    - id: familia
+      type: Domain.Composite.Familia
+      description: The family to create.
+    content.vb: Public Sub CrearFamilia(familia As Familia)
+  overload: Service.Logic.PermisosService.CrearFamilia*
+- uid: Service.Logic.PermisosService.EliminarFamilia(System.Guid)
+  commentId: M:Service.Logic.PermisosService.EliminarFamilia(System.Guid)
+  id: EliminarFamilia(System.Guid)
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: EliminarFamilia(Guid)
+  nameWithType: PermisosService.EliminarFamilia(Guid)
+  fullName: Service.Logic.PermisosService.EliminarFamilia(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: Deletes a <xref href="Domain.Composite.Familia" data-throw-if-not-resolved="false"></xref> by its identifier.
+  example: []
+  syntax:
+    content: public void EliminarFamilia(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier of the family to delete.
+    content.vb: Public Sub EliminarFamilia(id As Guid)
+  overload: Service.Logic.PermisosService.EliminarFamilia*
+- uid: Service.Logic.PermisosService.EnsurePermissions
+  commentId: M:Service.Logic.PermisosService.EnsurePermissions
+  id: EnsurePermissions
+  parent: Service.Logic.PermisosService
+  langs:
+  - csharp
+  - vb
+  name: EnsurePermissions()
+  nameWithType: PermisosService.EnsurePermissions()
+  fullName: Service.Logic.PermisosService.EnsurePermissions()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Logic
+  summary: >-
+    Ensures all constants declared in <xref href="Domain.Composite.PermisoKeys" data-throw-if-not-resolved="false"></xref> exist as <xref href="Domain.Composite.Patente" data-throw-if-not-resolved="false"></xref>
+
+    records in the database, and that the <code>"Administrador"</code> family holds all of them.
+  remarks: >-
+    Intended to run on application startup. Uses reflection to enumerate
+
+    <xref href="Domain.Composite.PermisoKeys" data-throw-if-not-resolved="false"></xref> string constants and inserts any that are missing.
+
+    The <code>Administrador</code> family is created if it does not exist.
+  example: []
+  syntax:
+    content: public void EnsurePermissions()
+    content.vb: Public Sub EnsurePermissions()
+  overload: Service.Logic.PermisosService.EnsurePermissions*
+references:
+- uid: Domain.Composite.Familia
+  commentId: T:Domain.Composite.Familia
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Familia.html
+  name: Familia
+  nameWithType: Familia
+  fullName: Domain.Composite.Familia
+- uid: Domain.Composite.Patente
+  commentId: T:Domain.Composite.Patente
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Patente.html
+  name: Patente
+  nameWithType: Patente
+  fullName: Domain.Composite.Patente
+- uid: Domain.Composite.PermisoKeys
+  commentId: T:Domain.Composite.PermisoKeys
+  isExternal: true
+  href: Domain.Composite.PermisoKeys.html
+  name: PermisoKeys
+  nameWithType: PermisoKeys
+  fullName: Domain.Composite.PermisoKeys
+- uid: Service.Logic
+  commentId: N:Service.Logic
+  isExternal: true
+  href: Service.html
+  name: Service.Logic
+  nameWithType: Service.Logic
+  fullName: Service.Logic
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Logic
+    name: Logic
+    isExternal: true
+    href: Service.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Logic.PermisosService.#ctor*
+  commentId: Overload:Service.Logic.PermisosService.#ctor
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService__ctor
+  name: PermisosService
+  nameWithType: PermisosService.PermisosService
+  fullName: Service.Logic.PermisosService.PermisosService
+  nameWithType.vb: PermisosService.New
+  fullName.vb: Service.Logic.PermisosService.New
+  name.vb: New
+- uid: Service.Logic.PermisosService.GetAllFamilias*
+  commentId: Overload:Service.Logic.PermisosService.GetAllFamilias
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService_GetAllFamilias
+  name: GetAllFamilias
+  nameWithType: PermisosService.GetAllFamilias
+  fullName: Service.Logic.PermisosService.GetAllFamilias
+- uid: System.Collections.Generic.List{Domain.Composite.Familia}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Familia}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Familia>
+  nameWithType: List<Familia>
+  fullName: System.Collections.Generic.List<Domain.Composite.Familia>
+  nameWithType.vb: List(Of Familia)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Familia)
+  name.vb: List(Of Familia)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Service.Logic.PermisosService.GetAllPatentes*
+  commentId: Overload:Service.Logic.PermisosService.GetAllPatentes
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService_GetAllPatentes
+  name: GetAllPatentes
+  nameWithType: PermisosService.GetAllPatentes
+  fullName: Service.Logic.PermisosService.GetAllPatentes
+- uid: System.Collections.Generic.List{Domain.Composite.Patente}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Patente}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Patente>
+  nameWithType: List<Patente>
+  fullName: System.Collections.Generic.List<Domain.Composite.Patente>
+  nameWithType.vb: List(Of Patente)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Patente)
+  name.vb: List(Of Patente)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Patente
+    name: Patente
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Patente
+    name: Patente
+    isExternal: true
+  - name: )
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Service.Logic.PermisosService.GuardarFamilia*
+  commentId: Overload:Service.Logic.PermisosService.GuardarFamilia
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService_GuardarFamilia_Domain_Composite_Familia_
+  name: GuardarFamilia
+  nameWithType: PermisosService.GuardarFamilia
+  fullName: Service.Logic.PermisosService.GuardarFamilia
+- uid: Service.Logic.PermisosService.CrearFamilia*
+  commentId: Overload:Service.Logic.PermisosService.CrearFamilia
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService_CrearFamilia_Domain_Composite_Familia_
+  name: CrearFamilia
+  nameWithType: PermisosService.CrearFamilia
+  fullName: Service.Logic.PermisosService.CrearFamilia
+- uid: Service.Logic.PermisosService.EliminarFamilia*
+  commentId: Overload:Service.Logic.PermisosService.EliminarFamilia
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService_EliminarFamilia_System_Guid_
+  name: EliminarFamilia
+  nameWithType: PermisosService.EliminarFamilia
+  fullName: Service.Logic.PermisosService.EliminarFamilia
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Service.Logic.PermisosService.EnsurePermissions*
+  commentId: Overload:Service.Logic.PermisosService.EnsurePermissions
+  isExternal: true
+  href: Service.Logic.PermisosService.html#Service_Logic_PermisosService_EnsurePermissions
+  name: EnsurePermissions
+  nameWithType: PermisosService.EnsurePermissions
+  fullName: Service.Logic.PermisosService.EnsurePermissions

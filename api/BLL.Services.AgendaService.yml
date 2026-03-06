@@ -1,0 +1,599 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Services.AgendaService
+  commentId: T:BLL.Services.AgendaService
+  id: AgendaService
+  parent: BLL.Services
+  children:
+  - BLL.Services.AgendaService.#ctor
+  - BLL.Services.AgendaService.ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})
+  - BLL.Services.AgendaService.GetAgendaPorEspacio(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: AgendaService
+  nameWithType: AgendaService
+  fullName: BLL.Services.AgendaService
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/AgendaService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Business logic service for configuring and querying a sports space's weekly operating schedule (agenda).
+  example: []
+  syntax:
+    content: public class AgendaService
+    content.vb: Public Class AgendaService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Services.AgendaService.#ctor
+  commentId: M:BLL.Services.AgendaService.#ctor
+  id: '#ctor'
+  parent: BLL.Services.AgendaService
+  langs:
+  - csharp
+  - vb
+  name: AgendaService()
+  nameWithType: AgendaService.AgendaService()
+  fullName: BLL.Services.AgendaService.AgendaService()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/AgendaService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Initializes dependencies from <xref href="DAL.Factory.DalFactory" data-throw-if-not-resolved="false"></xref> singletons.
+  example: []
+  syntax:
+    content: public AgendaService()
+    content.vb: Public Sub New()
+  overload: BLL.Services.AgendaService.#ctor*
+  nameWithType.vb: AgendaService.New()
+  fullName.vb: BLL.Services.AgendaService.New()
+  name.vb: New()
+- uid: BLL.Services.AgendaService.GetAgendaPorEspacio(System.Guid)
+  commentId: M:BLL.Services.AgendaService.GetAgendaPorEspacio(System.Guid)
+  id: GetAgendaPorEspacio(System.Guid)
+  parent: BLL.Services.AgendaService
+  langs:
+  - csharp
+  - vb
+  name: GetAgendaPorEspacio(Guid)
+  nameWithType: AgendaService.GetAgendaPorEspacio(Guid)
+  fullName: BLL.Services.AgendaService.GetAgendaPorEspacio(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/AgendaService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Returns all agenda blocks configured for the specified space.
+  example: []
+  syntax:
+    content: public List<AgendaDTO> GetAgendaPorEspacio(Guid espacioId)
+    parameters:
+    - id: espacioId
+      type: System.Guid
+      description: The space to query.
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+      description: List of <xref href="BLL.DTOs.AgendaDTO" data-throw-if-not-resolved="false"></xref> records; empty list if no schedule is configured.
+    content.vb: Public Function GetAgendaPorEspacio(espacioId As Guid) As List(Of AgendaDTO)
+  overload: BLL.Services.AgendaService.GetAgendaPorEspacio*
+- uid: BLL.Services.AgendaService.ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})
+  commentId: M:BLL.Services.AgendaService.ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})
+  id: ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})
+  parent: BLL.Services.AgendaService
+  langs:
+  - csharp
+  - vb
+  name: ConfigurarAgenda(Guid, List<AgendaDTO>)
+  nameWithType: AgendaService.ConfigurarAgenda(Guid, List<AgendaDTO>)
+  fullName: BLL.Services.AgendaService.ConfigurarAgenda(System.Guid, System.Collections.Generic.List<BLL.DTOs.AgendaDTO>)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/AgendaService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: >-
+    Atomically replaces the entire agenda of a space by deleting all existing blocks
+
+    and inserting the new set in a single transaction.
+  remarks: 'Known limitation: Agenda ranges crossing midnight (e.g., 22:00-02:00) are explicitly prevented by the UI validation here. They must be split into two ranges: 22:00-23:59 and 00:00-02:00.'
+  example: []
+  syntax:
+    content: public void ConfigurarAgenda(Guid espacioId, List<AgendaDTO> agendasDto)
+    parameters:
+    - id: espacioId
+      type: System.Guid
+      description: The space whose agenda will be replaced.
+    - id: agendasDto
+      type: System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+      description: >-
+        The new schedule blocks. Each block's <code>HoraDesde</code> must be earlier than <code>HoraHasta</code>.
+
+        Blocks on the same day must not overlap.
+    content.vb: Public Sub ConfigurarAgenda(espacioId As Guid, agendasDto As List(Of AgendaDTO))
+  overload: BLL.Services.AgendaService.ConfigurarAgenda*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">agendasDto</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when a block has <code>HoraDesde &gt;= HoraHasta</code>, or when two blocks on the same day overlap.
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">agendasDto</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      Thrown if any block has <code>HoraDesde &gt;= HoraHasta</code>, or if two blocks for the same
+
+      day overlap. Ranges crossing midnight are not supported and must be split.
+  nameWithType.vb: AgendaService.ConfigurarAgenda(Guid, List(Of AgendaDTO))
+  fullName.vb: BLL.Services.AgendaService.ConfigurarAgenda(System.Guid, System.Collections.Generic.List(Of BLL.DTOs.AgendaDTO))
+  name.vb: ConfigurarAgenda(Guid, List(Of AgendaDTO))
+references:
+- uid: BLL.Services
+  commentId: N:BLL.Services
+  isExternal: true
+  href: BLL.html
+  name: BLL.Services
+  nameWithType: BLL.Services
+  fullName: BLL.Services
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Services
+    name: Services
+    isExternal: true
+    href: BLL.Services.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Services
+    name: Services
+    isExternal: true
+    href: BLL.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DAL.Factory.DalFactory
+  commentId: T:DAL.Factory.DalFactory
+  isExternal: true
+  href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Factory/DalFactory.cs
+  name: DalFactory
+  nameWithType: DalFactory
+  fullName: DAL.Factory.DalFactory
+- uid: BLL.Services.AgendaService.#ctor*
+  commentId: Overload:BLL.Services.AgendaService.#ctor
+  isExternal: true
+  href: BLL.Services.AgendaService.html#BLL_Services_AgendaService__ctor
+  name: AgendaService
+  nameWithType: AgendaService.AgendaService
+  fullName: BLL.Services.AgendaService.AgendaService
+  nameWithType.vb: AgendaService.New
+  fullName.vb: BLL.Services.AgendaService.New
+  name.vb: New
+- uid: BLL.DTOs.AgendaDTO
+  commentId: T:BLL.DTOs.AgendaDTO
+  parent: BLL.DTOs
+  isExternal: true
+  href: BLL.DTOs.AgendaDTO.html
+  name: AgendaDTO
+  nameWithType: AgendaDTO
+  fullName: BLL.DTOs.AgendaDTO
+- uid: BLL.Services.AgendaService.GetAgendaPorEspacio*
+  commentId: Overload:BLL.Services.AgendaService.GetAgendaPorEspacio
+  isExternal: true
+  href: BLL.Services.AgendaService.html#BLL_Services_AgendaService_GetAgendaPorEspacio_System_Guid_
+  name: GetAgendaPorEspacio
+  nameWithType: AgendaService.GetAgendaPorEspacio
+  fullName: BLL.Services.AgendaService.GetAgendaPorEspacio
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.AgendaDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<AgendaDTO>
+  nameWithType: List<AgendaDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.AgendaDTO>
+  nameWithType.vb: List(Of AgendaDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.AgendaDTO)
+  name.vb: List(Of AgendaDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    isExternal: true
+    href: BLL.DTOs.AgendaDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.AgendaDTO
+    name: AgendaDTO
+    isExternal: true
+    href: BLL.DTOs.AgendaDTO.html
+  - name: )
+- uid: BLL.DTOs
+  commentId: N:BLL.DTOs
+  isExternal: true
+  href: BLL.html
+  name: BLL.DTOs
+  nameWithType: BLL.DTOs
+  fullName: BLL.DTOs
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.DTOs
+    name: DTOs
+    isExternal: true
+    href: BLL.DTOs.html
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: BLL.Services.AgendaService.ConfigurarAgenda*
+  commentId: Overload:BLL.Services.AgendaService.ConfigurarAgenda
+  isExternal: true
+  href: BLL.Services.AgendaService.html#BLL_Services_AgendaService_ConfigurarAgenda_System_Guid_System_Collections_Generic_List_BLL_DTOs_AgendaDTO__
+  name: ConfigurarAgenda
+  nameWithType: AgendaService.ConfigurarAgenda
+  fullName: BLL.Services.AgendaService.ConfigurarAgenda

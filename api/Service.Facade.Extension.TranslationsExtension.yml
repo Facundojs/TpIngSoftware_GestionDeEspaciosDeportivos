@@ -1,0 +1,459 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Facade.Extension.TranslationsExtension
+  commentId: T:Service.Facade.Extension.TranslationsExtension
+  id: TranslationsExtension
+  parent: Service.Facade.Extension
+  children:
+  - Service.Facade.Extension.TranslationsExtension.ToString(Domain.Enums.Translations)
+  - Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  langs:
+  - csharp
+  - vb
+  name: TranslationsExtension
+  nameWithType: TranslationsExtension
+  fullName: Service.Facade.Extension.TranslationsExtension
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Facade.Extension
+  summary: Extension methods that provide i18n translation for <xref href="Domain.Enums.Translations" data-throw-if-not-resolved="false"></xref> enum values.
+  remarks: >-
+    Delegates to <code>Service.Logic.LanguageLogic.Translate</code>, which resolves the enum name
+
+    against the active language file loaded by <code>LanguageRepository</code>.
+  example: []
+  syntax:
+    content: public static class TranslationsExtension
+    content.vb: Public Module TranslationsExtension
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  commentId: M:Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  id: Translate(Domain.Enums.Translations)
+  isExtensionMethod: true
+  parent: Service.Facade.Extension.TranslationsExtension
+  langs:
+  - csharp
+  - vb
+  name: Translate(Translations)
+  nameWithType: TranslationsExtension.Translate(Translations)
+  fullName: Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Facade.Extension
+  summary: Resolves <code class="paramref">key</code> to its localized string in the currently active language.
+  example: []
+  syntax:
+    content: public static string Translate(this Translations key)
+    parameters:
+    - id: key
+      type: Domain.Enums.Translations
+      description: The translation key enum value.
+    return:
+      type: System.String
+      description: The localized string, or the key name itself if no translation is found.
+    content.vb: Public Shared Function Translate(key As Translations) As String
+  overload: Service.Facade.Extension.TranslationsExtension.Translate*
+- uid: Service.Facade.Extension.TranslationsExtension.ToString(Domain.Enums.Translations)
+  commentId: M:Service.Facade.Extension.TranslationsExtension.ToString(Domain.Enums.Translations)
+  id: ToString(Domain.Enums.Translations)
+  isExtensionMethod: true
+  parent: Service.Facade.Extension.TranslationsExtension
+  langs:
+  - csharp
+  - vb
+  name: ToString(Translations)
+  nameWithType: TranslationsExtension.ToString(Translations)
+  fullName: Service.Facade.Extension.TranslationsExtension.ToString(Domain.Enums.Translations)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Facade.Extension
+  summary: >-
+    Equivalent to <xref href="Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)" data-throw-if-not-resolved="false"></xref>; overrides <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> on the enum
+
+    so that string interpolation automatically returns the localized value.
+  example: []
+  syntax:
+    content: public static string ToString(this Translations key)
+    parameters:
+    - id: key
+      type: Domain.Enums.Translations
+      description: The translation key enum value.
+    return:
+      type: System.String
+      description: The localized string.
+    content.vb: Public Shared Function ToString(key As Translations) As String
+  overload: Service.Facade.Extension.TranslationsExtension.ToString*
+references:
+- uid: Domain.Enums.Translations
+  commentId: T:Domain.Enums.Translations
+  parent: Domain.Enums
+  isExternal: true
+  href: Domain.Enums.Translations.html
+  name: Translations
+  nameWithType: Translations
+  fullName: Domain.Enums.Translations
+- uid: Service.Facade.Extension
+  commentId: N:Service.Facade.Extension
+  isExternal: true
+  href: Service.html
+  name: Service.Facade.Extension
+  nameWithType: Service.Facade.Extension
+  fullName: Service.Facade.Extension
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Facade
+    name: Facade
+    isExternal: true
+    href: Service.Facade.html
+  - name: .
+  - uid: Service.Facade.Extension
+    name: Extension
+    isExternal: true
+    href: Service.Facade.Extension.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Facade
+    name: Facade
+    isExternal: true
+    href: Service.Facade.html
+  - name: .
+  - uid: Service.Facade.Extension
+    name: Extension
+    isExternal: true
+    href: Service.Facade.Extension.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: Domain.Enums
+  commentId: N:Domain.Enums
+  isExternal: true
+  href: Domain.html
+  name: Domain.Enums
+  nameWithType: Domain.Enums
+  fullName: Domain.Enums
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Enums
+    name: Enums
+    isExternal: true
+    href: Domain.Enums.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Facade.Extension.TranslationsExtension.Translate*
+  commentId: Overload:Service.Facade.Extension.TranslationsExtension.Translate
+  isExternal: true
+  href: Service.Facade.Extension.TranslationsExtension.html#Service_Facade_Extension_TranslationsExtension_Translate_Domain_Enums_Translations_
+  name: Translate
+  nameWithType: TranslationsExtension.Translate
+  fullName: Service.Facade.Extension.TranslationsExtension.Translate
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  commentId: M:Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  isExternal: true
+  href: Service.Facade.Extension.TranslationsExtension.html#Service_Facade_Extension_TranslationsExtension_Translate_Domain_Enums_Translations_
+  name: Translate(Translations)
+  nameWithType: TranslationsExtension.Translate(Translations)
+  fullName: Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+  spec.csharp:
+  - uid: Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+    name: Translate
+    isExternal: true
+    href: Service.Facade.Extension.TranslationsExtension.html#Service_Facade_Extension_TranslationsExtension_Translate_Domain_Enums_Translations_
+  - name: (
+  - uid: Domain.Enums.Translations
+    name: Translations
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)
+    name: Translate
+    isExternal: true
+    href: Service.Facade.Extension.TranslationsExtension.html#Service_Facade_Extension_TranslationsExtension_Translate_Domain_Enums_Translations_
+  - name: (
+  - uid: Domain.Enums.Translations
+    name: Translations
+    isExternal: true
+  - name: )
+- uid: Service.Facade.Extension.TranslationsExtension.ToString*
+  commentId: Overload:Service.Facade.Extension.TranslationsExtension.ToString
+  isExternal: true
+  href: Service.Facade.Extension.TranslationsExtension.html#Service_Facade_Extension_TranslationsExtension_ToString_Domain_Enums_Translations_
+  name: ToString
+  nameWithType: TranslationsExtension.ToString
+  fullName: Service.Facade.Extension.TranslationsExtension.ToString

@@ -1,0 +1,554 @@
+### YamlMime:ManagedReference
+items:
+- uid: BLL.Services.IngresoService
+  commentId: T:BLL.Services.IngresoService
+  id: IngresoService
+  parent: BLL.Services
+  children:
+  - BLL.Services.IngresoService.#ctor
+  - BLL.Services.IngresoService.ListarIngresos
+  - BLL.Services.IngresoService.ListarIngresosPorCliente(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IngresoService
+  nameWithType: IngresoService
+  fullName: BLL.Services.IngresoService
+  type: Class
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/IngresoService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Read-only service for querying facility check-in (ingreso) history.
+  remarks: >-
+    Check-in records are written by <xref href="BLL.Services.ClienteService.ValidarIngreso(System.Int32)" data-throw-if-not-resolved="false"></xref>.
+
+    This service only provides listing functionality.
+  example: []
+  syntax:
+    content: public class IngresoService
+    content.vb: Public Class IngresoService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: BLL.Services.IngresoService.ListarIngresos
+  commentId: M:BLL.Services.IngresoService.ListarIngresos
+  id: ListarIngresos
+  parent: BLL.Services.IngresoService
+  langs:
+  - csharp
+  - vb
+  name: ListarIngresos()
+  nameWithType: IngresoService.ListarIngresos()
+  fullName: BLL.Services.IngresoService.ListarIngresos()
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/IngresoService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Returns all check-in records sorted by most recent first, with <code>ClienteNombre</code> hydrated.
+  example: []
+  syntax:
+    content: public List<IngresoDTO> ListarIngresos()
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+      description: List of all check-in records; empty list if none.
+    content.vb: Public Function ListarIngresos() As List(Of IngresoDTO)
+  overload: BLL.Services.IngresoService.ListarIngresos*
+- uid: BLL.Services.IngresoService.ListarIngresosPorCliente(System.Guid)
+  commentId: M:BLL.Services.IngresoService.ListarIngresosPorCliente(System.Guid)
+  id: ListarIngresosPorCliente(System.Guid)
+  parent: BLL.Services.IngresoService
+  langs:
+  - csharp
+  - vb
+  name: ListarIngresosPorCliente(Guid)
+  nameWithType: IngresoService.ListarIngresosPorCliente(Guid)
+  fullName: BLL.Services.IngresoService.ListarIngresosPorCliente(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/IngresoService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  summary: Returns all check-in records for a specific client, sorted by most recent first.
+  example: []
+  syntax:
+    content: public List<IngresoDTO> ListarIngresosPorCliente(Guid clienteId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+      description: The client whose check-in history to fetch.
+    return:
+      type: System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+      description: List of the client's check-in records; empty list if none.
+    content.vb: Public Function ListarIngresosPorCliente(clienteId As Guid) As List(Of IngresoDTO)
+  overload: BLL.Services.IngresoService.ListarIngresosPorCliente*
+- uid: BLL.Services.IngresoService.#ctor
+  commentId: M:BLL.Services.IngresoService.#ctor
+  id: '#ctor'
+  parent: BLL.Services.IngresoService
+  langs:
+  - csharp
+  - vb
+  name: IngresoService()
+  nameWithType: IngresoService.IngresoService()
+  fullName: BLL.Services.IngresoService.IngresoService()
+  type: Constructor
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/BLL/Services/IngresoService.cs
+  assemblies:
+  - BLL
+  namespace: BLL.Services
+  syntax:
+    content: public IngresoService()
+    content.vb: Public Sub New()
+  overload: BLL.Services.IngresoService.#ctor*
+  nameWithType.vb: IngresoService.New()
+  fullName.vb: BLL.Services.IngresoService.New()
+  name.vb: New()
+references:
+- uid: BLL.Services.ClienteService.ValidarIngreso(System.Int32)
+  commentId: M:BLL.Services.ClienteService.ValidarIngreso(System.Int32)
+  isExternal: true
+  href: BLL.Services.ClienteService.html#BLL_Services_ClienteService_ValidarIngreso_System_Int32_
+  name: ValidarIngreso(int)
+  nameWithType: ClienteService.ValidarIngreso(int)
+  fullName: BLL.Services.ClienteService.ValidarIngreso(int)
+  nameWithType.vb: ClienteService.ValidarIngreso(Integer)
+  fullName.vb: BLL.Services.ClienteService.ValidarIngreso(Integer)
+  name.vb: ValidarIngreso(Integer)
+  spec.csharp:
+  - uid: BLL.Services.ClienteService.ValidarIngreso(System.Int32)
+    name: ValidarIngreso
+    isExternal: true
+    href: BLL.Services.ClienteService.html#BLL_Services_ClienteService_ValidarIngreso_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: BLL.Services.ClienteService.ValidarIngreso(System.Int32)
+    name: ValidarIngreso
+    isExternal: true
+    href: BLL.Services.ClienteService.html#BLL_Services_ClienteService_ValidarIngreso_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: BLL.Services
+  commentId: N:BLL.Services
+  isExternal: true
+  href: BLL.html
+  name: BLL.Services
+  nameWithType: BLL.Services
+  fullName: BLL.Services
+  spec.csharp:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Services
+    name: Services
+    isExternal: true
+    href: BLL.Services.html
+  spec.vb:
+  - uid: BLL
+    name: BLL
+    isExternal: true
+    href: BLL.html
+  - name: .
+  - uid: BLL.Services
+    name: Services
+    isExternal: true
+    href: BLL.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: BLL.Services.IngresoService.ListarIngresos*
+  commentId: Overload:BLL.Services.IngresoService.ListarIngresos
+  isExternal: true
+  href: BLL.Services.IngresoService.html#BLL_Services_IngresoService_ListarIngresos
+  name: ListarIngresos
+  nameWithType: IngresoService.ListarIngresos
+  fullName: BLL.Services.IngresoService.ListarIngresos
+- uid: System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+  commentId: T:System.Collections.Generic.List{BLL.DTOs.IngresoDTO}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IngresoDTO>
+  nameWithType: List<IngresoDTO>
+  fullName: System.Collections.Generic.List<BLL.DTOs.IngresoDTO>
+  nameWithType.vb: List(Of IngresoDTO)
+  fullName.vb: System.Collections.Generic.List(Of BLL.DTOs.IngresoDTO)
+  name.vb: List(Of IngresoDTO)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: BLL.DTOs.IngresoDTO
+    name: IngresoDTO
+    isExternal: true
+    href: BLL.DTOs.IngresoDTO.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: BLL.DTOs.IngresoDTO
+    name: IngresoDTO
+    isExternal: true
+    href: BLL.DTOs.IngresoDTO.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: BLL.DTOs.IngresoDTO
+  commentId: T:BLL.DTOs.IngresoDTO
+  isExternal: true
+  href: BLL.DTOs.IngresoDTO.html
+  name: IngresoDTO
+  nameWithType: IngresoDTO
+  fullName: BLL.DTOs.IngresoDTO
+- uid: BLL.Services.IngresoService.ListarIngresosPorCliente*
+  commentId: Overload:BLL.Services.IngresoService.ListarIngresosPorCliente
+  isExternal: true
+  href: BLL.Services.IngresoService.html#BLL_Services_IngresoService_ListarIngresosPorCliente_System_Guid_
+  name: ListarIngresosPorCliente
+  nameWithType: IngresoService.ListarIngresosPorCliente
+  fullName: BLL.Services.IngresoService.ListarIngresosPorCliente
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: BLL.Services.IngresoService.#ctor*
+  commentId: Overload:BLL.Services.IngresoService.#ctor
+  isExternal: true
+  href: BLL.Services.IngresoService.html#BLL_Services_IngresoService__ctor
+  name: IngresoService
+  nameWithType: IngresoService.IngresoService
+  fullName: BLL.Services.IngresoService.IngresoService
+  nameWithType.vb: IngresoService.New
+  fullName.vb: BLL.Services.IngresoService.New
+  name.vb: New

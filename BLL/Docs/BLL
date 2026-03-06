@@ -1,0 +1,1315 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BLL</name>
+    </assembly>
+    <members>
+        <member name="T:BLL.BalanceService">
+            <summary>
+            Manages client account balances: periodic membership billing, balance enquiry,
+            debt validation, and movement history.
+            </summary>
+        </member>
+        <member name="M:BLL.BalanceService.#ctor">
+            <summary>Initializes the service with a new <see cref="T:Service.Logic.BitacoraService"/> instance.</summary>
+        </member>
+        <member name="M:BLL.BalanceService.CalcularSaldoMensual">
+            <summary>
+            Iterates over all clients in parallel and inserts a <c>DeudaMembresia</c> movement for
+            those whose <c>ProximaFechaPago</c> has passed. Advances <c>ProximaFechaPago</c> by
+            the membership's <c>Regularidad</c> days after each charge.
+            Clients without a membership, with an inactive or free membership, or whose next
+            payment date is still in the future are skipped silently.
+            </summary>
+        </member>
+        <member name="M:BLL.BalanceService.ConsultarBalance(System.Guid)">
+            <summary>
+            Retrieves the current balance for a client from the <c>vw_Balance</c> SQL view.
+            </summary>
+            <param name="clienteId">The client identifier.</param>
+            <returns>The <see cref="T:Domain.Entities.Balance"/> record, or <c>null</c> if no movements exist.</returns>
+        </member>
+        <member name="M:BLL.BalanceService.ValidarDeuda(System.Guid,System.String)">
+            <summary>
+            Throws if the client's balance is negative, optionally prefixing the message with a context label.
+            Used as a guard in operations that require the client to be current on payments.
+            </summary>
+            <param name="clienteId">The client to validate.</param>
+            <param name="contexto">Optional operation name prepended to the error message for clarity.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown when the client has an outstanding debt.</exception>
+        </member>
+        <member name="M:BLL.BalanceService.ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Returns the ledger movement history for a client, optionally filtered by date range.
+            </summary>
+            <param name="clienteId">The client whose movements to fetch.</param>
+            <param name="desde">Optional inclusive lower bound on movement date.</param>
+            <param name="hasta">Optional inclusive upper bound on movement date.</param>
+        </member>
+        <member name="T:BLL.DTOs.AgendaDTO">
+            <summary>
+            Represents a single availability window for a facility space on a given day of the week.
+            </summary>
+            <remarks>
+            Used as the input/output model for <c>AgendaService.ConfigurarAgenda</c>.
+            A space may have multiple <see cref="T:BLL.DTOs.AgendaDTO"/> entries per day to model split availability windows.
+            <see cref="P:BLL.DTOs.AgendaDTO.DiaSemana"/> follows the <c>DayOfWeek</c> convention: 0 = Sunday … 6 = Saturday.
+            Note: windows that cross midnight (i.e., <see cref="P:BLL.DTOs.AgendaDTO.HoraHasta"/> &lt; <see cref="P:BLL.DTOs.AgendaDTO.HoraDesde"/>) are
+            not currently supported and will be rejected by the service.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.AgendaDTO.EspacioID">
+            <summary>FK to the space whose availability this window defines.</summary>
+        </member>
+        <member name="P:BLL.DTOs.AgendaDTO.DiaSemana">
+            <summary>Day of the week this window applies to (0 = Sunday, 6 = Saturday).</summary>
+        </member>
+        <member name="P:BLL.DTOs.AgendaDTO.HoraDesde">
+            <summary>Start of the availability window (inclusive).</summary>
+        </member>
+        <member name="P:BLL.DTOs.AgendaDTO.HoraHasta">
+            <summary>End of the availability window (exclusive). Must be greater than <see cref="P:BLL.DTOs.AgendaDTO.HoraDesde"/>.</summary>
+        </member>
+        <member name="T:BLL.DTOs.ClienteDTO">
+            <summary>
+            Projection of a <c>Cliente</c> entity used across all BLL service boundaries.
+            </summary>
+            <remarks>
+            Combines core identity fields with hydrated membership details and a pre-computed balance
+            so that consumers (UI managers, API controllers) never need to issue additional queries.
+            <see cref="P:BLL.DTOs.ClienteDTO.Status"/> defaults to <see cref="F:BLL.DTOs.ClienteStatus.Activo"/> on construction.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Id">
+            <summary>Primary key of the client record.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Nombre">
+            <summary>Client's first name.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Apellido">
+            <summary>Client's last name.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.DNI">
+            <summary>Argentine national identity document number.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.FechaNacimiento">
+            <summary>Date of birth.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Email">
+            <summary>Contact email address.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.CreatedAt">
+            <summary>Timestamp of record creation.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.MembresiaID">
+            <summary>FK to the client's currently assigned membership, or <c>null</c> if none.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Razon">
+            <summary>
+            Textual reason for the current <see cref="P:BLL.DTOs.ClienteDTO.Status"/>.
+            Populated when status is <see cref="F:BLL.DTOs.ClienteStatus.Inactivo"/>.
+            </summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Status">
+            <summary>Active/inactive status. Defaults to <see cref="F:BLL.DTOs.ClienteStatus.Activo"/>.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.ProximaFechaPago">
+            <summary>Next scheduled membership billing date, or <c>null</c> when no active membership row exists.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.NombreCompleto">
+            <summary>Concatenation of <see cref="P:BLL.DTOs.ClienteDTO.Nombre"/> and <see cref="P:BLL.DTOs.ClienteDTO.Apellido"/>.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.MembresiaDetalle">
+            <summary>Hydrated membership details. Populated by <c>ClienteService.ObtenerCliente</c> when membership exists.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.Balance">
+            <summary>Current account balance in currency units (positive = credit, negative = debt).</summary>
+        </member>
+        <member name="P:BLL.DTOs.ClienteDTO.EstadoBalance">
+            <summary>Categorized balance state derived from <see cref="P:BLL.DTOs.ClienteDTO.Balance"/>.</summary>
+        </member>
+        <member name="T:BLL.DTOs.ClienteStatus">
+            <summary>
+            Indicates whether a client account is active or has been deactivated.
+            </summary>
+            <remarks>
+            Inactive clients are blocked from facility entry by <c>ClienteService.ValidarIngreso</c>
+            and from creating new reservations. The status is persisted as an integer column.
+            </remarks>
+        </member>
+        <member name="F:BLL.DTOs.ClienteStatus.Activo">
+            <summary>The client account is active and fully operational.</summary>
+        </member>
+        <member name="F:BLL.DTOs.ClienteStatus.Inactivo">
+            <summary>The client account has been deactivated. See <c>ClienteDTO.Razon</c> for the reason.</summary>
+        </member>
+        <member name="T:BLL.DTOs.ComprobanteDTO">
+            <summary>
+            Transfer object representing a receipt (comprobante) file attached to a payment or reservation.
+            </summary>
+            <remarks>
+            Either <see cref="P:BLL.DTOs.ComprobanteDTO.PagoID"/> or <see cref="P:BLL.DTOs.ComprobanteDTO.ReservaID"/> must be set to identify the owning entity.
+            <see cref="P:BLL.DTOs.ComprobanteDTO.Contenido"/> holds the raw file bytes (typically an HTML receipt generated by
+            <c>ComprobanteGenerator</c>). <see cref="P:BLL.DTOs.ComprobanteDTO.RutaArchivo"/> is an optional filesystem path used
+            when the file is persisted to disk rather than stored as a BLOB.
+            <see cref="P:BLL.DTOs.ComprobanteDTO.Id"/> is auto-assigned on construction.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.Id">
+            <summary>Primary key, auto-assigned on construction.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.PagoID">
+            <summary>FK to the associated payment, or <c>null</c> when linked to a reservation instead.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.ReservaID">
+            <summary>FK to the associated reservation, or <c>null</c> when linked to a payment instead.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.NombreArchivo">
+            <summary>Display file name including extension (e.g., <c>"Payment_Receipt_42.html"</c>).</summary>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.RutaArchivo">
+            <summary>Optional filesystem path for disk-backed storage. <c>null</c> when content is stored as <see cref="P:BLL.DTOs.ComprobanteDTO.Contenido"/>.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.FechaSubida">
+            <summary>Timestamp when the receipt was attached. Defaults to <c>DateTime.Now</c> when not set.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ComprobanteDTO.Contenido">
+            <summary>Raw file bytes of the receipt document.</summary>
+        </member>
+        <member name="T:BLL.DTOs.EjercicioDTO">
+            <summary>
+            Represents a single exercise entry within a <see cref="T:BLL.DTOs.RutinaDTO"/>.
+            </summary>
+            <remarks>
+            Exercises are scoped to a specific day of the week and ordered within that day via <see cref="P:BLL.DTOs.EjercicioDTO.Orden"/>.
+            <see cref="P:BLL.DTOs.EjercicioDTO.Id"/> is auto-assigned on construction.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.EjercicioDTO.Id">
+            <summary>Primary key, auto-assigned on construction.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EjercicioDTO.RutinaID">
+            <summary>FK to the parent routine.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EjercicioDTO.Nombre">
+            <summary>Exercise name or description.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EjercicioDTO.Repeticiones">
+            <summary>Number of repetitions to perform.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EjercicioDTO.DiaSemana">
+            <summary>Day of the week this exercise is scheduled for (0 = Sunday, 6 = Saturday).</summary>
+        </member>
+        <member name="P:BLL.DTOs.EjercicioDTO.Orden">
+            <summary>Display order within the day's exercise list (ascending).</summary>
+        </member>
+        <member name="T:BLL.DTOs.EspacioDTO">
+            <summary>
+            Projection of a <c>Espacio</c> (sporting space/facility) entity exposed through BLL service boundaries.
+            </summary>
+        </member>
+        <member name="P:BLL.DTOs.EspacioDTO.Id">
+            <summary>Primary key of the facility space.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EspacioDTO.Nombre">
+            <summary>Display name of the space (e.g., <c>"Cancha 1"</c>).</summary>
+        </member>
+        <member name="P:BLL.DTOs.EspacioDTO.Descripcion">
+            <summary>Optional description or notes about the space.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EspacioDTO.PrecioHora">
+            <summary>Billing rate per hour in currency units. Used to compute reservation totals.</summary>
+        </member>
+        <member name="P:BLL.DTOs.EspacioDTO.Estado">
+            <summary>Operational status of the space. Only <c>Disponible</c> spaces accept new reservations.</summary>
+        </member>
+        <member name="T:BLL.DTOs.EstadoBalance">
+            <summary>
+            Categorized account balance state derived from the numeric balance value.
+            </summary>
+            <remarks>
+            Used by <c>ClienteDTO.EstadoBalance</c> so the UI layer can apply distinct visual
+            treatments (color coding, icons) without comparing raw decimal values.
+            </remarks>
+        </member>
+        <member name="F:BLL.DTOs.EstadoBalance.AlDia">
+            <summary>Balance is zero: no outstanding debt and no credit.</summary>
+        </member>
+        <member name="F:BLL.DTOs.EstadoBalance.Deudor">
+            <summary>Balance is negative: the client has an outstanding debt.</summary>
+        </member>
+        <member name="F:BLL.DTOs.EstadoBalance.AFavor">
+            <summary>Balance is positive: the client has a credit in their account.</summary>
+        </member>
+        <member name="T:BLL.DTOs.GenerarReservaDTO">
+            <summary>
+            Command object carrying all inputs required to create a new reservation via <c>ReservaService.GenerarReserva</c>.
+            </summary>
+            <remarks>
+            <see cref="P:BLL.DTOs.GenerarReservaDTO.Duracion"/> must be a positive integer representing minutes.
+            <see cref="P:BLL.DTOs.GenerarReservaDTO.Adelanto"/> is the partial payment collected at booking time; it may be zero but must not be negative.
+            Availability is validated against the space's agenda and existing reservations inside the service.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.GenerarReservaDTO.ClienteId">
+            <summary>FK to the client making the reservation.</summary>
+        </member>
+        <member name="P:BLL.DTOs.GenerarReservaDTO.EspacioId">
+            <summary>FK to the space being reserved.</summary>
+        </member>
+        <member name="P:BLL.DTOs.GenerarReservaDTO.FechaHora">
+            <summary>Exact start date and time of the requested reservation.</summary>
+        </member>
+        <member name="P:BLL.DTOs.GenerarReservaDTO.Duracion">
+            <summary>Requested duration in minutes.</summary>
+        </member>
+        <member name="P:BLL.DTOs.GenerarReservaDTO.Adelanto">
+            <summary>Advance payment amount to register at the time of booking.</summary>
+        </member>
+        <member name="T:BLL.DTOs.IngresoDTO">
+            <summary>
+            Projection of a facility check-in (<c>Ingreso</c>) record with a hydrated client name.
+            </summary>
+            <remarks>
+            Check-in records are written by <c>ClienteService.ValidarIngreso</c> and are read-only
+            through <c>IngresoService</c>. <see cref="P:BLL.DTOs.IngresoDTO.ClienteNombre"/> is hydrated at query time;
+            it is set to <c>"Desconocido"</c> when the client record cannot be resolved.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.IngresoDTO.Id">
+            <summary>Primary key of the check-in record.</summary>
+        </member>
+        <member name="P:BLL.DTOs.IngresoDTO.ClienteID">
+            <summary>FK to the client who checked in.</summary>
+        </member>
+        <member name="P:BLL.DTOs.IngresoDTO.ClienteNombre">
+            <summary>Full name of the client (<c>"Nombre Apellido"</c>), hydrated from the client repository.</summary>
+        </member>
+        <member name="P:BLL.DTOs.IngresoDTO.FechaHora">
+            <summary>Timestamp when the check-in occurred.</summary>
+        </member>
+        <member name="T:BLL.DTOs.MembresiaDTO">
+            <summary>
+            Projection of a <c>Membresia</c> entity exposed through BLL service boundaries.
+            </summary>
+            <remarks>
+            <see cref="P:BLL.DTOs.MembresiaDTO.Regularidad"/> expresses the billing cycle in days (e.g., 30 for monthly).
+            <see cref="P:BLL.DTOs.MembresiaDTO.PrecioFormateado"/> is a display-only computed property; it is not persisted.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Id">
+            <summary>Primary key of the membership plan.</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Codigo">
+            <summary>Auto-incremented sequential code assigned by the database.</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Nombre">
+            <summary>Display name of the membership plan.</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Precio">
+            <summary>Billing amount per cycle in currency units.</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Regularidad">
+            <summary>Billing cycle length in days (e.g., 30 = monthly, 7 = weekly).</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Activa">
+            <summary><c>true</c> if the plan is available for assignment to clients.</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.Detalle">
+            <summary>Optional description or notes about the membership plan.</summary>
+        </member>
+        <member name="P:BLL.DTOs.MembresiaDTO.PrecioFormateado">
+            <summary>Currency-formatted representation of <see cref="P:BLL.DTOs.MembresiaDTO.Precio"/> (e.g., <c>"$1,500.00"</c>).</summary>
+        </member>
+        <member name="T:BLL.DTOs.PagoDTO">
+            <summary>
+            Projection of a <c>Pago</c> entity used as both input and output for payment operations.
+            </summary>
+            <remarks>
+            When used as input to <c>PagoService.RegistrarPago</c>, set <see cref="P:BLL.DTOs.PagoDTO.ClienteID"/>,
+            <see cref="P:BLL.DTOs.PagoDTO.Monto"/>, <see cref="P:BLL.DTOs.PagoDTO.Metodo"/>, and optionally <see cref="P:BLL.DTOs.PagoDTO.ReservaID"/> or
+            <see cref="P:BLL.DTOs.PagoDTO.MembresiaID"/> to indicate the payment type.
+            <see cref="P:BLL.DTOs.PagoDTO.Estado"/> is overwritten by the service; callers should not set it.
+            <see cref="P:BLL.DTOs.PagoDTO.Id"/> is initialized to a new <see cref="T:System.Guid"/> on construction.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Id">
+            <summary>Primary key, auto-assigned on construction.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Codigo">
+            <summary>Auto-incremented sequential code assigned by the database.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.ClienteID">
+            <summary>FK to the client who made the payment.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Monto">
+            <summary>Payment amount in currency units. Must be positive.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Metodo">
+            <summary>Payment method label (e.g., <c>"Efectivo"</c>, <c>"Tarjeta"</c>).</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Detalle">
+            <summary>Optional free-text detail or reference number for the payment.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Fecha">
+            <summary>Timestamp of the payment. Defaults to <c>DateTime.Now</c> when not set.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.Estado">
+            <summary>Payment lifecycle status. Set by the service layer, not by the caller.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.MembresiaID">
+            <summary>FK to the membership being paid, or <c>null</c> for non-membership payments.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.ReservaID">
+            <summary>FK to the reservation being settled, or <c>null</c> for non-reservation payments.</summary>
+        </member>
+        <member name="P:BLL.DTOs.PagoDTO.EsMembresia">
+            <summary><c>true</c> when <see cref="P:BLL.DTOs.PagoDTO.MembresiaID"/> has a value; determines movement type inside <c>PagoService</c>.</summary>
+        </member>
+        <member name="T:BLL.DTOs.ReservaDTO">
+            <summary>
+            Projection of a <c>Reserva</c> entity with denormalized client and space names.
+            </summary>
+            <remarks>
+            <see cref="P:BLL.DTOs.ReservaDTO.ClienteNombre"/> and <see cref="P:BLL.DTOs.ReservaDTO.EspacioNombre"/> are hydrated by
+            <c>ReservaService.ListarReservas</c> to avoid extra lookups in the UI layer.
+            <see cref="P:BLL.DTOs.ReservaDTO.Estado"/> mirrors <c>EstadoReserva</c> as a string so the UI can display
+            it without a reference to the Domain enum assembly.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.Id">
+            <summary>Primary key of the reservation.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.ClienteID">
+            <summary>FK to the client who made the reservation.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.ClienteNombre">
+            <summary>Full name of the client, hydrated from the repository.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.EspacioID">
+            <summary>FK to the reserved space.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.EspacioNombre">
+            <summary>Display name of the space, hydrated from the repository.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.Fecha">
+            <summary>Date portion of the reservation (date only, no time component).</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.FechaHora">
+            <summary>Exact start date and time of the reservation.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.Duracion">
+            <summary>Duration of the reservation in minutes.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.Adelanto">
+            <summary>Advance payment amount collected at booking time.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.CodigoReserva">
+            <summary>Human-readable reservation code (e.g., <c>RES-000123</c>).</summary>
+        </member>
+        <member name="P:BLL.DTOs.ReservaDTO.Estado">
+            <summary>String representation of <c>EstadoReserva</c> (e.g., <c>"Pendiente"</c>, <c>"Pagada"</c>, <c>"Cancelada"</c>).</summary>
+        </member>
+        <member name="T:BLL.DTOs.ResultadoIngresoDTO">
+            <summary>
+            Result returned by <c>ClienteService.ValidarIngreso</c> describing whether a client is
+            permitted to enter the facility and the reason when access is denied.
+            </summary>
+            <remarks>
+            When <see cref="P:BLL.DTOs.ResultadoIngresoDTO.Permitido"/> is <c>false</c>, <see cref="P:BLL.DTOs.ResultadoIngresoDTO.Razon"/> contains a localized
+            message suitable for display (e.g., client inactive, outstanding debt).
+            <see cref="P:BLL.DTOs.ResultadoIngresoDTO.Balance"/> is always populated so the UI can show the client's account state
+            regardless of the access decision.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.ResultadoIngresoDTO.Permitido">
+            <summary><c>true</c> if the client is allowed entry and a check-in record was created.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ResultadoIngresoDTO.Razon">
+            <summary>Localized denial reason, or <c>null</c> when <see cref="P:BLL.DTOs.ResultadoIngresoDTO.Permitido"/> is <c>true</c>.</summary>
+        </member>
+        <member name="P:BLL.DTOs.ResultadoIngresoDTO.NombreCliente">
+            <summary>Full name of the client (<c>"Nombre Apellido"</c>).</summary>
+        </member>
+        <member name="P:BLL.DTOs.ResultadoIngresoDTO.Balance">
+            <summary>Current account balance in currency units at the time of the validation.</summary>
+        </member>
+        <member name="T:BLL.DTOs.RutinaDTO">
+            <summary>
+            Projection of a <c>Rutina</c> (training routine) entity with its associated exercises.
+            </summary>
+            <remarks>
+            An active routine is identified by a <c>null</c> <see cref="P:BLL.DTOs.RutinaDTO.Hasta"/> value.
+            Only one routine per client may be active at a time; creating a new one via
+            <c>RutinaService.CrearRutina</c> automatically finalizes the previous active routine.
+            <see cref="P:BLL.DTOs.RutinaDTO.Ejercicios"/> is initialized to an empty list on construction.
+            </remarks>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.Id">
+            <summary>Primary key, auto-assigned on construction.</summary>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.ClienteID">
+            <summary>FK to the client this routine belongs to.</summary>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.ClienteNombre">
+            <summary>Full name of the client, hydrated by the service layer.</summary>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.Desde">
+            <summary>Date the routine became active.</summary>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.Hasta">
+            <summary>Date the routine was finalized, or <c>null</c> if still active.</summary>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.Detalle">
+            <summary>Optional notes or description for the routine.</summary>
+        </member>
+        <member name="P:BLL.DTOs.RutinaDTO.Ejercicios">
+            <summary>Ordered list of exercises belonging to this routine.</summary>
+        </member>
+        <member name="T:BLL.Mappers.AgendaMapper">
+            <summary>
+            Bidirectional mapper between <see cref="T:Domain.Entities.Agenda"/> domain entities and <see cref="T:BLL.DTOs.AgendaDTO"/> projections.
+            </summary>
+            <remarks>
+            Provides both single-item and collection overloads via <see cref="M:BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})"/> to support
+            the delete-and-reinsert bulk pattern used by <c>AgendaService.ConfigurarAgenda</c>.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.AgendaMapper.ToDTO(Domain.Entities.Agenda)">
+            <summary>
+            Projects an <see cref="T:Domain.Entities.Agenda"/> entity to an <see cref="T:BLL.DTOs.AgendaDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.AgendaMapper.ToEntity(BLL.DTOs.AgendaDTO)">
+            <summary>
+            Projects an <see cref="T:BLL.DTOs.AgendaDTO"/> back to an <see cref="T:Domain.Entities.Agenda"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{Domain.Entities.Agenda})">
+            <summary>Projects a collection of <see cref="T:Domain.Entities.Agenda"/> entities to DTOs. Returns an empty list when <paramref name="entities"/> is <c>null</c>.</summary>
+        </member>
+        <member name="M:BLL.Mappers.AgendaMapper.Map(System.Collections.Generic.IEnumerable{BLL.DTOs.AgendaDTO})">
+            <summary>Projects a collection of <see cref="T:BLL.DTOs.AgendaDTO"/> objects to entities. Returns an empty list when <paramref name="dtos"/> is <c>null</c>.</summary>
+        </member>
+        <member name="T:BLL.Mappers.ClienteMapper">
+            <summary>
+            Bidirectional mapper between <see cref="T:Domain.Entities.Cliente"/> domain entities and <see cref="T:BLL.DTOs.ClienteDTO"/> projections.
+            </summary>
+            <remarks>
+            <see cref="M:BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})"/> accepts an optional <c>Balance</c> and <c>proximaFechaPago</c> so the caller
+            can hydrate the DTO in a single pass without additional round-trips. When <paramref name="balance"/>
+            is <c>null</c>, <see cref="P:BLL.DTOs.ClienteDTO.Balance"/> defaults to zero and
+            <see cref="P:BLL.DTOs.ClienteDTO.EstadoBalance"/> is set to <see cref="F:BLL.DTOs.EstadoBalance.AlDia"/>.
+            Unrecognized <c>Estado</c> string values are coerced to <see cref="F:BLL.DTOs.ClienteStatus.Activo"/>
+            and logged as warnings.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.ClienteMapper.ToDTO(Domain.Entities.Cliente,Domain.Entities.Membresia,Domain.Entities.Balance,System.Nullable{System.DateTime})">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Cliente"/> entity to a <see cref="T:BLL.DTOs.ClienteDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+            <param name="membresia">Membership entity to embed as <see cref="P:BLL.DTOs.ClienteDTO.MembresiaDetalle"/>, or <c>null</c>.</param>
+            <param name="balance">Current balance record used to populate <see cref="P:BLL.DTOs.ClienteDTO.Balance"/> and <see cref="P:BLL.DTOs.ClienteDTO.EstadoBalance"/>.</param>
+            <param name="proximaFechaPago">Next billing date from the active <c>ClienteMembresia</c> row, or <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.ClienteMapper.ToEntity(BLL.DTOs.ClienteDTO)">
+            <summary>
+            Projects a <see cref="T:BLL.DTOs.ClienteDTO"/> back to a <see cref="T:Domain.Entities.Cliente"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+            <remarks>Computed and hydrated properties (<see cref="P:BLL.DTOs.ClienteDTO.Balance"/>, <see cref="P:BLL.DTOs.ClienteDTO.MembresiaDetalle"/>, etc.) are not mapped.</remarks>
+        </member>
+        <member name="T:BLL.Mappers.EjercicioMapper">
+            <summary>
+            Bidirectional mapper between exercise domain entities and <see cref="T:BLL.DTOs.EjercicioDTO"/> projections.
+            </summary>
+            <remarks>
+            The domain model separates the exercise definition (<see cref="T:Domain.Entities.Ejercicio"/>) from its
+            scheduling within a routine (<see cref="T:Domain.Entities.RutinaEjercicio"/>). <see cref="M:BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)"/> reads from
+            <see cref="T:Domain.Entities.RutinaEjercicio"/> (which contains repetitions, day, and order) and resolves the
+            exercise name via the <c>Ejercicio</c> navigation property. <see cref="M:BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)"/> maps only to
+            the base <see cref="T:Domain.Entities.Ejercicio"/> definition (name/id); scheduling fields are persisted separately.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.EjercicioMapper.ToEntity(BLL.DTOs.EjercicioDTO)">
+            <summary>
+            Projects an <see cref="T:BLL.DTOs.EjercicioDTO"/> to an <see cref="T:Domain.Entities.Ejercicio"/> definition entity.
+            </summary>
+            <param name="dto">Source DTO.</param>
+        </member>
+        <member name="M:BLL.Mappers.EjercicioMapper.ToDTO(Domain.Entities.RutinaEjercicio)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.RutinaEjercicio"/> scheduling record to an <see cref="T:BLL.DTOs.EjercicioDTO"/>.
+            </summary>
+            <param name="entity">Source scheduling record with <c>Ejercicio</c> navigation property loaded.</param>
+            <remarks>
+            When <c>entity.Ejercicio</c> is <c>null</c> (navigation property not loaded),
+            <see cref="P:BLL.DTOs.EjercicioDTO.Nombre"/> defaults to <c>"Desconocido"</c>.
+            </remarks>
+        </member>
+        <member name="T:BLL.Mappers.EspacioMapper">
+            <summary>
+            Bidirectional mapper between <see cref="T:Domain.Entities.Espacio"/> domain entities and <see cref="T:BLL.DTOs.EspacioDTO"/> projections.
+            </summary>
+            <remarks>
+            All three overloads of <see cref="M:BLL.Mappers.EspacioMapper.Map(Domain.Entities.Espacio)"/> are named identically to leverage C# method overload
+            resolution, keeping call sites uniform regardless of direction or collection vs. single-item mapping.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.EspacioMapper.Map(Domain.Entities.Espacio)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Espacio"/> entity to an <see cref="T:BLL.DTOs.EspacioDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.EspacioMapper.Map(BLL.DTOs.EspacioDTO)">
+            <summary>
+            Projects an <see cref="T:BLL.DTOs.EspacioDTO"/> back to a <see cref="T:Domain.Entities.Espacio"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.EspacioMapper.Map(System.Collections.Generic.List{Domain.Entities.Espacio})">
+            <summary>
+            Projects a list of <see cref="T:Domain.Entities.Espacio"/> entities to a list of <see cref="T:BLL.DTOs.EspacioDTO"/> objects.
+            </summary>
+            <param name="entities">Source list. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="T:BLL.Mappers.MembresiaMapper">
+            <summary>
+            Bidirectional mapper between <see cref="T:Domain.Entities.Membresia"/> domain entities and <see cref="T:BLL.DTOs.MembresiaDTO"/> projections.
+            </summary>
+            <remarks>
+            When mapping to entity, <see cref="P:Domain.Entities.Membresia.Id"/> is only set when the DTO's <see cref="P:BLL.DTOs.MembresiaDTO.Id"/>
+            is non-empty. This allows the database to assign the primary key on insert while preserving
+            the existing key on update.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.MembresiaMapper.ToDTO(Domain.Entities.Membresia)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Membresia"/> entity to a <see cref="T:BLL.DTOs.MembresiaDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.MembresiaMapper.ToEntity(BLL.DTOs.MembresiaDTO)">
+            <summary>
+            Projects a <see cref="T:BLL.DTOs.MembresiaDTO"/> back to a <see cref="T:Domain.Entities.Membresia"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+            <remarks><see cref="P:Domain.Entities.Membresia.Id"/> is only assigned when <see cref="P:BLL.DTOs.MembresiaDTO.Id"/> is non-empty.</remarks>
+        </member>
+        <member name="T:BLL.Mappers.PagoMapper">
+            <summary>
+            Bidirectional mapper between payment and receipt domain entities and their DTO projections.
+            </summary>
+            <remarks>
+            Handles <see cref="T:Domain.Entities.Pago"/> ↔ <see cref="T:BLL.DTOs.PagoDTO"/> and <see cref="T:Domain.Entities.Comprobante"/> ↔ <see cref="T:BLL.DTOs.ComprobanteDTO"/>.
+            <c>Estado</c> is stored as a string in the database and parsed to <see cref="T:Domain.Enums.EstadoPago"/> on read.
+            When mapping to entity, <see cref="P:Domain.Entities.Pago.Id"/> is only set when the DTO's <see cref="P:BLL.DTOs.PagoDTO.Id"/>
+            is non-empty, allowing the database to assign the key on insert.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.PagoMapper.ToDTO(Domain.Entities.Pago)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Pago"/> entity to a <see cref="T:BLL.DTOs.PagoDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.PagoMapper.ToEntity(BLL.DTOs.PagoDTO)">
+            <summary>
+            Projects a <see cref="T:BLL.DTOs.PagoDTO"/> back to a <see cref="T:Domain.Entities.Pago"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+            <remarks><see cref="P:Domain.Entities.Pago.Id"/> is only assigned when <see cref="P:BLL.DTOs.PagoDTO.Id"/> is non-empty.</remarks>
+        </member>
+        <member name="M:BLL.Mappers.PagoMapper.ToDTO(Domain.Entities.Comprobante)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Comprobante"/> entity to a <see cref="T:BLL.DTOs.ComprobanteDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="M:BLL.Mappers.PagoMapper.ToEntity(BLL.DTOs.ComprobanteDTO)">
+            <summary>
+            Projects a <see cref="T:BLL.DTOs.ComprobanteDTO"/> back to a <see cref="T:Domain.Entities.Comprobante"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+            <remarks><see cref="P:Domain.Entities.Comprobante.Id"/> is only assigned when <see cref="P:BLL.DTOs.ComprobanteDTO.Id"/> is non-empty.</remarks>
+        </member>
+        <member name="T:BLL.Mappers.ReservaMapper">
+            <summary>
+            Bidirectional mapper between <see cref="T:Domain.Entities.Reserva"/> domain entities and <see cref="T:BLL.DTOs.ReservaDTO"/> projections.
+            </summary>
+            <remarks>
+            <see cref="P:BLL.DTOs.ReservaDTO.ClienteNombre"/> and <see cref="P:BLL.DTOs.ReservaDTO.EspacioNombre"/> are denormalized
+            display fields that cannot be populated from the entity alone. They must be set by the calling
+            service after mapping.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.ReservaMapper.ToDTO(Domain.Entities.Reserva)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Reserva"/> entity to a <see cref="T:BLL.DTOs.ReservaDTO"/>.
+            </summary>
+            <param name="entity">Source entity. Returns <c>null</c> when <c>null</c>.</param>
+            <remarks><see cref="P:BLL.DTOs.ReservaDTO.ClienteNombre"/> and <see cref="P:BLL.DTOs.ReservaDTO.EspacioNombre"/> are left empty and must be filled by the service.</remarks>
+        </member>
+        <member name="M:BLL.Mappers.ReservaMapper.ToEntity(BLL.DTOs.ReservaDTO)">
+            <summary>
+            Projects a <see cref="T:BLL.DTOs.ReservaDTO"/> back to a <see cref="T:Domain.Entities.Reserva"/> entity.
+            </summary>
+            <param name="dto">Source DTO. Returns <c>null</c> when <c>null</c>.</param>
+        </member>
+        <member name="T:BLL.Mappers.RutinaMapper">
+            <summary>
+            Bidirectional mapper between <see cref="T:Domain.Entities.Rutina"/> domain entities and <see cref="T:BLL.DTOs.RutinaDTO"/> projections.
+            </summary>
+            <remarks>
+            Exercises are not mapped here; callers must populate <see cref="P:BLL.DTOs.RutinaDTO.Ejercicios"/>
+            separately using <see cref="T:BLL.Mappers.EjercicioMapper"/> after retrieving the routine's exercise records.
+            </remarks>
+        </member>
+        <member name="M:BLL.Mappers.RutinaMapper.ToEntity(BLL.DTOs.RutinaDTO)">
+            <summary>
+            Projects a <see cref="T:BLL.DTOs.RutinaDTO"/> to a <see cref="T:Domain.Entities.Rutina"/> entity.
+            </summary>
+            <param name="dto">Source DTO.</param>
+        </member>
+        <member name="M:BLL.Mappers.RutinaMapper.ToDTO(Domain.Entities.Rutina)">
+            <summary>
+            Projects a <see cref="T:Domain.Entities.Rutina"/> entity to a <see cref="T:BLL.DTOs.RutinaDTO"/>.
+            </summary>
+            <param name="entity">Source entity.</param>
+            <remarks><see cref="P:BLL.DTOs.RutinaDTO.Ejercicios"/> is initialized to an empty list; populate it separately with <see cref="T:BLL.Mappers.EjercicioMapper"/>.</remarks>
+        </member>
+        <member name="T:BLL.SchedulerService">
+            <summary>
+            Singleton background scheduler that periodically triggers <see cref="M:BLL.BalanceService.CalcularSaldoMensual"/>.
+            </summary>
+            <remarks>
+            Uses a double-checked lock to prevent concurrent job executions. The job fires 5 seconds
+            after <see cref="M:BLL.SchedulerService.Start"/> is called, then repeats every hour.
+            </remarks>
+        </member>
+        <member name="P:BLL.SchedulerService.Instance">
+            <summary>Returns the singleton instance, creating it lazily on first access.</summary>
+        </member>
+        <member name="M:BLL.SchedulerService.Start">
+            <summary>
+            Starts the background timer if it has not already been started.
+            Safe to call multiple times; subsequent calls are no-ops.
+            </summary>
+        </member>
+        <member name="T:BLL.Services.AgendaService">
+            <summary>
+            Business logic service for configuring and querying a sports space's weekly operating schedule (agenda).
+            </summary>
+        </member>
+        <member name="M:BLL.Services.AgendaService.#ctor">
+            <summary>Initializes dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.AgendaService.GetAgendaPorEspacio(System.Guid)">
+            <summary>
+            Returns all agenda blocks configured for the specified space.
+            </summary>
+            <param name="espacioId">The space to query.</param>
+            <returns>List of <see cref="T:BLL.DTOs.AgendaDTO"/> records; empty list if no schedule is configured.</returns>
+        </member>
+        <member name="M:BLL.Services.AgendaService.ConfigurarAgenda(System.Guid,System.Collections.Generic.List{BLL.DTOs.AgendaDTO})">
+            <summary>
+            Atomically replaces the entire agenda of a space by deleting all existing blocks
+            and inserting the new set in a single transaction.
+            </summary>
+            <param name="espacioId">The space whose agenda will be replaced.</param>
+            <param name="agendasDto">
+            The new schedule blocks. Each block's <c>HoraDesde</c> must be earlier than <c>HoraHasta</c>.
+            Blocks on the same day must not overlap.
+            </param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="agendasDto"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown when a block has <c>HoraDesde >= HoraHasta</c>, or when two blocks on the same day overlap.
+            </exception>
+            <remarks>
+            Known limitation: Agenda ranges crossing midnight (e.g., 22:00-02:00) are explicitly prevented by the UI validation here. They must be split into two ranges: 22:00-23:59 and 00:00-02:00.
+            </remarks>
+            <summary>
+            Replaces the entire weekly schedule for a space within a single transaction.
+            All existing agenda blocks are deleted and the new set is inserted atomically.
+            </summary>
+            <param name="espacioId">The space whose schedule is being configured.</param>
+            <param name="agendasDto">New schedule blocks. Must not be <c>null</c>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="agendasDto"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if any block has <c>HoraDesde &gt;= HoraHasta</c>, or if two blocks for the same
+            day overlap. Ranges crossing midnight are not supported and must be split.
+            </exception>
+        </member>
+        <member name="T:BLL.Services.ClienteService">
+            <summary>
+            Business logic service for client lifecycle management.
+            </summary>
+            <remarks>
+            Coordinates client registration, membership changes, status transitions, and facility check-in.
+            Multi-step write operations are executed inside <see cref="T:DAL.Contracts.IUnitOfWork"/> transactions.
+            All operations are audited via <see cref="T:Service.Logic.BitacoraService"/>.
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.ClienteService.#ctor">
+            <summary>Initializes all dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.ClienteService.RegistrarCliente(BLL.DTOs.ClienteDTO)">
+            <summary>
+            Registers a new client. If a membership is specified, creates the client-membership
+            record and inserts an initial <c>DeudaMembresia</c> movement in the same transaction.
+            </summary>
+            <param name="dto">Client data including optional <see cref="P:BLL.DTOs.ClienteDTO.MembresiaID"/>.</param>
+            <exception cref="T:System.ArgumentException">Thrown for invalid field values (DNI, name, email format, future birth date).</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the DNI is already registered or the membership is inactive.</exception>
+            <summary>
+            Registers a new client. If a membership is provided, it creates the <c>ClienteMembresia</c>
+            link and an initial <c>DeudaMembresia</c> movement, all within a single transaction.
+            </summary>
+            <param name="dto">Client data. DNI must be unique, date of birth must be in the past.</param>
+            <exception cref="T:System.ArgumentException">Thrown for invalid field values.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the DNI already exists or the membership is inactive.</exception>
+        </member>
+        <member name="M:BLL.Services.ClienteService.ActualizarMembresia(System.Guid,System.Guid)">
+            <summary>
+            Switches a client's active membership to a new plan within a transaction.
+            Closes the current <c>ClienteMembresia</c> record, creates a new one, and inserts
+            a <c>DeudaMembresia</c> movement for the new plan's price.
+            </summary>
+            <param name="clienteId">The client to update.</param>
+            <param name="nuevaMembresiaId">The new membership plan to assign.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown when the client has an outstanding negative balance.</exception>
+            <summary>
+            Switches a client to a different membership plan.
+            Closes the current <c>ClienteMembresia</c> record, opens a new one, and inserts a
+            <c>DeudaMembresia</c> movement for the new plan — all within a single transaction.
+            Blocked if the client has an outstanding debt.
+            </summary>
+            <param name="clienteId">The client to update.</param>
+            <param name="nuevaMembresiaId">The new membership plan identifier.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if the client has a negative balance, or the membership is inactive.</exception>
+        </member>
+        <member name="M:BLL.Services.ClienteService.DeshabilitarCliente(System.Guid,System.String)">
+            <summary>
+            Sets the client status to <c>Inactivo</c> and records the reason.
+            </summary>
+            <param name="clienteId">The client to disable.</param>
+            <param name="razon">Mandatory reason for disabling; must not be null or whitespace.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="razon"/> is empty.</exception>
+            <summary>
+            Sets a client's status to <c>Inactivo</c> and records the reason.
+            </summary>
+            <param name="clienteId">The client to disable.</param>
+            <param name="razon">Mandatory non-empty reason for the disabling.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="razon"/> is empty.</exception>
+        </member>
+        <member name="M:BLL.Services.ClienteService.HabilitarCliente(System.Guid)">
+            <summary>
+            Sets the client status to <c>Activo</c> and clears the previously recorded reason.
+            </summary>
+            <param name="clienteId">The client to re-enable.</param>
+            <summary>Sets a client's status back to <c>Activo</c> and clears the disabling reason.</summary>
+            <param name="clienteId">The client to re-enable.</param>
+        </member>
+        <member name="M:BLL.Services.ClienteService.ValidarIngreso(System.Int32)">
+            <summary>
+            Validates whether a client may enter the facility and, if so, records the check-in.
+            Access is denied when the client is inactive or has a negative balance.
+            </summary>
+            <param name="dni">The client's DNI to look up.</param>
+            <returns>
+            A <see cref="T:BLL.DTOs.ResultadoIngresoDTO"/> with <c>Permitido = true</c> on success, or
+            <c>Permitido = false</c> with a reason string when access is denied.
+            </returns>
+            <summary>
+            Validates whether a client identified by <paramref name="dni"/> may enter the facility.
+            If access is granted, persists an <see cref="T:Domain.Entities.Ingreso"/> record.
+            Denies access if the client is not found, is inactive, or has a negative balance.
+            </summary>
+            <param name="dni">The client's national identity number.</param>
+            <returns>
+            A <see cref="T:BLL.DTOs.ResultadoIngresoDTO"/> with <c>Permitido = true</c> on success,
+            or <c>Permitido = false</c> with a human-readable <c>Razon</c> on denial.
+            </returns>
+        </member>
+        <member name="M:BLL.Services.ClienteService.ListarClientes">
+            <summary>
+            Returns all clients with their current balance, membership detail, and next payment date hydrated.
+            </summary>
+            <summary>
+            Returns all clients with their balance, membership details, and next payment date hydrated.
+            </summary>
+        </member>
+        <member name="M:BLL.Services.ClienteService.ObtenerCliente(System.Guid)">
+            <summary>
+            Returns a single client by primary key with balance and membership detail hydrated.
+            </summary>
+            <param name="id">The client's unique identifier.</param>
+            <returns>The hydrated <see cref="T:BLL.DTOs.ClienteDTO"/>, or <c>null</c> if not found.</returns>
+            <summary>
+            Retrieves a single client by identifier with balance, membership, and next payment date hydrated.
+            </summary>
+            <returns>The hydrated <see cref="T:BLL.DTOs.ClienteDTO"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:BLL.Services.ClienteService.ObtenerClientePorDNI(System.Int32)">
+            <summary>
+            Returns a single client by DNI with balance and membership detail hydrated.
+            </summary>
+            <param name="dni">The client's national identity number.</param>
+            <returns>The hydrated <see cref="T:BLL.DTOs.ClienteDTO"/>, or <c>null</c> if not found.</returns>
+            <summary>Retrieves a client by DNI with balance, membership, and next payment date hydrated.</summary>
+            <returns>The hydrated <see cref="T:BLL.DTOs.ClienteDTO"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="T:BLL.Services.EjercicioService">
+            <summary>
+            Business logic service for managing the exercise catalog.
+            </summary>
+            <remarks>
+            Exercises are shared across all routines (<see cref="P:BLL.DTOs.RutinaDTO.Ejercicios"/>).
+            CRUD operations are performed directly on the repository without a Unit of Work,
+            as exercise management does not involve cross-entity transactional boundaries.
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.EjercicioService.#ctor">
+            <summary>Initializes dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.EjercicioService.ListarEjercicios">
+            <summary>Returns all exercises in the catalog.</summary>
+        </member>
+        <member name="M:BLL.Services.EjercicioService.CrearEjercicio(BLL.DTOs.EjercicioDTO)">
+            <summary>
+            Creates a new exercise in the catalog.
+            </summary>
+            <param name="dto">Exercise data. <see cref="P:BLL.DTOs.EjercicioDTO.Nombre"/> is required and must be unique.</param>
+            <exception cref="T:System.Exception">Thrown when the name is empty or already exists in the catalog.</exception>
+        </member>
+        <member name="M:BLL.Services.EjercicioService.ModificarEjercicio(BLL.DTOs.EjercicioDTO)">
+            <summary>
+            Updates the name of an existing exercise.
+            </summary>
+            <param name="dto">Exercise data with the updated <see cref="P:BLL.DTOs.EjercicioDTO.Nombre"/>. <see cref="P:BLL.DTOs.EjercicioDTO.Id"/> must identify an existing record.</param>
+            <exception cref="T:System.Exception">Thrown when the name is empty or the exercise does not exist.</exception>
+        </member>
+        <member name="M:BLL.Services.EjercicioService.EliminarEjercicio(System.Guid)">
+            <summary>
+            Permanently deletes an exercise from the catalog.
+            </summary>
+            <param name="id">Primary key of the exercise to delete.</param>
+        </member>
+        <member name="T:BLL.Services.EspacioService">
+            <summary>
+            Business logic service for sports space (espacio) management.
+            </summary>
+            <remarks>
+            Deletion is soft when the space has future non-cancelled/non-finalized reservations:
+            the space is set to <c>Inactivo</c> instead of being physically removed.
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.EspacioService.#ctor">
+            <summary>Initializes dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.EspacioService.CrearEspacio(BLL.DTOs.EspacioDTO)">
+            <summary>
+            Creates a new sports space.
+            </summary>
+            <param name="dto">Space data. Name must be non-empty and price non-negative.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="dto"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown for negative price or empty name.</exception>
+            <summary>Creates a new sports space.</summary>
+            <param name="dto">Space data. <see cref="P:BLL.DTOs.EspacioDTO.PrecioHora"/> must be non-negative and <see cref="P:BLL.DTOs.EspacioDTO.Nombre"/> must be non-empty.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="dto"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if price is negative or name is empty.</exception>
+        </member>
+        <member name="M:BLL.Services.EspacioService.ActualizarEspacio(BLL.DTOs.EspacioDTO)">
+            <summary>
+            Updates an existing sports space.
+            </summary>
+            <param name="dto">Updated space data. <see cref="P:BLL.DTOs.EspacioDTO.Id"/> must identify an existing record.</param>
+            <exception cref="T:System.ArgumentException">Thrown for negative price or empty name.</exception>
+            <summary>Updates an existing sports space.</summary>
+            <param name="dto">Updated data including the space <see cref="P:BLL.DTOs.EspacioDTO.Id"/>.</param>
+        </member>
+        <member name="M:BLL.Services.EspacioService.EliminarEspacio(System.Guid)">
+            <summary>
+            Deletes or soft-deletes a space.
+            If the space has future active reservations it is marked <c>Inactivo</c>; otherwise it is physically removed.
+            </summary>
+            <param name="id">The space to remove.</param>
+            <summary>
+            Deletes a space, or marks it as <c>Inactivo</c> if it has future non-cancelled reservations.
+            </summary>
+            <param name="id">The space to delete.</param>
+        </member>
+        <member name="M:BLL.Services.EspacioService.ListarEspacios">
+            <summary>Returns only active spaces (suitable for reservation booking).</summary>
+            <summary>Returns only active spaces (status = <c>Activo</c>).</summary>
+        </member>
+        <member name="M:BLL.Services.EspacioService.ListarTodos">
+            <summary>Returns all spaces regardless of status (for administrative views).</summary>
+            <summary>Returns all spaces regardless of status.</summary>
+        </member>
+        <member name="T:BLL.Services.IngresoService">
+            <summary>
+            Read-only service for querying facility check-in (ingreso) history.
+            </summary>
+            <remarks>
+            Check-in records are written by <see cref="M:BLL.Services.ClienteService.ValidarIngreso(System.Int32)"/>.
+            This service only provides listing functionality.
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.IngresoService.ListarIngresos">
+            <summary>
+            Returns all check-in records sorted by most recent first, with <c>ClienteNombre</c> hydrated.
+            </summary>
+            <returns>List of all check-in records; empty list if none.</returns>
+        </member>
+        <member name="M:BLL.Services.IngresoService.ListarIngresosPorCliente(System.Guid)">
+            <summary>
+            Returns all check-in records for a specific client, sorted by most recent first.
+            </summary>
+            <param name="clienteId">The client whose check-in history to fetch.</param>
+            <returns>List of the client's check-in records; empty list if none.</returns>
+            <summary>
+            Returns check-in records for a specific client, ordered by timestamp descending.
+            </summary>
+            <param name="clienteId">The client whose check-in history to retrieve.</param>
+            <returns>List of <see cref="T:BLL.DTOs.IngresoDTO"/>; empty list if none exist.</returns>
+        </member>
+        <member name="T:BLL.Services.MembresiaService">
+            <summary>
+            Business logic service for membership plan management.
+            </summary>
+        </member>
+        <member name="M:BLL.Services.MembresiaService.#ctor">
+            <summary>Initializes dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.MembresiaService.CrearMembresia(BLL.DTOs.MembresiaDTO)">
+            <summary>
+            Creates a new membership plan.
+            </summary>
+            <param name="dto">Membership data. <see cref="P:BLL.DTOs.MembresiaDTO.Codigo"/> must be unique.</param>
+            <exception cref="T:System.ArgumentException">Thrown for invalid price, regularidad, or missing name.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the numeric code is already in use.</exception>
+        </member>
+        <member name="M:BLL.Services.MembresiaService.ActualizarMembresia(BLL.DTOs.MembresiaDTO)">
+            <summary>
+            Updates an existing membership plan.
+            The numeric code may be changed only if it is not already in use by another plan.
+            </summary>
+            <param name="dto">Updated membership data. <see cref="P:BLL.DTOs.MembresiaDTO.Id"/> must identify an existing record.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the membership does not exist or the new code conflicts with another plan.
+            </exception>
+            <summary>
+            Updates an existing membership plan. Code uniqueness is enforced across other plans.
+            </summary>
+            <param name="dto">Updated membership data including <see cref="P:BLL.DTOs.MembresiaDTO.Id"/>.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if the plan does not exist or the code conflicts with another plan.</exception>
+        </member>
+        <member name="M:BLL.Services.MembresiaService.DeshabilitarMembresia(System.Guid)">
+            <summary>
+            Disables a membership plan by setting <c>Activa = false</c>.
+            Blocked when at least one active client is still subscribed to this plan.
+            </summary>
+            <param name="id">The membership to disable.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the membership does not exist or has active subscribers.
+            </exception>
+            <summary>
+            Sets a membership plan's <c>Activa</c> flag to <c>false</c>.
+            Blocked if any active client is currently subscribed to this plan.
+            </summary>
+            <param name="id">The plan to disable.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if the plan has active subscribers.</exception>
+        </member>
+        <member name="M:BLL.Services.MembresiaService.ListarMembresias(System.Boolean)">
+            <summary>
+            Returns all membership plans, optionally restricted to active ones.
+            </summary>
+            <param name="soloActivas">
+            When <c>true</c>, returns only plans with <c>Activa = true</c>;
+            when <c>false</c>, returns all plans including disabled ones.
+            </param>
+            <summary>Returns all membership plans, optionally filtered to active-only.</summary>
+            <param name="soloActivas">If <c>true</c>, returns only plans with <c>Activa = true</c>.</param>
+        </member>
+        <member name="M:BLL.Services.MembresiaService.ObtenerMembresia(System.Guid)">
+            <summary>Retrieves a single membership plan by primary key.</summary>
+            <param name="id">The membership identifier.</param>
+            <returns>The <see cref="T:BLL.DTOs.MembresiaDTO"/>, or <c>null</c> if not found.</returns>
+            <summary>Retrieves a single membership plan by its identifier.</summary>
+            <param name="id">The plan identifier.</param>
+            <returns>The matching <see cref="T:BLL.DTOs.MembresiaDTO"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="T:BLL.Services.PagoService">
+            <summary>
+            Business logic service for payment registration, refunds, and receipt management.
+            </summary>
+            <remarks>
+            <para>
+            All write operations run inside <see cref="T:DAL.Contracts.IUnitOfWork"/> transactions.
+            Receipt (comprobante) generation is non-fatal: failures are logged but do not abort the payment.
+            </para>
+            <para>
+            Payment types are determined by the presence of <see cref="P:BLL.DTOs.PagoDTO.MembresiaID"/> or
+            <see cref="P:BLL.DTOs.PagoDTO.ReservaID"/>; otherwise the payment is treated as a generic account credit.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.PagoService.#ctor">
+            <summary>Initializes all dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.PagoService.RegistrarPago(BLL.DTOs.PagoDTO)">
+            <summary>
+            Registers a payment, updates the corresponding membership next-payment date (if applicable),
+            auto-transitions the reservation to <c>Pagada</c> when fully settled, and generates a receipt.
+            </summary>
+            <param name="dto">Payment data. <see cref="P:BLL.DTOs.PagoDTO.Monto"/> must be positive.</param>
+            <exception cref="T:System.ArgumentException">Thrown for invalid amount or missing payment method.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown with code <c>"ERR_MONTO_SUPERA_SALDO"</c> when the payment amount exceeds the reservation's outstanding balance.
+            </exception>
+        </member>
+        <member name="M:BLL.Services.PagoService.ReembolsarPago(System.Guid)">
+            <summary>
+            Refunds a payment: transitions its status from <c>Abonado</c> to <c>Reembolsado</c>
+            and inserts a negative <c>Reembolso</c> movement.
+            </summary>
+            <param name="pagoId">The payment to refund.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the payment does not exist or its status is not <c>Abonado</c>.
+            </exception>
+        </member>
+        <member name="M:BLL.Services.PagoService.AdjuntarComprobante(System.Guid,BLL.DTOs.ComprobanteDTO)">
+            <summary>
+            Attaches a receipt file to an existing payment.
+            </summary>
+            <param name="pagoId">The payment to attach the receipt to.</param>
+            <param name="dto">Receipt metadata and content.</param>
+        </member>
+        <member name="M:BLL.Services.PagoService.ObtenerComprobante(System.Guid)">
+            <summary>
+            Retrieves the receipt attached to a payment.
+            </summary>
+            <param name="pagoId">The payment identifier.</param>
+            <returns>The <see cref="T:BLL.DTOs.ComprobanteDTO"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:BLL.Services.PagoService.ListarPagos(System.Nullable{System.Guid},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Returns payments filtered by client and optional date range.
+            When <paramref name="clienteId"/> is <c>null</c>, returns all payments filtered by date only.
+            </summary>
+            <param name="clienteId">Optional client filter.</param>
+            <param name="desde">Optional inclusive lower bound on payment date.</param>
+            <param name="hasta">Optional inclusive upper bound on payment date.</param>
+        </member>
+        <member name="M:BLL.Services.PagoService.ObtenerPagosPorReserva(System.Guid)">
+            <summary>Retrieves all payments linked to a specific reservation.</summary>
+            <param name="reservaId">The reservation to query.</param>
+        </member>
+        <member name="T:BLL.Services.ReservaService">
+            <summary>
+            Business logic service for reservation management.
+            </summary>
+            <remarks>
+            Handles availability computation, reservation creation (with race-condition guard),
+            cancellation with automatic refunds, and receipt generation (non-fatal).
+            All multi-step write operations run inside <see cref="T:DAL.Contracts.IUnitOfWork"/> transactions.
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.ReservaService.#ctor">
+            <summary>Initializes all dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.ReservaService.ObtenerHorariosDisponibles(System.Guid,System.DateTime)">
+            <summary>
+            Returns all free 30-minute time slots for a space on a given date based on the space's agenda.
+            </summary>
+            <param name="espacioId">The space to query.</param>
+            <param name="fecha">The date to check (time component is ignored).</param>
+            <returns>List of available start times as <see cref="T:System.TimeSpan"/> values.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown with code <c>"ERR_NO_AGENDA"</c> if no agenda is configured for this space.
+            </exception>
+            <summary>
+            Returns the list of 30-minute time slots that are available for reservation on <paramref name="fecha"/>
+            based on the space's agenda and existing non-cancelled bookings.
+            </summary>
+            <param name="espacioId">The space to query.</param>
+            <param name="fecha">The date to check. Day-of-week is used to match agenda blocks.</param>
+            <returns>List of available start times as <see cref="T:System.TimeSpan"/> values.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown with code <c>"ERR_NO_AGENDA"</c> if the space has no configured schedule.
+            </exception>
+        </member>
+        <member name="M:BLL.Services.ReservaService.VerificarDisponibilidad(System.Guid,System.DateTime,System.Int32)">
+            <summary>
+            Checks whether a space is available for the requested time slot (delegates to repository).
+            </summary>
+            <param name="espacioId">The space to check.</param>
+            <param name="fechaHora">Proposed start date and time.</param>
+            <param name="duracion">Duration in minutes.</param>
+            <returns><c>true</c> if no conflicting active reservation exists.</returns>
+            <summary>
+            Performs a point-in-time availability check (pre-booking verification, outside a transaction).
+            </summary>
+            <param name="espacioId">The space to check.</param>
+            <param name="fechaHora">Proposed reservation start.</param>
+            <param name="duracion">Duration in minutes.</param>
+            <returns><c>true</c> if the space is available; <c>false</c> if already booked.</returns>
+        </member>
+        <member name="M:BLL.Services.ReservaService.GenerarReserva(BLL.DTOs.GenerarReservaDTO)">
+            <summary>
+            Creates a reservation with a down payment, guarding against race conditions via
+            a double-checked availability lock inside the transaction.
+            </summary>
+            <param name="dto">Reservation parameters including optional advance payment amount.</param>
+            <returns>The generated reservation code (e.g., <c>"RES-123456-ABCD"</c>).</returns>
+            <exception cref="T:System.ArgumentException">
+            Thrown for invalid inputs: negative advance, zero duration, past date, advance exceeding total,
+            or advance below the 10% minimum.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the space is no longer available at transaction time (race condition).
+            </exception>
+            <summary>
+            Creates a reservation and optionally records an advance payment, all within one transaction.
+            Availability is verified twice (before and inside the transaction) to guard against race conditions.
+            A <c>DeudaReserva</c> movement and, if an advance is provided, a <c>PagoReserva</c> movement
+            are inserted. An HTML receipt is generated post-commit (failure is non-fatal and only logged).
+            </summary>
+            <param name="dto">Reservation parameters including client, space, time, duration, and advance amount.</param>
+            <returns>The unique reservation code (e.g., <c>"RES-123456-ABCD"</c>).</returns>
+            <exception cref="T:System.ArgumentException">Thrown for invalid amount, duration, or past date.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the space is unavailable or the advance exceeds the total.</exception>
+        </member>
+        <member name="M:BLL.Services.ReservaService.CancelarReserva(System.Guid)">
+            <summary>
+            Cancels a reservation: marks it <c>Cancelada</c>, inserts a reversal movement,
+            and transitions all <c>Abonado</c> payments to <c>Reembolsado</c> with corresponding negative movements.
+            </summary>
+            <param name="reservaId">The reservation to cancel.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the reservation does not exist, is already cancelled, or is finalized.
+            </exception>
+            <summary>
+            Cancels a reservation, reverses its debt movement, and refunds all <c>Abonado</c> payments.
+            All operations execute within a single transaction.
+            </summary>
+            <param name="reservaId">The reservation to cancel.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if the reservation is already cancelled or finalized.</exception>
+        </member>
+        <member name="M:BLL.Services.ReservaService.ObtenerPorCodigo(System.String)">
+            <summary>
+            Retrieves a reservation by its unique code, with <c>ClienteNombre</c> and <c>EspacioNombre</c> hydrated.
+            </summary>
+            <param name="codigo">The reservation code.</param>
+            <returns>The hydrated <see cref="T:BLL.DTOs.ReservaDTO"/>, or <c>null</c> if not found.</returns>
+            <summary>Retrieves a single reservation by its unique code, with client and space names hydrated.</summary>
+            <param name="codigo">The reservation code.</param>
+            <returns>The hydrated <see cref="T:BLL.DTOs.ReservaDTO"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:BLL.Services.ReservaService.ListarReservas(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.DateTime})">
+            <summary>
+            Returns reservations filtered by any combination of client, space, and minimum date.
+            All returned DTOs have <c>ClienteNombre</c> and <c>EspacioNombre</c> hydrated.
+            </summary>
+            <param name="clienteId">Optional client filter.</param>
+            <param name="espacioId">Optional space filter.</param>
+            <param name="desde">Optional minimum <c>FechaHora</c> filter.</param>
+            <summary>
+            Returns reservations filtered by any combination of client, space, and start date.
+            All returned DTOs include client and space names.
+            </summary>
+            <param name="clienteId">Optional client filter.</param>
+            <param name="espacioId">Optional space filter.</param>
+            <param name="desde">Optional lower bound on reservation date/time.</param>
+        </member>
+        <member name="T:BLL.Services.RutinaService">
+            <summary>
+            Business logic service for workout routine lifecycle management.
+            </summary>
+            <remarks>
+            A client can have at most one active routine at any time. Creating a new routine
+            automatically finalizes the existing one within the same transaction.
+            Exercises are resolved by name and auto-created in the catalog if not found.
+            </remarks>
+        </member>
+        <member name="M:BLL.Services.RutinaService.#ctor">
+            <summary>Initializes all dependencies from <see cref="T:DAL.Factory.DalFactory"/> singletons.</summary>
+        </member>
+        <member name="M:BLL.Services.RutinaService.CrearRutina(BLL.DTOs.RutinaDTO)">
+            <summary>
+            Creates a new routine for a client. If an active routine exists it is finalized first.
+            Exercises not found in the catalog are auto-created.
+            </summary>
+            <param name="dto">
+            Routine data including a non-empty exercise list.
+            Each exercise must have positive repetitions and a valid day (1–7).
+            </param>
+            <exception cref="T:System.Exception">
+            Thrown for an empty exercise list, zero/negative repetitions, or out-of-range day values.
+            </exception>
+            <summary>
+            Creates a new routine for a client. If an active routine already exists,
+            it is finalized (its <c>Hasta</c> date is set) before the new one is created.
+            New exercises are created in the catalog if they don't exist by name.
+            All operations execute within a single transaction.
+            </summary>
+            <param name="dto">Routine data including a non-empty <see cref="P:BLL.DTOs.RutinaDTO.Ejercicios"/> list.</param>
+            <exception cref="T:System.Exception">Thrown if the exercise list is empty, reps are zero, or day of week is out of range.</exception>
+        </member>
+        <member name="M:BLL.Services.RutinaService.ModificarRutina(System.Guid,System.Collections.Generic.List{BLL.DTOs.EjercicioDTO})">
+            <summary>
+            Replaces the exercise set of an existing routine within a transaction
+            (clears all existing routine-exercise links, then re-inserts the new set).
+            </summary>
+            <param name="rutinaId">The routine to modify.</param>
+            <param name="ejercicios">Non-empty replacement exercise list.</param>
+            <summary>
+            Replaces the exercise set of an existing routine within a single transaction.
+            All current exercise mappings are deleted and the new list is re-inserted.
+            </summary>
+            <param name="rutinaId">The routine to modify.</param>
+            <param name="ejercicios">New exercise list. Must not be empty.</param>
+        </member>
+        <member name="M:BLL.Services.RutinaService.BorrarRutina(System.Guid)">
+            <summary>Permanently deletes a routine and its associated exercise links.</summary>
+            <param name="rutinaId">The routine to delete.</param>
+            <summary>Permanently deletes a routine and its exercise mappings.</summary>
+            <param name="rutinaId">The routine to delete.</param>
+        </member>
+        <member name="M:BLL.Services.RutinaService.ObtenerRutinaActiva(System.Guid)">
+            <summary>
+            Returns the client's currently active routine with its full exercise list hydrated.
+            </summary>
+            <param name="clienteId">The client to look up.</param>
+            <returns>The active <see cref="T:BLL.DTOs.RutinaDTO"/>, or <c>null</c> if none exists.</returns>
+            <summary>
+            Retrieves the active (open-ended) routine for a client, with its exercise list hydrated.
+            </summary>
+            <param name="clienteId">The client to look up.</param>
+            <returns>The active <see cref="T:BLL.DTOs.RutinaDTO"/> including exercises, or <c>null</c> if none exists.</returns>
+        </member>
+        <member name="M:BLL.Services.RutinaService.ObtenerRutina(System.Guid)">
+            <summary>
+            Returns a specific routine by ID with its full exercise list hydrated.
+            </summary>
+            <param name="rutinaId">The routine identifier.</param>
+            <returns>The <see cref="T:BLL.DTOs.RutinaDTO"/>, or <c>null</c> if not found.</returns>
+            <summary>Retrieves a specific routine by its identifier, with its exercise list hydrated.</summary>
+            <param name="rutinaId">The routine identifier.</param>
+            <returns>The <see cref="T:BLL.DTOs.RutinaDTO"/> with exercises, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:BLL.Services.RutinaService.ListarRutinas(System.Boolean)">
+            <summary>
+            Returns all routines, optionally restricted to active ones, with <c>ClienteNombre</c> hydrated.
+            </summary>
+            <param name="soloActivas">When <c>true</c>, includes only routines with no end date.</param>
+            <summary>Returns all routines, optionally filtered to active-only. Each DTO includes the client name.</summary>
+            <param name="soloActivas">If <c>true</c>, only routines with no <c>Hasta</c> date are returned.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1341 @@
+### YamlMime:ManagedReference
+items:
+- uid: Service.Impl.FamiliaRepository
+  commentId: T:Service.Impl.FamiliaRepository
+  id: FamiliaRepository
+  parent: Service.Impl
+  children:
+  - Service.Impl.FamiliaRepository.#ctor
+  - Service.Impl.FamiliaRepository.Add(Domain.Composite.Familia)
+  - Service.Impl.FamiliaRepository.GetAll
+  - Service.Impl.FamiliaRepository.GetById(System.Guid)
+  - Service.Impl.FamiliaRepository.Remove(System.Guid)
+  - Service.Impl.FamiliaRepository.Update(Domain.Composite.Familia)
+  langs:
+  - csharp
+  - vb
+  name: FamiliaRepository
+  nameWithType: FamiliaRepository
+  fullName: Service.Impl.FamiliaRepository
+  type: Class
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  syntax:
+    content: 'public class FamiliaRepository : BaseRepository, IGenericRepository<Familia>'
+    content.vb: Public Class FamiliaRepository Inherits BaseRepository Implements IGenericRepository(Of Familia)
+  inheritance:
+  - System.Object
+  - Service.Impl.BaseRepository
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  inheritedMembers:
+  - Service.Impl.BaseRepository._connectionString
+  - Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  - Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,{T}})
+  - Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Service.Impl.FamiliaRepository.Add(Domain.Composite.Familia)
+  commentId: M:Service.Impl.FamiliaRepository.Add(Domain.Composite.Familia)
+  id: Add(Domain.Composite.Familia)
+  parent: Service.Impl.FamiliaRepository
+  langs:
+  - csharp
+  - vb
+  name: Add(Familia)
+  nameWithType: FamiliaRepository.Add(Familia)
+  fullName: Service.Impl.FamiliaRepository.Add(Domain.Composite.Familia)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Persists a new entity.
+  example: []
+  syntax:
+    content: public void Add(Familia obj)
+    parameters:
+    - id: obj
+      type: Domain.Composite.Familia
+      description: The entity to insert.
+    content.vb: Public Sub Add(obj As Familia)
+  overload: Service.Impl.FamiliaRepository.Add*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Add(Domain.Composite.Familia)
+- uid: Service.Impl.FamiliaRepository.Update(Domain.Composite.Familia)
+  commentId: M:Service.Impl.FamiliaRepository.Update(Domain.Composite.Familia)
+  id: Update(Domain.Composite.Familia)
+  parent: Service.Impl.FamiliaRepository
+  langs:
+  - csharp
+  - vb
+  name: Update(Familia)
+  nameWithType: FamiliaRepository.Update(Familia)
+  fullName: Service.Impl.FamiliaRepository.Update(Domain.Composite.Familia)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Applies changes to an existing entity.
+  example: []
+  syntax:
+    content: public void Update(Familia obj)
+    parameters:
+    - id: obj
+      type: Domain.Composite.Familia
+      description: The entity with updated values.
+    content.vb: Public Sub Update(obj As Familia)
+  overload: Service.Impl.FamiliaRepository.Update*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Update(Domain.Composite.Familia)
+- uid: Service.Impl.FamiliaRepository.Remove(System.Guid)
+  commentId: M:Service.Impl.FamiliaRepository.Remove(System.Guid)
+  id: Remove(System.Guid)
+  parent: Service.Impl.FamiliaRepository
+  langs:
+  - csharp
+  - vb
+  name: Remove(Guid)
+  nameWithType: FamiliaRepository.Remove(Guid)
+  fullName: Service.Impl.FamiliaRepository.Remove(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Deletes an entity by its primary key.
+  example: []
+  syntax:
+    content: public void Remove(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier of the entity to delete.
+    content.vb: Public Sub Remove(id As Guid)
+  overload: Service.Impl.FamiliaRepository.Remove*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Remove(System.Guid)
+- uid: Service.Impl.FamiliaRepository.GetById(System.Guid)
+  commentId: M:Service.Impl.FamiliaRepository.GetById(System.Guid)
+  id: GetById(System.Guid)
+  parent: Service.Impl.FamiliaRepository
+  langs:
+  - csharp
+  - vb
+  name: GetById(Guid)
+  nameWithType: FamiliaRepository.GetById(Guid)
+  fullName: Service.Impl.FamiliaRepository.GetById(System.Guid)
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Retrieves a single entity by its primary key.
+  example: []
+  syntax:
+    content: public Familia GetById(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: The unique identifier to look up.
+    return:
+      type: Domain.Composite.Familia
+      description: The matching entity, or <code>null</code> if not found.
+    content.vb: Public Function GetById(id As Guid) As Familia
+  overload: Service.Impl.FamiliaRepository.GetById*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetById(System.Guid)
+- uid: Service.Impl.FamiliaRepository.GetAll
+  commentId: M:Service.Impl.FamiliaRepository.GetAll
+  id: GetAll
+  parent: Service.Impl.FamiliaRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAll()
+  nameWithType: FamiliaRepository.GetAll()
+  fullName: Service.Impl.FamiliaRepository.GetAll()
+  type: Method
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  summary: Retrieves all entities of this type.
+  example: []
+  syntax:
+    content: public List<Familia> GetAll()
+    return:
+      type: System.Collections.Generic.List{Domain.Composite.Familia}
+      description: A list of all stored entities; empty list if none exist.
+    content.vb: Public Function GetAll() As List(Of Familia)
+  overload: Service.Impl.FamiliaRepository.GetAll*
+  implements:
+  - Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetAll
+- uid: Service.Impl.FamiliaRepository.#ctor
+  commentId: M:Service.Impl.FamiliaRepository.#ctor
+  id: '#ctor'
+  parent: Service.Impl.FamiliaRepository
+  langs:
+  - csharp
+  - vb
+  name: FamiliaRepository()
+  nameWithType: FamiliaRepository.FamiliaRepository()
+  fullName: Service.Impl.FamiliaRepository.FamiliaRepository()
+  type: Constructor
+  assemblies:
+  - Service
+  namespace: Service.Impl
+  syntax:
+    content: public FamiliaRepository()
+    content.vb: Public Sub New()
+  overload: Service.Impl.FamiliaRepository.#ctor*
+  nameWithType.vb: FamiliaRepository.New()
+  fullName.vb: Service.Impl.FamiliaRepository.New()
+  name.vb: New()
+references:
+- uid: Service.Impl
+  commentId: N:Service.Impl
+  isExternal: true
+  href: Service.html
+  name: Service.Impl
+  nameWithType: Service.Impl
+  fullName: Service.Impl
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Impl
+    name: Impl
+    isExternal: true
+    href: Service.Impl.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Service.Impl.BaseRepository
+  commentId: T:Service.Impl.BaseRepository
+  parent: Service.Impl
+  isExternal: true
+  href: Service.Impl.BaseRepository.html
+  name: BaseRepository
+  nameWithType: BaseRepository
+  fullName: Service.Impl.BaseRepository
+- uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  commentId: T:Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  parent: Service.Contracts
+  definition: Service.Contracts.IGenericRepository`1
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<Familia>
+  nameWithType: IGenericRepository<Familia>
+  fullName: Service.Contracts.IGenericRepository<Domain.Composite.Familia>
+  nameWithType.vb: IGenericRepository(Of Familia)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Composite.Familia)
+  name.vb: IGenericRepository(Of Familia)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+- uid: Service.Impl.BaseRepository._connectionString
+  commentId: F:Service.Impl.BaseRepository._connectionString
+  parent: Service.Impl.BaseRepository
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository__connectionString
+  name: _connectionString
+  nameWithType: BaseRepository._connectionString
+  fullName: Service.Impl.BaseRepository._connectionString
+- uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  commentId: M:Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+  parent: Service.Impl.BaseRepository
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  name: ExecuteNonQuery(string, SqlParameter[], SqlConnection, SqlTransaction)
+  nameWithType: BaseRepository.ExecuteNonQuery(string, SqlParameter[], SqlConnection, SqlTransaction)
+  fullName: Service.Impl.BaseRepository.ExecuteNonQuery(string, System.Data.SqlClient.SqlParameter[], System.Data.SqlClient.SqlConnection, System.Data.SqlClient.SqlTransaction)
+  nameWithType.vb: BaseRepository.ExecuteNonQuery(String, SqlParameter(), SqlConnection, SqlTransaction)
+  fullName.vb: Service.Impl.BaseRepository.ExecuteNonQuery(String, System.Data.SqlClient.SqlParameter(), System.Data.SqlClient.SqlConnection, System.Data.SqlClient.SqlTransaction)
+  name.vb: ExecuteNonQuery(String, SqlParameter(), SqlConnection, SqlTransaction)
+  spec.csharp:
+  - uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+    name: ExecuteNonQuery
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlConnection
+    name: SqlConnection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlTransaction
+    name: SqlTransaction
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction
+  - name: )
+  spec.vb:
+  - uid: Service.Impl.BaseRepository.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)
+    name: ExecuteNonQuery
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteNonQuery_System_String_System_Data_SqlClient_SqlParameter___System_Data_SqlClient_SqlConnection_System_Data_SqlClient_SqlTransaction_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlConnection
+    name: SqlConnection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlTransaction
+    name: SqlTransaction
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqltransaction
+  - name: )
+- uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,{T}})
+  commentId: M:Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  parent: Service.Impl.BaseRepository
+  definition: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  name: ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  nameWithType: BaseRepository.ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  fullName: Service.Impl.BaseRepository.ExecuteReader<T>(string, System.Data.SqlClient.SqlParameter[], System.Func<System.Data.SqlClient.SqlDataReader, T>)
+  nameWithType.vb: BaseRepository.ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  fullName.vb: Service.Impl.BaseRepository.ExecuteReader(Of T)(String, System.Data.SqlClient.SqlParameter(), System.Func(Of System.Data.SqlClient.SqlDataReader, T))
+  name.vb: ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  spec.csharp:
+  - uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  commentId: M:Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+  parent: Service.Impl.BaseRepository
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  name: ExecuteScalar<T>(string, SqlParameter[])
+  nameWithType: BaseRepository.ExecuteScalar<T>(string, SqlParameter[])
+  fullName: Service.Impl.BaseRepository.ExecuteScalar<T>(string, System.Data.SqlClient.SqlParameter[])
+  nameWithType.vb: BaseRepository.ExecuteScalar(Of T)(String, SqlParameter())
+  fullName.vb: Service.Impl.BaseRepository.ExecuteScalar(Of T)(String, System.Data.SqlClient.SqlParameter())
+  name.vb: ExecuteScalar(Of T)(String, SqlParameter())
+  spec.csharp:
+  - uid: Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+    name: ExecuteScalar
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Service.Impl.BaseRepository.ExecuteScalar``1(System.String,System.Data.SqlClient.SqlParameter[])
+    name: ExecuteScalar
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteScalar__1_System_String_System_Data_SqlClient_SqlParameter___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Service.Contracts.IGenericRepository`1
+  commentId: T:Service.Contracts.IGenericRepository`1
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: Service.Contracts.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1
+    name: IGenericRepository
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Service.Contracts
+  commentId: N:Service.Contracts
+  isExternal: true
+  href: Service.html
+  name: Service.Contracts
+  nameWithType: Service.Contracts
+  fullName: Service.Contracts
+  spec.csharp:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+  spec.vb:
+  - uid: Service
+    name: Service
+    isExternal: true
+    href: Service.html
+  - name: .
+  - uid: Service.Contracts
+    name: Contracts
+    isExternal: true
+    href: Service.Contracts.html
+- uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  commentId: M:Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+  isExternal: true
+  href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  name: ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  nameWithType: BaseRepository.ExecuteReader<T>(string, SqlParameter[], Func<SqlDataReader, T>)
+  fullName: Service.Impl.BaseRepository.ExecuteReader<T>(string, System.Data.SqlClient.SqlParameter[], System.Func<System.Data.SqlClient.SqlDataReader, T>)
+  nameWithType.vb: BaseRepository.ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  fullName.vb: Service.Impl.BaseRepository.ExecuteReader(Of T)(String, System.Data.SqlClient.SqlParameter(), System.Func(Of System.Data.SqlClient.SqlDataReader, T))
+  name.vb: ExecuteReader(Of T)(String, SqlParameter(), Func(Of SqlDataReader, T))
+  spec.csharp:
+  - uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Service.Impl.BaseRepository.ExecuteReader``1(System.String,System.Data.SqlClient.SqlParameter[],System.Func{System.Data.SqlClient.SqlDataReader,``0})
+    name: ExecuteReader
+    isExternal: true
+    href: Service.Impl.BaseRepository.html#Service_Impl_BaseRepository_ExecuteReader__1_System_String_System_Data_SqlClient_SqlParameter___System_Func_System_Data_SqlClient_SqlDataReader___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Data.SqlClient.SqlParameter
+    name: SqlParameter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqlparameter
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Data.SqlClient.SqlDataReader
+    name: SqlDataReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.sqlclient.sqldatareader
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Service.Impl.FamiliaRepository.Add*
+  commentId: Overload:Service.Impl.FamiliaRepository.Add
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html#Service_Impl_FamiliaRepository_Add_Domain_Composite_Familia_
+  name: Add
+  nameWithType: FamiliaRepository.Add
+  fullName: Service.Impl.FamiliaRepository.Add
+- uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Add(Domain.Composite.Familia)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Add(Domain.Composite.Familia)
+  parent: Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  definition: Service.Contracts.IGenericRepository`1.Add(`0)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(Familia)
+  nameWithType: IGenericRepository<Familia>.Add(Familia)
+  fullName: Service.Contracts.IGenericRepository<Domain.Composite.Familia>.Add(Domain.Composite.Familia)
+  nameWithType.vb: IGenericRepository(Of Familia).Add(Familia)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Composite.Familia).Add(Domain.Composite.Familia)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Add(Domain.Composite.Familia)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Add(Domain.Composite.Familia)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+- uid: Domain.Composite.Familia
+  commentId: T:Domain.Composite.Familia
+  parent: Domain.Composite
+  isExternal: true
+  href: Domain.Composite.Familia.html
+  name: Familia
+  nameWithType: Familia
+  fullName: Domain.Composite.Familia
+- uid: Service.Contracts.IGenericRepository`1.Add(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Add(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  name: Add(T)
+  nameWithType: IGenericRepository<T>.Add(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Add(T)
+  nameWithType.vb: IGenericRepository(Of T).Add(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Add(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Add__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Domain.Composite
+  commentId: N:Domain.Composite
+  isExternal: true
+  href: Domain.html
+  name: Domain.Composite
+  nameWithType: Domain.Composite
+  fullName: Domain.Composite
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Composite
+    name: Composite
+    isExternal: true
+    href: Domain.Composite.html
+- uid: Service.Impl.FamiliaRepository.Update*
+  commentId: Overload:Service.Impl.FamiliaRepository.Update
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html#Service_Impl_FamiliaRepository_Update_Domain_Composite_Familia_
+  name: Update
+  nameWithType: FamiliaRepository.Update
+  fullName: Service.Impl.FamiliaRepository.Update
+- uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Update(Domain.Composite.Familia)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Update(Domain.Composite.Familia)
+  parent: Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  definition: Service.Contracts.IGenericRepository`1.Update(`0)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(Familia)
+  nameWithType: IGenericRepository<Familia>.Update(Familia)
+  fullName: Service.Contracts.IGenericRepository<Domain.Composite.Familia>.Update(Domain.Composite.Familia)
+  nameWithType.vb: IGenericRepository(Of Familia).Update(Familia)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Composite.Familia).Update(Domain.Composite.Familia)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Update(Domain.Composite.Familia)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Update(Domain.Composite.Familia)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.Update(`0)
+  commentId: M:Service.Contracts.IGenericRepository`1.Update(`0)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: Service.Contracts.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Update(`0)
+    name: Update
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: Service.Impl.FamiliaRepository.Remove*
+  commentId: Overload:Service.Impl.FamiliaRepository.Remove
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html#Service_Impl_FamiliaRepository_Remove_System_Guid_
+  name: Remove
+  nameWithType: FamiliaRepository.Remove
+  fullName: Service.Impl.FamiliaRepository.Remove
+- uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Remove(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  definition: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<Familia>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Composite.Familia>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Familia).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Composite.Familia).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  name: Remove(Guid)
+  nameWithType: IGenericRepository<T>.Remove(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.Remove(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).Remove(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).Remove(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.Remove(System.Guid)
+    name: Remove
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_Remove_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Impl.FamiliaRepository.GetById*
+  commentId: Overload:Service.Impl.FamiliaRepository.GetById
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html#Service_Impl_FamiliaRepository_GetById_System_Guid_
+  name: GetById
+  nameWithType: FamiliaRepository.GetById
+  fullName: Service.Impl.FamiliaRepository.GetById
+- uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetById(System.Guid)
+  parent: Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  definition: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<Familia>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<Domain.Composite.Familia>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of Familia).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Composite.Familia).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  commentId: M:Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  name: GetById(Guid)
+  nameWithType: IGenericRepository<T>.GetById(Guid)
+  fullName: Service.Contracts.IGenericRepository<T>.GetById(System.Guid)
+  nameWithType.vb: IGenericRepository(Of T).GetById(Guid)
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetById(System.Guid)
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetById(System.Guid)
+    name: GetById
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetById_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Service.Impl.FamiliaRepository.GetAll*
+  commentId: Overload:Service.Impl.FamiliaRepository.GetAll
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html#Service_Impl_FamiliaRepository_GetAll
+  name: GetAll
+  nameWithType: FamiliaRepository.GetAll
+  fullName: Service.Impl.FamiliaRepository.GetAll
+- uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetAll
+  commentId: M:Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetAll
+  parent: Service.Contracts.IGenericRepository{Domain.Composite.Familia}
+  definition: Service.Contracts.IGenericRepository`1.GetAll
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<Familia>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<Domain.Composite.Familia>.GetAll()
+  nameWithType.vb: IGenericRepository(Of Familia).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of Domain.Composite.Familia).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository{Domain.Composite.Familia}.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List{Domain.Composite.Familia}
+  commentId: T:System.Collections.Generic.List{Domain.Composite.Familia}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Familia>
+  nameWithType: List<Familia>
+  fullName: System.Collections.Generic.List<Domain.Composite.Familia>
+  nameWithType.vb: List(Of Familia)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Composite.Familia)
+  name.vb: List(Of Familia)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Composite.Familia
+    name: Familia
+    isExternal: true
+  - name: )
+- uid: Service.Contracts.IGenericRepository`1.GetAll
+  commentId: M:Service.Contracts.IGenericRepository`1.GetAll
+  isExternal: true
+  href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  name: GetAll()
+  nameWithType: IGenericRepository<T>.GetAll()
+  fullName: Service.Contracts.IGenericRepository<T>.GetAll()
+  nameWithType.vb: IGenericRepository(Of T).GetAll()
+  fullName.vb: Service.Contracts.IGenericRepository(Of T).GetAll()
+  spec.csharp:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Service.Contracts.IGenericRepository`1.GetAll
+    name: GetAll
+    isExternal: true
+    href: Service.Contracts.IGenericRepository-1.html#Service_Contracts_IGenericRepository_1_GetAll
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Service.Impl.FamiliaRepository.#ctor*
+  commentId: Overload:Service.Impl.FamiliaRepository.#ctor
+  isExternal: true
+  href: Service.Impl.FamiliaRepository.html#Service_Impl_FamiliaRepository__ctor
+  name: FamiliaRepository
+  nameWithType: FamiliaRepository.FamiliaRepository
+  fullName: Service.Impl.FamiliaRepository.FamiliaRepository
+  nameWithType.vb: FamiliaRepository.New
+  fullName.vb: Service.Impl.FamiliaRepository.New
+  name.vb: New

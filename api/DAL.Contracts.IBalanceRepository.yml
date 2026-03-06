@@ -1,0 +1,324 @@
+### YamlMime:ManagedReference
+items:
+- uid: DAL.Contracts.IBalanceRepository
+  commentId: T:DAL.Contracts.IBalanceRepository
+  id: IBalanceRepository
+  parent: DAL.Contracts
+  children:
+  - DAL.Contracts.IBalanceRepository.ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  - DAL.Contracts.IBalanceRepository.ObtenerBalance(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IBalanceRepository
+  nameWithType: IBalanceRepository
+  fullName: DAL.Contracts.IBalanceRepository
+  type: Interface
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IBalanceRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: public interface IBalanceRepository
+    content.vb: Public Interface IBalanceRepository
+  derivedClasses:
+  - DAL.Impl.BalanceSqlRepository
+- uid: DAL.Contracts.IBalanceRepository.ObtenerBalance(System.Guid)
+  commentId: M:DAL.Contracts.IBalanceRepository.ObtenerBalance(System.Guid)
+  id: ObtenerBalance(System.Guid)
+  parent: DAL.Contracts.IBalanceRepository
+  langs:
+  - csharp
+  - vb
+  name: ObtenerBalance(Guid)
+  nameWithType: IBalanceRepository.ObtenerBalance(Guid)
+  fullName: DAL.Contracts.IBalanceRepository.ObtenerBalance(System.Guid)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IBalanceRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: Balance ObtenerBalance(Guid clienteId)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    return:
+      type: Domain.Entities.Balance
+    content.vb: Function ObtenerBalance(clienteId As Guid) As Balance
+  overload: DAL.Contracts.IBalanceRepository.ObtenerBalance*
+- uid: DAL.Contracts.IBalanceRepository.ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  commentId: M:DAL.Contracts.IBalanceRepository.ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  id: ListarMovimientos(System.Guid,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
+  parent: DAL.Contracts.IBalanceRepository
+  langs:
+  - csharp
+  - vb
+  name: ListarMovimientos(Guid, DateTime?, DateTime?)
+  nameWithType: IBalanceRepository.ListarMovimientos(Guid, DateTime?, DateTime?)
+  fullName: DAL.Contracts.IBalanceRepository.ListarMovimientos(System.Guid, System.DateTime?, System.DateTime?)
+  type: Method
+  source:
+    href: https://github.com/Facundojs/TpIngSoftware_GestionDeEspaciosDeportivos/blob/2272c49f848eaac0b4037f8324257b811b0e94c7/DAL/Contracts/IBalanceRepository.cs
+  assemblies:
+  - DAL
+  namespace: DAL.Contracts
+  syntax:
+    content: List<Movimiento> ListarMovimientos(Guid clienteId, DateTime? desde, DateTime? hasta)
+    parameters:
+    - id: clienteId
+      type: System.Guid
+    - id: desde
+      type: System.Nullable{System.DateTime}
+    - id: hasta
+      type: System.Nullable{System.DateTime}
+    return:
+      type: System.Collections.Generic.List{Domain.Entities.Movimiento}
+    content.vb: Function ListarMovimientos(clienteId As Guid, desde As Date?, hasta As Date?) As List(Of Movimiento)
+  overload: DAL.Contracts.IBalanceRepository.ListarMovimientos*
+  nameWithType.vb: IBalanceRepository.ListarMovimientos(Guid, Date?, Date?)
+  fullName.vb: DAL.Contracts.IBalanceRepository.ListarMovimientos(System.Guid, Date?, Date?)
+  name.vb: ListarMovimientos(Guid, Date?, Date?)
+references:
+- uid: DAL.Contracts
+  commentId: N:DAL.Contracts
+  isExternal: true
+  href: DAL.html
+  name: DAL.Contracts
+  nameWithType: DAL.Contracts
+  fullName: DAL.Contracts
+  spec.csharp:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+  spec.vb:
+  - uid: DAL
+    name: DAL
+    isExternal: true
+    href: DAL.html
+  - name: .
+  - uid: DAL.Contracts
+    name: Contracts
+    isExternal: true
+    href: DAL.Contracts.html
+- uid: DAL.Contracts.IBalanceRepository.ObtenerBalance*
+  commentId: Overload:DAL.Contracts.IBalanceRepository.ObtenerBalance
+  isExternal: true
+  href: DAL.Contracts.IBalanceRepository.html#DAL_Contracts_IBalanceRepository_ObtenerBalance_System_Guid_
+  name: ObtenerBalance
+  nameWithType: IBalanceRepository.ObtenerBalance
+  fullName: DAL.Contracts.IBalanceRepository.ObtenerBalance
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Domain.Entities.Balance
+  commentId: T:Domain.Entities.Balance
+  parent: Domain.Entities
+  isExternal: true
+  href: Domain.Entities.Balance.html
+  name: Balance
+  nameWithType: Balance
+  fullName: Domain.Entities.Balance
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Domain.Entities
+  commentId: N:Domain.Entities
+  isExternal: true
+  href: Domain.html
+  name: Domain.Entities
+  nameWithType: Domain.Entities
+  fullName: Domain.Entities
+  spec.csharp:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+  spec.vb:
+  - uid: Domain
+    name: Domain
+    isExternal: true
+    href: Domain.html
+  - name: .
+  - uid: Domain.Entities
+    name: Entities
+    isExternal: true
+    href: Domain.Entities.html
+- uid: DAL.Contracts.IBalanceRepository.ListarMovimientos*
+  commentId: Overload:DAL.Contracts.IBalanceRepository.ListarMovimientos
+  isExternal: true
+  href: DAL.Contracts.IBalanceRepository.html#DAL_Contracts_IBalanceRepository_ListarMovimientos_System_Guid_System_Nullable_System_DateTime__System_Nullable_System_DateTime__
+  name: ListarMovimientos
+  nameWithType: IBalanceRepository.ListarMovimientos
+  fullName: DAL.Contracts.IBalanceRepository.ListarMovimientos
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Collections.Generic.List{Domain.Entities.Movimiento}
+  commentId: T:System.Collections.Generic.List{Domain.Entities.Movimiento}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Movimiento>
+  nameWithType: List<Movimiento>
+  fullName: System.Collections.Generic.List<Domain.Entities.Movimiento>
+  nameWithType.vb: List(Of Movimiento)
+  fullName.vb: System.Collections.Generic.List(Of Domain.Entities.Movimiento)
+  name.vb: List(Of Movimiento)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Domain.Entities.Movimiento
+    name: Movimiento
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Domain.Entities.Movimiento
+    name: Movimiento
+    isExternal: true
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
