@@ -163,7 +163,7 @@ namespace BLL.Services
                             var espacio = _espacioRepo.GetById(reserva.EspacioID);
                             decimal montoTotal = espacio.PrecioHora * (reserva.Duracion / 60.0m);
 
-                            if (pagadoTotal == montoTotal)
+                            if (pagadoTotal >= montoTotal)
                             {
                                 reserva.Estado = EstadoReserva.Pagada.ToString();
                                 uow.ReservaRepository.Update(reserva);
