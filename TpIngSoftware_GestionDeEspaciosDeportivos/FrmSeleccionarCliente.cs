@@ -34,16 +34,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ConfigurarGrid()
         {
             dgvClientes.AutoGenerateColumns = false;
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = Translations.LBL_DNI.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Translations.LBL_NOMBRE.Translate() });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = Translations.LBL_APELLIDO.Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "DNI", HeaderText = "LBL_DNI".Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "LBL_NOMBRE".Translate() });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Apellido", HeaderText = "LBL_APELLIDO".Translate() });
         }
 
         private void UpdateLanguage()
         {
-            this.Text = Translations.FRM_SELECCIONAR_CLIENTE_TITLE.Translate();
-            lblBuscar.Text = Translations.LBL_DNI.Translate();
-            btnSeleccionar.Text = Translations.BTN_SELECCIONAR.Translate();
+            this.Text = "FRM_SELECCIONAR_CLIENTE_TITLE".Translate();
+            lblBuscar.Text = "LBL_DNI".Translate();
+            btnSeleccionar.Text = "BTN_SELECCIONAR".Translate();
         }
 
         private void CargarClientes()
@@ -55,7 +55,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

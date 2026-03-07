@@ -16,8 +16,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Text = titleText;
             lblPrompt.Text = promptText;
 
-            btnOk.Text = Translations.BTN_OK.Translate();
-            btnCancel.Text = Translations.BTN_CANCEL.Translate();
+            btnOk.Text = "BTN_OK".Translate();
+            btnCancel.Text = "BTN_CANCEL".Translate();
         }
 
         private void btnOk_Click(object sender, EventArgs e)

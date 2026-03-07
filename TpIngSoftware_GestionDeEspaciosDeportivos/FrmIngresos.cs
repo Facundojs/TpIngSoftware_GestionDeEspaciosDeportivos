@@ -33,18 +33,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_clienteFiltro != null)
             {
-                this.Text = $"{Translations.FRM_INGRESOS_TITLE.Translate()} - {_clienteFiltro.Nombre} {_clienteFiltro.Apellido}";
+                this.Text = $"{"FRM_INGRESOS_TITLE".Translate()} - {_clienteFiltro.Nombre} {_clienteFiltro.Apellido}";
             }
             else
             {
-                this.Text = Translations.FRM_INGRESOS_TITLE.Translate();
+                this.Text = "FRM_INGRESOS_TITLE".Translate();
             }
-            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
+            btnActualizar.Text = "BTN_ACTUALIZAR".Translate();
 
             if (dgvIngresos.Columns.Count > 0)
             {
-                dgvIngresos.Columns["ClienteNombre"].HeaderText = Translations.LBL_CLIENTE_NOMBRE.Translate();
-                dgvIngresos.Columns["FechaHora"].HeaderText = Translations.LBL_FECHA.Translate();
+                dgvIngresos.Columns["ClienteNombre"].HeaderText = "LBL_CLIENTE_NOMBRE".Translate();
+                dgvIngresos.Columns["FechaHora"].HeaderText = "LBL_FECHA".Translate();
             }
         }
 
@@ -67,7 +67,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -77,9 +77,9 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 dgvIngresos.Columns["Id"].Visible = false;
                 dgvIngresos.Columns["ClienteID"].Visible = false;
-                dgvIngresos.Columns["ClienteNombre"].HeaderText = Translations.LBL_CLIENTE_NOMBRE.Translate();
+                dgvIngresos.Columns["ClienteNombre"].HeaderText = "LBL_CLIENTE_NOMBRE".Translate();
                 dgvIngresos.Columns["ClienteNombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvIngresos.Columns["FechaHora"].HeaderText = Translations.LBL_FECHA.Translate();
+                dgvIngresos.Columns["FechaHora"].HeaderText = "LBL_FECHA".Translate();
                 dgvIngresos.Columns["FechaHora"].DefaultCellStyle.Format = "g";
             }
         }

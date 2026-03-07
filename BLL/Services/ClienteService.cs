@@ -54,15 +54,15 @@ namespace BLL.Services
         {
             try
             {
-                if (dto.DNI <= 0) throw new ArgumentException(Translations.ERR_INVALID_NUMBER.Translate());
-                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException(Translations.ERR_NOMBRE_REQUERIDO.Translate());
-                if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException(Translations.ERR_APELLIDO_REQUERIDO.Translate());
-                if (dto.FechaNacimiento > DateTime.Now) throw new ArgumentException(Translations.ERR_FECHA_NAC_FUTURA.Translate());
-                if (!string.IsNullOrWhiteSpace(dto.Email) && !dto.Email.Contains("@")) throw new ArgumentException(Translations.ERR_EMAIL_INVALIDO.Translate());
+                if (dto.DNI <= 0) throw new ArgumentException("ERR_INVALID_NUMBER".Translate());
+                if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("ERR_NOMBRE_REQUERIDO".Translate());
+                if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException("ERR_APELLIDO_REQUERIDO".Translate());
+                if (dto.FechaNacimiento > DateTime.Now) throw new ArgumentException("ERR_FECHA_NAC_FUTURA".Translate());
+                if (!string.IsNullOrWhiteSpace(dto.Email) && !dto.Email.Contains("@")) throw new ArgumentException("ERR_EMAIL_INVALIDO".Translate());
 
                 if (_repository.ExistsByDNI(dto.DNI))
                 {
-                    throw new InvalidOperationException(Translations.ERR_DNI_DUPLICADO_MSG.Translate());
+                    throw new InvalidOperationException("ERR_DNI_DUPLICADO_MSG".Translate());
                 }
 
                 using (var uow = DalFactory.CreateUnitOfWork())
@@ -74,8 +74,8 @@ namespace BLL.Services
                         if (dto.MembresiaID.HasValue)
                         {
                             var membresia = _membresiaService.ObtenerMembresia(dto.MembresiaID.Value);
-                            if (membresia == null) throw new InvalidOperationException(Translations.ERR_MEMBRESIA_NO_EXISTE.Translate());
-                            if (!membresia.Activa) throw new InvalidOperationException(Translations.ERR_MEMBRESIA_NO_ACTIVA.Translate());
+                            if (membresia == null) throw new InvalidOperationException("ERR_MEMBRESIA_NO_EXISTE".Translate());
+                            if (!membresia.Activa) throw new InvalidOperationException("ERR_MEMBRESIA_NO_ACTIVA".Translate());
 
                             _bitacora.Log($"CU-CLIE-01: Cliente DNI {dto.DNI} registrado con membresía {membresia.Nombre}, sin deuda. Próximo cobro: {DateTime.Now.AddDays(membresia.Regularidad):dd/MM/yyyy}", "INFO");
                         }

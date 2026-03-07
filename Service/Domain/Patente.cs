@@ -1,11 +1,12 @@
-using Domain.Enums;
+using Domain;
+using Service.Facade.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Composite
+namespace Domain
 {
     /// <summary>
     /// Leaf node in the permission tree representing a single, atomic permission.
@@ -35,14 +36,14 @@ namespace Domain.Composite
         /// <exception cref="InvalidOperationException">Always thrown — leaf nodes do not support children.</exception>
         public override void Agregar(Acceso componente)
         {
-            throw new InvalidOperationException(Translations.ERR_PATENTE_ADD_CHILD.ToString());
+            throw new InvalidOperationException("ERR_PATENTE_ADD_CHILD".Translate());
             }
 
             /// <inheritdoc/>
             /// <exception cref="InvalidOperationException">Always thrown — leaf nodes do not support children.</exception>
             public override void Eliminar(Acceso acceso)
             {
-            throw new InvalidOperationException(Translations.ERR_PATENTE_REMOVE_CHILD.ToString());
+            throw new InvalidOperationException("ERR_PATENTE_REMOVE_CHILD".Translate());
         }
     }
 }

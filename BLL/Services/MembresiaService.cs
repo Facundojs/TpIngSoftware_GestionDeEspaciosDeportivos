@@ -126,7 +126,7 @@ namespace BLL.Services
                 var clienteRepo = DalFactory.ClienteRepository;
                 if (clienteRepo.HasActiveClientsByMembresia(id))
                 {
-                    throw new InvalidOperationException(Translations.ERR_MEMBRESIA_CON_CLIENTES.Translate());
+                    throw new InvalidOperationException("ERR_MEMBRESIA_CON_CLIENTES".Translate());
                 }
 
                 entity.Activa = false;

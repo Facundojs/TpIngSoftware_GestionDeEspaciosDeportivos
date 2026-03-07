@@ -62,12 +62,12 @@ namespace BLL.Services
             try
             {
                 if (dto.Ejercicios == null || dto.Ejercicios.Count == 0)
-                    throw new Exception(Translations.ERR_RUTINA_SIN_EJERCICIOS.Translate());
+                    throw new Exception("ERR_RUTINA_SIN_EJERCICIOS".Translate());
 
                 foreach (var ex in dto.Ejercicios)
                 {
-                    if (ex.Repeticiones <= 0) throw new Exception(string.Format(Translations.ERR_EJERCICIO_REP_ZERO_N.Translate(), ex.Nombre));
-                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format(Translations.ERR_EJERCICIO_DIA_INVALIDO_N.Translate(), ex.Nombre));
+                    if (ex.Repeticiones <= 0) throw new Exception(string.Format("ERR_EJERCICIO_REP_ZERO_N".Translate(), ex.Nombre));
+                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format("ERR_EJERCICIO_DIA_INVALIDO_N".Translate(), ex.Nombre));
                 }
 
                 var rutinaActiva = _rutinaRepository.GetActivaByCliente(dto.ClienteID);
@@ -150,8 +150,8 @@ namespace BLL.Services
 
                 foreach (var ex in ejercicios)
                 {
-                    if (ex.Repeticiones <= 0) throw new Exception(string.Format(Translations.ERR_EJERCICIO_REP_ZERO_N.Translate(), ex.Nombre));
-                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format(Translations.ERR_EJERCICIO_DIA_INVALIDO_N.Translate(), ex.Nombre));
+                    if (ex.Repeticiones <= 0) throw new Exception(string.Format("ERR_EJERCICIO_REP_ZERO_N".Translate(), ex.Nombre));
+                    if (ex.DiaSemana < 1 || ex.DiaSemana > 7) throw new Exception(string.Format("ERR_EJERCICIO_DIA_INVALIDO_N".Translate(), ex.Nombre));
                 }
 
                 using (var uow = DalFactory.CreateUnitOfWork())

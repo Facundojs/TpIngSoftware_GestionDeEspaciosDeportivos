@@ -86,17 +86,17 @@
             user-specific permission and lookup operations.
             </summary>
         </member>
-        <member name="M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})">
+        <member name="M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Acceso})">
             <summary>
-            Replaces the full set of <see cref="T:Domain.Composite.Acceso"/> nodes assigned to a user.
+            Replaces the full set of <see cref="T:Domain.Acceso"/> nodes assigned to a user.
             The existing permission associations are deleted and re-inserted atomically.
             </summary>
             <param name="idUsuario">The user whose permissions will be replaced.</param>
-            <param name="accesos">New list of <see cref="T:Domain.Composite.Acceso"/> roots to assign.</param>
+            <param name="accesos">New list of <see cref="T:Domain.Acceso"/> roots to assign.</param>
         </member>
         <member name="M:Service.Contracts.IUsuarioRepository.GetFamiliasByUsuarioId(System.Guid)">
             <summary>
-            Retrieves the top-level <see cref="T:Domain.Composite.Familia"/> nodes assigned to a user.
+            Retrieves the top-level <see cref="T:Domain.Familia"/> nodes assigned to a user.
             Each family is fully hydrated (recursive children loaded).
             </summary>
             <param name="usuarioId">The user to look up.</param>
@@ -117,32 +117,24 @@
         </member>
         <member name="T:Service.Facade.Extension.TranslationsExtension">
             <summary>
-            Extension methods that provide i18n translation for <see cref="T:Domain.Enums.Translations"/> enum values.
+            Extension methods that provide i18n translation.
             </summary>
             <remarks>
             Delegates to <c>Service.Logic.LanguageLogic.Translate</c>, which resolves the enum name
             against the active language file loaded by <c>LanguageRepository</c>.
             </remarks>
         </member>
-        <member name="M:Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)">
+        <member name="M:Service.Facade.Extension.TranslationsExtension.Translate(System.String)">
             <summary>
             Resolves <paramref name="key"/> to its localized string in the currently active language.
             </summary>
             <param name="key">The translation key enum value.</param>
             <returns>The localized string, or the key name itself if no translation is found.</returns>
         </member>
-        <member name="M:Service.Facade.Extension.TranslationsExtension.ToString(Domain.Enums.Translations)">
-            <summary>
-            Equivalent to <see cref="M:Service.Facade.Extension.TranslationsExtension.Translate(Domain.Enums.Translations)"/>; overrides <see cref="M:System.Object.ToString"/> on the enum
-            so that string interpolation automatically returns the localized value.
-            </summary>
-            <param name="key">The translation key enum value.</param>
-            <returns>The localized string.</returns>
-        </member>
         <member name="T:Service.Logic.PermisosService">
             <summary>
-            Manages the permission tree: creation and modification of <see cref="T:Domain.Composite.Familia"/> groups,
-            and provisioning of <see cref="T:Domain.Composite.Patente"/> leaf nodes from <see cref="T:Domain.Composite.PermisoKeys"/>.
+            Manages the permission tree: creation and modification of <see cref="T:Domain.Familia"/> groups,
+            and provisioning of <see cref="T:Domain.Patente"/> leaf nodes from <see cref="T:Domain.PermisoKeys"/>.
             </summary>
         </member>
         <member name="M:Service.Logic.PermisosService.#ctor">
@@ -150,38 +142,38 @@
         </member>
         <member name="M:Service.Logic.PermisosService.GetAllFamilias">
             <summary>
-            Returns all <see cref="T:Domain.Composite.Familia"/> records, each fully hydrated via <c>GetById</c>
+            Returns all <see cref="T:Domain.Familia"/> records, each fully hydrated via <c>GetById</c>
             (recursive children loaded).
             </summary>
             <returns>List of fully-loaded families.</returns>
         </member>
         <member name="M:Service.Logic.PermisosService.GetAllPatentes">
-            <summary>Returns all <see cref="T:Domain.Composite.Patente"/> records (flat list, no hydration needed).</summary>
+            <summary>Returns all <see cref="T:Domain.Patente"/> records (flat list, no hydration needed).</summary>
         </member>
-        <member name="M:Service.Logic.PermisosService.GuardarFamilia(Domain.Composite.Familia)">
+        <member name="M:Service.Logic.PermisosService.GuardarFamilia(Domain.Familia)">
             <summary>
-            Persists changes to a <see cref="T:Domain.Composite.Familia"/> after validating that the update
+            Persists changes to a <see cref="T:Domain.Familia"/> after validating that the update
             would not introduce a cycle in the permission tree.
             </summary>
             <param name="familia">The family to save. Must have been loaded via <c>GetById</c> (full recursive load).</param>
             <exception cref="T:System.InvalidOperationException">Thrown when a circular reference is detected.</exception>
         </member>
-        <member name="M:Service.Logic.PermisosService.CrearFamilia(Domain.Composite.Familia)">
-            <summary>Persists a new <see cref="T:Domain.Composite.Familia"/>.</summary>
+        <member name="M:Service.Logic.PermisosService.CrearFamilia(Domain.Familia)">
+            <summary>Persists a new <see cref="T:Domain.Familia"/>.</summary>
             <param name="familia">The family to create.</param>
         </member>
         <member name="M:Service.Logic.PermisosService.EliminarFamilia(System.Guid)">
-            <summary>Deletes a <see cref="T:Domain.Composite.Familia"/> by its identifier.</summary>
+            <summary>Deletes a <see cref="T:Domain.Familia"/> by its identifier.</summary>
             <param name="id">The unique identifier of the family to delete.</param>
         </member>
         <member name="M:Service.Logic.PermisosService.EnsurePermissions">
             <summary>
-            Ensures all constants declared in <see cref="T:Domain.Composite.PermisoKeys"/> exist as <see cref="T:Domain.Composite.Patente"/>
+            Ensures all constants declared in <see cref="T:Domain.PermisoKeys"/> exist as <see cref="T:Domain.Patente"/>
             records in the database, and that the <c>"Administrador"</c> family holds all of them.
             </summary>
             <remarks>
             Intended to run on application startup. Uses reflection to enumerate
-            <see cref="T:Domain.Composite.PermisoKeys"/> string constants and inserts any that are missing.
+            <see cref="T:Domain.PermisoKeys"/> string constants and inserts any that are missing.
             The <c>Administrador</c> family is created if it does not exist.
             </remarks>
         </member>
@@ -233,7 +225,7 @@
             fields) to enable tamper-detection on the user record.
             </para>
             <para>
-            Permission assignments are delegated to <see cref="M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Composite.Acceso})"/>,
+            Permission assignments are delegated to <see cref="M:Service.Contracts.IUsuarioRepository.UpdateAccesos(System.Guid,System.Collections.Generic.List{Domain.Acceso})"/>,
             which performs a delete-and-reinsert of the user's access tree.
             </para>
             </remarks>
@@ -315,7 +307,7 @@
         </member>
         <member name="P:Service.DTO.UsuarioDTO.Permisos">
             <summary>
-            Permission tree roots assigned to this user (mix of <see cref="T:Domain.Composite.Familia"/> and <see cref="T:Domain.Composite.Patente"/> nodes).
+            Permission tree roots assigned to this user (mix of <see cref="T:Domain.Familia"/> and <see cref="T:Domain.Patente"/> nodes).
             </summary>
         </member>
         <member name="P:Service.DTO.UsuarioDTO.RolNegocio">
@@ -380,16 +372,16 @@
         <member name="M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)">
             <summary>
             Determines whether <paramref name="user"/> holds the specified permission by
-            recursively traversing their <see cref="T:Domain.Composite.Acceso"/> composite tree.
+            recursively traversing their <see cref="T:Domain.Acceso"/> composite tree.
             </summary>
             <param name="user">The user whose permission tree will be searched.</param>
             <param name="permiso">
-            The permission key to look for, matching a <see cref="P:Domain.Composite.Patente.TipoAcceso"/> value
-            (see <see cref="T:Domain.Composite.PermisoKeys"/> for available constants).
+            The permission key to look for, matching a <see cref="P:Domain.Patente.TipoAcceso"/> value
+            (see <see cref="T:Domain.PermisoKeys"/> for available constants).
             </param>
             <returns>
-            <c>true</c> if any <see cref="T:Domain.Composite.Patente"/> leaf in the tree has
-            <see cref="P:Domain.Composite.Patente.TipoAcceso"/> equal to <paramref name="permiso"/>; otherwise <c>false</c>.
+            <c>true</c> if any <see cref="T:Domain.Patente"/> leaf in the tree has
+            <see cref="P:Domain.Patente.TipoAcceso"/> equal to <paramref name="permiso"/>; otherwise <c>false</c>.
             </returns>
         </member>
         <member name="T:Service.Impl.BaseRepository">
@@ -521,6 +513,159 @@
             Carga el idioma de preferencia del usuario desde un archivo de configuración.
             </summary>
             <returns>El código del idioma guardado, o "es-ES" si no existe o está vacío.</returns>
+        </member>
+        <member name="T:Domain.Acceso">
+            <summary>
+            Abstract base component of the Composite design pattern used to model the permission tree.
+            </summary>
+            <remarks>
+            A permission tree is composed of <see cref="T:Domain.Familia"/> interior nodes and <see cref="T:Domain.Patente"/>
+            leaf nodes. All tree traversal and permission checks operate against the <see cref="T:Domain.Acceso"/> abstraction,
+            allowing uniform treatment of individual permissions and permission groups.
+            </remarks>
+        </member>
+        <member name="P:Domain.Acceso.Id">
+            <summary>Unique identifier of this access component.</summary>
+        </member>
+        <member name="P:Domain.Acceso.Nombre">
+            <summary>Human-readable display name.</summary>
+        </member>
+        <member name="P:Domain.Acceso.Accesos">
+            <summary>
+            Returns the direct children of this node.
+            Leaf nodes (<see cref="T:Domain.Patente"/>) always return an empty list.
+            </summary>
+        </member>
+        <member name="M:Domain.Acceso.Agregar(Domain.Acceso)">
+            <summary>
+            Adds <paramref name="componente"/> as a direct child of this node.
+            </summary>
+            <param name="componente">The component to add.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown by leaf nodes (<see cref="T:Domain.Patente"/>) that do not support children.
+            </exception>
+        </member>
+        <member name="M:Domain.Acceso.Eliminar(Domain.Acceso)">
+            <summary>
+            Removes <paramref name="componente"/> from the direct children of this node.
+            </summary>
+            <param name="componente">The component to remove, matched by <see cref="P:Domain.Acceso.Id"/>.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown by leaf nodes (<see cref="T:Domain.Patente"/>) that do not support children.
+            </exception>
+        </member>
+        <member name="M:Domain.Acceso.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Domain.Familia">
+            <summary>
+            Composite (interior) node in the permission tree that groups zero or more <see cref="T:Domain.Acceso"/>
+            children, which may themselves be <see cref="T:Domain.Familia"/> instances or <see cref="T:Domain.Patente"/> leaves.
+            </summary>
+            <remarks>
+            Duplicate children (same <see cref="P:Domain.Acceso.Id"/>) are silently ignored on <see cref="M:Domain.Familia.Agregar(Domain.Acceso)"/>.
+            </remarks>
+        </member>
+        <member name="P:Domain.Familia.Accesos">
+            <summary>The direct children of this family node.</summary>
+        </member>
+        <member name="M:Domain.Familia.Agregar(Domain.Acceso)">
+            <summary>
+            Adds <paramref name="componente"/> to this family's child list.
+            If a child with the same <see cref="P:Domain.Acceso.Id"/> already exists, the call is a no-op.
+            </summary>
+            <param name="componente">The component to add.</param>
+        </member>
+        <member name="M:Domain.Familia.Eliminar(Domain.Acceso)">
+            <summary>
+            Removes the child whose <see cref="P:Domain.Acceso.Id"/> matches <paramref name="componente"/>.
+            If no such child exists the call is a no-op.
+            </summary>
+            <param name="componente">The component to remove.</param>
+        </member>
+        <member name="M:Domain.Familia.ClearAccesos">
+            <summary>Removes all children from this family.</summary>
+        </member>
+        <member name="T:Domain.Patente">
+            <summary>
+            Leaf node in the permission tree representing a single, atomic permission.
+            </summary>
+            <remarks>
+            <see cref="T:Domain.Patente"/> instances cannot have children; calling <see cref="M:Domain.Patente.Agregar(Domain.Acceso)"/> or
+            <see cref="M:Domain.Patente.Eliminar(Domain.Acceso)"/> throws <see cref="T:System.InvalidOperationException"/>.
+            Permission checks compare <see cref="P:Domain.Patente.TipoAcceso"/> against <see cref="T:Domain.PermisoKeys"/> constants
+            via <see cref="M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)"/>.
+            </remarks>
+        </member>
+        <member name="P:Domain.Patente.TipoAcceso">
+            <summary>
+            Permission key matched against <see cref="T:Domain.PermisoKeys"/> constants during authorization checks.
+            </summary>
+        </member>
+        <member name="P:Domain.Patente.DataKey">
+            <summary>
+            Auxiliary data key used for UI display or additional filtering. Typically equals <see cref="P:Domain.Patente.TipoAcceso"/>.
+            </summary>
+        </member>
+        <member name="P:Domain.Patente.Accesos">
+            <summary>Always returns an empty list; leaf nodes have no children.</summary>
+        </member>
+        <member name="M:Domain.Patente.Agregar(Domain.Acceso)">
+            <inheritdoc/>
+            <exception cref="T:System.InvalidOperationException">Always thrown — leaf nodes do not support children.</exception>
+        </member>
+        <member name="M:Domain.Patente.Eliminar(Domain.Acceso)">
+            <inheritdoc/>
+            <exception cref="T:System.InvalidOperationException">Always thrown — leaf nodes do not support children.</exception>
+        </member>
+        <member name="T:Domain.PermisoKeys">
+            <summary>
+            Defines the canonical string keys for every permission in the system.
+            </summary>
+            <remarks>
+            Each constant maps to the <see cref="P:Domain.Patente.TipoAcceso"/> value stored in the database and
+            is the single source of truth for authorization checks performed by
+            <see cref="M:Service.Helpers.PermisoHelper.TienePermiso(Service.DTO.UsuarioDTO,System.String)"/>.
+            <see cref="M:Service.Logic.PermisosService.EnsurePermissions"/> uses reflection over this class
+            to auto-provision any missing <see cref="T:Domain.Patente"/> records on startup.
+            </remarks>
+        </member>
+        <member name="T:Domain.Usuario">
+            <summary>
+            Domain entity representing an application user.
+            </summary>
+            <remarks>
+            <see cref="P:Domain.Usuario.Password"/> is stored as a SHA-256 hex digest
+            (see <see cref="M:Service.Helpers.CryptographyHelper.HashPassword(System.String)"/>).
+            <see cref="P:Domain.Usuario.DigitoVerificador"/> is a SHA-256 integrity verifier computed over
+            <c>Id + NombreUsuario + Password + Estado</c> to detect out-of-band record tampering.
+            </remarks>
+        </member>
+        <member name="P:Domain.Usuario.Id">
+            <summary>Unique identifier, auto-generated on construction.</summary>
+        </member>
+        <member name="P:Domain.Usuario.NombreUsuario">
+            <summary>Unique login name.</summary>
+        </member>
+        <member name="P:Domain.Usuario.Password">
+            <summary>SHA-256 hex digest of the user's password.</summary>
+        </member>
+        <member name="P:Domain.Usuario.Estado">
+            <summary><c>true</c> if the account is active; <c>false</c> if disabled.</summary>
+        </member>
+        <member name="P:Domain.Usuario.DigitoVerificador">
+            <summary>
+            Integrity verifier computed over core user fields.
+            Recalculated on every update via <c>UsuarioService.UpdateDV()</c>.
+            </summary>
+        </member>
+        <member name="P:Domain.Usuario.Permisos">
+            <summary>
+            Permission tree roots assigned to this user (mix of <see cref="T:Domain.Familia"/> and <see cref="T:Domain.Patente"/> nodes).
+            </summary>
+        </member>
+        <member name="M:Domain.Usuario.#ctor">
+            <summary>Initializes a new instance with a freshly generated <see cref="P:Domain.Usuario.Id"/>.</summary>
         </member>
     </members>
 </doc>

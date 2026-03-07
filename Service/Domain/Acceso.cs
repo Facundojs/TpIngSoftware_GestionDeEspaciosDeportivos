@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Composite
+namespace Domain
 {
     /// <summary>
     /// Abstract base component of the Composite design pattern used to model the permission tree.

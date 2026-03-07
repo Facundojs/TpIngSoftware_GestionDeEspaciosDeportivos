@@ -1,6 +1,5 @@
 using Service.Contracts;
 using Domain;
-using Domain.Composite;
 using Service.DTO;
 using Service.Factory;
 using Service.Helpers;
@@ -11,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Service.Facade.Extension;
-using Domain.Enums;
 
 namespace Service.Logic
 {
@@ -55,12 +53,12 @@ namespace Service.Logic
             try
             {
                 var user = _repository.GetByUsername(username);
-                if (user == null) throw new Exception(Translations.ERR_USER_NOT_FOUND.Translate());
+                if (user == null) throw new Exception("ERR_USER_NOT_FOUND".Translate());
 
                 string hashedPassword = CryptographyHelper.HashPassword(password);
-                if (user.Password != hashedPassword) throw new Exception(Translations.ERR_INCORRECT_PASSWORD.Translate());
+                if (user.Password != hashedPassword) throw new Exception("ERR_INCORRECT_PASSWORD".Translate());
 
-                if (!user.Estado) throw new Exception(Translations.ERR_USER_BLOCKED.Translate());
+                if (!user.Estado) throw new Exception("ERR_USER_BLOCKED".Translate());
 
                 var dto = new UsuarioDTO
                 {
@@ -102,7 +100,7 @@ namespace Service.Logic
         public void Register(UsuarioDTO dto, string password)
         {
              var existing = _repository.GetByUsername(dto.Username);
-             if (existing != null) throw new Exception(Translations.ERR_USER_ALREADY_EXISTS.Translate());
+             if (existing != null) throw new Exception("ERR_USER_ALREADY_EXISTS".Translate());
 
              var user = new Usuario
              {
@@ -130,7 +128,7 @@ namespace Service.Logic
         public void Update(UsuarioDTO dto)
         {
             var user = _repository.GetById(dto.Id);
-            if (user == null) throw new Exception(Translations.ERR_USER_NOT_EXIST.Translate());
+            if (user == null) throw new Exception("ERR_USER_NOT_EXIST".Translate());
 
             user.NombreUsuario = dto.Username;
             user.Estado = dto.Estado == "Activo";
@@ -153,7 +151,7 @@ namespace Service.Logic
         public void ResetPassword(Guid id, string newPassword)
         {
             var user = _repository.GetById(id);
-            if (user == null) throw new Exception(Translations.ERR_USER_NOT_EXIST.Translate());
+            if (user == null) throw new Exception("ERR_USER_NOT_EXIST".Translate());
 
             user.Password = CryptographyHelper.HashPassword(newPassword);
             UpdateDV(user);

@@ -1,6 +1,4 @@
 using Domain;
-using Domain.Composite;
-using Domain.Enums;
 using Service.Facade.Extension;
 using Service.Impl;
 using Service.Impl.SqlServer;
@@ -75,7 +73,7 @@ namespace Service.Logic
             foreach (var child in children)
             {
                 if (child.Id == origin)
-                    throw new InvalidOperationException(Translations.ERR_FAMILIA_CICLO.Translate());
+                    throw new InvalidOperationException("ERR_FAMILIA_CICLO".Translate());
                 if (!visited.Add(child.Id)) continue;
                 CheckDescendants(origin, child.Accesos.OfType<Familia>(), visited);
             }
@@ -108,7 +106,7 @@ namespace Service.Logic
         {
             var existingPatents = _patenteRepository.GetAll();
 
-            var permissionFields = typeof(Domain.Composite.PermisoKeys).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            var permissionFields = typeof(PermisoKeys).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(string));
 
             foreach (var field in permissionFields)
