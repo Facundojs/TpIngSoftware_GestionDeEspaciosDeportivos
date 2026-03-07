@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Composite
+namespace Domain
 {
     /// <summary>
     /// Composite (interior) node in the permission tree that groups zero or more <see cref="Acceso"/>

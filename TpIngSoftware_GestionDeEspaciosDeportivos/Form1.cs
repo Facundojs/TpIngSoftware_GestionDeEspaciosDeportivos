@@ -15,7 +15,7 @@ using Service.Impl;
 using Service.Impl.SqlServer;
 using Service.Facade.Extension;
 using Service.DTO;
-using Domain.Composite;
+using Domain;
 using Service.Helpers;
 using Service.Logic;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Helpers;
@@ -30,7 +30,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private TabControl _tabControlNegocio;
         private TabControl _tabControlAdmin;
         
-        private Dictionary<Translations, TabPage> _allTabs;
+        private Dictionary<string, TabPage> _allTabs;
         private TabPage _tabPageNegocio;
         private TabPage _tabPageAdmin;
 
@@ -41,7 +41,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             InitializeComponent();
             _usuario = usuario;
-            _allTabs = new Dictionary<Translations, TabPage>();
+            _allTabs = new Dictionary<string, TabPage>();
             SetupUIStructure();
             InitializeAllTabs();
             UpdateLanguage();
@@ -51,7 +51,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         public Form1()
         {
             InitializeComponent();
-            _allTabs = new Dictionary<Translations, TabPage>();
+            _allTabs = new Dictionary<string, TabPage>();
             SetupUIStructure();
         }
 
@@ -74,8 +74,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             this.Controls.Add(menuStrip);
 
             _tabControlMain = new TabControl { Dock = DockStyle.Fill };
-            _tabPageNegocio = new TabPage(Translations.MAIN_NEGOCIO.Translate()) { Tag = Translations.MAIN_NEGOCIO };
-            _tabPageAdmin = new TabPage("Administración") { Tag = Translations.MENU_ADMIN };
+            _tabPageNegocio = new TabPage("MAIN_NEGOCIO".Translate()) { Tag = "MAIN_NEGOCIO "};
+            _tabPageAdmin = new TabPage("Administración") { Tag = "MENU_ADMIN "};
             
             _tabControlMain.TabPages.Add(_tabPageNegocio);
             _tabControlMain.TabPages.Add(_tabPageAdmin);
@@ -96,21 +96,21 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void InitializeAllTabs()
         {
-            CreateFixedTab(_tabControlNegocio, Translations.MENU_INGRESOS, () => new FrmIngresos(_usuario));
-            CreateFixedTab(_tabControlNegocio, Translations.CLIENTE_TITLE, () => new FrmClientes(_usuario));
-            CreateFixedTab(_tabControlNegocio, Translations.MENU_MEMBRESIA, () => new FrmMembresias(_usuario));
-            CreateFixedTab(_tabControlNegocio, Translations.MENU_RESERVAS, () => new FrmReservas(_usuario));
-            CreateFixedTab(_tabControlNegocio, Translations.MENU_ESPACIOS, () => new FrmEspacios(_usuario));
-            //CreateFixedTab(_tabControlNegocio, Translations.MENU_RUTINAS, () => new FrmGestionRutinas(_usuario));
-            CreateFixedTab(_tabControlNegocio, Translations.MENU_PAGOS, () => new FrmPagos(_usuario));
+            CreateFixedTab(_tabControlNegocio, "MENU_INGRESOS", () => new FrmIngresos(_usuario));
+            CreateFixedTab(_tabControlNegocio, "CLIENTE_TITLE", () => new FrmClientes(_usuario));
+            CreateFixedTab(_tabControlNegocio, "MENU_MEMBRESIA", () => new FrmMembresias(_usuario));
+            CreateFixedTab(_tabControlNegocio, "MENU_RESERVAS", () => new FrmReservas(_usuario));
+            CreateFixedTab(_tabControlNegocio, "MENU_ESPACIOS", () => new FrmEspacios(_usuario));
+            //CreateFixedTab(_tabControlNegocio, "MENU_RUTINAS", () => new FrmGestionRutinas(_usuario));
+            CreateFixedTab(_tabControlNegocio, "MENU_PAGOS", () => new FrmPagos(_usuario));
 
-            CreateFixedTab(_tabControlAdmin, Translations.MENU_USERS, () => new FrmUsuarios(_usuario));
-            CreateFixedTab(_tabControlAdmin, Translations.MENU_PERMISOS, () => new FrmGestionFamilias(_usuario));
-            CreateFixedTab(_tabControlAdmin, Translations.MENU_BITACORA, () => new FrmBitacora(_usuario));
-            CreateFixedTab(_tabControlAdmin, Translations.MENU_BACKUPS, () => new FrmBackups(_usuario));
+            CreateFixedTab(_tabControlAdmin, "MENU_USERS", () => new FrmUsuarios(_usuario));
+            CreateFixedTab(_tabControlAdmin, "MENU_PERMISOS", () => new FrmGestionFamilias(_usuario));
+            CreateFixedTab(_tabControlAdmin, "MENU_BITACORA", () => new FrmBitacora(_usuario));
+            CreateFixedTab(_tabControlAdmin, "MENU_BACKUPS", () => new FrmBackups(_usuario));
         }
 
-        private void CreateFixedTab(TabControl parent, Translations transKey, Func<Form> formFactory)
+        private void CreateFixedTab(TabControl parent, string transKey, Func<Form> formFactory)
         {
             var tab = new TabPage(transKey.Translate()) { Tag = transKey };
             var form = formFactory();
@@ -130,24 +130,24 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (_usuario == null) return;
 
-            CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_INGRESOS, PermisoKeys.IngresoListar);
-            CheckAndAddSubTab(_tabControlNegocio, Translations.CLIENTE_TITLE, PermisoKeys.ClienteListar);
-            CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_MEMBRESIA, PermisoKeys.MembresiaListar);
-            CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_RESERVAS, PermisoKeys.ReservaListar);
-            CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_ESPACIOS, PermisoKeys.EspacioListar);
-            //CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_RUTINAS, PermisoKeys.RutinaVer);
-            CheckAndAddSubTab(_tabControlNegocio, Translations.MENU_PAGOS, PermisoKeys.PagoListar);
+            CheckAndAddSubTab(_tabControlNegocio, "MENU_INGRESOS", PermisoKeys.IngresoListar);
+            CheckAndAddSubTab(_tabControlNegocio, "CLIENTE_TITLE", PermisoKeys.ClienteListar);
+            CheckAndAddSubTab(_tabControlNegocio, "MENU_MEMBRESIA", PermisoKeys.MembresiaListar);
+            CheckAndAddSubTab(_tabControlNegocio, "MENU_RESERVAS", PermisoKeys.ReservaListar);
+            CheckAndAddSubTab(_tabControlNegocio, "MENU_ESPACIOS", PermisoKeys.EspacioListar);
+            //CheckAndAddSubTab(_tabControlNegocio, "MENU_RUTINAS", PermisoKeys.RutinaVer);
+            CheckAndAddSubTab(_tabControlNegocio, "MENU_PAGOS", PermisoKeys.PagoListar);
 
-            CheckAndAddSubTab(_tabControlAdmin, Translations.MENU_USERS, PermisoKeys.UsuarioListar);
-            CheckAndAddSubTab(_tabControlAdmin, Translations.MENU_PERMISOS, PermisoKeys.PermisoAsignar);
-            CheckAndAddSubTab(_tabControlAdmin, Translations.MENU_BITACORA, PermisoKeys.BitacoraVer);
-            CheckAndAddSubTab(_tabControlAdmin, Translations.MENU_BACKUPS, PermisoKeys.BackupListar);
+            CheckAndAddSubTab(_tabControlAdmin, "MENU_USERS", PermisoKeys.UsuarioListar);
+            CheckAndAddSubTab(_tabControlAdmin, "MENU_PERMISOS", PermisoKeys.PermisoAsignar);
+            CheckAndAddSubTab(_tabControlAdmin, "MENU_BITACORA", PermisoKeys.BitacoraVer);
+            CheckAndAddSubTab(_tabControlAdmin, "MENU_BACKUPS", PermisoKeys.BackupListar);
 
             if (_tabControlNegocio.TabPages.Count > 0) _tabControlMain.TabPages.Add(_tabPageNegocio);
             if (_tabControlAdmin.TabPages.Count > 0) _tabControlMain.TabPages.Add(_tabPageAdmin);
         }
 
-        private void CheckAndAddSubTab(TabControl parent, Translations transKey, string permission)
+        private void CheckAndAddSubTab(TabControl parent, string transKey, string permission)
         {
             if (_usuario.TienePermiso(permission) && _allTabs.ContainsKey(transKey))
             {
@@ -157,16 +157,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Translations.MAIN_TITLE.Translate();
+            this.Text = "MAIN_TITLE".Translate();
 
-            if (_tabPageNegocio.Tag is Translations negocioKey)
+            if (_tabPageNegocio.Tag is string negocioKey)
                 _tabPageNegocio.Text = negocioKey.Translate();
-            if (_tabPageAdmin.Tag is Translations adminKey)
+            if (_tabPageAdmin.Tag is string adminKey)
                 _tabPageAdmin.Text = adminKey.Translate();
 
             foreach (var tab in _allTabs.Values)
             {
-                if (tab.Tag is Translations transKey)
+                if (tab.Tag is string transKey)
                     tab.Text = transKey.Translate();
                 tab.Controls.OfType<ITranslatable>().FirstOrDefault()?.UpdateLanguage();
             }

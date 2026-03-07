@@ -59,8 +59,8 @@ namespace BLL.Services
         /// </exception>
         public void RegistrarPago(PagoDTO dto)
         {
-            if (dto.Monto <= 0) throw new ArgumentException(Translations.ERR_MONTO_INVALIDO.Translate());
-            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException(Translations.ERR_METODO_REQUERIDO.Translate());
+            if (dto.Monto <= 0) throw new ArgumentException("ERR_MONTO_INVALIDO".Translate());
+            if (string.IsNullOrWhiteSpace(dto.Metodo)) throw new ArgumentException("ERR_METODO_REQUERIDO".Translate());
 
             try
             {

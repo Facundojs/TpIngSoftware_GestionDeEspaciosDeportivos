@@ -36,26 +36,26 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         private void ConfigurarGrid()
         {
             dgvMovimientos.AutoGenerateColumns = false;
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Monto", HeaderText = Translations.LBL_MONTO.Translate() });
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Tipo", HeaderText = Translations.LBL_TIPO_MOVIMIENTO.Translate() });
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Fecha", HeaderText = Translations.LBL_FECHA.Translate() });
-            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Descripcion", HeaderText = Translations.LBL_DESCRIPCION.Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Monto", HeaderText = "LBL_MONTO".Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Tipo", HeaderText = "LBL_TIPO_MOVIMIENTO".Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Fecha", HeaderText = "LBL_FECHA".Translate() });
+            dgvMovimientos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Descripcion", HeaderText = "LBL_DESCRIPCION".Translate() });
         }
 
         private void UpdateLanguage()
         {
-            this.Text = Translations.FRM_MOVIMIENTOS_TITLE.Translate();
-            lblCliente.Text = $"{Translations.LBL_CLIENTE.Translate()}: {_cliente.NombreCompleto}";
-            lblDesde.Text = Translations.LBL_DATE_FROM.Translate();
-            lblHasta.Text = Translations.LBL_DATE_TO.Translate();
-            btnFiltrar.Text = Translations.BTN_FILTER.Translate();
+            this.Text = "FRM_MOVIMIENTOS_TITLE".Translate();
+            lblCliente.Text = $"{"LBL_CLIENTE".Translate()}: {_cliente.NombreCompleto}";
+            lblDesde.Text = "LBL_DATE_FROM".Translate();
+            lblHasta.Text = "LBL_DATE_TO".Translate();
+            btnFiltrar.Text = "BTN_FILTER".Translate();
 
             if (dgvMovimientos.Columns.Count > 0)
             {
-                dgvMovimientos.Columns[0].HeaderText = Translations.LBL_MONTO.Translate();
-                dgvMovimientos.Columns[1].HeaderText = Translations.LBL_TIPO_MOVIMIENTO.Translate();
-                dgvMovimientos.Columns[2].HeaderText = Translations.LBL_FECHA.Translate();
-                dgvMovimientos.Columns[3].HeaderText = Translations.LBL_DESCRIPCION.Translate();
+                dgvMovimientos.Columns[0].HeaderText = "LBL_MONTO".Translate();
+                dgvMovimientos.Columns[1].HeaderText = "LBL_TIPO_MOVIMIENTO".Translate();
+                dgvMovimientos.Columns[2].HeaderText = "LBL_FECHA".Translate();
+                dgvMovimientos.Columns[3].HeaderText = "LBL_DESCRIPCION".Translate();
             }
         }
 
@@ -71,7 +71,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

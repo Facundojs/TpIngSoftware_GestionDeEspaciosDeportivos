@@ -1,4 +1,4 @@
-namespace Domain.Composite
+namespace Domain
 {
     /// <summary>
     /// Defines the canonical string keys for every permission in the system.

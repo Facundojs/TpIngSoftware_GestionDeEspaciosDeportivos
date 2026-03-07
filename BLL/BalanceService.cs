@@ -147,7 +147,7 @@ namespace BLL
 
             if (balance != null && balance.Saldo < 0)
             {
-                string msg = Translations.ERR_CLIENTE_DEUDA_BLOQUEANTE.Translate();
+                string msg = "ERR_CLIENTE_DEUDA_BLOQUEANTE".Translate();
                 if (!string.IsNullOrEmpty(contexto))
                 {
                     msg = $"{contexto}: {msg}";

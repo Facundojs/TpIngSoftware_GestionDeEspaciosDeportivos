@@ -28,25 +28,25 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void UpdateLanguage()
         {
-            this.Text = Translations.FRM_AGENDA_TITLE.Translate();
-            lblDesde.Text = Translations.LBL_HORA_DESDE.Translate();
-            lblHasta.Text = Translations.LBL_HORA_HASTA.Translate();
-            btnAgregar.Text = Translations.BTN_AGREGAR.Translate();
-            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
-            btnGuardar.Text = Translations.BTN_SAVE.Translate();
-            lblDiaSemana.Text = Translations.LBL_EJERCICIO_DIA.Translate();
+            this.Text = "FRM_AGENDA_TITLE".Translate();
+            lblDesde.Text = "LBL_HORA_DESDE".Translate();
+            lblHasta.Text = "LBL_HORA_HASTA".Translate();
+            btnAgregar.Text = "BTN_AGREGAR".Translate();
+            btnEliminar.Text = "BTN_ELIMINAR".Translate();
+            btnGuardar.Text = "BTN_SAVE".Translate();
+            lblDiaSemana.Text = "LBL_EJERCICIO_DIA".Translate();
         }
 
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
             cmbDiaSemana.Items.Clear();
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, Translations.DAY_0.Translate()));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, Translations.DAY_1.Translate()));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, Translations.DAY_2.Translate()));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, Translations.DAY_3.Translate()));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, Translations.DAY_4.Translate()));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, Translations.DAY_5.Translate()));
-            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, Translations.DAY_6.Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(0, "DAY_0".Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(1, "DAY_1".Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(2, "DAY_2".Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(3, "DAY_3".Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(4, "DAY_4".Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(5, "DAY_5".Translate()));
+            cmbDiaSemana.Items.Add(new KeyValuePair<int, string>(6, "DAY_6".Translate()));
 
             cmbDiaSemana.DisplayMember = "Value";
             cmbDiaSemana.ValueMember = "Key";
@@ -64,16 +64,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 dgvAgenda.DataSource = _agendas;
 
                 if (dgvAgenda.Columns["EspacioID"] != null) dgvAgenda.Columns["EspacioID"].Visible = false;
-                if (dgvAgenda.Columns["DiaSemana"] != null) dgvAgenda.Columns["DiaSemana"].HeaderText = Translations.LBL_EJERCICIO_DIA.Translate();
-                if (dgvAgenda.Columns["HoraDesde"] != null) dgvAgenda.Columns["HoraDesde"].HeaderText = Translations.LBL_HORA_DESDE.Translate();
-                if (dgvAgenda.Columns["HoraHasta"] != null) dgvAgenda.Columns["HoraHasta"].HeaderText = Translations.LBL_HORA_HASTA.Translate();
+                if (dgvAgenda.Columns["DiaSemana"] != null) dgvAgenda.Columns["DiaSemana"].HeaderText = "LBL_EJERCICIO_DIA".Translate();
+                if (dgvAgenda.Columns["HoraDesde"] != null) dgvAgenda.Columns["HoraDesde"].HeaderText = "LBL_HORA_DESDE".Translate();
+                if (dgvAgenda.Columns["HoraHasta"] != null) dgvAgenda.Columns["HoraHasta"].HeaderText = "LBL_HORA_HASTA".Translate();
 
                 dgvAgenda.CellFormatting -= DgvAgenda_CellFormatting;
                 dgvAgenda.CellFormatting += DgvAgenda_CellFormatting;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -83,11 +83,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 // Use translations from the project
                 string translationKey = $"DAY_{diaInt}";
-                if (Enum.TryParse(translationKey, out Translations transEnum))
-                {
-                    e.Value = transEnum.Translate();
-                    e.FormattingApplied = true;
-                }
+                e.Value = translationKey.Translate();
+                e.FormattingApplied = true;
             }
         }
 
@@ -101,19 +98,19 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (desde.Minutes != 0 && desde.Minutes != 30)
             {
-                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERR_HORA_MULTIPLO_30".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (hasta.Minutes != 0 && hasta.Minutes != 30)
             {
-                MessageBox.Show(Translations.ERR_HORA_MULTIPLO_30.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERR_HORA_MULTIPLO_30".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (desde >= hasta)
             {
-                MessageBox.Show(Translations.ERR_HORA_DESDE_MAYOR.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERR_HORA_DESDE_MAYOR".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -143,16 +140,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 var list = _agendas.ToList();
                 _agendaManager.ConfigurarAgenda(_espacioId, list);
-                MessageBox.Show(Translations.MSG_AGENDA_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("MSG_AGENDA_UPDATED".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (ArgumentException ex) when (ex.Message == "ERR_AGENDA_OVERLAP")
             {
-                MessageBox.Show(Translations.ERR_AGENDA_OVERLAP.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ERR_AGENDA_OVERLAP".Translate(), "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

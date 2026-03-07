@@ -23,7 +23,7 @@ namespace DAL.Impl.File
         public void Agregar(Comprobante obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException(Translations.ERR_COMPROBANTE_VACIO.Translate());
+            if (obj.Contenido == null || obj.Contenido.Length == 0) throw new ArgumentException("ERR_COMPROBANTE_VACIO".Translate());
 
             try
             {

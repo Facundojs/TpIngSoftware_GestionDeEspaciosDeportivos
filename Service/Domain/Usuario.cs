@@ -1,4 +1,4 @@
-using Domain.Composite;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Domain
     /// <c>Id + NombreUsuario + Password + Estado</c> to detect out-of-band record tampering.
     /// </remarks>
     public class Usuario
-    {
+    { 
         /// <summary>Unique identifier, auto-generated on construction.</summary>
         public Guid Id { get; set; }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BLL.DTOs;
-using Domain.Composite;
+using Domain;
 using Service.DTO;
 using Service.Helpers;
 using Service.Facade.Extension;
@@ -35,35 +35,35 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         public void UpdateLanguage()
         {
-            this.Text = Translations.FRM_GESTION_RUTINAS_TITLE.Translate();
-            btnGestionarEjercicios.Text = Translations.BTN_GESTIONAR_EJERCICIOS.Translate();
-            chkVerHistorial.Text = Translations.CHK_VER_HISTORIAL.Translate();
-            btnNueva.Text = Translations.BTN_NUEVA_RUTINA.Translate();
-            btnModificar.Text = Translations.BTN_MODIFICAR.Translate();
-            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
+            this.Text = "FRM_GESTION_RUTINAS_TITLE".Translate();
+            btnGestionarEjercicios.Text = "BTN_GESTIONAR_EJERCICIOS".Translate();
+            chkVerHistorial.Text = "CHK_VER_HISTORIAL".Translate();
+            btnNueva.Text = "BTN_NUEVA_RUTINA".Translate();
+            btnModificar.Text = "BTN_MODIFICAR".Translate();
+            btnEliminar.Text = "BTN_ELIMINAR".Translate();
 
             if (dgvRutinas.Columns.Count >= 3)
             {
-                dgvRutinas.Columns[0].HeaderText = Translations.LBL_CLIENTE.Translate();
-                dgvRutinas.Columns[1].HeaderText = Translations.LBL_RUTINA_DESDE.Translate();
-                dgvRutinas.Columns[2].HeaderText = Translations.LBL_RUTINA_HASTA.Translate();
+                dgvRutinas.Columns[0].HeaderText = "LBL_CLIENTE".Translate();
+                dgvRutinas.Columns[1].HeaderText = "LBL_RUTINA_DESDE".Translate();
+                dgvRutinas.Columns[2].HeaderText = "LBL_RUTINA_HASTA".Translate();
             }
         }
 
         private void ConfigurarUI()
         {
-            this.Text = Translations.FRM_GESTION_RUTINAS_TITLE.Translate();
-            btnGestionarEjercicios.Text = Translations.BTN_GESTIONAR_EJERCICIOS.Translate();
-            chkVerHistorial.Text = Translations.CHK_VER_HISTORIAL.Translate();
-            btnNueva.Text = Translations.BTN_NUEVA_RUTINA.Translate();
-            btnModificar.Text = Translations.BTN_MODIFICAR.Translate();
-            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
+            this.Text = "FRM_GESTION_RUTINAS_TITLE".Translate();
+            btnGestionarEjercicios.Text = "BTN_GESTIONAR_EJERCICIOS".Translate();
+            chkVerHistorial.Text = "CHK_VER_HISTORIAL".Translate();
+            btnNueva.Text = "BTN_NUEVA_RUTINA".Translate();
+            btnModificar.Text = "BTN_MODIFICAR".Translate();
+            btnEliminar.Text = "BTN_ELIMINAR".Translate();
 
             dgvRutinas.AutoGenerateColumns = false;
             dgvRutinas.Columns.Clear();
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteNombre", HeaderText = Translations.LBL_CLIENTE.Translate(), Width = 200 });
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Desde", HeaderText = Translations.LBL_RUTINA_DESDE.Translate() });
-            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Hasta", HeaderText = Translations.LBL_RUTINA_HASTA.Translate() });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteNombre", HeaderText = "LBL_CLIENTE".Translate(), Width = 200 });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Desde", HeaderText = "LBL_RUTINA_DESDE".Translate() });
+            dgvRutinas.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Hasta", HeaderText = "LBL_RUTINA_HASTA".Translate() });
         }
 
         private void ApplyPermissions()
@@ -88,7 +88,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -126,21 +126,21 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_usuario.TienePermiso(PermisoKeys.RutinaEliminar))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_NO_PERM_USERS".Translate(), "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (MessageBox.Show(Translations.MSG_CONFIRM_BORRAR_RUTINA.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("MSG_CONFIRM_BORRAR_RUTINA".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     _rutinaManager.BorrarRutina(_rutinaSeleccionada.Id);
-                    MessageBox.Show(Translations.MSG_RUTINA_ELIMINADA.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("MSG_RUTINA_ELIMINADA".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarRutinas();
                 }
                 catch (Exception ex)
                 {
-                     MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

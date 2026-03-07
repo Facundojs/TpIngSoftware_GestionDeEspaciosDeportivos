@@ -156,29 +156,29 @@ namespace BLL.Services
         /// <exception cref="InvalidOperationException">Thrown if the space is unavailable or the advance exceeds the total.</exception>
         public string GenerarReserva(GenerarReservaDTO dto)
         {
-            if (dto.Adelanto < 0) throw new ArgumentException(Translations.ERR_ADELANTO_NEGATIVO.Translate());
-            if (dto.Duracion <= 0) throw new ArgumentException(Translations.ERR_DURACION_CERO.Translate());
-            if (dto.FechaHora < DateTime.Now) throw new ArgumentException(Translations.ERR_FECHA_PASADA.Translate());
+            if (dto.Adelanto < 0) throw new ArgumentException("ERR_ADELANTO_NEGATIVO".Translate());
+            if (dto.Duracion <= 0) throw new ArgumentException("ERR_DURACION_CERO".Translate());
+            if (dto.FechaHora < DateTime.Now) throw new ArgumentException("ERR_FECHA_PASADA".Translate());
 
             var cliente = _clienteRepo.GetById(dto.ClienteId);
-            if (cliente == null) throw new InvalidOperationException(Translations.ERR_CLIENTE_NO_ENCONTRADO.Translate());
+            if (cliente == null) throw new InvalidOperationException("ERR_CLIENTE_NO_ENCONTRADO".Translate());
 
             var espacio = _espacioRepo.GetById(dto.EspacioId);
-            if (espacio == null) throw new InvalidOperationException(Translations.ERR_ESPACIO_NO_ENCONTRADO.Translate());
+            if (espacio == null) throw new InvalidOperationException("ERR_ESPACIO_NO_ENCONTRADO".Translate());
 
             decimal montoTotal = espacio.PrecioHora * (dto.Duracion / 60.0m);
 
-            if (dto.Adelanto > montoTotal) throw new ArgumentException(Translations.ERR_ADELANTO_MAYOR_TOTAL.Translate());
+            if (dto.Adelanto > montoTotal) throw new ArgumentException("ERR_ADELANTO_MAYOR_TOTAL".Translate());
 
             decimal minimoRequerido = montoTotal * 0.1m;
             if (dto.Adelanto < minimoRequerido)
             {
-                throw new ArgumentException(Translations.ERR_ADELANTO_MINIMO.Translate());
+                throw new ArgumentException("ERR_ADELANTO_MINIMO".Translate());
             }
 
             if (!_reservaRepo.EspacioDisponible(dto.EspacioId, dto.FechaHora, dto.Duracion))
             {
-                throw new InvalidOperationException(Translations.MSG_ESPACIO_NO_DISPONIBLE.Translate());
+                throw new InvalidOperationException("MSG_ESPACIO_NO_DISPONIBLE".Translate());
             }
 
             try

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BLL.DTOs;
-using Domain.Composite;
+using Domain;
+using Domain.Enums;
 using Service.DTO;
 using Service.Helpers;
 using Service.Facade.Extension;
 using TpIngSoftware_GestionDeEspaciosDeportivos.Business;
-using Domain.Enums;
 
 namespace TpIngSoftware_GestionDeEspaciosDeportivos
 {
@@ -34,16 +34,16 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void ConfigurarUI()
         {
-            this.Text = Translations.FRM_EJERCICIOS_TITLE.Translate();
-            lblNombre.Text = Translations.LBL_NOMBRE_EJERCICIO.Translate();
-            btnAgregar.Text = Translations.BTN_AGREGAR.Translate();
-            btnActualizar.Text = Translations.BTN_ACTUALIZAR.Translate();
-            btnEliminar.Text = Translations.BTN_ELIMINAR.Translate();
-            btnLimpiar.Text = Translations.BTN_LIMPIAR.Translate();
+            this.Text = "FRM_EJERCICIOS_TITLE".Translate();
+            lblNombre.Text = "LBL_NOMBRE_EJERCICIO".Translate();
+            btnAgregar.Text = "BTN_AGREGAR".Translate();
+            btnActualizar.Text = "BTN_ACTUALIZAR".Translate();
+            btnEliminar.Text = "BTN_ELIMINAR".Translate();
+            btnLimpiar.Text = "BTN_LIMPIAR".Translate();
 
             dgvEjercicios.AutoGenerateColumns = false;
             dgvEjercicios.Columns.Clear();
-            dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = Translations.LBL_NOMBRE_EJERCICIO.Translate(), Width = 200 });
+            dgvEjercicios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "LBL_NOMBRE_EJERCICIO".Translate(), Width = 200 });
         }
 
         private void ApplyPermissions()
@@ -63,7 +63,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,20 +73,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show(Translations.ERR_NOMBRE_EJERCICIO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("ERR_NOMBRE_EJERCICIO".Translate(), "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 var dto = new EjercicioDTO { Nombre = txtNombre.Text.Trim() };
                 _ejercicioManager.CrearEjercicio(dto);
 
-                MessageBox.Show(Translations.MSG_EJERCICIO_CREADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("MSG_EJERCICIO_CREADO".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEjercicios();
                 LimpiarControles();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -98,20 +98,20 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show(Translations.ERR_NOMBRE_EJERCICIO.Translate(), Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("ERR_NOMBRE_EJERCICIO".Translate(), "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 _ejercicioSeleccionado.Nombre = txtNombre.Text.Trim();
                 _ejercicioManager.ModificarEjercicio(_ejercicioSeleccionado);
 
-                MessageBox.Show(Translations.MSG_EJERCICIO_ACTUALIZADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("MSG_EJERCICIO_ACTUALIZADO".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEjercicios();
                 LimpiarControles();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -121,17 +121,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             try
             {
-                if (MessageBox.Show(Translations.MSG_CONFIRM_ELIMINAR_EJERCICIO.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("MSG_CONFIRM_ELIMINAR_EJERCICIO".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _ejercicioManager.EliminarEjercicio(_ejercicioSeleccionado.Id);
-                    MessageBox.Show(Translations.MSG_EJERCICIO_ELIMINADO.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("MSG_EJERCICIO_ELIMINADO".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarEjercicios();
                     LimpiarControles();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

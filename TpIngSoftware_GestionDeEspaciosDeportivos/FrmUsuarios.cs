@@ -1,4 +1,4 @@
-using Domain.Composite;
+using Domain;
 using Domain.Enums;
 using Service.DTO;
 using Service.Facade.Extension;
@@ -32,15 +32,15 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         public void UpdateLanguage()
         {
-            this.Text = Translations.USERS_TITLE.Translate();
-            lblUser.Text = Translations.LBL_USER.Translate();
-            lblPass.Text = Translations.LBL_PASS.Translate();
-            chkActive.Text = Translations.CHK_ACTIVE.Translate();
-            btnAdd.Text = Translations.BTN_ADD.Translate();
-            btnUpdate.Text = Translations.BTN_UPDATE.Translate();
-            btnDelete.Text = Translations.BTN_DELETE.Translate();
-            btnPermisos.Text = Translations.BTN_PERMISSIONS.Translate();
-            btnClear.Text = Translations.BTN_CLEAR.Translate();
+            this.Text = "USERS_TITLE".Translate();
+            lblUser.Text = "LBL_USER".Translate();
+            lblPass.Text = "LBL_PASS".Translate();
+            chkActive.Text = "CHK_ACTIVE".Translate();
+            btnAdd.Text = "BTN_ADD".Translate();
+            btnUpdate.Text = "BTN_UPDATE".Translate();
+            btnDelete.Text = "BTN_DELETE".Translate();
+            btnPermisos.Text = "BTN_PERMISSIONS".Translate();
+            btnClear.Text = "BTN_CLEAR".Translate();
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
             if (!_currentUser.TienePermiso(PermisoKeys.UsuarioListar))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_USERS.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("MSG_NO_PERM_USERS".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
         }
@@ -79,7 +79,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             }
             catch(Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_LOAD_USERS.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_LOAD_USERS".Translate() + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -112,7 +112,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || (string.IsNullOrWhiteSpace(txtPassword.Text) && txtPassword.Enabled))
             {
-                MessageBox.Show(Translations.MSG_COMPLETE_FIELDS.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("MSG_COMPLETE_FIELDS".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -125,13 +125,13 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 };
 
                 _usuarioService.Register(newUser, txtPassword.Text);
-                MessageBox.Show(Translations.MSG_USER_CREATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("MSG_USER_CREATED".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadUsuarios();
                 ClearForm();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -146,12 +146,12 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 _usuarioService.Update(_selectedUser);
 
-                MessageBox.Show(Translations.MSG_USER_UPDATED.Translate(), Translations.TITLE_INFO.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("MSG_USER_UPDATED".Translate(), "TITLE_INFO".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadUsuarios();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -159,7 +159,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_selectedUser == null) return;
 
-            if (MessageBox.Show(Translations.MSG_CONFIRM_DELETE_USER.Translate(), Translations.TITLE_CONFIRM.Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("MSG_CONFIRM_DELETE_USER".Translate(), "TITLE_CONFIRM".Translate(), MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
@@ -169,7 +169,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 }
                 catch(Exception ex)
                 {
-                     MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show("MSG_ERR_GENERIC".Translate() + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

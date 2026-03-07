@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Service.DTO;
 using Service.Logic;
 using Service.Facade.Extension;
-using Domain.Composite;
+using Domain;
 using Service.Helpers;
 using Domain.Enums;
 
@@ -40,7 +40,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         private void SetupControls()
         {
-            cmbLevel.Items.Add(Translations.LBL_TODOS.Translate());
+            cmbLevel.Items.Add("LBL_TODOS".Translate());
             cmbLevel.Items.Add("INFO");
             cmbLevel.Items.Add("ERROR");
             cmbLevel.SelectedIndex = 0;
@@ -50,17 +50,17 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
         public void UpdateLanguage()
         {
-            this.Text = Translations.BITACORA_TITLE.Translate();
-            lblFrom.Text = Translations.LBL_DATE_FROM.Translate();
-            lblTo.Text = Translations.LBL_DATE_TO.Translate();
-            lblLevel.Text = Translations.LBL_LOG_LEVEL.Translate();
-            lblMessage.Text = Translations.LBL_MESSAGE.Translate();
-            btnFilter.Text = Translations.BTN_FILTER.Translate();
+            this.Text = "BITACORA_TITLE".Translate();
+            lblFrom.Text = "LBL_DATE_FROM".Translate();
+            lblTo.Text = "LBL_DATE_TO".Translate();
+            lblLevel.Text = "LBL_LOG_LEVEL".Translate();
+            lblMessage.Text = "LBL_MESSAGE".Translate();
+            btnFilter.Text = "BTN_FILTER".Translate();
 
             if (cmbLevel.Items.Count > 0)
             {
                 int savedIndex = cmbLevel.SelectedIndex;
-                cmbLevel.Items[0] = Translations.LBL_TODOS.Translate();
+                cmbLevel.Items[0] = "LBL_TODOS".Translate();
                 cmbLevel.SelectedIndex = savedIndex;
             }
         }
@@ -69,7 +69,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
         {
             if (_usuario != null && !_usuario.TienePermiso(PermisoKeys.BitacoraVer))
             {
-                MessageBox.Show(Translations.MSG_NO_PERM_LOGS.Translate(), Translations.TITLE_WARNING.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("MSG_NO_PERM_LOGS".Translate(), "TITLE_WARNING".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
                 return;
             }
@@ -94,18 +94,18 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
 
                 if (dgvLogs.Columns["UsuarioNombre"] != null)
                 {
-                    dgvLogs.Columns["UsuarioNombre"].HeaderText = Translations.LBL_USERNAME.Translate();
+                    dgvLogs.Columns["UsuarioNombre"].HeaderText = "LBL_USERNAME".Translate();
                 }
 
                 dgvLogs.AutoResizeColumns();
 
-                lblPage.Text = Translations.LBL_PAGE.Translate() + " " + _page;
+                lblPage.Text = "LBL_PAGE".Translate() + " " + _page;
                 btnPrev.Enabled = _page > 1;
                 btnNext.Enabled = logs.Count == PageSize;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Translations.MSG_ERR_GENERIC.Translate() + " " + ex.Message, Translations.TITLE_ERROR.Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MSG_ERR_GENERIC".Translate() + " " + ex.Message, "TITLE_ERROR".Translate(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
