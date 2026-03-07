@@ -90,6 +90,8 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
                 var logs = _bitacoraService.GetLogs(_page, PageSize, dtpFrom.Value.Date, toDate, logLevel, txtMessage.Text);
                 dgvLogs.DataSource = logs;
 
+                if (dgvLogs.Columns["BitacoraID"] != null) dgvLogs.Columns["BitacoraID"].Visible = false;
+
                 if (dgvLogs.Columns["UsuarioNombre"] != null)
                 {
                     dgvLogs.Columns["UsuarioNombre"].HeaderText = Translations.LBL_USERNAME.Translate();

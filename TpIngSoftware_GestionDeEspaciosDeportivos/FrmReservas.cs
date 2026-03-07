@@ -114,6 +114,7 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             if (dgvReservas.Columns.Contains("Id")) dgvReservas.Columns["Id"].Visible = false;
             if (dgvReservas.Columns.Contains("ClienteID")) dgvReservas.Columns["ClienteID"].Visible = false;
             if (dgvReservas.Columns.Contains("EspacioID")) dgvReservas.Columns["EspacioID"].Visible = false;
+            if (dgvReservas.Columns.Contains("Fecha")) dgvReservas.Columns["Fecha"].Visible = false;
 
             if (dgvReservas.Columns.Contains("CodigoReserva")) dgvReservas.Columns["CodigoReserva"].HeaderText = Translations.LBL_CODIGO_RESERVA.Translate();
             if (dgvReservas.Columns.Contains("ClienteNombre")) dgvReservas.Columns["ClienteNombre"].HeaderText = Translations.LBL_CLIENTE.Translate();

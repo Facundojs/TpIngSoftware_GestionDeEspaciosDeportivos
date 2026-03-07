@@ -72,6 +72,10 @@ namespace TpIngSoftware_GestionDeEspaciosDeportivos
             {
                 dgvUsuarios.DataSource = null;
                 dgvUsuarios.DataSource = _usuarioService.GetUsuarios();
+
+                if (dgvUsuarios.Columns["Id"] != null) dgvUsuarios.Columns["Id"].Visible = false;
+                if (dgvUsuarios.Columns["Permisos"] != null) dgvUsuarios.Columns["Permisos"].Visible = false;
+                if (dgvUsuarios.Columns["RolNegocio"] != null) dgvUsuarios.Columns["RolNegocio"].Visible = false;
             }
             catch(Exception ex)
             {
